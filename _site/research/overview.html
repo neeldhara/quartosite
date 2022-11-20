@@ -241,8 +241,18 @@ div.csl-indent {
 
 <section id="overview" class="level1 column-body-outset">
 <h1>Overview</h1>
-<section id="an-elevator-pitch-for-my-research-interests" class="level3">
-<h3 class="anchored" data-anchor-id="an-elevator-pitch-for-my-research-interests"><em>An elevator<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> pitch for my research interests</em></h3>
+<section id="my-research-interests-an-elevator-pitch" class="level3">
+<h3 class="anchored" data-anchor-id="my-research-interests-an-elevator-pitch"><em>My research interests: an elevator pitch<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></em></h3>
+<div class="callout-tip callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Keywords: algorithms and complexity • graphs • computational social choice • combinatorial games • constraint satisfaction</p>
+</div>
+</div>
+</div>
 <p>
 &nbsp;
 </p>
@@ -275,7 +285,8 @@ div.csl-indent {
 <p>To illustrate how useful this approach can be, consider the typechecking problem for ML, a programming language for which relatively efficient compilers exist. One of the problems the compiler must solve is the checking of the compatibility of type declarations. This problem is known to be EXP-complete <span class="citation" data-cites="HengleinMairson">(<a href="#ref-HengleinMairson" role="doc-biblioref">Henglein and Mairson 1994</a>)</span>: let’s just say intractable in the classical world. However, the implementations work well in practice because the ML Type Checking problem admits an algorithm <span class="citation" data-cites="LichtensteinPnueli">(<a href="#ref-LichtensteinPnueli" role="doc-biblioref">Lichtenstein and Pnueli 1985</a>)</span> with a running time of <span class="math inline">O(2^kn)</span>, where <span class="math inline">n</span> is the size of the program and <span class="math inline">k</span> is the <em>maximum nesting depth</em> of the type declarations. Since normally <span class="math inline">k</span> is a small constant<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>, the algorithm is clearly practical on inputs one would expect to encounter in practice.</p>
 <p>Back to why this approach captures algorithmic tradeoffs in the regime of hard problems beautifully. You can think of an algorithm that is FPT in some parameter <span class="math inline">k</span> as giving you efficient algorithms for that subclass of instances where <span class="math inline">k</span> is small enough for the algorithm to be efficient. You could also think of it as giving you full coverage but giving up on efficiency as your parameter values loom larger. Finally, you can also devise randomized and/or approximate FPT algorithms, to have the FPT efficiency gains while giving up on accuracy, which may be necessary either for speedups or when working with problems that would not have FPT algorithms otherwise (like we just saw for vertex cover parameterized by maximum degree).</p>
 <p>Parameterized (aka multivariate) algorithmics are a wonderfully flexible framework that allows you to dabble in various algorithmic tradeoffs. Once you start thinking in terms of restraining the combinatorial blowups to certain parameters of interest, you’ll probably find that the approach leads you to new ways of looking at the problem! To stay true to the motivations of the field: which is to find ways of “coping with NP-hardness” when said NP-hard problems are ones we need to solve in the real world — one must remember to sanity checck the relevance of the parameters we are working with. An ideal set of parameters would be small for most instances in real-world distributions, but also give you enough flex to devise efficient algorithms.</p>
-<p>For a delightful history of the field, I recommend <span class="citation" data-cites="revolution">(<a href="#ref-revolution" role="doc-biblioref">Bodlaender et al. 2012</a>)</span>, while <span class="citation" data-cites="CyganFKLMPPS15">(<a href="#ref-CyganFKLMPPS15" role="doc-biblioref">Cygan et al. 2015</a>)</span> is a very accessible introduction the field, only assuming a background in undergraduate algorithms. This framework has been my default way of thinking about algorithms for a while now. In the following, I delve a little further into the specifics of the kinds of problems I have been working on.</p>
+<p>For a delightful history of the field, I recommend <span class="citation" data-cites="revolution">(<a href="#ref-revolution" role="doc-biblioref">Bodlaender et al. 2012</a>)</span>. Also, <span class="citation" data-cites="CyganFKLMPPS15">(<a href="#ref-CyganFKLMPPS15" role="doc-biblioref">Cygan et al. 2015</a>)</span> is a very accessible introduction to the field, only assuming a background in undergraduate algorithms. The <a href="http://fpt.wikidot.com">FPT Wiki</a> is a community-maintained resource that documents developments in the field as they happen.</p>
+<p>This framework has been my default way of thinking about algorithms for a while now. In the following, I delve a little further into the specifics of the kinds of problems I have been working on.</p>
 <div class="callout-note callout callout-style-simple callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

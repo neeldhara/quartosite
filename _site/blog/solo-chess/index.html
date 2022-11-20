@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-03-24">
+
+<title>Neeldhara - Solo Chess</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif.html">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks.html">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events.html">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.neeldhra.online"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Solo Chess</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">exposition</div>
+                <div class="quarto-category">twitterthread</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 24, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+
+
+
+
+<p>Putting <a href="https://twitter.com/neeldhara/status/1506794212590768130">this thread</a> in one place.</p>
+<hr>
+<p>🧵&nbsp;on our latest at FUN 2022 with <a href="https://twitter.com/NRAravind1"><span class="citation" data-cites="NRAravind1">@NRAravind1</span></a> and Harshil.</p>
+<p>Have you tried Solo Chess <a href="https://twitter.com/chesscom"><span class="citation" data-cites="chesscom">@chesscom</span></a> yet? It’s addictive — and NP-complete* even when you’re dealing only with rooks!</p>
+<p>*when appropriately generalized</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="FOk1WJZXwAUb7V7.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">The Rules of the Game</figcaption><p></p>
+</figure>
+</div>
+<p>So this is a single-player, peg-solitaire-ish chess variant, where you have to clear board by making a sequence of valid captures, albeit starting with unorthodox — and even unrealistic — positions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CleanShot_2022-03-24_at_04.30.34.png" class="img-fluid figure-img" style="width:42.0%"></p>
+<p></p><figcaption class="figure-caption">An example position</figcaption><p></p>
+</figure>
+</div>
+<p>To begin with the boards start easy, with a few pieces at a time. Notice, even in the early games, how some positions have just one solution while others may have several.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CleanShot 2022-08-30 at 08.46.16.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">More positions</figcaption><p></p>
+</figure>
+</div>
+<p>From initial plays, you sense that it has a very Hamiltonian-Path-ish vibe, and feels like you’re trying to find a path in <em>some</em> graph 😅&nbsp;</p>
+<p>We started with a variant that was simultaneously a generalization and specialization:</p>
+<ul>
+<li>n pieces 😎</li>
+<li>♖’s only</li>
+<li>1D boards 🙈</li>
+</ul>
+<p>This, it turns out, is case so special that its trivial - you can sweep all rooks to the extreme left or extreme right of the board, and any position is winning even if every rook can capture exactly once. Less trivial though: how many ways there are to win? 🤔</p>
+<p>We also ask what happens if every rook had a designated number of captures left. Imagine you have a 1D board and three kinds of rooks:</p>
+<ul>
+<li>red rooks cannot move</li>
+<li>blue rooks can move at most once</li>
+<li>green rooks can move at most twice</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CleanShot_2022-03-24_at_04.47.53.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">1D Boards</figcaption><p></p>
+</figure>
+</div>
+<p>We show that such 1D boards can be cleared if and only if then number of green rooks is at least the number of red rooks. This ties nicely with the intuition that every immovable rook needs to be picked up by a rook that can help another one (i.e, &gt; one move left).</p>
+<p>This generalizes naturally to rooks with a designated number of moves left, where said number can be anything between 0 and d.&nbsp;Since no other chess piece moves sensibly* across a 1D board, we decided to move on 2D boards from here.</p>
+<ul>
+<li>Kings + rooks is an easy exercise.</li>
+</ul>
+<p>So if you are still playing with red, blue, and green rooks, then the problem of checking if a given 2D configuration can be cleared up according to solo chess rules turns out to be NP-complete.</p>
+<p>No Hamiltonian Path though — this one was from bipartite dominating set 😎</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CleanShot_2022-03-24_at_04.58.23.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">A reduction from bipartite dominating set - I</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CleanShot_2022-03-24_at_04.53.21.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">A reduction from bipartite dominating set - II</figcaption><p></p>
+</figure>
+</div>
+<p>Bishops are much the same as rooks, by a 45-degree tilt of the board.</p>
+<p>⚠️&nbsp;Still open though: what about the case when all pieces have at most two moves left, which is closer to the original spirit of the game?</p>
+<p>We don’t know yet, although we’d bet it’s hard, I think.</p>
+<p>When playing with queens only, however, we can gadget in the behaviors of red and blue pieces. So we do have that Generalized Solo Chess with just queens that can all move at most twice is NP-complete.</p>
+<p>What about pawns? Let’s get clarifying assumptions out of the way:</p>
+<ul>
+<li>white pawns only</li>
+<li>regular captures only since there’s no premise for en passant captures</li>
+</ul>
+<p>In solo chess, pawns are (heavily) constrained bishops: they can only move upwards and to a neighboring diagonal square. Knowing that bishops were hard, but pawns felt simple — we didn’t have a bet either way. 🤔</p>
+<p>We were pleasantly surprised that the case of pawns is tractable, even when each pawn has a designated* number of moves!</p>
+<p>*at most two.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CleanShot_2022-03-24_at_05.23.22.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Lemma for pawns</figcaption><p></p>
+</figure>
+</div>
+<p>The algorithm is linear time, too.</p>
+<p>Next: what about knights? We don’t know yet!</p>
+<p>❓&nbsp;What’s the complexity of solo chess when played only with knights?</p>
+<p>Knights are special because we don’t have to worry about obstructions. So the game can be described by a more general token game on graphs:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CleanShot_2022-03-24_at_05.28.55.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">The Graph Capture Problem</figcaption><p></p>
+</figure>
+</div>
+<p>We do show that Graph Capture is hard by a reduction, again from bipartite dominating set. This might hint at the hardness for Solo Chess played with knights only, but we are not betting on this yet.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CleanShot_2022-03-24_at_05.29.11.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Another reduction from bipartite dominating set - I</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CleanShot_2022-03-24_at_05.29.06.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Another reduction from bipartite dominating set - II</figcaption><p></p>
+</figure>
+</div>
+<p>I think these preliminary explorations have left us with more questions than answers:</p>
+<ul>
+<li>optimization versions (e.g, clear at least k pieces)</li>
+<li>other constraints (e.g, on distance moved)</li>
+<li>special cases (e.g, O(1) pieces per row/column)</li>
+<li>n x c boards, constant c</li>
+</ul>
+<p>While at it, I’m also curious about how <a href="https://twitter.com/chesscom"><span class="citation" data-cites="chesscom">@chesscom</span></a> generates these puzzles, and if they have a mechanism for generating ones that have unique solutions. Also, is it true that if you throw “enough” pieces on the board, it’s solvable WHP?</p>
+<p>Shout out to the <a href="https://ctan.org/tex-archive/fonts/chess/skak">skak package</a> for making it easy to bring chess pieces to TikZ. We expect to put up a preprint on ArXiV soon. 👀&nbsp; Meanwhile, we welcome comments and feedback — and if you read this far, thanks very much!</p>
+<p>PS. Also if you enjoy chess and algorithms, don’t miss <a href="https://miguel-ambrona.github.io/">Miguel Ambrona’s</a> amazing <a href="https://chasolver.org/">Chess Unwinnability Analyzer</a>, which also appears at FUN 2022!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CleanShot_2022-03-24_at_05.56.43.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Chess Unwinnability</figcaption><p></p>
+</figure>
+</div>
+<p>You can find the <a href="https://sites.google.com/view/fun2022/acceptedpapers">full list of accepted papers here</a>.</p>
+
+
+
+</main> <!-- /main -->
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/Musings">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a href="https://neeldhara.online" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

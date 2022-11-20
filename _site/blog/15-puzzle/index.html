@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2021-10-03">
+
+<title>Neeldhara - Two approaches to the 15 puzzle</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif.html">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks.html">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events.html">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.neeldhra.online"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Two approaches to the 15 puzzle</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">puzzles</div>
+                <div class="quarto-category">exposition</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 3, 2021</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+
+
+
+
+<p>Presenting the <a href="https://en.wikipedia.org/wiki/15_puzzle">15 puzzle</a>:</p>
+<blockquote class="blockquote">
+<p>This is a sliding puzzle having 15 square tiles numbered 1–15 in a frame that is 4 tiles high and 4 tiles wide, leaving one unoccupied tile position. Tiles in the same row or column of the open position can be moved by sliding them horizontally or vertically, respectively. The goal of the puzzle is to place the tiles in numerical order.</p>
+</blockquote>
+<p>According to Wikipedia, <a href="https://doi.org/10.2307%2F2369492">Johnson &amp; Story (1879)</a> used a parity argument to show that half of the starting positions for the <span class="math inline">n</span>-puzzle are impossible to resolve, no matter how many moves are made. We are going to explore two approaches* parity-based argument to show that the puzzle shown here on the right is unsolvable.</p>
+<p>*I do believe the two proofs are essentially the same with slight differences of language.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-10-03_at_10.36.37_PM.png" class="img-fluid figure-img" style="width:34.0%"></p>
+<p></p><figcaption class="figure-caption">An example of the 15 puzzle</figcaption><p></p>
+</figure>
+</div>
+<p>Common to both approaches is the idea of associating a <em>permutation</em> with every state of the puzzle. For the purposes of this discussion, we will think of a permutation simply as a sequence of elements. To turn the grid layout into a sequence, you could, for instance, line up the rows next to each other, in other words, read off the numbers from left-to-right and top-to-bottom:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-10-03_at_10.45.04_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Associating the puzzle with a permutation</figcaption><p></p>
+</figure>
+</div>
+<p>So we think of every puzzle state as a permutation over the set <span class="math inline">\{1, 2, \ldots, 15\} \cup \{\star\}</span>, where we use <span class="math inline">\star</span> to denote the blank space. For a particular sequence <span class="math inline">\sigma</span> and an index <span class="math inline">1 \leq i \leq 16</span>, we will use <span class="math inline">\sigma_i</span> to refer to the element that is at the <span class="math inline">i^{th}</span> position in the sequence <span class="math inline">\sigma</span>.</p>
+<p>A couple of definitions in the context of permutations will be useful:</p>
+<ul>
+<li>An <em>inversion</em> is a pair of elements that is out of their natural order. More precisely, if we have indices <span class="math inline">i &lt; j</span> such that <span class="math inline">\sigma_i &gt; \sigma_j</span>, then the pair <span class="math inline">(i,j)</span> indulges in an inversion. Note that the starting state of our puzzle here has exactly one inversion.</li>
+<li>A <em>transposition</em> of locations <span class="math inline">i</span> and <span class="math inline">j</span> **is essentially a swap of the elements at positions <span class="math inline">i</span> and <span class="math inline">j</span> of a given permutation. So this is an operation performed on a permutation. Let’s say this again with more explicit notation — if we start with <span class="math inline">\sigma</span>, then the permutation <span class="math inline">\tau</span> obtained from <span class="math inline">\sigma</span> by a transposition of <span class="math inline">i</span> and <span class="math inline">j</span> is given by the following:</li>
+</ul>
+<p><span class="math display">
+\tau_\ell = \begin{cases}
+      \sigma_j &amp; \text{if } \ell = i,\\
+      \sigma_i &amp; \text{if } \ell = j,\\
+      \sigma_\ell &amp; \text{otherwise.}
+    \end{cases}
+</span></p>
+<p>The identity permutation, which we will denote by <span class="math inline">\iota</span>, is special — it’s the following sequence:</p>
+<p><span class="math display">
+\{1,2,\ldots,14,15,\star\}.
+</span></p>
+<p>It turns out that <em>every permutation</em> <span class="math inline">\sigma</span> can be obtained from the identity permutation by a sequence of transpositions. This is not terribly hard to see — start with the identity permutation, and repeat the following until the permutation at hand is the one you want to see: find a location <span class="math inline">i</span> that’s messed up in the current permutation, i.e, it doesn’t have the element you need in there. Find where the element is in the current permutation, and if that’s location <span class="math inline">j</span>, you could perform a transposition between <span class="math inline">i</span> and <span class="math inline">j</span>. This fixes up the location <span class="math inline">i</span>. In every step, you fix at least one location, and never mess up anything else: so at the end of at most <span class="math inline">n</span> steps (assuming you are working with a sequence of <span class="math inline">n</span> elements), you would be done. 🎉</p>
+<p>For example, suppose the permutation you want to obtain is 3,4,2,1. Here is how the argument above would play out:</p>
+<ol type="1">
+<li>1,2,3,4. The first location is messed up, so swap 1 and 3.</li>
+<li>3,2,1,4. The second location is messed up, so swap 2 and 4.</li>
+<li>3,4,1,2. The third location is messed up, so swap 1 and 2.</li>
+<li>3,4,2,1. Now we are done.</li>
+</ol>
+<p>Note that this may not be the only way of performing a sequence of transpositions that can morph <span class="math inline">\iota</span> into <span class="math inline">\sigma</span> — there may be various roads to <span class="math inline">\sigma</span>. However, it turns out that no matter what route you take to transform <span class="math inline">\iota \longrightarrow \sigma</span>, the <em>number of steps you perform will always have the same parity.</em> So specifically, it’s <em>not possible</em> for you to have a series of, say, seventeen transpositions that turn <span class="math inline">\iota</span> into <span class="math inline">\sigma</span>, and for me to have a series of forty-two transpositions that do the same. We will take this <del>as a cute exercise for the reader</del> as given.</p>
+<p>This partitions the set of all permutations into two categories:</p>
+<ul>
+<li><strong>even permutations:</strong> those permutations that are reachable from the identity with an even number of transpositions</li>
+<li>odd <strong>permutations:</strong> those permutations that are reachable from the identity with an odd number of transpositions</li>
+</ul>
+<p>The fact from the previous paragraph above makes this classification unambiguous.</p>
+<p>Alright, so now we have all the terminology we need to get to the argument about why the puzzle state we started with is unsolvable. We can roll up our sleeves and get started.</p>
+<hr>
+<p>The first line of argument is based on <a href="https://www.youtube.com/watch?v=YI1WqYKHi78&amp;vl=en">this Numberphile video</a>, and is also the one described <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15859-f01/www/notes/15-puzzle.pdf">in this 1999 American Math Monthly article by Archer</a>. We begin with the observation that every move in the game is really a transposition behind the scenes. In particular, let’s say that we are currently in state <span class="math inline">s</span> and we perform some move and move to state <span class="math inline">t</span>. Let’s say the permutation associated with <span class="math inline">s</span> was <span class="math inline">\sigma</span> and the permutation associated with <span class="math inline">t</span> is <span class="math inline">\tau</span>. It’s not hard to see that:</p>
+<ul>
+<li><span class="math inline">\tau</span> can be obtained from <span class="math inline">\sigma</span> with a single transposition.</li>
+</ul>
+<p>Now, note that the permutation corresponding to our target state is the following:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-10-03_at_11.04.12_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">The permutation corresponding to our target state</figcaption><p></p>
+</figure>
+</div>
+<p>In terms of the game state, notice that the final state has the blank tile at the bottom-right corner, just like we had at the start state. This means that in a hypothetical sequence of moves that morphs the initial game state into this solved state, we must have performed:</p>
+<ul>
+<li>an equal number of left and right moves; and</li>
+<li>an equal number of up and down moves.</li>
+</ul>
+<p>If this is not the case — imagine the blank tile traveling through the board as you perform the moves — if the number of times you moved in opposite directions did not exactly cancel, it would be impossible for the blank location to be back at it’s original location.</p>
+<p>So in any winning sequence, the number of moves performed must be even. This implies that the permutation corresponding to the start state, in particular, can be obtained from the identity permutation with an even number of transformations. That makes the starting permutation an even permutation.</p>
+<p>However, the permutation corresponding to the start state that we have been handed out is clearly an odd permutation: it can be obtained from the identtiy permutation by a transposition of the elements at the 14-th and 15-th positions. So, well, no dice! This shows that every solvable state that places a blank tile at the bottom-right corner must correspond to an even permutation. This does <em>not</em> automatically imply that all such states associated with even permutations are solvable* — it just shows that states with blank tiles at the bottom-right corner corresponding to odd permutations are firmly out of reach.</p>
+<p>*It does turns out that all even permutations are in fact solvable.</p>
+<hr>
+<p>The second approach is based on the notion of inversions. This one is based on <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/video-lectures/lecture-3-strong-induction/">the Strong Induction lecture</a> in the MITOCW course on Mathematics for Computer Science. For this proof I’ll actually switch to the <span class="math inline">3 \times 3</span> version of the puzzle because <del>I don’t know how to extend it to the 15-puzzle</del> the case analysis is more manageable for this version:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-10-03_at_11.30.57_PM.png" class="img-fluid figure-img" style="width:77.0%"></p>
+<p></p><figcaption class="figure-caption">A move in the 3 X 3 version of the puzzle</figcaption><p></p>
+</figure>
+</div>
+<p>As we said before, the permutation associated with the starting point of the puzzle has exactly one inversion, while the permutation associated with the solved state, which is the identity permutation, has no inversions. So, when you make a move in the puzzle, what happens to the number of inversions?</p>
+<p>As before, let’s say that we are currently in state <span class="math inline">s</span> and we perform some move and move to state <span class="math inline">t</span>. Let’s say the permutation associated with <span class="math inline">s</span> was <span class="math inline">\sigma</span> and the permutation associated with <span class="math inline">t</span> is <span class="math inline">\tau</span>. Let us say that a pair of elements <span class="math inline">(p,q)</span> is affected by a move in the game if the relative order of <span class="math inline">p</span> and <span class="math inline">q</span> is different in the permutations <span class="math inline">\sigma</span> and <span class="math inline">\tau</span>. Now we have the following:</p>
+<ul>
+<li>if we perform a row move, the relative order of all elements corresponding to numbers remains the same — in particular, all affected pairs involve <span class="math inline">\star</span> — so the number of inversions in <span class="math inline">\tau</span> is exactly the same as the number of inversions in <span class="math inline">\sigma</span>.</li>
+<li>if we perform a column move, typically the element that is being moved, say <span class="math inline">p</span>, ends up effectively jumping over two other elements, say <span class="math inline">a</span> and <span class="math inline">b</span>. In this case the following scenarios arise:
+<ul>
+<li><p>Neither <span class="math inline">(p,a)</span> nor <span class="math inline">(p,b)</span> is an inversion in <span class="math inline">\sigma</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-10-03_at_11.51.03_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Neither <span class="math inline">(p,a)</span> nor <span class="math inline">(p,b)</span> is an inversion in <span class="math inline">\sigma</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>In this case, <em>both</em> <span class="math inline">(p,a)</span> and <span class="math inline">(p,b)</span> emerge as new inversions in <span class="math inline">\tau</span>, and the total number of inversions in <span class="math inline">\tau</span> is two <em>more</em> than the total number of inversions in <span class="math inline">\sigma</span>.</li>
+</ul></li>
+<li><p>Both <span class="math inline">(p,a)</span> and <span class="math inline">(p,b)</span> are inversions in <span class="math inline">\sigma</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-10-03_at_11.53.09_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Both <span class="math inline">(p,a)</span> and <span class="math inline">(p,b)</span> are inversions in <span class="math inline">\sigma</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>In this case, <em>neither</em> <span class="math inline">(p,a)</span> nor <span class="math inline">(p,b)</span> are inversions in <span class="math inline">\tau</span> — they both get fixed! So the total number of inversions in <span class="math inline">\tau</span> is two <em>less</em> than the total number of inversions in <span class="math inline">\sigma</span>.</li>
+</ul></li>
+<li><p>While <span class="math inline">(p,a)</span> is an inversion in <span class="math inline">\sigma</span>, <span class="math inline">(p,b)</span> is not.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-10-03_at_11.54.46_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">While <span class="math inline">(p,a)</span> is an inversion in <span class="math inline">\sigma</span>, <span class="math inline">(p,b)</span> is not</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>In this case, you fix some, you spoil some — so in <span class="math inline">\tau</span>, <span class="math inline">(p,a)</span> is not an inversion any more, but <span class="math inline">(p,b)</span> emerges as a new inversion; so the changes cancel and the number of inversions in <span class="math inline">\tau</span> is exactly the same as the number of inversions in <span class="math inline">\sigma</span>.</li>
+</ul></li>
+<li><p>While <span class="math inline">(p,a)</span> is not an inversion in <span class="math inline">\sigma</span>, <span class="math inline">(p,b)</span> is one.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-10-03_at_11.53.39_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">While <span class="math inline">(p,a)</span> is not an inversion in <span class="math inline">\sigma</span>, <span class="math inline">(p,b)</span> is one</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>As before, you fix some, you spoil some just the other way now — so in <span class="math inline">\tau</span>, <span class="math inline">(p,a)</span> is a new inversion, but <span class="math inline">(p,b)</span> is no longer one; so the changes cancel again and the number of inversions in <span class="math inline">\tau</span> is exactly the same as the number of inversions in <span class="math inline">\sigma</span>.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>The long and short of all this is that after every move, the number of inversions <em>either remains the same or changes by two.</em> So no matter how many moves you perform, a state whose associated permutation has an odd number of inversions is going to remain inaccessible.</p>
+<p>Tada!</p>
+<hr>
+<p>So there we have it… I have a feeling that a little bit of language connecting transpositions and inversions will really make these proofs quite identical, at least for the <span class="math inline">3 \times 3</span> case — although I did worry that the first approach seemed to rely rather explicitly on the location of the blank tile while the second one didn’t. It is quite possible that the first one actually demonstrates more than I’m giving it credit for!</p>
+<p>Meanwhile, to be honest, I haven’t thought much about pushing the second line of attack to the <span class="math inline">4 \times 4</span> case — it seems already that the statement about the change in the number of inversions is no longer true and the change itself is no longer two: in particular, it could apparently go up or down by three or one instead, since the element involved in the action, <span class="math inline">p</span> is now potentially jumping over <em>three</em> other elements, <span class="math inline">a</span>, <span class="math inline">b</span>, and <span class="math inline">c</span>… so this, at least from an immediate consideration, doesn’t quite take us where we want to go.</p>
+<p>Possibly one has to work with a somewhat different invariant, maybe a notion of inversions that involve triples instead of pairs? Any comments on this would be very welcome, and I’ll have an update once I understand this a little better!</p>
+
+
+
+</main> <!-- /main -->
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/Musings">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a href="https://neeldhara.online" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

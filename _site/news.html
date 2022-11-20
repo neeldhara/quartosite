@@ -71,8 +71,7 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
-      page: 7,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      
       searchColumns: ["listing-title","listing-date","listing-type","listing-id","listing-date-format","listing-abstract","listing-path","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time"],
     };
 
@@ -454,9 +453,6 @@ callout-caution not being used for anything as of now.
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-<nav id="latest-news-pagination" class="listing-pagination" aria-label="Page Navigation">
-  <ul class="pagination"></ul>
-</nav>
 </div>
 </section>
 

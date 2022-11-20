@@ -1,0 +1,35 @@
+```{=html}
+<div class="list">
+<% for (const item of items) { %>
+    <% if (item.type == "research") { %>
+    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" <%= metadataAttrs(item) %>>
+    <% } %>
+    <% if (item.type == "deadline-research") { %>
+    <div class="callout-warning callout callout-style-simple no-icon callout-captioned" <%= metadataAttrs(item) %>>
+    <% } %>
+    <% if (item.type == "deadline") { %>
+    <div class="callout-important callout callout-style-simple no-icon callout-captioned" <%= metadataAttrs(item) %>>
+    <% } %>
+    <% if (item.type == "other") { %>
+    <div class="callout-note callout callout-style-simple no-icon callout-captioned" <%= metadataAttrs(item) %>>
+    <% } %>
+        <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-<%- item.id %>-contents" aria-controls="callout-<%- item.id %>" aria-expanded="false" aria-label="Toggle callout">
+        <div class="callout-icon-container">
+        <i class="callout-icon no-icon"></i>
+        </div>
+        <div class="callout-caption-container flex-fill listing-id">
+        <%= item.title %> |  <%= item.date %>
+        </div>
+        <div class="callout-btn-toggle d-inline-block border-0 py-<%- item.id %> ps-<%- item.id %> pe-0 float-end"><i class="callout-toggle"></i></div>
+        </div>
+        <div id="callout-<%- item.id %>" class="callout-<%- item.id %>-contents callout-collapse collapse">
+        <div class="callout-body-container callout-body">
+
+        <%=item.abstract%>
+
+        </div>
+        </div>
+    </div>
+<% } %>
+</div>
+```

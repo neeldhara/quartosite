@@ -1,0 +1,15 @@
+---
+title: "On the Communication Complexity of Equality"
+date: "2021-10-04"
+categories: [sketchnotes, lecturenotes]
+fields: [date, title]
+toc: true
+---
+
+These are some quick sketchnotes based on  [this lecture](https://www.youtube.com/watch?v=orOJRhlqrvk) by [Ryan O’Donnell](https://www.cs.cmu.edu/~odonnell/), a part of the  [playlist](https://www.youtube.com/watch?v=prI35GmCon4&list=PLm3J0oaFux3ZYpFLwwrlv_EHH9wtH6pnX) for the awesome [CS Theory Toolkit](https://www.diderot.one/course/28/) course. You can walk through the arguments below.
+
+<iframe src="https://slides.com/neeldhara/deck-85ae95/embed?style=transparent&byline=hidden" width="795" height="420" title="Communication Complexity of Equality" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+I should mention that while the [Schwartz-Zippel-DeMillo-Lipton lemma](https://rjlipton.wpcomstaging.com/2009/11/30/the-curious-history-of-the-schwartz-zippel-lemma/) is invoked in the notes below, one could make do with just the fact that over any field $F$, any degree $n$ polynomial has at most $n$ roots, as pointed out by [@dsivakumar](https://twitter.com/dsivakumar) — thanks!
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">In the fourth slide from the end, why [DeMillo--Lipton]--Schwartz--Zippel Lemma? You only need that number of roots of a polynomial (over Z mod q) of degree n is no more than n. You don&#39;t need D-L/S/Z, which gives a general version for multivariate polynomials, right?</p>&mdash; D. Sivakumar (@dsivakumar) <a href="https://twitter.com/dsivakumar/status/1269351801108623360?ref_src=twsrc%5Etfw">June 6, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

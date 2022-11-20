@@ -1,0 +1,32 @@
+---
+title: "Collective Welfare as a Metric in Algorithmic Decision Making"
+date: "2022-09-09"
+categories: [woce, talknotes]
+fields: [date, title]
+toc: true
+draft: true
+---
+
+### Multi-arm bandits
+
+The MAB setting model sequential decision making under uncertainty. The model and a bazillion variants thereof have been very well-studied.
+
+- The algorithm has sample access to $k$ distributions (arms) for $T$ rounds.
+
+- Each round $t \in [T]$, algorithm selects an arm $I_t \in [k]$ and recieves arm-specific reward.
+
+- Expected reward at round $t$: $\mathbb{E}[\mu_{I_t}]$
+
+- Optimal (ex ante) $\mu^\star := \max_{1 \leq i \leq k} \mu_i$
+
+- Regret (rg) $\mu^\star - \frac{1}{T} \sum_{t = 1}^{T} \mathbb{E}[\mu_{I_t}]$
+
+
+Upper confidence bound algorithm achieves $O\left(\sqrt{\frac{k}{T}}\right)$.
+
+
+### Nash Social Welfare
+
+If we have values: $v_1, v_2, \ldots, v_T$ representing the welfare of $T$ agents (tying back to the MAB setting, you could think of the $v_i$'s as the regrets in each round).
+
+Welfare function: $\mathbb{R}_+^T \rightarrowtail \mathbb{R}_+$.

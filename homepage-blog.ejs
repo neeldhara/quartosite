@@ -1,0 +1,22 @@
+```{=html}
+<table class="quarto-listing-table table">
+    <tbody class="list">
+    <% for (const item of items) { %>
+        <tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>
+        <td class="listing-date">
+            <%= item.date %>        
+        </td>
+        <td class="listing-title">
+            <a href="<%= item.path %>"><%= item.title %></a>     
+        </td>
+        <td>
+            <% for (const caty of item.categories) { %>
+                <span class="badge badge-primary" style="background:rgb(242, 233, 249); color: rgb(84, 31, 84);"><%= caty %></span>
+            <% } %>
+        </td>        
+</tr>
+<% } %>
+</tbody>
+</table>
+
+```

@@ -1,0 +1,38 @@
+---
+title: "AB Separation"
+date: "2022-10-07"
+categories: [probability]
+fields: [date, title]
+css: /css/tgif.css
+toc: true
+---
+
+
+:::{.callout-tip appearance="simple" icon=false}
+Shared by [@10kdiver](https://twitter.com/10kdiver).
+:::
+
+A probability puzzle involving tournaments and elimination matches:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Here’s a neat probability puzzle — somewhat counter-intuitive: <a href="https://t.co/QA6jxaIYFT">pic.twitter.com/QA6jxaIYFT</a></p>&mdash; 10-K Diver (@10kdiver) <a href="https://twitter.com/10kdiver/status/1573280126061740032?ref_src=twsrc%5Etfw">September 23, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+To begin with, a clarification: to say that Alex is the best player is to say that Alex will always win a match that he plays; and to say that Bob is the second best player is to say that Bob will win any match that he plays other than one against Alex. The puzzle asks for the probability that Bob emerges the runner up in the tournament.
+[This is indicated in the tweet but the crop seems to hide it.]{.aside}
+
+Suppose we denote the players $\{a_1,a_2,a_3,a_4,b_1,b_2,b_3,b_4\}$, and say the players are initially matched up like so:
+
+$$(a_1,a_2); (a_3,a_4); (b_1,b_2); (b_3,b_4),$$
+
+and in particular we have:
+
+- one of the quarter finals will be between $a_p$ and $a_q$ for $p \in \{1,2\}$ and $q \in \{3,4\}$,
+- the quarter finals will be between $b_r$ and $b_s$ for $r \in \{1,2\}$ and $s \in \{3,4\}$, and
+- the semi finals will be between an $a$-player and a $b$-player.
+
+A moment's reflection reveals that for Bob to be a runner up, he should not meet Alex in the quarter-finals or earlier. This happens if and only if:
+
+- either Alex is one of the $a$-players and Bob is one of the $b$-players, or
+- Bob is one of the $a$-players and Alex is one of the $b$-players.
+
+From here it is a counting argument. I was distracted by some idea of symmetry and originally [jumped to the conclusion](https://twitter.com/neeldhara/status/1573691611002769408?s=20&t=-A9VW9YgGCp2qDAyY_Yw6Q) that the answer is one-half. Spoiler alert: I quickly learned that it's not!

@@ -1,0 +1,213 @@
+---
+title: "People"
+bibliography: references.bib
+toc: false
+sidebar: false
+page-layout: full
+css: ../css/research.css
+listing:
+  - id: postdoc-listing 
+    contents: list-postdocs.yml
+    sort: "tenure desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [status, avatar, name, program, tenure]
+    feed: false
+    template: people.ejs
+  - id: postdoc-listing-modal
+    contents: list-postdocs.yml
+    sort: "tenure desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [status, avatar, name, program, tenure]
+    feed: false
+    template: modals.ejs
+  - id: phd-listing
+    contents: list-phd.yml
+    sort: "tenure desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [status, avatar, name, program, tenure]
+    feed: false
+    template: people.ejs
+  - id: phd-listing-modal
+    contents: list-phd.yml
+    sort: "tenure desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [status, avatar, name, program, tenure]
+    feed: false
+    template: modals.ejs
+  - id: masters-listing
+    contents: list-masters.yml
+    sort: "tenure desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [status, avatar, name, program, tenure]
+    feed: false
+    template: people.ejs
+  - id: masters-listing-modal
+    contents: list-masters.yml
+    sort: "tenure desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [status, avatar, name, program, tenure]
+    feed: false
+    template: modals.ejs
+  - id: interns-listing
+    contents: list-interns.yml
+    sort: "tenure desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [status, avatar, name, program, tenure]
+    feed: false
+    template: people.ejs
+  - id: interns-listing-modal
+    contents: list-interns.yml
+    sort: "tenure desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [status, avatar, name, program, tenure]
+    feed: false
+    template: modals.ejs
+  - id: projects-listing
+    contents: list-projects.yml
+    sort: "tenure desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [status, avatar, name, program, tenure]
+    feed: false
+    template: people.ejs
+  - id: projects-listing-modal
+    contents: list-projects.yml
+    sort: "tenure desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [status, avatar, name, program, tenure]
+    feed: false
+    template: modals.ejs
+  - id: jrfs-listing
+    contents: list-jrfs.yml
+    sort: "tenure desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [status, avatar, name, program, tenure]
+    feed: false
+    template: people.ejs
+  - id: jrfs-listing-modal
+    contents: list-jrfs.yml
+    sort: "tenure desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [status, avatar, name, program, tenure]
+    feed: false
+    template: modals.ejs
+---
+
+:::{.column-body-outset}
+
+# People
+<p>&nbsp;</p>
+
+::: {.panel-tabset}
+## PostDoc
+
+::: {#postdoc-listing}
+:::
+
+
+## PhD
+
+<p>&nbsp;</p>
+
+::: {#phd-listing}
+::: 
+
+## Masters
+
+<p>&nbsp;</p>
+
+::: {#masters-listing}
+:::
+
+## Project Students
+
+<p>&nbsp;</p>
+
+::: {#projects-listing}
+:::
+
+## Interns
+
+<p>&nbsp;</p> 
+
+::: {#interns-listing}
+:::
+
+## JRFs
+
+<p>&nbsp;</p>
+
+::: {#jrfs-listing}
+:::
+
+:::
+
+:::
+
+
+
+
+::: {#postdoc-listing-modal}
+:::
+
+::: {#phd-listing-modal}
+:::
+
+::: {#masters-listing-modal}
+:::
+
+::: {#projects-listing-modal}
+:::
+
+::: {#interns-listing-modal}
+:::
+
+::: {#jrfs-listing-modal}
+:::

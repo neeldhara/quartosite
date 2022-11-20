@@ -1,0 +1,145 @@
+---
+title: "Kidney Exchanges"
+date: "2022-02-25"
+categories: [exposition]
+fields: [date, title]
+toc: true
+---
+
+This post is based on an excellent (chalk and board!) talk that [Palash Dey](https://cse.iitkgp.ac.in/~palash/) gave at IIT Gandhinagar today. This is his joint work with [Arnab Maiti](https://sites.google.com/view/arnab-maiti/home), to appear as an [extended abstract](https://aamas2022-conference.auckland.ac.nz/accepted/extended-abstracts/) at [AAMAS 2022](https://aamas2022-conference.auckland.ac.nz/) ([preprint here](https://arxiv.org/pdf/2112.10250.pdf)).
+
+
+## Background
+
+[Kidney paired donation](https://en.wikipedia.org/wiki/Kidney_paired_donation) or *paired exchange* allows donors to donate their kidneys to compatible patients with the understanding that their patients receive medically compatible kidneys in turn. The central problem in this setting is the *clearing problem —* which involves matching patients to donors in such a way that a maximum number of patients receive compatible kidneys. We introduce a directed graph as a convenient abstraction for this question, where:
+
+- each node $v_i = (P_i,D_i)$ represents a patient-donor pair, and
+- we introduce a *directed* edge $v_i → v_j$ if the kidney of the donor $D_i$ is compatible with the patient $P_j$.
+
+Observe that a cycle in this directed graph naturally represents a sequence of feasible exchanges within the cycle. For example, imagine that we have a three-cycle with the edges:
+
+$(P_2,D_2) → (P_5,D_5) → (P_7,D_7) → (P_2,D_2)$
+
+Then we have the following compatible donations:
+
+- $P_5$ is assigned the kidney of donor $D_2$
+- $P_7$ is assigned the kidney of donor $D_5$
+- $P_2$ is assigned the kidney of donor $D_7$
+
+This accounts for all the patients and donors involved in this cycle and motivates the following question:
+
+> Given a directed graph, what is the largest number of vertices that can be covered by a disjoint union of cycles?
+
+While a positive answer to this question will “resolve” all the needs in the system, consider that exchanges along a cycle of length $\ell$ involve $\ell$ simultaneous operations to mitigate the risks involved with donors potentially backing out of the exchange agreements.
+
+This motivates the following refinement of the previously posed question:
+
+> Given a directed graph, what is the largest number of vertices that can be covered by a disjoint union of cycles, where each cycle is of length $\ell$ or less?
+
+If the exchanges are restricted to swaps, that is, $\ell = 2$, the problem reduces to finding a maximum matching. However, the problem is NP-complete already when $\ell = 3$ (see Theorem 1, [Abraham, Blum, and Sandholm](https://www.cs.cmu.edu/~sandholm/kidneyExchange.EC07.withGrantInfo.pdf); EC 2007).
+
+We now generalize the model a little further to account for the presence of *[altruistic donors](https://en.wikipedia.org/wiki/Organ_transplantation#Good_Samaritan),* who are donors without a matching patient and are willing to donate to any compatible patient. To account for the presence of such donors, we modify our graph representation as follows:
+
+- Each node either:
+    - represents a patient-donor pair $v_i = (P_i,D_i)$ or
+    - represents an altruistic donor $u_k = D_k^\star$
+- The edges are as follows:
+    - We have a *directed* edge $v_i → v_j$ if the kidney of the donor $D_i$ is compatible with the patient $P_j$.
+    - We have a *directed* edge $u_k → v_j$ if the kidney of the donor $D_k^\star$ is compatible with the patient $P_j$.
+
+In this setting, note that we can also facilitate exchanges along *paths* as well, with the paths starting at the altruistic donors. For instance, if we have the path:
+
+$(D_7^\star) → (P_2,D_2) → (P_5,D_5) → (P_7,D_7) → (P_3,D_3)$
+
+Then we have the following compatible donations:
+
+- $P_2$ is assigned the kidney of donor $D_7^\star$
+- $P_5$ is assigned the kidney of donor $D_2$
+- $P_7$ is assigned the kidney of donor $D_5$
+- $P_3$ is assigned the kidney of donor $D_7$
+
+Note that in this situation, the donor $D_3$ is relieved from any obligation to donate to a patient. We now update our problem statement to reflect the presence of altrustic donors and the possibility of facilitating exchanges along paths:
+
+> 🤝 Optimal Kidney Exchange Along Short Paths and Cycles
+>
+> **Input.** A directed graph $G = (V,E)$, where $\mathcal{A} \subseteq V$ are source vertices; and positive integers $\ell_p$, $\ell_c$ and $t$.
+>
+> **Output.** Yes if and only if there is a collection of cycles of length at most $\ell_c$ each and a collection of paths of length at most $\ell_p$ each such that the cycles and paths altogether covers $t$ nodes outside of $\mathcal{A}$.
+
+
+The main claim in the context of this problem is the following:
+
+There exists a $\mathcal{O}(2^{\mathcal{O}(t)} \cdot \text{poly}(n))$ that decides Optimal Kidney Exchange Along Short Paths and Cycles.
+
+## An Algorithm for OKE
+
+Here’s a high-level description of the algorithm (perhaps best approached with some prior familiarity with [color coding](https://www.youtube.com/watch?v=_4opS8Hpvc0&list=PLEAYkSg4uSQ2jI2x3Bwm711Tmjj-E25Et&index=19)). To begin with, notice that we may assume without loss of generality that $\ell_p \leq t$ and $\ell_c \leq t$ — intuitively, this is because if the permitted cycle and path lengths are longer than the number of patients we hope to cover, then we can simply look for cycles or paths of length $t$ directly to begin with — if we find one, then we are done, and if none exist, then we “might as well” set $\ell_p$ and/or $\ell_c$ to $t-1$.
+
+Now, if there is a solution that accounts for at least $t$ patients, there is also one that involves at most $2t$ patients and in particular, also at most $t$ paths. Such a solution engages at most $t$ nodes from $\mathcal{A}$. Therefore, if there is a solution, then there is one that spans $s \leq 3t$ vertices.
+
+As is standard for color coding, we guess the correct value of $s$ and randomly partition the vertex set $V$ into $s$ parts. The hope is that each part contains exactly one vertex from the solution (this is a so-called “colorful solution”). The probability that a random partition is a lucky one is $(3t)!/(3t)^{(3t)}$, which turns out to be at least $e^{-3t}$. This implies that $e^{3t}$ repetitions ensure a constant success probability.
+
+Given that the partition is indeed a lucky one, we can recover the solution using the following dynamic programming semantics. For $C \subseteq [3t]$ and $i \in [3t]$, let $D[C,i]$ be **TRUE** if and only if there is a colorful solution spanning at least $i$ nodes outside $\mathcal{A}$ in $G[V_C]$, where $V_C$ denotes the subset of vertices colored with colors from $C$.
+
+The recurrence is based on isolating one path or cycle by guessing the set of colors involved in said component and using table lookups to figure out if this can be extended to a full solution.
+
+In particular, we have:
+
+$D[C,i] = P[C,i] \lor Q[C,i]$,
+
+where
+
+$P[C,i] = \lor_{(B,j): B \subseteq C \text{ and } 1 \leq j \leq \ell_c} [D[C \setminus B, i - j] \land f(B,j)]$
+
+and
+
+$Q[C,i] = \lor_{(B,j): B \subseteq C \text{ and } 1 \leq j \leq \ell_p} [D[C \setminus B, i - j] \land g(B,j)]$.
+
+Here, we have that:
+
+- $f(B,j)$ is **TRUE** if and only if the vertices of $B$ can be covered with a cycle of length $j$.
+- $g(B,j)$ is **TRUE** if and only if the vertices of $B$ can be covered with a path of length $j$.
+
+The truth values of $f(B,j)$ and $g(B,j)$ can be determined directly using standard approaches to finding colorful paths and cycles in time that is single-exponential in $j$.
+
+To claim the overall running time, note that:
+
+- The total number of entries in the table is $2^{O(t)} \cdot t$ and each entry can be computed in time $\mathcal{O}^{}\left(2^{\mathcal{O}(\ell)}\right).$
+- Therefore, the algorithm outputs the correct decision in $\mathcal{O}^{}\left(2^{\mathcal{O}(t)}\right)$ time with probability at least $e^{-3t}$,
+- By repeating $\mathcal{O}\left(e^{3 t}\right)$ times, we find the correct decision with constant success probability.
+- The overall running time is $\mathcal{O}^{*}\left(2^{\mathcal{O}(t)}\right)$.
+
+## Other Results
+
+As Palash mentioned in his talk, the preprint has more, and here are some highlights of the other results that were established:
+
+1. Optimal Kidney Exchange Along Short Paths and Cycles is [FPT](https://en.wikipedia.org/wiki/Parameterized_complexity#FPT) also when parameterized by the treewidth of the underlying graph $+$ maximum length of path $\left(\ell_{p}\right)+$ maximum length of cycle allowed $\left(\ell_{c}\right)$ and the number of vertex types[^1] when $\ell_{p} \leq \ell_{c}$.
+
+2. A [Monadic second-order formula](https://en.wikipedia.org/wiki/Monadic_second-order_logic) for the problem is also presented, where the length of the formula is upper bounded by a function of $\ell=\max \left\{\ell{c}, \ell_{p}\right\}$.
+
+3. The problem admits a [polynomial kernel](https://en.wikipedia.org/wiki/Kernelization) with respect to the number of patients receiving kidneys $+$ maximum degree when $\max \left\{\ell_{p}, \ell_{c}\right\}$ is a constant.
+
+4. On the other hand, the problem does *not* admit any polynomial kernel parameterized by the number of patients receiving kidneys $+$ maximum degree $+\max \left\{\ell_{p}, \ell_{c}\right\}$ (under standard assumptions).
+
+5. A $\left(16/9+\epsilon\right)$-approximation algorithm is presented for the case when only cycles of length at most 3 are allowed and no paths are allowed.
+
+[^1]: [Dickerson, Manlove, Plaut, Sandholm, and Trimble.](https://arxiv.org/pdf/1606.01623.pdf) (EC 2016) introduced the notion of “vertex type" and showed its usefulness as a graph parameter in real-world kidney exchange instances. Two vertices is said to have the same vertex type if their neighbourhoods are the same.
+
+## Pointers
+
+
+Some discussion that came up during the talk:
+
+1. The so-called dual parameter $(n-t)$, which in this case corresponds to the number of patients who were “left out”, is perhaps a natural parameter to study as well.
+
+2. The notion of a patient without a matching donor seems complementary notion of altrusitic donors. Such patients would be the last vertices on paths kickstarted by altruistic donors. However, this notion likely does not manifest in practice.
+
+If you’d like to dig deeper, be sure to [check out the preprint](https://arxiv.org/pdf/2112.10250.pdf)! A few additional pointers:
+
+1. This work closely builds on the works of [Xiao and Wang](https://www.ijcai.org/proceedings/2018/77) (IJCAI, 2018), who proposed an exact algorithm with running time $\mathcal{O}(2^nn^3)$ where $n$ is the number of vertices in the underlying graph. They also show an FPT algorithm parameterized by the number of vertex types if we do not have any restriction on the length of cycles and chains.
+
+2. [Lin, Wang, Feng, and Fu](https://www.mdpi.com/1999-4893/12/2/50) (Algorithms, 2019) studied the version of the kidney exchange
+problem which allows only cycles and developed a randomized parameterized algorithm with respect to the parameter being (number of patients receiving a kidney, maximum allowed length of any cycle).
+
+3. Alvin E. Roth was awarded the Nobel Prize in Economic Sciences 2012 (along with Lloyd S. Shapley) in part for his pioneering contributions to the theory and practice of kidney exchange — his [biographical account](https://www.nobelprize.org/prizes/economic-sciences/2012/roth/biographical/) indicates that he had started anticipating the problem even before it emerged as a legal practice. His [talk at Simons Institute](https://www.youtube.com/watch?v=exB1O3pTf7E) surveys “fifteen years of history” in the kidney exchange problem, with an emphasis on the game-theoretic aspects. (h/t: [Rohit’s blog](https://csatravelblog.wordpress.com/2016/04/05/rohit-vaish-cmu-visit/) on this topic.)
+

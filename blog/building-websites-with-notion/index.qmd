@@ -1,0 +1,210 @@
+---
+title: "Actually Building a Website with Notion"
+date: "2021-09-12"
+categories: [notion, workflows, websites]
+fields: [date, title]
+toc: true
+---
+
+
+My attempted [overview of options](https://neeldhara.blog/notion-powered-websites) for making websites with [Notion](https://notion.so) does not go into the mechanics of *how* to setup a site with Notion, so I'm going to post a couple of short walkthroughs of the process here. I'll demonstrate with both [Super](https://super.so) and [Potion](https://potion.so). For Super, I'll share how I setup my course catalog. With Potion, a natural choice would have been to take you behind the scenes of *this* blog, but this did involve a little bit of customization that might be a bit distracting, so I'll just make something quick from scratch for this post.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Doesn&#39;t look like it&#39;s for non-geeks like me 😄 or you may prove otherwise. However, if you can record a 10 min video setting up a basic one, that&#39;ll have a greater impact, I believe, if it&#39;s already not there.</p>&mdash; Swaprava Nath (@swaprava) <a href="https://twitter.com/swaprava/status/1436887668143497219?ref_src=twsrc%5Etfw">September 12, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+---
+
+### The Overall Process
+
+For either framework, this is typically a three-step process:
+
+1. Setup your content in Notion. You can start from scratch, or use one of the templates provided by Super or Potion that feel like a closest match to what you want your website to eventually look like.
+
+2. Enable sharing to the web from within Notion — this will generate a link for you.
+
+3. Copy this link into Super or Potion.
+
+At the end of step 2, in fact, you already have a URL that you can share with anyone and, depending on how the content is laid out in Notion, can already look like a decent website.
+
+What step 3 allows you to do, however is:
+
+1. Add some styling with CSS.
+
+2. Add custom code snippets (useful, for example, if you want to add things like Google Analytics).
+
+3. Be assured that the webpage is good in terms of SEO, performance, etc.
+
+4. If using Super, you can selectively password-protect pages (coming soon to Potion, where you can presently password-protect your whole site if you want to).
+
+5. Have automatically generated user-friendly URLs for the individual pages, and if on Potion, you get nice preview images for all your pages as well.
+
+A few optional steps that you might want to consider:
+
+1. By default, both Super and Potion will give you a test subdomain to work with. Eventually, you might want the website to be available from your own domain. This is just a matter of adding a couple of A-records and typically can be done from wherever you registered the domain:
+
+![](Screenshot_2021-09-12_at_10.49.57_AM.png)
+
+![](Screenshot_2021-09-12_at_10.48.49_AM.png)
+
+2. You might want to add custom styles to make the website render uniquely — so you move beyond the standard look-and-feel of a Notion page if you so wish. You could do something on your own here, but the simplest thing is to just borrow the styling from one of the existing templates and tweak it if you want.
+3. Insert code for Google Analytics (or similar). As an aside, if you are looking for analytics that is user-friendly *and* privacy-conscious, I'd recommend [Fathom](https://usefathom.com).
+
+### A Course Catalog with Super
+
+:::{.callout-warning}
+## Heads up!
+
+This content is deprecated because I've moved this domain out to a different setup now. So please ignore the links, and hopefully the steps are still useful in principle!
+:::
+
+Let's apply this process to an actual website now! I'll demonstrate how I setup the website at [`neeldhara.courses`](https://neeldhara.courses). Incidentally, if you want a quick overview without some details that will be specific to my website, you might want to watch the video made by @robhope and pointed out by @traf.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Here&#39;s a little run through by <a href="https://twitter.com/robhope?ref_src=twsrc%5Etfw">@robhope</a> on creating a site <a href="https://twitter.com/super_?ref_src=twsrc%5Etfw">@super_</a>:<a href="https://t.co/SCMdDMRfBd">https://t.co/SCMdDMRfBd</a></p>&mdash; traf (@traf) <a href="https://twitter.com/traf/status/1436888874165411847?ref_src=twsrc%5Etfw">September 12, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+Back to the setup for [`neeldhara.courses`](http://neeldhara.courses). You can check out the page on Notion [here](https://www.notion.so/Courses-722e231ca8e549159af5a8e7700a5025), but I'll describe some pieces of it below. First, recall Step 1:
+
+<aside>
+1️⃣ *Setup your content in Notion.*
+
+</aside>
+
+I started with the [Super template HQ](https://hq.super.site). It looks amazing and is apparently free to use — at least at the time of this writing 😀
+
+Duplicate this template into Notion. If you like, you can duplicate it twice — one, a copy that you actually work on, and the other could be a copy that you don't edit but just keep handy in case you need to go back to the original for reference.
+
+The first thing I did was to get rid of most of the content, and just retained this section:
+
+![](Screenshot_2021-09-12_at_11.00.55_AM.png)
+
+which, incidentally, will render like this once connected to Super:
+
+![](Screenshot_2021-09-12_at_11.00.26_AM.png)
+
+Now the next step is to replace the generic content with yours:
+
+![](Screenshot_2021-09-12_at_11.03.16_AM.png)
+
+Since I'm just starting out, I have added the three courses that I'm teaching this term and they all show up. Eventually, these courses will be filtered out based on the current timing, so that only the current ones show here and the rest get pushed to an archive — which I'm yet to build. But the filter would look something like this in Notion:
+
+![](Screenshot_2021-09-12_at_11.05.42_AM.png)
+
+And for each of those entries, I'd go and setup the course home pages with the content that I have in my typical course homepages. The nice thing about Notion is the wide array of content types that lets you format things nicely. Here are a couple of sections from within Notion:
+
+![](Screenshot_2021-09-12_at_11.06.32_AM.png)
+
+![](Screenshot_2021-09-12_at_1.29.01_PM.png)
+
+One thing worth pointing out for this particular setup — for each course, the class plan is just a Notion database, where the columns are:
+
+1. Name (text)
+2. Week (single-select with 12 options; one for each week of the course)
+3. Module (a checkbox property)
+4. Description (text)
+
+and the rows either correspond to an overview of a whole week or just one individual lecture, tagged with the week that it happened in.
+
+On the course's homepage, I display this database set to a Gallery view, and filtered to only those entries where the Module option is *unchecked*. These are intended to be overview pages. This is what it looks like in Notion:
+
+![](Screenshot_2021-09-12_at_11.06.41_AM.png)
+
+and this is what it will end up looking like on the website, once you've gotten to the end of Step 3:
+
+![](Screenshot_2021-09-12_at_11.18.07_AM.png)
+
+Further, overview page simply displays the same database again, this time in a list view filtered by the appropriate week:
+
+![](Screenshot_2021-09-12_at_11.11.43_AM.png){width=77%}
+
+Check out the views in Notion and the rendered version side-by-side:
+
+:::: {.columns}
+::: {.column width="45%"}
+![](Screenshot_2021-09-12_at_11.08.34_AM.png)
+:::
+::: {.column width="10%"}
+:::
+::: {.column width="45%"}
+![](Screenshot_2021-09-12_at_11.19.08_AM.png)
+:::
+::::
+You might wonder about the blockquote in the Notion view right at the top of the page. That's a feature of the HQ template — anything that goes into that first blockquote renders as page navigation on top. I think this now a bit obsolete with Super's new features on navigation bars, but I still find it handy and use it on most pages. 👍
+
+So that's all of Step 1, getting all your content inside Notion. I'd say this is really the bulk of the process. The process is iterative, so you don't need literally *all* your content in before you can move on. However, getting an indicative amount thrown in is, I think, useful.
+
+Once you're done with this bit, up next:
+
+<aside>
+2️⃣ Enable sharing to the web from within Notion — this will generate a link for you.
+
+</aside>
+
+This is very easy to do, it's just a toggle on the top-right corner of your Notion app:
+
+![](Screenshot_2021-09-12_at_11.22.38_AM.png)
+
+Now for the final step to have everything come together:
+
+<aside>
+3️⃣ Copy this link into Super or Potion.
+
+</aside>
+
+This is again quite straightforward, head to Super and just share your page's public URL, give it a name, and optionally set it up to sync with your domain if you have one.
+
+![](Screenshot_2021-09-12_at_11.26.06_AM.png)
+
+Given that we're using a particular Super template, you would also need to remember to insert the CSS to make the site look as advertised above 😅
+
+So remember to add this on the custom code section of your Super dashboard:
+
+`<link rel="stylesheet" href="[https://sites.super.so/hq/style.css](https://sites.super.so/hq/style.css)">`
+
+If you do just this and are literally following along your site may still look a little different from mine, which is probably because I tweaked the CSS a bit to incorporate fonts of my liking (the fonts in the screenshot are from Google fonts — [Andika New Basic](https://fonts.google.com/specimen/Andika+New+Basic) and [Shadows into Light Two](https://fonts.google.com/specimen/Shadows+Into+Light+Two)).
+
+You might want to take care of some minor things at this stage, such as adding a favicon, a site description that will show up on Google searches, inserting any code you need to for analytics, and so forth.
+
+The very first time that you setup your site, you may need to wait for a bit for it to build and render. But after this first time, any edits you make on Notion are reflected automatically on your website — you may need to give it a minute or two, it's not instantaneous, but trust that the changes will show up. Clear your cache if they don't even after a couple of minutes.
+
+Super generates pretty URLs automatically for all your pages, but because of the slightly peculiar setup I have, involving a particular nested structure and filtered views, I've been doing my pretty URLs manually. For example, to go to the second module of Week 5 in the competitive programming course, the URL is:
+
+```python
+https://neeldhara.courses/competitive-programming/week-05/mod-02
+```
+
+This can be setup quite easily from inside the Super dashboard, and once it's done once, it's done for good.
+
+So, that's about it! I'd like to think I covered most major aspects, but if anything is unclear, ping me @neeldhara on Twitter and I'll be sure to update this appropriately 🙂
+
+### The Manim Examples Collection with Potion
+
+For the Potion example, I'd like to build out a quick page with latest tweets from @manim_community. Manim is a community-maintained Python library for creating mathematical animations, and the twitter handle pulls in a lot of great examples.
+
+:::{.callout-note collapse="true"}
+## Incidentally, if you prefer watching a video tutorial, Potion has you covered already...
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qhqEqh9shik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+So, for step 1, which is to get our content in Notion, I start with a blank slate and populate it with some content:
+
+![](Screenshot_2021-09-12_at_1.00.36_PM.png){width=87%`}
+
+![](Screenshot_2021-09-12_at_1.30.40_PM.png){width=87%`}
+
+For Step 2, I simply make this page public, and you can see the [Notion version here](https://www.notion.so/Manim-Examples-4e4dd0c1071e4a549d90be74a84f3cce).
+
+For Step 3, I add this page to Potion and just follow [step 4 on this page](https://www.potion.so/cards-portfolio) to set this up with a lovely template made by Dr. Gil Pradana (@[gildy](https://twitter.com/gildy)). This just amounts to copy-pasting some CSS code into the *Snippet Injection* section of your Potion dashboard. This template treats horizontal line breaks as breakpoints to create cards, and the headings translate into the highlight boxes that you can see from this preview.
+
+[https://twitter.com/gildy/status/1403680404092035075?s=20](https://twitter.com/gildy/status/1403680404092035075?s=20)
+
+After connecting my domain, here's what the website looks like this![](FireShot_Capture_002_-_Manim_Examples_-_manimexamples.com.png)
+
+And that's basically it! You have a fully functional page now. 🎉  Changes you make in Notion will reflect *instantaneously* on Potion!
+
+![](ScreenFlow.gif)
+
+You might wonder if there is a way of setting things up so that new tweets from the Manim community handle show up automatically on this website. In principle, this should be possible with a little help from tools like automate.io, Zapier, or Integromat — they can watch for new tweets and append them to the page you are working on, although I'm not sure how to set it up so that they respect the two-column layout that I have here. I figure tweets could also be added to a database and shown with a gallery view instead, but the gallery previews will typically not pick up embedded content, so you might have to go via an intermediate service like [Tweetpik](https://tweetpik.com/) or [Pikaso](https://pikaso.me/) instead so you have screenshots for display.
+
+So this was Potion - you can probably see the many ways in which Potion and Super are similar to setup. By the way, the templates on these platforms are *not* mutually compatible — so watch out for the fact that they will not automatically work on the other platform if you are looking to migrate. As far as I can see, neither service has an importer for the other built yet.
+
+That said, I hope you have fun making your website with Notion with whatever platform you choose to use! 🎉

@@ -1,0 +1,57 @@
+```{=html}
+<table class="quarto-listing-table table">
+    <tbody class="list">
+<% for (const item of items) { %>
+        <tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>
+        <td>
+        <% if (item.status == "ongoing") { %>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Ongoing"><i class="bi bi-lightning-fill"></i></span>
+        <% } %>
+        <% if (item.status == "alumni") { %>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Graduated"><i class="bi bi-mortarboard-fill"></i></span>
+        <% } %>
+        <% if (item.status == "graduated") { %>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Graduated"><i class="bi bi-mortarboard-fill"></i></span>
+        <% } %>
+        <% if (item.status == "completed") { %>
+            <span data-bs-toggle="tooltip" data-bs-placement="top" title="Completed"><i class="bi bi-check-circle-fill"></i></span>
+            <% } %>
+        </td>
+        <td class="latest">
+        <% if (item.latest) { %>
+            <span><i data-target="modal-<%= item.avatar %>" data-toggle="modal" class="bi bi-info-circle-fill"></i></span>            
+        <% } %>
+        </td>
+        <td class="listing-avatar">
+        <img src="images/<%= item.avatar %>.jpg" width="42px">
+        </td>
+        <td class="listing-name">
+        <%= item.name %>
+        </td>
+        <td class="listing-program">        
+        <%= item.program %>
+        </td>
+        <td class="pubs">
+            <% if (item.pubs) { %>
+                <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.pubs %>"><i class="bi bi-paperclip"></i></span>            
+            <% } %>
+        </td>
+        <td class="listing-topic">
+        <% if (item.topic) { %>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.topic %>"><i class="bi bi-file-text"></i></span>
+        <% } %>
+        </td>
+        <td class="cosup">
+        <% if (item.cosup) { %>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.cosup %>"><i class="bi bi-sticky"></i></span>
+        <% } %>
+    </td>
+    <td class="listing-tenure">
+        <%= item.tenure %>
+    </td>
+</tr>
+<% } %>
+</tbody>
+</table>
+
+```

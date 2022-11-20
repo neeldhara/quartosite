@@ -1,0 +1,58 @@
+```{=html}
+<table class="quarto-listing-table table">
+    <tbody class="list">
+    <% for (const item of items) { %>
+        <tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>
+        <td class="listing-date">
+            <%= item.date %>        
+        </td>
+        <td class="listing-title">
+            <a href="<%= item.path %>"><%= item.title %></a>     
+        </td>
+        <td>
+            <span style="display: none;" class="listing-categories">
+                <% for (const caty of item.categories) { %>
+                    <%= caty %> &nbsp;
+                <% } %>
+            </span>
+            <% for (const caty of item.categories) { %>
+
+
+                <% if(caty == "probability") { %>
+                <i class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= caty %>"></i>
+                <% } %>
+                <% if(caty == "chess") { %>
+                <i class="bi bi-grid-3x3" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= caty %>"></i>
+                <% } %>
+                <% if(caty == "logic") { %>
+                <i class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= caty %>"></i>
+                <% } %>
+                <% if(caty == "paper") { %>
+                <i class="bi bi-file" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= caty %>"></i>
+                <% } %>
+                <% if(caty == "folding") { %>
+                <i class="bi bi-file-earmark" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= caty %>"></i>
+                <% } %>
+                <% if(caty == "cutting") { %>
+                <i class="bi bi-scissors" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= caty %>"></i>
+                <% } %>
+                <% if(caty == "tiling") { %>
+                <i class="bi bi-columns" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= caty %>"></i>
+                <% } %>
+                <% if(caty == "graphs") { %>
+                <i class="bi bi-bounding-box-circles" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= caty %>"></i>
+                <% } %>
+                <% if(caty == "game") { %>
+                <i class="bi bi-joystick" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= caty %>"></i>
+                <% } %>
+                <% if(caty == "geometry") { %>
+                <i class="bi bi-circle-square" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= caty %>"></i>
+                <% } %>
+            <% } %>
+        </td>        
+</tr>
+<% } %>
+</tbody>
+</table>
+
+```

@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Neeldhara - ES242. Data Structures and Algorithms I. Week 02 Lab</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../../css/styles.css">
+<link rel="stylesheet" href="../../../css/teaching.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../../tgif.html">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../bookmarks.html">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../talks.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../events.html">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.neeldhra.online"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content page-columns page-full column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ES242. Data Structures and Algorithms I. Week 02 Lab</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="es242.-data-structures-and-algorithms-i." class="level2 column-body-outset">
+<h2 class="anchored" data-anchor-id="es242.-data-structures-and-algorithms-i.">ES242. Data Structures and Algorithms I.</h2>
+<section id="lab-quiz-2" class="level5">
+<h5 class="anchored">Lab Quiz 2</h5>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 1. Unity Project
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There are <code>n</code> people partaking in a project X. The <em>capability</em> value of the ith person is denoted as <code>C[i]</code>. The manager of the project has proposed the following algorithm to calculate the <em>capability of the group</em> (to undertake project X):</p>
+<p>On each turn, choose two people, x and y, with <em>capabilities</em> <code>C[x]</code> and <code>C[y]</code> respectively (with <code>C[x] &lt;= C[y]</code>). A <em>unity procedure</em> is followed:</p>
+<ol type="1">
+<li>If the two have same <em>capability</em> value, remove both.</li>
+<li>Else, person <code>x</code> is removed, and <em>capability</em> of person y changes to <code>C[y]-C[x]</code></li>
+</ol>
+<p>It is obvious that at the end at most one person shall remain. The <em>capability</em> value of the person is stated as the <em>capability value of the group</em>. If no person remains, <em>capability value of the group</em> is taken as <code>0</code>.</p>
+<p>You have the find the <strong>minimum possible</strong> capability value of the group.</p>
+<div class="callout-important callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Remark
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that the choice of people for the unite procedure directly affects the final capbility value.</p>
+</div>
+</div>
+<section id="input-format" class="level3">
+<h3 class="anchored" data-anchor-id="input-format">Input Format</h3>
+<p>The first line contains an integer <code>n</code>. <br> The next line contains <code>n</code> space-separated integers representing <code>C[]</code></p>
+</section>
+<section id="output-format" class="level3">
+<h3 class="anchored" data-anchor-id="output-format">Output Format</h3>
+<p>Return the minimum possible capability value of the group according to the mentioned algorithm</p>
+</section>
+<section id="sample-io" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io">Sample I/O</h3>
+<p><code>Sample Input 1</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>6</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>2 7 4 1 8 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output 1</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Input 2</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>10</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>1 3 5 4 6 13 10 9 8 15 16</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output 2</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 2. Connect the City
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Bangalore has <code>n</code> locations, and <code>m</code> bidirectional roads between them. The goal is to construct new roads so that there is a route between any two cities.</p>
+<p>Your task is to find out the minimum number of roads required.</p>
+<section id="input" class="level3">
+<h3 class="anchored" data-anchor-id="input">Input</h3>
+<p>The first input line has two integers <code>n</code> and <code>m</code>: the number of cities and roads. The cities are numbered <code>1,2,...,n</code>.</p>
+<p>After that, there are m lines describing the roads. Each line has two integers <code>a</code> and <code>b</code>: there is a road between those cities.</p>
+<p>A road always connects two different cities, and there is at most one road between any two cities.</p>
+</section>
+<section id="output" class="level3">
+<h3 class="anchored" data-anchor-id="output">Output</h3>
+<p>Print an integer <code>k</code>: the number of required roads.</p>
+</section>
+<section id="constraints" class="level3">
+<h3 class="anchored" data-anchor-id="constraints">Constraints</h3>
+<ul>
+<li><span class="math inline">1 \leq n \leq 10^5</span></li>
+<li><span class="math inline">1 \leq m \leq 2⋅10^5</span></li>
+<li><span class="math inline">1 \leq a,b \leq n</span></li>
+</ul>
+</section>
+<section id="sample-io-1" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io-1">Sample I/O</h3>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>4 2</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>1 2</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>3 4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 3. Spreading News
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>After all the dropouts, there are <code>n</code> people left in ES242. The class has students from across different batches and disciplines, so some people know each other while others do not.</p>
+<p>You want spread a rumor about whether ES242 will be repeated in the next semester. Students who are friends with each other will share any information they get. To get student <code>i</code> to start spread a rumor, you have to pay them in by buying <code>c[i]</code> samosas at Aadhya. Once someone is bribed, s/he tells it to all her/his friends, and they start spreading the rumor to their friends (for free), and so on.</p>
+<p>You want everyone to catch the rumor. What is the minimum number of samosas you need to buy?</p>
+<p>Take a look at the notes if you think you haven’t understood the problem completely.</p>
+<section id="input-1" class="level3">
+<h3 class="anchored" data-anchor-id="input-1">Input</h3>
+<p>The first line contains two integer numbers <code>n</code> and <code>m</code> (<span class="math inline">1 \leq n \leq 10^5, 0 \leq m \leq 10^5</span>) — the number of students in the class and the number of pairs of friends.</p>
+<p>The second line contains <code>n</code> integer numbers <code>c[i]</code> –— the amount of samosas i-th student asks to start spreading the rumor.</p>
+<p>Then m lines follow, each containing a pair of numbers (<code>x[i], y[i]</code>) which represent that characters <code>x[i]</code> and <code>y[i]</code> are friends <span class="math inline">(1 \leq x[i], y[i] \leq n, x[i] \neq y[i])</span>. It is guaranteed that each pair is listed at most once.</p>
+</section>
+<section id="output-1" class="level3">
+<h3 class="anchored" data-anchor-id="output-1">Output</h3>
+<p>Print one number — the minimum number of samosas you have to buy to spread the rumor fully.</p>
+</section>
+<section id="sample-io-2" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io-2">Sample I/O</h3>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>5 2</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>2 5 3 4 8</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>1 4</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>4 5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>10 0</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>1 2 3 4 5 6 7 8 9 10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>55</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note</p>
+<p>In the first example the best decision is to bribe the first student (he will spread the rumor to fourth student, and the fourth one will spread it to student). You also have to bribe the second and the third students, so they know the rumor.</p>
+</section>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 4. Predicting Possibility
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You are playing a decision making game where the output can be either <code>1</code> or <code>0</code>.</p>
+<p>Given a <code>N X N</code> matrix, the objective of the game is to predict if it’s possible to reach from a given source to a destination in less than or equal to <code>k</code> moves.</p>
+<p>Some constraints are as follows:</p>
+<ol type="1">
+<li><p>You can only move to adjacent positions in <code>1</code> move.</p></li>
+<li><p>You can only move diagonally across the matrix.</p></li>
+</ol>
+<p>Given the value of <code>n</code>, and the maximum moves <code>k</code>, determine if you can fulfill the requirement: can you reach from source to destination in less than <code>k</code> moves?</p>
+<section id="input-format-1" class="level3">
+<h3 class="anchored" data-anchor-id="input-format-1">Input Format</h3>
+<p>The first line contains an integer <code>n</code>.</p>
+<p>The second line contains an integer <code>k</code>, denoting the maximum number of moves you can make. <br></p>
+<p>The third line contains two space-separated integers, <code>i</code> and <code>j</code>. An entry <code>i j</code> denotes <code>i</code> as the x-coordinate and <code>j</code> as y-coordinate of the source location.</p>
+<p>The fourth line contains two space-separated integers, <code>m</code> and <code>n</code>. An entry <code>m n</code> denotes <code>m</code> as the x-coordinate and <code>n</code> as y-coordinate of the destination.</p>
+</section>
+<section id="output-format-1" class="level3">
+<h3 class="anchored" data-anchor-id="output-format-1">Output Format</h3>
+<p>Return <code>1</code> if you can reach from source to destination in less than <code>k</code> moves. Else, return <code>0</code>.</p>
+</section>
+<section id="sample-io-3" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io-3">Sample I/O</h3>
+<p><code>Sample Input 1</code></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>4</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>3</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>0 0</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>3 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output 1</code></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 5. Can You Register?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You are a student in a university U.</p>
+<p>You can only register in a certain program <strong>A</strong>, if the following condition is met:</p>
+<p>You have registered for all courses with the course IDs <code>[0,1... num_courses-1]</code></p>
+<p>If there exists at least one <code>i</code> in range <code>[0,1... num_courses-1]</code> for which you <em>cannot</em> register, then you <em>cannot</em> register from the program.</p>
+<p>Some constraints are as follows:</p>
+<ol type="1">
+<li><p>Some courses may have prerequisite courses. For example if <code>i</code> is a prerequisite of course ID <code>j</code>, then you must register for <code>i</code> <em>before</em> <code>j</code></p></li>
+<li><p>You can not repeat a course, you can only register for a course one.</p></li>
+</ol>
+<p>Given the value of <code>num_courses</code>, and the prerequisite requirements, determine if you can fulfill the requirement: can you register for <strong>A</strong> (can you register for <em>all</em> the courses in range <code>num_courses</code>)?</p>
+<section id="input-format-2" class="level2">
+<h2 class="anchored" data-anchor-id="input-format-2">Input Format</h2>
+<p>The first line contains an integer <code>num_courses</code>.</p>
+<p>The second line contains an integer <code>num_prerequisites</code>, denoting the number of prerequisites or conditions you have to fulfil.</p>
+<p>The next <code>num_prerequisites</code> lines contain 2 space-separated integers <code>i</code> and <code>j</code>. An entry <code>i j</code> denotes course <code>j</code> is a prerequisite for course <code>i</code>.</p>
+</section>
+<section id="output-format-2" class="level2">
+<h2 class="anchored" data-anchor-id="output-format-2">Output Format</h2>
+<p>Return <code>YES</code> if you can register for program <strong>A</strong>. Else, return <code>NO</code>.</p>
+<section id="sample-io-4" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io-4">Sample I/O</h3>
+<p><code>Sample Input 1</code></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>2</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>2</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>1 0</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>0 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output 1</code></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>NO</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+
+</main> <!-- /main -->
+<script src="https://cdn.usefathom.com/script.js" data-site="MAIKFVGD" defer=""></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/Musings">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a href="https://neeldhara.online" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

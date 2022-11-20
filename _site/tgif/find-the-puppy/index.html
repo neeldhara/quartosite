@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2021-03-14">
+
+<title>Neeldhara - Find The Puppy</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+<link rel="stylesheet" href="../../css/tgif.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif.html">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks.html">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events.html">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.neeldhra.online"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Find The Puppy</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">logic</div>
+    <div class="quarto-category">game</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 14, 2021</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout-tip callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Contributed by <a href="https://debanujnayak.github.io">Debanuj Nayak</a>.</p>
+</div>
+</div>
+</div>
+<p>There are 5 boxes with lids kept in a row.</p>
+<pre><code>[] [] [] [] []</code></pre>
+<p>Let’s call them B[1…5].</p>
+<p>There is a puppy P inside one of these boxes.</p>
+<p>Our goal is to find the puppy.</p>
+<pre><code>[?] [?] [?] [?] [?]</code></pre>
+<p>Every morning you get a chance to open any one of the boxes. If you find the puppy: great, congrats!</p>
+<p>If you don’t, tough luck, you have to wait again for the next day. Meanwhile, during the night, the Puppy will move to one of the neighbouring boxes.(can’t stay in same box). Eg:</p>
+<pre><code>[] [P] [] [] [] -&gt; [P] [] [] [] [] or [] [] [P] [] [].</code></pre>
+<ol type="1">
+<li>Does there exist protocols (ways of opening boxes) in which I can guarantee that I can catch the puppy in a finite time?</li>
+<li>If yes, what is the smallest number of days I have to wait to catch the puppy (Which is the best protocol?)</li>
+<li>How does this protocol work?</li>
+</ol>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Spoilers: based on our discussion in the second TGIF meetup.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Here’s a strategy that uses seven days (h/t: Harshil).</p>
+<p>Morning 1: Open Box 2. If it contains P, we are done. Otherwise, P is in one of Box 1,3,4 or 5.</p>
+<p>Morning 2: Open Box 2. If it contains P, we are done. Otherwise, P is in one of Box 3,4 or 5.</p>
+<p>Morning 3: Open Box 3. If it contains P, we are done. Otherwise, P is in one of Box 2,4 or 5.</p>
+<p>Morning 4: Open Box 4. If it contains P, we are done. Otherwise, P is in one of Box 1,3 or 5.</p>
+<p>Morning 5: Open Box 4. If it contains P, we are done. Otherwise, P is in Box 2.</p>
+<p>Morning 6: Open Box 3. If it contains P, we are done. Otherwise, P is in Box 1.</p>
+<p>Morning 7: Open Box 2. It definitely contains P.</p>
+<hr>
+<p>Here’s a strategy that uses six days (h/t: Debanuj):</p>
+<p>First Observation: The puppy P alternates between odd and even boxes</p>
+<p>Second Observation: The puppy P only has one possible choice to go to, if it is in Box 1 or Box n</p>
+<p>Let us assume that P is in an even box i.e.&nbsp;B[2] or B[4] on the first morning.</p>
+<p>Morning 1: Check B[2], if you find P, done. Otherwise, according to the assumption, P is in B[4]</p>
+<p>Night 1: P moves to B[3] or B[5]</p>
+<p>Morning 2: Check B[3], if you find P, done. Otherwise P is in B[5] according to initial assumption.</p>
+<p>Night 2: P moves to B[4], no other choice.</p>
+<p>Morning 3: Check B[4]. If assumption was true, then P must be in B[4]. If you find P, done. If you don’t find P, that means initial assumption was false.</p>
+<p>Thus on morning 1, P was in an odd box ⇒ on morning3 (today), P is again in an odd box. Which means tomorrow (morning 4), P must be in an even box.</p>
+<p>Night 3: P moves to B[2] or B[4]</p>
+<p>Morning 4: Now our assumption holds true that P is in an even box, and now you can repeat the procedure we followed on mornings 1,2,3 again on mornings 4,5,6 and we are guaranteed to catch P.</p>
+</div>
+</div>
+</div>
+<p>Unresolved questions:</p>
+<ol type="1">
+<li><p>Can we do this in five days? Or can we show that it’s impossible to come up with a protocol that uses only five days?</p></li>
+<li><p>What about six boxes? Or seven? Or n?</p></li>
+<li><p>If the moves are equiprobable and the initial choice is uniformly random, what is the expected number of moves executed by either of the strategies above?</p></li>
+<li><p>How much faster can we do this if we are allowed to open two boxes at once?</p></li>
+<li><p>Question from Bireswar: If the puppy is allowed to stay put, then there’s no protocol to find the puppy even in the trivial setting with two boxes. What if we are allowed to open more than one box? How many more boxes do we need to be able to open per day to catch a potentially non-moving puppy amongst five boxes?</p></li>
+</ol>
+
+
+
+</main> <!-- /main -->
+<script src="https://cdn.usefathom.com/script.js" data-site="MAIKFVGD" defer=""></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/Musings">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a href="https://neeldhara.online" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+    <p>&nbsp;</p>
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.webp" style="border-radius:25px;">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

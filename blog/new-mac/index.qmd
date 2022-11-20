@@ -1,0 +1,296 @@
+---
+title: "New Mac"
+date: "2021-09-30"
+categories: [apps, list]
+fields: [date, title]
+toc: true
+---
+
+Here's a list of 50 things[^1] (with occasional additional context) that I install whenever I'm setting up macOS from scratch.
+
+[^1]: NB. This list does not include fonts and scripts — that's for a separate round up in due course.
+
+:::{.callout-note collapse="true"}
+## via Setapp
+
+1. Bartender
+
+    Keeps the menubar clean. Very handy!
+
+2. Better Touch Tool
+
+    I really need to leverage this a lot more, but even simple actions like swipe down with three fingers to close a tab, or tip-tap right left to move between tabs is pretty awesome already. Also use four-finger double tap to make the mouse pointer larger when it's lost between screens... I'd guess this app can probably subsume a lot of the functionality offered by apps like Keyboard Maestro and Alfred.
+
+3. iStat Menus
+
+    Good-looking stats in the menubar 👍️
+
+4. Yoink
+
+    Has to be one of the best shelf apps out there. I know that there are a bunch of others in this space right now (👀, Filepane), however I have been using Yoink for so long that I haven't considered switching. My common use-cases:
+
+    - Alfred actions to send-to-Yoink
+    - Using Yoink to stash away screenshots before the floating image disappears
+    - A KM shortcut that can send any Finder item to Yoink
+5. CleanMyMac
+
+    Mostly to keep track of file sizes via the Space Lens.
+
+    Alternative if using only this feature: Daisy Disk
+
+6. Default Folder X
+
+    Use this all the time to stash away stuff where it belongs to keep Downloads clutter-free. Also the Alfred DFX collection is handy for finding recent items even if not 100% reliable.
+
+7. Timing
+
+    Use this to supplement manual time-tracking. Do not use it to its full potential at all, I think a little investment with setting up the right projects etc. can go a long way.
+
+8. Dropzone
+
+    I mostly use this as a longer-term stash than Yoink. I think there are some very nice possibilities here, but the only things I've done with it so far include:
+
+    - uploading images online
+    - opening a finder path in a terminal (superseded by an Alfred shortcut)
+    - dropping files in select locations
+    - URL shortening
+9. Permute
+
+    Handy for all kinds of (bulk) file conversions.
+
+10. Text Sniper
+
+    Impressive OCR "from anywhere".
+
+11. Swish
+
+    Intuitive gestures for window management. Pretty confident all this can be done in Better Touch Tool (above), but the actions are inspiring, and I'm lazy, so yeah, this is explicitly installed.
+
+12. Downie
+
+    Use this for downloading videos from Youtube for offline viewing/listening. Fairly robust.
+
+13. IconJar
+
+    Icon collection, enough said. 🎁
+
+14. Sip
+
+    Handy 🎨  color picker.
+
+15. World Clock Pro
+
+    Visually appealing world-clock, nice for scheduling stuff across timezones, great screensaver option as well.
+
+16. Dash
+
+    Documentation lookup, handy that it works inside VS Code (via an extension).
+
+17. MindNode
+
+    Lovely mindmaps.
+
+18. PDFPen
+
+    Although I mostly use Preview, PDFPen is useful for quickly rearranging and removing pages. Not sure about the several other features claimed, I find that it sadly crashes more often than not, so not my default application.
+
+19. TextSoap
+
+    Occasional use, but very useful when I do need it for some pesky hidden-unicode-character-removal exercise.
+
+20. MathKey
+
+    Niche app - on the rare occasion that I have a complicated LaTeX formula to write, I can write it in the iOS version of this app and receive it on the Mac (I don't think the desktop app is even necessary for this; the iOS purchase can be bypassed by using the Mac app via Sidecar, but this is where I discovered the app so it makes the list).
+
+21. Marked
+
+    Powerful previews for Markdown documents. Lots of interesting export features.
+
+22. ChronoSync Express
+
+    This helps with keeping certain folders in sync, and setting up some backup schedules. Nothing that can't be done with a few scripts (?) and/or Time Machine, but I did end up setting (and forgetting) a few things in here.
+:::
+
+
+:::{.callout-note collapse="true"}
+## General
+
+1. Notion
+
+    I'm (admittedly* experimentally) using Notion as my primary PKM tool, and it's also where I am keeping most of my public-facing content (including this blog). My usage of Notion is gradually expanding in scope to include time/task/finance tracking as well. Too slow.
+
+    *and also admittedly yet-again, after a fairly committed detour through Obsidian, Craft, and VSCode extensions for several months...
+
+2. Bibdesk
+
+    Fairly robust reference management that has most of what I need — priority features include speed, reliability, flexibility in generating citekeys and decent auto-filing of papers added to the database (popular free and paid alternatives that I've tried briefly: Zotero, Mendeley, Setne, Papers, Readcube, JabRef, Bookends).
+
+    Incidentally, if you are into Obsidian and Zotero, you might enjoy [this video](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi1paKtpqfzAhWKH7cAHXO2A_EQwqsBegQIDBAB&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DXbGJH08ZfCs&usg=AOvVaw2d18ZYU4nJEvB_CM-7-efu).
+
+3. MacTeX
+
+    LaTeX and related tools, including TeX-friendly IDEs and reference management tools.
+
+4. Xcode Tools, pandoc, and homebrew
+
+    Need these to work with code.
+
+5. Contexts
+
+    The app that I miss the first when on a machine that doesn't have it, next to Alfred. Makes window switching much more search and keyboard-driven.
+
+6. Alfred
+
+    Apart from using it as a launcher (even for files), I almost use Alfred as a Finder replacement. Here are some of my favorite Alfred workflows:
+
+    - Menubar Search
+    - Simple Folder Search (only search for folders)
+    - Case Switch (combined with send-text-to-Alfred below, this can be quite nifty)
+    - Symbols Search (unicode goodness)
+    - Send to Yoink
+    - Quit Applications
+    - Send text to Alfred (double-tap the option key)
+    - Color
+    - Currency Exchanges
+
+7. Keyboard Maestro
+
+    Really elaborate shortcut/automation app. I've only scratched the surface with my use cases, but one of the things I really dig about my setup is simulating keypress sequences.
+
+    The way I do this is to activate a macro group for one action with one keyboard shortcut (e.g, CMD + ;) and then have all macros within that have one-letter or one-letter + one-modifier triggers - basically *very easy triggers.* This way, I only have to remember a bunch of high-level shortcuts for things in various categories, and from there it's just a letter (and the same letter can be overloaded in different contexts).
+
+    As a concrete example, I have a macro group called launchers, and a shortcut within that for launching chrome. So something like CMD+L followed by c would launch Chrome. Although I have to confess that I mostly launch stuff through Alfred still (at the cost of one or two extra keystrokes).
+
+    Keypress-sequence-triggers are native to Better Touch Tool and since BTT supports AppleScript, you could also run KM macros from BTT. I haven't quite tried this yet.
+
+    More advice on this [here](https://wiki.keyboardmaestro.com/Frequently_Asked_Questions#How_do_I_use_a_multiple_keystroke_trigger).
+
+8. Typinator
+
+    Fast snippet expansion - faster than TextExpander (one of the main competitors in this space) in my experience. Recent updates have some rad features, which of course I'm yet to explore and exploit!
+
+9. 1Password
+
+    Reasonably user-friendly and robust password management. Syncs to iOS, but I haven't managed to leverage it so much on iOS. 1Password is ideal for storing confidential information nicely (IDs, bank stuff, and the like) - if used only for passwords I suppose the Keychain does a good job too.
+
+10. Fantastical and Calendar
+
+    Fantastical is a nice (but expensive!) calendar app, mostly use it because of the calendar sets feature that keeps my [time blocking calendars](https://www.macsparky.com/blog/2018/2/hyper-scheduling-mechanics) separate from the official one that is public within the organization. Of late, I especially like the way you can join online meetings from the notifications.
+
+    ~~Having said that, I realized that much of what I was doing with Fantastical was overkill and I've switched to the default calendar app for now, and it's one paid subscription less[^2] to have.~~
+
+    Ok so I am back on Fantastical, because I am kind of
+
+    [^2]: I have nothing against paid subscriptions for software in general, but Fantastical's pricing for the feature set does seem to have an unclear cost-benefit tradeoff, at least for users like me. I haven't missed much since moving on.
+
+11. VS Code
+
+    This is where I am supposed to be spending most of my time, perhaps next only to Craft/Notion. A few things from my VSCode workflow:
+
+    - Use different themes for different file types (I mostly dabble in LaTeX, C++, Python, JavaScript, and Markdown)
+    - Little utility extensions save a lot of time: e.g, sort lines, increment value at cursor, file management, etc.
+    - Multicursor-powered find and replace is amazing.
+    - Workspaces are handy and I usually launch them from Alfred.
+12. Hook
+
+    Looks very promising for cross-linking stuff across apps that have a common context (say, a project). I really need to explore this more!
+
+13. Stream Deck (best with accompanying hardware)
+
+    Particularly useful for switching OBS scenes although I use it less than I thought I would!
+
+    In particular, I want to explore their VSCode and KM integrations.
+
+    If without the physical device, Streamdeck does have a nice iOS app that simulates the hardware, but the pricing is based on a subscription model.
+
+14. Google Chrome
+
+    I can't make up my mind between Chrome/FF/Brave/Safari. I mostly switch between Chrome and Safari, with a mild preference for Chrome because of it's more comprehensive extensions space, but I often end up with Safari as default for speed and privacy.
+
+15. Readkit
+
+    Use this for RSS, although I’ve mostly migrated away to DEVONthink. Still looking for a nice stand-alone RSS reader though, Readkit doesn't always render everything the way I expect, sadly.
+
+16. OBS
+
+    For recording and live-streaming videos. Also useful as a virtual camera for meeting apps.
+
+17. Screenflow and Camtasia
+
+    For recording videos, lots of features, still finding my way around them.
+
+18. Slack and Discord
+
+    Online communities. I sometimes wish there was a native app for discourse too (is there?)
+
+19. Keynote
+
+    Presentations - main alternative: Beamer + LaTeX + pgf/TikZ; or one of the JS-based slide generator tools from Markdown files (I did use react.js for one entire term).
+
+20. DEVONthink
+
+    Use this fairly minimally (especially relative to the possibilities). At the moment DT indexes a couple of key finder folders and pulls in information from a lot of RSS feeds and even Twitter accounts. I try to review the stuff that automatically piles up in DT regularly, but — at the moment — it's mostly a dumping ground and... messy.
+
+21. Microsoft Teams, Skype, and Zoom
+
+    Use this for classes and online meetings.
+
+22. Office suite: Word/Powerpoint/Excel
+
+    Use it only to open files I receive.
+
+23. Fruitjuice
+
+    Useful battery health monitoring, discovered the app from a MPU podcast episode IIRC.
+
+24. Mathsnip
+
+    Surprisingly good LaTeX-aware OCR.
+:::
+
+
+:::{.callout-note collapse="true"}
+## Webapps
+1. YNAB
+
+    Budgeting and finance management.
+
+2. Gmail
+
+    Until I setup Mailmate again, I'm checking email in my browser. 🙈
+
+3. GSuite (Docs, Sheets, Slides, and Calendar)
+
+    I use these when others use them.
+
+4. Zapier, IFTTT, Integromat
+
+    A few automations here and there, still on my bucket list to take full advantage here. Integromat has been great for [tracking Exportober](https://www.notion.so/Tracking-Exportober-2416e14ae9254bc0b97532f73058b1bb) contributions, incidentally!
+:::
+
+
+:::{.callout-note collapse="true"}
+## Omissions
+
+(aka stuff I used to use but don’t use as much now.)
+
+1. Karabiner Elements. I was quite taken in by the possibilities offered by [“God Mode”](https://medium.com/@nikitavoloboev/karabiner-god-mode-7407a5ddc8f6), but I realised that I prefer sequential shortcuts - like the ones I managed to setup in KM - to ones powered by arbitrary combinations of simultaneous keypresses.
+
+2. Mailmate. Will very likely be back in the workflow soon!
+
+3. Things. Retired when I switched to “Notion for Everything”. That said, Things is absolutely awesome!
+
+4. Ulyssess. Replaced by Notion → Craft → Obsidian → Notion.
+
+5. Bear. Replaced by Notion → Craft → Obsidian → Notion.
+
+6. Sublime Text. Replaced by VSCode.
+
+7. 2Do. Replaced by Things a long time ago, but a really nice app!
+
+8. Shift. Combines many windows in one, basically. Not sure if it was sufficiently useful, living without it and not missing it much.
+
+9. IM+. Similar to Shift in scope, although this one is available on Setapp.
+:::
+
+What’s on your list? Do share in the comments below!

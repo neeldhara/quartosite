@@ -1,0 +1,281 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: ES242. Data Structures and Algorithms I. Week 02 Lab
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### Lab Quiz 2 
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 1. Unity Project
+
+There are `n` people partaking in a project X. The _capability_ value of the ith person is denoted as `C[i]`. The manager of the project has proposed the following algorithm to calculate the _capability of the group_ (to undertake project X): 
+
+On each turn, choose two people, x and y, with _capabilities_ `C[x]` and `C[y]` respectively (with `C[x] <= C[y]`). 
+A _unity procedure_ is followed:
+
+1. If the two have same _capability_ value, remove both.
+2. Else, person `x` is removed, and _capability_ of person y changes to `C[y]-C[x]`
+
+It is obvious that at the end at most one person shall remain. The _capability_ value of the person is stated as the _capability value of the group_. If no person remains, _capability value of the group_ is taken as `0`.
+
+
+You have the find the **minimum possible** capability value of the group.
+
+:::{.callout-important appearance="simple" icon="false"}
+# Remark
+
+Note that the choice of people for the unite procedure directly affects the final capbility value.
+:::
+
+### Input Format
+The first line contains an integer `n`. <br>
+The next line contains `n` space-separated integers representing `C[]`
+
+### Output Format
+Return the minimum possible capability value of the group according to the mentioned algorithm
+
+
+### Sample I/O
+
+`Sample Input 1`
+
+```default
+6
+2 7 4 1 8 1
+```
+
+`Sample Output 1`
+
+```default
+1
+```
+
+`Sample Input 2`
+```default
+10
+1 3 5 4 6 13 10 9 8 15 16
+```
+
+`Sample Output 2`
+```default
+0
+```
+  
+
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 2. Connect the City
+
+Bangalore has `n` locations, and `m` bidirectional roads between them. The goal is to construct new roads so that there is a route between any two cities.
+
+Your task is to find out the minimum number of roads required.
+
+### Input
+
+The first input line has two integers `n` and `m`: the number of cities and roads. The cities are numbered `1,2,...,n`.
+
+After that, there are m lines describing the roads. Each line has two integers `a` and `b`: there is a road between those cities.
+
+A road always connects two different cities, and there is at most one road between any two cities.
+
+### Output
+
+Print an integer `k`: the number of required roads.
+
+
+### Constraints
+
+- $1 \leq n \leq 10^5$
+- $1 \leq m \leq 2⋅10^5$
+- $1 \leq a,b \leq n$
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+4 2
+1 2
+3 4
+```
+
+`Sample Output`
+
+```default
+1
+```
+
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 3. Spreading News
+
+After all the dropouts, there are `n` people left in ES242. The class has students from across different batches and disciplines, so some people know each other while others do not.
+
+You want spread a rumor about whether ES242 will be repeated in the next semester. Students who are friends with each other will share any information they get. To get student `i` to start spread a rumor, you have to pay them in by buying `c[i]` samosas at Aadhya. Once someone is bribed, s/he tells it to all her/his friends, and they start spreading the rumor to their friends (for free), and so on.
+
+You want everyone to catch the rumor. What is the minimum number of samosas you need to buy?
+
+Take a look at the notes if you think you haven't understood the problem completely.
+
+### Input
+
+The first line contains two integer numbers `n` and `m` ($1 \leq n \leq 10^5, 0 \leq m \leq 10^5$) — the number of students in the class and the number of pairs of friends.
+
+The second line contains `n` integer numbers `c[i]` --— the amount of samosas i-th student asks to start spreading the rumor.
+
+Then m lines follow, each containing a pair of numbers (`x[i], y[i]`) which represent that characters `x[i]` and `y[i]` are friends $(1 \leq x[i], y[i] \leq n, x[i] \neq y[i])$. It is guaranteed that each pair is listed at most once.
+
+### Output
+
+Print one number — the minimum number of samosas you have to buy to spread the rumor fully.
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+5 2
+2 5 3 4 8
+1 4
+4 5
+```
+
+`Sample Output`
+
+```default
+10
+```
+
+`Sample Input`
+
+```default
+10 0
+1 2 3 4 5 6 7 8 9 10
+```
+
+`Sample Output`
+
+```default
+55
+```
+
+Note
+
+In the first example the best decision is to bribe the first student (he will spread the rumor to fourth student, and the fourth one will spread it to student). You also have to bribe the second and the third students, so they know the rumor.
+
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 4. Predicting Possibility
+
+You are playing a decision making game where the output can be either `1` or `0`.
+
+Given a `N X N` matrix, the objective of the game is to predict if it's possible to reach from a given source to a destination in less than or equal to `k` moves.
+
+Some constraints are as follows:
+
+1. You can only move to adjacent positions in `1` move.
+
+2. You can only move diagonally across the matrix. 
+
+Given the value of `n`, and the maximum moves `k`, determine if you can fulfill the requirement: can you reach from source to destination in less than `k` moves?
+
+### Input Format
+
+The first line contains an integer `n`. 
+
+The second line contains an integer `k`, denoting the maximum number of moves you can make. <br>
+
+The third line contains two space-separated integers, `i` and `j`. An entry `i j` denotes `i` as the x-coordinate and `j` as y-coordinate of the source location.
+
+The fourth line contains two space-separated integers, `m` and `n`. An entry `m n` denotes `m` as the x-coordinate and `n` as y-coordinate of the destination.
+
+### Output Format
+Return `1` if you can reach from source to destination in less than `k` moves. Else, return `0`.
+
+
+### Sample I/O
+
+`Sample Input 1`
+
+```default
+4
+3
+0 0
+3 1
+```
+
+`Sample Output 1`
+
+```default
+1
+```
+
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 5. Can You Register?
+
+You are a student in a university U. 
+
+You can only register in a certain program **A**, if the following condition is met:
+
+You have registered for all courses with the course IDs `[0,1... num_courses-1]`
+
+If there exists at least one `i` in range `[0,1... num_courses-1]` for which you _cannot_ register, then you _cannot_ register from the program.
+
+Some constraints are as follows:
+
+1. Some courses may have prerequisite courses. For example if `i` is a prerequisite of course ID `j`, then you must register for `i` _before_ `j`
+
+2. You can not repeat a course, you can only register for a course one.
+
+Given the value of `num_courses`, and the prerequisite requirements, determine if you can fulfill the requirement: can you register for **A** (can you register for _all_ the courses in range `num_courses`)?
+
+## Input Format
+
+The first line contains an integer `num_courses`. 
+
+The second line contains an integer `num_prerequisites`, denoting the number of prerequisites or conditions you have to fulfil. 
+
+The next `num_prerequisites` lines contain 2 space-separated integers `i` and `j`. An entry `i j` denotes course `j` is a prerequisite for course `i`.
+
+## Output Format
+
+Return `YES` if you can register for program **A**. Else, return `NO`.
+
+### Sample I/O
+
+`Sample Input 1`
+
+```default
+2
+2
+1 0
+0 1
+```
+
+`Sample Output 1`
+```default
+NO
+```
+  
+:::
+
+
+
+:::

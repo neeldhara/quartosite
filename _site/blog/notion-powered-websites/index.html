@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2021-09-11">
+
+<title>Neeldhara - Notion-powered websites</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif.html">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks.html">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events.html">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.neeldhra.online"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Notion-powered websites</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">notion</div>
+                <div class="quarto-category">workflows</div>
+                <div class="quarto-category">websites</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 11, 2021</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#just-use-notion" id="toc-just-use-notion" class="nav-link active" data-scroll-target="#just-use-notion">Just Use Notion</a></li>
+  <li><a href="#fruition-and-cloudflare-workers" id="toc-fruition-and-cloudflare-workers" class="nav-link" data-scroll-target="#fruition-and-cloudflare-workers">Fruition and Cloudflare Workers</a></li>
+  <li><a href="#nextjs-notion-starter-kit-and-react-notion-x" id="toc-nextjs-notion-starter-kit-and-react-notion-x" class="nav-link" data-scroll-target="#nextjs-notion-starter-kit-and-react-notion-x">nextjs-notion-starter-kit and react-notion-x</a></li>
+  <li><a href="#super" id="toc-super" class="nav-link" data-scroll-target="#super">Super</a></li>
+  <li><a href="#potion" id="toc-potion" class="nav-link" data-scroll-target="#potion">Potion</a></li>
+  <li><a href="#potion-vs-super" id="toc-potion-vs-super" class="nav-link" data-scroll-target="#potion-vs-super">Potion v/s Super</a></li>
+  <li><a href="#should-you-use-notion-for-your-website-at-all" id="toc-should-you-use-notion-for-your-website-at-all" class="nav-link" data-scroll-target="#should-you-use-notion-for-your-website-at-all">Should you use Notion for your website at all?</a></li>
+  <li><a href="#other-ways-of-getting-a-website-out-of-notion" id="toc-other-ways-of-getting-a-website-out-of-notion" class="nav-link" data-scroll-target="#other-ways-of-getting-a-website-out-of-notion">Other ways of getting a website out of Notion?</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full column-body" id="quarto-document-content">
+
+
+
+
+<p>Given that I have been spending most of my time in <a href="https://www.notion.so">Notion</a> of late, it made sense to wonder if I could use Notion, directly or otherwise, for whenever I have a need to put something up on a public website — e.g, course pages, event websites, and the like. It should go without saying that there are now a gazillion ways of putting a website together — ranging from Wordpress to modern frameworks that have made good old static sites cool again (I’m looking at you, <a href="https://jamstack.org/generators/">SSGs</a> on the <a href="https://jamstack.org">JAMstack</a>), and a whole bunch of things in between. All of this is <em>way</em> out of scope of this discussion, which is really limited to exploring the most reasonable ways of turning your Notion content into a website and is largely in the spirit of a <a href="https://en.wikipedia.org/wiki/No-code_development_platform">no-code setup</a>.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+It’s almost like there’s something missing between static HTML and full JavaScript software.
+</p>
+— Wes Souza 🏳️‍🌈⬣ (<span class="citation" data-cites="__WesSouza">@__WesSouza</span>) <a href="https://twitter.com/__WesSouza/status/1433096081945018381?ref_src=twsrc%5Etfw">September 1, 2021</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+Yeah, it feels like we are now at a point where it’s easier to make complex websites but somehow oddly harder to make the simple ones!
+</p>
+— Neeldhara (<span class="citation" data-cites="neeldhara">@neeldhara</span>) <a href="https://twitter.com/neeldhara/status/1433098222189248516?ref_src=twsrc%5Etfw">September 1, 2021</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div>
+<aside>
+💡 Most options here ultimately amount to SSGs in the background, but with varying levels of exposure to what’s happening at the low-level.
+</aside>
+<div class="page-columns page-full"><p>There are a few different options out there if you are interested in this as well, and here’s a handwritten TLDR-summary<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> if you find the rest of this little discussion too long:</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;TIL that this style of summarization is also called a <a href="https://en.wikipedia.org/wiki/Decision-matrix_method">Pugh chart</a>, thanks to <a href="https://www.youtube.com/channel/UC1S5O9BP9_46GS5t1t2Uksg/about">Justin Lai.</a></p></li></div></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="NotionWebsiteOptions.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Notion Website Options Compared</figcaption><p></p>
+</figure>
+</div>
+<hr>
+<p>Now for the more detailed run-down:</p>
+<section id="just-use-notion" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="just-use-notion">Just Use Notion</h3>
+<p>The official <a href="https://www.notion.so/guides/build-a-website-with-notion-in-seconds-no-coding-required">Notion documentation</a> shows us how to build nice websites with Notion:</p>
+<p><img src="Screenshot_2021-09-11_at_2.57.18_AM.png" class="img-fluid"></p>
+<p>This is a great option for putting together something quick and temporary or for testing something out. It can be free (if you are on the Notion free plan) and/or will cost you nothing <em>on top of</em> what you might be paying for already if you are paying Notion user.</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+"What's the link to your site?"<br><br>"Oh it's acmedesign dot notion dot site slash dd5a6abe47444a53b7170afd67942d77"<br><br>🙅🏾‍♂️🙅🏼🙅🏻‍♀️<br><br>Now for folks with paid plans, you can set a public home page like <a href="https://t.co/tf1bBQcNJy">https://t.co/tf1bBQcNJy</a>! <a href="https://t.co/LFWYQtgloq">pic.twitter.com/LFWYQtgloq</a>
+</p>
+— Notion (<span class="citation" data-cites="NotionHQ">@NotionHQ</span>) <a href="https://twitter.com/NotionHQ/status/1440402077201494028?ref_src=twsrc%5Etfw">September 21, 2021</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<aside>
+<p>💡 If you have a more serious use-case, however, and are concerned about things like performance, SEO, custom domains, and such, and want to exercise more control over the look and feel of your site, you probably want to move beyond what you can get with xyz.notion.site. Still, a great option — involving no extra costs and right out of the box — and I’d imagine this covers a number of use-cases! 👍</p>
+</aside>
+</section>
+<section id="fruition-and-cloudflare-workers" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="fruition-and-cloudflare-workers">Fruition and Cloudflare Workers</h3>
+<p>A popular way to get your domain to point to your Notion setup and customize the look and feel of the final setup just a little bit is via Fruition:</p>
+<p><img src="Screenshot_2021-09-11_at_2.55.59_AM.png" class="img-fluid"></p>
+<p>As mentioned on the website already, one downside is the setup time — but I don’t think this is a very serious drawback at all, it’s a one-time exercise and not very difficult at all given the very clear instructions given on the website. However, I think there is a more significant concern with this option, which was highlighted by @<a href="https://twitter.com/bensomething">bensomething</a> in this Tweet thread:</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+Perhaps a good example of why you should avoid custom domain solutions for Notion that use those damn Cloudflare worker scripts. But hey, super excited for my new startup (fartup?) to be featured on the Founded by Monzonauts website! <a href="https://twitter.com/monzo?ref_src=twsrc%5Etfw"><span class="citation" data-cites="monzo">@monzo</span></a> <a href="https://twitter.com/hugocornejo?ref_src=twsrc%5Etfw"><span class="citation" data-cites="hugocornejo">@hugocornejo</span></a> <a href="https://t.co/0FH916uvd2">https://t.co/0FH916uvd2</a>
+</p>
+— Ben Smith (<span class="citation" data-cites="bensomething">@bensomething</span>) <a href="https://twitter.com/bensomething/status/1354040148074377218?ref_src=twsrc%5Etfw">January 26, 2021</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>You could have a (potentially <em>your</em>) Fruition site intercepted with random content, <a href="https://fruitionsite.com/d291bca5556e4696b96911fb1f39efde">as is the case here</a>. As Ben points out, it’s much safer to convert your Notion content into a static site:</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+Anything that converts your Notion pages to static versions is fine! It definitely seems like Super's leading the pack, but I'd say a substantial number of people are still using something like Fruition.
+</p>
+— Ben Smith (<span class="citation" data-cites="bensomething">@bensomething</span>) <a href="https://twitter.com/bensomething/status/1354145612929921025?ref_src=twsrc%5Etfw">January 26, 2021</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<aside>
+💡 To summarize what we have with Fruition: it’s probably <em>okay</em> for a small test setup, and it’s a cool experiment — largely free (you might hit up Cloudflare’s limits eventually and be prompted to upgrade) and not much work to setup — but I’d be wary of using it in production for any non-trivial project.
+</aside>
+<p>…and so we’re going to explore a few ways of doing that now.</p>
+</section>
+<section id="nextjs-notion-starter-kit-and-react-notion-x" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="nextjs-notion-starter-kit-and-react-notion-x">nextjs-notion-starter-kit and react-notion-x</h3>
+<p>The <code>nextjs-notion-starterkit</code> is a NextJS template built by @<a href="https://twitter.com/transitive_bs">transitive_bs</a>, which is <a href="https://transitivebullsh.it">in active use here</a>:</p>
+<p><img src="Screenshot_2021-09-11_at_3.11.05_AM.png" class="img-fluid"></p>
+<p>You can check out <a href="https://github.com/transitive-bullshit/nextjs-notion-starter-kit">the repository here</a>. If you are feeling even braver, you might even want to explore what powers this under the hood, which is the <code>react-notion-x</code> repository <a href="https://github.com/NotionX/react-notion-x">here</a>:</p>
+<p><img src="Screenshot_2021-09-11_at_3.09.44_AM.png" class="img-fluid"></p>
+<aside>
+💡 Using <code>nextjs-notion-starterkit</code> is definitely a whole lot safer than Fruition, but it’s also clearly a whole lot more intensive in terms of setup! This option is great in terms of being free and highly customizable, but is best-suited to those who are already familiar with Next.js and who generally know what they are doing. So if the readme pages on those repositories did not make much sense, it’s probably best to either get some help on the initial setup or move on to more user-friendly, truly <em>no-code</em> options. That’s what we have up next!
+</aside>
+<p><code>react-notion-x</code> — from a safe distance as far as I am concerned — appears to be very well-documented and actively maintained. The documentation speaks of hosting on <a href="https://vercel.com">Vercel</a>, and my guess is that hosting on <a href="https://www.netlify.com">Netlify</a> should also be possible. Both of these options have generous free tiers, so this could potentially be a no-cost option, although it’s far from being a true no-code option, at least for the initial setup!</p>
+<p>Interestingly, <code>react-notion-x</code> appears to be supported by <a href="https://super.so">Super</a>, and from a quick glance at the source code, it seems like both Super and <a href="https://www.potion.so">Potion</a> (which are the last two options that we’ll be getting to) generate static sites using the Next.js framework… chances are that what is in these repositories is suggestive of at least a part of what’s going on behind-the-scenes with Super and Potion.</p>
+<p>My understanding from exchanges with support at both Super and Potion is that there are differences in the implementation details — there are definitely visible differences that indicate this too, and apparently Super is more closely-knit into the Notion API, but I am not sure what to make of that just yet… it possibly makes their implementation a little less vulnerable to being broken by updates at Notion’s end, but I don’t know enough to say this for sure.</p>
+</section>
+<section id="super" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="super">Super</h3>
+<p><a href="https://super.so">Super</a> (on <a href="https://www.producthunt.com/blog/super-2-0">ProductHunt</a>), built by @<a href="https://twitter.com/traf">Traf</a> and @<a href="https://twitter.com/TrillCyborg">TrillCyborg</a> (Jason Werner) appears to be one of the leading options in terms of a no-code way of porting a Notion page to a website. This will set you back $12/site/month; but you get a substantial feature set in return:</p>
+<p><img src="Screenshot_2021-09-11_at_3.47.15_AM.png" class="img-fluid"></p>
+<p>I should point out that some Super templates are premium and will cost separately, but there are some really nice free ones that you can run with right away. <a href="https://hq.super.site">One that I really liked</a> happens to be free and is in use on the <a href="https://neeldhara.courses">website I have for my courses</a>. I had a completely painless setup experience and very responsive support on the minor things that I did get stuck on (h/t: @<a href="https://twitter.com/camincoll">camincoll</a>).</p>
+<p>Sites made with Super are performant, SEO-friendly, and fairly customizable. There are only two minor snags I ran into with Super: one is that updates on Notion take some time to reflect on the website (typically a minute or so — this is no big deal in general, but it’s just not real-time, and can feel slow while in testing and development). The other is that their terms of service seem a bit unusually restrictive — for instance, see the discussion initiated by @<a href="https://twitter.com/kulikalov">kulikalov</a> here:</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+That's a shaky foundation to work with <a href="https://twitter.com/super_?ref_src=twsrc%5Etfw"><span class="citation" data-cites="super_">@super_</span></a> 😐 <a href="https://t.co/yYQYuGZk3u">pic.twitter.com/yYQYuGZk3u</a>
+</p>
+— Anton Kulikalov 🇺🇦 (<span class="citation" data-cites="kulikalov">@kulikalov</span>) <a href="https://twitter.com/kulikalov/status/1431144115320860672?ref_src=twsrc%5Etfw">August 27, 2021</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<aside>
+💡 At $12/site/month Super is the most expensive option on this list, but if the combination of performance and convenience is what you are looking for, you might find that it is totally worth it.
+</aside>
+<p>From Super’s responses in this conversation, I am optimistic that the ToS will change for the better. From my direct experience, my instinct is that there isn’t really anything to worry about here, but if you are someone who cares about the fine print, this is an aspect you might want to be aware of.</p>
+</section>
+<section id="potion" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="potion">Potion</h3>
+<p>Finally, we have <a href="https://www.potion.so">Potion</a> (on <a href="https://www.producthunt.com/blog/potion-2">ProductHunt</a>), made by @<a href="https://twitter.com/noahwbragg">noahwbragg</a> (Noah Bragg), which is yet another way of getting a static site out of your Notion content in a fairly straightforward way:</p>
+<p><img src="Screenshot_2021-09-11_at_4.09.58_AM.png" class="img-fluid"></p>
+<aside>
+💡 While oversimplified, it is tempting to summarize Potion’s offering as “Super, but cheaper”. See the next section for a more detailed discussion of differences and similarities between the two. Overall, Potion has a very similar feature set and is slightly more affordable in comparison — definitely worth checking out the same way that Super is.
+</aside>
+<p>The pricing is a bit different from Super — it can cost you as little as $6.25/site/month on their 8-sites plan, which will set you back $50/month, and the other two possibilities are $10/month for one site or $25/month for three.</p>
+<p>In terms of what it does, it feels rather similar to Super, but as I mentioned earlier, I think there are differences in the actual implementation. In particular, one difference that is conspicuous is the way Potion renders changes — much like what happens with Notion’s own public pages, the rendering of changes with Potion happens practically in real-time. This is very helpful, especially when you are working on quick edits, or are testing things out.</p>
+<p>Many other features are at par with Super: the sites created by Potion appear to be equally performant and SEO-friendly; and sites on Potion are customizable in almost the same ways.</p>
+<p>This page (and the whole blog) is rendered with Potion. Like Super, setup was largely frictionless and I had prompt help whenever I needed it. Potion also has a bunch of templates that work out of the box — a couple of which are premium — but the vast majority of them are available for free and already there are some fairly nice options.</p>
+</section>
+<section id="potion-vs-super" class="level3">
+<h3 class="anchored" data-anchor-id="potion-vs-super">Potion v/s Super</h3>
+<p>Given the similarities between Potion and Super, I felt it was worth having a separate discussion comparing the two, and I felt like I could do a brief take on this given that I’ve spent a fair amount of time trying out both and being conflicted about which one to go with! As you can probably tell if you read this far, I could not positively conclude one way or the other, so my setups are split between the two at the moment, and it’ll probably stay this way for a while now 😀</p>
+<p>Back to the comparison — there are a few differences on the minor features, here are a couple of examples off the top of my head:</p>
+<ol type="1">
+<li><p>Super allows password protection on individual pages, on Potion it’s all-or-none (at least at the time of this writing).</p></li>
+<li><p>Potion automatically generates preview images based on titles — this is what shows up when you share a link on, say, Twitter or Discord or WhatsApp. It does this automatically for <em>all</em> pages, even ones within databases.</p></li>
+<li><p>I could not get jquery to work in Potion (from trying very briefly), but it worked out fine on Super.</p></li>
+<li><p>Super has a community forum and an arguably restrictive ToS. Potion has neither at the time of this writing.</p></li>
+<li><p>Potion’s dashboard has a live preview editor which lets you make simple changes to the CSS and preview them real-time — this may not be something you use often if you have made sophisticated customizations, but for quick edits to the default templates, it’s very handy:</p></li>
+</ol>
+<p><img src="Screenshot_2021-09-11_at_10.49.30_AM.png" class="img-fluid"></p>
+<p>Super has a great dashboard too, there’s a page-by-page breakup on the sidebar and a live preview of the site to the right, which shows up even when the individual pages are password-protected (by design):</p>
+<p><img src="Screenshot_2021-09-11_at_10.48.54_AM.png" class="img-fluid"></p>
+<ol start="6" type="1">
+<li><p>In terms of custom code, a small difference is that Super allows you to insert your own content inside <em>both</em> the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> tags while Potion is restricted to just the <code>&lt;head&gt;</code> tag. That said, additional possibilities for custom code injection are on Potion’s roadmap.</p></li>
+<li><p>There are differences of implementation under the hood, but I am not aware of the exact details here. Super uses the Notion API and a Content Delivery Network (CDN) - this explains why changes take 1-2 mins to flow through from Notion in Super automatically, but what it does get you is reliable performance at scale. Potion uses Vercel for hosting and generates static sites that feel fast and robust, and also uses a CDN.</p></li>
+</ol>
+<p>Here are some of the things that I think work out rather similarly on both platforms:</p>
+<ol type="1">
+<li><p>Accessible and very friendly support 🤩</p></li>
+<li><p>Convenient to setup and use.</p></li>
+<li><p>SEO, pretty URLs, custom domains, pretty-URLs, and mostly performant websites.</p></li>
+<li><p>Customized output thanks to the ability to insert your own scripts and CSS.</p></li>
+<li><p>Promising roadmaps on both with exciting features on the way 🎉</p></li>
+<li><p>Both options seem generally reliable - I have been monitoring my websites using <a href="https://usefathom.com">Fathom</a> and I’ve had a few downtimes reported here and there from both platforms. There was nothing that lasted more than a few minutes at a time. Because both Super and Potion use a CDN, it turns out that even if these services go down, hopefully the sites will still be served as usual.</p></li>
+<li><p>You will find that both have great feedback on ProductHunt (and possibly other platforms too, but PH is the one I’m familiar with).</p></li>
+</ol>
+</section>
+<section id="should-you-use-notion-for-your-website-at-all" class="level3">
+<h3 class="anchored" data-anchor-id="should-you-use-notion-for-your-website-at-all">Should you use Notion for your website at all?</h3>
+<p>Well. In general, if future-proofness is crazy important to you, and you want complete control over how your website renders down to the last pixel — then you might want to consider looking beyond Notion.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Indeed, these are early days, in some sense <em>even</em> for Notion, and much more so for all the options listed here. A few ways of turning Notion content into websites have come-and-gone, and that, I think, is in the nature of this kind of a setup.</p>
+<p>At the moment, all options here other than the native Notion setup will have some obligation to keeping up with changes from the Notion side. I think most options are doing great on this front — as a recent example that comes to mind, globally synced blocks were supported shortly on all platforms after release (you do have to make sure that the pages on which such blocks originate have public access permissions).</p>
+<p>I am definitely keeping my fingers crossed for the long-term viability of these options 🤞 Until then, I’m looking forward to enjoying the convenience of being able to work on my website(s) without getting out of Notion at all, at least hopefully not very much 😎</p>
+<p>Incidentally, Notion’s markdown export is pretty good too, so you could just keep markdown versions of your work as you go along, so in case you decide to port things over into a more direct SSG setup in the future, it would be relatively painless to do.</p>
+</div>
+</div>
+<p>Assuming you are all-in on using Notion for delivering your website, then here’s a summary of your options:</p>
+<ol type="1">
+<li><p>If you are looking for a free setup:</p>
+<ol type="1">
+<li><p>If need to use custom domains, and need sites that look and behave like regular websites, then you might want to check out <code>react-notion-x</code> or <code>nextjs-notion-starterkit</code> if you are an expert, but otherwise, the Notion route may not be the best for you.</p></li>
+<li><p>If you are already a Notion user and you just need a URL with content that can go around for a super-specific purpose (i.e, website-y features not so crucial) — you can likely just use Notion’s default facility with a public URL.</p></li>
+</ol></li>
+<li><p>If you have a budget that is compatible with Super and/or Potion, I would definitely recommend either of them - they are both great solutions in this context! There are some nuances in terms of how they are different (e.g, pricing; Super’s apparently deeper integration with the Notion API v/s Potion’s real-time implementation, etc.), and if that level of detail is important to you, you might need to try out both — which is fortunately easy to do — before deciding.</p></li>
+</ol>
+</section>
+<section id="other-ways-of-getting-a-website-out-of-notion" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="other-ways-of-getting-a-website-out-of-notion">Other ways of getting a website out of Notion?</h3>
+<p>There are a few options that I didn’t cover here, including, for example, <a href="https://mynotion.blog">Notion2Blog</a>, <a href="https://github.com/notiondog/notion.dog">Notion Dog</a>, <a href="https://notelet.so">Notelet</a>, <a href="https://nocodepages.com"><del>Nocodepages</del></a> (now defunct), and a couple of others that I did evaluate — at least briefly — but I unfortunately can’t remember any more. If you know of other examples, please let me know and I’ll be happy to append them to this list here!</p>
+<hr>
+<aside>
+💡 Please share your comments on Twitter @<a href="https://twitter.com/neeldhara">neeldhara</a>. Also, special thanks to @<a href="https://twitter.com/camincoll">camincoll</a> and @<a href="https://twitter.com/noahwbragg">noahwbragg</a> for their inputs and help with Super and Potion, respectively! 👋🏽
+</aside>
+
+
+</section>
+
+
+</main> <!-- /main -->
+<script src="https://cdn.usefathom.com/script.js" data-site="MAIKFVGD" defer=""></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/Musings">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a href="https://neeldhara.online" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+    <p>&nbsp;</p>
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.webp" style="border-radius:25px;">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

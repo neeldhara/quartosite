@@ -1,0 +1,84 @@
+---
+title: "Courses"
+toc: false
+sidebar: false
+page-layout: full
+css: /css/teaching.css
+listing:
+  - id: iitgn-listing 
+    contents: teaching-iitgn.yml
+    sort: [year desc, semester desc]
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: teaching.ejs
+  - id: nptel-listing 
+    contents: teaching-nptel.yml
+    sort: [year desc, semester desc]
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: teaching.ejs
+  - id: others-listing 
+    contents: teaching-other.yml
+    sort: [year desc, semester desc]
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: teaching.ejs
+---
+
+:::{.column-body-outset}
+
+# Teaching
+<p>&nbsp;</p>
+
+::: {.panel-tabset}
+## IITGN
+
+::: {#iitgn-listing}
+:::
+
+
+## NPTEL
+
+:::{.callout-tip appearance="minimal"}
+At the moment, the only way of accessing the materials associated with these courses is to sign up for them through the NPTEL playform. You can access the videos via the playlists on YouTube. 
+
+However, I have recieved requests for being able to access materials outside of the NPTEL LMS, along with downloadable slides and lecture notes. This is work in progress (really :) ), and I hope that eventually we will have most of the materials available from here.
+
+{{< bi eyeglasses color="indianred" >}} Watch this space! 
+:::
+
+<p>&nbsp;</p>
+
+::: {#nptel-listing}
+::: 
+
+## Other
+
+:::{.callout-tip appearance="minimal"}
+These are courses that I have been involved in coordinating and organizing. I am grateful to all the instructors here for sharing their time and expertise with us. If you would like to collaborate on a short course/workshop at IITGN --- virtual/hybrid/in-person --- please get in touch.
+:::
+
+
+<p>&nbsp;</p>
+
+::: {#others-listing}
+:::
+
+
+:::
+<!-- end panel -->
+
+:::
+<!-- end column -->

@@ -1,0 +1,29 @@
+```{=html}
+<table class="quarto-listing-table table">
+    <tbody class="list">
+    <% for (const item of items) { %>
+        <tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>
+            <td class="listing-year">
+                <span class="badge badge-primary" style="background:indianred;"><%= item.year %></span>
+            </td>
+            <td class="listing-title">
+                <em><%= item.title %></em> <br>
+                <%= item.event %> <br>
+                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;"><%= item.venue %></span>
+            </td>
+            <td>
+                <% if (item.slides) { %>
+                    <span><i class="bi bi-projector-fill" data-target="modal-<%= item.slides %>" data-toggle="modal"></i></span>   
+                <% } %>
+            </td>
+            <td>
+                <% if (item.youtube) { %>
+                    <span><i class="bi bi-youtube" data-target="modal-<%= item.youtube %>" data-toggle="modal"></i></span>   
+                <% } %>
+            </td>
+        </tr>
+    <% } %>
+</tbody>
+</table>
+
+```

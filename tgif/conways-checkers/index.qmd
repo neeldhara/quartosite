@@ -1,0 +1,44 @@
+---
+title: "Conway's Checkers"
+date: "2021-03-23"
+categories: [game]
+fields: [date, title]
+css: /css/tgif.css
+toc: true
+---
+
+:::{.callout-tip appearance="simple" icon=false}
+Puzzle attributed to [John Horton Conway](https://en.wikipedia.org/wiki/John_Horton_Conway).
+:::
+
+Suppose you take the infinite square lattice and put solitaire pieces on all points $(x,y)$ that lie on or below the x-axis. Using solitaire moves, can you reach a position where the point $(0,5)$ is occupied?
+
+Note: A solitaire move consists in a piece jumping over a neighbouring piece to a vacant square and removing (or "taking") the neighbouring piece.
+
+You can attempt this challenge interactively [here](https://www.cleverlearning.co.uk/blogs/blogConwayInteractive.php).
+
+_Hint: if you can’t get there, don’t feel too bad about it._
+
+:::{.callout-tip appearance="simple" collapse="true" icon="false"}
+## Spoilers
+
+An introduction to the problem featuring [Zvezdelina Stankova](https://math.berkeley.edu/~stankova/):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FtNWzlfEQgY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+A description of the original proof based on coming up with an invariant involving the golden ratio:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Or0uWM9bT5w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+A description of the original proof based on coming up with an invariant involving the golden ratio, but in this case in real-time, while thinking out loud:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vJGdfRXZSGA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+A description of a more recent proof based on a rather clever and beautiful use of Fibonacci numbers:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BMPa0FA65Fk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+And by the way, if you are _really_ keen on reaching row 5 [here's how you can do it](https://www.chiark.greenend.org.uk/~sgtatham/solarmy/) with infinitely many moves!
+
+
+:::

@@ -1,0 +1,76 @@
+project:
+  type: website
+  preview:
+    port: 7777
+  
+website:
+  title: "Neeldhara"
+  navbar:
+    background: white
+    pinned: false
+    right:
+      - icon: youtube
+        href: https://www.youtube.com/c/NeeldharaMisra42
+      - icon: linkedin
+        href: https://www.linkedin.com/in/neeldhara-misra-a54b6920/
+      - icon: github
+        href: https://github.com/neeldhara
+      - icon: mastodon
+        href: https://www.neeldhra.online
+      - icon: rss
+        href: index.xml
+    left:
+      - href: about.qmd
+        text: About
+      - text: Research
+        menu:
+          - text: Overview
+            href: ./research/overview.qmd
+          - text: People
+            href: ./research/people.qmd
+          - text: Publications
+            href: ./research/publications.qmd
+      - text: Teaching
+        menu:
+          - text: Courses
+            href: ./courses/index.qmd
+          - text: Materials
+            href: ./materials/index.qmd
+      - text: Lists
+        menu:
+          - text: Puzzles
+            href: tgif.qmd
+          - text: Bookmarks
+            href: bookmarks.qmd
+      - href: talks.qmd
+        text: Talks
+      - href: events.qmd
+        text: Events
+      - href: blog.qmd
+        text: Blog
+  sidebar:
+      - id: dsanotes
+        style: docked
+        search: true
+        contents: materials/dsanotes/
+      - id: cpnotes
+        search: true
+        style: docked
+        contents: materials/cpnotes/
+
+format:
+  html:
+    theme: 
+      - simplex
+      - custom.scss
+    js: scripts.js
+    css: css/styles.css
+    toc: true
+    html-math-method: katex
+    smooth-scroll: true
+    anchor-sections: true
+    include-after-body: footer.html
+    page-layout: full
+    filters:
+      - abstract-section
+

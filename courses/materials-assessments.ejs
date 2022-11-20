@@ -1,0 +1,44 @@
+```{=html}
+<table class="quarto-listing-table table">
+    <thead>
+        <td>Issued</td>
+        <td>Assessment</td>
+        <td>Problem Set</td>
+        <td>Solutions</td>
+        <td>Due</td>
+    </thead>
+    <tbody class="list">
+    <% for (const item of items) { %>
+        <tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>            
+            <td class="listing-date">
+                <%= item.dateissued %>
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong><%= item.title %></strong><br>
+                <p><%= item.summary %></p>
+            </td>
+            <td class="listing-problemset">
+                <% if (item.problemset) { %>
+                    <a href="<%= item.problemset %>"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
+                <% } else { %>
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                <% } %>
+                </td>
+            <td class="listing-solutions">
+                <% if (item.solutions) { %>
+                    <a href="<%= item.solutions %>"><i class="bi bi-journal-richtext" style="padding-left: 32px;"></i></a>
+                <% } else { %>
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                <% } %>
+                </td>
+            <td class="listing-due">
+                <% if (item.due) { %>
+                    <%= item.due %>
+                <% } %>
+            </td>
+        </tr>
+    <% } %>
+</tbody>
+</table>
+
+```

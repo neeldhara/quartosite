@@ -1,0 +1,40 @@
+---
+title: "Death's Dice"
+date: "2021-03-15"
+categories: [probability]
+fields: [date, title]
+css: /css/tgif.css
+toc: true
+---
+
+
+:::{.callout-tip appearance="simple" icon=false}
+Sourced from [@3blue1brown](https://twitter.com/3blue1brown)'s Twitter.
+:::
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;d like to tell you about a game/puzzle to help celebrate today.<br><br>We&#39;ll call it &quot;Death&#39;s Dice&quot;. <br><br>(1/9) <a href="https://t.co/6lportLU9V">pic.twitter.com/6lportLU9V</a></p>&mdash; Grant Sanderson (@3blue1brown) <a href="https://twitter.com/3blue1brown/status/1503423352207147010?ref_src=twsrc%5Etfw">March 14, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+A spoiler-free version of the thread above is reproduced below:
+
+Death finds you. You plead with him that it's too soon, and he agrees to a concession. Every year, he'll roll a set of dice, and if it turns up snake eyes (both 1's) he'll take your life, otherwise, you get one more year.
+
+But it's not necessarily a normal pair of dice.
+
+On the first year, both "dice" will only have two sides, numbered 1 and 2.  So in that first year, there's a 25% chance of rolling snake eyes and ending things there.
+
+On the second year, he comes with tetrahedral dice, i.e. both are four-sided, numbered 1 through 4, and again only takes your life if he rolls two 1's.
+
+The next year, the dice are six-sided, after that, eight-sided, etc., etc.
+
+Each year you have a lower and lower chance of dying, but he'll come back every year with a new set of dice, never stopping.
+
+You might think the question now is something like "what's your expected number of remaining years of life?"
+
+But actually, Death gave you a pretty good deal.
+
+The better question to ask here is "what's the probability that you end up immortal?" That is, the probability that Death rolls infinitely many times, with his ever-growing dice, and never once turns up snake eyes.
+
+:::{.callout-tip appearance="simple" collapse="true" icon="false"}
+## Hint
+![An image that shows a square circumscribed inside a circle.](deathsdice-hint.png)
+:::

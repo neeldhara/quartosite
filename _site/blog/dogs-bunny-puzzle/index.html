@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-09-19">
+
+<title>Neeldhara - Dog Bunny Puzzle</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif.html">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks.html">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events.html">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.neeldhra.online"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Dog Bunny Puzzle</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">puzzles</div>
+                <div class="quarto-category">exposition</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 19, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#dog-bunny-a-cute-puzzle" id="toc-dog-bunny-a-cute-puzzle" class="nav-link active" data-scroll-target="#dog-bunny-a-cute-puzzle">Dog Bunny: A Cute Puzzle</a></li>
+  <li><a href="#the-reduction" id="toc-the-reduction" class="nav-link" data-scroll-target="#the-reduction">The Reduction</a></li>
+  <li><a href="#the-forward-direction" id="toc-the-forward-direction" class="nav-link" data-scroll-target="#the-forward-direction">The Forward Direction</a></li>
+  <li><a href="#the-backward-direction" id="toc-the-backward-direction" class="nav-link" data-scroll-target="#the-backward-direction">The Backward Direction</a></li>
+  <li><a href="#food-for-thought" id="toc-food-for-thought" class="nav-link" data-scroll-target="#food-for-thought">Food for thought</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+
+
+
+
+<section id="dog-bunny-a-cute-puzzle" class="level3">
+<h3 class="anchored" data-anchor-id="dog-bunny-a-cute-puzzle">Dog Bunny: A Cute Puzzle</h3>
+<p>Conrad Barski (<a href="https://twitter.com/lisperati"><span class="citation" data-cites="lisperati">@lisperati</span></a>)’s latest, <a href="http://www.dogbunnypuzzle.com/">Dog Bunny Puzzle</a>, had <a href="https://news.ycombinator.com/item?id=32884467">jumped to #1 on HN</a>. The puzzle presents the following somewhat minimalist interface:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="puzzlescreenshot.png" class="img-fluid figure-img" style="width:77.0%"></p>
+<p></p><figcaption class="figure-caption">The Dogs Bunny Puzzle</figcaption><p></p>
+</figure>
+</div>
+<p>If you haven’t played it yet, you might want to go ahead and <a href="http://www.dogbunnypuzzle.com/">give it a shot</a> first. Most people figured out the mechanics without any explicit instructions. A couple of things that may not be immediately clear, but typically discovered quickly within a few moves:</p>
+<ul>
+<li><p>The edges are labeled with conditions, and can be used only if <em>all</em> of the said conditions are met.</p></li>
+<li><p>The bunny or dog icons may sometimes cover up what kind of location they are at. You can drag them away to find out!</p></li>
+<li><p>Multiple animals can occupy the same spot at a time.</p></li>
+<li><p>It is possible to get into a dead end, a situation from where no legal moves are possible. In the verison of the game that is available at the time of this writing, the game offers no sign that you might be in this situation. This may <a href="https://twitter.com/lokshtanov/status/1571597503795167232">however change</a>.</p></li>
+</ul>
+<p>After winging it on the puzzle, several questions seemed natural:</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+What’s the smallest number of moves to win?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="https://gist.github.com/wrbs/5824e9b17c55b5ad3d8467f93e12ed8b">Apparently 26.</a></p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Can you write a program to find a solution?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="https://github.com/polkerty/dog-bunny-puzzle-solver/blob/master/main.py">Yes</a> (Python) and <a href="http://hakank.org/picat/dogbunny_puzzle.pi">yes</a> (Picat).</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Can a script generate more of these puzzles?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Indeed:</p>
+<blockquote class="twitter-tweet blockquote" data-conversation="none">
+<p lang="en" dir="ltr">
+For those paying attention, yes I am two days late :(<br><br>FYI, I also have a program now that can create an infinite number of these puzzles at differing difficulty<br><br>How would you rate the puzzle I posted today?
+</p>
+— Conrad Barski (<span class="citation" data-cites="lisperati">@lisperati</span>) <a href="https://twitter.com/lisperati/status/1571232335043112960?ref_src=twsrc%5Etfw">September 17, 2022</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Are there connections with other well-known puzzles?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Why yes, check out the <a href="https://en.wikipedia.org/wiki/Wolf,_goat_and_cabbage_problem">Wolf puzzle</a> (as pointed out by <a href="https://twitter.com/RianNeogi/status/1571608738791817217"><span class="citation" data-cites="RianNeogi">@RianNeogi</span></a>) and this <a href="https://www.youtube.com/watch?v=ZCVAGb1ee8A">Numberphile video</a> about it.</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Is the problem NP-complete?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Before you ask, <a href="https://twitter.com/gfredericks_/status/1571247392321671174">I am not the only one</a> who’s asking!</p>
+</div>
+</div>
+</div>
+<p>So the last question may strike you as a bit left-field, but that’s what I’m going to ramble about for the rest of this post :) It turns out that the answer is in the affirmative, and <a href="https://twitter.com/lokshtanov/status/1571588360254410752">here</a> is a lovely reduction by <a href="https://twitter.com/lokshtanov"><span class="citation" data-cites="lokshtanov">@lokshtanov</span></a> showing as much.</p>
+</section>
+<section id="the-reduction" class="level3">
+<h3 class="anchored" data-anchor-id="the-reduction">The Reduction</h3>
+<p>Let’s just set up the game as a computational problem just to be sure that we agree on the abstraction. In fact, we’ll be working with a simpler version that we will call <code>BunnyCarrot</code>.</p>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+BunnyCarrot
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the <code>BunnyCarrot</code> problem, the input is a simple undirected graph <span class="math inline">G = (V,E)</span>, subsets <span class="math inline">B</span> and <span class="math inline">C</span> of <span class="math inline">V</span> indicating the initial positions of bunnies and carrots, and a (possibly empty) instruction <span class="math inline">r_e</span> for every <span class="math inline">e \in E</span>, which is a collection of conditions, <em>at least</em> one† of which must be true for the edge <span class="math inline">e</span> to be “active”.</p>
+<p>The question is if there is a sequence of movements of bunnies along active edges such that at the end of the sequence, every bunny is located at one of the vertices from <span class="math inline">C</span>.</p>
+<p>† In the original version of the problem, we need <em>all</em> conditions associated with an edge to be satisfied, not at least one. The construction that we will describe can be easily adapted to this setting as well, but is simpler to describe for this variant :)</p>
+</div>
+</div>
+<p>We are going to show that <code>BunnyCarrot</code> is NP-complete by reducing from <code>3SAT</code>. So let <span class="math inline">\phi := \{C_1, \ldots, C_m\}</span> be a collection of <span class="math inline">m</span> 3SAT clauses over variables <span class="math inline">\{x_1, \ldots, x_n\}</span>. The reduced instance of <code>BunnyCarrot</code> corresponding to <span class="math inline">\phi</span> looks like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="reduction2.png" class="img-fluid figure-img" style="width:87.0%"></p>
+<p></p><figcaption class="figure-caption">A cartoon sketch of the reduced instance of BunnyCarrot from 3SAT.</figcaption><p></p>
+</figure>
+</div>
+<p>What we have here is the following in terms of the structure of graph:</p>
+<ul>
+<li><p>a path <span class="math inline">X</span> on <span class="math inline">m+2</span> vertices, with the left most vertex in <span class="math inline">B</span> and the rightmost one in <span class="math inline">C</span>;</p></li>
+<li><p>a pair of vertices <span class="math inline">(u_i,v_i)</span> for every <span class="math inline">i \in [n]</span>, and an edge between them, where all the <span class="math inline">u_i</span>’s are in <span class="math inline">B</span>’ — the vertex <span class="math inline">u_i</span> represents the literal <span class="math inline">x_i</span> while the vertex <span class="math inline">v_i</span> represents the literal <span class="math inline">\overline{x_i}</span>;</p></li>
+<li><p>a pair of vertices <span class="math inline">p</span> and <span class="math inline">q</span> in <span class="math inline">C</span>, with <span class="math inline">p</span> adjacent to all <span class="math inline">u_i</span>’s and <span class="math inline">q</span> adjacent to all <span class="math inline">v_i</span>’s.</p></li>
+</ul>
+<p>Now here be the instructions associated with the edges:</p>
+<ul>
+<li><p>the edge to the <span class="math inline">\ell</span>-th vertex on <span class="math inline">X</span> is active only if there is a bunny on at least one of the literals present in the clause <span class="math inline">C_{\ell-1}</span>;</p></li>
+<li><p>the edges between <span class="math inline">u_i</span> and <span class="math inline">v_i</span> are active only when there is a bunny on the leftmost vertex of <span class="math inline">X</span>; and</p></li>
+<li><p>finally, the edges incident on <span class="math inline">p</span> and <span class="math inline">q</span> are active only when there is a bunny on the rightmost vertex of <span class="math inline">X</span>.</p></li>
+</ul>
+</section>
+<section id="the-forward-direction" class="level3">
+<h3 class="anchored" data-anchor-id="the-forward-direction">The Forward Direction</h3>
+<p>We first claim that we can “win” this game if <span class="math inline">\phi</span> has a satisfying assignment. Indeed, let <span class="math display">\tau: \{x_1,\ldots,x_n\} \rightarrow \{0,1\}</span> be a truth assignment that satisfies all the clauses of <span class="math inline">\phi</span>. Then:</p>
+<ol type="1">
+<li><p>If <span class="math inline">\tau(x_i) = 0</span>, move the bunny on <span class="math inline">u_i</span> to <span class="math inline">v_i</span>.</p></li>
+<li><p>Move the bunny on the leftmost vertex of the path <span class="math inline">X</span> to the rightmost vertex: note that all edges are active because <span class="math inline">\tau</span> is a satisfying assignment.</p></li>
+<li><p>Move all bunnies on <span class="math inline">u_i</span>’s to <span class="math inline">p</span> and those on <span class="math inline">v_i</span>’s to <span class="math inline">q</span>.</p></li>
+</ol>
+</section>
+<section id="the-backward-direction" class="level3">
+<h3 class="anchored" data-anchor-id="the-backward-direction">The Backward Direction</h3>
+<p>Now suppose there is a winning sequence of moves <span class="math inline">\sigma</span>. We will show that we can extract from this sequence a satisfying assignment for <span class="math inline">\phi</span>, which will firmly establish the equivalence of the generated instance of <code>BunnyCarrot</code> with the OG hard instance <span class="math inline">\phi</span>.</p>
+<p>Note that to begin with, all the blue edges are inactive. Now, in the sequence <span class="math inline">\sigma</span>, let us say that a step is <em>key</em> if it involves a bunny moving along the first edge of the path <span class="math inline">X</span> and <em>critical</em> if it involves a bunny moving along the last edge of the path <span class="math inline">X</span>.</p>
+<p>Suppose the <span class="math inline">\ell</span>-th step is the first critical step in <span class="math inline">\sigma</span>. Further, suppose that the <span class="math inline">t</span>-th step is the <em>last</em> key step to occur <em>before</em> the <span class="math inline">\ell</span>-th step. Notice that there must be at least one key step before a critical step — we must begin before we can end :)</p>
+<p>Now, for all steps after the <span class="math inline">t</span>-th step and before the <span class="math inline">\ell</span>-th step, note that edges incident to <span class="math inline">u_i</span> and <span class="math inline">v_i</span> are <strong>inactive</strong> for all <span class="math inline">i \in [n]</span>. This implies that every step between the <span class="math inline">t</span>-th and <span class="math inline">\ell</span>-th steps involves a bunny moving along <span class="math inline">X</span>, and in particular, every edge in <span class="math inline">X</span> is crossed at least once in this phase of the game.</p>
+<p>Let us note the positions of the bunnies who are on the <span class="math inline">u_i</span>’s and <span class="math inline">v_i</span>’s after the <span class="math inline">t</span>-th step is executed. Observe that this naturally translates to an assignment on the variables as follows:</p>
+<p><span class="math display">
+\begin{equation*}
+    \tau(x_i) =
+    \begin{cases}
+      1 &amp; \text{if } u_i \in B,\\
+      0 &amp; \text{if } v_i \in B.
+    \end{cases}
+\end{equation*}
+</span></p>
+<p>We argue that <span class="math inline">\tau</span> must in fact be a satisfying assignment.</p>
+<p>Assume to the contrary: suppose some clause <span class="math inline">C_k</span> is, in fact, not satisfied by <span class="math inline">\tau</span>.</p>
+<p>Then, we claim that the edge connecting the <span class="math inline">k</span>-th and <span class="math inline">(k+1)</span>-th vertices is not active.</p>
+<p>As an example, suppose <span class="math inline">C_k = \{x_1,x_2,\overline{x_3}\}</span>. Since <span class="math inline">\tau</span> does not satisfy <span class="math inline">C_k</span>, it must be the case that:</p>
+<ul>
+<li><span class="math inline">\tau(x_1) = 0</span> — and hence there is a bunny on <span class="math inline">v_1</span>;</li>
+<li><span class="math inline">\tau(x_2) = 0</span> — and hence there is a bunny on <span class="math inline">v_2</span>;</li>
+<li><span class="math inline">\tau(x_3) = 1</span> — and hence there is a bunny on <span class="math inline">u_3</span>.</li>
+</ul>
+<p>However, the condition for the edge to the <span class="math inline">(k+1)</span>-th vertex on <span class="math inline">X</span> to be active is simply that there is a bunny present on at least one of the literals present in the clause <span class="math inline">C_{k}</span>, i.e, one of <span class="math inline">u_1</span>, <span class="math inline">u_2</span> or <span class="math inline">v_3</span>. However, because of the structure of the graph, and the fact that all edges incident on <span class="math inline">p</span> and <span class="math inline">q</span> are inactive at all times before the first critical step, observe that:</p>
+<ul>
+<li>If there is a bunny on <span class="math inline">v_1</span>, there is no bunny on <span class="math inline">u_1</span>.</li>
+<li>If there is a bunny on <span class="math inline">v_2</span>, there is no bunny on <span class="math inline">u_2</span>.</li>
+<li>If there is a bunny on <span class="math inline">u_3</span>, there is no bunny on <span class="math inline">v_3</span>.</li>
+</ul>
+<p>By our assumption that <span class="math inline">\tau</span> falsifies <span class="math inline">C_k</span>, <em>all</em> the premises above are true! So there is an edge on the path <span class="math inline">X</span> that is not active between the <span class="math inline">t</span>-th and <span class="math inline">\ell</span>-th steps, which violates our understanding that every edge was crossed between these steps. This is a contradiction, and hence <span class="math inline">\tau</span> must indeed be a satisfying assignment.</p>
+<p>I’ll just remark here that this construction can be modified so that every vertex in the graph has constant degree, and there is only one vertex in <span class="math inline">C</span>. It can also be modified to change the “or” condition on the edges to an “and”, by simply separating the conditions out along multiedges.</p>
+</section>
+<section id="food-for-thought" class="level3">
+<h3 class="anchored" data-anchor-id="food-for-thought">Food for thought</h3>
+<p>Here are some more questions :)</p>
+<div class="callout-important callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="1">
+<li><p>What’s the complexity of this game when the underlying graph has some simple structure (e.g, a tree)?</p></li>
+<li><p>Does the problem get harder if we introduce attacking entities like wolves?</p></li>
+<li><p>Can we come up with an algorithm that runs in polynomial time on instances where there is a valid winning sequence of constant length?</p></li>
+<li><p>Is the problem hard even for a constant number of bunnies?</p></li>
+</ol>
+</div>
+</div>
+</div>
+<p>PS. Here’s <a href="https://twitter.com/neeldhara/status/1571522626526515202">a sketch of a slighty different reduction</a> from vertex cover. Thanks again to <a href="https://twitter.com/lokshtanov">Daniel</a> for sharing the reduction described here! Comments welcome here, or <a href="https://twitter.com/neeldhara/status/1571629379779973121">continue the conversation on Twitter</a>!</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script src="https://cdn.usefathom.com/script.js" data-site="MAIKFVGD" defer=""></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/Musings">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a href="https://neeldhara.online" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+    <p>&nbsp;</p>
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.webp" style="border-radius:25px;">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

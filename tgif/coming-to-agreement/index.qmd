@@ -1,0 +1,37 @@
+---
+title: "Coming to Agreement"
+date: "2021-03-15"
+categories: [logic]
+fields: [date, title]
+css: /css/tgif.css
+toc: true
+---
+
+:::{.callout-tip appearance="simple" icon=false}
+Puzzle by Joel David Hamkins.
+:::
+
+This is apparently a logic puzzle that comes up in admission interviews at Oxford:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">An Oxford University admissions interview question. You are a contestant on a game show, known for having perfectly logical contestants. There is another contestant, whom you&#39;ve never met, but whom you can count on to be perfectly logical, just as logical as you are.</p>&mdash; Joel David Hamkins (@JDHamkins) <a href="https://twitter.com/JDHamkins/status/1475088789701726208?ref_src=twsrc%5Etfw">December 26, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+This puzzle has since been featured on [the Guardian](https://www.theguardian.com/science/2022/feb/21/can-you-solve-it-an-oxford-university-admissions-question). The full setting is reproduced below [from here](http://jdh.hamkins.org/coming-to-agreement-logic-puzzle/). The source also has extended discussions about possible solutions — you have been warned!
+
+You are a contestant on a game show, known for having perfectly logical contestants. There is another contestant, whom you’ve never met, but whom you can count on to be perfectly logical, just as logical as you are.
+
+The game is cooperative, so either you will both win or both lose, together. Imagine the stakes are very high—perhaps life and death. You and your partner are separated from one another, in different rooms. The game proceeds in turns—round 1, round 2, round 3, as many as desired to implement your strategy.
+
+On each round, each contestant may choose either to end the game and announce a color (any color) to the game host or to send a message (any kind of message) to their partner contestant, to be received before the next round. Messages are sent simultaneously, crossing in transit.
+
+You win the game if on some round both players opt to end the game and announce a color to the host and furthermore they do so with exactly the same color. That is, you win if you both halt the game on the same round with the same color. lf only one player announces a color, or if both do but the colors don’t match, then the game is over, but you have lost.
+
+Round 1 is about to begin. What do you do?
+
+Variations:
+
+**Alternation variation.** In this variation of the puzzle, the contestants alternate in their right to send messages—only contestant 1 can send on round 1, then contestant 2 on round 2 and so forth, but still they aim to announce the same color on a round. You are contestant 1—what do you do?
+
+**Collision variation.** In this variation, players may opt on each round either to end the game and announce a color, to send a message, or to do nothing. But the new thing is that if both players opt to send a message, then the messages collide and are not delivered, although an error message is generated (so the players know what happened). What do you do?
+
+**Pigeon variation.** This version is like the alternating turn variation, except that now the contestants are separated at much greater distance, and the messages are sent by carrier pigeon, so neither can be sure that the messages actually arrive. You are contestant 1—what do you do?
+

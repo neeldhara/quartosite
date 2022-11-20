@@ -1,0 +1,28 @@
+---
+title: "Massren for fast file renaming"
+date: "2020-09-11"
+categories: [workflows]
+fields: [date, title]
+toc: true
+reference-location: margin
+---
+
+My tool of choice for bulk file-renaming has become[^1] [Massren](https://github.com/laurent22/massren):
+
+[^1]: As opposed to, say, GUI clients.
+
+> Massren is a command line tool that can be used to rename multiple files using your own text editor. Multiple-rename tools are usually difficult to use from the command line since any regular e
+xpression needs to be escaped, and each tool uses its own syntax and flavor of regex. The advantage of massren is that you are using the text editor you use every day, and so you can use all the features you are already used to.
+>
+
+Simply navigate to the directory in which your files are and invoke massren. You can easily set it up to use your favorite text editor, so for example, I have mine configured to use VSCode:
+
+```
+massren --config editor code
+```
+
+If you have a text editor you are comfortable with, then this can lead to all kinds of interesting possibilities, especially when combined with regular expression search.
+
+![Using Massren, VS Code, and regex for bulk file renaming.](20180528-screen-massren.gif)
+
+This workflow is especially convenient in combination with an Alfred wokflow to open the current Finder directory in the terminal, such as [this one](https://github.com/LeEnno/alfred-terminalfinder).

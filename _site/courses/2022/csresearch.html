@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Neeldhara - CS Research 101 | Shashank Srikant</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+<link rel="stylesheet" href="../../css/teaching.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif.html">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks.html">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events.html">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.neeldhra.online"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content page-columns page-full column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CS Research 101 | Shashank Srikant</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="cs-research-101" class="level2 column-body-outset">
+<h2 class="anchored" data-anchor-id="cs-research-101">CS Research 101</h2>
+<section id="a-short-course" class="level5">
+<h5 class="anchored" data-anchor-id="a-short-course">A Short Course</h5>
+<p>— <em>Shashank Srikant</em></p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+About the Course
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When starting off their undergrad degrees in science and engineering, most are fueled by an idealism to do great science. However, no formal resources tell us what research—an established path to great science and engineering—is all about, and how one can get started. As a result, many don’t end up figuring out these details, have no idea what the journey promises to offer, and as a consequence, move on to other well-documented jobs and careers. While there’s nothing wrong with taking up well-documented careers, academia and scholarship loses out on quality talent.</p>
+<p>In another extreme, among those few who are exposed to the idea of research while still in undergrad, there exists a frenzy to apply to graduate programs by the end of undergrad. And to achieve this, students tend to optimize working on projects which will land them ‘the best possible’ publications and letters from professors. While few successfully discover their interests this way, it generally fails as an approach.</p>
+<p>This course aims to fast-track the process of learning more about research-first graduate programs and/or jobs. It will nudge you to introspect whether problem solving and research is something you will enjoy, and provide some concrete steps for your discovery. It is not designed to merely provide instructions on applying successfully to graduate programs or advanced degrees. Rather, it aims to introduce you to the realities of doing research, which should in turn help you gauge your preparedness for graduate school or a career in research.</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+About the Instructor
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Shashank is currently a Ph.D.&nbsp;candidate in computer science at the CS &amp; AI Lab (CSAIL), in the department of Electrical engineering and Computer science (EECS) at MIT. He is advised by Una-May O’Reilly. His research interests are at the intersection of machine learning, program analysis, and cognitive neuroscience. He has published his work at top-tier academic venues and has authored multiple patents.</p>
+<p>Prior to his Ph.D.&nbsp;studies, he was a senior researcher at Aspiring Minds’ research lab, where he helped build, deploy, and manage a number of innovative products involving machine learning. These products are used by &gt;1M job applicants across the world today. In this role, he also helped organize international workshops, led academic collaborations, and helped set up communities in India to participate and engage in ML and data science (http://www.datasciencekids.org, http://ml-india.org).</p>
+<p>He is also interested in governance, and science education and policy. To understand the nuances of how state governments deliver benefits to the last-mile, he worked with Seva Setu, an organization which aims to bridge the gap between governments and people, for a year in rural Bihar in India.</p>
+<p>Details on his work can be found on <a href="https://shashank-srikant.github.io/">his webpage</a>.</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Dates and Time
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>31st October – 5th November • Timing: 6:30PM to 8:30PM • Mode: Online (over Zoom)</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Target Audience
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The course material is beginner-friendly: the only pre-requisite is a willingness to commit time and curiosity about research pursuits in computer science (broadly interpreted).</p>
+<p>The course is designed for undergraduates in computer science and allied areas in any year looking to plan out their first or second research projects, however, participation is not restricted and all are welcome.</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Methodology
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The course will be taught over Zoom and will involve several hands-on assignments. The course has the following three sections, with two modules in each section:</p>
+<p>1.The first section focuses on the various motivations for pursuing research projects, the wrong reasons to take up research, exposure to different research-related careers available.</p>
+<p>2.The second section is about the mechanics of getting started with your first research(-ish) project. We introduce some common set of skills every researcher benefits from—taking initiative, reading and writing code, knowing domain-specific tools, parsing papers, communicating over email, and presenting your work. Also learn about the balances you will likely have to strike as you go along, and prepare with us for battles like imposter syndrome or loneliness you may face.</p>
+<ol start="3" type="1">
+<li>The third section covers exploring and approaching research opportunities after having cleared the first two sections. We will have pointers to generic opportunities that you can consider applying to. We will also leave you with suggestions for how to level up from after your first research apprenticeship, including information about preparing for graduate school, and discussions about relevant career options within and beyond academia. Pre-class reading: Each lecture will have a recommended short video or text we expect students to watch/read before attending class.</li>
+</ol>
+<p>Final assessment: The final assessment will involve identifying a project relevant to your interest and skills, and drafting an email expressing your interest in getting started with it.</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The course aims to equip students with toolkits to — (a) determine if research projects are well-aligned with their interests and aspirations, and (b) prepare for relevant research opportunities.</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Outcome
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The participants will be well-positioned to determine if a career in research is for them; and if yes, also to find and pursue relevant research opportunities.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="teaching-plan" class="level3">
+<h3 class="anchored" data-anchor-id="teaching-plan">Teaching Plan</h3>
+<hr>
+<p><i class="bi-arrow-bar-right" style="" role="img" aria-hidden="true"></i> Course materials also available <a href="https://csresearch101.netlify.app">from here</a>.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Topics</th>
+<th>Resources</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Day 1: Motivation::Module 1 - Why research?</td>
+<td><a href="m1.qmd">[Notes]</a>, <a href="https://forms.gle/Fq1pQsRxSFkxR3scA">[Survey]</a>, <a href="https://www.youtube.com/watch?v=p1KMy1LJPZ4">[Youtube]</a>, <a href="https://slides.com/neeldhara/csresearch101-p1">[Slides]</a></td>
+</tr>
+<tr class="even">
+<td>Day 2: Motivation::Module 2 - The fundamentals</td>
+<td><a href="m2.qmd">[Notes]</a>, <a href="https://researchtopracticeconnections.wordpress.com/2015/09/02/how-not-to-suck-at-taking-initiative/">[Reading: Taking initative]</a>, <a href="https://www.youtube.com/watch?v=2R8iM7cg_1g">[Youtube]</a>, <a href="https://slides.com/neeldhara/csresearch101-p2">[Slides]</a></td>
+</tr>
+<tr class="odd">
+<td>Day 3: Mechanics::Module 3 - Skills 1</td>
+<td><a href="m3.qmd">[Notes]</a>, <a href="https://www.cs.jhu.edu/~jason/advice/how-to-work-with-a-professor.html">[Reading: Working with a professor]</a>, <a href="https://www.youtube.com/watch?v=g6ty9x_FeuM">[Youtube]</a>, <a href="https://slides.com/neeldhara/csresearch101-p3">[Slides]</a></td>
+</tr>
+<tr class="even">
+<td>Day 4: Mechanics::Module 4 - Skills 2</td>
+<td><a href="m4.qmd">[Notes]</a>, <a href="https://vanschneider.com/blog/how-to-email-a-busy-person/">[Reading: Writing emails]</a>, <a href="https://www.youtube.com/watch?v=ur0en59J_9s">[Youtube]</a>, <a href="https://slides.com/neeldhara/csresearch101-p4">[Slides]</a></td>
+</tr>
+<tr class="odd">
+<td>Day 5: Begin journey::Module 5 - Next steps</td>
+<td><a href="m5.qmd">[Notes]</a>, <a href="https://parentheticallyspeaking.org/articles/us-cs-phd-faq/">[Reading: CS PhD application FAQs]</a>, <a href="https://www.youtube.com/watch?v=lWcew1hw9JU">[Youtube]</a>, <a href="https://slides.com/neeldhara/csresearch101-p5">[Slides]</a></td>
+</tr>
+<tr class="even">
+<td>Day 5: Begin journey::Module 6 - Resources</td>
+<td><a href="m6.qmd">[Notes]</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="homework" class="level3">
+<h3 class="anchored" data-anchor-id="homework">Homework</h3>
+<hr>
+<ol type="1">
+<li><p>Share the URL to your webpage.</p>
+<p>If you do not have a webpage, make a simple one on Github pages. Let the page just have your name: there’s no need to fill it with any content. See <a href="https://csresearch101.netlify.app/m3.html#pre-requisite-have-a-webpage">the corresponding course webpage</a> for relevant resources to get started with Github pages.</p></li>
+<li><p>Mention the names and web URLs of 3 professors in India who you think do interesting work. Importantly, for each professor you list, mention in 1-2 sentences why you selected them. This may be informed by your romantic notion of interests in a few areas of CS – that’s okay.</p></li>
+<li><p>Pick one paper authored by any one professor you listed in (2) that they have published in the last five years. What area of computer science is this paper from?</p></li>
+<li><p>Where was this paper published? Mention the venue and year.</p></li>
+<li><p>Read the abstract of this paper and describe in 3-4 sentences your understanding of what the paper achieves. You do not have to read the whole paper. Attempt to just understand broadly what the paper achieves.</p></li>
+<li><p>Ask one question about this paper. This may have been answered in the paper—you do not have to read and understand the whole paper to see if they have already answered it. We want you to demonstrate that you have thought about the content of the paper.</p></li>
+<li><p>Use <a href="https://csrankings.org/">CS Rankings</a> to find out the top publishing venues in the area the paper you read belongs to (e.g.&nbsp;databases, machine vision, etc.).</p></li>
+<li><p>Using CS Rankings, find out the best venues in the following fields of computer science:</p>
+<ul>
+<li>Computer architecture</li>
+<li>Human-computer interface</li>
+<li>Graphics and computational geometry</li>
+<li>Computing education</li>
+</ul>
+<p>See <a href="https://csresearch101.netlify.app/m6.html#experiences-of-researchers">this section</a> in Module 6 of our course webpage for a list of popular areas in computer science.</p>
+<p>For each area listed, we also document a researcher’s journey who specializes in that area.</p></li>
+<li><p>Write out an email to this professor expressing an interest in working on a project related to this paper. <b><strong>Do not send this email to the professor. Just share the draft of this email with us.</strong></b> You can assume you have already done 1-2 relevant projects and courses even if you haven’t–it’s fine to reference these fictitious experiences in your email to make a case for yourself.</p></li>
+</ol>
+<p><del>Submit your <a href="https://forms.gle/kNMTX2a6HfBoqZ9k7">responses here</a>.</del></p>
+</section>
+</section>
+
+
+
+</main> <!-- /main -->
+<script src="https://cdn.usefathom.com/script.js" data-site="MAIKFVGD" defer=""></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/Musings">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a href="https://neeldhara.online" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

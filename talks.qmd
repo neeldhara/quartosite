@@ -1,0 +1,79 @@
+---
+title: Talks
+css: /css/talks.css
+sidebar: false
+toc: false
+listing:
+  - id: featured
+    contents: talks.yml
+    sort: [year desc, title asc]
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: talks-featured.ejs
+  - id: all
+    contents: talks.yml
+    sort: [year desc, title asc]
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: talks.ejs
+  - id: modals
+    contents: talks.yml
+    sort: "year desc"
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: talks-modals.ejs
+---
+
+:::{.column-body-outset}
+
+# Talks
+
+<p>&nbsp;</p>
+
+The slides for most of my talks are available from [here](https://slides.com/neeldhara), and several recordings are on this [Youtube playlist](https://www.youtube.com/watch?v=1JJfmGoryT4&list=PLadhlDF3zdvv_AoemI9U6qkN5E89_DEgU).
+
+:::{.callout-warning}
+# Coming Soon
+
+A few tutorial-style talks are missing from this list, they will be added soon.
+:::
+
+<p>&nbsp;</p>
+
+
+::: {.panel-tabset}
+
+## Featured
+
+<p>&nbsp;</p>
+
+::: {#featured}
+::: 
+
+## All
+
+<p>&nbsp;</p>
+
+::: {#all}
+:::
+
+:::
+
+:::
+
+
+
+::: {#modals}
+:::

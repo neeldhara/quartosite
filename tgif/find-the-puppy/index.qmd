@@ -1,0 +1,131 @@
+---
+title: "Find The Puppy"
+date: "2021-03-14"
+categories: [logic, game]
+fields: [date, title]
+css: /css/tgif.css
+toc: true
+---
+
+:::{.callout-tip appearance="simple" icon=false}
+Contributed by [Debanuj Nayak](https://debanujnayak.github.io).
+:::
+
+There are 5 boxes with lids kept in a row.
+
+```
+[] [] [] [] []
+```
+
+Let's call them B[1...5].
+
+There is a puppy P inside one of these boxes.
+
+Our goal is to find the puppy.
+
+```
+[?] [?] [?] [?] [?]
+```
+
+Every morning you get a chance to open any one of the boxes. If you find the puppy: great, congrats!
+
+If you don't, tough luck, you have to wait again for the next day. Meanwhile, during the night, the Puppy will move to one of the neighbouring boxes.(can't stay in same box).
+Eg:
+
+```
+[] [P] [] [] [] -> [P] [] [] [] [] or [] [] [P] [] [].
+```
+
+1. Does there exist protocols (ways of opening boxes) in which I can guarantee that I can catch the puppy in a finite time?
+2.  If yes, what is the smallest number of days I have to wait to catch the puppy (Which is the best protocol?)
+3. How does this protocol work?
+
+:::{.callout-tip collapse="true" appearance="simple" icon="false"}
+## Spoilers: based on our discussion in the second TGIF meetup.
+
+Here’s a strategy that uses seven days (h/t: Harshil).
+
+Morning 1:
+Open Box 2.
+If it contains P, we are done.
+Otherwise, P is in one of Box 1,3,4 or 5.
+
+Morning 2:
+Open Box 2.
+If it contains P, we are done.
+Otherwise, P is in one of Box 3,4 or 5.
+
+Morning 3:
+Open Box 3.
+If it contains P, we are done.
+Otherwise, P is in one of Box 2,4 or 5.
+
+Morning 4:
+Open Box 4.
+If it contains P, we are done.
+Otherwise, P is in one of Box 1,3 or 5.
+
+Morning 5:
+Open Box 4.
+If it contains P, we are done.
+Otherwise, P is in Box 2.
+
+Morning 6:
+Open Box 3.
+If it contains P, we are done.
+Otherwise, P is in Box 1.
+
+Morning 7:
+Open Box 2.
+It definitely contains P.
+
+---
+
+Here’s a strategy that uses six days (h/t: Debanuj):
+
+First Observation:
+The puppy P alternates between odd and even boxes
+
+Second Observation:
+The puppy P only has one possible choice to go to, if it is in Box 1 or Box n
+
+Let us assume that P is in an even box i.e. B[2] or B[4] on the first morning.
+
+Morning 1:
+Check B[2], if you find P, done. Otherwise, according to the assumption, P is in B[4]
+
+Night 1:
+P moves to B[3] or B[5]
+
+Morning 2:
+Check B[3], if you find P, done. Otherwise P is in B[5] according to initial assumption.
+
+Night 2:
+P moves to B[4], no other choice.
+
+Morning 3:
+Check B[4]. If assumption was true, then P must be in B[4]. If you find P, done. If you don't find P, that means initial assumption was false.
+
+Thus on morning 1, P was in an odd box ⇒ on morning3 (today), P is again in an odd box. Which means tomorrow (morning 4), P must be in an even box.
+
+Night 3:
+P moves to B[2] or B[4]
+
+Morning 4:
+Now our assumption holds true that P is in an even box, and now you can repeat the procedure we followed on mornings 1,2,3 again on mornings 4,5,6 and we are guaranteed to catch P.
+
+:::
+
+
+
+Unresolved questions:
+
+1. Can we do this in five days? Or can we show that it’s impossible to come up with a protocol that uses only five days?
+
+2. What about six boxes? Or seven? Or n?
+
+3. If the moves are equiprobable and the initial choice is uniformly random, what is the expected number of moves executed by either of the strategies above?
+
+4. How much faster can we do this if we are allowed to open two boxes at once?
+
+5. Question from Bireswar: If the puppy is allowed to stay put, then there’s no protocol to find the puppy even in the trivial setting with two boxes. What if we are allowed to open more than one box? How many more boxes do we need to be able to open per day to catch a potentially non-moving puppy amongst five boxes?

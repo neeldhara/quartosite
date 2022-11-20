@@ -1,0 +1,91 @@
+---
+title: "How Expensive Can Homework Help Be?"
+date: "2010-05-01"
+categories: [exposition, parameterized-algorithms]
+fields: [date, title]
+toc: true
+---
+
+:::{.callout-note appearance="simple" icon="false"}
+This post is based on an expository explanation of [iterative compression](https://en.wikipedia.org/wiki/Iterative_compression) that I attempted at the Institute Seminar Week in 2010, at IMSc.
+:::
+
+Tapesh has been struggling lately with the dire task of undergraduate homework. He has been asked to find a [vertex cover](http://en.wikipedia.org/wiki/Vertex_cover) on 23 vertices - not one more - in a graph that has a thousand vertices. Being the straightforward boy that he is, Tapesh considers writing a program that will try its luck on every possible subset of 23 vertices.
+
+He then heads over to Wolfram Alpha to check how long it will be before he’s done examining all the ${1000 \choose 23}$ possibilities, assuming (rather liberally) that he has at his disposal a computer that can perform $10^{24}$ operations per second.
+
+It turns out that he, and more critically, his professor, would be in for a long, long wait. The algorithm would need time proportional to the age of the universe many times over, and this is decidedly depressing, particularly when one’s expected lifespan appears to be determined by the deadline for turning in homework.
+
+Tapesh now appeals to his very clever cousin, Prodosh, for help.
+
+Prodosh borrows the monstrous graph, and in short order, points out a vertex cover on 24 vertices, using powers evidently beyond what processors with $10^{24}$ FLOPS can do. Tapesh is thrilled, however…
+
+“I need to get one with 23, the assignment says not one more —”
+
+“Time for a smoke,” Prodosh yawns, and then delves into a distracted, pensive mood, with no signs of immediate return.
+
+Tapesh is torn, but he decides to (gulp) show whatever he has so far - after all, it is progress!
+
+Predictably, Professor Maganlal displays no signs of being impressed, but he grudgingly admits that Tapesh’s solution (which we will call $T$) is not very far from the correct answer, and points out those vertices in $T$ that happen to partake in the solution that was sought.
+
+Tapesh is back to the drawing board, but with the distinct feeling that he is now armed with enough information to crack the code himself.
+
+His solution $T$ is now partitioned into the _good part_ ($T_G$), that is, all the vertices of $T$ that belong to $X$, and the _bad part_ ($T_B$), which are all the vertices that do not belong to X.
+
+“Aha.”
+
+Necessarily, all the neighbors of the bad part must belong to $X$!
+
+He checks, and sure enough, the number of vertices in $T_G$ and $N(T_B)$ is an exact, resounding 23. Also, very fortunately, there are no edges in $T_B$, so he has no trouble swapping $T_B$ for $N(T_B)$ to get to the newer and smaller vertex cover.
+
+Mission accomplished!
+
+Now more confident, Tapesh wonders if he could have arrived at $X$ all on his own. Indeed, what would he have done without Pradosh’s help? And without Professor Maganlal giving him that partition?
+
+Come to think of it, the second question has an easy answer. Tapesh would just try all possible partitions of the solution that Pradosh had given him. He would only have to disregard the partitions that didn’t work… and sooner or later, he would hit the one that his Professor so graciously suggested. This would mean examining $2^{24}$ subsets, a matter of a split second for a personal computer.
+
+But - can he replicate Pradosh’s magic on his own?
+
+Tapesh is up into the middle of the night waiting for the brainwave that will make him completely self-dependent, at least in the broad context of finding small vertex covers in large graphs.
+
+He is still impressed that he has just found a general scheme for taking a vertex cover of size 24 and bringing it down to 23. Wanting to make the most of the only trick he knew, he wondered if he could use it more than once.
+
+So he looked at the 1,000-vertex monstrosity and contemplated the possibility of working with a manageable chunk first. What if he selected an easy subgraph $H$ for isolated consideration? Surely, if $G$ has a vertex cover of 23 vertices, $H$ has one too. So all he would need is to find a vertex cover on 24 vertices, and he already knew how to squish it to one of size 23.
+
+What was the easiest chunk that he could work with? One on which finding a vertex cover of size 24 wasn’t hard?
+
+But of course, a subgraph on 24 vertices would be really easy to deal with!
+
+The entire graph $H$ would serve as its own vertex cover, would be of size 24 — it couldn’t get easier than that.
+
+So Tapesh starts by selecting the first 24 vertices that he can find, and applies his squishing strategy to find a vertex cover on 23 vertices.
+
+What now?
+
+He gives the remaining 976 vertices a hesitant look.
+
+Maybe it was time to grow $H$ to include some more vertices? If Tapesh could get $H$ to eventually morph into being all of $G$, he would be done!
+
+But if he added a whole bunch of new vertices, he would need to do something about finding a vertex cover of size 24 in the bigger $H$ to make progress… but that sounded like work :(
+
+Maybe, maybe just let in _one more vertex_ into the precious subgraph $H$? Indeed, there is enough room in the vertex cover of size 23 for one more vertex. So $H$ would grow by a single vertex, and so would the vertex cover - and then Tapesh could squish it again!
+
+And there is no stopping Tapesh from repeating this 975 times more, and each time, the reincarnated $H$ would be one larger than before, and every time he would beat down the vertex cover to one of size 23, till he got to the end.
+
+But, Tapesh wonders sleepily, wouldn’t this take awfully long?
+
+The squishing was quick, and now it has to be done 977 times altogether… and even at the lesiurely pace of doing one iteration in one second, you would need less than half an hour before you finished.
+
+Not too shabby — certainly no waiting for universes to come and go!
+
+In general, the problem of finding a vertex cover of size $k$ in a graph on $n$ vertices vertices can be done in time:
+
+$$O((n-k) \cdot 2^{k+1})$$
+
+following the recipe in this story.
+
+If this algorithm aborts, unable to find a vertex cover of size $k$, it is because a subgraph did not have a vertex cover of size $k$. Of course, this also means that the entire graph does not have a vertex cover of size $k$ either, so the process makes sense.
+
+It is important to note that not every problem is designed to fit this bill, for instance, if the next homework assignment demands a vertex cover that is also connected, the iteration procedure, as it stands, might not be accurate when it reports a negative answer.
+
+The next assignment, therefore, potentially leads to a more demanding adventure.

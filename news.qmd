@@ -1,0 +1,37 @@
+---
+title: "All News"
+sidebar: false
+toc: false
+css: css/news.css
+listing:
+    id: latest-news
+    contents: news  
+    sort: "date desc"
+    page-size: 7
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [date, title, categories]
+    feed: false
+    template: news.ejs
+---
+
+<!-- 
+
+research updates: callout-tip
+anything with a deadline (research-related): callout-warning
+anything with a deadline (event): callout-important
+other news: callout-note
+callout-caution not being used for anything as of now.
+
+-->
+
+:::{.column-body-outset}
+
+# All News
+
+::: {#latest-news}
+:::
+
+:::

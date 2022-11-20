@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2021-09-18">
+
+<title>Neeldhara - Envelope Budgeting with Notion</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif.html">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks.html">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events.html">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.neeldhra.online"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Envelope Budgeting with Notion</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">notion</div>
+                <div class="quarto-category">workflows</div>
+                <div class="quarto-category">tutorial</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 18, 2021</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#budgeting-categories" id="toc-budgeting-categories" class="nav-link active" data-scroll-target="#budgeting-categories">Budgeting Categories</a></li>
+  <li><a href="#accounts" id="toc-accounts" class="nav-link" data-scroll-target="#accounts">Accounts</a></li>
+  <li><a href="#transactions" id="toc-transactions" class="nav-link" data-scroll-target="#transactions">Transactions</a></li>
+  <li><a href="#the-process-after-setting-up" id="toc-the-process-after-setting-up" class="nav-link" data-scroll-target="#the-process-after-setting-up">The Process After Setting Up</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common Pitfalls</a></li>
+  <li><a href="#dashboards" id="toc-dashboards" class="nav-link" data-scroll-target="#dashboards">Dashboards</a></li>
+  <li><a href="#missing-features" id="toc-missing-features" class="nav-link" data-scroll-target="#missing-features">Missing Features</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full column-body" id="quarto-document-content">
+
+
+
+
+<p><a href="https://www.youneedabudget.com">YNAB</a> (c.f. <a href="https://www.reddit.com/r/ynab">r/YNAB</a>) (short for <em>You Need a Budget</em>) is a budgeting application that lets you track and manage your finances. Like most apps in this category, it provides a slick interface to enter all your transactions. YNAB is more than just cataloging transactions and tracking account balances, though. The design here revolves around (and goes beyond) what is called <a href="https://en.wikipedia.org/wiki/Envelope_system">envelope budgeting</a>, which basically boils down to this:</p>
+<blockquote class="blockquote">
+<p>Give every dollar a job.</p>
+</blockquote>
+<p>You can dig a little deeper into how YNAB works by looking up their <a href="https://www.youneedabudget.com/the-four-rules/">four rules</a> here. I am going to try and create an envelope budgeting system in Notion that is loosely inspired by my use of YNAB.</p>
+<p>To be clear, I don’t expect to stop using YNAB, nor do I expect to replicate many of its sophisticated features. Also, there are some nice envelope budgeting systems on Notion already! For instance, you might want to check out the one <a href="https://www.reddit.com/r/Notion/comments/mzfog5/envelope_budget_zerobased_budget_system/">here</a> by <a href="https://www.reddit.com/user/sff_fan_17/">u/sff_fan_17</a> or <a href="https://www.notion.so/Zero-based-Budget-21f015953116430ba4c3414a4691081e">the one here</a> by <a href="https://t.co/3Vv2zRGQuy?amp=1">Ben Smith</a>. These are really neat, but the only reason I’m not just duplicating one of them is that what I have in mind looks slightly different from the setups here. In particular, I would like the transactions to be dated and tied to specific accounts, and I would also like the system here to account for <em>all</em> the inflows and outflows in my actual system. Neither of these templates feature a hierarchy of categories either, which is something that we will attempt to do here.</p>
+<p>In the first template above, I think the total income is mentioned separately, outside of the database system; and the budget covers a part of the total available income. There are explicit instructions on how to update this month-to-month, so do check this out — perhaps it works for what you might have in mind! The second template explicitly accounts for inflows, and is apparently based on <a href="https://docs.google.com/spreadsheets/d/1JVQzq20raZGwxnjsJhLjBrMDswOHL028dwPXdIHoeOQ/template/preview">this Google sheet</a>. It does seem that the transactions are missing information about accounts and dates, which could be a little limiting if you wanted to generate a report or a dashboard for a particular period of time. Again, a great starting point, and if it resonates with your kind of setup, it’s definitely worth duplicating and playing with. Both templates are free to access and replicate.</p>
+<p>Incidentally, if you don’t use Notion and are hesitant to try YNAB, you could take a look at <a href="https://www.youneedabudget.com/how-to-create-a-budget-template/">their guide to building your own budgeting template</a> — this does not require using YNAB at all and can even be made to work pen and paper. Many people have also recreated YNAB’s core features using their own favourite tools, the most popular among which appears to be Google sheets — see, for example: <a href="https://aspirebudget.com">Aspire Budget</a> (c.f. <a href="https://www.reddit.com/r/aspirebudgeting">r/aspirebudgeting</a>) — I have not tried this myself, but it appears to be very feature-rich and neat overall.</p>
+<p>That said, onto our own YNAB-esque budgeting template in Notion! We’re on our way to something that looks like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_9.11.50_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Categories</figcaption><p></p>
+</figure>
+</div>
+<p>If you want to just skip ahead and play with the template, you can duplicate it by following <a href="http://42templates.notion.site/Template-Envelope-Budgeting-in-Notion-447cacf529dd4149b18317460b8f9805">this link</a>:</p>
+<p>There are three key pieces to this setup: the first is the categories (these are the labels on the envelopes, if you like), the second is the actual transactions that take take place, and the third is a list of accounts that you have (could be bank accounts, credit accounts, virtual wallets, and so on). You would want the transactions database to be linked to both categories and the accounts. More on the exact table designs below. I’m going to assume some familiarity with Notion terminology, if this is your first time with Notion then some of this may not make sense right away, but if you could just <a href="https://www.notion.vip/how-to-create-your-first-relational-database-in-notion/">look up how Notion databases work</a> — especially the relational aspect — then I think you’d have all you need to follow along!</p>
+<section id="budgeting-categories" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="budgeting-categories">Budgeting Categories</h2>
+<p>It may be natural for this table to just have one row for each category. You probably want to have a small number of higher-order categories (e.g: monthly supplies, services, maintenance, health, investments, etc.) and smaller, more specific ones under these broad umbrellas (e.g, services would likely have sub-categories along the lines of internet, phone, electricity, water, etc.). You can do this by setting up a relation property to the table itself, and have it sync two-way, like so:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_3.29.11_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot 2021-09-18 at 3.29.11 PM.png</figcaption><p></p>
+</figure>
+</div>
+<aside>
+⚡ We want to make a database that captures the categories that our expenses fall under, and the budget that’s available for these categories.
+</aside>
+<p>If you want to see just the higher-order categories nicely, you can setup a gallery view with a filter for the main category to be empty, which would look like this (I’ve disabled the preview and added some <a href="https://www.notion.vip/icons/">icons from notion.vip</a>):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_3.33.56_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">The Gallery View</figcaption><p></p>
+</figure>
+</div>
+<p>Next, we want to specify a budget for each of these categories. We can do this directly for the lower-order categories first. Then, we can have the main category budgets calculated automatically by rolling up the budgets of the corresponding child categories and adding up their budget values. To have a clean view of the budget, you could add a formula column that just adds up the values from the direct budgets and the rollup, like so:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_8.18.35_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Budget View</figcaption><p></p>
+</figure>
+</div>
+<p>You can add two dummy properties with the text <code>Budgeted:</code> and <code>Remaining:</code> for each row, and set them to show along with the budget in the Gallery view so you get something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_3.43.12_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Budgeted and Remaining Labels</figcaption><p></p>
+</figure>
+</div>
+<p>There are two natural questions at this point:</p>
+<ul>
+<li>How do we know that we have budgeted what we actually have?</li>
+<li>How do we know what amounts are remaining at any given point of time in the month?</li>
+</ul>
+<p>To address both of these questions, we will need to flesh out the transactions database, link it to the categories and come back to this. But before that, let’s do a quick detour with an accounts database just to setup the foundation we need for the transactions database.</p>
+</section>
+<section id="accounts" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="accounts">Accounts</h2>
+<p>For this demonstration, I am just going to add two accounts — one savings bank account and one credit card account:</p>
+<p>The most natural property we want for the Accounts database would be a <em>balance</em> column. Instead of maintaining this manually, we will just link this with the transactions database and derive the balance by rolling up the relevant transactions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_9.49.12_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Accounts View</figcaption><p></p>
+</figure>
+</div>
+<aside>
+⚡ The accounts database simply has one row for every account you have — these could be savings accounts, credit card accounts, a cash account, or your virtual wallets.
+</aside>
+</section>
+<section id="transactions" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="transactions">Transactions</h2>
+<p>You might want to optionally add a memo property that lets you add a quick note or explanation for the transaction. However, given that each database entry is also a page, you could also quite flexibly add all the additional information you want to the page corresponding to any transaction. Meanwhile, you might also want to setup relations to other parts of your Notion setup if you find anything relevant — for instance, if you have a books database, or an inventory database, and so on. That said, we’re going to keep it simple here, and here’s an example transaction:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_4.56.45_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">An Example Transaction</figcaption><p></p>
+</figure>
+</div>
+<aside>
+⚡ Every transaction has the following: an amount, a payee, the account to which the amount was debited or credited to, the date the transaction happened, and and the expense category that the transaction belonged to. We set these up as columns with the appropriate properties, with the accounts and categories being relational links.
+</aside>
+<p>You’ll notice that I’ve linked to both the child and the parent category for this transaction. It would be nice if the parent category was pulled up automatically — and this is possible with a formula, but as far as I know the formula will not actually <em>link</em> the transaction to the main category. So for now, we assign both categories manually. 🤷‍♀️</p>
+<p>One quick thing to do now is to go back to the Accounts database and add a rollup property that takes on the sum of the amounts property from the related transactions table, and once done, the balances show up nicely in the gallery view:</p>
+<div class="columns">
+<div class="column" style="width:34%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_4.35.18_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rollup sum of amounts in accounts</figcaption><p></p>
+</figure>
+</div>
+</div><div class="column" style="width:66%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_4.37.52_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Gallery view of balances</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now we go back to our categories database and rename the relational column to <strong>transactions</strong> and add a rollup that collects all expenses from the transactions that happened in a particular category, so this is what it looks like:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_5.50.57_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Category view</figcaption><p></p>
+</figure>
+</div>
+<p>Now add a formula column <strong>available</strong> that simply adds up the budget and the expense columns so you can find out how much of your budget is still available for use. My formula looks like this:</p>
+<p><code>prop("Final Budget") + prop("Expenses")</code></p>
+<p>Note that it might feel more natural to subtract expenses, but my expenses are already negative amount transactions, so I just need to bundle it all together.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_6.30.27_PM.png" class="img-fluid figure-img" style="width:42.0%"></p>
+<p></p><figcaption class="figure-caption">Category View</figcaption><p></p>
+</figure>
+</div>
+<p>Just for fun, you could also add a <strong>status</strong> column that visually indicates how much of your budget you have left. The progress-bar style of the status property here is inspired <a href="https://www.notion.vip/notion-formulas-create-a-progress-bar/">by this guide</a>, and the formula I used requires a couple of auxiliary columns that calculate the percentage and determine if a half-star should be used or not based on the value of the decimal part. It also first checks that the available balance is in fact positive, if not, it’s going to display a suitably scary warning emoji. I won’t bore you with the specifics here, but you can find the formula in the template that I’ve linked to at the end of this post.</p>
+<p>So now we are at a point where the remaining amounts are calculated based on the transactions. However, we still have to think about how to link the budgeted amounts to the actual money available. In fact, speaking of money available, I haven’t really touched upon how to handle transactions that are not expenses; i.e, transactions with a positive amount value and that reflect money coming <em>into</em> the system as opposed to leaving it. These are, of course, just regular transactions — but what category do we assign them to? All the ones we have so far really capture spends, not inflows…</p>
+<p>So, it turns out that YNAB would take all this money and automatically categorize it as unassigned, or to be budgeted. We can mimic this by creating a special category called <code>to be assigned</code>, and have all income-type transactions categorized as such. Typically this would be transactions corresponding to a salary, client payments, refunds, credit from interest, and so forth.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_6.38.19_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">The TBA Category</figcaption><p></p>
+</figure>
+</div>
+<div class="page-columns page-full"><p>Notice that the so-called <strong>expenses</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> that are now accumulating in this category is actually the total amount of money that came into the system. Incidentally, if you were to just look at the sum of the <strong>balance</strong> column in the accounts database, that’s the net amount of money in the system at any given point of time.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Remember that the expenses column just rolled up the transaction amounts in a particular category.</p></li></div></div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_6.42.06_PM.png" class="img-fluid figure-img" style="width:77.0%"></p>
+<p></p><figcaption class="figure-caption">Accounts View</figcaption><p></p>
+</figure>
+</div>
+<aside>
+⚡ Note that transactions that just move money within your accounts, like a credit card payment, don’t need any explicit expense categories.
+</aside>
+<p>You also don’t need to budget separately for credit card payments, because your credit card bill is composed of transactions that were already budgeted for! Even if they were items corresponding to, say, credit card fees, you probably categorized them under Services, for example. So we won’t have a separate budget for credit card bill payments (although I should mention that YNAB does this explicitly and handles it automatically).</p>
+<p>Alright, so it seems like we are nearly there, except that our current situation is the following:</p>
+<ol type="1">
+<li>The amount the <em>to be assigned</em> category is a true reflection of incoming funds.</li>
+<li>The amounts that we added to our category budgets were setup manually and generally divorced from the reality in the transactions database.</li>
+</ol>
+<aside>
+<p>⚡ To fix this, we need some way to move funds from the <em>to be assigned</em> category to the other ones.</p>
+</aside>
+<p>For example, let’s say I want to budget 750 for ebooks this month. I could do this by adding a dummy transaction that debits an amount of 750 to the <em>to be assigned</em> category and credits it to the <em>ebooks</em> category<em>.</em> What this means is that when we roll up the amounts from all transactions, we directly obtain the amount remaining for us to spend!</p>
+<p>So for the very first month, when we have a clean slate, we just have a bunch of such transactions — these won’t have any explicit account associated with them because they aren’t real transactions; and in fact you can always filter your transactions table so that you only see the meaningful ones by setting the condition that the accounts column should be non-empty.</p>
+<p>Meanwhile, here is how we do the budgets for our categories all over again, this time via these virtual transactions:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_9.57.40_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Budget Overview</figcaption><p></p>
+</figure>
+</div>
+<p>If you go to the <em>to be assigned</em> row in the categories table and look at the rollup value in the expenses column, then you’ll see that it corresponds to either the amount of money that’s still assigned (these are dollars — or in my case, rupees — that don’t have a job yet), or, in case you happen to have overshot the budget, the amount by which you are falling short. In the former situation, the available amount will be a positive number, while in the latter, it’ll be negative.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_7.57.35_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">To Be Assigned</figcaption><p></p>
+</figure>
+</div>
+<p>Ideally, we just want this number to be <em>zero</em>, indicating that everything has been assigned appropriately. To achieve this:</p>
+<ol type="1">
+<li>If your budgets have collectively overshot the amount of money available, re-adjust them them — specifically, reduce some of the amounts — so that this is no longer the case. Of course, I am saying this from a theoretical standpoint; if your situation is that you have real expenses that you don’t have real money for, then you would want to plan for this by bringing the differential amount of money into the system via a loan, and then planning the repayment by budgeting for it as well. Dealing with debt is beyond the scope of this discussion, but I think the <a href="https://www.youneedabudget.com/blog/">YNAB blog</a>, <a href="https://www.youneedabudget.com/ynab-the-book/">book</a>, and <a href="https://www.youtube.com/user/youneedabudget">videos</a> go into this at length.</li>
+<li>If you have money left over, you could either add it to your budgets, giving yourself some extra wiggle room; but I prefer to budget for fixed amounts generally, so in this situation I’ll just add this amount to something I call a <em>Miscellaneous</em> or <em>Scratchpad</em> category. It’s something you can borrow from if you fall short later, it has no particular semantics. Some people like to sweep off any excess money into deposit accounts, and if you do this, then you might want to create those accounts in the system and enter those transactions to get rid of this positive balance.</li>
+</ol>
+<p>At the end of this, you are in a situation where all money is nice and assigned. Since we started off by specifying budgets manually, we should go back and fix some formulas in our database of categories. In particular, here’s what I did to simplify things:</p>
+<ul>
+<li>Remove the <code>Available</code> column (previously this was the difference of the manually set budget and the rolled up expenses).</li>
+<li>Rename <code>Expenses</code> to <code>Available</code>, since the rollup now just reflects what’s truly available.</li>
+</ul>
+<p>I’m going to leave the manually added budgets in — although we won’t use them to calculate what’s truly available any more, they will help us plan our budgets going forward.</p>
+<p>Everything so far should make sense for an initial setup, but what do we do when we have new incoming transactions that need to be assigned to categories? I generally like to do the budgeting exercise once at the start of every month, so any intermediate positive transactions into the system will either remain in the <em>To be assigned</em> category, or if you are OCD about wanting that that category to be set to zero always, you can always push this number out into your scratchpad.</p>
+<p>At the start of the month (this could be another day and a different frequency; but I do recommend being consistent for simplicity), we need to refuel the categories with the funds available. There are two kinds of things that could happen here, broadly speaking:</p>
+<ol type="1">
+<li>For categories that represent a plan to save up to something, like a vacation, or a category where you feel like you want to have a certain amount of money set aside every month irrespective of how much you spent in the last month, you just want to push <code>budget</code> amount of money into that category via the virtual transactions we discussed earlier.</li>
+<li>For other categories, which I like to think of as those having <em>rolling</em> budgets, you want to only assign the difference between what was budgeted and what was spent… and hopefully this is a non-negative quantity!</li>
+</ol>
+<p>You could setup a checkbox to indicate which categories have rolling budgets and which ones do not, and then this formula:</p>
+<p><code>prop("IsRolling?") ? (prop("Budget") - prop("Available")) : prop("Budget")</code></p>
+<p>will tell you how much you should budget for next month.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_8.23.47_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">In this example, Ebooks are not a rolling category, so even though I need only 628.95 to meet the original budget, I’ll still set aside the full 750, and the amount that will be available will be 871.05. On the other hand, Phone is a rolling category, and presumably my phone-related expenses in the current month added up to 420, so the recommendation is to budget 420 next time so you’ll still have 500 available total.</figcaption><p></p>
+</figure>
+</div>
+<p>In this example, Ebooks are not a rolling category, so even though I need only 628.95 to meet the original budget, I’ll still set aside the full 750, and the amount that will be available will be 871.05. On the other hand, Phone is a rolling category, and presumably my phone-related expenses in the current month added up to 420, so the recommendation is to budget 420 next time so you’ll still have 500 available total.</p>
+</section>
+<section id="the-process-after-setting-up" class="level2">
+<h2 class="anchored" data-anchor-id="the-process-after-setting-up">The Process After Setting Up</h2>
+<p>There are two main times that you’ll interact with this budget: whenever a transaction is made, and once every X days to reset the budgets for the individual categories.</p>
+<p>Adding transactions is reasonably easy, although admittedly it’s probably not as smooth as a specialized app that might have a Siri command to do this for you or a widget that let’s you quick-add things. However, it’s not too bad, especially if you enter it right away. You could also potentially automate this via API integrations, or enter your transactions in your regular app and export them as a CSV and import them into the Notion system once every so often.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_8.37.56_PM.png" class="img-fluid figure-img" style="width:42.0%"></p>
+<p></p><figcaption class="figure-caption">Transaction Table</figcaption><p></p>
+</figure>
+</div>
+<p>The budgeting bit is going to be a little more work, especially if you work with a gazillion categories. The formulas will guide to you what needs to be done, but those virtual transactions still need to be added manually. On YNAB, you can do what I described above (adding the deficit to rollup categories and the originally intended budgets to the others) in one click — and there are other options too, for example, you may have moved to a new location and you’re still getting the hang of what you’ll need to set aside for groceries, so YNAB will offer to budget what you spent last month, or your average expenses from the last six months, and so on. Here, since you are assigning things manually, you can definitely tweak as you go; the <strong>next month</strong> column is just a suggestion.</p>
+<p>You can probably prepare a CSV file with the default budget amounts and just merge this in at the start of every month if your expenses are super predictable, and just adjust the entries that need adjusting. This will save you some time, but remember that the categories still need to be linked to manually. It’s not too bad for something that happens once a month and that will hopefully bring you some sense of control and awareness 😇</p>
+<p>Perhaps also try and not have a gazillion categories and sub-categories, at least to begin with — it helps to keep things simple, especially when starting out.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common Pitfalls</h2>
+<p>Here are a couple of mistakes I made frequently, even while just setting up this template!</p>
+<ul>
+<li>Forgetting that transaction amounts corresponding to expenses should be recorded as negative numbers! If this happens very very frequently to you, you could also set this up a little differently — have a checkbox to indicate if a transaction is an expense or an inflow, and always enter a positive number reflecting the amount, and let a formula do the work of adding the sign!</li>
+<li>Forgetting to add the parent category — this can mess up the views of what’s available in the high-level categories and cause the numbers to not tally. So if you need to debug your numbers, check for whether you have added both categories to your transactions or not!</li>
+</ul>
+</section>
+<section id="dashboards" class="level2">
+<h2 class="anchored" data-anchor-id="dashboards">Dashboards</h2>
+<p>Most of the action here is happening in the Transactions database. You could create linked copies of this database anywhere you like and filter things out to see what you want. For instance, if you want to keep tabs on the transactions in specific accounts, you could have this on your account pages:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_8.47.47_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Account Overview</figcaption><p></p>
+</figure>
+</div>
+<p>You could filter out transactions for a particular month, a particular category (either a top-level category or an atomic one), and so on. I think there’s plenty you can do here, but I am not sure how much of this can be automated. For instance, you might want to generate — or have over email — a monthly report of your expenses across various categories and how did relative to your estimated budgets. This should be possible by leveraging the API and tools like Integromat/Zapier/Automate.io - but I haven’t really explored the possibilities here.</p>
+</section>
+<section id="missing-features" class="level2">
+<h2 class="anchored" data-anchor-id="missing-features">Missing Features</h2>
+<p>It would be nice to have a gallery view of the months of the year showing spends and budgets in each (high-level?) category. For this though I’d need the rows to correspond to months, columns corresponding to categories, which pull up transactions that happened in a particular month from said category.</p>
+<p>Even if I manually linked the transactions database to this calendar one, and made sure each transaction was linked to the correct row, I don’t see how I can split up those transactions across categories, since it’s not possible to add a filter to relational columns or rollups as far as I know. It’s a similar bottleneck going through the Categories database as well. This information is of course implicit in the system, I just can’t think of a neat way of visualizing it.</p>
+<p>This is possible to do for the current month though:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot_2021-09-18_at_9.08.56_PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Monthly Overview</figcaption><p></p>
+</figure>
+</div>
+<p>YNAB also has more sophisticated category types — apart from budgets that roll or accumulate, you could have categories that aim to have a certain amount of funds assigned by a certain date and so on. For those who are freelancers with incomes spread over the days of the month, I think YNAB has a lot of little features that allow for a more flexible way of budgeting, which I’m not super familiar with because I’m not in this situation. This is just to say that this setup here may be both limiting and feeing because of how much of the setup is manually done. At least that’s my optimistic view right now 😀</p>
+<p>Finally, YNAB also has an option to reconcile accounts, which is when you declare that the numbers in YNAB match the book balance according to your bank or credit card agency. This is a neat little thing that I like to check off every so often. Here, I suppose you could just glance through the balances on the Accounts database (remember the gallery view from earlier?), but it won’t have the same song-and-dance-y feeling — but maybe this could be a recurring task that you can check off, and hopefully <em>that</em> will feel good 😅</p>
+<p>So that’s about it! I’d love to hear any feedback on this, and suggestions for improving the setup would be very welcome too. You can duplicate the template <a href="https://www.notion.so/Template-Envelope-Budgeting-in-Notion-447cacf529dd4149b18317460b8f9805">from here</a>.</p>
+
+
+</section>
+
+
+</main> <!-- /main -->
+<script src="https://cdn.usefathom.com/script.js" data-site="MAIKFVGD" defer=""></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/Musings">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a href="https://neeldhara.online" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+    <p>&nbsp;</p>
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.webp" style="border-radius:25px;">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

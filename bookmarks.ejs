@@ -1,0 +1,89 @@
+```{=html}
+<table class="quarto-listing-table table">
+<tbody class="list">
+<% for (const item of items) { %>
+<tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>
+<td>
+    <% if(item.info){ %>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.info %>">
+        <a href="<%= item.url %>"><i class="bi bi-link-45deg"></i></a>
+        </span>
+    <% } else { %>
+        <a href="<%= item.url %>"><i class="bi bi-link-45deg"></i></a>
+    <% } %>
+    <span style="display:none;" class="listing-info"><%= item.info %></span>
+</td>
+<td class="listing-title">   
+        <%= item.title %>
+</td>
+<td>
+    <% for (const caty of item.categories) { %>
+        <% if (caty == "book") { %>
+            <i class="bi bi-book"></i>
+        <% } %>
+        <% if (caty == "tweet") { %>
+            <i class="bi bi-twitter"></i>
+        <% } %>
+        <% if (caty == "website") { %>
+            <i class="bi bi-globe"></i>
+        <% } %>
+        <% if (caty == "article") { %>
+            <i class="bi bi-file"></i>
+        <% } %>
+        <% if (caty == "youtube") { %>
+            <i class="bi bi-youtube"></i>
+        <% } %>
+        <% if (caty == "video") { %>
+            <i class="bi bi-camera-reels"></i>
+        <% } %>
+        <% if (caty == "audiobook") { %>
+            <i class="bi bi-music-player-fill"></i>
+        <% } %>
+        <% if (caty == "podcast") { %>
+            <i class="bi bi-mic-fill"></i>
+        <% } %>
+        <% if (caty == "song") { %>
+            <i class="bi bi-cassette-fill"></i>
+        <% } %>
+        <% if (caty == "explorable") { %>
+            <i class="bi bi-arrow-repeat"></i>
+        <% } %>
+        <% if (caty == "list") { %>
+            <i class="bi bi-list-stars"></i>
+        <% } %>
+    <% } %>
+</td>
+<td class="listing-categories">
+    <% for (const caty of item.categories) { %>
+        <span class="badge badge-danger" style="background-color: darkcyan;"><%= caty %></span>   
+    <% } %>
+</td>
+<td class="listing-status">   
+    <% if (item.status == "parsed") { %>
+        <i class="bi bi-check-circle-fill"></i>
+        <span style="display:none;"><%= item.status %></span>
+    <% } %>
+    <% if (item.status == "pseudo") { %>
+        <i class="bi bi-check2-circle"></i>
+        <span style="display:none;"><%= item.status %></span>
+    <% } %>
+</td>
+<td class="listing-duration">   
+    <% if (item.duration == "short") { %>
+        <i class="bi bi-star-fill"></i>
+    <% } %>
+    <% if (item.duration == "moderate") { %>
+        <i class="bi bi-clock-history"></i>
+    <% } %>
+    <% if (item.duration == "long") { %>
+        <i class="bi bi-infinity"></i>
+    <% } %>
+    <span style="display:none;"><%- item.duration %></span>
+</td>
+</tr>
+<% } %>
+</tbody>
+</table>
+
+```
+

@@ -1,0 +1,30 @@
+<% for (const item of items) { %>
+
+<!-- The Modal -->
+<div id="modal-<%= item.slides %>" class="modal">
+<!-- Modal content -->
+<div class="modal-content" style="width: 69% !important; height: 600px !important; padding: 25px !important;">
+<span class="close" data-dismiss="modal">×</span>
+<h3><%= item.title %></h3>
+<p>&nbsp;</p>
+<% if (item.slides) { %> 
+<iframe src="https://slides.com/neeldhara/<%= item.slides %>/embed?style=light" width="100%" height="100%" title="<%= item.title %>" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<% } %>
+</div>
+
+</div>
+
+<!-- The Modal -->
+<div id="modal-<%= item.youtube %>" class="modal">
+<!-- Modal content -->
+<div class="modal-content" style="width: 680px !important; height: 600px !important; padding: 25px !important;">
+<span class="close" data-dismiss="modal">×</span>
+<h3><%= item.title %></h3>
+<p>&nbsp;</p>
+<% if (item.youtube) { %> 
+<iframe width="100%" height="500px" src="https://www.youtube.com/embed/<%= item.youtube %>" title="<%= item.title %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="height: 500px !important;"></iframe>
+<% } %>    
+</div>
+</div>
+
+<% } %>    

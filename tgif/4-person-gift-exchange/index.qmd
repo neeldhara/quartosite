@@ -1,0 +1,33 @@
+---
+title: "4 Person Gift Exchange"
+date: "2021-03-25"
+categories: [probability]
+fields: [date, title]
+css: /css/tgif.css
+toc: true
+---
+
+:::{.callout-tip appearance="simple" icon=false}
+This puzzle by [Professor Henk Tijms](https://twitter.com/Hendrikc44) was contributed by [@10kdiver](https://twitter.com/10kdiver).
+:::
+
+First the warm-up edition.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Here&#39;s a beautiful probability puzzle inspired by Professor Henk Tijms (<a href="https://twitter.com/Hendrikc44?ref_src=twsrc%5Etfw">@Hendrikc44</a>).<br><br>See if you can solve it. The answer may surprise you!<br><br>(I&#39;ll post a solution tomorrow.) <a href="https://t.co/m1c8u0J5MN">pic.twitter.com/m1c8u0J5MN</a></p>&mdash; 10-K Diver (@10kdiver) <a href="https://twitter.com/10kdiver/status/1506573197310771202?ref_src=twsrc%5Etfw">March 23, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+Now for the harder version.
+
+:::{.callout-caution appearance="simple" icon=false}
+##
+
+A number of people will exchange gifts at a holiday party. Each person brings a gift to the party and attaches a label with a unique number to this gift. These numbers are also put on cards, which are deposited in a box and shuffled. Each person at the party then sequentially draws a card from the box, and receives the gift whose label corresponds to the number on the card drawn. If the number corresponds to his or her own gift, the card is returned to the box and the person draws another card. Of course, it is not possible for the last person to draw a second card.
+
+What is the probability that the last person is left with the card corresponding to his or her own present? In the simple case of two people, the probability is zero. The problem is also easy to solve in the case of three people, using a chance tree. It is no restriction to imagine that the persons are numbered as 1, 2 and 3 like the labels of their presents, and that they draw a card in this order. Then person 1 gets either the present with label 2 or the present with label 3, each with a probability of 1/2. If person 1 gets the present with label 3, then the conditional probability of the last person 3 to get his or her own present is zero. If person 1 gets the present with label 2, then the cards with labels 1 and 3 are left and person 2 draws the card with label 1 with probability of 1/2, in which case the last person 3 is left with the card of his or her own present. Therefore the probability that the last person will be left with the card of his or her own present is &#xBD; &#xD7; 0 + &#xBD; &#xD7; &#xBD; = &#xBC;.
+
+The challenges for this week are these: What is the probability that the card left for the last person corresponds to his or her own present when there are four people at the party? What is the probability when there are five people at the party?
+
+:::
+
+
+[Source](https://archive.nytimes.com/wordplay.blogs.nytimes.com/2015/12/28/tijms-gift-exchange/?mtrref=undefined&gwh=AD59BCDA3B5A60F3390C8F341A1F00BB&gwt=pay&assetType=PAYWALL)
+[NB. may be paywalled]{.aside}

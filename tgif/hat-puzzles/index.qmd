@@ -1,0 +1,42 @@
+---
+title: "Hat Puzzles"
+date: "2022-10-07"
+categories: [logic]
+fields: [date, title]
+css: /css/tgif.css
+toc: true
+---
+
+We discussed a variety of puzzles in the genre of hat puzzles, which roughly have following story arc:
+
+- a bunch of (not necessarily finite (!!!)) people are in a location
+- all of them are wearing hats of one of $c$ colors, typically $c = 2$ (we will assume that hats are either red or blue)
+- nobody knows the color of their own hat
+- folks can see the colors of other's hats (but not necessarily all of them; this depends on the setting)
+- everyone is tasked with determining/guessing the color of their own hat, and failure to get it right (most of the time) will usually lead to unpleasant outcomes
+
+A traditional special case is the following:
+
+- There are $n$ people standing on a line.
+- Everyone can see the colors of the hats of everyone ahead of them.
+- A strategy for how one's own hat color is determined can be coordinated in advance.
+- Starting from the person who can see everyone else (and their hats, more importantly), to the person at the end who sees nothing, everyone spells out their guess of the color of their own hat loudly and clearly for everyone else to hear. There is no communication between poeple other than this.
+- All but one person must figure out the color of their hat correctly.
+
+:::{.callout-caution collapse="true" icon="false"}
+## A Strategy for the Finite Case
+The first person says "red" if the number of red hats s/he sees is even, and "blue" otherwise. This person may be mistaken about the color of their own hat. However, knowing the rationale for what the first person called out, the second can tally up parities to determine the color of their own hat (e.g, if the first person said red and the second person sees an even number of red hats, they conclude they are wearing a blue hat, otherwise they know they are wearing a read hat; and so on).
+:::
+
+A crazier version is the following:
+
+- There are infinitely many people in a room.
+- Everyone can see the colors of the hats of everyone else, but not their own.
+- Nobody can hear anyone else's guess.
+- Everyone guesses simultaneously.
+- Is there a strategy to ensure that infinitely many guesses are correct?
+- \[Level Up\]: Is there a strategy to ensure that at most finitely many guesses are wrong?
+
+
+This is fun to think about, and you're probably going to have to invoke something something [axiom of choice](https://divisbyzero.com/2009/08/11/infinite-hat-problems-solutions/) something something to tackle the situation!
+[Spoiler Alert!]{.aside}

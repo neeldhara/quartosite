@@ -1,0 +1,84 @@
+---
+title: "Bookmarks"
+toc: false
+sidebar: false
+css: css/bookmarks.css
+listing:
+    id: bookmarks
+    contents: bookmarks  
+    sort: "title asc"
+    page-size: 25
+    categories: false
+    sort-ui: false
+    filter-ui: true
+    fields: [title, url, categories, info, status, duration]
+    feed: false
+    template: bookmarks.ejs
+---
+
+:::{.column-body-outset}
+
+# Bookmarks
+
+A braindump of things I find --- or at any rate, found at some point --- interesting. 
+
+
+:::{.callout-caution icon="false"}
+
+### Disclaimer
+
+I have not explored/read everything listed out here: if something is here, it just means that I am vaguely aware of said thing. Things I have some appreciation for are marked with a {{< bi check-circle-fill >}} and can be filtered by typing `parsed` in the search box on this page. Things I have passing or partial familiarity with are marked with a {{< bi check2-circle >}} and can be filtered by typing `pseudo` in the search box on this page. 
+
+:::
+
+---
+
+:::{.callout-tip icon="false"}
+
+### Legend for Estimated Effort
+
+{{< bi star-fill >}} Quick tips and the like: these will typically need between 2-15 minutes of your attention. Filter for these by typing `short`.
+
+{{< bi clock-history >}} Articles or resources that demand anywhere between an hour to an evening to process fully. Filter for these by typing `moderate`.
+
+{{< bi infinity >}} Things to keep coming back to over time, like courses, books, youtube channels, and so on. Filter for these by typing `long`.
+
+:::
+
+:::{.callout-tip icon="false" collapse="true"}
+
+### Legend for Types (click to view)
+
+
+::: {layout="[[46,14,40]]"}
+
+| Symbol      | Approximate Category |
+| ----------- | ----------- |
+| <i class="bi bi-book"></i> | book | 
+| <i class="bi bi-twitter"></i> | tweet | 
+| <i class="bi bi-globe"></i> | website | 
+| <i class="bi bi-file"></i> | article | 
+| <i class="bi bi-youtube"></i> | channel | 
+| <i class="bi bi-camera-reels"></i> | video | 
+
+
+<div>
+</div>
+
+| Symbol      | Approximate Category |
+| ----------- | ----------- |
+| <i class="bi bi-music-player-fill"></i> | audio | 
+| <i class="bi bi-mic-fill"></i> | podcast | 
+| <i class="bi bi-cassette-fill"></i> | song | 
+| <i class="bi bi-arrow-repeat"></i> | explorable |
+| <i class="bi bi-list-stars"></i> | list | 
+| <i class="bi bi-file-image"></i> | meme |
+
+:::
+
+:::
+
+::: {#bookmarks}
+:::
+
+:::

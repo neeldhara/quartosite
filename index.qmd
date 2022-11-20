@@ -1,0 +1,147 @@
+---
+title: ""
+sidebar: false
+toc: false
+css: css/home.css
+include-after-body: footer2.html
+layout: full
+listing:
+  - id: latest-blog
+    contents: blog  
+    sort: "date desc"
+    max-items: 7
+    page-size: 7
+    date-format: DD MMM, YYYY
+    template: homepage-blog.ejs
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [date, title, categories]
+    feed: false
+  - id: latest-news
+    contents: news  
+    sort: "date desc"
+    max-items: 7
+    page-size: 7
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [date, title, categories]
+    feed: false
+    template: news.ejs
+---
+
+:::{.column-body-outset}
+::: {layout="[[42,8,50]]"}
+
+<div>
+[![Visualizing Baranyai's theorem for the case when n=2.](/images/home.png){.rounded-corners .baranyai}
+[Visualizing Baranyai’s theorem for the case when n=2.]{.small-text}]{.centered-text}
+</div>
+
+<div>
+</div>
+
+<div>
+# Neeldhara Misra
+
+[Smt. Amba and Sri. V S Sastry Chair Associate Professor]{.small-text}<br>[Computer Science and Engineering at IIT Gandhinagar]{.small-text}<br>[(she/her)]{.small-text}
+
+<p>&nbsp;</p>
+
+[Blog](/blog.qmd) ⸱ [Mastodon](https://neeldhara.online) ⸱ [DBLP](https://dblp.org/pid/85/6789.html) ⸱ <a href="#"  data-target="myModal" data-toggle="modal">Contact</a>
+
+<p>&nbsp;</p>
+
+My broad research interests include — in no particular order: algorithm design, computational social choice, combinatorial games. You can find out more about my work [here](research/).
+
+<p>&nbsp;</p>
+
+Recent PCs: FUN 2022, MFCS 2022, IPEC 2022, Compute 2022, CALDAM 2023, IPEC 2023 (co-chair with [Magnus Wahlström](https://pure.royalholloway.ac.uk/en/persons/magnus-wahlström))
+
+<p>&nbsp;</p>
+
+</div>
+
+:::
+:::
+
+:::{.column-body-outset}
+
+## Latest News
+
+::: {#latest-news}
+:::
+
+{{< bi arrow-bar-right color="#047a06" >}} *[All News](news.qmd)*
+
+:::
+
+:::{.column-body-outset}
+
+## Latest Posts
+
+::: {#latest-blog}
+:::
+
+{{< bi arrow-bar-right color="#047a06" >}} *[All Posts](blog.qmd)*
+
+:::
+
+
+:::{.column-body-outset}
+
+#### In case you care for (sporadic) updates by email.
+
+I mostly plan to write some notes to self: I can’t imagine that you’d be interested, but if, for some reason, you are, you are welcome.
+
+<form
+  action="https://buttondown.email/api/emails/embed-subscribe/neeldhara"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://buttondown.email/neeldhara', 'popupwindow')"
+  class="embeddable-buttondown-form"
+>
+  <div class="form-group">
+  <input type="email" class="form-control" aria-describedby="emailHelp"  name="email" id="bd-email" placeholder="Enter your email."/>
+  <small id="emailHelp" class="form-text text-muted">I would (obviously!) never share your email with anyone else.</small>
+  </div>
+  <p>&nbsp;</p>
+  <div class="form-group">
+  <input type="submit" value="Subscribe"  class="btn btn-primary" />
+  </div>
+</form>
+
+:::
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+<div class="modal-content">
+<span class="close">&times;</span>
+<h3>Address</h3>
+
+Neeldhara Misra AB 4/305, <br>
+IIT Gandhinagar Palaj, <br>
+Gandhinagar 382055 <br>
+India
+
+<h3>Email</h3>
+
+`neeldhara.misra@gmail.com`  • `neeldhara.m@iitgn.ac.in`
+
+<p>In case you have emailed me and have not heard back: it is typically my bad!</p>
+
+<p>I tend to respond either immediately or eventually, so don't hesitate to send a (n|gr)udging reminder if I have not responded to your email and your context is time-sensitive. My apologies!</p>
+
+<h3>Phone</h3>
+
++91 79 2395 2490 (Off)
+</div>
+
+</div>

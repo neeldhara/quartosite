@@ -1,0 +1,51 @@
+---
+title: "Moving Blocks at CTIS 2021"
+date: "2021-09-21"
+categories: [puzzles, exposition]
+fields: [date, title]
+toc: true
+---
+
+I am very excited about [third conference on Computational Thinking in Schools](https://sites.google.com/view/ctis2021/home?authuser=0) (CTiS2021)[^1], a [CSpathshala](https://www.google.com/url?q=https%3A%2F%2Fcspathshala.org%2F&sa=D&sntz=1&usg=AFQjCNHh6bbDDYykMp9_oAWqw9PhiDHKPg) event, that's coming up from the 29th September to 2nd October 2021 at School of Scholars, Nagpur.
+
+[^1]: Registration is free but mandatory. The deadline is 28th September. Please [head over here](https://sites.google.com/view/ctis2021/registration?authuser=0) to register!
+
+Some background from the conference website:
+
+> The CTiS (Computational Thinking in Schools) conference is an annual event organised by the ACM (Association of Computing Machinery) and the CSpathshala community. It aims to bring together teachers, educators and researchers to discuss issues of curriculum, pedagogy, policy and implementation, related to bringing computational thinking to schools.
+
+CTiS2021 aims to provide a platform for teachers, educators and experts to share their best practices as well as challenges faced in implementing computational thinking in education. The discussions will focus on integrating CT activities (both plugged and unplugged) in various school subjects, on student learning outcomes and on disseminating findings of CT based experiments or classroom research conducted by teachers and educators across the country.
+
+Our 4-day conference features key note speakers, Hal Abelson, MIT, USA, Manish Jain, IIT Gandhinagar, Patricia Ordóñez, University of Puerto Rico Río Piedras and Wolfgang Slany, TU Graz, Austria. The conference also features a workshop on CT and inclusion, conducted by Supriya Dey, Vision Empower and Manohar Swaminathan, Microsoft Research, Bengaluru and presentations of selected abstracts with sessions on implementation of computational thinking, fun activities and innovative examples used by teachers in classrooms!
+
+Needless to say, I'm looking forward to this very exciting program! As a PC member, I also know that the contributed content is fantastic as well, and the aim of this little writeup is to offer a glimpse into this section of the conference.
+
+In particular, I want to share with you a puzzle that was described by Rema Nair, who teaches Computer Science at the Mallya Aditi International School in Bangalore, grades 9-12.
+
+To begin with, we have an equal number of blue and green boxes positioned as follows:
+
+🟦 🟦 🟦      🟩 🟩 🟩
+
+So the blue boxes are lined up first from left to right, followed by a space that's exactly enough to fit one box, and then we have the green boxes lined up after the space. The goal is to arrive at the following position, which is essentially what you would have if the blue and green boxes were to switch positions:
+
+🟩 🟩 🟩      🟦 🟦 🟦
+
+The moves of the boxes are subject to the following rules:
+
+- The boxes from the left (i.e, the blue ones) can only move towards the right, and the boxes from the right (i.e, the green ones) can only move towards the left.
+
+- Boxes can move forward one space, or move two spaces by jumping over/moving past another box of a different colour (never over a box of the same colour).
+
+- The moves are to be made in one direction only.
+
+The puzzle is solved when the two sets of boxes have switched positions.
+
+So how would you get the boxes to switch positions? Are there multiple ways to do it successfully? If so, which strategy leads to the smallest number of moves? This should be a fun conversation-starter in class — and beyond!
+
+This is a great activity with actual boxes in a physical setting, but for now, here's a quick version that you can try out right here, thanks to [Polypad](https://mathigon.org/polypad) by [Mathigon](https://mathigon.org)* - be careful to not overlap the boxes one on top of the other, they will end up merging! You can always refresh this page to reset 😀
+
+*Note that the numbers on the boxes are immaterial; notice that given the constraints on the directions, the relative ordering of the numbers is fixed anyway.
+
+Enjoy playing for now, and [join us at CTiS](https://sites.google.com/view/ctis2021/registration?authuser=0) to meet Rema (and other participants).
+
+<iframe width="720" height="440" src="https://mathigon.org/polypad/embed/y191NxerHKiwg" frameborder="0" allowfullscreen></iframe>

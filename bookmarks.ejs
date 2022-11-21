@@ -2,7 +2,7 @@
 <table class="quarto-listing-table table">
 <tbody class="list">
 <% for (const item of items) { %>
-<tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>
+<tr <%= metadataAttrs(item) %>>
 <td>
     <% if(item.info){ %>
         <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.info %>">

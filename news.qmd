@@ -5,14 +5,15 @@ toc: false
 css: css/news.css
 listing:
     id: latest-news
-    contents: news  
+    contents: news/
+    page-size: 50
     sort: "date desc"
-    type: table
     categories: false
     sort-ui: false
     filter-ui: false
-    fields: [date, title, categories]
+    fields: [title]
     feed: false
+    type: table
     template: news.ejs
 ---
 
@@ -29,6 +30,8 @@ callout-caution not being used for anything as of now.
 :::{.column-body-outset}
 
 # All News
+
+<p>&nbsp;</p>
 
 ::: {#latest-news}
 :::

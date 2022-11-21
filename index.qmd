@@ -9,11 +9,11 @@ listing:
   - id: latest-blog
     contents: blog  
     sort: "date desc"
-    max-items: 7
     page-size: 7
+    max-items: 7
     date-format: DD MMM, YYYY
     template: homepage-blog.ejs
-    type: table
+    type: custom
     categories: false
     sort-ui: false
     filter-ui: false
@@ -24,7 +24,7 @@ listing:
     sort: "date desc"
     max-items: 7
     page-size: 7
-    type: table
+    type: custom
     categories: false
     sort-ui: false
     filter-ui: false

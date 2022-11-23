@@ -1,0 +1,214 @@
+---
+title: "ES 242 | Aug-Nov 2022"
+sidebar: false
+toc: false
+date-format: DD MMM, YYYY
+css: ../../../css/teaching.css
+listing:
+  - id: lectures-listing
+    contents: materials.yml
+    sort: date asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials.ejs
+  - id: labs-listing
+    contents: materials-labs.yml
+    sort: issuedate asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials-assessments.ejs
+    field-types:
+      dateissued: date
+      due: date
+  - id: assignments-listing
+    contents: materials-assignments.yml
+    sort: issuedate asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials-assessments.ejs
+    field-types:
+      dateissued: date
+      due: date
+  - id: quizzes-listing
+    contents: materials-quizzes.yml
+    sort: issuedate asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials-assessments.ejs
+    field-types:
+      dateissued: date
+      due: date
+  - id: mentimeter-listing
+    contents: materials-mentimeter.yml
+    sort: issuedate asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials-assessments.ejs
+    field-types:
+      dateissued: date
+      due: date
+  - id: exams-listing
+    contents: materials-exams.yml
+    sort: issuedate asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials-assessments.ejs
+    field-types: 
+      dateissued: date
+      due: date
+---
+
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### August --- November 2022
+
+:::{.callout-note collapse="true" icon="false"}
+
+##### About the Course
+
+Data structures give us principled ways to stow away information. It’s important to do this nicely based on what you want to do with the information.
+
+For example, the notes you might be taking in this class is information. If you have no plans of revisiting them later, you can take them as you please, or better yet, not take them at all!
+
+However, you want your notes optimised for giving you quality company during a 2AM revision session on exam day, competing with Maggi for attention, you want your notes to be competently taken: they don’t have to be neat, and it’s enough for them to be useful.
+
+On the other hand, if you are taking notes so that a special someone who will inevitably miss a few classes will almost certainly ask for later, then you would be making notes to impress, and that potentially requires a different approach.
+
+Throughout this course, we will try to make sense of trade-offs.
+
+> ##### Topics
+> sequential data (arrays, dynamic arrays, linked lists and variants) • dequeues, stacks, queues • graph representations • graph traversals (BFS/DFS) and applications (connected components, bipartiteness, topological sort) • searching and sorting • heaps • BSTs • (2,3)-trees
+:::
+:::{.callout-note collapse="true" icon="false"}
+
+##### Target Audience
+This course is aimed at undergraduates in their first or second year, as a first introduction to data structures and algorithms.
+
+:::
+:::{.callout-tip collapse="true" icon="false"}
+
+##### Prerequisites
+The course is largely self-contained. Working familiarity with a programming language will be useful for the labs, where solutions are expected to be written out in C.
+
+:::
+:::{.callout-tip collapse="true" icon="false"}
+
+##### References
+
+1. [Open Data Structures](https://opendatastructures.org) by Pat Morin
+2. [Lecture notes](https://www.cs.bham.ac.uk/~jxb/DSA/dsa.pdf) by John Bullinaria
+3. [Data Structures Using C & C++](https://www.amazon.in/Data-Structures-Using-C/dp/8131703282) by Aaron M. Tenebaum; Moshe J. Augenstein; Yedidyah Lansam
+4. [Data Structures and Algorithms](https://www.amazon.in/Structures-Algorithms-Addison-Wesley-Computer-Information/dp/0201000237) by A. Aho, J. Hopcroft, J. Ullman
+5. [Algorithms](http://jeffe.cs.illinois.edu/teaching/algorithms/) by Jeff Erickson
+
+:::
+:::{.callout-caution collapse="true" icon="false"}
+
+##### Timings and Venue
+TBA
+:::
+:::{.callout-caution collapse="true" icon="false"}
+
+##### TAs and Office hours
+
+###### Office Hours
+
+By appointment.
+
+###### TAs.
+
+To be announced.
+
+:::
+:::{.callout-important collapse="true" icon="false"}
+
+##### Evaluation policy
+- Each of the three exams account for 20% of the grade.
+
+- Each class will have a quiz worth 2 points. The quizzes will be integrated into the lecture via Mentimeter. The total number of points you can earn through quizzes is capped at 40, and accounts for 40% of the grade.
+
+- The are three assignments that are not graded but are recommended for practice. 
+:::
+
+<!-- :::{.callout-important collapse="true" icon="false"}
+
+##### Registration
+~~For IITGN students, (pre-)register through IMS as usual.~~
+
+~~If you are not from IITGN and are interested in taking up the course, then please send me an email.~~
+
+Registration for the course is now closed. The next edition of this course will be offered in the Jan - Apr 2023 semester.
+
+:::
+
+_Note: contents being actively updated at the time of this writing. Enroled students will find all materials in the Google classroom for this course. Items marked {{< bi alarm color="indianred" >}} are coming soon!_
+
+::: {.panel-tabset}
+## Lectures
+
+::: {#lectures-listing}
+:::
+
+## Labs
+
+::: {#labs-listing}
+::: -->
+
+<!-- ## Mentimeter
+
+:::{.callout-warning}
+# Heads Up
+
+These questions are integrated into the lectures and may not make sense standalone. Please check the slides and/or notes for additional context.
+:::
+
+::: {#mentimeter-listing}
+:::
+
+## Assignments
+
+::: {#assignments-listing}
+:::
+
+
+## Quizzes
+
+::: {#quizzes-listing}
+:::
+
+## Exams
+
+::: {#exams-listing}
+::: -->
+
+
+:::
+
+:::

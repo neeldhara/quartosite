@@ -1,0 +1,169 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: ES242. Data Structures and Algorithms I. Week 01 Lab
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### Lab 01 
+
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 1. Finding the Coefficient
+
+p(x) is a polynomial whose coefficients are between 0 and 9.
+
+You are given the **value of p(10)** and a number **d**. 
+
+Return the coefficient of **x^d** in p(x).
+
+### Input Format
+
+The first line of the input contains a number **T**, which is the number of test cases.
+
+The next 2T lines contain T test cases. Each test case is two lines. The first line is the value of **p(10)** and the second line is the value of **d**.
+
+It is guaranteed that p(10) will be at most `10^9` and d will be at most `10`.
+
+### Output Format
+
+For each test case, print a single integer on a new line, which is the coefficient of **x^d** in p(x). DO NOT output anything else!
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+1
+9042
+3
+```
+
+`Expected Output`
+
+```default
+9
+```  
+
+
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 2. Finding the Coefficient Redux
+
+p(x) is a polynomial whose coefficients are either 0 or 1.
+
+You are given the **value of p(2)** and a number **d**. 
+
+Return `YES` if the coefficient of **x^d** in p(x) is `1` and `NO` otherwise.
+
+### Input Format
+
+The first line of the input contains a number **T**, which is the number of test cases.
+
+The next 2T lines contain T test cases. Each test case is two lines. The first line is the value of **p(2)** and the second line is the value of **d**.
+
+It is guaranteed that p(2) will be at most `10^9` and d will be at most the degree of p(x).
+
+### Output Format
+
+For each test case, print a single integer on a new line, which is `YES` or `NO` depending on if the coefficient of **x^d** in p(x) is `1` or `0`. DO NOT output anything else!
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+6
+45
+0
+45
+1
+45
+2
+45
+3
+45
+4
+45
+5
+```
+
+`Expected Output`
+
+```default
+YES
+NO
+YES
+YES
+NO
+YES
+```
+
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 3. Game of Trust
+
+Write a simulation for the _Game of Trust_ when played by a copycat player for **R** rounds.
+
+### Input Format
+
+The first line of the input contains a number **T**, which is the number of test cases.
+
+The next 2T lines contain T test cases. Each test case is two lines. The first line is the value **R** and the second line is **R** space-separated integers. The **i**-th integer on the second line is `1` if the _other_  player cooperated in the **i**-th round, and `0` otherwise.
+
+### Output Format
+
+For each test case, print two space-separated integers on a new line. The first integer is the total number of coins earned by the copycat player, while the second integer is the total number of coins earned by the other player. Note that you have to output the net balance. DO NOT output anything else!
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+1
+3
+1 1 1
+```
+
+`Expected Output`
+
+```default
+6 6
+```
+
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 4. Game of Trust [Open Ended]
+
+There are no tests or templates for this problem. Implement variations of the _Game of Trust_ and feel free to get creative about I/O, language, and even come up with your own strategies. 
+
+Check out the [Sandbox Page](https://ncase.me/trust/) on the interactive essay by Nicky Case for inspiration.
+
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 5. Validating a Self-Working Card Trick [Open Ended]
+
+Watch [this video](https://www.youtube.com/watch?v=aNpGxZ_1KXU) and write a program to validate the mechanics of the card trick shown. 
+
+In other words, your program should take as input a sequence of cards, with the promise that the number of red cards is equal to the number of black cards, and then "perform" the trick as shown in the video, and verify that the final claim about the number of red cards in the red pile being equal to the number of black cards in the black pile is, in fact, true.
+
+:::
+
+:::

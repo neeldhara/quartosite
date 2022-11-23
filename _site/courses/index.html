@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-audience','listing-year','listing-when','listing-semester','listing-coursecode','listing-location','listing-status','listing-url','listing-image','listing-coinstructor',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-title','listing-url','listing-audience','listing-year','listing-when','listing-semester','listing-coursecode','listing-location','listing-status','listing-image','listing-coinstructor',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-title","listing-audience","listing-year","listing-when","listing-semester","listing-coursecode","listing-location","listing-status","listing-url","listing-image","listing-coinstructor"],
+      searchColumns: ["listing-title","listing-url","listing-audience","listing-year","listing-when","listing-semester","listing-coursecode","listing-location","listing-status","listing-image","listing-coinstructor"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -326,6 +326,7 @@ ul.task-list li input[type="checkbox"] {
                     <span data-bs-toggle="tooltip" data-bs-placement="top" title="Undergraduate Course"><i class="bi bi-stars"></i></span>
             </td>
             <td class="listing-url">
+                <span><a href="./2023/01-ES242"><i class="bi bi-link"></i></a></span>            
             </td>
             <td class="listing-coursecode">
                 ES242

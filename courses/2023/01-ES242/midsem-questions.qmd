@@ -1,0 +1,186 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: ES242. Data Structures and Algorithms I. MidSem Questions
+---
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### Midsem Exam
+
+<p>&nbsp;</p>
+
+:::{.callout-note collapse="true"}
+
+# Problem 1. A Boastful Cop vs a Clever Robber
+
+A robber is trying to escape a cop on an undirected graph G. In the beginning, the cop is at a vertex $s$ and the robber is at a vertex $t$. (You may assume that $s$ and $t$ are distinct.) They take turns making moves, and each knows the location of the other at all times. A move (by either of them) consists of either staying at the current vertex or moving to a neighbouring one.
+
+The cop is boastful, so he announces his moves before making them. Specifically:
+
+a. **before** anyone makes a move, the cop's first move is announced - so the robber knows where the cop is headed.
+
+b. Then, the robber makes an actual move.
+
+c. After this, each time the cop moves, he must respect the previous announcement (i.e, move to the previously announced vertex), and then decide his next move and announce it.
+
+d. The robber hears the announcements, so she always knows the cop's next move before making her own. She makes her move.
+
+If the cop and the robber are at the same vertex after either of them moves, then the robber is caught. Otherwise, the chase is on!
+
+The robber chooses her moves optimally to escape. If she cannot escape, she chooses her moves to maximize the total number of moves until she is caught. The cop chooses his moves optimally to try to catch the robber in as few total moves as possible.
+
+Given the graph's layout and the initial locations of both the cop and the robber, find out whether robber will be caught by the cop and, if so, in how many moves. We say that the game is won by the robber if she's never caught, and by the cop otherwise.
+
+In the figures below, the square vertex depicts the initial location of the robber, and the star depicts the initial location of the cop. Indicate what happens under optimal play. If you choose that the cop wins, indicate how many moves the game lasts assuming optimal play. Each move made by each player counts as a distinct move.
+
+1. **[2 marks]** Who wins? __________________
+
+    
+
+2. **[2 marks]** Who wins?  __________________
+
+    
+
+5. **[2 marks]** If the robber starts on a vertex that is a part of a cycle, then which of the following statements is true?
+
+    ⭕️ The robber wins this game.
+
+    ⭕️ The cop wins this game and the number of moves is equal to the length of the cycle.
+
+    ⭕️ The cop wins this game and the number of moves is twice the length of the cycle.
+
+    ⭕️ The cop wins this game and the number of moves depends on the initial distance between the cop and the robber.
+
+    ⭕️ The outcome depends on where the cop starts.
+
+3. **[3 marks]** Suppose the game is being played on a  path (i.e, a graph with vertices $u_1, \ldots, u_n$ and edges $(u_1,u_2), (u_2, u_3), \cdots, (u_{n-1},u_n)$. Suppose the cop starts at $u_1$ and the robber starts at $u_n$. Which of the following statements is true?
+
+    ⭕️ The robber wins this game.
+
+    ⭕️ The cop wins this game and the number of moves is $n$.
+
+    ⭕️ The cop wins this game and the number of moves is $2n$.
+
+    ⭕️ The cop wins this game and the number of moves is $2n-1$.
+
+    ⭕️ The cop wins this game and the number of moves is $2(n-1)$.
+
+4. **[3 marks]** Suppose the graph G has a cycle on the vertices v$v_1, v_2, \ldots, v_k$and these are the o*nly v*ertices that belong to any cycle in G. The robber is initially on a vertex u$u$and the closest vertex on the cycle is v$v_1$ via the path ($(u,p),(p,q),(q,v_1)$ The cop is initially on a   vertex w$w$and the closest vertex on the cycle is v$v_n$ via the path ($(w,r),(r,v_n)$ Which of the following statements is true? Assume there are no other vertices in the graph G.
+
+    ⭕️ The robber wins this game.
+
+    ⭕️ The cop wins this game.
+
+    Explain your answer: if you think the robber wins the game, explain how the robber will evade the cop forever, and if you think the cop wins this game, explain what is the sequence of moves in an optimal game. (You can use the space on the next page.)
+
+:::
+
+:::{.callout-note collapse="true"}
+
+# Problem 2. Cheating the Stable Marriage Algorithm
+
+Consider a stable marriage instance with A,B,C being the men and X,Y,Z being the women. The input is the following:
+
+
+
+1. **[2 marks]** What is the output of the stable matching algorithm for this instance? Assume that the men are proposing.
+
+
+2. **[3 marks]** Consider again the algorithm where men are proposing. One of the women can misreport her preferences to get a better outcome from this algorithm. Identify the woman and explain what preference she can submit instead of her true preference to improve the output from her perspective.
+
+
+:::
+
+:::{.callout-note collapse="true"}
+
+# Problem 3. Preserving Fixed-Points while Sorting
+
+**[5 marks]** When an array is to be sorted, it may happen that some data values start out being in the same position where they should end up. For example, in the array which is originally: 
+
+$$45,-4,32,0$$
+
+the $32$ is right where it will be in the final sorted output:
+
+$$-4,0,32,45$$
+
+But as a particular sorting algorithm operates, it might (depending on the algorithm) move such an element out of the position where it belongs and move it back eventually.
+
+Let's say that a sorting algorithm **respects fixedpoints** if it never moves an element that is in its proper position, on any input.
+
+Consider the following methods of sorting:
+
+*Selection sort.* The algorithm divides the input list into two parts: a sorted sublist of items which is built up from left to right at the front (left) of the list and a sublist of the remaining unsorted items that occupy the rest of the list. Initially, the sorted sublist is empty and the unsorted sublist is the entire input list. The algorithm proceeds by finding the smallest element in the unsorted sublist, exchanging (swapping) it with the leftmost unsorted element (putting it in sorted order), and moving the sublist boundaries one element to the right.
+
+Eg: **4** 3 2 **1** → 1 **3** **2** 4 → 1 2 3 4
+
+*Insertion sort.* Insertion sort iterates over the array, consuming one input element each repetition, and grows a sorted output list. At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain.
+
+Eg: 4 **3** 2 1 → 3 4 **2** 1 → 2 3 4 **1** → 1 2 3 4
+
+Which of the following statements are true?
+
+⭕️ Insertion sort does not respect fixedpoints but selection sort does.
+
+⭕️ Selection sort does not respect fixedpoints but insertion sort does.
+
+⭕️ Neither insertion sort nor selection sort respects fixed points.
+
+⭕️ Both insertion sort and selection sort respect fixed points.
+
+Justify your answer. If you claim that a particular sorting method does not respect fixed points, then give an example. If you claim that an algorithm does respect fixed points, argue why.
+:::
+
+:::{.callout-note collapse="true"}
+
+# Problem 4. Eliminating Jealousy
+
+You have distributed M objects among N children. The set of objects given to a child is called his or her **bundle**. Each child has a specific value for their bundle: let us say child $k$ has value $v_k$ for their bundle. Each child also has a value for all the other bundles: so let us say that child $k$ has value $v_{k,\ell}$ for the bundle that was given to child $\ell$.
+
+We say that child $a$ **is jealous** of child $b$ if $v_{a,b} > v_a$, i.e, s/he values the bundle given to $b$ more than the bundle that s/he has.
+
+Consider the following directed graph $G$. Introduce one vertex for every child, and add an edge from $a$ to $b$ if $a$ is jealous of $b$.
+
+1. **[2 marks]** Suppose $G$ has a directed cycle $u_1 \rightarrow u_2 \rightarrow \cdots \rightarrow u_q \rightarrow u_1$. Describe a way to reassign the bundles (without changing them) so that with the new assignment, all the edges in the cycle disappear (i.e, there is no jealousy between $u_1$ and $u_2$, between $u_2$ and $u_3$, and so on, with respect to the *new* assignment). Explain your answer on the next page.
+
+2. **[1 marks]** Suppose $G$ has no directed cycles. Is it true that there is a child who is not jealous of anyone?
+
+    ⭕️ Yes    ⭕️ No    ⭕️ Impossible to conclude from the given information
+
+3. **[1 marks]** Suppose $G$ has no directed cycles. Is it true that there is a child who is nobody is jealous of?
+
+    ⭕️ Yes    ⭕️ No    ⭕️ Impossible to conclude from the given information
+
+:::
+
+:::{.callout-note collapse="true"}
+
+# Problem 5. Make Strongly Connected
+
+**[2 marks]** In the graph below, what is the smallest number of edges you need to add to make the graph *strongly* connected? Recall that a strongly connected graph is one where there is a path from $u$ to $v$ for any pair of vertices $u$ and $v$.
+
+
+
+:::
+
+:::{.callout-note collapse="true"}
+
+# Problem 6. Counting Gifts
+
+**[2 marks]** The following is true for $n$ guests at a party:
+
+- In any group of three guests, there are two guests who do not know each other, and
+- In any groups of seven guests, there are two guests who do know each other.
+
+At the end of the party, everyone gives a present to all the guests he or she knows.
+
+Prove that the total number of gifts given is at most $6n$.
+
+*Hint: what can you say about the maximum degree of this graph?*
+
+:::
+
+:::

@@ -12,7 +12,7 @@ reference-location: margin
 
 [Link to Slides](https://slides.com/neeldhara/dsa1-w01#/2/1)
 
-So far, we have worked with _atomic_ types, which is to say variables that can hold a "single kind of data" for us --- like integers, characters, strings, booleans, and so on. Often, however, we need to work with compound types, which is to say, a bunch of these things taken together. For example, you may have sensed that when we spoke of maintaining [a set of cards](intro.qmd) earlier with 52 booleans, it may have been nicer if they could be strung together into a single, unified structure: for one, it saves you having to keep track of a large number of variables, and further, it might be easier --- as we will find out --- to manipulate the data in response to operations that we may want to support.
+So far, we have worked with _atomic_ types, which is to say variables that can hold a "single kind of data" for us --- like integers, characters, strings, booleans, and so on. Often, however, we need to work with compound types, which is to say, a bunch of these things taken together. For example, you may have sensed that when we spoke of maintaining [a set of cards](../introduction/index.qmd) earlier with 52 booleans, it may have been nicer if they could be strung together into a single, unified structure: for one, it saves you having to keep track of a large number of variables, and further, it might be easier --- as we will find out --- to manipulate the data in response to operations that we may want to support.
 
 When you speak of a bunch of objects, it is useful to agree on whether you interpret the collection as an _ordered_ or _unordered_ set. Consider the following examples:
 

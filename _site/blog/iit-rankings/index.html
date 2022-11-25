@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2022-11-24">
 
-<title>Neeldhara - The Only True Ranking of IITs</title>
+<title>Neeldhara - The Only Fair Ranking of IITs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -249,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">The Only True Ranking of IITs</h1>
+      <h1 class="title">The Only Fair Ranking of IITs</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">funda</div>
               </div>
@@ -292,44 +292,45 @@ Don’t like the ranking? <a href=".">Try again</a>.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Methodology <em>(borrowed — verbatim — from <a href="https://sarielhp.org/cgi-bin/cs_ranking">here</a>.)</em>
+Methodology: adapted from <a href="https://sarielhp.org/cgi-bin/cs_ranking">here</a>.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The program takes all the available knowledge in the universe and extrapolates a score for each CS department using state of the art algorithmic techniques (i.e., deep guessing). To resolve ties, the program also computes a secondary score which is a random number. The program next computes a weighted average of the two scores - the weight assigned to the first score is based on its scientific value and merit, and is thus zero, and the remaining weight is assigned to the secondary score (i.e., 1). The program then sort and output the departments in decreasing ordering of their weighted scores.</p>
+<p>The program takes all the available knowledge in the universe and extrapolates a score for each IIT using state of the art algorithmic techniques (i.e., deep guessing). To resolve ties, the program also computes a secondary score which is a random number. The program next computes a weighted average of the two scores - the weight assigned to the first score is based on its scientific value and merit, and is thus zero, and the remaining weight is assigned to the secondary score (i.e., 1). The program then sort and output the departments in decreasing ordering of their weighted scores.</p>
 </div>
 </div>
-<p><a href="https://sarielhp.org/cgi-bin/cs_ranking">Inspiration</a> <i class="bi-arrow-left-circle-fill" style="" role="img" aria-hidden="true"></i> Check this page for a similarly fair ranking of computer science departments.</p>
+<p><a href="https://sarielhp.org/cgi-bin/cs_ranking">Inspiration</a> <i class="bi-arrow-left-circle-fill" style="" role="img" aria-hidden="true"></i> Check this page for a ranking of computer science departments.</p>
+<hr>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="24" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 23;"><span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { shuffle } <span class="im">from</span> <span class="st">"./shuffle.js"</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> [<span class="st">"IIT Kharagpur"</span><span class="op">,</span> </span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Bombay"</span><span class="op">,</span> </span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Madras"</span><span class="op">,</span> </span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Kanpur"</span><span class="op">,</span> </span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Delhi"</span><span class="op">,</span> </span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Guwahati"</span><span class="op">,</span> </span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Roorkee"</span><span class="op">,</span> </span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Ropar"</span><span class="op">,</span> </span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Bhubaneswar"</span><span class="op">,</span> </span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Gandhinagar"</span><span class="op">,</span> </span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Hyderabad"</span><span class="op">,</span> </span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Jodhpur"</span><span class="op">,</span> </span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Patna"</span><span class="op">,</span> </span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Indore"</span><span class="op">,</span> </span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Mandi"</span><span class="op">,</span> </span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT (BHU) Varanasi"</span><span class="op">,</span> </span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Palakkad"</span><span class="op">,</span> </span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Tirupati"</span><span class="op">,</span> </span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT (ISM) Dhanbad"</span><span class="op">,</span> </span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Bhilai"</span><span class="op">,</span> </span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Dharwad"</span><span class="op">,</span> </span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Jammu"</span><span class="op">,</span> </span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Goa"</span>]<span class="op">;</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fu">shuffle</span>(arr)<span class="op">;</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"quarto-document-content"</span>)<span class="op">;</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>y<span class="op">.</span><span class="at">innerHTML</span> <span class="op">+=</span> <span class="st">"1. "</span> <span class="op">+</span> x[<span class="dv">0</span>] <span class="op">+</span> <span class="st">"&lt;br&gt; 2. "</span> <span class="op">+</span> x[<span class="dv">1</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 3. "</span> <span class="op">+</span> x[<span class="dv">2</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 4. "</span> <span class="op">+</span> x[<span class="dv">3</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 5. "</span> <span class="op">+</span> x[<span class="dv">4</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 6. "</span> <span class="op">+</span> x[<span class="dv">5</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 7. "</span> <span class="op">+</span> x[<span class="dv">6</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 8. "</span> <span class="op">+</span> x[<span class="dv">7</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 9. "</span> <span class="op">+</span> x[<span class="dv">8</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 10. "</span> <span class="op">+</span> x[<span class="dv">9</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 11. "</span> <span class="op">+</span> x[<span class="dv">10</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 12. "</span> <span class="op">+</span> x[<span class="dv">11</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 13. "</span> <span class="op">+</span> x[<span class="dv">12</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 14. "</span> <span class="op">+</span> x[<span class="dv">13</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 15. "</span> <span class="op">+</span> x[<span class="dv">14</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 16. "</span> <span class="op">+</span> x[<span class="dv">15</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 17. "</span> <span class="op">+</span> x[<span class="dv">16</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 18. "</span> <span class="op">+</span> x[<span class="dv">17</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 19. "</span> <span class="op">+</span> x[<span class="dv">18</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 20. "</span> <span class="op">+</span> x[<span class="dv">19</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 21. "</span> <span class="op">+</span> x[<span class="dv">20</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 22. "</span> <span class="op">+</span> x[<span class="dv">21</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 23. "</span> <span class="op">+</span> x[<span class="dv">22</span>]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="26" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 25;"><span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { shuffle } <span class="im">from</span> <span class="st">"./shuffle.js"</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> [<span class="st">"IIT Kharagpur"</span><span class="op">,</span> </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Bombay"</span><span class="op">,</span> </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Madras"</span><span class="op">,</span> </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Kanpur"</span><span class="op">,</span> </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Delhi"</span><span class="op">,</span> </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Guwahati"</span><span class="op">,</span> </span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Roorkee"</span><span class="op">,</span> </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Ropar"</span><span class="op">,</span> </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Bhubaneswar"</span><span class="op">,</span> </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Gandhinagar"</span><span class="op">,</span> </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Hyderabad"</span><span class="op">,</span> </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Jodhpur"</span><span class="op">,</span> </span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Patna"</span><span class="op">,</span> </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Indore"</span><span class="op">,</span> </span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Mandi"</span><span class="op">,</span> </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT (BHU) Varanasi"</span><span class="op">,</span> </span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Palakkad"</span><span class="op">,</span> </span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Tirupati"</span><span class="op">,</span> </span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT (ISM) Dhanbad"</span><span class="op">,</span> </span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Bhilai"</span><span class="op">,</span> </span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Dharwad"</span><span class="op">,</span> </span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Jammu"</span><span class="op">,</span> </span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="st">"IIT Goa"</span>]<span class="op">;</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fu">shuffle</span>(arr)<span class="op">;</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"quarto-document-content"</span>)<span class="op">;</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>y<span class="op">.</span><span class="at">innerHTML</span> <span class="op">+=</span> <span class="st">"1. "</span> <span class="op">+</span> x[<span class="dv">0</span>] <span class="op">+</span> <span class="st">"&lt;br&gt; 2. "</span> <span class="op">+</span> x[<span class="dv">1</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 3. "</span> <span class="op">+</span> x[<span class="dv">2</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 4. "</span> <span class="op">+</span> x[<span class="dv">3</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 5. "</span> <span class="op">+</span> x[<span class="dv">4</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 6. "</span> <span class="op">+</span> x[<span class="dv">5</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 7. "</span> <span class="op">+</span> x[<span class="dv">6</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 8. "</span> <span class="op">+</span> x[<span class="dv">7</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 9. "</span> <span class="op">+</span> x[<span class="dv">8</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 10. "</span> <span class="op">+</span> x[<span class="dv">9</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 11. "</span> <span class="op">+</span> x[<span class="dv">10</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 12. "</span> <span class="op">+</span> x[<span class="dv">11</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 13. "</span> <span class="op">+</span> x[<span class="dv">12</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 14. "</span> <span class="op">+</span> x[<span class="dv">13</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 15. "</span> <span class="op">+</span> x[<span class="dv">14</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 16. "</span> <span class="op">+</span> x[<span class="dv">15</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 17. "</span> <span class="op">+</span> x[<span class="dv">16</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 18. "</span> <span class="op">+</span> x[<span class="dv">17</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 19. "</span> <span class="op">+</span> x[<span class="dv">18</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 20. "</span> <span class="op">+</span> x[<span class="dv">19</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 21. "</span> <span class="op">+</span> x[<span class="dv">20</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 22. "</span> <span class="op">+</span> x[<span class="dv">21</span>] <span class="op">+</span>  <span class="st">"&lt;br&gt; 23. "</span> <span class="op">+</span> x[<span class="dv">22</span>]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">

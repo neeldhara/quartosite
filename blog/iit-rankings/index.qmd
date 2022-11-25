@@ -11,13 +11,15 @@ execute:
 <p>Don't like the ranking? <a href=".">Try again</a>.</p> 
 
 :::{.callout-tip}
-# Methodology _(borrowed --- verbatim --- from [here](https://sarielhp.org/cgi-bin/cs_ranking).)_
+# Methodology: adapted from [here](https://sarielhp.org/cgi-bin/cs_ranking).
 
-The program takes all the available knowledge in the universe and extrapolates a score for each CS department using state of the art algorithmic techniques (i.e., deep guessing). To resolve ties, the program also computes a secondary score which is a random number. The program next computes a weighted average of the two scores - the weight assigned to the first score is based on its scientific value and merit, and is thus zero, and the remaining weight is assigned to the secondary score (i.e., 1). The program then sort and output the departments in decreasing ordering of their weighted scores.
+The program takes all the available knowledge in the universe and extrapolates a score for each IIT using state of the art algorithmic techniques (i.e., deep guessing). To resolve ties, the program also computes a secondary score which is a random number. The program next computes a weighted average of the two scores - the weight assigned to the first score is based on its scientific value and merit, and is thus zero, and the remaining weight is assigned to the secondary score (i.e., 1). The program then sort and output the departments in decreasing ordering of their weighted scores.
 
 :::
 
 [Inspiration](https://sarielhp.org/cgi-bin/cs_ranking) {{< bi arrow-left-circle-fill >}} Check this page for a ranking of computer science departments. 
+
+---
 
 ```{ojs}
 

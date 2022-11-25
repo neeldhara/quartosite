@@ -54,19 +54,6 @@ listing:
     field-types:
       dateissued: date
       due: date
-  - id: mentimeter-listing
-    contents: materials-mentimeter.yml
-    sort: issuedate asc
-    page-size: 100
-    type: table
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    feed: false
-    template: ../../materials-assessments.ejs
-    field-types:
-      dateissued: date
-      due: date
   - id: exams-listing
     contents: materials-exams.yml
     sort: issuedate asc
@@ -132,6 +119,7 @@ The course is largely self-contained. Working familiarity with a programming lan
 :::{.callout-caution collapse="true" icon="false"}
 
 ##### Timings and Venue
+<!-- Lectures on Tuesdays and Wednesdays • 10AM --- 11AM • 1/101 -->
 TBA
 :::
 :::{.callout-caution collapse="true" icon="false"}
@@ -144,7 +132,7 @@ By appointment.
 
 ###### TAs.
 
-To be announced.
+TBA
 
 :::
 :::{.callout-important collapse="true" icon="false"}
@@ -152,23 +140,24 @@ To be announced.
 ##### Evaluation policy
 - Each of the three exams account for 20% of the grade.
 
-- Each class will have a quiz worth 2 points. The quizzes will be integrated into the lecture via Mentimeter. The total number of points you can earn through quizzes is capped at 40, and accounts for 40% of the grade.
+- Each lab will have a task worth 2 points. The total number of points you can earn through quizzes is capped at 20, and accounts for 20% of the grade.
+
+- The first class each week will start with a short objective-type quiz based on the material from the previous week, worth 2 points. The total number of points you can earn through quizzes is capped at 20, and accounts for 20% of the grade.
 
 - The are three assignments that are not graded but are recommended for practice. 
 :::
 
-<!-- :::{.callout-important collapse="true" icon="false"}
+:::{.callout-important collapse="true" icon="false"}
 
 ##### Registration
-~~For IITGN students, (pre-)register through IMS as usual.~~
 
-~~If you are not from IITGN and are interested in taking up the course, then please send me an email.~~
+If you are at IIT Gandhinagar and would like to take up this course for credit, please fill up this form to indicate your interest.
 
-Registration for the course is now closed. The next edition of this course will be offered in the Jan - Apr 2023 semester.
+If you are not from IITGN and are interested in taking up the course, then please send me an email with the subject line `2023 DSA-1 Participation`.
 
 :::
 
-_Note: contents being actively updated at the time of this writing. Enroled students will find all materials in the Google classroom for this course. Items marked {{< bi alarm color="indianred" >}} are coming soon!_
+_Note: contents being actively updated at the time of this writing._
 
 ::: {.panel-tabset}
 ## Lectures
@@ -179,15 +168,8 @@ _Note: contents being actively updated at the time of this writing. Enroled stud
 ## Labs
 
 ::: {#labs-listing}
-::: -->
-
-<!-- ## Mentimeter
-
-:::{.callout-warning}
-# Heads Up
-
-These questions are integrated into the lectures and may not make sense standalone. Please check the slides and/or notes for additional context.
 :::
+
 
 ::: {#mentimeter-listing}
 :::
@@ -206,7 +188,7 @@ These questions are integrated into the lectures and may not make sense standalo
 ## Exams
 
 ::: {#exams-listing}
-::: -->
+:::
 
 
 :::

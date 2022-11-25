@@ -41,7 +41,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,34 +175,6 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-mentimeter-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-dateissued','listing-lecid','listing-title','listing-summary',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] }],
-      
-      searchColumns: ["listing-dateissued","listing-lecid","listing-title","listing-summary"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-mentimeter-listing'] = new List('listing-mentimeter-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-exams-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -211,9 +182,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-title','listing-solutions','listing-due','listing-problemset',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
+      valueNames: ['listing-lecid','listing-dateissued','listing-title','listing-problemset','listing-solutions','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
       
-      searchColumns: ["listing-lecid","listing-dateissued","listing-title","listing-solutions","listing-due","listing-problemset"],
+      searchColumns: ["listing-lecid","listing-dateissued","listing-title","listing-problemset","listing-solutions","listing-due"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -486,6 +457,7 @@ Timings and Venue
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<!-- Lectures on Tuesdays and Wednesdays • 10AM --- 11AM • 1/101 -->
 <p>TBA</p>
 </div>
 </div>
@@ -508,7 +480,7 @@ TAs and Office hours
 </section>
 <section id="tas." class="level6">
 <h6 class="anchored" data-anchor-id="tas.">TAs.</h6>
-<p>To be announced.</p>
+<p>TBA</p>
 </section>
 </div>
 </div>
@@ -527,69 +499,36 @@ Evaluation policy
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>Each of the three exams account for 20% of the grade.</p></li>
-<li><p>Each class will have a quiz worth 2 points. The quizzes will be integrated into the lecture via Mentimeter. The total number of points you can earn through quizzes is capped at 40, and accounts for 40% of the grade.</p></li>
+<li><p>Each lab will have a task worth 2 points. The total number of points you can earn through quizzes is capped at 20, and accounts for 20% of the grade.</p></li>
+<li><p>The first class each week will start with a short objective-type quiz based on the material from the previous week, worth 2 points. The total number of points you can earn through quizzes is capped at 20, and accounts for 20% of the grade.</p></li>
 <li><p>The are three assignments that are not graded but are recommended for practice.</p></li>
 </ul>
 </div>
 </div>
 </div>
-<!-- :::{.callout-important collapse="true" icon="false"}
-
-##### Registration
-~~For IITGN students, (pre-)register through IMS as usual.~~
-
-~~If you are not from IITGN and are interested in taking up the course, then please send me an email.~~
-
-Registration for the course is now closed. The next edition of this course will be offered in the Jan - Apr 2023 semester.
-
-:::
-
-_Note: contents being actively updated at the time of this writing. Enroled students will find all materials in the Google classroom for this course. Items marked  are coming soon!_
-
-::: {.panel-tabset}
-## Lectures
-
-::: {#lectures-listing}
-:::
-
-## Labs
-
-::: {#labs-listing}
-::: -->
-<!-- ## Mentimeter
-
-:::{.callout-warning}
-# Heads Up
-
-These questions are integrated into the lectures and may not make sense standalone. Please check the slides and/or notes for additional context.
-:::
-
-::: {#mentimeter-listing}
-:::
-
-## Assignments
-
-::: {#assignments-listing}
-:::
-
-
-## Quizzes
-
-::: {#quizzes-listing}
-:::
-
-## Exams
-
-::: {#exams-listing}
-::: -->
-</section>
-</section>
-<p>:::</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-custom" id="listing-lectures-listing">
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Registration
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you are at IIT Gandhinagar and would like to take up this course for credit, please fill up this form to indicate your interest.</p>
+<p>If you are not from IITGN and are interested in taking up the course, then please send me an email with the subject line <code>2023 DSA-1 Participation</code>.</p>
+</div>
+</div>
+</div>
+<p><em>Note: contents being actively updated at the time of this writing.</em></p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Lectures</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Labs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Assignments</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Quizzes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Exams</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div id="listing-lectures-listing" class="quarto-listing quarto-listing-container-custom">
 
 <table class="quarto-listing-table table">
     <thead>
@@ -618,8 +557,8 @@ These questions are integrated into the lectures and may not make sense standalo
             <td class="listing-date">
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>2. Introduction to Data Structures</strong><br>
-                <p>Representing Sequential Data • Arrays • Lists</p>
+                <strong>2. Stable Marriages</strong><br>
+                <p>The Stable Marriage Problem • Gale-Shapley Algorithm</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -632,8 +571,8 @@ These questions are integrated into the lectures and may not make sense standalo
             <td class="listing-date">
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>3. Representing Graphs</strong><br>
-                <p>Adjacency Lists • Adjacency Matrices • Edge Lists</p>
+                <strong>3. Representing Sequential Data</strong><br>
+                <p>Arrays • Lists</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -646,7 +585,7 @@ These questions are integrated into the lectures and may not make sense standalo
             <td class="listing-date">
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>4. Representing Graphs (contd.)</strong><br>
+                <strong>4. Representing Graphs</strong><br>
                 <p>Adjacency Lists • Adjacency Matrices • Edge Lists</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
@@ -716,63 +655,7 @@ These questions are integrated into the lectures and may not make sense standalo
             <td class="listing-date">
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>9. Stable Marriages</strong><br>
-                <p>The Stable Marriage Problem • Gale-Shapley Algorithm</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">            
-            <td class="listing-date">
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>10. Stable Marriages</strong><br>
-                <p>Proof of Termination • Bounding the number of proposals • Proving the stability of the output</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">            
-            <td class="listing-date">
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>11. Recap Lecture</strong><br>
-                <p>Review of arrays, linked lists, stacks, queues, and graphs</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">            
-            <td class="listing-date">
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>12. Navigating Graphs</strong><br>
-                <p>An introduction to navigating graphs</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">            
-            <td class="listing-date">
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>13. Navigating Graphs (BFS)</strong><br>
+                <strong>9. Navigating Graphs (BFS) - I</strong><br>
                 <p>Breadth-First Search • Correctness • Analysis of Running Time</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
@@ -786,8 +669,64 @@ These questions are integrated into the lectures and may not make sense standalo
             <td class="listing-date">
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>14. Navigating Graphs (DFS)</strong><br>
-                <p>Depth-First Search • Pre-Post Intervals</p>
+                <strong>10. Navigating Graphs (BFS) - II</strong><br>
+                <p>Breadth-First Search • Correctness • Analysis of Running Time</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>11. BFS Applications - I</strong><br>
+                <p>Shortest Paths • Pseudopolynomial algorithm for weighted graphs</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>12. BFS Applications - II</strong><br>
+                <p>Testing Bipartiteness</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>13. BFS Variants</strong><br>
+                <p>Multisource BFS • Parallel BFS</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>14. Recap Lecture</strong><br>
+                <p>Review of arrays, linked lists, stacks, queues, and graphs</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -801,6 +740,20 @@ These questions are integrated into the lectures and may not make sense standalo
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>15. Navigating Graphs (DFS)</strong><br>
+                <p>Depth-First Search • Pre-Post Intervals</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>16. Navigating Graphs (DFS)</strong><br>
                 <p>Depth-First Search • DFS-based classification of vertices • DFS-based classificaton of edges • Cycles and backedges</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
@@ -814,7 +767,7 @@ These questions are integrated into the lectures and may not make sense standalo
             <td class="listing-date">
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>16. DFS Applications</strong><br>
+                <strong>17. DFS Applications</strong><br>
                 <p>Topological Sort (Algorithm)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
@@ -828,7 +781,7 @@ These questions are integrated into the lectures and may not make sense standalo
             <td class="listing-date">
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>17. DFS Applications</strong><br>
+                <strong>18. DFS Applications</strong><br>
                 <p>Postorder • Preorder • Topological Sort (Analysis)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
@@ -842,22 +795,8 @@ These questions are integrated into the lectures and may not make sense standalo
             <td class="listing-date">
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>18. Shortest Paths</strong><br>
-                <p>A teaser the challenges in extending BFS to weighted graphs • Pseudopolynomial running time</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">            
-            <td class="listing-date">
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>19. Heaps</strong><br>
-                <p>Selection Sort • Supporting only Insert and FindMin • The challenge of ExtractMin</p>
+                <strong>19. Sorting Algorithms</strong><br>
+                <p>Selection Sort • Properties of sorting algorithms</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -871,7 +810,7 @@ These questions are integrated into the lectures and may not make sense standalo
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>20. Heaps</strong><br>
-                <p>The Heap Property • Insert • FindMin • ExtractMin</p>
+                <p>Supporting only Insert and FindMin • The challenge of ExtractMin</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -885,7 +824,7 @@ These questions are integrated into the lectures and may not make sense standalo
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>21. Heaps</strong><br>
-                <p>Representing Heaps with Arrays</p>
+                <p>The Heap Property • Insert • FindMin • ExtractMin</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -898,8 +837,8 @@ These questions are integrated into the lectures and may not make sense standalo
             <td class="listing-date">
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>22. Heaps Revisited</strong><br>
-                <p>Analysis • Heapify is Linear Time</p>
+                <strong>22. Heaps</strong><br>
+                <p>Representing Heaps with Arrays • Heapify is Linear Time</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -912,8 +851,8 @@ These questions are integrated into the lectures and may not make sense standalo
             <td class="listing-date">
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>23. Balanced Binary Search Trees</strong><br>
-                <p>(2,3)-Trees • Insertion • Deletion</p>
+                <strong>23. Trees</strong><br>
+                <p>Rooted Trees • Inorder, Preorder, and Postorder Traversals</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -926,8 +865,8 @@ These questions are integrated into the lectures and may not make sense standalo
             <td class="listing-date">
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>24. Balanced Binary Search Trees</strong><br>
-                <p>(2,3)-Trees Height Analysis</p>
+                <strong>24. Search</strong><br>
+                <p>Binary Search • Ternary Search</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -940,8 +879,50 @@ These questions are integrated into the lectures and may not make sense standalo
             <td class="listing-date">
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>25. Recap</strong><br>
-                <p>Review of BFS, DFS, Heaps, and Balanced BSTs</p>
+                <strong>25. Balanced Binary Search Trees</strong><br>
+                <p>Introduction to BSTs • (2,3)-Trees</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>26. Balanced Binary Search Trees</strong><br>
+                <p>Insertion in (2,3)-Trees • Analysis of Height</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>27. Balanced Binary Search Trees</strong><br>
+                <p>Deletion in (2,3)-Trees</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>28. Recap</strong><br>
+                <p>Review of BFS, DFS, Heaps, Balanced BSTs, Sorting and Searching</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -955,7 +936,10 @@ These questions are integrated into the lectures and may not make sense standalo
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div><div class="quarto-listing quarto-listing-container-custom" id="listing-labs-listing">
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="listing-labs-listing" class="quarto-listing quarto-listing-container-custom">
 
 <table class="quarto-listing-table table">
     <thead>
@@ -1236,7 +1220,13 @@ No matching items
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div><div class="quarto-listing quarto-listing-container-custom" id="listing-assignments-listing">
+</div>
+<div id="mentimeter-listing">
+
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="listing-assignments-listing" class="quarto-listing quarto-listing-container-custom">
 
 <table class="quarto-listing-table table">
     <thead>
@@ -1252,7 +1242,10 @@ No matching items
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div><div class="quarto-listing quarto-listing-container-custom" id="listing-quizzes-listing">
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div id="listing-quizzes-listing" class="quarto-listing quarto-listing-container-custom">
 
 <table class="quarto-listing-table table">
     <thead>
@@ -1336,7 +1329,10 @@ No matching items
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div><div class="quarto-listing quarto-listing-container-custom" id="listing-mentimeter-listing">
+</div>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div id="listing-exams-listing" class="quarto-listing quarto-listing-container-custom">
 
 <table class="quarto-listing-table table">
     <thead>
@@ -1347,13 +1343,13 @@ No matching items
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="02-Aug-2022">            
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="TBA" data-listing-due-sort="-">            
             <td class="listing-date">
-                02 Aug, 2022
+                Invalid Date
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Introduction to Data Structures</strong><br>
-                <p>Data Structures - philosophy and examples • Representing games</p>
+                <strong>Exam 1</strong><br>
+                <p></p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1362,15 +1358,16 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
+                    Invalid Date
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="03-Aug-2022">            
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="TBA" data-listing-due-sort="-">            
             <td class="listing-date">
-                03 Aug, 2022
+                Invalid Date
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Introduction to Data Structures</strong><br>
-                <p>Representing Sequential Data • Arrays • Lists</p>
+                <strong>Exam 2</strong><br>
+                <p></p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1379,15 +1376,16 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
+                    Invalid Date
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="16-Aug-2022">            
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="TBA" data-listing-due-sort="-">            
             <td class="listing-date">
-                16 Aug, 2022
+                Invalid Date
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Representing Graphs</strong><br>
-                <p>Adjacency Lists • Adjacency Matrices • Edge Lists</p>
+                <strong>Exam 3</strong><br>
+                <p></p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1396,380 +1394,7 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="17-Aug-2022">            
-            <td class="listing-date">
-                17 Aug, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Representing Graphs (contd.)</strong><br>
-                <p>Adjacency Lists • Adjacency Matrices • Edge Lists</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="23-Aug-2022">            
-            <td class="listing-date">
-                23 Aug, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Dequeues</strong><br>
-                <p>Introducing the cardstack data structure • The Gilbreath Shuffle</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="24-Aug-2022">            
-            <td class="listing-date">
-                24 Aug, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Dequeues</strong><br>
-                <p>Queues and Stacks as special cases of Dequeues</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="30-Aug-2022">            
-            <td class="listing-date">
-                30 Aug, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Euler Tours</strong><br>
-                <p>Euler Tour Demonstration • Card trick • de Bruijn sequences • Constructing de Bruijn sequences using Euler Tours</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="31-Aug-2022">            
-            <td class="listing-date">
-                31 Aug, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Euler Tours</strong><br>
-                <p>Computing Euler Tours • Hierholzer's algorithm</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="06-Sep-2022">            
-            <td class="listing-date">
-                06 Sep, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Stable Marriages</strong><br>
-                <p>The Stable Marriage Problem • Gale-Shapley Algorithm</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="07-Sep-2022">            
-            <td class="listing-date">
-                07 Sep, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Stable Marriages</strong><br>
-                <p>Proof of Termination • Bounding the number of proposals • Proving the stability of the output</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="13-Sep-2022">            
-            <td class="listing-date">
-                13 Sep, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Recap Lecture</strong><br>
-                <p>Review of arrays, linked lists, stacks, queues, and graphs</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="20-Sep-2022">            
-            <td class="listing-date">
-                20 Sep, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Navigating Graphs</strong><br>
-                <p>An introduction to navigating graphs</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="21-Sep-2022">            
-            <td class="listing-date">
-                21 Sep, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Navigating Graphs (BFS)</strong><br>
-                <p>Breadth-First Search • Correctness • Analysis of Running Time</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="11-Oct-2022">            
-            <td class="listing-date">
-                11 Oct, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Navigating Graphs (DFS)</strong><br>
-                <p>Depth-First Search • Pre-Post Intervals</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="12-Oct-2022">            
-            <td class="listing-date">
-                12 Oct, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Navigating Graphs (DFS)</strong><br>
-                <p>Depth-First Search • DFS-based classification of vertices • DFS-based classificaton of edges • Cycles and backedges</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="18-Oct-2022">            
-            <td class="listing-date">
-                18 Oct, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>DFS Applications</strong><br>
-                <p>Topological Sort (Algorithm)</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="19-Oct-2022">            
-            <td class="listing-date">
-                19 Oct, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>DFS Applications</strong><br>
-                <p>Postorder • Preorder • Topological Sort (Analysis)</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="25-Oct-2022">            
-            <td class="listing-date">
-                25 Oct, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Shortest Paths</strong><br>
-                <p>A teaser the challenges in extending BFS to weighted graphs • Pseudopolynomial running time</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="26-Oct-2022">            
-            <td class="listing-date">
-                26 Oct, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Heaps</strong><br>
-                <p>Selection Sort • Supporting only Insert and FindMin • The challenge of ExtractMin</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="01-Nov-2022">            
-            <td class="listing-date">
-                01 Nov, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Heaps</strong><br>
-                <p>The Heap Property • Insert • FindMin • ExtractMin</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="02-Nov-2022">            
-            <td class="listing-date">
-                02 Nov, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Heaps</strong><br>
-                <p>Representing Heaps with Arrays</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="15-Nov-2022">            
-            <td class="listing-date">
-                15 Nov, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Heaps Revisited</strong><br>
-                <p>Analysis • Heapify is Linear Time</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="16-Nov-2022">            
-            <td class="listing-date">
-                16 Nov, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Balanced Binary Search Trees</strong><br>
-                <p>(2,3)-Trees • Insertion • Deletion</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="22-Nov-2022">            
-            <td class="listing-date">
-                22 Nov, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Balanced Binary Search Trees</strong><br>
-                <p>(2,3)-Trees Height Analysis</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="23-Nov-2022">            
-            <td class="listing-date">
-                23 Nov, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Recap</strong><br>
-                <p>Review of BFS, DFS, Heaps, and Balanced BSTs</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
+                    Invalid Date
             </td>
         </tr>
 </tbody>
@@ -1777,59 +1402,17 @@ No matching items
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div><div class="quarto-listing quarto-listing-container-custom" id="listing-exams-listing">
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
 
-<table class="quarto-listing-table table">
-    <thead>
-        <tr><td>Issued</td>
-        <td>Assessment</td>
-        <td>Problem Set</td>
-        <td>Solutions</td>
-        <td>Due</td>
-    </tr></thead>
-    <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="28 09 2022" data-listing-due-sort="28 09 2022">            
-            <td class="listing-date">
-                28 Sep, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>MidSem Exam</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <a href="midsem-solutions.pdf"><i class="bi bi-journal-richtext" style="padding-left: 32px;"></i></a>
-                </td>
-            <td class="listing-due">
-                    28 Sep, 2022
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="30 11 2022" data-listing-due-sort="30 11 2022">            
-            <td class="listing-date">
-                30 Nov, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>EndSem Exam</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    30 Nov, 2022
-            </td>
-        </tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+
+
+
+</main> <!-- /main -->
 <script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
 
 <script type="text/javascript">

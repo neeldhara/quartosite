@@ -1,0 +1,57 @@
+---
+title: "The Only Fair Ranking of IITs"
+date: "2022-11-24"
+categories: [funda]
+fields: [date, title]
+page-layout:  full
+execute:
+  echo: false
+---
+
+<p>Don't like the ranking? <a href=".">Try again</a>.</p> 
+
+:::{.callout-tip}
+# Methodology _(borrowed --- verbatim --- from [here](https://sarielhp.org/cgi-bin/cs_ranking).)_
+
+The program takes all the available knowledge in the universe and extrapolates a score for each CS department using state of the art algorithmic techniques (i.e., deep guessing). To resolve ties, the program also computes a secondary score which is a random number. The program next computes a weighted average of the two scores - the weight assigned to the first score is based on its scientific value and merit, and is thus zero, and the remaining weight is assigned to the secondary score (i.e., 1). The program then sort and output the departments in decreasing ordering of their weighted scores.
+
+:::
+
+[Inspiration](https://sarielhp.org/cgi-bin/cs_ranking) {{< bi arrow-left-circle-fill >}} Check this page for a ranking of computer science departments. 
+
+```{ojs}
+
+import { shuffle } from "./shuffle.js"
+
+arr = ["IIT Kharagpur", 
+"IIT Bombay", 
+"IIT Madras", 
+"IIT Kanpur", 
+"IIT Delhi", 
+"IIT Guwahati", 
+"IIT Roorkee", 
+"IIT Ropar", 
+"IIT Bhubaneswar", 
+"IIT Gandhinagar", 
+"IIT Hyderabad", 
+"IIT Jodhpur", 
+"IIT Patna", 
+"IIT Indore", 
+"IIT Mandi", 
+"IIT (BHU) Varanasi", 
+"IIT Palakkad", 
+"IIT Tirupati", 
+"IIT (ISM) Dhanbad", 
+"IIT Bhilai", 
+"IIT Dharwad", 
+"IIT Jammu", 
+"IIT Goa"];
+x = shuffle(arr);
+y = document.getElementById("quarto-document-content");
+
+y.innerHTML += "1. " + x[0] + "<br> 2. " + x[1] +  "<br> 3. " + x[2] +  "<br> 4. " + x[3] +  "<br> 5. " + x[4] +  "<br> 6. " + x[5] +  "<br> 7. " + x[6] +  "<br> 8. " + x[7] +  "<br> 9. " + x[8] +  "<br> 10. " + x[9] +  "<br> 11. " + x[10] +  "<br> 12. " + x[11] +  "<br> 13. " + x[12] +  "<br> 14. " + x[13] +  "<br> 15. " + x[14] +  "<br> 16. " + x[15] +  "<br> 17. " + x[16] +  "<br> 18. " + x[17] +  "<br> 19. " + x[18] +  "<br> 20. " + x[19] +  "<br> 21. " + x[20] +  "<br> 22. " + x[21] +  "<br> 23. " + x[22];
+
+```
+
+
+

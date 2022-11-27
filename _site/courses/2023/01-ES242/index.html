@@ -98,9 +98,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-dateissued','listing-title','listing-summary','listing-due','listing-problemset',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
+      valueNames: ['listing-title','listing-summary',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-dateissued","listing-title","listing-summary","listing-due","listing-problemset"],
+      searchColumns: ["listing-title","listing-summary"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -126,9 +126,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: [{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-lecid','listing-title','listing-problemset','listing-solutions',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-lecid","listing-title","listing-problemset","listing-solutions"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -154,9 +154,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-dateissued','listing-title','listing-solutions','listing-problemset',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] }],
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-dateissued","listing-title","listing-solutions","listing-problemset"],
+      searchColumns: ["listing-title"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -182,9 +182,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-title','listing-problemset','listing-solutions','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
+      valueNames: ['listing-lecid','listing-title','listing-problemset','listing-solutions',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-lecid","listing-dateissued","listing-title","listing-problemset","listing-solutions","listing-due"],
+      searchColumns: ["listing-lecid","listing-title","listing-problemset","listing-solutions"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -261,6 +261,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../../research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -293,10 +297,21 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../../../talks.html">
- <span class="menu-text">Talks</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../../talks/">
+ <span class="dropdown-text">Talks</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../events/">
  <span class="menu-text">Events</span></a>
@@ -365,8 +380,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="es242.-data-structures-and-algorithms-i." class="level2 column-body-outset">
 <h2 class="anchored" data-anchor-id="es242.-data-structures-and-algorithms-i.">ES242. Data Structures and Algorithms I.</h2>
-<section id="august-november-2022" class="level5">
-<h5 class="anchored" data-anchor-id="august-november-2022">August — November 2022</h5>
+<section id="january---april-2023" class="level5">
+<h5 class="anchored" data-anchor-id="january---april-2023">January - April 2023</h5>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -950,49 +965,44 @@ No matching items
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="03-Aug-2022" data-listing-due-sort="28-Aug-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                03 Aug, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>W01. Representations</strong><br>
-                <p>Finding the Coefficient<br> Finding the Coefficient Redux<br> Game of Trust<br> Game of Trust [Open Ended]<br> Validating a Self-Working Card Trick [Open Ended]</p>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
-                    <a href="../../../courses/2023/01-ES242/labs/lab-w01.html"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
                 </td>
             <td class="listing-solutions">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    28 Aug, 2022
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10-Aug-2022" data-listing-due-sort="28-Aug-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                10 Aug, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>W02. C Warmup and Recap</strong><br>
-                <p>Four Points <br> Waking Up <br> Ratings <br> Meta Tic-Tac-Toe [Open Ended]</p>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
-                    <a href="../../../courses/2023/01-ES242/labs/lab-w02.html"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
                 </td>
             <td class="listing-solutions">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    28 Aug, 2022
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="17-Aug-2022" data-listing-due-sort="28-Aug-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                17 Aug, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>W03. Representing Graphs</strong><br>
-                <p>Swapping Variables <br> Adjacency Matrix <br> Edge List <br> Adjacency List <br> Getting Even</p>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1001,16 +1011,14 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    28 Aug, 2022
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="24-Aug-2022" data-listing-due-sort="11-Sep-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                24 Aug, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>W04. The Cardstack</strong><br>
-                <p>Print alternate cards <br> Reverse a list of numbers <br> Cut shuffle <br> Overhand Shuffle <br> de Bruijn sequences</p>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1019,16 +1027,14 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    11 Sep, 2022
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="31-Aug-2022" data-listing-due-sort="11-Sep-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                31 Aug, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>W05. Euler Tours and de Bruijn Sequences</strong><br>
-                <p>Euler Circuit Sanity Check <br> Highway Orientation <br> Edge Orientation Puzzle <br>  Generate de Bruin Sequences</p>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1037,34 +1043,14 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    11 Sep, 2022
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="07-Sep-2022" data-listing-due-sort="09-Sep-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                07 Sep, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>W06. Stable Marriages</strong><br>
-                <p>Merge List <br> Insert Node <br> Reverse The List <br> Count Blocking Pairs <br> Stable Matchings</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    09 Sep, 2022
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="14-Sep-2022">            
-            <td class="listing-date">
-                14 Sep, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>No Lab</strong><br>
-                <p><strong><span style="color:indianred;">Lab Quiz 1</span> (held on 17 Sep, 2022)</strong></p>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1075,13 +1061,12 @@ No matching items
             <td class="listing-due">
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="21-Sep-2022" data-listing-due-sort="27-Sep-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                21 Sep, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>W08. Navigating Graphs (BFS)</strong><br>
-                <p>Find My Ancestor! <br> Longest Path <br> Unique Servers <br> Run a Marathon <br> Just BFS</p>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1090,16 +1075,14 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    27 Sep, 2022
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="12-Oct-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                12 Oct, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>W09. Practice Lab</strong><br>
-                <p>Cop and Robber <br> Balanced Brackets <br> Whispering Joker <br> Time Series <br> String Game <br> <strong><span style="color:indianred;">Lab Exam</span> (held on 15 Oct, 2022)</strong></p>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1110,13 +1093,12 @@ No matching items
             <td class="listing-due">
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="19-Oct-2022" data-listing-due-sort="01-Nov-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                19 Oct, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>W10. Navigating Graphs (DFS)</strong><br>
-                <p>2-Colorable Graphs <br> Topological Sort <br> Is DAG? <br> Get Food!</p>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1125,16 +1107,14 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    01 Nov, 2022
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="26-Oct-2022" data-listing-due-sort="01-Nov-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                26 Oct, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>W11. Graph Traversal Applications</strong><br>
-                <p>Learning Languages <br> Permutation Tree <br> Make Walls <br> Palindromic Crosswords</p>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1143,34 +1123,14 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    01 Nov, 2022
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="02-Nov-2022" data-listing-due-sort="08-Nov-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                02 Nov, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>W12. Heaps</strong><br>
-                <p>Heapify <br> HeapSort <br> The Unity Project <br> Largest Number</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    08 Nov, 2022
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="09-Nov-2022">            
-            <td class="listing-date">
-                09 Nov, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>W13. Practice Lab</strong><br>
-                <p>Visit Me First <br> Visit Me Last! <br> Sort a Tree <br> Predicting Possibility <br> Can You Register?</p>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1181,13 +1141,12 @@ No matching items
             <td class="listing-due">
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="16-Nov-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                16 Nov, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>No Lab</strong><br>
-                <p><strong><span style="color:indianred;">Lab Quiz 2</span> (held on 20 Nov, 2022)</strong></p>
+                <strong>W13. Binary Search Trees</strong><br>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1198,13 +1157,12 @@ No matching items
             <td class="listing-due">
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="23-Nov-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                23 Nov, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>W15. Recap Lab</strong><br>
-                <p>Review of Problems <br> On Writing Tests <br> Benchmarking</p>
+                <strong>W14. Practice Lab</strong><br>
+                <p>TBA</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1237,6 +1195,54 @@ No matching items
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Assignment 1</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Assignment 2</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Assignment 3</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
 </tbody>
 </table>
 <div class="listing-no-matching d-none">
@@ -1256,50 +1262,15 @@ No matching items
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10-Aug-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                10 Aug, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Quiz 0</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <a href="quiz0-solutions.pdf"><i class="bi bi-journal-richtext" style="padding-left: 32px;"></i></a>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10-Aug-2022">            
-            <td class="listing-date">
-                10 Aug, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Quiz 1</strong><br>
                 <p></p>
             </td>
             <td class="listing-problemset">
-                    <a href="quiz1.pdf"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
-                </td>
-            <td class="listing-solutions">
-                    <a href="quiz1-solutions.pdf"><i class="bi bi-journal-richtext" style="padding-left: 32px;"></i></a>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10-Aug-2022">            
-            <td class="listing-date">
-                10 Aug, 2022
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Quiz 2</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <a href="quiz2.pdf"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
                 </td>
             <td class="listing-solutions">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
@@ -1307,16 +1278,175 @@ No matching items
             <td class="listing-due">
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="20-Nov-2022">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                20 Nov, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Lab Quiz 2</strong><br>
+                <strong>Quiz 2</strong><br>
                 <p></p>
             </td>
             <td class="listing-problemset">
-                    <a href="../../../courses/2023/01-ES242/labquiz2.html"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Quiz 3</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Quiz 4</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Quiz 5</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Quiz 6</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Quiz 7</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Quiz 8</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Quiz 9</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Quiz 10</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Quiz 11</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                </td>
+            <td class="listing-solutions">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                </td>
+            <td class="listing-due">
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Quiz 12</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
                 </td>
             <td class="listing-solutions">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
@@ -1343,9 +1473,8 @@ No matching items
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="TBA" data-listing-due-sort="-">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                Invalid Date
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Exam 1</strong><br>
@@ -1358,12 +1487,10 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    Invalid Date
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="TBA" data-listing-due-sort="-">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                Invalid Date
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Exam 2</strong><br>
@@ -1376,12 +1503,10 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    Invalid Date
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="TBA" data-listing-due-sort="-">            
+        <tr data-index="0" data-categories="null">            
             <td class="listing-date">
-                Invalid Date
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Exam 3</strong><br>
@@ -1394,7 +1519,6 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    Invalid Date
             </td>
         </tr>
 </tbody>

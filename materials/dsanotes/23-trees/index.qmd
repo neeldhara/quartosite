@@ -1,0 +1,97 @@
+---
+title: "Balanced BSTs"
+date: "2022-11-26"
+categories: [dsanotes, lecturenotes]
+fields: [date, title]
+page-layout: full
+toc: true
+reference-location: margin
+order: 10
+---
+
+## Background
+
+Suppose we want to store a collection of distinct integers (henceforth, we call them _keys_, for no good reason except that I can refer to them with the 🔑 emoji) with support for:
+
+- `insert(x)` insert `x` into the collection if it is not there already
+- `delete(x)` deleting `x` from the collection if it is present
+- `search(x)` determine if `x` belongs to the collection
+
+The motivation for building binary search trees is to capture a happy middle-ground between the following extremes:
+
+- if I store my data fully sorted, then it is hard to insert and delete^[can be as bad as linear time], but easy to search^[can be as good as logarithmic time], but
+- if I store my data in chaos-mode, then it is easy to insert and delete^[constant time!], but hard to search^[can be as bad as linear time].
+
+Binary search trees are the natural answer to the question:
+
+> If binary search was a data structure, what would it look like?
+
+To achieve $O(\log n)$ complexity for search _and_ insertion (_and_ deletion), we want a relatively "loose" sense of structure on the data: it should be fluid enough for insertion and deletion to be manageable, but meaningful enough for searches to be fast.
+
+One way to do this is to store everything in a binary tree where every node `u` stores a key $k_u$ with the assurance that:
+
+- all nodes that belong to the subtree rooted at the right child of `u` have keys whose values are _greater_ than $k_u$;
+- all nodes that belong to the subtree rooted at the left child of `u` have keys whose values are _smaller_ than $k_u$.
+
+With this structure in place, `search(x)` works exactly as you would expect: if the binary search tree is rooted at $r$, check if `x` equals $k_r$: if yes, then we've found what we are looking for, so abort and celebrate; on the other hand, if not, then repeat the following until you've either found `x` or have run out of elements in the tree:
+
+- if `x` is greater than $k_r$, continue searching in the 🌳 rooted at the right child of $r$
+- if `x` is smaller than $k_r$, continue searching in the 🌳 rooted at the left child of $r$
+
+Notice that if you hit a leaf without a match, you can safely conclude that `x` does not belong to the collection. Also notice that the complexity of search is proportional to the length of the longest root-to-leaf path in the tree^[Since it's going to be awkward to keep talking about the "length of the longest root-to-leaf path in the tree", we will simply refer to this as the _height_ of the tree.] in the worst case. 
+
+To `insert(x)`, first `search(x)`: if `x` is found, there's nothing to do; if `x` is not found, then make note of the leaf where the search stopped --- say $\ell$: then if `x` is greater than $k_\ell$, introduce a right child of $\ell$ and assign to it the key value `x`; on the other hand if `x` is less than $k_\ell$, introduce a left child of $\ell$ and assign to it the key value `x`. Notice the tree with the newly added node is still a valid binary search tree.
+
+What about `delete(x)`? If `x` is not in the collection, there's nothing to do. If `x` does belong to the collection and is associated with a leaf node, then the node can simply be knocked out, no further action required. However, what if the node whose key value is `x` --- say $v$ --- is an serious one, with a left and a right child? One possibility is to swap `x` with an appropriate value ascribed to some leaf node, and _then_ knock out the leaf: which now carries the value of `x`. Which leaf should we swap with? It's clear that it can't be just _any_ leaf: but you could pick the smallest value in the right subtree or the largest value in the left subtree --- both of these reside and leaves, and the swaps with them would leave you with a valid BST after the deed is done. 
+
+To find the smallest value in the right subtree, you can take the right turn from $v$ and then go left until you are stuck. If you prefer the largest value in left subtree instead, take the left turn from $v$ and go right until you are stuck. Either of these should work fine. You can find some examples of [deletions in a BST](https://inst.eecs.berkeley.edu/~cs61bl/r//cur/binary-search-trees/deletion-bst.html?topic=lab17.topic&step=1&course=) here.
+
+Notice that the complexity of all three operations are proportional to the height of the tree: so if we can control the height, we control the complexity of these operations! Notice also that the height of a BST --- if built by implementing the algorithms above --- can be as bad as linear in the number of keys^[Try, for example, inserting $1,2,3,\ldots,n$ in that order.], which is no good. Play around with [this visualization of BSTs](https://www.cs.usfca.edu/~galles/visualization/BST.html) to get a feel!
+
+## (2,3) Trees
+
+One way of controlling the height of a BST is to simply demand it: this is called solving a problem by definition :) What if we could insist on having BSTs where the underlying tree structure must have the following additional property:
+
+> (1) all nodes have either 0 or two children
+> (2) all leaves are at the same distance from the root.
+
+This would automatically force the structure of the underlying tree to be _complete_ i.e, if the tree has height $h$, any node whose distance from the root is less than $h$ must be a branching node (indeed, if not, then it is a leaf by property (1), but then we will have a violation of property (2)). Why is this great? Because if you have $n$ nodes packed into a complete tree of height $h$, then the height must, in fact, be $O(\log n)$ --- which is what we wanted.
+
+There is, however, a small catch with this: such trees may not exist for some values of $n$, the total number of keys that we are trying to accommodate :( We can fix this in two ways: add some dummy keys with values that either duplicate existing values till we have a feasible number of keys to work with (ugh), or make room for _multi-ary_ search trees (cool!).
+
+Since we want the elegant approach, let's push our definition further:
+
+
+> (1) all nodes have either 0, two, or three children
+> (2) nodes that have two children store _one_ key value and satisfy the standard BST property
+> (3) nodes with three children store _two_ key values, say `a` and `b`; and further:
+> - the subtree rooted at the left-most child only hosts values smaller than `a`
+> - the subtree rooted at the right-most child only hosts values larger than `b`
+> - the subtree rooted at the middle child only hosts values strictly between `a` and `b`
+> (4) all leaves are at the same distance from the root.
+
+Adapting `search(x)` to multi-ary trees is extremely natural. 
+
+If the tree is rooted at $r$ and $r$ is a node with two children, proceed as before. 
+
+Otherwise, suppose $r$ hosts the values $a_r$ and $b_r$. Then check if `x` equals either $a_r$ or $b_r$: if yes, then we've found what we are looking for, so abort and celebrate; on the other hand, if not, then repeat the following until you've either found `x` or have run out of elements in the tree:
+
+- if `x` is greater than $b_r$, continue searching in the 🌳 rooted at the right-most child of $r$
+- if `x` is smaller than $a_r$, continue searching in the 🌳 rooted at the left-mostt child of $r$
+- otherwise, continue searching in the 🌳 rooted at the middle child of $r$
+
+What about `insert(x)`? We search for `x` as before. If found, there's nothing to be done. If not, there are two scenarios:
+
+1. The search terminates at a leaf that has one key value.
+2. The search terminates at a leaf that has two key values.
+
+{{< bi exclamation-triangle-fill >}} Note that _unlike_ before, we cannot just have the leaf sprout a child to accommodate the new key value (remember that all leaves have to be at the same distance from the root). So our algorithm _pushes upwards_, and works as follows:
+
+- If there's room in the current node (i.e, the node is one with two children or a leaf with one key value), accommodate the new value into that node, reorganizing as necessary. In particular, when a node with two children + one value transforms into one with three children + two values, then the subtrees have to be appropriately reorganized.
+
+- If there's **no** room in the current node, then move up to the parent. If there's no parent: then you've hit the root! If the root turns out to be crowded too, then you'll have to split the root (note that this causes the height of the tree to increase, but does not happen too often), but if the root has room then follow the procedure in the previous step.
+
+:::{.callout-note} 
+# Practice!
+Work through some examples in this [(2,3)-tree visualizer](https://www.cs.usfca.edu/~galles/visualization/BTree.html) and go through [the questions here](https://courses.cs.washington.edu/courses/cse373/21wi/dna-indexing/2-3-trees/) to validate your understanding of the structure of (2,3)-trees. 
+:::

@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-02">
+<meta name="dcterms.date" content="2022-11-26">
 
-<title>Neeldhara - Representing Sequences</title>
+<title>Neeldhara - Balanced BSTs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,6 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -211,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Representing Sequences</h1>
+      <h1 class="quarto-secondary-nav-title">Balanced BSTs</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -239,17 +240,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/dsanotes/23-trees/index.html" class="sidebar-item-text sidebar-link">Balanced BSTs</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../materials/dsanotes/introduction/index.html" class="sidebar-item-text sidebar-link">Data Structures and Structured Data</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/dsanotes/debruijn/index.html" class="sidebar-item-text sidebar-link">On Cards and Graphs</a>
+  <a href="../../../materials/dsanotes/sequences/index.html" class="sidebar-item-text sidebar-link">Representing Sequences</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -259,12 +255,17 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/dsanotes/sequences/index.html" class="sidebar-item-text sidebar-link active">Representing Sequences</a>
+  <a href="../../../materials/dsanotes/eulertours/index.html" class="sidebar-item-text sidebar-link">Walking Around via Euler Tours</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/dsanotes/eulertours/index.html" class="sidebar-item-text sidebar-link">Walking Around via Euler Tours</a>
+  <a href="../../../materials/dsanotes/debruijn/index.html" class="sidebar-item-text sidebar-link">On Cards and Graphs</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/dsanotes/23-trees/index.html" class="sidebar-item-text sidebar-link active">Balanced BSTs</a>
   </div>
 </li>
       </ul>
@@ -278,13 +279,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#of-playlists-and-tweet-threads-representing-sequential-information" id="toc-of-playlists-and-tweet-threads-representing-sequential-information" class="nav-link active" data-scroll-target="#of-playlists-and-tweet-threads-representing-sequential-information">Of Playlists and Tweet Threads: <br> Representing Sequential Information</a>
-  <ul class="collapse">
-  <li><a href="#arrays" id="toc-arrays" class="nav-link" data-scroll-target="#arrays">Arrays</a></li>
-  <li><a href="#linked-lists" id="toc-linked-lists" class="nav-link" data-scroll-target="#linked-lists">Linked Lists</a></li>
-  <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison">Comparison</a></li>
-  <li><a href="#what-should-you-use" id="toc-what-should-you-use" class="nav-link" data-scroll-target="#what-should-you-use">What should you use?</a></li>
-  </ul></li>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
+  <li><a href="#trees" id="toc-trees" class="nav-link" data-scroll-target="#trees">(2,3) Trees</a></li>
   </ul>
 </nav>
     </div>
@@ -293,7 +289,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Representing Sequences</h1>
+<h1 class="title d-none d-lg-block">Balanced BSTs</h1>
   <div class="quarto-categories">
     <div class="quarto-category">dsanotes</div>
     <div class="quarto-category">lecturenotes</div>
@@ -308,7 +304,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 2, 2022</p>
+      <p class="date">November 26, 2022</p>
     </div>
   </div>
   
@@ -318,116 +314,100 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="of-playlists-and-tweet-threads-representing-sequential-information" class="level1 page-columns page-full">
-<h1>Of Playlists and Tweet Threads: <br> Representing Sequential Information</h1>
-<p><a href="https://slides.com/neeldhara/dsa1-w01#/2/1">Link to Slides</a></p>
-<p>So far, we have worked with <em>atomic</em> types, which is to say variables that can hold a “single kind of data” for us — like integers, characters, strings, booleans, and so on. Often, however, we need to work with compound types, which is to say, a bunch of these things taken together. For example, you may have sensed that when we spoke of maintaining <a href="../../../materials/dsanotes/introduction/index.html">a set of cards</a> earlier with 52 booleans, it may have been nicer if they could be strung together into a single, unified structure: for one, it saves you having to keep track of a large number of variables, and further, it might be easier — as we will find out — to manipulate the data in response to operations that we may want to support.</p>
-<p>When you speak of a bunch of objects, it is useful to agree on whether you interpret the collection as an <em>ordered</em> or <em>unordered</em> set. Consider the following examples:</p>
-<ol type="1">
-<li>Your playlist of happy songs</li>
-<li>A stack of cards</li>
-<li>People living in a house</li>
-<li>Teams that played in the Asia Cup 2022</li>
-<li>Chess pieces on a board mid-game</li>
-</ol>
-<div class="page-columns page-full"><p>While some people play their happy songs in shuffle mode, for some the playlist is carefully organized, and the order matters. A stack of cards and chess pieces on a board are clearly collections with a natural sense of order, and one that is very likely to be important. On the other hand, people who live in a particular house or the set of teams that participated in the Asia cup in 2022 can be thought of as sets with no underlying order: of course, if you had to impose one you could cook something up<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> (e.g, alphabetical, favorites, and so on). We will focus on storing ordered lists for now and return to sets in due course.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;For example, the C++ implementation of <code>set</code> maintains a default order even though it is, by nomenclature, modeling unordered sets. On the other hand, the <code>unordered_set</code> data structure in the C++ STL throws all caution to the wind and buys faster operations on average.</p></li></div></div>
-<p>There are a few different ways that you can store a list of things in a computer’s memory. Imagine that you are real estate agent and you want to book some houses in a complex for your current and future clients. Stretching your imagination a little bit further, say all houses are numbered from 1 to 1000 and are positioned on a straight line in the natural order (i.e, 2 after 1, 3 after 2, and so on). Some houses are occupied and others are not. If you reserve <span class="math inline">k</span> houses, management will find some contiguous block of <span class="math inline">k</span> unoccupied houses and give you the number of the first house in the block. For instance, if you ask for 50 houses, you would get a letter from the management saying 50 houses starting from #420 are yours. If you need 20 more houses later, you would get a letter from the management saying 70 houses starting from #777 are yours. That’s right: they are not obiligied to give you houses #470 to #489, indeed, these may not be avaiailable. They <em>could</em> just give you an additional chunk of 20 houses somewhere else, but sadly that’s not how they roll: them management, them rules. There are also no refunds: you can’t give back reserved houses.</p>
-<p>Now here comes our first dilemma: how many houses do we reserve? Say we have 20 clients: it is clear that we need to reserve <em>at least</em> 20 houses, but should we reserve a few more? Reservations are not free, so we don’t want to reserve a very large number of houses either: remember, there are no refunds. But on the other hand, if we reserve too few, and we end up with more clients than the number of houses we’ve reserved, we will be in a sticky situation — worst case some clients may have to move, which is not ideal. You will have to work on coming up with a reasonable estimate of how many clients you will eventually have, and hope for the best.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../figures/ch2-houses-01.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<p></p><figcaption class="figure-caption">Expanding your reservations can get tricky</figcaption><p></p>
-</figure>
-</div>
-<p>Over time you find that this business of estimating the number of clients you have is an unpleasant one: both under and overestimates lead to losses, which makes you wonder if there are apartments that have more flexible options. You look around, and why yes, you find a different apartment complex — again a thousand houses on a line neatly numbered 1 to 1000 from left to right, but this time, management reserves one house at a time. You want a new house, you simply ask for one. But there’s a catch: the paperwork here requires you to submit the client’s information, and they directly get their house number. So this is actually quite efficient: the management does all the work and you can reserve exactly what you need. All is well until it’s time for Diwali and you realize you don’t know where your clients are housed, and you can’t send them postcards, sweets, and advertisements.</p>
-<p>You could, of course, just call your clients and ask them for their house numbers, but then this requires you to maintain some kind of register, and let us just say that you are not good with that kind of thing. So here’s what you do instead: you only keep the first client’s address, because that’s just one thing that’s easy to remember. Then you ask your <span class="math inline">i</span>-th client to remember the address of the <span class="math inline">(i+1)</span>-th client: they are slightly bewildered but you tell them it’s for insurance. Now if you want to pay a visit to your <span class="math inline">\ell</span>-th client, you just start from your first one, and follow the trail. Peculiar, but works.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../figures/ch2-houses-02.gif" class="img-fluid figure-img" style="width:70.0%"></p>
-<p></p><figcaption class="figure-caption">Walking around to find your clients with new management.</figcaption><p></p>
-</figure>
-</div>
-<p>Note that with the previous maangement this was never a problem: you had a contiguous block of houses that you allocated sequentially, so your <span class="math inline">i</span>-th client’s house address was always at hand if you were good with arithmetic or had a calculator: simply add <span class="math inline">(i-1)</span> to the house number of the first client.</p>
-<p>As analogies go this was both unrealistic and imprefect, but I hope it gives you a sense of the main trade-offs involved in the two ways we have to store sequential data — very roughly speaking:</p>
+<section id="background" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>Suppose we want to store a collection of distinct integers (henceforth, we call them <em>keys</em>, for no good reason except that I can refer to them with the 🔑 emoji) with support for:</p>
 <ul>
-<li>in contiguous blocks, access is easy, flexibility is hard;</li>
-<li>with elements all over the place, access is indirect but the structure is relatively flexible.</li>
+<li><code>insert(x)</code> insert <code>x</code> into the collection if it is not there already</li>
+<li><code>delete(x)</code> deleting <code>x</code> from the collection if it is present</li>
+<li><code>search(x)</code> determine if <code>x</code> belongs to the collection</li>
 </ul>
-<section id="arrays" class="level2">
-<h2 class="anchored" data-anchor-id="arrays">Arrays</h2>
-<p>Quoting <a href="https://en.wikipedia.org/wiki/Array_data_structure">Wikipedia</a>:</p>
+<p>The motivation for building binary search trees is to capture a happy middle-ground between the following extremes:</p>
+<ul>
+<li>if I store my data fully sorted, then it is hard to insert and delete<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, but easy to search<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, but</li>
+<li>if I store my data in chaos-mode, then it is easy to insert and delete<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, but hard to search<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</li>
+</ul>
+<div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;can be as bad as linear time</p></li><li id="fn2"><p><sup>2</sup>&nbsp;can be as good as logarithmic time</p></li><li id="fn3"><p><sup>3</sup>&nbsp;constant time!</p></li><li id="fn4"><p><sup>4</sup>&nbsp;can be as bad as linear time</p></li></div><p>Binary search trees are the natural answer to the question:</p>
 <blockquote class="blockquote">
-<p>An array is a data structure consisting of a collection of elements (values or variables), each identified by at least one array index or key. An array is stored such that the position of each element can be computed from its index tuple by a mathematical formula.</p>
+<p>If binary search was a data structure, what would it look like?</p>
 </blockquote>
-<blockquote class="blockquote">
-<p>For example, an array of 10 32-bit (4-byte) integer variables, with indices 0 through 9, may be stored as 10 words at memory addresses 2000, 2004, 2008, …, 2036, (in hexadecimal: 0x7D0, 0x7D4, 0x7D8, …, 0x7F4) so that the element with index i has the address 2000 + (i × 4).[4]</p>
-</blockquote>
+<p>To achieve <span class="math inline">O(\log n)</span> complexity for search <em>and</em> insertion (<em>and</em> deletion), we want a relatively “loose” sense of structure on the data: it should be fluid enough for insertion and deletion to be manageable, but meaningful enough for searches to be fast.</p>
+<p>One way to do this is to store everything in a binary tree where every node <code>u</code> stores a key <span class="math inline">k_u</span> with the assurance that:</p>
+<ul>
+<li>all nodes that belong to the subtree rooted at the right child of <code>u</code> have keys whose values are <em>greater</em> than <span class="math inline">k_u</span>;</li>
+<li>all nodes that belong to the subtree rooted at the left child of <code>u</code> have keys whose values are <em>smaller</em> than <span class="math inline">k_u</span>.</li>
+</ul>
+<p>With this structure in place, <code>search(x)</code> works exactly as you would expect: if the binary search tree is rooted at <span class="math inline">r</span>, check if <code>x</code> equals <span class="math inline">k_r</span>: if yes, then we’ve found what we are looking for, so abort and celebrate; on the other hand, if not, then repeat the following until you’ve either found <code>x</code> or have run out of elements in the tree:</p>
+<ul>
+<li>if <code>x</code> is greater than <span class="math inline">k_r</span>, continue searching in the 🌳 rooted at the right child of <span class="math inline">r</span></li>
+<li>if <code>x</code> is smaller than <span class="math inline">k_r</span>, continue searching in the 🌳 rooted at the left child of <span class="math inline">r</span></li>
+</ul>
+<div class="page-columns page-full"><p>Notice that if you hit a leaf without a match, you can safely conclude that <code>x</code> does not belong to the collection. Also notice that the complexity of search is proportional to the length of the longest root-to-leaf path in the tree<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> in the worst case.</p><div class="no-row-height column-margin column-container"><li id="fn5"><p><sup>5</sup>&nbsp;Since it’s going to be awkward to keep talking about the “length of the longest root-to-leaf path in the tree”, we will simply refer to this as the <em>height</em> of the tree.</p></li></div></div>
+<p>To <code>insert(x)</code>, first <code>search(x)</code>: if <code>x</code> is found, there’s nothing to do; if <code>x</code> is not found, then make note of the leaf where the search stopped — say <span class="math inline">\ell</span>: then if <code>x</code> is greater than <span class="math inline">k_\ell</span>, introduce a right child of <span class="math inline">\ell</span> and assign to it the key value <code>x</code>; on the other hand if <code>x</code> is less than <span class="math inline">k_\ell</span>, introduce a left child of <span class="math inline">\ell</span> and assign to it the key value <code>x</code>. Notice the tree with the newly added node is still a valid binary search tree.</p>
+<p>What about <code>delete(x)</code>? If <code>x</code> is not in the collection, there’s nothing to do. If <code>x</code> does belong to the collection and is associated with a leaf node, then the node can simply be knocked out, no further action required. However, what if the node whose key value is <code>x</code> — say <span class="math inline">v</span> — is an serious one, with a left and a right child? One possibility is to swap <code>x</code> with an appropriate value ascribed to some leaf node, and <em>then</em> knock out the leaf: which now carries the value of <code>x</code>. Which leaf should we swap with? It’s clear that it can’t be just <em>any</em> leaf: but you could pick the smallest value in the right subtree or the largest value in the left subtree — both of these reside and leaves, and the swaps with them would leave you with a valid BST after the deed is done.</p>
+<p>To find the smallest value in the right subtree, you can take the right turn from <span class="math inline">v</span> and then go left until you are stuck. If you prefer the largest value in left subtree instead, take the left turn from <span class="math inline">v</span> and go right until you are stuck. Either of these should work fine. You can find some examples of <a href="https://inst.eecs.berkeley.edu/~cs61bl/r//cur/binary-search-trees/deletion-bst.html?topic=lab17.topic&amp;step=1&amp;course=">deletions in a BST</a> here.</p>
+<div class="page-columns page-full"><p>Notice that the complexity of all three operations are proportional to the height of the tree: so if we can control the height, we control the complexity of these operations! Notice also that the height of a BST — if built by implementing the algorithms above — can be as bad as linear in the number of keys<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, which is no good. Play around with <a href="https://www.cs.usfca.edu/~galles/visualization/BST.html">this visualization of BSTs</a> to get a feel!</p><div class="no-row-height column-margin column-container"><li id="fn6"><p><sup>6</sup>&nbsp;Try, for example, inserting <span class="math inline">1,2,3,\ldots,n</span> in that order.</p></li></div></div>
 </section>
-<section id="linked-lists" class="level2">
-<h2 class="anchored" data-anchor-id="linked-lists">Linked Lists</h2>
-<p>Quoting <a href="https://en.wikipedia.org/wiki/Linked_list">Wikipedia</a>:</p>
+<section id="trees" class="level2">
+<h2 class="anchored" data-anchor-id="trees">(2,3) Trees</h2>
+<p>One way of controlling the height of a BST is to simply demand it: this is called solving a problem by definition :) What if we could insist on having BSTs where the underlying tree structure must have the following additional property:</p>
 <blockquote class="blockquote">
-<p>A linked list is a linear collection of data elements whose order is not given by their physical placement in memory. Instead, each element points to the next. It is a data structure consisting of a collection of nodes which together represent a sequence. In its most basic form, each node contains: data, and a reference (in other words, a link) to the next node in the sequence. This structure allows for efficient insertion or removal of elements from any position in the sequence during iteration.</p>
+<ol type="1">
+<li>all nodes have either 0 or two children</li>
+<li>all leaves are at the same distance from the root.</li>
+</ol>
 </blockquote>
+<p>This would automatically force the structure of the underlying tree to be <em>complete</em> i.e, if the tree has height <span class="math inline">h</span>, any node whose distance from the root is less than <span class="math inline">h</span> must be a branching node (indeed, if not, then it is a leaf by property (1), but then we will have a violation of property (2)). Why is this great? Because if you have <span class="math inline">n</span> nodes packed into a complete tree of height <span class="math inline">h</span>, then the height must, in fact, be <span class="math inline">O(\log n)</span> — which is what we wanted.</p>
+<p>There is, however, a small catch with this: such trees may not exist for some values of <span class="math inline">n</span>, the total number of keys that we are trying to accommodate :( We can fix this in two ways: add some dummy keys with values that either duplicate existing values till we have a feasible number of keys to work with (ugh), or make room for <em>multi-ary</em> search trees (cool!).</p>
+<p>Since we want the elegant approach, let’s push our definition further:</p>
 <blockquote class="blockquote">
-<p>More complex variants add additional links, allowing more efficient insertion or removal of nodes at arbitrary positions. A drawback of linked lists is that access time is linear (and difficult to pipeline). Faster access, such as random access, is not feasible. Arrays have better cache locality compared to linked lists.</p>
+<ol type="1">
+<li>all nodes have either 0, two, or three children</li>
+<li>nodes that have two children store <em>one</em> key value and satisfy the standard BST property</li>
+<li>nodes with three children store <em>two</em> key values, say <code>a</code> and <code>b</code>; and further:</li>
+</ol>
+<ul>
+<li>the subtree rooted at the left-most child only hosts values smaller than <code>a</code></li>
+<li>the subtree rooted at the right-most child only hosts values larger than <code>b</code></li>
+<li>the subtree rooted at the middle child only hosts values strictly between <code>a</code> and <code>b</code></li>
+</ul>
+<ol start="4" type="1">
+<li>all leaves are at the same distance from the root.</li>
+</ol>
 </blockquote>
-</section>
-<section id="comparison" class="level2">
-<h2 class="anchored" data-anchor-id="comparison">Comparison</h2>
-<p>Given a fully occupied array with n elements v/s a linked list with n elements, here are the costs of some operations that you might want to perform:</p>
-<table class="table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 21%">
-<col style="width: 28%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Operations</th>
-<th style="text-align: center;">Arrays</th>
-<th style="text-align: center;">Singly Linked List</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Looking up the i-th element</td>
-<td style="text-align: center;">instant</td>
-<td style="text-align: center;"><span class="math inline">\approx</span> i</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Adding a new element at the start</td>
-<td style="text-align: center;"><span class="math inline">\approx</span> n</td>
-<td style="text-align: center;">instant</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Adding a new element at the end</td>
-<td style="text-align: center;"><span class="math inline">\approx</span> n</td>
-<td style="text-align: center;"><span class="math inline">\approx</span> n</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Removing the i-th element</td>
-<td style="text-align: center;"><span class="math inline">\approx</span> n-i</td>
-<td style="text-align: center;"><span class="math inline">\approx</span> i</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="what-should-you-use" class="level2">
-<h2 class="anchored" data-anchor-id="what-should-you-use">What should you use?</h2>
-<p>The correct answer is: it depends. If you expect your lists to be heavily manipulated, then linked lists are likely to be the better choice. On the other hand, if yuo are working with a list of a predictable size (or you at least have a known and reasonable upper bound on the size), and direct access is important to you, then arrays are the way to go. If you are dissatisfied with both methods, then consider transforming your unhappiness into motivation for discovering more sophisticated options!</p>
+<p>Adapting <code>search(x)</code> to multi-ary trees is extremely natural.</p>
+<p>If the tree is rooted at <span class="math inline">r</span> and <span class="math inline">r</span> is a node with two children, proceed as before.</p>
+<p>Otherwise, suppose <span class="math inline">r</span> hosts the values <span class="math inline">a_r</span> and <span class="math inline">b_r</span>. Then check if <code>x</code> equals either <span class="math inline">a_r</span> or <span class="math inline">b_r</span>: if yes, then we’ve found what we are looking for, so abort and celebrate; on the other hand, if not, then repeat the following until you’ve either found <code>x</code> or have run out of elements in the tree:</p>
+<ul>
+<li>if <code>x</code> is greater than <span class="math inline">b_r</span>, continue searching in the 🌳 rooted at the right-most child of <span class="math inline">r</span></li>
+<li>if <code>x</code> is smaller than <span class="math inline">a_r</span>, continue searching in the 🌳 rooted at the left-mostt child of <span class="math inline">r</span></li>
+<li>otherwise, continue searching in the 🌳 rooted at the middle child of <span class="math inline">r</span></li>
+</ul>
+<p>What about <code>insert(x)</code>? We search for <code>x</code> as before. If found, there’s nothing to be done. If not, there are two scenarios:</p>
+<ol type="1">
+<li>The search terminates at a leaf that has one key value.</li>
+<li>The search terminates at a leaf that has two key values.</li>
+</ol>
+<p><i class="bi-exclamation-triangle-fill" style="" role="img" aria-hidden="true"></i> Note that <em>unlike</em> before, we cannot just have the leaf sprout a child to accommodate the new key value (remember that all leaves have to be at the same distance from the root). So our algorithm <em>pushes upwards</em>, and works as follows:</p>
+<ul>
+<li><p>If there’s room in the current node (i.e, the node is one with two children or a leaf with one key value), accommodate the new value into that node, reorganizing as necessary. In particular, when a node with two children + one value transforms into one with three children + two values, then the subtrees have to be appropriately reorganized.</p></li>
+<li><p>If there’s <strong>no</strong> room in the current node, then move up to the parent. If there’s no parent: then you’ve hit the root! If the root turns out to be crowded too, then you’ll have to split the root (note that this causes the height of the tree to increase, but does not happen too often), but if the root has room then follow the procedure in the previous step.</p></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Practice!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Work through some examples in this (2,3)-tree visualizer and go through this exposition for practice.</p>
+</div>
+</div>
 
-<!--
-    - index.qmd
-    - sequences.qmd
-    - cardtricks.qmd
-    - graphs.qmd
-    - traversals.qmd
-    - stablematchings.qmd
- -->
 
-
-</section>
 </section>
 
 

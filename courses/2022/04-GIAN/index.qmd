@@ -1,0 +1,99 @@
+---
+title: "191014K02: Randomized Methods for Approximation and Parameterized Algorithms"
+sidebar: false
+toc: false
+css: /css/teaching.css
+listing:
+  - id: lectures-listing
+    contents: materials.yml
+    sort: date asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials-gian.ejs
+  - id: assignments-listing
+    contents: materials-assignments.yml
+    sort: issueddate asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials-assessments-gian.ejs
+    field-types: 
+      dateissued: date
+      due: date
+date-format: DD MMM, YYYY
+---
+
+
+:::{.column-body-outset}
+
+## 191014K02: Randomized Methods for Approximation and Parameterized Algorithms
+
+##### December 5 --- 9 2022
+
+:::{.callout-note collapse="true" icon="false"}
+
+##### About the Course
+Most computational problems that model real-world issues are not known to admit efficient algorithms that are provably correct on all inputs. Many of these problems can be reduced to one of the classical problems called NP-complete problems which are unlikely to admit efficient algorithms in practice, and the issue of whether they do is a fundamental open problem in computer science. Although these problems are very unlikely to be solvable efficiently in the immediate future, computer scientists, over the last few decades, have come up with several “workarounds” to “cope” with NP-hardness.
+
+Two fundamental approaches in this program include approximation and fixed- parameter tractability. An approximate algorithm is a way of dealing with NP- completeness for optimization problem. This technique does not guarantee the best solution. The goal of an approximation algorithm is to come as close as possible to the optimum value in a reasonable amount of time which is at most polynomial time. On the other hand, parameterized algorithms aim to restrict the exponential blow-up to an identified parameter of the problem, leading to efficient exact algorithms whenever the said parameter is reasonably small. In recent times, there has been substantial research that involves an interplay of techniques from both approaches as well.
+
+All paradigms of algorithm design, including efficient polynomial time algorithms as well as the methods of approximation and parameterization discussed above, are substantially more powerful when combined with techniques based on randomness. Carefully employed, randomization leads to approaches that are faster and easier to implement than their deterministic counterparts, making them particularly well-suited to practice.
+
+Over the last two decades, sophisticated probabilistic techniques have been developed for a broad range of challenging computing applications. To begin with, this course will introduce the basic probabilistic techniques used in the design of randomized algorithms and in probabilistic analysis of algorithms. The course covers the basic probability theory required for working with these techniques and demonstrates their use in various computing applications, especially in the context of parameterized and approximation algorithms.
+
+This course will demonstrate the algorithmic techniques in the context of a variety of combinatorial optimization problems that have significant real-world applications. These include: Longest Path, Minimum Cut, Maximum Cut, Clustering, Vertex Cover, Feedback Vertex Set, and Closest String.
+
+:::
+:::{.callout-note collapse="true" icon="false"}
+
+##### Target Audience
+Anyone who is biting their nails from the NP-completeness cliffhanger at the end of their <span data-bs-toggle="tooltip" data-bs-placement="top" title="DSA-II 👀">introduction to algorithms</span> will probably enjoy this course.
+
+:::
+:::{.callout-tip collapse="true" icon="false"}
+
+##### Prerequisites
+This is a theoretical course that will require mathematical maturity (in particular, the ability to understand and write formal mathematical proofs), and some background in the design and analysis of algorithms. Programming experience is tangentially useful but not necessary. For students of IITGN, this course naturally follows up on DSA-II. 
+
+:::
+:::{.callout-tip collapse="true" icon="false"}
+
+##### References
+
+1. [The Design of Approximation Algorithms](https://www.designofapproxalgs.com/book.pdf) • David P. Williamson and David B. Shmoys
+2. [Parameterized Algorithms](https://www.mimuw.edu.pl/~malcin/book/parameterized-algorithms.pdf) • Marek Cygan, Fedor V. Fomin, Lukasz Kowalik, Daniel Lokshtanov, Daniel Marx, Marcin Pilipczuk, Michal Pilipczuk, and Saket Saurabh
+3. [Randomized Algorithms](https://rajsain.files.wordpress.com/2013/11/randomized-algorithms-motwani-and-raghavan.pdf) • Motwani and Raghavan
+4. [Beyond the Worst-Case Analysis of Algorithms](https://www.cambridge.org/core/books/beyond-the-worstcase-analysis-of-algorithms/8A8128BBF7FC2857471E9CA52E69AC21) • Tim Roughgarden
+5. [Algorithms](http://jeffe.cs.illinois.edu/teaching/algorithms/) • Jeff Erickson
+
+
+:::
+:::{.callout-caution collapse="true" icon="false"}
+
+##### Timings and Venue
+Lectures Mon - Fri • 11AM --- 12:30PM • 2:30PM --- 4PM • 4:30PM --- 6PM [Tutorial] • 1/101
+
+:::
+
+::: {.panel-tabset}
+## Lectures
+
+::: {#lectures-listing}
+:::
+
+
+## Tutorials
+
+::: {#assignments-listing}
+:::
+
+:::
+
+:::

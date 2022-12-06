@@ -9,7 +9,7 @@ css: /css/teaching.css
 
 :::{.column-body-outset}
 
-## 191014K02: Day 1 Lecture 1
+## 191014K02: Day 1 Tutorial
 
 _[Back to the Course Page](../)_
 
@@ -47,7 +47,7 @@ The $G(n, p)$ model, due to Erdös and Rényi, has two parameters, $n$ and $p$. 
     - many cliques of size $2 \log n-o(\log n)$ in expectation, and 
     - no cliques of size $2 \log n+o(\log n)$ in expectation (and with high probability).
 
-5. Consider the following algorithm for finding a minimum cut. Assign a random score to each edge, and compute a minimum spanning tree. Removing the heaviest edge in the tree breaks it into two pieces. Argue that with probability $\omega(1/n^2)$, those pieces will be the two sides of a minimum cut minimum cut. Hint: relate this algorithm to the contraction algorithm we did in the class. Also think about Kruskal’s algorithm.
+5. Consider the following algorithm for finding a minimum cut. Assign a random score to each edge, and compute a minimum spanning tree. Removing the heaviest edge in the tree breaks it into two pieces. Argue that with probability $\omega(1/n^2)$, those pieces will be the two sides of a minimum cut. Hint: relate this algorithm to the contraction algorithm we did in the class. Also think about Kruskal’s algorithm.
 
 6. Show that for every $n \geq 4$, there is a simple graph $G_n$ on $n$ vertices that has at least ${n \choose 2}$ distinct _minimum_ cuts. 
 

@@ -60,6 +60,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 <link rel="stylesheet" href="../../../../css/teaching.css">
@@ -198,14 +214,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#k02-day-1-tutorial-solutions" id="toc-k02-day-1-tutorial-solutions" class="nav-link active" data-scroll-target="#k02-day-1-tutorial-solutions">191014K02: Day 1 Tutorial Solutions</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content page-columns page-full column-body" id="quarto-document-content">
@@ -227,11 +237,219 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="k02-day-1-tutorial-solutions" class="level2 column-body-outset">
-<h2 class="anchored" data-anchor-id="k02-day-1-tutorial-solutions">191014K02: Day 1 Tutorial Solutions</h2>
+<div class="column-body-outset">
+<section id="k02-day-1-lecture-1" class="level2">
+<h2 class="anchored" data-anchor-id="k02-day-1-lecture-1">191014K02: Day 1 Lecture 1</h2>
 <p><em><a href="../">Back to the Course Page</a></em></p>
-<p>Coming soon.</p>
 </section>
+<section id="definitions" class="level2">
+<h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<span class="math inline">c</span>-approximate mincut
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <span class="math inline">c</span>-approximate mincut is a set of at most <span class="math inline">cr</span> edges if <span class="math inline">r</span> is the number of edges in a mincut.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+min <span class="math inline">k</span>-way cut
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A minimum k-cut is a smallest set of edges whose removal would partition the graph to at least <span class="math inline">k</span> connected components</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<span class="math inline">G(n,p)</span> graphs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <span class="math inline">G(n, p)</span> model, due to Erdös and Rényi, has two parameters, <span class="math inline">n</span> and <span class="math inline">p</span>. Here <span class="math inline">n</span> is the number of vertices of the graph and <span class="math inline">p</span> is the edge probability. For each pair of distinct vertices, <span class="math inline">v</span> and <span class="math inline">w, p</span> is the probability that the edge <span class="math inline">(v, w)</span> is present. The presence of each edge is statistically independent of all other edges. The graph-valued random variable with these parameters is denoted by <span class="math inline">G(n, p)</span>. When we refer to “the graph <span class="math inline">G(n, p)</span>”, we mean one realization of the random variable.</p>
+</div>
+</div>
+</section>
+<section id="problems" class="level2">
+<h2 class="anchored" data-anchor-id="problems">Problems</h2>
+<ol type="1">
+<li>Generalize the mincut argument to <span class="math inline">c</span>-approximate mincuts.</li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>How many <span class="math inline">X \subset V(G)</span> are there such that <span class="math inline">|\delta(X)| \leq \lambda c</span>?</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Generalize the mincut argument to min <span class="math inline">k</span>-way cut.</li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Prove #min <span class="math inline">k</span>-cuts is at most <span class="math inline">n^{O(k)}</span>.</li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li><p>Show that <span class="math inline">G(n, 1/2)</span> graphs have:</p>
+<ul>
+<li>many cliques of size <span class="math inline">2 \log n-o(\log n)</span> in expectation, and</li>
+<li>no cliques of size <span class="math inline">2 \log n+o(\log n)</span> in expectation (and with high probability).</li>
+</ul></li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Consider the following algorithm for finding a minimum cut. Assign a random score to each edge, and compute a minimum spanning tree. Removing the heaviest edge in the tree breaks it into two pieces. Argue that with probability <span class="math inline">\omega(1/n^2)</span>, those pieces will be the two sides of a minimum cut. Hint: relate this algorithm to the contraction algorithm we did in the class. Also think about Kruskal’s algorithm.</li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Show that for every <span class="math inline">n \geq 4</span>, there is a simple graph <span class="math inline">G_n</span> on <span class="math inline">n</span> vertices that has at least <span class="math inline">{n \choose 2}</span> distinct <em>minimum</em> cuts.</li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Show that for every <span class="math inline">n \geq 3</span>, there is a simple graph <span class="math inline">G_n</span> on <span class="math inline">n</span> vertices such that the value of ILPOPT of the vertex cover ILP associated with <span class="math inline">G_n</span> is at <em>least</em> one less than twice the value of LPOPT of the vertex cover LP associated with <span class="math inline">G_n</span>, i.e:</li>
+</ol>
+<p><span class="math display">\text{ILPOPT}(G_n) \geq 2\cdot \text{LPOPT}(G_n) - 1.</span></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="7" type="1">
+<li><p>Consider the Set Cover instance shown in the figure below.</p>
+<ul>
+<li>Show that all-half is the unique LPOPT for this instance.</li>
+<li>Show that if you include every set in <span class="math inline">\mathcal{F}^\prime</span> with probability <span class="math inline">x_s</span>, then the probability that <span class="math inline">\mathcal{F}^\prime</span> covers <span class="math inline">U</span> is at most <span class="math inline">2^{-\Omega(n)}</span>.</li>
+</ul></li>
+</ol>
+<p><img src="image1.png" class="img-fluid"></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+</section>
+</div>
 
 
 

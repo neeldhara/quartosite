@@ -1,0 +1,91 @@
+---
+title: "191014K02 | Day 2 Lecture 1"
+sidebar: false
+toc: false
+css: /css/teaching.css
+---
+
+
+
+:::{.column-body-outset}
+
+## 191014K02: Day 1 Lecture 1
+
+_[Back to the Course Page](../)_
+
+
+### Vertex Cover
+
+:::{.callout-note}
+
+# Cute randomized algorithm
+$S=\varnothing$
+
+while $G-S$ has at least one edge:
+
+- pick $u,v \in E(G-S)$ u.a.r. 
+- pick $s \in\{u,v\}$ u.a.r
+- Set $S \leftarrow S \cup\{s\}$
+
+Output $S$
+:::
+
+### Feedback Vertex Set
+
+Now we turn to a problem similar to vertex cover, except that we are "killing cycles" instead of "killing edges".
+
+:::{.callout-tip}
+
+# Feedback Vertex Set
+
+Input: A (multi-)^[We allow for more than one edge between a fixed pair of vertices and self-loops.]graph $G = (V,E)$.
+
+Task: Find $S \subseteq V(G)$ such that $G \setminus S$ is a forest^[A graph without cycles that is not necessarily connected.], and <span style="color:indianred;">minimize $|S|$</span>.
+
+:::
+
+If we try to mimic the cute algorithm from before, we might easily be in trouble: note that the driving observation --- that an edge has at least one of its endpoints in the solution with a reasonable enough probability --- can fail spectacularly for FVS:
+
+![An example showing that _both_ endpoints of most edges need not belong to an optimal solution.](../images/fvs-badex.png){width=70%}
+
+One thing about this example is the large number of pendant vertices sticking out prominently, and these clearly contribute to the badness of the situation. Happily, it turns out that we can get rid of these:
+
+
+:::{.callout-important icon="false"}
+
+# Lemma 1. Delete pendant and isolated vertices
+
+Let $G$ be a multi-graph and $v$ be a vertex of degree $\leqslant 1$. Then:
+
+- MinFVS of $G-\{v\}$ $\leqslant$ MinFVS of $G$
+
+- $\forall S \subseteq V(G)-\{v\}$: <span style="color:#CC0000;"> $S$ is an FVS for $G$ </span> $\leftrightarrow$ <span style="color:#CC0000;">$S$ is an FVS for $G \setminus \{v\}$  </span>
+
+:::
+
+
+The running time is then given by:
+
+$\frac{\left(\begin{array}{l}n \\ t\end{array}\right)}{\left(\begin{array}{l}k \\ t\end{array}\right)} \cdot c^{k-t}$
+
+
+$$
+\begin{aligned}
+& \min_{t \leq k} \frac{{n \choose t}}{\left(\begin{array}{l}
+k \\
+t
+\end{array}\right)} \cdot c^{k-t} \\
+& \max _{k \leq n} \min _{t \leq k} \frac{\left(\begin{array}{l}
+n \\
+t
+\end{array}\right)}{\left(\begin{array}{l}
+k \\
+t
+\end{array}\right)} \cdot c^{k-t} \leq \prod_{\text {math }}\left(2-\frac{1}{c}\right)^n \cdot \operatorname{poly}(n)
+\end{aligned}
+$$
+$1.5^n$ alg for V.L.
+$1.75^n$ alg for FrS
+
+
+:::

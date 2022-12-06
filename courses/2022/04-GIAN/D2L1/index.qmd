@@ -63,29 +63,58 @@ Let $G$ be a multi-graph and $v$ be a vertex of degree $\leqslant 1$. Then:
 
 :::
 
+Consider graphs with no pendant vertices and fix an optimal FVS $S$. Is it true that every edge has one of its endpoints in $S$ with some non-zero probability? Well... not yet:
+
+:::{.callout-note icon="false" collapse="true"}
+
+# Spoiler
+
+![An(other) example showing that _both_ endpoints of most edges need not belong to an optimal solution.](../images/fvs-badex-deg2.png){width=70%}
+
+:::
+
+However, continuing our approach of conquering-by-observing-patterns-in-counterexamples, note that the example above has an _abundance_ of vertices that have degree two. Can we get rid of them? Well, isolated and pendant vertices were relatively easy because they don't even belong to cycles, but _that_ is not quite true for vertices of degree two. Can we still hope to shake them off?
+
+One thing about a degree two vertex $u$ is that if there is a cycle that contains $u$ it _must_ contain both its neighbors^[Except when the cycle _only_ contains $u$, i.e, $u$ has a self-loop.]. So you might suggest that we can ditch $u$ and just work with its neighbors instead. This intuition, it turns out, can indeed be formalized:
+
+
+:::{.callout-important icon="false"}
+
+# Lemma 2. Short-Circuiting Degree Two Vertices
+
+Let:
+
+- $G$ be a multi-graph,
+- $u$ be a vertex ot degree 2 that is not a self-loop,
+- $a$ and $b$ be the neighbors of $u$ ($a=b$ is possible).
+
+Let $H$ be the grpah obtained by adding an edge $(a,b)$ to $G-\{u\}$.
+
+Then:
+
+- every FVS $S$ of $G$ such that $u \notin S$ is an FVS of $H$, and
+- every FVS $S$ of $H$ is an FVS of $G$.
+
+:::
+
+
+
+
+### Exact Algorithms
+
 
 The running time is then given by:
 
-$\frac{\left(\begin{array}{l}n \\ t\end{array}\right)}{\left(\begin{array}{l}k \\ t\end{array}\right)} \cdot c^{k-t}$
+$\frac{{n \choose t}}{{k \choose t}} \cdot c^{k-t}$
+
+$\min_{t \leqslant k} \frac{{n \choose t}}{{k \choose t}} \cdot c^{k-t}$
+
+$\leqslant \max_{k \leqslant n} \min _{t \leqslant k} \frac{{n \choose t}}{k \choose t} \cdot c^{k-t}$
+
+$\leqslant \left(2-\frac{1}{c}\right)^n \cdot \operatorname{poly}(n)$
 
 
-$$
-\begin{aligned}
-& \min_{t \leq k} \frac{{n \choose t}}{\left(\begin{array}{l}
-k \\
-t
-\end{array}\right)} \cdot c^{k-t} \\
-& \max _{k \leq n} \min _{t \leq k} \frac{\left(\begin{array}{l}
-n \\
-t
-\end{array}\right)}{\left(\begin{array}{l}
-k \\
-t
-\end{array}\right)} \cdot c^{k-t} \leq \prod_{\text {math }}\left(2-\frac{1}{c}\right)^n \cdot \operatorname{poly}(n)
-\end{aligned}
-$$
-$1.5^n$ alg for V.L.
-$1.75^n$ alg for FrS
+This leads to an $O(1.5^n)$ algorithm for Vertex Cover and an $O(1.75^n)$ algorithm for Feedback Vertex Set.
 
 
 :::

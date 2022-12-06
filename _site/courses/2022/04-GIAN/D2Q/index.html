@@ -242,13 +242,56 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="k02-day-2-tutorial">191014K02: Day 2 Tutorial</h2>
 <p><em><a href="../">Back to the Course Page</a></em></p>
 </section>
+<section id="definitions" class="level2">
+<h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Subgraph Isomorphism
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The input is an <span class="math inline">n</span>-vertex graph <span class="math inline">G</span> and a <span class="math inline">k</span>-vertex graph <span class="math inline">H</span>, and the objective is to test whether there exists a subgraph <span class="math inline">\widehat{H}</span> of <span class="math inline">G</span> such that <span class="math inline">H</span> is isomorphic to <span class="math inline">\widehat{H}</span>.</p>
+<p>Observe that <span class="math inline">k</span>-Path (discussed in class earlier today) is a special case of Subgraph Isomorphism where <span class="math inline">H</span> is a path on <span class="math inline">k</span> vertices. The problem of finding a Clique on <span class="math inline">k</span> vertices is a special case of Subgraph Isomorphism as well, where <span class="math inline">H</span> is a clique on <span class="math inline">k</span> vertices. It is believed that Clique is not FPT, and, consequently, we do not expect that the general Subgraph Isomorphism problem to be FPT when parameterized by <span class="math inline">k</span>.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hoeffding’s Inequality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">X_1, \ldots, X_n</span> be independent random variables such that <span class="math inline">a_i \leq X_i \leq b_i</span> almost surely. Consider the sum of these random variables, <span class="math display">
+S_n=X_1+\cdots+X_n .
+</span> Then Hoeffding’s theorem states that, for all <span class="math inline">t&gt;0,</span> <span class="math display">
+\begin{gathered}
+\mathrm{P}\left(S_n-\mathrm{E}\left[S_n\right] \geq t\right) \leq \exp \left(-\frac{2 t^2}{\sum_{i=1}^n\left(b_i-a_i\right)^2}\right) \\
+\mathrm{P}\left(\left|S_n-\mathrm{E}\left[S_n\right]\right| \geq t\right) \leq 2 \exp \left(-\frac{2 t^2}{\sum_{i=1}^n\left(b_i-a_i\right)^2}\right)
+\end{gathered}
+</span></p>
+<p>Here <span class="math inline">\mathrm{E}\left[S_{\mathrm{n}}\right]</span> is the expected value of <span class="math inline">S_n</span>.</p>
+</div>
+</div>
+</section>
 <section id="problems" class="level2">
 <h2 class="anchored" data-anchor-id="problems">Problems</h2>
 <ol type="1">
 <li><p>Show that the number of inclusion minimal vertex covers of size at most <span class="math inline">k</span> is at most <span class="math inline">2^k</span>.</p></li>
+<li><p>Generalize the Vertex Cover algorithm that we saw today to Set Cover in which every element appears in at most <span class="math inline">d</span> sets.</p></li>
+<li><p>Feedback Vertex Set as Hitting Set. Why don’t we get a <span class="math inline">O(\log n)</span> approximation for FVS via the <span class="math inline">O(\log n)</span> approximation for Set Cover?</p></li>
 <li><p>Use Markov inequality to show that: <span class="math display">
 \operatorname{Pr}[{\color{indianred}|S| \leqslant 2 \cdot |\text{OPT}|}] \geqslant \Omega(1 /|\text{OPT}|)
 </span></p></li>
+<li><p>Come up with an algorithm to solve an instance of subgraph isomorphism <span class="math inline">(G, H)</span> in time <span class="math inline">2^{d k} k ! n^{\mathcal{O}(1)}</span> and in time <span class="math inline">2^{d k} k^{\mathcal{O}(d \log d)} n^{\mathcal{O}(1)}</span>. Here, <span class="math inline">|V(G)|=n,|V(H)|=k</span>, and the maximum degree of <span class="math inline">G</span> is bounded by <span class="math inline">d</span>.</p></li>
+<li><p>Generalize the color coding approach for Longest Path to: (a) <span class="math inline">k</span>-Cycle where <span class="math inline">H</span> is a cycle on <span class="math inline">k</span> vertices, (b) Tree Subgraph Isomorphism, where <span class="math inline">H</span> is restricted to being a tree.</p></li>
+<li><p>Design a randomized algorithm running in time <span class="math inline">2^{O\left(\sqrt{k} \log ^2 k\right)}+n^{O(1)}</span> for the problem of finding a feedback arc set of size at most <span class="math inline">k</span> in a tournament on <span class="math inline">n</span> vertices.</p></li>
 </ol>
 </section>
 </div>

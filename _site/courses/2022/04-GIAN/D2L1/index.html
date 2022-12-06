@@ -303,23 +303,63 @@ Lemma 1. Delete pendant and isolated vertices
 </ul>
 </div>
 </div>
+<p>Consider graphs with no pendant vertices and fix an optimal FVS <span class="math inline">S</span>. Is it true that every edge has one of its endpoints in <span class="math inline">S</span> with some non-zero probability? Well… not yet:</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Spoiler
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/fvs-badex-deg2.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">An(other) example showing that <em>both</em> endpoints of most edges need not belong to an optimal solution.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>However, continuing our approach of conquering-by-observing-patterns-in-counterexamples, note that the example above has an <em>abundance</em> of vertices that have degree two. Can we get rid of them? Well, isolated and pendant vertices were relatively easy because they don’t even belong to cycles, but <em>that</em> is not quite true for vertices of degree two. Can we still hope to shake them off?</p>
+<p>One thing about a degree two vertex <span class="math inline">u</span> is that if there is a cycle that contains <span class="math inline">u</span> it <em>must</em> contain both its neighbors<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. So you might suggest that we can ditch <span class="math inline">u</span> and just work with its neighbors instead. This intuition, it turns out, can indeed be formalized:</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Lemma 2. Short-Circuiting Degree Two Vertices
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let:</p>
+<ul>
+<li><span class="math inline">G</span> be a multi-graph,</li>
+<li><span class="math inline">u</span> be a vertex ot degree 2 that is not a self-loop,</li>
+<li><span class="math inline">a</span> and <span class="math inline">b</span> be the neighbors of <span class="math inline">u</span> (<span class="math inline">a=b</span> is possible).</li>
+</ul>
+<p>Let <span class="math inline">H</span> be the grpah obtained by adding an edge <span class="math inline">(a,b)</span> to <span class="math inline">G-\{u\}</span>.</p>
+<p>Then:</p>
+<ul>
+<li>every FVS <span class="math inline">S</span> of <span class="math inline">G</span> such that <span class="math inline">u \notin S</span> is an FVS of <span class="math inline">H</span>, and</li>
+<li>every FVS <span class="math inline">S</span> of <span class="math inline">H</span> is an FVS of <span class="math inline">G</span>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exact-algorithms" class="level3">
+<h3 class="anchored" data-anchor-id="exact-algorithms">Exact Algorithms</h3>
 <p>The running time is then given by:</p>
-<p><span class="math inline">\frac{\left(\begin{array}{l}n \\ t\end{array}\right)}{\left(\begin{array}{l}k \\ t\end{array}\right)} \cdot c^{k-t}</span></p>
-<p><span class="math display">
-\begin{aligned}
-&amp; \min_{t \leq k} \frac{{n \choose t}}{\left(\begin{array}{l}
-k \\
-t
-\end{array}\right)} \cdot c^{k-t} \\
-&amp; \max _{k \leq n} \min _{t \leq k} \frac{\left(\begin{array}{l}
-n \\
-t
-\end{array}\right)}{\left(\begin{array}{l}
-k \\
-t
-\end{array}\right)} \cdot c^{k-t} \leq \prod_{\text {math }}\left(2-\frac{1}{c}\right)^n \cdot \operatorname{poly}(n)
-\end{aligned}
-</span> <span class="math inline">1.5^n</span> alg for V.L. <span class="math inline">1.75^n</span> alg for FrS</p>
+<p><span class="math inline">\frac{{n \choose t}}{{k \choose t}} \cdot c^{k-t}</span></p>
+<p><span class="math inline">\min_{t \leqslant k} \frac{{n \choose t}}{{k \choose t}} \cdot c^{k-t}</span></p>
+<p><span class="math inline">\leqslant \max_{k \leqslant n} \min _{t \leqslant k} \frac{{n \choose t}}{k \choose t} \cdot c^{k-t}</span></p>
+<p><span class="math inline">\leqslant \left(2-\frac{1}{c}\right)^n \cdot \operatorname{poly}(n)</span></p>
+<p>This leads to an <span class="math inline">O(1.5^n)</span> algorithm for Vertex Cover and an <span class="math inline">O(1.75^n)</span> algorithm for Feedback Vertex Set.</p>
 </section>
 </section>
 
@@ -331,6 +371,7 @@ t
 <ol>
 <li id="fn1"><p>We allow for more than one edge between a fixed pair of vertices and self-loops.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>A graph without cycles that is not necessarily connected.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Except when the cycle <em>only</em> contains <span class="math inline">u</span>, i.e, <span class="math inline">u</span> has a self-loop.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>

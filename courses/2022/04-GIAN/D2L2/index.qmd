@@ -1,0 +1,88 @@
+---
+title: "191014K02 | Day 2 Lecture 1"
+sidebar: false
+toc: false
+css: /css/teaching.css
+---
+
+
+
+:::{.column-body-outset}
+
+## 191014K02: Day 2 Lecture 2
+
+_[Back to the Course Page](../)_
+
+A simple path in a graph is a sequence of _distinct_ vertices $u_1, \ldots, u_\ell$ such that all consecutive vertices have an edge between them. We are going to talk about the problem of finding long paths in graphs:
+
+:::{.callout-tip icon="false"}
+# $k$-Path
+
+Does $G$ have a simple path on $k$ vertices?
+:::
+
+This problem is "of course"^[Thanks, Hamiltonian Path.] NP-complete.
+
+Proof by induction:
+
+\begin{aligned}
+\frac{k^k}{k !} & = \underbrace{{\color{indianred}\frac{(k-1)^{k-1}}{(k-1) !} \cdot \frac{(k-1) !}{(k-1)^{k-1}}}}_{1} \cdot \frac{k^k}{k!} \\
+& ~ \\
+& = \underbrace{{\color{darkseagreen}\frac{(k-1)^{k-1}}{(k-1) !}}}_{\text{Induction Hypothesis}} \cdot \frac{(k-1) !}{(k-1)^{k-1}} \cdot \frac{k^k}{k!} \\
+& \leqslant {\color{darkseagreen}e^{k-1}} \cdot \frac{(k-1)!}{(k-1)^{k-1}} \cdot \frac{k^k}{k!} \\
+& ~ \\
+& \leqslant e^{k-1} \cdot \frac{{\color{olivedrab}(k-1)!}}{(k-1)^{k-1}} \cdot \frac{{\color{palevioletred}k^k}}{{\color{olivedrab}k!}} \\
+& \leqslant e^{k-1} \cdot {\color{olivedrab}\frac{1}{k}} \cdot \frac{{\color{palevioletred}k^{k-1}}}{(k-1)^{k-1}} \cdot {\color{palevioletred}k} \\
+& \leqslant e^{k-1} \cdot \frac{1}{{\color{indianred}k}} \cdot \frac{k^{k-1}}{(k-1)^{k-1}} \cdot {\color{indianred}k} \\
+& \leqslant e^{k-1} \cdot \frac{k^{k-1}}{(k-1)^{k-1}} \\
+& ~ \\
+& =e^{k-1} \cdot {\color{darkseagreen}\left(1+\frac{1}{k-1}\right)^{k-1}}\\
+& =e^{k-1} \cdot {\color{darkseagreen}e}\\
+& =e^k
+\end{aligned}
+
+The useful way to _recall_ what the Chernoff bound tells us is the following: for *independent* 0/1 random variables, the probability that $X$ deviates from it sexpectatio by a large amount is *extremely* small.
+
+:::{.callout-important icon="false"}
+# Chernoff Bound (informal)
+
+If $X$ is the sum of many independent random variables with "small" values, then $X$ is very very likely to be very close to $E[X]$.
+:::
+
+The following is the precise statment:
+
+:::{.callout-important icon="false"}
+# Chernoff Bound: the Theorem.
+
+Let $X= X_1 + X_2 \cdots+ X_n$ where:
+
+- the $X_i$'s take values from $\{0,1\}$, and 
+- the $X_i$'s is are independent,
+
+then $\operatorname{Pr}[{\color{indianred}|X-E[X]| \geqslant \varepsilon E[X]}] \leqslant 2e^{-\varepsilon^2 \cdot E[X]/3}$
+:::
+
+And here is a useful variation, handy for when you don't know the expectation, but have upper and lower bounds on it. 
+
+:::{.callout-important icon="false"}
+# Chernoff Bound: a Useful Variation
+
+The: Let $X= X_1 + X_2  \ldots+ X_n$ where:
+
+- the $X_i$'s take values from $\{0,1\}$
+- the $X_i$'s are independent
+
+Let $\mu_L \leqslant E[X] \leqslant \mu_H$
+
+Then:
+$$
+\begin{aligned}
+& \operatorname{Pr}\left[x-\mu_H \geqslant \varepsilon \mu_H\right] \leqslant e^{-\varepsilon^2 \cdot \mu_H / 3} \\
+& \operatorname{Pr}\left[\mu_L-x \geqslant \varepsilon \mu_L\right] \leqslant e^{-\varepsilon^2 \cdot \mu_L / 3}
+\end{aligned}
+$$
+:::
+
+
+
+:::

@@ -25,6 +25,12 @@ $$V=S \cup \bar{S},|S|=|\bar{S}|=|V| / 2$$
 such that the number (weight) of edges between $S$ and $\bar{S}$ is maximized.
 :::
 
+:::{.callout-note}
+# $k$-SAT-Local Search
+
+Given an instance of $k$-SAT, find a satisfying assignment that sets at most $d$ variables to true.
+:::
+
 ## Problems
 
 1. Come up with an instance where the majority rounding idea for the Closest String LP does _not_ give an optimal solution. How much can you push the gap between `OPT` and the quality of the solution obtained by the greedy rounding.

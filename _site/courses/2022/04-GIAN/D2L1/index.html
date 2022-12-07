@@ -39,6 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -235,18 +236,49 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="k02-day-1-lecture-1" class="level2 column-body-outset">
-<h2 class="anchored" data-anchor-id="k02-day-1-lecture-1">191014K02: Day 1 Lecture 1</h2>
+<section id="k02-day-2-lecture-1" class="level2 column-body-outset">
+<h2 class="anchored" data-anchor-id="k02-day-2-lecture-1">191014K02: Day 2 Lecture 1</h2>
 <p><em><a href="../">Back to the Course Page</a></em></p>
 <section id="vertex-cover" class="level3">
 <h3 class="anchored" data-anchor-id="vertex-cover">Vertex Cover</h3>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Vertex Cover [Optimization]
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Input: A graph <span class="math inline">G = (V,E)</span>.</p>
+<p>Task: Find <span class="math inline">S \subseteq V(G)</span> such that for all edges <span class="math inline">(u,v) \in E(G)</span>, <span class="math inline">\{u,v\} \cap S \neq \varnothing</span> and <span style="color:indianred;">minimize <span class="math inline">|S|</span></span>.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Vertex Cover [Decision Version Edition]
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Input: A graph <span class="math inline">G = (V,E)</span> and <span class="math inline">k \in \mathbb{Z}^+</span>.</p>
+<p>Task: Find <span class="math inline">S \subseteq V(G)</span> such that for all edges <span class="math inline">(u,v) \in E(G)</span>, <span class="math inline">\{u,v\} \cap S \neq \varnothing</span> and <span style="color:indianred;"><span class="math inline">|S| \leqslant k</span></span>.</p>
+</div>
+</div>
+<p>The naive algorithm by brute force — examining all possible subsets — is <span class="math inline">O(n^k \cdot m)</span> in damages. Can we do better?</p>
+<p>The answer turns out to be yes: we can improve from <span class="math inline">O(n^k \cdot m)</span> to deterministic <span class="math inline">2^k \cdot n^{O(1)}</span> time, which is fixed-parameter tractable in <span class="math inline">k</span>.</p>
+<p>Having said that, we will begin with a very elegant randomized algorithm for Vertex Cover, which essentially picks an edge at random and then, one of its endpoints at random, for as long as it can.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Cute randomized algorithm
+Cute randomized algorithm <code>ALG</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -260,6 +292,37 @@ Cute randomized algorithm
 <p>Output <span class="math inline">S</span></p>
 </div>
 </div>
+<p>Here are few claims about cute algorithm:</p>
+<ol type="1">
+<li><code>ALG</code> always runs in polynomial<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> time.</li>
+<li><span class="math inline">S</span> is always a vertex cover.</li>
+<li><span class="math inline">\operatorname{Pr}</span>[<span style="color:indianred;"><span class="math inline">S</span> is an optimal vertex cover</span>] <span class="math inline">\geqslant 1/2^k</span>. <i class="bi-heart-half" style="color: indianred;" role="img" aria-hidden="true"></i></li>
+</ol>
+<p>The first two claims follow quite directly from the operations of the algorithm and the definition of a vertex cover.</p>
+<p>What about the third? Well: let <code>OPT</code> be some fixed optimal vertex cover. Suppose <span class="math inline">|</span><code>OPT</code><span class="math inline">| \leqslant k</span>. Initially, note that Initially, <span class="math inline">S \subseteq</span> <code>OPT</code>. In each round, <span class="math inline">\operatorname{Pr}</span>[<span style="color:indianred;"><span class="math inline">s \in S</span></span>] <span class="math inline">\geqslant 1/2</span>, since <span class="math inline">S \cap \{u,v\} \neq \varnothing</span> by definition. If <span class="math inline">s \in</span> <code>OPT</code> in <em>every</em> round of the algorithm, then <span class="math inline">S =</span> <code>OPT</code>, which is awesome: and said awesomeness manifests with probability <span class="math inline">1/2^k</span>.</p>
+<p>Bonus: repeat the algorithm and retain the smallest solution to get an overall constant success probability:</p>
+<p><span class="math display">1-\left(1-\frac{1}{2^k}\right)^{2^k} \geqslant 1-1 / e.</span></p>
+<p><strong>Approximation.</strong> Do we expect <code>ALG</code> to be a reasonable approximation? It turns out: yes! <i class="bi-emoji-sunglasses" style="" role="img" aria-hidden="true"></i></p>
+<p>In particular: we will show that the size of the vertex cover output by <code>ALG</code> is at most twice <span class="math inline">|</span><code>OPT</code><span class="math inline">|</span> in expectation.</p>
+<p>For a graph <span class="math inline">G</span>, define <span class="math inline">X_G</span> to be the radom variable returning the size of the set <span class="math inline">S</span> output by the algorithm.</p>
+<p>For integers <span class="math inline">k,n</span> define: <span class="math display">
+X_{k,n}=\max_G E[X_G],
+</span></p>
+<p>where the <span class="math inline">\max</span> is taken over all graphs with <span class="math inline">\leqslant n</span> vertices<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and vertex cover of size <span class="math inline">\leqslant k</span>.</p>
+<p>Now let’s analyze the number <span class="math inline">X_{n,k}</span>. Let <span class="math inline">G^\star</span> be the “worst-case graph” that bears witness to the <span class="math inline">\max</span> in the definition of <span class="math inline">X_{k,n}</span>. Run the first step of <code>ALG</code> on <span class="math inline">G^\star</span>. Suppose we choose to pick <span class="math inline">{\color{indianred}s}</span> in this step. <span class="math display">
+\begin{aligned}
+X_{n,k}=E[X_{G^\star}] &amp; = {\color{indianred}1}+\frac{1}{2} E\left[{\color{darkseagreen}X_{G^\star-s} \mid s \in \text{OPT}}\right]+\frac{1}{2} E\left[{\color{palevioletred}X_{G^\star-s} \mid s \notin \text {OPT}}\right] \\
+&amp; \leqslant 1 + \frac{1}{2}{\color{darkseagreen}X_{n, k-1}}+\frac{1}{2} {\color{palevioletred}X_{n, k}}
+\end{aligned}
+</span></p>
+<p>Note that:</p>
+<ul>
+<li><span style="color:darkseagreen;"> <span class="math inline">{\color{darkseagreen}G^\star-s}</span> is a graph on at most <span class="math inline">{\color{darkseagreen}n}</span> vertices with a vertex cover of size <span class="math inline">{\color{darkseagreen}\leqslant k-1}</span></span></li>
+<li><span style="color:palevioletred;"> <span class="math inline">{\color{palevioletred}G^\star-s}</span> is a graph on at most <span class="math inline">{\color{palevioletred}n}</span> vertices with a vertex cover of size <span class="math inline">{\color{palevioletred}\leqslant k}</span></span></li>
+</ul>
+<p>Rearranging terms, we get:</p>
+<p><span class="math display">\frac{1}{2} X_{n,k} \leqslant 1 + \frac{1}{2} X_{n,k-1} \equiv X_{n,k} \leqslant 2 + X_{n,k-1}</span></p>
+<p>Expanding the recurrence, we have: <span class="math inline">X_{n,k} \leqslant 2k</span>, as claimed earlier.</p>
 </section>
 <section id="feedback-vertex-set" class="level3">
 <h3 class="anchored" data-anchor-id="feedback-vertex-set">Feedback Vertex Set</h3>
@@ -274,15 +337,15 @@ Feedback Vertex Set
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Input: A (multi-)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>graph <span class="math inline">G = (V,E)</span>.</p>
-<p>Task: Find <span class="math inline">S \subseteq V(G)</span> such that <span class="math inline">G \setminus S</span> is a forest<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, and <span style="color:indianred;">minimize <span class="math inline">|S|</span></span>.</p>
+<p>Input: A (multi-)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>graph <span class="math inline">G = (V,E)</span>.</p>
+<p>Task: Find <span class="math inline">S \subseteq V(G)</span> such that <span class="math inline">G \setminus S</span> is a forest<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, and <span style="color:indianred;">minimize <span class="math inline">|S|</span></span>.</p>
 </div>
 </div>
 <p>If we try to mimic the cute algorithm from before, we might easily be in trouble: note that the driving observation — that an edge has at least one of its endpoints in the solution with a reasonable enough probability — can fail spectacularly for FVS:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/fvs-badex.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<p></p><figcaption class="figure-caption">An example showing that <em>both</em> endpoints of most edges need not belong to an optimal solution.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">An example showing that for “most edges”, <em>both</em> endpoints do not belong to an optimal solution.</figcaption><p></p>
 </figure>
 </div>
 <p>One thing about this example is the large number of pendant vertices sticking out prominently, and these clearly contribute to the badness of the situation. Happily, it turns out that we can get rid of these:</p>
@@ -303,9 +366,9 @@ Lemma 1. Delete pendant and isolated vertices
 </ul>
 </div>
 </div>
-<p>Consider graphs with no pendant vertices and fix an optimal FVS <span class="math inline">S</span>. Is it true that every edge has one of its endpoints in <span class="math inline">S</span> with some non-zero probability? Well… not yet:</p>
+<p>Consider graphs with no pendant vertices and fix an optimal FVS <span class="math inline">S</span>. Is it true that a reasonable fraction of edges are guaranteed to be incident to <span class="math inline">S</span>? Well… not yet:</p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -314,7 +377,7 @@ Spoiler
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -326,7 +389,7 @@ Spoiler
 </div>
 </div>
 <p>However, continuing our approach of conquering-by-observing-patterns-in-counterexamples, note that the example above has an <em>abundance</em> of vertices that have degree two. Can we get rid of them? Well, isolated and pendant vertices were relatively easy because they don’t even belong to cycles, but <em>that</em> is not quite true for vertices of degree two. Can we still hope to shake them off?</p>
-<p>One thing about a degree two vertex <span class="math inline">u</span> is that if there is a cycle that contains <span class="math inline">u</span> it <em>must</em> contain both its neighbors<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. So you might suggest that we can ditch <span class="math inline">u</span> and just work with its neighbors instead. This intuition, it turns out, can indeed be formalized:</p>
+<p>One thing about a degree two vertex <span class="math inline">u</span> is that if there is a cycle that contains <span class="math inline">u</span> it <em>must</em> contain both its neighbors<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. So you might suggest that we can ditch <span class="math inline">u</span> and just work with its neighbors instead. This intuition, it turns out, can indeed be formalized:</p>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -340,10 +403,10 @@ Lemma 2. Short-Circuiting Degree Two Vertices
 <p>Let:</p>
 <ul>
 <li><span class="math inline">G</span> be a multi-graph,</li>
-<li><span class="math inline">u</span> be a vertex ot degree 2 that is not a self-loop,</li>
+<li><span class="math inline">u</span> be a vertex of degree 2 that is not a self-loop,</li>
 <li><span class="math inline">a</span> and <span class="math inline">b</span> be the neighbors of <span class="math inline">u</span> (<span class="math inline">a=b</span> is possible).</li>
 </ul>
-<p>Let <span class="math inline">H</span> be the grpah obtained by adding an edge <span class="math inline">(a,b)</span> to <span class="math inline">G-\{u\}</span>.</p>
+<p>Let <span class="math inline">H</span> be the graph obtained by adding an edge <span class="math inline">(a,b)</span> to <span class="math inline">G-\{u\}</span>.</p>
 <p>Then:</p>
 <ul>
 <li>every FVS <span class="math inline">S</span> of <span class="math inline">G</span> such that <span class="math inline">u \notin S</span> is an FVS of <span class="math inline">H</span>, and</li>
@@ -351,15 +414,163 @@ Lemma 2. Short-Circuiting Degree Two Vertices
 </ul>
 </div>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/fvs-reduction-2deg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Illustrating Lemma 2 scenarios.</figcaption><p></p>
+</figure>
+</div>
+<p>Let us also get rid of self-loops (because we can):</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Lemma 3. Removing self-loops
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">G</span> has a vertex <span class="math inline">v</span> with a self loop then</p>
+<ul>
+<li>Every FVS <span class="math inline">S</span> of <span class="math inline">G</span> contains <span class="math inline">v</span></li>
+<li>For every <span class="math inline">S</span> containing <span class="math inline">v</span>: <span style="color:#CC0000;"><span class="math inline">S</span> is an FVS of <span class="math inline">G</span></span> <span class="math inline">\leftrightarrow</span> <span style="color:#CC0000;"><span class="math inline">S-v</span> is an FVS of <span class="math inline">G-\{v\}</span></span></li>
+</ul>
+</div>
+</div>
+<p>Now let’s apply Lemmas 1—3 exhaustively, which is to say we keep applying them until none of them are applicable (as opposed to applying them until we feel exhausted <i class="bi-emoji-laughing" style="" role="img" aria-hidden="true"></i> ). Once we are truly stuck, we have a graph <span class="math inline">H</span> that is: (a) a graph whose <em>minimum</em> degree is three; and (b) equivalent to the original <span class="math inline">G</span> in the sense that any minimum FVS for <span class="math inline">H</span> can be extended to a minimum FVS of <span class="math inline">G</span> by some time travel: just play back the applications of Lemmas 1—3 in reverse order.</p>
+<p>Recall that all this work was to serve our hope for having a cute algorithm for FVS as well. Let’s check in on how we are doing on that front: consider graphs whose minimum degree is three and fix an optimal FVS <span class="math inline">S</span>. Is it true that a reasonable fraction of edges are guaranteed to be incident to <span class="math inline">S</span>? Or can we come up with examples to demonstrate otherwise?</p>
+<p>This is a good place to pause and ponder: play around with examples to see if you can come up with bad cases as before. If you find yourself struggling, it would be for a good reason: we actually now <em>do</em> have the property we were after! Here’s the main claim that we want to make.</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Key Lemma
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let:</p>
+<ul>
+<li><span class="math inline">G</span> be a multigraph with no self loops and minimum degree <span class="math inline">\geqslant 3</span>,</li>
+<li><span class="math inline">S</span> be an FVS of <span class="math inline">G</span>,</li>
+<li><span class="math inline">(u,v)</span> be a random edge in <span class="math inline">E(G)</span>.</li>
+</ul>
+<p>Then:</p>
+<p><span class="math inline">\operatorname{Pr}[{\color{indianred}\{u, v\} \cap S \neq \varnothing}] \geqslant 1/2</span></p>
+</div>
+</div>
+<p>We argue this as follows: call an edge <span style="color:darkseagreen;">good</span> if it has at least one of its endpoints in <span class="math inline">S</span>, and <span style="color:indianred;">bad</span> otherwise.</p>
+<p>We will demonstrate that the number of good edges is at least the number of bad edges: this implies the desired claim.</p>
+<ul>
+<li><p><strong>The <span style="color:indianred;">bad</span> edges.</strong> Let <span class="math inline">X := G \setminus S</span>. The bad edges are precisely <span class="math inline">E(G[X])</span>.</p></li>
+<li><p><strong>The <span style="color:darkseagreen;">good</span> edges.</strong> Every edge that has one of its endpoints in <span class="math inline">X</span> and the other in <span class="math inline">S</span> is a good edge. Recall that <span class="math inline">G</span> has minimum degree three, because of which:</p>
+<ul>
+<li>for every leaf in <span class="math inline">G[X]</span>, we have at least <em>two</em> good edges, and</li>
+<li>for vertex that is degree two in <span class="math inline">G[X]</span>, we have at least one good edge.</li>
+</ul></li>
+</ul>
+<p>So at this point, it is enough to show that twice the number of leaves and degree two vertices is at least <span class="math inline">|E(G[X])| = |X|-1</span>. But this is quite intuitive if we simple stare at the following mildly stronger claim:</p>
+<p><span class="math display">2 \cdot (\text{\# leaves}) + \text{\# deg-} 2 \text{vertices} \geqslant |X|</span></p>
+<p>which is equivalent to:</p>
+<p><span class="math display">2 \cdot ({\color{darkseagreen}\text{\# leaves}}) + {\color{palevioletred}\text{\# deg-}2 \text{vertices}} \geqslant ({\color{darkseagreen}\text{\# leaves}}) + {\color{palevioletred}\text{\# deg-}2 \text{ vertices}} + \text{\# deg-}(\geqslant 3) \text{ vertices}.</span></p>
+<p>After cancelations, we have:</p>
+<p><span class="math display">(\text{\# leaves}) \geqslant \text{\# deg-}(\geqslant 3) \text{ vertices}.</span></p>
+<p>Note that this is true! Intuitively, the inequality is suggesting every branching vertex in a tree pays for a leaf — this can be formalized by induction on <span class="math inline">n</span>.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Induction proof sketch
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Denote the tree by <span class="math inline">G</span> and remove a leaf <span class="math inline">u</span> to obtain <span class="math inline">H</span>. Apply the induction hypothesis on <span class="math inline">H</span>.</p>
+<ul>
+<li>If the neighbor of <span class="math inline">u</span> in <span class="math inline">G</span> is a degree two vertex, then the number of leaves and high degree vertices are the same in <span class="math inline">G</span> and <span class="math inline">H</span>, so the claim follows directly.</li>
+<li>If the degree of the neighbor in <span class="math inline">u</span> is three in <span class="math inline">G</span>, then both quantities in the inequality for <span class="math inline">H</span> increase by one when we transition from <span class="math inline">H</span> to <span class="math inline">G</span>.</li>
+<li>In the only remaining case, the quantity on the left increases by one when we come to <span class="math inline">G</span>, which bodes well for the inequality. <i class="bi-hand-thumbs-up" style="" role="img" aria-hidden="true"></i></li>
+</ul>
+</div>
+</div>
+</div>
+<p>All this was leading up to cute randomized algorithm v2.0 — i.e, adapted for FVS as follows:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Cute randomized algorithm redux
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>ALG</code><span class="math inline">(G)</span></p>
+<p><code>Preprocess:</code></p>
+<ul>
+<li>if <span class="math inline">G</span> is acyclic return <span class="math inline">\varnothing</span></li>
+<li>if <span class="math inline">\exists</span> a self loop <span class="math inline">v</span> RETURN <span class="math inline">(</span><code>ALG</code><span class="math inline">(G \setminus \{v\})) \cup \{v\}</span>.</li>
+<li>if <span class="math inline">\exists</span> a degree one vertex <span class="math inline">v</span> RETURN <code>ALG</code><span class="math inline">(G-\{v\})</span>.</li>
+<li>if <span class="math inline">\exists</span> a degree two vertex <span class="math inline">v</span> RETURN <code>ALG</code><span class="math inline">(G/\{v\})</span> (c.f. Lemma 2).</li>
+</ul>
+<hr>
+<p><code>Mindeg-3 instance:</code></p>
+<ul>
+<li>pick an edge <span class="math inline">(u,v) \in E(G)</span> u.a.r.</li>
+<li>pick <span class="math inline">s \in \{u,v\}</span> u.a.r.</li>
+<li>RETURN <span class="math inline">(</span><code>ALG</code><span class="math inline">(G \setminus \{s\})) \cup \{s\}</span></li>
+</ul>
+</div>
+</div>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Claim 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>ALG</code> always returns a FVS of <span class="math inline">G</span>.</p>
+</div>
+</div>
+<p>This follows from Lemmas 1—3 and induction on <span class="math inline">n</span>.</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Claim 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">G</span> has a FVS of size <span class="math inline">k</span>, then <span class="math inline">\operatorname{Pr}</span>[<code>ALG</code> returns an optimal FVS] <span class="math inline">\geqslant 1/4^k</span>.</p>
+</div>
+</div>
+<p>This follows from Lemmas 1—3, the key lemma, and induction on <span class="math inline">n</span>.</p>
 </section>
 <section id="exact-algorithms" class="level3">
 <h3 class="anchored" data-anchor-id="exact-algorithms">Exact Algorithms</h3>
-<p>The running time is then given by:</p>
-<p><span class="math inline">\frac{{n \choose t}}{{k \choose t}} \cdot c^{k-t}</span></p>
-<p><span class="math inline">\min_{t \leqslant k} \frac{{n \choose t}}{{k \choose t}} \cdot c^{k-t}</span></p>
-<p><span class="math inline">\leqslant \max_{k \leqslant n} \min _{t \leqslant k} \frac{{n \choose t}}{k \choose t} \cdot c^{k-t}</span></p>
-<p><span class="math inline">\leqslant \left(2-\frac{1}{c}\right)^n \cdot \operatorname{poly}(n)</span></p>
-<p>This leads to an <span class="math inline">O(1.5^n)</span> algorithm for Vertex Cover and an <span class="math inline">O(1.75^n)</span> algorithm for Feedback Vertex Set.</p>
+<p><code>Coming Soon.</code></p>
+<!-- The running time is then given by:
+
+$\frac{{n \choose t}}{{k \choose t}} \cdot c^{k-t}$
+
+$\min_{t \leqslant k} \frac{{n \choose t}}{{k \choose t}} \cdot c^{k-t}$
+
+$\leqslant \max_{k \leqslant n} \min _{t \leqslant k} \frac{{n \choose t}}{k \choose t} \cdot c^{k-t}$
+
+$\leqslant \left(2-\frac{1}{c}\right)^n \cdot \operatorname{poly}(n)$
+
+
+This leads to an $O(1.5^n)$ algorithm for Vertex Cover and an $O(1.75^n)$ algorithm for Feedback Vertex Set. -->
 </section>
 </section>
 
@@ -369,9 +580,11 @@ Lemma 2. Short-Circuiting Degree Two Vertices
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>We allow for more than one edge between a fixed pair of vertices and self-loops.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>A graph without cycles that is not necessarily connected.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Except when the cycle <em>only</em> contains <span class="math inline">u</span>, i.e, <span class="math inline">u</span> has a self-loop.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>(even linear)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>We could have also considered <span class="math inline">X_k = \max_G E[X_G]</span>, where the max is over all graphs whose vertex cover is at most <span class="math inline">k</span>: but there are infinitely many graphs that have vertex covers of size at most <span class="math inline">k</span>, and it is not <em>immediate</em> that the max is well-defined, so we restrict ourselves to graphs on <span class="math inline">n</span> vertices that have vertex covers of size at most <span class="math inline">k</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>We allow for more than one edge between a fixed pair of vertices and self-loops.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>A graph without cycles that is not necessarily connected.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Except when the cycle <em>only</em> contains <span class="math inline">u</span>, i.e, <span class="math inline">u</span> has a self-loop.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>

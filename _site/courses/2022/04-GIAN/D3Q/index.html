@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - 191014K02 | Day 1 Lecture 1</title>
+<title>Neeldhara - 191014K02 | Day 3 Tutorial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 <link rel="stylesheet" href="../../../../css/teaching.css">
@@ -206,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">191014K02 | Day 1 Lecture 1</h1>
+<h1 class="title">191014K02 | Day 3 Tutorial</h1>
 </div>
 
 
@@ -222,15 +238,38 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <div class="column-body-outset">
-<section id="k02-day-2-tutorial" class="level2">
-<h2 class="anchored" data-anchor-id="k02-day-2-tutorial">191014K02: Day 2 Tutorial</h2>
+<section id="k02-day-3-tutorial" class="level2">
+<h2 class="anchored" data-anchor-id="k02-day-3-tutorial">191014K02: Day 3 Tutorial</h2>
 <p><em><a href="../">Back to the Course Page</a></em></p>
+</section>
+<section id="definitions" class="level2">
+<h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Max Bisection
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the Max Bisection problem we are given a (weighted) graph <span class="math inline">G=(V, E)</span>, and the objective is to find a bisection</p>
+<p><span class="math display">V=S \cup \bar{S},|S|=|\bar{S}|=|V| / 2</span></p>
+<p>such that the number (weight) of edges between <span class="math inline">S</span> and <span class="math inline">\bar{S}</span> is maximized.</p>
+</div>
+</div>
 </section>
 <section id="problems" class="level2">
 <h2 class="anchored" data-anchor-id="problems">Problems</h2>
 <ol type="1">
-<li><p>Come up with an example where the majority rounding idea for the Closest String LP does not work.</p></li>
-<li></li>
+<li><p>Come up with an example where the majority rounding idea for the Closest String LP does <em>not</em> work.</p></li>
+<li><p>Show that the majority rounding idea for the Closest String LP is a valid <span class="math inline">2</span>-approximation.</p></li>
+<li><p>Make the local search phase for Closest String (discussed in class) work without any knowledge of OPT (i.e, you are not allowed to guess the value of OPT).</p></li>
+<li><p>Design a randomized algorithm for <span class="math inline">k</span>-SAT-Local Search with running time <span class="math inline">O(k^d)</span>.</p></li>
+<li><p>Design a PTAS for Max Bisection on graphs of minimum degree <span class="math inline">d</span>.</p></li>
+<li><p>Prove that selecting coordinates according to the normal distribution gives unifom distribution on unit sphere.</p></li>
+<li><p>Prove that for every half plane, the projection of a random unit vector on the half plane has a “u.a.r direction”.</p></li>
 </ol>
 </section>
 </div>

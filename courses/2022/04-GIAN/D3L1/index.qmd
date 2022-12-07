@@ -165,4 +165,33 @@ $$
 \operatorname{Pr}[{\color{darkseagreen}d(c,S)} > (1+\varepsilon) \cdot \text{OPT}] \leqslant \frac{{\color{darkseagreen}n}}{e^{\varepsilon^2 \text{OPT} / 3}}.
 $$
 
+So, if, for example:
+
+$$\frac{n}{e^{\varepsilon^2 \text{OPT} / 3}} \leqslant \frac{1}{2},$$
+
+then it's a win! {{< bi bullseye color="olivedrab" >}}
+
+
+:::{.callout-note collapse="true"}
+
+# What's the bad situation?
+
+\begin{aligned}
+ \frac{1}{2} & \leqslant \frac{n}{e^{\varepsilon^2 \text{OPT} / 3}}\\
+& ~ \\
+e^{\varepsilon^2 \text{OPT} / 3} & \leqslant 2n \\
+& ~ \\
+\frac{\varepsilon^2 \text{OPT}}{3} & \leqslant \ln(2n) \\
+& ~ \\
+{\color{indianred}\text{OPT}} & {\color{indianred}\leqslant \frac{3\ln(2n)}{\varepsilon^2}}
+\end{aligned}
+
+:::
+
+We _don't_ have a win when `OPT` is really really small, in particular, if:
+
+$$\text{OPT} \leqslant \frac{3\ln(2n)}{\varepsilon^2}$$
+
+
+
 :::

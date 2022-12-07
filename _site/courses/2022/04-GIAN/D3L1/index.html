@@ -430,6 +430,35 @@ Chernoff Bound: a Useful Variation (recall)
 <p><span class="math display">
 \operatorname{Pr}[{\color{darkseagreen}d(c,S)} &gt; (1+\varepsilon) \cdot \text{OPT}] \leqslant \frac{{\color{darkseagreen}n}}{e^{\varepsilon^2 \text{OPT} / 3}}.
 </span></p>
+<p>So, if, for example:</p>
+<p><span class="math display">\frac{n}{e^{\varepsilon^2 \text{OPT} / 3}} \leqslant \frac{1}{2},</span></p>
+<p>then it’s a win! <i class="bi-bullseye" style="color: olivedrab;" role="img" aria-hidden="true"></i></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+What’s the bad situation?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<span class="math display">\begin{aligned}
+\frac{1}{2} &amp; \leqslant \frac{n}{e^{\varepsilon^2 \text{OPT} / 3}}\\
+&amp; ~ \\
+e^{\varepsilon^2 \text{OPT} / 3} &amp; \leqslant 2n \\
+&amp; ~ \\
+\frac{\varepsilon^2 \text{OPT}}{3} &amp; \leqslant \ln(2n) \\
+&amp; ~ \\
+{\color{indianred}\text{OPT}} &amp; {\color{indianred}\leqslant \frac{3\ln(2n)}{\varepsilon^2}}
+\end{aligned}</span>
+</div>
+</div>
+</div>
+<p>We <em>don’t</em> have a win when <code>OPT</code> is really really small, in particular, if:</p>
+<p><span class="math display">\text{OPT} \leqslant \frac{3\ln(2n)}{\varepsilon^2}</span></p>
 </section>
 </section>
 </section>

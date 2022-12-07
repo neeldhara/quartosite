@@ -299,7 +299,7 @@ Cute randomized algorithm <code>ALG</code>
 <li><span class="math inline">\operatorname{Pr}</span>[<span style="color:indianred;"><span class="math inline">S</span> is an optimal vertex cover</span>] <span class="math inline">\geqslant 1/2^k</span>. <i class="bi-heart-half" style="color: indianred;" role="img" aria-hidden="true"></i></li>
 </ol>
 <p>The first two claims follow quite directly from the operations of the algorithm and the definition of a vertex cover.</p>
-<p>What about the third? Well: let <code>OPT</code> be some fixed optimal vertex cover. Suppose <span class="math inline">|</span><code>OPT</code><span class="math inline">| \leqslant k</span>. Initially, note that Initially, <span class="math inline">S \subseteq</span> <code>OPT</code>. In each round, <span class="math inline">\operatorname{Pr}</span>[<span style="color:indianred;"><span class="math inline">s \in S</span></span>] <span class="math inline">\geqslant 1/2</span>, since <span class="math inline">S \cap \{u,v\} \neq \varnothing</span> by definition. If <span class="math inline">s \in</span> <code>OPT</code> in <em>every</em> round of the algorithm, then <span class="math inline">S =</span> <code>OPT</code>, which is awesome: and said awesomeness manifests with probability <span class="math inline">1/2^k</span>.</p>
+<p>What about the third? Well: let <code>OPT</code> be some fixed optimal vertex cover. Suppose <span class="math inline">|</span><code>OPT</code><span class="math inline">| \leqslant k</span>. Initially, note that <span class="math inline">S \subseteq</span> <code>OPT</code>. In each round, <span class="math inline">\operatorname{Pr}</span>[<span style="color:indianred;"><span class="math inline">s \in S</span></span>] <span class="math inline">\geqslant 1/2</span>, since <span class="math inline">S \cap \{u,v\} \neq \varnothing</span> by definition. If <span class="math inline">s \in</span> <code>OPT</code> in <em>every</em> round of the algorithm, then <span class="math inline">S =</span> <code>OPT</code>, which is awesome: and said awesomeness manifests with probability <span class="math inline">1/2^k</span>.</p>
 <p>Bonus: repeat the algorithm and retain the smallest solution to get an overall constant success probability:</p>
 <p><span class="math display">1-\left(1-\frac{1}{2^k}\right)^{2^k} \geqslant 1-1 / e.</span></p>
 <p><strong>Approximation.</strong> Do we expect <code>ALG</code> to be a reasonable approximation? It turns out: yes! <i class="bi-emoji-sunglasses" style="" role="img" aria-hidden="true"></i></p>
@@ -382,7 +382,7 @@ Spoiler
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/fvs-badex-deg2.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<p></p><figcaption class="figure-caption">An(other) example showing that <em>both</em> endpoints of most edges need not belong to an optimal solution.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">An(other) example showing that for “most edges”, <em>both</em> endpoints do not belong to an optimal solution, even though the graph has no pendant vertices.</figcaption><p></p>
 </figure>
 </div>
 </div>

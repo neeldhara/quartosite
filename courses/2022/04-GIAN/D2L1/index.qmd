@@ -61,7 +61,7 @@ Here are few claims about cute algorithm:
 
 The first two claims follow quite directly from the operations of the algorithm and the definition of a vertex cover. 
 
-What about the third? Well: let `OPT` be some fixed optimal vertex cover. Suppose $|$`OPT`$| \leqslant k$. Initially, note that  Initially, $S \subseteq$ `OPT`. In each round, $\operatorname{Pr}$[<span style="color:indianred;">$s \in S$</span>] $\geqslant 1/2$, since $S \cap \{u,v\} \neq \varnothing$ by definition. If $s \in$ `OPT` in _every_ round of the algorithm, then $S =$ `OPT`, which is awesome: and said awesomeness manifests with probability $1/2^k$. 
+What about the third? Well: let `OPT` be some fixed optimal vertex cover. Suppose $|$`OPT`$| \leqslant k$. Initially, note that $S \subseteq$ `OPT`. In each round, $\operatorname{Pr}$[<span style="color:indianred;">$s \in S$</span>] $\geqslant 1/2$, since $S \cap \{u,v\} \neq \varnothing$ by definition. If $s \in$ `OPT` in _every_ round of the algorithm, then $S =$ `OPT`, which is awesome: and said awesomeness manifests with probability $1/2^k$. 
 
 Bonus: repeat the algorithm and retain the smallest solution to get an overall constant success probability:
 
@@ -140,7 +140,7 @@ Consider graphs with no pendant vertices and fix an optimal FVS $S$. Is it true 
 
 # Spoiler
 
-![An(other) example showing that _both_ endpoints of most edges need not belong to an optimal solution.](../images/fvs-badex-deg2.png){width=70%}
+![An(other) example showing that for "most edges", _both_ endpoints do not belong to an optimal solution, even though the graph has no pendant vertices.](../images/fvs-badex-deg2.png){width=70%}
 
 :::
 

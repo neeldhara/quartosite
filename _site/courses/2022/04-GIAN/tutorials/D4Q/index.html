@@ -60,6 +60,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../../css/styles.css">
 <link rel="stylesheet" href="../../../../../css/teaching.css">
@@ -229,7 +245,21 @@ ul.task-list li input[type="checkbox"] {
 <section id="problems" class="level2">
 <h2 class="anchored" data-anchor-id="problems">Problems</h2>
 <ol type="1">
-<li></li>
+<li><p>The statement of the isolation lemma discussed in class was the following:</p>
+<p>Let <span class="math inline">U</span> be a universe with <span class="math inline">|U|=n</span> and let <span class="math inline">\cal F</span> be a family of sets over <span class="math inline">U</span>. Pick a random weight function <span class="math inline">w: U \rightarrow\{1, \cdots ,W\}</span>. Then:</p>
+<p><span class="math display">\operatorname{Pr}[{\color{indianred}\cal F \text{ has a \textbf{unique} min weight set}}] \geqslant \frac{n}{W}</span></p>
+<p>Recall that we called an element <span class="math inline">u</span> <span style="color:darkseagreen"><strong>critical</strong></span> if:</p>
+<ol type="1">
+<li><span class="math inline">u</span> is in <em>some</em> minimum weight set, and</li>
+<li>if <span class="math inline">w(u)</span> is increased by 1 then <span class="math inline">u</span> is no longer in <em>any</em> minimum weight set.</li>
+</ol>
+<p>Argue that <span class="math inline">\cal F</span> has a set of the minimum weight if and only if there are no critical elements.</p></li>
+<li><p>Design a dynamic programming algorithm for Steiner Tree on graphs of bandwidth <span class="math inline">k</span> with running time <span class="math inline">k^{O(k)} n^{O(1)}</span>.</p></li>
+<li><p>Demonstrate (via a direct argument) that the greedy algorithm for the maxcut problem discussed in class outputs a cut that cuts at least half the edges in the graph.</p></li>
+<li><p>Recall the greedy algorithm for Set Cover discussed in class. In each round, show that at least one set <span class="math inline">S_i \in F</span> covers at least <code>1/OPT</code> fraction of uncovered elements.</p></li>
+<li><p>Why did we need to define <span class="math inline">U</span> to have edges in the <span class="math inline">k</span>-path algorithm?</p></li>
+<li><p>Design an algorithm for solving the Steiner Tree problem on graphs of bounded FVS.</p></li>
+<li><p>Design an algorithm for the Hamiltonian Path problem on graphs of bounded bandwidth.</p></li>
 </ol>
 </section>
 </div>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - 191014K02 | Day 2 Lecture 1</title>
+<title>Neeldhara - 191014K02 | Day 2 Lecture 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -39,6 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -220,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">191014K02 | Day 2 Lecture 1</h1>
+<h1 class="title">191014K02 | Day 2 Lecture 2</h1>
 </div>
 
 
@@ -238,6 +239,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="k02-day-2-lecture-2" class="level2 column-body-outset">
 <h2 class="anchored" data-anchor-id="k02-day-2-lecture-2">191014K02: Day 2 Lecture 2</h2>
 <p><em><a href="../">Back to the Course Page</a></em></p>
+<p><i class="bi-exclamation-triangle-fill" style="color: indianred;" role="img" aria-hidden="true"></i> <span style="color:indianred;">Work in progress.</span></p>
+<hr>
 <p>A simple path in a graph is a sequence of <em>distinct</em> vertices <span class="math inline">u_1, \ldots, u_\ell</span> such that all consecutive vertices have an edge between them. We are going to talk about the problem of finding long paths in graphs:</p>
 <div class="callout-tip callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -253,7 +256,33 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>This problem is “of course”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> NP-complete.</p>
-<p>Proof by induction:</p>
+<hr>
+<p>What is the probability that a random coloring with <span class="math inline">k</span> colors makes a fixed <span class="math inline">k</span>-path “multicolored”? It’s <span class="math inline">\frac{k!}{k^k}</span>, and we claim that this is at <em>least</em> <span class="math inline">\frac{1}{e^k}</span>.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Lower bound on the probability of the good event
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Claim 1.</strong> <span class="math inline">\frac{k!}{k^k} \geqslant \frac{1}{e^k}</span></p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Proof by induction:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <span class="math display">\begin{aligned}
 \frac{k^k}{k !} &amp; = \underbrace{{\color{indianred}\frac{(k-1)^{k-1}}{(k-1) !} \cdot \frac{(k-1) !}{(k-1)^{k-1}}}}_{1} \cdot \frac{k^k}{k!} \\
 &amp; ~ \\
@@ -269,7 +298,12 @@ ul.task-list li input[type="checkbox"] {
 &amp; =e^{k-1} \cdot {\color{darkseagreen}e}\\
 &amp; =e^k
 \end{aligned}</span>
-<p>The useful way to <em>recall</em> what the Chernoff bound tells us is the following: for <em>independent</em> 0/1 random variables, the probability that <span class="math inline">X</span> deviates from it sexpectatio by a large amount is <em>extremely</em> small.</p>
+</div>
+</div>
+</div>
+<section id="chernoff-bounds" class="level4">
+<h4 class="anchored" data-anchor-id="chernoff-bounds">Chernoff Bounds</h4>
+<p>The useful way to <em>recall</em> what the Chernoff bound tells us is the following: for <em>independent</em> 0/1 random variables, the probability that <span class="math inline">X</span> deviates from its expectation by a large amount is <em>extremely</em> small.</p>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -327,6 +361,7 @@ Chernoff Bound: a Useful Variation
 </span></p>
 </div>
 </div>
+</section>
 </section>
 
 

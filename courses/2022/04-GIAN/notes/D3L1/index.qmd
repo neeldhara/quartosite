@@ -1,0 +1,204 @@
+---
+title: "191014K02 | Day 3 Lecture 1"
+sidebar: false
+toc: false
+css: ["/css/teaching.css","/css/feedback-override.css"]
+---
+
+:::{.column-body-outset}
+
+## 191014K02: Day 3 Lecture 1
+
+_[Back to the Course Page](../../)_
+
+
+{{< bi exclamation-triangle-fill color="indianred" >}} <span style="color:indianred;">Work in progress.</span>
+
+---
+
+### Closest String
+
+For two strings $s_1, s_2$ of the same length $\ell$, we define the _Hamming Distance_ between $S_1$ & $S_2$ to be:
+
+$$d\left(S_1, S_2\right):=\left|\left\{i: S_1[i] \neq S_2[i]\right\}\right|$$ 
+
+so, for example, $d$(horse, force) $=2$.
+
+For a string $c$ and set $S$ of stings of length $\ell$:
+
+$$d(S, c):=\max _{t \in S} d(t,c)$$
+
+:::{.callout-tip}
+
+# Closest String [Optimization]
+
+Input: $n$ strings of length $\ell$ over an alphabet $\Sigma$^[Note that $|\Sigma|$ is constant.]
+
+Task: Find center sting $c$ lot length $\ell$ such that <span style="color:indianred;">$d(S, c)$ is minimized</span>
+
+:::
+
+GOAL: <span style="color:darkseagreen;">$(1+\varepsilon)$ Approximation Algorithm</span>
+
+#### An Integer Linear Program for Closest String
+
+Have an indicator variable for every position $p$ and every letter $\alpha \in \Sigma$, introduce a binary variable $x_{p,\alpha}$ with the following semantics:
+
+\begin{equation*}
+    x_{p,\alpha} =
+    \begin{cases}
+      1 & \text{if } c[p] = \alpha\\
+      0 & \text{otherwise.}
+    \end{cases}
+\end{equation*}
+
+The constraints:
+
+1. At every position we have one letter:
+
+$$\forall p \in [\ell]: \sum_{\alpha \in \Sigma} x_{p,\alpha} = 1$$
+
+2. We control the distance:
+
+    $$\forall t \in S: \quad \sum_{p=1}^\ell \left({\color{indianred}1-x_{p, t[p]}} \right) \leqslant d$$
+
+    ...and ask the ILP to minimize $d$.
+
+:::{.callout-note collapse="true"}
+
+# The distance constraint
+
+Note that:
+
+
+\begin{equation*}
+    1 - x_{i,s[i]} =
+    \begin{cases}
+      0 & \text{if the solution matches with } s[i] \text{at location } p,\\
+      1 & \text{otherwise.}
+    \end{cases}
+\end{equation*}
+
+:::
+
+Now, as usual, relax the ILP and solve the associated LP.
+
+**Rounding.** Think of the OPTLP variable values as "voting" for characters at each position. For example, if $\ell = 5$, $\Sigma = \{A,C,G,T\}$, and the OPTLP values turn out to be:
+
+|   | A   | C   | G    | T    |
+|---|-----|-----|------|------|
+| 1 | **0.9** | 0   | 0.05 | 0.05 |
+| 2 | 0.1 | 0.2 | **0.4**  | 0.3  |
+| 3 | **0.5** | 0.1 | 0.1  | 0.3  |
+| 4 | 0.1 | **0.7** | 0.1  | 0.1  |
+| 5 | 0.2 | 0.2 | 0    | **0.6**  |
+
+Then you might be tempted to "round" the solution to `AGACT` because for each position $p \in [5]$, the letters `A`, `G`, `A`, `C`, and `T` dominate the vote for _that_ position. However: it turns out that this nautral rounding strategy can be arbitrarily bad!
+
+Instead of picking the top choice, what we do instead is the following: for every position $p \in [\ell]$, treat the $x_{p,\alpha}$'s as a probability distribution^[Recall that the first constraint ensures that this is a valid thing to do.] over $\Sigma$. Now the randomized rounding step involves _sampling_ from this distribution to obtain the solution:
+
+> Set $c[p] = \alpha$ with probability $x_{p,\alpha}$.
+
+Define the indicator random variables $q_{p,\alpha}$ as indicating for us when $c$ is _different_ from $\alpha$ at position $p$, as a stepping stone to capturing distance eventually:
+
+\begin{equation*}
+    q_{p,\alpha} =
+    \begin{cases}
+      1 & \text{if } {\color{indianred}c[p] \neq \alpha},\\
+      0 & \text{otherwise}.
+    \end{cases}
+\end{equation*}
+
+Then we have the natural notion of a random variable to capture the distance between the string output by our randomized algorithm and any fixed string $t \in S$:
+
+$$d[c,t] := \sum_{p \in \ell} q_{p,t[p]}$$
+
+It's time for our first cool claim. 
+
+Fix a $t \in S$. What is $E[d(c,t)]$? 
+
+It turns out: at most $d$, and therefore, at most `OPTLP`, and in turn, at most `OPTILP` = `OPT` {{< bi emoji-sunglasses color="darkseagreen" >}}
+
+
+:::{.callout-note collapse="true"}
+
+# Calculating the Expectation
+
+\begin{aligned}
+E[d(c,t)] & = \sum_{p \in [\ell]} 1 \cdot {\color{indianred}\operatorname{Pr}[c[p] \neq t[p]]} + 0 \cdot \operatorname{Pr}[c[p] \neq t[p]] \\
+& = \sum_{p \in [\ell]} 1 \cdot \left({\color{indianred}1 - x_{p,t[p]}}\right) \\
+& {\color{darkseagreen}\leqslant d},
+\end{aligned}
+
+where the last inequality follows from the second LP constraint.
+
+:::
+
+Note that $d(c,t)$ is a sum of independent 0/1 random variables whose expectation is upper bounded by `OPT`. So our useful Chernoff variation applies here,
+
+
+:::{.callout-important icon="false" collapse="true"}
+# Chernoff Bound: a Useful Variation (recall)
+
+The: Let $X= X_1 + X_2  \ldots+ X_n$ where:
+
+- the $X_i$'s take values from $\{0,1\}$
+- the $X_i$'s are independent
+
+Let $\mu_L \leqslant E[X] \leqslant \mu_H$
+
+Then:
+$$
+\begin{aligned}
+& \operatorname{Pr}\left[x-\mu_H \geqslant \varepsilon \mu_H\right] \leqslant e^{-\varepsilon^2 \cdot \mu_H / 3} \\
+& \operatorname{Pr}\left[\mu_L-x \geqslant \varepsilon \mu_L\right] \leqslant e^{-\varepsilon^2 \cdot \mu_L / 3}
+\end{aligned}
+$$
+:::
+
+and we get the following:
+
+$$
+\operatorname{Pr}[d(c,t)-\text{OPT} > \varepsilon \cdot \text{OPT}] \leqslant e^{-\varepsilon^2 \text{OPT} / 3}.
+$$
+
+Now, applying <span style="color:darkseagreen;">union bound</span> over all $n$ choices of $t \in S$, we get:
+
+
+$$
+\operatorname{Pr}[{\color{darkseagreen}d(c,S)} > (1+\varepsilon) \cdot \text{OPT}] \leqslant \frac{{\color{darkseagreen}n}}{e^{\varepsilon^2 \text{OPT} / 3}}.
+$$
+
+So, if, for example:
+
+$$\frac{n}{e^{\varepsilon^2 \text{OPT} / 3}} \leqslant \frac{1}{2},$$
+
+then it's a win! {{< bi bullseye color="olivedrab" >}}
+
+
+:::{.callout-note collapse="true"}
+
+# What's the bad situation?
+
+\begin{aligned}
+ \frac{1}{2} & \leqslant \frac{n}{e^{\varepsilon^2 \text{OPT} / 3}}\\
+& ~ \\
+e^{\varepsilon^2 \text{OPT} / 3} & \leqslant 2n \\
+& ~ \\
+\frac{\varepsilon^2 \text{OPT}}{3} & \leqslant \ln(2n) \\
+& ~ \\
+{\color{indianred}\text{OPT}} & {\color{indianred}\leqslant \frac{3\ln(2n)}{\varepsilon^2}}
+\end{aligned}
+
+:::
+
+We _don't_ have a win when `OPT` is really really small, in particular, if:
+
+$$\text{OPT} \leqslant \frac{3\ln(2n)}{\varepsilon^2}$$
+
+We handle this case with a local search algorithm.
+
+`Coming Soon.`
+
+
+:::

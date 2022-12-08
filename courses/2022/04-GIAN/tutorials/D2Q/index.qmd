@@ -1,0 +1,67 @@
+---
+title: "191014K02 | Day 1 Lecture 1"
+sidebar: true
+toc: true
+css: /css/teaching.css
+---
+
+
+
+:::{.column-body-outset}
+
+## 191014K02: Day 2 Tutorial
+
+_[Back to the Course Page](../../)_
+
+## Definitions
+
+:::{.callout-note}
+
+# Subgraph Isomorphism
+
+The input is an $n$-vertex graph $G$ and a $k$-vertex graph $H$, and the objective is to test whether there exists a subgraph $\widehat{H}$ of $G$ such that $H$ is isomorphic to $\widehat{H}$. 
+
+Observe that $k$-Path (discussed in class earlier today) is a special case of Subgraph Isomorphism where $H$ is a path on $k$ vertices. The problem of finding a Clique on $k$ vertices is a special case of Subgraph Isomorphism as well, where $H$ is a clique on $k$ vertices. It is believed that Clique is not FPT, and, consequently, we do not expect that the general Subgraph Isomorphism problem to be FPT when parameterized by $k$.
+:::
+
+:::{.callout-note}
+
+# Hoeffding's Inequality
+
+Let $X_1, \ldots, X_n$ be independent random variables such that $a_i \leq X_i \leq b_i$ almost surely. Consider the sum of these random variables,
+$$
+S_n=X_1+\cdots+X_n .
+$$
+Then Hoeffding's theorem states that, for all $t>0,$
+$$
+\begin{gathered}
+\mathrm{P}\left(S_n-\mathrm{E}\left[S_n\right] \geq t\right) \leq \exp \left(-\frac{2 t^2}{\sum_{i=1}^n\left(b_i-a_i\right)^2}\right) \\
+\mathrm{P}\left(\left|S_n-\mathrm{E}\left[S_n\right]\right| \geq t\right) \leq 2 \exp \left(-\frac{2 t^2}{\sum_{i=1}^n\left(b_i-a_i\right)^2}\right)
+\end{gathered}
+$$
+
+Here $\mathrm{E}\left[S_{\mathrm{n}}\right]$ is the expected value of $S_n$.
+:::
+
+
+## Problems
+
+1. Show that the number of inclusion minimal vertex covers of size at most $k$ is at most $2^k$. (Use the algorithm from class.)
+
+2. Generalize the Vertex Cover algorithm that we saw today to Set Cover in which every element appears in at most $d$ sets.
+
+3. Feedback Vertex Set as Hitting Set. Why don't we get a $O(\log n)$ approximation for FVS via the $O(\log n)$ approximation for Set Cover^[Note that Set Cover and Hitting Set are equivalent problems.]?
+
+4. Use Markov inequality to show that:
+$$
+\operatorname{Pr}[{\color{indianred}|S| \leqslant 2 \cdot |\text{OPT}|}] \geqslant \Omega(1 /|\text{OPT}|)
+$$
+
+
+5. Come up with an algorithm to solve an instance of subgraph isomorphism $(G, H)$ in time $2^{d k} k ! n^{\mathcal{O}(1)}$ and in time $2^{d k} k^{\mathcal{O}(d \log d)} n^{\mathcal{O}(1)}$. Here, $|V(G)|=n,|V(H)|=k$, and the maximum degree of $G$ is bounded by $d$.
+
+6. Generalize the color coding approach for Longest Path to: (a) $k$-Cycle where $H$ is a cycle on $k$ vertices, (b) Tree Subgraph Isomorphism, where $H$ is restricted to being a tree on $k$ vertices.
+
+7. Design a randomized algorithm running in time $2^{O\left(\sqrt{k} \log ^2 k\right)}+n^{O(1)}$ for the problem of finding a feedback arc set of size at most $k$ in a tournament on $n$ vertices.  
+
+:::

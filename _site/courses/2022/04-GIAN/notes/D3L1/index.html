@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Neeldhara - 191014K02 | Day 3 Lecture 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../">
+<script src="../../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../../../../css/styles.css">
+<link rel="stylesheet" href="../../../../../css/teaching.css">
+<link rel="stylesheet" href="../../../../../css/feedback-override.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../../../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../../../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../../../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../../../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content page-columns page-full column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">191014K02 | Day 3 Lecture 1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="k02-day-3-lecture-1" class="level2 column-body-outset">
+<h2 class="anchored" data-anchor-id="k02-day-3-lecture-1">191014K02: Day 3 Lecture 1</h2>
+<p><em><a href="../../">Back to the Course Page</a></em></p>
+<p><i class="bi-exclamation-triangle-fill" style="color: indianred;" role="img" aria-hidden="true"></i> <span style="color:indianred;">Work in progress.</span></p>
+<hr>
+<section id="closest-string" class="level3">
+<h3 class="anchored" data-anchor-id="closest-string">Closest String</h3>
+<p>For two strings <span class="math inline">s_1, s_2</span> of the same length <span class="math inline">\ell</span>, we define the <em>Hamming Distance</em> between <span class="math inline">S_1</span> &amp; <span class="math inline">S_2</span> to be:</p>
+<p><span class="math display">d\left(S_1, S_2\right):=\left|\left\{i: S_1[i] \neq S_2[i]\right\}\right|</span></p>
+<p>so, for example, <span class="math inline">d</span>(horse, force) <span class="math inline">=2</span>.</p>
+<p>For a string <span class="math inline">c</span> and set <span class="math inline">S</span> of stings of length <span class="math inline">\ell</span>:</p>
+<p><span class="math display">d(S, c):=\max _{t \in S} d(t,c)</span></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Closest String [Optimization]
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Input: <span class="math inline">n</span> strings of length <span class="math inline">\ell</span> over an alphabet <span class="math inline">\Sigma</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Task: Find center sting <span class="math inline">c</span> lot length <span class="math inline">\ell</span> such that <span style="color:indianred;"><span class="math inline">d(S, c)</span> is minimized</span></p>
+</div>
+</div>
+<p>GOAL: <span style="color:darkseagreen;"><span class="math inline">(1+\varepsilon)</span> Approximation Algorithm</span></p>
+<section id="an-integer-linear-program-for-closest-string" class="level4">
+<h4 class="anchored" data-anchor-id="an-integer-linear-program-for-closest-string">An Integer Linear Program for Closest String</h4>
+<p>Have an indicator variable for every position <span class="math inline">p</span> and every letter <span class="math inline">\alpha \in \Sigma</span>, introduce a binary variable <span class="math inline">x_{p,\alpha}</span> with the following semantics:</p>
+<p><span class="math display">\begin{equation*}
+    x_{p,\alpha} =
+    \begin{cases}
+      1 &amp; \text{if } c[p] = \alpha\\
+      0 &amp; \text{otherwise.}
+    \end{cases}
+\end{equation*}</span></p>
+<p>The constraints:</p>
+<ol type="1">
+<li>At every position we have one letter:</li>
+</ol>
+<p><span class="math display">\forall p \in [\ell]: \sum_{\alpha \in \Sigma} x_{p,\alpha} = 1</span></p>
+<ol start="2" type="1">
+<li><p>We control the distance:</p>
+<p><span class="math display">\forall t \in S: \quad \sum_{p=1}^\ell \left({\color{indianred}1-x_{p, t[p]}} \right) \leqslant d</span></p>
+<p>…and ask the ILP to minimize <span class="math inline">d</span>.</p></li>
+</ol>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+The distance constraint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Note that:</p>
+<p><span class="math display">\begin{equation*}
+    1 - x_{i,s[i]} =
+    \begin{cases}
+      0 &amp; \text{if the solution matches with } s[i] \text{at location } p,\\
+      1 &amp; \text{otherwise.}
+    \end{cases}
+\end{equation*}</span></p>
+</div>
+</div>
+</div>
+<p>Now, as usual, relax the ILP and solve the associated LP.</p>
+<p><strong>Rounding.</strong> Think of the OPTLP variable values as “voting” for characters at each position. For example, if <span class="math inline">\ell = 5</span>, <span class="math inline">\Sigma = \{A,C,G,T\}</span>, and the OPTLP values turn out to be:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th>A</th>
+<th>C</th>
+<th>G</th>
+<th>T</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>0.9</strong></td>
+<td>0</td>
+<td>0.05</td>
+<td>0.05</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0.1</td>
+<td>0.2</td>
+<td><strong>0.4</strong></td>
+<td>0.3</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>0.5</strong></td>
+<td>0.1</td>
+<td>0.1</td>
+<td>0.3</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>0.1</td>
+<td><strong>0.7</strong></td>
+<td>0.1</td>
+<td>0.1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>0</td>
+<td><strong>0.6</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Then you might be tempted to “round” the solution to <code>AGACT</code> because for each position <span class="math inline">p \in [5]</span>, the letters <code>A</code>, <code>G</code>, <code>A</code>, <code>C</code>, and <code>T</code> dominate the vote for <em>that</em> position. However: it turns out that this nautral rounding strategy can be arbitrarily bad!</p>
+<p>Instead of picking the top choice, what we do instead is the following: for every position <span class="math inline">p \in [\ell]</span>, treat the <span class="math inline">x_{p,\alpha}</span>’s as a probability distribution<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> over <span class="math inline">\Sigma</span>. Now the randomized rounding step involves <em>sampling</em> from this distribution to obtain the solution:</p>
+<blockquote class="blockquote">
+<p>Set <span class="math inline">c[p] = \alpha</span> with probability <span class="math inline">x_{p,\alpha}</span>.</p>
+</blockquote>
+<p>Define the indicator random variables <span class="math inline">q_{p,\alpha}</span> as indicating for us when <span class="math inline">c</span> is <em>different</em> from <span class="math inline">\alpha</span> at position <span class="math inline">p</span>, as a stepping stone to capturing distance eventually:</p>
+<p><span class="math display">\begin{equation*}
+    q_{p,\alpha} =
+    \begin{cases}
+      1 &amp; \text{if } {\color{indianred}c[p] \neq \alpha},\\
+      0 &amp; \text{otherwise}.
+    \end{cases}
+\end{equation*}</span></p>
+<p>Then we have the natural notion of a random variable to capture the distance between the string output by our randomized algorithm and any fixed string <span class="math inline">t \in S</span>:</p>
+<p><span class="math display">d[c,t] := \sum_{p \in \ell} q_{p,t[p]}</span></p>
+<p>It’s time for our first cool claim.</p>
+<p>Fix a <span class="math inline">t \in S</span>. What is <span class="math inline">E[d(c,t)]</span>?</p>
+<p>It turns out: at most <span class="math inline">d</span>, and therefore, at most <code>OPTLP</code>, and in turn, at most <code>OPTILP</code> = <code>OPT</code> <i class="bi-emoji-sunglasses" style="color: darkseagreen;" role="img" aria-hidden="true"></i></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Calculating the Expectation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<span class="math display">\begin{aligned}
+E[d(c,t)] &amp; = \sum_{p \in [\ell]} 1 \cdot {\color{indianred}\operatorname{Pr}[c[p] \neq t[p]]} + 0 \cdot \operatorname{Pr}[c[p] \neq t[p]] \\
+&amp; = \sum_{p \in [\ell]} 1 \cdot \left({\color{indianred}1 - x_{p,t[p]}}\right) \\
+&amp; {\color{darkseagreen}\leqslant d},
+\end{aligned}</span>
+<p>where the last inequality follows from the second LP constraint.</p>
+</div>
+</div>
+</div>
+<p>Note that <span class="math inline">d(c,t)</span> is a sum of independent 0/1 random variables whose expectation is upper bounded by <code>OPT</code>. So our useful Chernoff variation applies here,</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Chernoff Bound: a Useful Variation (recall)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The: Let <span class="math inline">X= X_1 + X_2 \ldots+ X_n</span> where:</p>
+<ul>
+<li>the <span class="math inline">X_i</span>’s take values from <span class="math inline">\{0,1\}</span></li>
+<li>the <span class="math inline">X_i</span>’s are independent</li>
+</ul>
+<p>Let <span class="math inline">\mu_L \leqslant E[X] \leqslant \mu_H</span></p>
+<p>Then: <span class="math display">
+\begin{aligned}
+&amp; \operatorname{Pr}\left[x-\mu_H \geqslant \varepsilon \mu_H\right] \leqslant e^{-\varepsilon^2 \cdot \mu_H / 3} \\
+&amp; \operatorname{Pr}\left[\mu_L-x \geqslant \varepsilon \mu_L\right] \leqslant e^{-\varepsilon^2 \cdot \mu_L / 3}
+\end{aligned}
+</span></p>
+</div>
+</div>
+</div>
+<p>and we get the following:</p>
+<p><span class="math display">
+\operatorname{Pr}[d(c,t)-\text{OPT} &gt; \varepsilon \cdot \text{OPT}] \leqslant e^{-\varepsilon^2 \text{OPT} / 3}.
+</span></p>
+<p>Now, applying <span style="color:darkseagreen;">union bound</span> over all <span class="math inline">n</span> choices of <span class="math inline">t \in S</span>, we get:</p>
+<p><span class="math display">
+\operatorname{Pr}[{\color{darkseagreen}d(c,S)} &gt; (1+\varepsilon) \cdot \text{OPT}] \leqslant \frac{{\color{darkseagreen}n}}{e^{\varepsilon^2 \text{OPT} / 3}}.
+</span></p>
+<p>So, if, for example:</p>
+<p><span class="math display">\frac{n}{e^{\varepsilon^2 \text{OPT} / 3}} \leqslant \frac{1}{2},</span></p>
+<p>then it’s a win! <i class="bi-bullseye" style="color: olivedrab;" role="img" aria-hidden="true"></i></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+What’s the bad situation?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<span class="math display">\begin{aligned}
+\frac{1}{2} &amp; \leqslant \frac{n}{e^{\varepsilon^2 \text{OPT} / 3}}\\
+&amp; ~ \\
+e^{\varepsilon^2 \text{OPT} / 3} &amp; \leqslant 2n \\
+&amp; ~ \\
+\frac{\varepsilon^2 \text{OPT}}{3} &amp; \leqslant \ln(2n) \\
+&amp; ~ \\
+{\color{indianred}\text{OPT}} &amp; {\color{indianred}\leqslant \frac{3\ln(2n)}{\varepsilon^2}}
+\end{aligned}</span>
+</div>
+</div>
+</div>
+<p>We <em>don’t</em> have a win when <code>OPT</code> is really really small, in particular, if:</p>
+<p><span class="math display">\text{OPT} \leqslant \frac{3\ln(2n)}{\varepsilon^2}</span></p>
+<p>We handle this case with a local search algorithm.</p>
+<p><code>Coming Soon.</code></p>
+</section>
+</section>
+</section>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Note that <span class="math inline">|\Sigma|</span> is constant.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Recall that the first constraint ensures that this is a valid thing to do.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../../../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../../../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

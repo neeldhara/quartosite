@@ -1,0 +1,50 @@
+---
+title: "191014K02 | Day 3 Tutorial"
+sidebar: true
+toc: true
+css: /css/teaching.css
+---
+
+
+
+:::{.column-body-outset}
+
+## 191014K02: Day 3 Tutorial
+
+_[Back to the Course Page](../../)_
+
+## Definitions
+
+:::{.callout-note}
+# Max Bisection
+
+In the Max Bisection problem we are given a (weighted) graph $G=(V, E)$, and the objective is to find a bisection 
+
+$$V=S \cup \bar{S},|S|=|\bar{S}|=|V| / 2$$ 
+
+such that the number (weight) of edges between $S$ and $\bar{S}$ is maximized.
+:::
+
+:::{.callout-note}
+# $k$-SAT-Local Search
+
+Given an instance of $k$-SAT, find a satisfying assignment that sets at most $d$ variables to true.
+:::
+
+## Problems
+
+1. Come up with an instance where the majority rounding idea for the Closest String LP does _not_ give an optimal solution. How much can you push the gap between `OPT` and the quality of the solution obtained by the greedy rounding.
+
+2. Show that the majority rounding idea for the Closest String LP is a valid $2$-approximation.
+
+3. Make the local search phase for Closest String (discussed in class) work without any knowledge of OPT (i.e, you are not allowed to guess the value of OPT).
+
+4. Design a randomized algorithm for $k$-SAT-Local Search with running time $O(k^d)$.
+
+5. Design a PTAS for Max Bisection on graphs of minimum degree $dn$.
+
+6. Prove that selecting coordinates according to the normal distribution gives unifom distribution on unit sphere.
+
+7. Prove that the projection of a random unit vector in $\mathbb{R}^d$ on any plane through the origin has a "u.a.r. direction".
+
+:::

@@ -20,12 +20,15 @@ Here's our key tool for the day!
 
 # Isolation Lemma
 
-Let $U$ be a universe withi $|U|=n$ and let $\cal F$ be a family of sets over $U$. Pick a random weight $w: U \rightarrow\{1, \cdots ,W\}$
+Let $U$ be a universe withi $|U|=n$ and let $\cal F$ be a family of sets over $U$. Pick a random weight function $w: U \rightarrow\{1, \cdots ,W\}$. Then:
 
-Then:
-
-$\operatorname{Pr}$[$\cal F$ has a **unique** min weight set] $\geqslant \frac{n}{w}$
+$$\operatorname{Pr}[{\color{indianred}\cal F \text{ has a \textbf{unique} min weight set}}] \geqslant \frac{n}{W}$$
 
 :::
+
+Call an element $u$ <span style="color:darkseagreen">**critical**</span> if:
+
+1. $u$ is in _some_ minimum weight set, and
+2. if $w(u)$ is increased by 1 then $u$ is no longer in _any_ minimum weight set.
 
 :::

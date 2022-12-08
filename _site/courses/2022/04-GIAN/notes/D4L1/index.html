@@ -60,6 +60,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../../css/styles.css">
 <link rel="stylesheet" href="../../../../../css/teaching.css">
@@ -225,6 +241,22 @@ ul.task-list li input[type="checkbox"] {
 <p><em><a href="../../">Back to the Course Page</a></em></p>
 <section id="isolation-lemma" class="level3">
 <h3 class="anchored" data-anchor-id="isolation-lemma">Isolation Lemma</h3>
+<p>Here’s our key tool for the day!</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Isolation Lemma
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">U</span> be a universe withi <span class="math inline">|U|=n</span> and let <span class="math inline">\cal F</span> be a family of sets over <span class="math inline">U</span>. Pick a random weight <span class="math inline">w: U \rightarrow\{1, \cdots ,W\}</span></p>
+<p>Then:</p>
+<p><span class="math inline">\operatorname{Pr}</span>[<span class="math inline">\cal F</span> has a <strong>unique</strong> min weight set] <span class="math inline">\geqslant \frac{n}{w}</span></p>
+</div>
+</div>
 </section>
 </section>
 

@@ -12,7 +12,24 @@ css: ["/css/teaching.css","/css/feedback-override.css"]
 _[Back to the Course Page](../../)_
 
 
-`Coming Soon.`
+{{< bi exclamation-triangle-fill color="indianred" >}} <span style="color:indianred;">Work in progress.</span>
+
+---
+
+:::{.callout-tip}
+# Tournament Feedback Vertex Set (TFVS)
+
+Input: A tournament $T, w: V(T) \rightarrow \mathbb{N}$.
+
+Task: Find $S \subseteq V(T)$ s.t $T - S$ is acyclic \& ${\color{indianred}w(S):=\sum_{\sigma \in S} w(v)}$ <span style="color:indianred;">is minimized</span>.
+
+:::
+
+Suppose:
+
+$$
+|\text{OPT}| \geqslant n \cdot 0.6
+$$
 
 
 :::

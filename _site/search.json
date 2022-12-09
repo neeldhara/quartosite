@@ -1747,7 +1747,7 @@
     "href": "courses/2022/04-GIAN/tutorials/D5Q/index.html",
     "title": "191014K02 | Day 5 Tutorial",
     "section": "",
-    "text": "Back to the Course Page"
+    "text": "Back to the Course Page\n\n\n\n\nStart the local search algorithm discussed in class and suppose that initially d(\\gamma, \\beta) \\leqslant d. Consider a random walk from d with down-probability 1/k. Show that \\forall s \\geqslant 0 and j \\geqslant 0: \n\\operatorname{Pr}[d(\\gamma, \\beta) \\leqslant j \\text { in step } s] \\leq \\operatorname{Pr}\\left[P_s \\leqslant j\\right]\n\nWe saw in class that the probability that the walk eventually visits 0 is q_d=\\left(\\frac{1}{k-1}\\right)^d. We want to now show that the probability that this happens in “not too many” i.e, (O(d)) steps, is \\geqslant q_d/2. To this end:\n\nShow that starting at position d+3 the probability of reaching 0 is \\leqslant q_d/8.\nShow that \\forall k, \\exists c such that \\forall d1, after cd steps, the probability of being at position \\leqslant d+3 is \\leqslant q_d/8.\nShow that the probability of reaching 0 from d after at least cd steps is at most q_d/2.\nShow that the probability of reaching 0 from d after at most cd steps is at least q_d/2.\n\nShow that a tournament has a directed cycle if and only if it has a directed triangle.\nDemonstrate a 3-approximation algorithm for the Tournament Feedback Vertex Set problem."
   },
   {
     "objectID": "courses/2022/04-GIAN/tutorials/D4Q/index.html",

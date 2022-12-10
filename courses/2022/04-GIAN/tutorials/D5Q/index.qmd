@@ -18,7 +18,7 @@ _[Back to the Course Page](../../)_
 
 1. Start the local search algorithm discussed in class and suppose that initially $d(\gamma, \beta) \leqslant d$. Consider a random walk from $d$ with down-probability $1/k$.  Show that $\forall s \geqslant 0$ and $j \geqslant 0$:
 $$
-\operatorname{Pr}[d(\gamma, \beta) \leqslant j \text { in step } s] \leq \operatorname{Pr}\left[P_s \leqslant j\right].
+\operatorname{Pr}[{\color{indianred}d(\gamma, \beta) \leqslant j \text { in step } s}] \geqslant \operatorname{Pr}\left[P_s \leqslant j\right].
 $$
 
 2. We saw in class that the probability that the walk _eventually_ visits $0$ is $q_d=\left(\frac{1}{k-1}\right)^d$. We want to now show that the probability that this happens in "not too many" i.e, $(O(d))$ steps, is $\geqslant q_d/2$. To this end:

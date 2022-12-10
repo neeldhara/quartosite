@@ -26,6 +26,8 @@
             <td class="listing-notes" style="text-align: center;">
                 <% if (item.notes) { %>
                     <a href="<%= item.notes %>"><i class="bi bi-journal-richtext"></i></a>
+                <% } else { %>
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
                 <% } %>
             </td>
             <td class="listing-video" style="text-align: center;">

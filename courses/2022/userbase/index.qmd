@@ -1,0 +1,49 @@
+---
+title: "191014K02: Randomized Methods for Approximation and Parameterized Algorithms"
+sidebar: false
+toc: false
+css: ['/css/teaching.css','/css/feedback-override.css']
+---
+
+## Login
+
+
+<!-- Loading View -->
+<div id="loading-view">Loading...</div>
+
+<div id="auth-view">
+<h3>Login</h3>
+<form id="login-form">
+  <input id="login-username" type="text" required placeholder="Username">
+  <input id="login-password" type="password" required placeholder="Password">
+  <input type="submit" value="Sign in">
+</form>
+<div id="login-error"></div>
+<h3>Create an account</h3>
+<form id="signup-form">
+  <input id="signup-username" type="text" required placeholder="Username">
+  <input id="signup-password" type="password" required placeholder="Password">
+  <input type="submit" value="Create an account">
+</form>
+<div id="signup-error"></div>
+</div>
+
+<!-- To-dos View -->
+<div id="todo-view">
+
+<span id="username"></span>
+<input type="button" value="Logout" id="logout-button">
+<div id="logout-error"></div>
+
+
+<h3>To-Do List</h3>
+<div id="todos"></div>
+<div id="db-loading">Loading to-dos...</div>
+<div id="db-error"></div>
+
+<form id="add-todo-form">
+  <input id="add-todo" type="text" required placeholder="To-Do">
+  <input type="submit" value="Add">
+</form>
+<div id="add-todo-error"></div>
+</div>

@@ -10,7 +10,7 @@ css: /css/research.css
 
 # Fair Division
 
-Studies of fair division aim to find ways of distributing resources among people (aka agents) --- who have preferences over said resources --- in such a way that makes everyone happy. 
+Studies of fair division aim to find ways of allocating resources among people (aka agents) --- who have preferences over said resources --- in such a way that makes everyone happy. 
 
 That was a loaded statement, and as we will see, there are a number of ways in which it can be made precise.
 
@@ -18,11 +18,11 @@ That was a loaded statement, and as we will see, there are a number of ways in w
 
 ### What are resources?
 
-Resources, broadly speaking, refer to the thing(s) we want to distribute. It might refer to discrete items (e.g, cars) that are typically infeasible to "break" further, or a continuous object (e.g, a piece of land). In the former setting, one simply models the resources as a finite set, while the in the latter, it is convenient to think of the resource as the interval $[0,1]$. These scenarios are usually called the settings of _indivisible goods_ and _cake cutting_, respectively.
+Resources, broadly speaking, refer to the thing(s) we want to allocate. It might refer to discrete items (e.g, cars) that are typically infeasible to "break" further, or a continuous object (e.g, a piece of land). In the former setting, one simply models the resources as a finite set, while in the latter, it is convenient to think of the resource as the interval $[0,1]$. These scenarios are usually called the settings of _indivisible goods_ and _cake cutting_, respectively.
 
 Although it doesn't sound like it, a resource may also refer to something not entirely empowering, such as a (usually tiresome) task that needs to be done. Such resources are often called _chores_. 
 
-In short: resources are thing(s) that need distributing.
+In short: resources are thing(s) that need to be handed out or assigned.
 
 ### What (umm... who?) are agents?
 
@@ -52,9 +52,9 @@ In other words, if $R$ is the set of _all_ resources, we have: $v(R,a) = 100$ fo
 
 :::
 
-### What is a distribution of resources among agents?
+### What is an allocation of resources among agents?
 
-A distribution (aka an _allocation_) is simply a partition of our resources into $n$ labeled parts, where the labels correspond to agents. As you might guess, this is to say that the agent $a$ "recieves" the part labeled $a$. Note that our choice of the word _partition_ implies two important things:
+An allocation is simply a partition of our resources into $n$ labeled parts, where the labels correspond to agents. As you might guess, this is to say that the agent $a$ "recieves" the part labeled $a$. Note that our choice of the word _partition_ implies two important things:
 
 1. Every resource is allocated to some agent.
 2. No resource is allocated to more than one agent. 
@@ -65,9 +65,9 @@ The first point implies that no resources are thrown away, while the second poin
 
 Ah well. This, as you might have guessed, is: (a) the hard part, and (b) not always possible, depending on your definition. {{< bi emoji-laughing color="darkseagreen" >}}
 
-There are several notions of "happiness" proposed in the fair division literature. Suppose we are trying to distribute $R$^[I will implicitly assume the indivisble setting, but the ideas carry over naturally to cake cutting.] among a set of $n$ agents $A$ whose valuations are given by $v$, and we have come up with a distribution $D$. For an agent $a$, we use $D_a$ to denote the part labeled $a$ in $D$. 
+There are several notions of "happiness" proposed in the fair division literature. Suppose we are trying to divide $R$^[I will implicitly assume the indivisble setting, but the ideas carry over naturally to cake cutting.] among a set of $n$ agents $A$ whose valuations are given by $v$, and we have come up with an allocation $D$. For an agent $a$, we use $D_a$ to denote the part labeled $a$ in $D$. 
 
-Here are a few notions suggestive that $D$ is a "good" allocation making everyone in $A$ happy.
+Here are a few notions suggestive that $D$ is a "desirable" allocation, making everyone in $A$ happy.
 
 :::{.callout-tip icon="false"}
 
@@ -100,7 +100,7 @@ $$v(D_a,a) = v(D_b,b) ~~~ \forall a,b \in A.$$
 
 :::
 
-Notice that if we didn't insist on $D$ allocating every item to some agent, then we could resort to the happiness-by-Zen approach: in particular, the trivial allocation that gives nobody anything would vacously satisfy most definitions of happiness. Implicitly, our demand for a "complete" allocation can be thought of as an _efficiency_ requirement, and one could also push the bar on this front. For example, a common efficiency notion, borrowed from economics, is Pareto optimality.
+Notice that if we didn't insist on $D$ allocating every item to some agent, then we could resort to the happiness-by-Zen approach: in particular, the trivial allocation that gives nobody anything would vacuously satisfy most definitions of happiness. Implicitly, our demand for a "complete" allocation can be thought of as an _efficiency_ requirement, and one could also push the bar on this front. For example, a common efficiency notion, borrowed from economics, is Pareto optimality.
 
 :::{.callout-tip icon="false"}
 
@@ -115,22 +115,22 @@ $$ v(D^\prime_b,b) < v(D_b,b). $$
 
 :::
 
-Fix any notion of happiness^[Note: the official word is _fairness_.] --- say $P$, and efficiency --- say $Q$. Two questions are of immediate interest:
+Fix any notion of happiness^[Note: the official word is _fairness_.] --- say `P`, and efficiency --- say `Q`. Two questions are of immediate interest:
 
-1. Do allocations that satisfy $P$ and $Q$ always exist?
-2. For instances that admit allocations that satisfy $P$ and $Q$, can such allocations be computed efficiently?
+1. Do allocations that satisfy `P` and `Q` always exist?
+2. For instances that admit allocations that satisfy `P` and `Q`, can such allocations be computed efficiently? And can we quickly determine if such allocations do not exist for a given instance?
 
-For example, notice that allocations in the sense that we defined them (with an implicit requirement of completeness) that are envy-free need not always exist: consider the situation where you have two agents and one item, and both agents value said item at $100$. Any complete allocation will assign this item to one of these two agents, making the other envious. The same example shows that we cannot guarantee the existence of complete equitable allocations. 
+For example, notice that allocations in the sense that we defined them (with an implicit requirement of completeness) that are envy-free need not always exist: consider the situation where you have two agents and one item, and both agents value said item at 100. Any complete allocation will assign this item to one of these two agents, making the other envious. The same example shows that we cannot guarantee the existence of complete equitable allocations. 
 
 Non-existence of nice allocations is always a bit of a bummer, so much research has been devoted to reasonable workarounds, for example:
 
-1. What if^[Fair division with charity, hidden items, and so on.] we didn't _have_ to allocate _everything_? 
-2. What if^[Fair division with subsidies.] we could _introduce_ some dummy items or money into the systsem to make things work? 
-3. What if^[Fractional fair division or fair division with sharing.] the parts were allowed to _overlap_? 
-4. What if^[Envy-freeness up to one/any good, equitability up to one/any good, and so on.] the allocations could be _approximately_ envy-free/equitable? 
-5. What if^[The hope is that restricted sub-classes of valuations may "behave" better.] the valuations were not completely arbitrary?
+1. What if^[Envy-freeness up to one/any good, equitability up to one/any good, and so on.] the allocations could be _approximately_ envy-free/equitable? 
+2. What if^[The hope is that restricted sub-classes of valuations may "behave" better.] the valuations were not completely arbitrary?
+3. What if^[Fair division with subsidies.] we could _introduce_ some dummy items or money into the systsem to make things work? 
+4. What if^[Fair division with charity, hidden items, and so on.] we didn't _have_ to allocate _everything_? 
+5. What if^[Fractional fair division or fair division with sharing.] the parts were allowed to _overlap_? 
 
-Apart from making sense of resonable workarounds, research on fair division also aims to understand tradeoffs _between_ fairness and efficiency. Given an allocation, there are ways in which you can measure its _welfare_ --- it's usually a function of the utilities that all agents derive from the allocation. The "gap" between the maximum welfare you can generate if you were not restricted by fairness requirements v/s the best welfare attainable subject to fairness constraints --- known as the _price of fairness_ --- is also the topic of much research.
+Apart from making sense of reasonable workarounds, research on fair division also aims to understand tradeoffs _between_ fairness and efficiency. Given an allocation, there are ways in which you can measure its _welfare_ --- it's usually a function of the utilities that all agents derive from the allocation. The "gap" between the maximum welfare you can generate if you were not restricted by fairness requirements v/s the best welfare attainable subject to fairness constraints --- known as the _price of fairness_ --- is also the topic of much research.
 
 If any of this piqued your interest, here's a non-exhaustive list of pointers that I hope will help with finding out more!
 

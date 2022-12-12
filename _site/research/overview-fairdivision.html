@@ -257,14 +257,14 @@ div.csl-indent {
 
 <section id="fair-division" class="level1 column-body-outset">
 <h1>Fair Division</h1>
-<p>Studies of fair division aim to find ways of distributing resources among people (aka agents) — who have preferences over said resources — in such a way that makes everyone happy.</p>
+<p>Studies of fair division aim to find ways of allocating resources among people (aka agents) — who have preferences over said resources — in such a way that makes everyone happy.</p>
 <p>That was a loaded statement, and as we will see, there are a number of ways in which it can be made precise.</p>
 <p><i class="bi-exclamation-triangle-fill" style="color: indianred;" role="img" aria-hidden="true"></i> <span class="red">The language in this short essay is deliberately informal. Please take a look at some of the references for proper definitions, notation, and etiquette. The goal here is to just convey, briefly, the major lines of inquiry in fair division research.</span></p>
 <section id="what-are-resources" class="level3">
 <h3 class="anchored" data-anchor-id="what-are-resources">What are resources?</h3>
-<p>Resources, broadly speaking, refer to the thing(s) we want to distribute. It might refer to discrete items (e.g, cars) that are typically infeasible to “break” further, or a continuous object (e.g, a piece of land). In the former setting, one simply models the resources as a finite set, while the in the latter, it is convenient to think of the resource as the interval <span class="math inline">[0,1]</span>. These scenarios are usually called the settings of <em>indivisible goods</em> and <em>cake cutting</em>, respectively.</p>
+<p>Resources, broadly speaking, refer to the thing(s) we want to allocate. It might refer to discrete items (e.g, cars) that are typically infeasible to “break” further, or a continuous object (e.g, a piece of land). In the former setting, one simply models the resources as a finite set, while in the latter, it is convenient to think of the resource as the interval <span class="math inline">[0,1]</span>. These scenarios are usually called the settings of <em>indivisible goods</em> and <em>cake cutting</em>, respectively.</p>
 <p>Although it doesn’t sound like it, a resource may also refer to something not entirely empowering, such as a (usually tiresome) task that needs to be done. Such resources are often called <em>chores</em>.</p>
-<p>In short: resources are thing(s) that need distributing.</p>
+<p>In short: resources are thing(s) that need to be handed out or assigned.</p>
 </section>
 <section id="what-umm-who-are-agents" class="level3">
 <h3 class="anchored" data-anchor-id="what-umm-who-are-agents">What (umm… who?) are agents?</h3>
@@ -302,9 +302,9 @@ Normalized Valuations
 </div>
 </div>
 </section>
-<section id="what-is-a-distribution-of-resources-among-agents" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-a-distribution-of-resources-among-agents">What is a distribution of resources among agents?</h3>
-<p>A distribution (aka an <em>allocation</em>) is simply a partition of our resources into <span class="math inline">n</span> labeled parts, where the labels correspond to agents. As you might guess, this is to say that the agent <span class="math inline">a</span> “recieves” the part labeled <span class="math inline">a</span>. Note that our choice of the word <em>partition</em> implies two important things:</p>
+<section id="what-is-an-allocation-of-resources-among-agents" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-an-allocation-of-resources-among-agents">What is an allocation of resources among agents?</h3>
+<p>An allocation is simply a partition of our resources into <span class="math inline">n</span> labeled parts, where the labels correspond to agents. As you might guess, this is to say that the agent <span class="math inline">a</span> “recieves” the part labeled <span class="math inline">a</span>. Note that our choice of the word <em>partition</em> implies two important things:</p>
 <ol type="1">
 <li>Every resource is allocated to some agent.</li>
 <li>No resource is allocated to more than one agent.</li>
@@ -314,8 +314,8 @@ Normalized Valuations
 <section id="what-about-making-everyone-happy" class="level3">
 <h3 class="anchored" data-anchor-id="what-about-making-everyone-happy">What about making everyone happy?</h3>
 <p>Ah well. This, as you might have guessed, is: (a) the hard part, and (b) not always possible, depending on your definition. <i class="bi-emoji-laughing" style="color: darkseagreen;" role="img" aria-hidden="true"></i></p>
-<p>There are several notions of “happiness” proposed in the fair division literature. Suppose we are trying to distribute <span class="math inline">R</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> among a set of <span class="math inline">n</span> agents <span class="math inline">A</span> whose valuations are given by <span class="math inline">v</span>, and we have come up with a distribution <span class="math inline">D</span>. For an agent <span class="math inline">a</span>, we use <span class="math inline">D_a</span> to denote the part labeled <span class="math inline">a</span> in <span class="math inline">D</span>.</p>
-<p>Here are a few notions suggestive that <span class="math inline">D</span> is a “good” allocation making everyone in <span class="math inline">A</span> happy.</p>
+<p>There are several notions of “happiness” proposed in the fair division literature. Suppose we are trying to divide <span class="math inline">R</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> among a set of <span class="math inline">n</span> agents <span class="math inline">A</span> whose valuations are given by <span class="math inline">v</span>, and we have come up with an allocation <span class="math inline">D</span>. For an agent <span class="math inline">a</span>, we use <span class="math inline">D_a</span> to denote the part labeled <span class="math inline">a</span> in <span class="math inline">D</span>.</p>
+<p>Here are a few notions suggestive that <span class="math inline">D</span> is a “desirable” allocation, making everyone in <span class="math inline">A</span> happy.</p>
 <div class="callout-tip callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -358,7 +358,7 @@ Normalized Valuations
 <p><span class="math display">v(D_a,a) = v(D_b,b) ~~~ \forall a,b \in A.</span></p>
 </div>
 </div>
-<p>Notice that if we didn’t insist on <span class="math inline">D</span> allocating every item to some agent, then we could resort to the happiness-by-Zen approach: in particular, the trivial allocation that gives nobody anything would vacously satisfy most definitions of happiness. Implicitly, our demand for a “complete” allocation can be thought of as an <em>efficiency</em> requirement, and one could also push the bar on this front. For example, a common efficiency notion, borrowed from economics, is Pareto optimality.</p>
+<p>Notice that if we didn’t insist on <span class="math inline">D</span> allocating every item to some agent, then we could resort to the happiness-by-Zen approach: in particular, the trivial allocation that gives nobody anything would vacuously satisfy most definitions of happiness. Implicitly, our demand for a “complete” allocation can be thought of as an <em>efficiency</em> requirement, and one could also push the bar on this front. For example, a common efficiency notion, borrowed from economics, is Pareto optimality.</p>
 <div class="callout-tip callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -374,21 +374,21 @@ Normalized Valuations
 <p>then there is also an agent <span class="math inline">b</span> for whom: <span class="math display"> v(D^\prime_b,b) &lt; v(D_b,b). </span></p>
 </div>
 </div>
-<p>Fix any notion of happiness<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> — say <span class="math inline">P</span>, and efficiency — say <span class="math inline">Q</span>. Two questions are of immediate interest:</p>
+<p>Fix any notion of happiness<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> — say <code>P</code>, and efficiency — say <code>Q</code>. Two questions are of immediate interest:</p>
 <ol type="1">
-<li>Do allocations that satisfy <span class="math inline">P</span> and <span class="math inline">Q</span> always exist?</li>
-<li>For instances that admit allocations that satisfy <span class="math inline">P</span> and <span class="math inline">Q</span>, can such allocations be computed efficiently?</li>
+<li>Do allocations that satisfy <code>P</code> and <code>Q</code> always exist?</li>
+<li>For instances that admit allocations that satisfy <code>P</code> and <code>Q</code>, can such allocations be computed efficiently? And can we quickly determine if such allocations do not exist for a given instance?</li>
 </ol>
-<p>For example, notice that allocations in the sense that we defined them (with an implicit requirement of completeness) that are envy-free need not always exist: consider the situation where you have two agents and one item, and both agents value said item at <span class="math inline">100</span>. Any complete allocation will assign this item to one of these two agents, making the other envious. The same example shows that we cannot guarantee the existence of complete equitable allocations.</p>
+<p>For example, notice that allocations in the sense that we defined them (with an implicit requirement of completeness) that are envy-free need not always exist: consider the situation where you have two agents and one item, and both agents value said item at 100. Any complete allocation will assign this item to one of these two agents, making the other envious. The same example shows that we cannot guarantee the existence of complete equitable allocations.</p>
 <p>Non-existence of nice allocations is always a bit of a bummer, so much research has been devoted to reasonable workarounds, for example:</p>
 <ol type="1">
-<li>What if<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> we didn’t <em>have</em> to allocate <em>everything</em>?</li>
-<li>What if<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> we could <em>introduce</em> some dummy items or money into the systsem to make things work?</li>
-<li>What if<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> the parts were allowed to <em>overlap</em>?</li>
-<li>What if<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> the allocations could be <em>approximately</em> envy-free/equitable?</li>
-<li>What if<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> the valuations were not completely arbitrary?</li>
+<li>What if<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> the allocations could be <em>approximately</em> envy-free/equitable?</li>
+<li>What if<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> the valuations were not completely arbitrary?</li>
+<li>What if<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> we could <em>introduce</em> some dummy items or money into the systsem to make things work?</li>
+<li>What if<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> we didn’t <em>have</em> to allocate <em>everything</em>?</li>
+<li>What if<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> the parts were allowed to <em>overlap</em>?</li>
 </ol>
-<p>Apart from making sense of resonable workarounds, research on fair division also aims to understand tradeoffs <em>between</em> fairness and efficiency. Given an allocation, there are ways in which you can measure its <em>welfare</em> — it’s usually a function of the utilities that all agents derive from the allocation. The “gap” between the maximum welfare you can generate if you were not restricted by fairness requirements v/s the best welfare attainable subject to fairness constraints — known as the <em>price of fairness</em> — is also the topic of much research.</p>
+<p>Apart from making sense of reasonable workarounds, research on fair division also aims to understand tradeoffs <em>between</em> fairness and efficiency. Given an allocation, there are ways in which you can measure its <em>welfare</em> — it’s usually a function of the utilities that all agents derive from the allocation. The “gap” between the maximum welfare you can generate if you were not restricted by fairness requirements v/s the best welfare attainable subject to fairness constraints — known as the <em>price of fairness</em> — is also the topic of much research.</p>
 <p>If any of this piqued your interest, here’s a non-exhaustive list of pointers that I hope will help with finding out more!</p>
 </section>
 <section id="references" class="level2">
@@ -451,11 +451,11 @@ Brandt, Felix, Vincent Conitzer, Ulle Endriss, Jérôme Lang, and Ariel D. Proca
 <ol>
 <li id="fn1"><p>I will implicitly assume the indivisble setting, but the ideas carry over naturally to cake cutting.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Note: the official word is <em>fairness</em>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Fair division with charity, hidden items, and so on.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Fair division with subsidies.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Fractional fair division or fair division with sharing.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>Envy-freeness up to one/any good, equitability up to one/any good, and so on.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>The hope is that restricted sub-classes of valuations may “behave” better.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Envy-freeness up to one/any good, equitability up to one/any good, and so on.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>The hope is that restricted sub-classes of valuations may “behave” better.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Fair division with subsidies.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Fair division with charity, hidden items, and so on.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Fractional fair division or fair division with sharing.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>

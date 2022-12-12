@@ -19,3 +19,25 @@
 p, body{
     font-family: 'heliotrope_3' !important;
 }
+
+.v-center-container {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+
+.textcenter{
+    text-align: center !important;
+    font-family: 'heliotrope_3' !important;
+    color: olivedrab;
+}
+
+.center-xy {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateY(-50%), translateX(-50%);
+    transform: translateY(-50%), translateX(-50%);
+}

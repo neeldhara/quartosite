@@ -1,0 +1,181 @@
+---
+title: "Overview"
+bibliography: pointers.bib
+toc: false
+sidebar: false
+css: /css/research.css
+---
+
+:::{.column-body-outset}
+
+# Fair Division
+
+Studies of fair division aim to find ways of distributing resources among people (aka agents) --- who have preferences over said resources --- in such a way that makes everyone happy. 
+
+That was a loaded statement, and as we will see, there are a number of ways in which it can be made precise.
+
+{{< bi exclamation-triangle-fill color="indianred" >}} [The language in this short essay is deliberately informal. Please take a look at some of the references for proper definitions, notation, and etiquette. The goal here is to just convey, briefly, the major lines of inquiry in fair division research.]{.red}
+
+### What are resources?
+
+Resources, broadly speaking, refer to the thing(s) we want to distribute. It might refer to discrete items (e.g, cars) that are typically infeasible to "break" further, or a continuous object (e.g, a piece of land). In the former setting, one simply models the resources as a finite set, while the in the latter, it is convenient to think of the resource as the interval $[0,1]$. These scenarios are usually called the settings of _indivisible goods_ and _cake cutting_, respectively.
+
+Although it doesn't sound like it, a resource may also refer to something not entirely empowering, such as a (usually tiresome) task that needs to be done. Such resources are often called _chores_. 
+
+In short: resources are thing(s) that need distributing.
+
+### What (umm... who?) are agents?
+
+Agents lie the heart of the problem: to keep things meanigful we assume there's more than one, and rest assured, things already get interesting with just two of them, although we often have more of them to worry about. These are the folks who are eyeing (or avoiding, depending on the situation) a large share of the resources. 
+
+### What are preferences?
+
+Our agents have... opinions. They all come with their own perspectives on resources. These preferences can be expressed with a valuation function $v$, which takes as input a subset of resources and a choice of agent, and reports the value that said agent has for said resources. 
+
+For instance, in the indivisible setting: if $S$ is a subset of items and $a$ is an agent, we could probe $v(S,a)$ to appreciate the utility that the agent derives if s/he were to be given all the items in $S$ (and nothing else).
+
+:::{.callout-note icon="false"}
+
+# Additive Valuations
+
+For indivisible items, it's common to assume that valuations are additive, i.e, the value that an agent has for a _bundle_ of items $S$ is the same as the sum of the values that it has for each of the individual items, i.e: $v(S,a) = \sum_{x \in S}v(\{x\},a)$.
+
+:::
+
+:::{.callout-note icon="false"}
+
+# Normalized Valuations
+
+To make apples-to-apples comparisons between agents, it is common to assume that the values themselves are _normalized_: imagine that every agent has 100 points that they must use fully to express their desires. 
+
+In other words, if $R$ is the set of _all_ resources, we have: $v(R,a) = 100$ for all agents $a$.
+
+:::
+
+### What is a distribution of resources among agents?
+
+A distribution (aka an _allocation_) is simply a partition of our resources into $n$ labeled parts, where the labels correspond to agents. As you might guess, this is to say that the agent $a$ "recieves" the part labeled $a$. Note that our choice of the word _partition_ implies two important things:
+
+1. Every resource is allocated to some agent.
+2. No resource is allocated to more than one agent. 
+
+The first point implies that no resources are thrown away, while the second point implies that there is no sharing. Sometimes, we may want to relax these aspects of the definition: this is nonetheless a good place to start.
+
+### What about making everyone happy?
+
+Ah well. This, as you might have guessed, is: (a) the hard part, and (b) not always possible, depending on your definition. {{< bi emoji-laughing color="darkseagreen" >}}
+
+There are several notions of "happiness" proposed in the fair division literature. Suppose we are trying to distribute a resource $R$ among a set of $n$ agents $A$ whose valuations are given by $v$, and we have come up with a distribution $D$. For an agent $a$, we use $D_a$ to denote the part labeled $a$ in $D$. 
+
+Here are a few notions suggestive that $D$ is a "good" allocation making everyone in $A$ happy.
+
+:::{.callout-tip icon="false"}
+
+# {{< bi tools >}} Proportional Division
+
+The allocation $D$ is _proportional_ if every agent gets at least their "due" share according to his own value function. In particular, each of the $n$ agents gets a subset of $R$ which they value as at least $1/n$ of the total value:
+
+$$ V(D_a,a)\geqslant V_{a}(R)/n ~~~ \forall a \in A.$$
+
+:::
+
+:::{.callout-tip icon="false"}
+
+# {{< bi tools >}} Envy-Freeness
+
+The allocation $D$ is _envy-free_ if no agent values someone else's bundle more than their own: i.e, if an agent $a$ considers agent $b$'s bundle, they find that they value their _own_ bundle _at least as much_ as they value $b$'s:
+
+$$v(D_a,a) \geqslant v(D_b,a) ~~~ \forall a,b \in A.$$
+
+:::
+
+:::{.callout-tip icon="false"}
+
+# {{< bi tools >}} Equitability
+
+The allocation $D$ is _equitable_ if all agents have the same value for their bundles:
+
+$$v(D_a,a) = v(D_b,b) ~~~ \forall a,b \in A.$$
+
+
+:::
+
+Notice that if we didn't insist on $D$ allocating every item to some agent, the trivial allocation that gives nobody anything trivially satisfies the definition above. Implicitly, our demand for a "complete" allocation can be thought of as an _efficiency_ requirement, and one could also push the bar on this front. For example, a common efficiency notion, borrowed from economics, is Pareto optimality.
+
+:::{.callout-tip icon="false"}
+
+# {{< bi tools >}} Pareto Optimality
+
+The allocation $D$ is _Pareto optimal_ if **no other allocation** would make someone better off without making someone else worse off. In other words, for any allocation $D^\prime \neq D$, if there exists an agent $a$ for whom:
+
+$$ v(D^\prime_a,a) > v(D_a,a), $$
+
+then there is also an agent $b$ for whom:
+$$ v(D^\prime_b,b) < v(D_b,b). $$
+
+:::
+
+Fix any notion of happiness (note: the official word is "fairness") --- say $P$, and efficiency --- say $Q$. Two questions are of immediate interest:
+
+1. Do allocations that satisfy $P$ and $Q$ always exist?
+2. For instances that admit allocations that satisfy $P$ and $Q$, can such allocations be computed efficiently?
+
+For example, notice that allocations in the sense that we defined them (with an implicit requirement of completeness) that are envy-free need not always exist: consider the situation where you have two agents and one item, and both agents value said item at $100$. Any complete allocation will assign this item to one of these two agents, making the other envious. The same example shows that we cannot guarantee the existence of complete equitable allocations. Non-existence of nice allocations is always a bit of a bummer, so much research has been devoted to reasonable workarounds, for example:
+
+1. What if^[Fair division with charity, hidden items, and so on.] we didn't _have_ to allocate _everything_? 
+2. What if^[Fair division with subsidies.] we could _introduce_ some dummy items or money into the systsem to make things work? 
+3. What if^[Fractional fair division or fair division with sharing.] the parts were allowed to _overlap_? 
+4. What if^[Envy-freeness up to one/any good, equitability up to one/any good, and so on.] the allocations could be _approximately_ envy-free/equitable? 
+5. What if^[The hope is that restricted sub-classes of valuations may "behave" better.] the valuations were not completely arbitrary?
+
+Apart from making sense of resonable workarounds, research on fair division also aims to understand tradeoffs _between_ fairness and efficiency. Given an allocation, there are ways in which you can measure its _welfare_ --- it's usually a function of the utilities that all agents derive from the allocation. The "gap" between the maximum welfare you can generate if you were not restricted by fairness requirements v/s the best welfare attainable subject to fairness constraints --- known as the _price of fairness_ --- is also the topic of much research.
+
+---
+
+
+## References
+
+- Part II in the Handbook of Computational Social Choice [@comsoc-handbook] is a great place to start (the handbook can be downloaded from [here](https://www.cse.unsw.edu.au/~haziz/comsoc.pdf)).
+
+- For indivisible goods, [@indivisible-goods-survey] is an excellent and --- at least at the time of this writing --- recent survey covering the state of the art and highlighting major open problems.
+
+- Several talks in the [COMSOC Seminar Series](https://www.comsocseminar.org) are focused on problems in fair division. Watch out for (among others):
+
+    1. Ayumi Igarashi (NII Tokyo): Fair Division of House Chores 
+    2. Warut Suksompong (Singapore): Picking Sequences and Monotonicity in Weighted Fair Division
+    3. Erel Segal-Halevi (Ariel): Fair Division of Electricity
+    4. Maria Kyropoulou (Essex): On Interim Envy-Free Allocation Lotteries
+    5. Anna Bogomolnaia (Glasgow): Guarantees in Fair Division
+    6. Francis Su (Harvey Mudd): Multilabeled Versions of Sperner's and Fan's Lemmas and Applications
+    7. Xiaohui Bei (Nanyang Technological University): Fair Division of Mixed Divisible and Indivisible Goods
+    8. Jérôme Lang (Paris): Collective Decision Making under Incomplete Knowledge: Possible and Necessary Solutions
+
+- Rohit Vaish taught an excellent mini-course on Fair Division at IIT Gandhinagar in 2018:
+
+    1. Introduction to Cake Cutting [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=8rsMLd6n0rM)
+    2. Introduction to the setting of Indivisible Goods [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=NQf_RqmJ9p8)
+    3. Cake Cutting Revisited [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=rfe1_dzbsy4)
+    4. Algorithms for Indivisible Goods [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=1yhYfOV65M4)
+    5. Open Problems [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=zND-bp1K5Uw)
+
+- Several lectures in the ACM Summer School on Game Theory (by Siddarth Barman and Nidhi Rathi) were on themes related to Fair Division:
+
+    1. An Introduction to Cake-Cutting [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=yV7oLK3gkPM)
+    2. Two Algorithms for Finding Proportional Allocations [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=kYhpTPX2SAw)
+    3. Envy-Freenes and Approximate EF [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=FhEy6nmwwOE)
+    4. Sperner's Lemma and Applications [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=Y3cp9tKJm_U)
+    5. Cake Cutting with a Secret Agent [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=RZTsX_u0JaM)
+    6. Fairness Notions for Indivisible Goods [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=yDxOMOeVdaA)
+    7. Computing EF1 Allocations: Cycle Trading and Round Robin [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=1MPBhy6Qe_Y)
+    8. An Introduction to Rent Division [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=8147zagTd6U)
+    9. Rent Division and Maximum Weight Matchings [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=BonvmuGock4)
+    10. Hall's Theorem and Maximin Share [{{< bi youtube color="indianred" >}}](https://www.youtube.com/watch?v=tJFzm5EGpCo)
+
+- Check out the talks on _Algorithms for Fair Division and Collective Welfare_ by Siddharth Barman ([Part 1](https://www.youtube.com/watch?v=uy6wRFdjhI8&list=PLhkiT_RYTEU2ZFNHsjwF9keTSLQyyutor&index=14), [Part 2](https://www.youtube.com/watch?v=t26C33rSuEo&list=PLhkiT_RYTEU2ZFNHsjwF9keTSLQyyutor&index=19)) at Recent Trends in Algorithms, 2022.
+
+
+- Visualize several fair division algorithms at [MatchU](http://www.matchu.ai), a project by [Hadi Hosseini](https://faculty.ist.psu.edu/hadi/).
+
+- This is a lovely [popular lecture on Cake Cutting](https://www.youtube.com/watch?v=CBVg8x4LWZE) by [Francis Su](https://math.hmc.edu/su/).
+
+:::

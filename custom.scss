@@ -113,6 +113,8 @@ $primary:  #1d90e2 !default;
 $body-color: rgb(33, 87, 132) !default;
 $navbar-hl: black !default;
 
+$myred: indianred !default;
+
 $font-family-base:  'heliotrope_3',  'Lato', 'Merriweather', 'Roboto Regular', 'Cabin Regular' !default;
 
 $headings-font-family:  'heliotrope_3', 'Prata', 'Roboto', 'Playfair Display', 'Montserrat'    !default;
@@ -124,4 +126,8 @@ $link-decoration: none !default;
 $bs-body-bg: white !important; 
 :root{
     --bs-body-bg: white !important; 
+}
+
+.red{
+    color: $myred;
 }

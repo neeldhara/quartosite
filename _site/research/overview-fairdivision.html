@@ -374,21 +374,22 @@ Normalized Valuations
 <p>then there is also an agent <span class="math inline">b</span> for whom: <span class="math display"> v(D^\prime_b,b) &lt; v(D_b,b). </span></p>
 </div>
 </div>
-<p>Fix any notion of happiness (note: the official word is “fairness”) — say <span class="math inline">P</span>, and efficiency — say <span class="math inline">Q</span>. Two questions are of immediate interest:</p>
+<p>Fix any notion of happiness<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> — say <span class="math inline">P</span>, and efficiency — say <span class="math inline">Q</span>. Two questions are of immediate interest:</p>
 <ol type="1">
 <li>Do allocations that satisfy <span class="math inline">P</span> and <span class="math inline">Q</span> always exist?</li>
 <li>For instances that admit allocations that satisfy <span class="math inline">P</span> and <span class="math inline">Q</span>, can such allocations be computed efficiently?</li>
 </ol>
-<p>For example, notice that allocations in the sense that we defined them (with an implicit requirement of completeness) that are envy-free need not always exist: consider the situation where you have two agents and one item, and both agents value said item at <span class="math inline">100</span>. Any complete allocation will assign this item to one of these two agents, making the other envious. The same example shows that we cannot guarantee the existence of complete equitable allocations. Non-existence of nice allocations is always a bit of a bummer, so much research has been devoted to reasonable workarounds, for example:</p>
+<p>For example, notice that allocations in the sense that we defined them (with an implicit requirement of completeness) that are envy-free need not always exist: consider the situation where you have two agents and one item, and both agents value said item at <span class="math inline">100</span>. Any complete allocation will assign this item to one of these two agents, making the other envious. The same example shows that we cannot guarantee the existence of complete equitable allocations.</p>
+<p>Non-existence of nice allocations is always a bit of a bummer, so much research has been devoted to reasonable workarounds, for example:</p>
 <ol type="1">
-<li>What if<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> we didn’t <em>have</em> to allocate <em>everything</em>?</li>
-<li>What if<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> we could <em>introduce</em> some dummy items or money into the systsem to make things work?</li>
-<li>What if<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> the parts were allowed to <em>overlap</em>?</li>
-<li>What if<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> the allocations could be <em>approximately</em> envy-free/equitable?</li>
-<li>What if<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> the valuations were not completely arbitrary?</li>
+<li>What if<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> we didn’t <em>have</em> to allocate <em>everything</em>?</li>
+<li>What if<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> we could <em>introduce</em> some dummy items or money into the systsem to make things work?</li>
+<li>What if<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> the parts were allowed to <em>overlap</em>?</li>
+<li>What if<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> the allocations could be <em>approximately</em> envy-free/equitable?</li>
+<li>What if<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> the valuations were not completely arbitrary?</li>
 </ol>
 <p>Apart from making sense of resonable workarounds, research on fair division also aims to understand tradeoffs <em>between</em> fairness and efficiency. Given an allocation, there are ways in which you can measure its <em>welfare</em> — it’s usually a function of the utilities that all agents derive from the allocation. The “gap” between the maximum welfare you can generate if you were not restricted by fairness requirements v/s the best welfare attainable subject to fairness constraints — known as the <em>price of fairness</em> — is also the topic of much research.</p>
-<p>If any of this piqued your interest, you can find below a list of pointers to find out more.</p>
+<p>If any of this piqued your interest, here’s a non-exhaustive list of pointers that I hope will help with finding out more!</p>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
@@ -449,11 +450,12 @@ Brandt, Felix, Vincent Conitzer, Ulle Endriss, Jérôme Lang, and Ariel D. Proca
 
 <ol>
 <li id="fn1"><p>I will implicitly assume the indivisble setting, but the ideas carry over naturally to cake cutting.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Fair division with charity, hidden items, and so on.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Fair division with subsidies.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Fractional fair division or fair division with sharing.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Envy-freeness up to one/any good, equitability up to one/any good, and so on.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>The hope is that restricted sub-classes of valuations may “behave” better.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Note: the official word is <em>fairness</em>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Fair division with charity, hidden items, and so on.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Fair division with subsidies.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Fractional fair division or fair division with sharing.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Envy-freeness up to one/any good, equitability up to one/any good, and so on.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>The hope is that restricted sub-classes of valuations may “behave” better.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>

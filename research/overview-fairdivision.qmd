@@ -115,12 +115,14 @@ $$ v(D^\prime_b,b) < v(D_b,b). $$
 
 :::
 
-Fix any notion of happiness (note: the official word is "fairness") --- say $P$, and efficiency --- say $Q$. Two questions are of immediate interest:
+Fix any notion of happiness^[Note: the official word is _fairness_.] --- say $P$, and efficiency --- say $Q$. Two questions are of immediate interest:
 
 1. Do allocations that satisfy $P$ and $Q$ always exist?
 2. For instances that admit allocations that satisfy $P$ and $Q$, can such allocations be computed efficiently?
 
-For example, notice that allocations in the sense that we defined them (with an implicit requirement of completeness) that are envy-free need not always exist: consider the situation where you have two agents and one item, and both agents value said item at $100$. Any complete allocation will assign this item to one of these two agents, making the other envious. The same example shows that we cannot guarantee the existence of complete equitable allocations. Non-existence of nice allocations is always a bit of a bummer, so much research has been devoted to reasonable workarounds, for example:
+For example, notice that allocations in the sense that we defined them (with an implicit requirement of completeness) that are envy-free need not always exist: consider the situation where you have two agents and one item, and both agents value said item at $100$. Any complete allocation will assign this item to one of these two agents, making the other envious. The same example shows that we cannot guarantee the existence of complete equitable allocations. 
+
+Non-existence of nice allocations is always a bit of a bummer, so much research has been devoted to reasonable workarounds, for example:
 
 1. What if^[Fair division with charity, hidden items, and so on.] we didn't _have_ to allocate _everything_? 
 2. What if^[Fair division with subsidies.] we could _introduce_ some dummy items or money into the systsem to make things work? 
@@ -130,7 +132,7 @@ For example, notice that allocations in the sense that we defined them (with an 
 
 Apart from making sense of resonable workarounds, research on fair division also aims to understand tradeoffs _between_ fairness and efficiency. Given an allocation, there are ways in which you can measure its _welfare_ --- it's usually a function of the utilities that all agents derive from the allocation. The "gap" between the maximum welfare you can generate if you were not restricted by fairness requirements v/s the best welfare attainable subject to fairness constraints --- known as the _price of fairness_ --- is also the topic of much research.
 
-If any of this piqued your interest, you can find below a list of pointers to find out more.
+If any of this piqued your interest, here's a non-exhaustive list of pointers that I hope will help with finding out more!
 
 ## References
 

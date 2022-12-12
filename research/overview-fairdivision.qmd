@@ -65,7 +65,7 @@ The first point implies that no resources are thrown away, while the second poin
 
 Ah well. This, as you might have guessed, is: (a) the hard part, and (b) not always possible, depending on your definition. {{< bi emoji-laughing color="darkseagreen" >}}
 
-There are several notions of "happiness" proposed in the fair division literature. Suppose we are trying to distribute a resource $R$ among a set of $n$ agents $A$ whose valuations are given by $v$, and we have come up with a distribution $D$. For an agent $a$, we use $D_a$ to denote the part labeled $a$ in $D$. 
+There are several notions of "happiness" proposed in the fair division literature. Suppose we are trying to distribute $R$^[I will implicitly assume the indivisble setting, but the ideas carry over naturally to cake cutting.] among a set of $n$ agents $A$ whose valuations are given by $v$, and we have come up with a distribution $D$. For an agent $a$, we use $D_a$ to denote the part labeled $a$ in $D$. 
 
 Here are a few notions suggestive that $D$ is a "good" allocation making everyone in $A$ happy.
 
@@ -100,7 +100,7 @@ $$v(D_a,a) = v(D_b,b) ~~~ \forall a,b \in A.$$
 
 :::
 
-Notice that if we didn't insist on $D$ allocating every item to some agent, the trivial allocation that gives nobody anything trivially satisfies the definition above. Implicitly, our demand for a "complete" allocation can be thought of as an _efficiency_ requirement, and one could also push the bar on this front. For example, a common efficiency notion, borrowed from economics, is Pareto optimality.
+Notice that if we didn't insist on $D$ allocating every item to some agent, then we could resort to the happiness-by-Zen approach: in particular, the trivial allocation that gives nobody anything would vacously satisfy most definitions of happiness. Implicitly, our demand for a "complete" allocation can be thought of as an _efficiency_ requirement, and one could also push the bar on this front. For example, a common efficiency notion, borrowed from economics, is Pareto optimality.
 
 :::{.callout-tip icon="false"}
 

@@ -314,7 +314,7 @@ Normalized Valuations
 <section id="what-about-making-everyone-happy" class="level3">
 <h3 class="anchored" data-anchor-id="what-about-making-everyone-happy">What about making everyone happy?</h3>
 <p>Ah well. This, as you might have guessed, is: (a) the hard part, and (b) not always possible, depending on your definition. <i class="bi-emoji-laughing" style="color: darkseagreen;" role="img" aria-hidden="true"></i></p>
-<p>There are several notions of “happiness” proposed in the fair division literature. Suppose we are trying to distribute a resource <span class="math inline">R</span> among a set of <span class="math inline">n</span> agents <span class="math inline">A</span> whose valuations are given by <span class="math inline">v</span>, and we have come up with a distribution <span class="math inline">D</span>. For an agent <span class="math inline">a</span>, we use <span class="math inline">D_a</span> to denote the part labeled <span class="math inline">a</span> in <span class="math inline">D</span>.</p>
+<p>There are several notions of “happiness” proposed in the fair division literature. Suppose we are trying to distribute <span class="math inline">R</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> among a set of <span class="math inline">n</span> agents <span class="math inline">A</span> whose valuations are given by <span class="math inline">v</span>, and we have come up with a distribution <span class="math inline">D</span>. For an agent <span class="math inline">a</span>, we use <span class="math inline">D_a</span> to denote the part labeled <span class="math inline">a</span> in <span class="math inline">D</span>.</p>
 <p>Here are a few notions suggestive that <span class="math inline">D</span> is a “good” allocation making everyone in <span class="math inline">A</span> happy.</p>
 <div class="callout-tip callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -358,7 +358,7 @@ Normalized Valuations
 <p><span class="math display">v(D_a,a) = v(D_b,b) ~~~ \forall a,b \in A.</span></p>
 </div>
 </div>
-<p>Notice that if we didn’t insist on <span class="math inline">D</span> allocating every item to some agent, the trivial allocation that gives nobody anything trivially satisfies the definition above. Implicitly, our demand for a “complete” allocation can be thought of as an <em>efficiency</em> requirement, and one could also push the bar on this front. For example, a common efficiency notion, borrowed from economics, is Pareto optimality.</p>
+<p>Notice that if we didn’t insist on <span class="math inline">D</span> allocating every item to some agent, then we could resort to the happiness-by-Zen approach: in particular, the trivial allocation that gives nobody anything would vacously satisfy most definitions of happiness. Implicitly, our demand for a “complete” allocation can be thought of as an <em>efficiency</em> requirement, and one could also push the bar on this front. For example, a common efficiency notion, borrowed from economics, is Pareto optimality.</p>
 <div class="callout-tip callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -381,11 +381,11 @@ Normalized Valuations
 </ol>
 <p>For example, notice that allocations in the sense that we defined them (with an implicit requirement of completeness) that are envy-free need not always exist: consider the situation where you have two agents and one item, and both agents value said item at <span class="math inline">100</span>. Any complete allocation will assign this item to one of these two agents, making the other envious. The same example shows that we cannot guarantee the existence of complete equitable allocations. Non-existence of nice allocations is always a bit of a bummer, so much research has been devoted to reasonable workarounds, for example:</p>
 <ol type="1">
-<li>What if<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> we didn’t <em>have</em> to allocate <em>everything</em>?</li>
-<li>What if<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> we could <em>introduce</em> some dummy items or money into the systsem to make things work?</li>
-<li>What if<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> the parts were allowed to <em>overlap</em>?</li>
-<li>What if<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> the allocations could be <em>approximately</em> envy-free/equitable?</li>
-<li>What if<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> the valuations were not completely arbitrary?</li>
+<li>What if<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> we didn’t <em>have</em> to allocate <em>everything</em>?</li>
+<li>What if<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> we could <em>introduce</em> some dummy items or money into the systsem to make things work?</li>
+<li>What if<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> the parts were allowed to <em>overlap</em>?</li>
+<li>What if<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> the allocations could be <em>approximately</em> envy-free/equitable?</li>
+<li>What if<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> the valuations were not completely arbitrary?</li>
 </ol>
 <p>Apart from making sense of resonable workarounds, research on fair division also aims to understand tradeoffs <em>between</em> fairness and efficiency. Given an allocation, there are ways in which you can measure its <em>welfare</em> — it’s usually a function of the utilities that all agents derive from the allocation. The “gap” between the maximum welfare you can generate if you were not restricted by fairness requirements v/s the best welfare attainable subject to fairness constraints — known as the <em>price of fairness</em> — is also the topic of much research.</p>
 <p>If any of this piqued your interest, you can find below a list of pointers to find out more.</p>
@@ -448,11 +448,12 @@ Brandt, Felix, Vincent Conitzer, Ulle Endriss, Jérôme Lang, and Ariel D. Proca
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Fair division with charity, hidden items, and so on.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Fair division with subsidies.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Fractional fair division or fair division with sharing.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Envy-freeness up to one/any good, equitability up to one/any good, and so on.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>The hope is that restricted sub-classes of valuations may “behave” better.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>I will implicitly assume the indivisble setting, but the ideas carry over naturally to cake cutting.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Fair division with charity, hidden items, and so on.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Fair division with subsidies.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Fractional fair division or fair division with sharing.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Envy-freeness up to one/any good, equitability up to one/any good, and so on.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>The hope is that restricted sub-classes of valuations may “behave” better.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>

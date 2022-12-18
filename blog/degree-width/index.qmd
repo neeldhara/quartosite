@@ -1,0 +1,137 @@
+---
+title: "Degreewidth"
+date: "2022-12-17"
+categories: [talk, exposition]
+fields: [date, title]
+toc: true
+draft: true
+---
+
+:::{.callout-note appearance="minimal"}
+This is a post based on a talk given by [Sanjukta Roy](https://sites.google.com/view/sanjuktaroy/home) at IMSc.
+:::
+
+---
+
+### Sparse Tournaments
+
+A _tournament_ $T$ is a directed graph where you have a directed edge between every pair of vertices. If you lined up the vertices of a tournament on a line, i.e, identified a permutation $\sigma$ of the vertex set of the tournament, then the arcs $(u \rightsquigarrow v)$ split up into one of two kinds: 
+
+- the _forward_ arcs are the ones where $\sigma(u) < \sigma(v)$,
+- the _backward_ arcs are the ones where $\sigma(u) > \sigma(v)$.
+
+Acyclic tournaments --- ones with no directed cycles --- admit orderings with _no_ backward arcs (or no _forward_ arcs, take your pick). This is intuitive: start at a vertex $v$ and take a directed walk until you're stuck. You must be stuck^[Indeed, you cannot keep going forever since you cannot repeat vertices (since there are no cycles), and at some point you would run out of vertices, and the outdegree is zero because you are stuck.] at a vertex that has outdegree zero. Position this vertex at the end of the order, remove it from the tournament^[Note that if $T$ is an acyclic tournament and $v \in V(T)$, then $T \setminus \{v\}$, the tournament with $v$ removed, is _also_ acyclic.], rinse, repeat: you end up with an ordering where all arcs face forward.
+
+If you think of a tournament as a representation of head-to-head contest outcomes --- with the edge $(u \rightsquigarrow v)$ indicating that $u$ beats $v$ --- then acyclic tournaments are ones where there are no upsets (if `A` beats `B` and `B` beats `C`, you'd expect `A` to beat `C`: a cycle violates this intuition). Note that the ordering we came up with above can be thought of as a naturally inferred _ranking_ from the performances given by the tournament: the vertex at the start of the ordering defeats every other vertex and is the strongest player, and so on. From here, we may be interested in defining 
+
+A tournament is _sparse_ if it admits an ordering with its backward arcs being a matching. 
+
+<div style="border: 1.5px solid black; padding: 7px;">
+![An example of a tournament (left) with a few layouts (right). <br> Image borrowed from [this talk](https://www.youtube.com/watch?v=WVXbiUSFH1w).](backedges.gif)
+</div>
+
+<br>
+
+For a tournament `T`, let `MID(T)` denote the minimum degree of the tournament `T`. Recall that the algorithm for finding a topological ordering, which is an extreme manifestation of sparsity, goes like this:
+
+
+<blockquote>
+```
+if MID(T) = 0 then:
+    Put the vertex v of indegree 0 at the end of the output order
+    Remove v from T
+    Repeat
+else:
+    Return FALSE
+```
+</blockquote>
+
+We will now generalize this to a recognition algorithm for sparse tournaments. We make a few easy observations in quick succession:
+
+- So long as we have indegree zero vertices, we can thrown them in at the head of the order just as before. Happy happy. 
+
+- If the vertex with the lowest indegree has indegree two, then it's evident that we're going to be quite stuck. Indeed, note that the first vertex in an ordering witnessing the sparisty of any allegedly sparse tournament has indegree at most one (zero if there are no backward arcs incident on it, and one if there's one, and recall that that's about all that we have room). Therefore, a tournament whose minimum indegree is two cannot be sparse, end of story. Still happy.
+
+- The only remaining scenario is that the vertices that have the smallest indegree have indegree one. At this point, life is interesting: we first note that any tournament can have at most three vertices of indegree one.
+
+  :::{.callout-note icon="false" collapse="true"}
+  # {{< bi tools color="darkseagreen" >}} [The number of vertices of indegree one.]{.green}
+  **Claim. A tournament has at most three vertices of indegree one.**
+  
+  _Proof sketch._ Suppose there are more than three vertices that have indegree one. In particular, let us pull up four vertices `a`, `b`, `c`, and `d` that all have indegree one. WLOG, suppose the edge between `a` and `b` is oriented from `a` to `b`. Then all remaining edges incident on `b` are oriented _away_ from `b`, since `b` has "used up" its budget of one in-neighbor. But this pushes the indegree of both `c` and `d` to one already. Now, no matter how we orient the edge between `c` and `d`, at least one of them will have to endure their indegree spilling over beyond one, which contradicts our assumption about `c` and `d` both being vertices of indegree one.
+
+  Note that a tournament _can_ have three vertices of indegree one: consider the triangle.
+  :::
+
+  Now: if we have just one of them, we can have it lead from the front; if we have three of them --- as we noted in the argument above --- they must form a triangle and it turns out that they can again be neatly arranged upfront. Happy again!
+  
+  However, if we have _exactly two of them_, then next steps cease to obvious. In this situation we defer our happiness to a little bit later.
+
+Let's summarize our algorithm so far. 
+
+<blockquote>
+<pre>
+if MID(T) = 0 then:
+    Put the vertex v of indegree 0 at the end of the output order
+    Remove v from T
+    Repeat
+elseif MID(T) = 1 then:
+    if there is exactly one vertex u of indegree one:
+        Put u at the end of the output order
+        Remove u from T
+        Repeat
+    elseif there are exactly two vertices p and q of indegree one:
+        <span style="color:indianred;">Life is complicated</span>
+    else there must be exactly three vertices x, y, and z of indegree one:
+        x,y,z form a triangle
+        Position them CAREFULLY at the start
+        Remove x,y,z from T
+        Repeat
+elseif MID(T) > 1 then:
+    Return FALSE
+end
+</pre>
+</blockquote>
+
+
+### A Structural Result
+
+We now introduce a cool result.
+
+:::{.callout-important icon="false"}
+# **Theorem.**
+
+If a tournament $T$ admits a sparse ordering $\sigma$ without any forbidden patterns, then the set of backward arcs w.r.t $\sigma$ is a minimum feedback arc set of $T$.
+:::
+
+Let $B:=((u_1, v_1), \cdots, (u_k, v_k))$ be the set of backward arcs defined by $\sigma$, ordered from the left to right
+Let $F$ be an arbitrary feedback arc set of $T$
+Let $x_i$ be the vertex right after $v_i$ in $\sigma$, and $y_i$ be the vertex right after $x_i$ in $\sigma$
+
+We construct $f$ iteratively by assigning the backward arcs from $B$ as follows:
+
+- If $(u_i, v_i) \in F$, then we set $f(u_i, v_i) = (u_i, v_i)$
+- If $(u_i, v_i) \notin F$ and $(x_i, u_i) \in F$, then we set $f(u_i, v_i) = (x_i, u_i)$
+- If $(u_i, v_i) \notin F$ and $(x_i, u_i) \notin F$ and $f^{-1}(v_i, x_i) = \varnothing$, then we set $f(u_i, v_i) = (v_i, x_i)$
+- Otherwise, let $a$ be an arc in $F \cap \{(v_i, y_i),(y_i, u_i)\}$. We set $f(u_i, v_i) = a$.
+
+:::{.callout-important}
+# Exercise for the reader^[...and yours truly!]
+
+Argue that $f$ is a bijection.
+:::
+
+### Degreewidth
+
+Let us recall the definition of cutwidth.
+
+
+
+### Relationship with other parameters
+
+### Open Problems
+
+
+
+
+

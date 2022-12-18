@@ -1,0 +1,59 @@
+---
+title: "b-Matching Games"
+date: "2022-12-18"
+categories: [talk, exposition]
+fields: [date, title]
+toc: true
+draft: true
+---
+
+:::{.callout-note appearance="minimal"}
+This is a post based on a talk given by Vijay Vazirani at FSTTCS.
+:::
+
+---
+
+### Some Examples
+
+Forming mixed-doubles teams for a tournament:   
+
+### The Assignment Game
+
+The setting:
+
+- Bipartite graph, $G = (U,V,E), w:E \longrightarrow \mathbb{Q}_+$
+- $U$: women players
+- $V$: men players
+- $U \cup V$: grand coalition
+- $E$: possible teams
+- $w(e)$: expected earnings of team $e$
+- <span style="color: indianred;">Total profit: max weight matching in $G$.</span>
+
+
+:::{.callout-tip icon="false"}
+# {{< bi patch-question-fill color="darkseagreen" >}} Key Question
+How to distribute the total profit among players _fairly_?
+:::
+
+### LP-formuations
+
+Primal LP:
+$$
+\begin{aligned}
+\max \sum_{e \in E}  w_e x_e & \\
+\text { s.t. } \quad \forall i \in U: \sum_{(i, j) \in E} x_{i j} & \leqslant 1 \\
+\forall j \in V: \sum_{(i, j) \in E} x_{i j} & \leqslant 1 \\
+\forall e: x_e & \geqslant 0
+\end{aligned}
+$$
+Dual LP:
+$$
+\begin{aligned}
+\min \sum_{i \in U} y_i+\sum_{j \in V} y_j & \\
+\text{s.t.} \quad \forall(i, j) \in E:  y_i+y_j & \geqslant & 0 \\
+\forall i \in U:  y_i & \geqslant 0 \\
+\forall j \in V:  y_j & \geqslant 0
+\end{aligned}
+$$
+
+

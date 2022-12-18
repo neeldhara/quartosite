@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-02-25">
+<meta name="dcterms.date" content="2022-12-17">
 
-<title>Neeldhara - Kidney Exchanges</title>
+<title>Neeldhara - Degreewidth</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,6 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -214,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Kidney Exchanges</h1>
+      <h1 class="title">Degreewidth</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">talk</div>
                 <div class="quarto-category">exposition</div>
@@ -229,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 25, 2022</p>
+        <p class="date">December 17, 2022</p>
       </div>
     </div>
     
@@ -245,10 +246,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
-  <li><a href="#an-algorithm-for-oke" id="toc-an-algorithm-for-oke" class="nav-link" data-scroll-target="#an-algorithm-for-oke">An Algorithm for OKE</a></li>
-  <li><a href="#other-results" id="toc-other-results" class="nav-link" data-scroll-target="#other-results">Other Results</a></li>
-  <li><a href="#pointers" id="toc-pointers" class="nav-link" data-scroll-target="#pointers">Pointers</a></li>
+  <li><a href="#sparse-tournaments" id="toc-sparse-tournaments" class="nav-link active" data-scroll-target="#sparse-tournaments">Sparse Tournaments</a></li>
+  <li><a href="#a-structural-result" id="toc-a-structural-result" class="nav-link" data-scroll-target="#a-structural-result">A Structural Result</a></li>
+  <li><a href="#degreewidth" id="toc-degreewidth" class="nav-link" data-scroll-target="#degreewidth">Degreewidth</a></li>
+  <li><a href="#relationship-with-other-parameters" id="toc-relationship-with-other-parameters" class="nav-link" data-scroll-target="#relationship-with-other-parameters">Relationship with other parameters</a></li>
+  <li><a href="#open-problems" id="toc-open-problems" class="nav-link" data-scroll-target="#open-problems">Open Problems</a></li>
   </ul>
 </nav>
     </div>
@@ -258,114 +260,142 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This post is based on an excellent (chalk and board!) talk that <a href="https://cse.iitkgp.ac.in/~palash/">Palash Dey</a> gave at IIT Gandhinagar today. This is his joint work with <a href="https://sites.google.com/view/arnab-maiti/home">Arnab Maiti</a>, to appear as an <a href="https://aamas2022-conference.auckland.ac.nz/accepted/extended-abstracts/">extended abstract</a> at <a href="https://aamas2022-conference.auckland.ac.nz/">AAMAS 2022</a> (<a href="https://arxiv.org/pdf/2112.10250.pdf">preprint here</a>).</p>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
-<p><a href="https://en.wikipedia.org/wiki/Kidney_paired_donation">Kidney paired donation</a> or <em>paired exchange</em> allows donors to donate their kidneys to compatible patients with the understanding that their patients receive medically compatible kidneys in turn. The central problem in this setting is the <em>clearing problem —</em> which involves matching patients to donors in such a way that a maximum number of patients receive compatible kidneys. We introduce a directed graph as a convenient abstraction for this question, where:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>This is a post based on a talk given by <a href="https://sites.google.com/view/sanjuktaroy/home">Sanjukta Roy</a> at IMSc.</p>
+</div>
+</div>
+</div>
+<hr>
+<section id="sparse-tournaments" class="level3">
+<h3 class="anchored" data-anchor-id="sparse-tournaments">Sparse Tournaments</h3>
+<p>A <em>tournament</em> <span class="math inline">T</span> is a directed graph where you have a directed edge between every pair of vertices. If you lined up the vertices of a tournament on a line, i.e, identified a permutation <span class="math inline">\sigma</span> of the vertex set of the tournament, then the arcs <span class="math inline">(u \rightsquigarrow v)</span> split up into one of two kinds:</p>
 <ul>
-<li>each node <span class="math inline">v_i = (P_i,D_i)</span> represents a patient-donor pair, and</li>
-<li>we introduce a <em>directed</em> edge <span class="math inline">v_i → v_j</span> if the kidney of the donor <span class="math inline">D_i</span> is compatible with the patient <span class="math inline">P_j</span>.</li>
+<li>the <em>forward</em> arcs are the ones where <span class="math inline">\sigma(u) &lt; \sigma(v)</span>,</li>
+<li>the <em>backward</em> arcs are the ones where <span class="math inline">\sigma(u) &gt; \sigma(v)</span>.</li>
 </ul>
-<p>Observe that a cycle in this directed graph naturally represents a sequence of feasible exchanges within the cycle. For example, imagine that we have a three-cycle with the edges:</p>
-<p><span class="math inline">(P_2,D_2) → (P_5,D_5) → (P_7,D_7) → (P_2,D_2)</span></p>
-<p>Then we have the following compatible donations:</p>
-<ul>
-<li><span class="math inline">P_5</span> is assigned the kidney of donor <span class="math inline">D_2</span></li>
-<li><span class="math inline">P_7</span> is assigned the kidney of donor <span class="math inline">D_5</span></li>
-<li><span class="math inline">P_2</span> is assigned the kidney of donor <span class="math inline">D_7</span></li>
-</ul>
-<p>This accounts for all the patients and donors involved in this cycle and motivates the following question:</p>
+<p>Acyclic tournaments — ones with no directed cycles — admit orderings with <em>no</em> backward arcs (or no <em>forward</em> arcs, take your pick). This is intuitive: start at a vertex <span class="math inline">v</span> and take a directed walk until you’re stuck. You must be stuck<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> at a vertex that has outdegree zero. Position this vertex at the end of the order, remove it from the tournament<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, rinse, repeat: you end up with an ordering where all arcs face forward.</p>
+<p>If you think of a tournament as a representation of head-to-head contest outcomes — with the edge <span class="math inline">(u \rightsquigarrow v)</span> indicating that <span class="math inline">u</span> beats <span class="math inline">v</span> — then acyclic tournaments are ones where there are no upsets (if <code>A</code> beats <code>B</code> and <code>B</code> beats <code>C</code>, you’d expect <code>A</code> to beat <code>C</code>: a cycle violates this intuition). Note that the ordering we came up with above can be thought of as a naturally inferred <em>ranking</em> from the performances given by the tournament: the vertex at the start of the ordering defeats every other vertex and is the strongest player, and so on. From here, we may be interested in defining</p>
+<p>A tournament is <em>sparse</em> if it admits an ordering with its backward arcs being a matching.</p>
+<div style="border: 1.5px solid black; padding: 7px;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="backedges.gif" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">An example of a tournament (left) with a few layouts (right). <br> Image borrowed from <a href="https://www.youtube.com/watch?v=WVXbiUSFH1w">this talk</a>.</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p><br></p>
+<p>For a tournament <code>T</code>, let <code>MID(T)</code> denote the minimum degree of the tournament <code>T</code>. Recall that the algorithm for finding a topological ordering, which is an extreme manifestation of sparsity, goes like this:</p>
 <blockquote class="blockquote">
-<p>Given a directed graph, what is the largest number of vertices that can be covered by a disjoint union of cycles?</p>
+<pre><code>if MID(T) = 0 then:
+    Put the vertex v of indegree 0 at the end of the output order
+    Remove v from T
+    Repeat
+else:
+    Return FALSE</code></pre>
 </blockquote>
-<p>While a positive answer to this question will “resolve” all the needs in the system, consider that exchanges along a cycle of length <span class="math inline">\ell</span> involve <span class="math inline">\ell</span> simultaneous operations to mitigate the risks involved with donors potentially backing out of the exchange agreements.</p>
-<p>This motivates the following refinement of the previously posed question:</p>
+<p>We will now generalize this to a recognition algorithm for sparse tournaments. We make a few easy observations in quick succession:</p>
+<ul>
+<li><p>So long as we have indegree zero vertices, we can thrown them in at the head of the order just as before. Happy happy.</p></li>
+<li><p>If the vertex with the lowest indegree has indegree two, then it’s evident that we’re going to be quite stuck. Indeed, note that the first vertex in an ordering witnessing the sparisty of any allegedly sparse tournament has indegree at most one (zero if there are no backward arcs incident on it, and one if there’s one, and recall that that’s about all that we have room). Therefore, a tournament whose minimum indegree is two cannot be sparse, end of story. Still happy.</p></li>
+<li><p>The only remaining scenario is that the vertices that have the smallest indegree have indegree one. At this point, life is interesting: we first note that any tournament can have at most three vertices of indegree one.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<i class="bi-tools" style="color: darkseagreen;" role="img" aria-hidden="true"></i> <span class="green">The number of vertices of indegree one.</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Claim. A tournament has at most three vertices of indegree one.</strong></p>
+<p><em>Proof sketch.</em> Suppose there are more than three vertices that have indegree one. In particular, let us pull up four vertices <code>a</code>, <code>b</code>, <code>c</code>, and <code>d</code> that all have indegree one. WLOG, suppose the edge between <code>a</code> and <code>b</code> is oriented from <code>a</code> to <code>b</code>. Then all remaining edges incident on <code>b</code> are oriented <em>away</em> from <code>b</code>, since <code>b</code> has “used up” its budget of one in-neighbor. But this pushes the indegree of both <code>c</code> and <code>d</code> to one already. Now, no matter how we orient the edge between <code>c</code> and <code>d</code>, at least one of them will have to endure their indegree spilling over beyond one, which contradicts our assumption about <code>c</code> and <code>d</code> both being vertices of indegree one.</p>
+<p>Note that a tournament <em>can</em> have three vertices of indegree one: consider the triangle.</p>
+</div>
+</div>
+</div>
+<p>Now: if we have just one of them, we can have it lead from the front; if we have three of them — as we noted in the argument above — they must form a triangle and it turns out that they can again be neatly arranged upfront. Happy again!</p>
+<p>However, if we have <em>exactly two of them</em>, then next steps cease to obvious. In this situation we defer our happiness to a little bit later.</p></li>
+</ul>
+<p>Let’s summarize our algorithm so far.</p>
 <blockquote class="blockquote">
-<p>Given a directed graph, what is the largest number of vertices that can be covered by a disjoint union of cycles, where each cycle is of length <span class="math inline">\ell</span> or less?</p>
+<pre>if MID(T) = 0 then:
+    Put the vertex v of indegree 0 at the end of the output order
+    Remove v from T
+    Repeat
+elseif MID(T) = 1 then:
+    if there is exactly one vertex u of indegree one:
+        Put u at the end of the output order
+        Remove u from T
+        Repeat
+    elseif there are exactly two vertices p and q of indegree one:
+        <span style="color:indianred;">Life is complicated</span>
+    else there must be exactly three vertices x, y, and z of indegree one:
+        x,y,z form a triangle
+        Position them CAREFULLY at the start
+        Remove x,y,z from T
+        Repeat
+elseif MID(T) &gt; 1 then:
+    Return FALSE
+end
+</pre>
 </blockquote>
-<p>If the exchanges are restricted to swaps, that is, <span class="math inline">\ell = 2</span>, the problem reduces to finding a maximum matching. However, the problem is NP-complete already when <span class="math inline">\ell = 3</span> (see Theorem 1, <a href="https://www.cs.cmu.edu/~sandholm/kidneyExchange.EC07.withGrantInfo.pdf">Abraham, Blum, and Sandholm</a>; EC 2007).</p>
-<p>We now generalize the model a little further to account for the presence of <em><a href="https://en.wikipedia.org/wiki/Organ_transplantation#Good_Samaritan">altruistic donors</a>,</em> who are donors without a matching patient and are willing to donate to any compatible patient. To account for the presence of such donors, we modify our graph representation as follows:</p>
-<ul>
-<li>Each node either:
-<ul>
-<li>represents a patient-donor pair <span class="math inline">v_i = (P_i,D_i)</span> or</li>
-<li>represents an altruistic donor <span class="math inline">u_k = D_k^\star</span></li>
-</ul></li>
-<li>The edges are as follows:
-<ul>
-<li>We have a <em>directed</em> edge <span class="math inline">v_i → v_j</span> if the kidney of the donor <span class="math inline">D_i</span> is compatible with the patient <span class="math inline">P_j</span>.</li>
-<li>We have a <em>directed</em> edge <span class="math inline">u_k → v_j</span> if the kidney of the donor <span class="math inline">D_k^\star</span> is compatible with the patient <span class="math inline">P_j</span>.</li>
-</ul></li>
-</ul>
-<p>In this setting, note that we can also facilitate exchanges along <em>paths</em> as well, with the paths starting at the altruistic donors. For instance, if we have the path:</p>
-<p><span class="math inline">(D_7^\star) → (P_2,D_2) → (P_5,D_5) → (P_7,D_7) → (P_3,D_3)</span></p>
-<p>Then we have the following compatible donations:</p>
-<ul>
-<li><span class="math inline">P_2</span> is assigned the kidney of donor <span class="math inline">D_7^\star</span></li>
-<li><span class="math inline">P_5</span> is assigned the kidney of donor <span class="math inline">D_2</span></li>
-<li><span class="math inline">P_7</span> is assigned the kidney of donor <span class="math inline">D_5</span></li>
-<li><span class="math inline">P_3</span> is assigned the kidney of donor <span class="math inline">D_7</span></li>
-</ul>
-<p>Note that in this situation, the donor <span class="math inline">D_3</span> is relieved from any obligation to donate to a patient. We now update our problem statement to reflect the presence of altrustic donors and the possibility of facilitating exchanges along paths:</p>
-<blockquote class="blockquote">
-<p>🤝 Optimal Kidney Exchange Along Short Paths and Cycles</p>
-<p><strong>Input.</strong> A directed graph <span class="math inline">G = (V,E)</span>, where <span class="math inline">\mathcal{A} \subseteq V</span> are source vertices; and positive integers <span class="math inline">\ell_p</span>, <span class="math inline">\ell_c</span> and <span class="math inline">t</span>.</p>
-<p><strong>Output.</strong> Yes if and only if there is a collection of cycles of length at most <span class="math inline">\ell_c</span> each and a collection of paths of length at most <span class="math inline">\ell_p</span> each such that the cycles and paths altogether covers <span class="math inline">t</span> nodes outside of <span class="math inline">\mathcal{A}</span>.</p>
-</blockquote>
-<p>The main claim in the context of this problem is the following:</p>
-<p>There exists a <span class="math inline">\mathcal{O}(2^{\mathcal{O}(t)} \cdot \text{poly}(n))</span> that decides Optimal Kidney Exchange Along Short Paths and Cycles.</p>
 </section>
-<section id="an-algorithm-for-oke" class="level2">
-<h2 class="anchored" data-anchor-id="an-algorithm-for-oke">An Algorithm for OKE</h2>
-<p>Here’s a high-level description of the algorithm (perhaps best approached with some prior familiarity with <a href="https://www.youtube.com/watch?v=_4opS8Hpvc0&amp;list=PLEAYkSg4uSQ2jI2x3Bwm711Tmjj-E25Et&amp;index=19">color coding</a>). To begin with, notice that we may assume without loss of generality that <span class="math inline">\ell_p \leq t</span> and <span class="math inline">\ell_c \leq t</span> — intuitively, this is because if the permitted cycle and path lengths are longer than the number of patients we hope to cover, then we can simply look for cycles or paths of length <span class="math inline">t</span> directly to begin with — if we find one, then we are done, and if none exist, then we “might as well” set <span class="math inline">\ell_p</span> and/or <span class="math inline">\ell_c</span> to <span class="math inline">t-1</span>.</p>
-<p>Now, if there is a solution that accounts for at least <span class="math inline">t</span> patients, there is also one that involves at most <span class="math inline">2t</span> patients and in particular, also at most <span class="math inline">t</span> paths. Such a solution engages at most <span class="math inline">t</span> nodes from <span class="math inline">\mathcal{A}</span>. Therefore, if there is a solution, then there is one that spans <span class="math inline">s \leq 3t</span> vertices.</p>
-<p>As is standard for color coding, we guess the correct value of <span class="math inline">s</span> and randomly partition the vertex set <span class="math inline">V</span> into <span class="math inline">s</span> parts. The hope is that each part contains exactly one vertex from the solution (this is a so-called “colorful solution”). The probability that a random partition is a lucky one is <span class="math inline">(3t)!/(3t)^{(3t)}</span>, which turns out to be at least <span class="math inline">e^{-3t}</span>. This implies that <span class="math inline">e^{3t}</span> repetitions ensure a constant success probability.</p>
-<p>Given that the partition is indeed a lucky one, we can recover the solution using the following dynamic programming semantics. For <span class="math inline">C \subseteq [3t]</span> and <span class="math inline">i \in [3t]</span>, let <span class="math inline">D[C,i]</span> be <strong>TRUE</strong> if and only if there is a colorful solution spanning at least <span class="math inline">i</span> nodes outside <span class="math inline">\mathcal{A}</span> in <span class="math inline">G[V_C]</span>, where <span class="math inline">V_C</span> denotes the subset of vertices colored with colors from <span class="math inline">C</span>.</p>
-<p>The recurrence is based on isolating one path or cycle by guessing the set of colors involved in said component and using table lookups to figure out if this can be extended to a full solution.</p>
-<p>In particular, we have:</p>
-<p><span class="math inline">D[C,i] = P[C,i] \lor Q[C,i]</span>,</p>
-<p>where</p>
-<p><span class="math inline">P[C,i] = \lor_{(B,j): B \subseteq C \text{ and } 1 \leq j \leq \ell_c} [D[C \setminus B, i - j] \land f(B,j)]</span></p>
-<p>and</p>
-<p><span class="math inline">Q[C,i] = \lor_{(B,j): B \subseteq C \text{ and } 1 \leq j \leq \ell_p} [D[C \setminus B, i - j] \land g(B,j)]</span>.</p>
-<p>Here, we have that:</p>
+<section id="a-structural-result" class="level3">
+<h3 class="anchored" data-anchor-id="a-structural-result">A Structural Result</h3>
+<p>We now introduce a cool result.</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<strong>Theorem.</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If a tournament <span class="math inline">T</span> admits a sparse ordering <span class="math inline">\sigma</span> without any forbidden patterns, then the set of backward arcs w.r.t <span class="math inline">\sigma</span> is a minimum feedback arc set of <span class="math inline">T</span>.</p>
+</div>
+</div>
+<p>Let <span class="math inline">B:=((u_1, v_1), \cdots, (u_k, v_k))</span> be the set of backward arcs defined by <span class="math inline">\sigma</span>, ordered from the left to right Let <span class="math inline">F</span> be an arbitrary feedback arc set of <span class="math inline">T</span> Let <span class="math inline">x_i</span> be the vertex right after <span class="math inline">v_i</span> in <span class="math inline">\sigma</span>, and <span class="math inline">y_i</span> be the vertex right after <span class="math inline">x_i</span> in <span class="math inline">\sigma</span></p>
+<p>We construct <span class="math inline">f</span> iteratively by assigning the backward arcs from <span class="math inline">B</span> as follows:</p>
 <ul>
-<li><span class="math inline">f(B,j)</span> is <strong>TRUE</strong> if and only if the vertices of <span class="math inline">B</span> can be covered with a cycle of length <span class="math inline">j</span>.</li>
-<li><span class="math inline">g(B,j)</span> is <strong>TRUE</strong> if and only if the vertices of <span class="math inline">B</span> can be covered with a path of length <span class="math inline">j</span>.</li>
+<li>If <span class="math inline">(u_i, v_i) \in F</span>, then we set <span class="math inline">f(u_i, v_i) = (u_i, v_i)</span></li>
+<li>If <span class="math inline">(u_i, v_i) \notin F</span> and <span class="math inline">(x_i, u_i) \in F</span>, then we set <span class="math inline">f(u_i, v_i) = (x_i, u_i)</span></li>
+<li>If <span class="math inline">(u_i, v_i) \notin F</span> and <span class="math inline">(x_i, u_i) \notin F</span> and <span class="math inline">f^{-1}(v_i, x_i) = \varnothing</span>, then we set <span class="math inline">f(u_i, v_i) = (v_i, x_i)</span></li>
+<li>Otherwise, let <span class="math inline">a</span> be an arc in <span class="math inline">F \cap \{(v_i, y_i),(y_i, u_i)\}</span>. We set <span class="math inline">f(u_i, v_i) = a</span>.</li>
 </ul>
-<p>The truth values of <span class="math inline">f(B,j)</span> and <span class="math inline">g(B,j)</span> can be determined directly using standard approaches to finding colorful paths and cycles in time that is single-exponential in <span class="math inline">j</span>.</p>
-<p>To claim the overall running time, note that:</p>
-<ul>
-<li>The total number of entries in the table is <span class="math inline">2^{O(t)} \cdot t</span> and each entry can be computed in time <span class="math inline">\mathcal{O}^{}\left(2^{\mathcal{O}(\ell)}\right).</span></li>
-<li>Therefore, the algorithm outputs the correct decision in <span class="math inline">\mathcal{O}^{}\left(2^{\mathcal{O}(t)}\right)</span> time with probability at least <span class="math inline">e^{-3t}</span>,</li>
-<li>By repeating <span class="math inline">\mathcal{O}\left(e^{3 t}\right)</span> times, we find the correct decision with constant success probability.</li>
-<li>The overall running time is <span class="math inline">\mathcal{O}^{*}\left(2^{\mathcal{O}(t)}\right)</span>.</li>
-</ul>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Exercise for the reader<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Argue that <span class="math inline">f</span> is a bijection.</p>
+</div>
+</div>
 </section>
-<section id="other-results" class="level2">
-<h2 class="anchored" data-anchor-id="other-results">Other Results</h2>
-<p>As Palash mentioned in his talk, the preprint has more, and here are some highlights of the other results that were established:</p>
-<ol type="1">
-<li><p>Optimal Kidney Exchange Along Short Paths and Cycles is <a href="https://en.wikipedia.org/wiki/Parameterized_complexity#FPT">FPT</a> also when parameterized by the treewidth of the underlying graph <span class="math inline">+</span> maximum length of path <span class="math inline">\left(\ell_{p}\right)+</span> maximum length of cycle allowed <span class="math inline">\left(\ell_{c}\right)</span> and the number of vertex types<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> when <span class="math inline">\ell_{p} \leq \ell_{c}</span>.</p></li>
-<li><p>A <a href="https://en.wikipedia.org/wiki/Monadic_second-order_logic">Monadic second-order formula</a> for the problem is also presented, where the length of the formula is upper bounded by a function of <span class="math inline">\ell=\max \left\{\ell{c}, \ell_{p}\right\}</span>.</p></li>
-<li><p>The problem admits a <a href="https://en.wikipedia.org/wiki/Kernelization">polynomial kernel</a> with respect to the number of patients receiving kidneys <span class="math inline">+</span> maximum degree when <span class="math inline">\max \left\{\ell_{p}, \ell_{c}\right\}</span> is a constant.</p></li>
-<li><p>On the other hand, the problem does <em>not</em> admit any polynomial kernel parameterized by the number of patients receiving kidneys <span class="math inline">+</span> maximum degree <span class="math inline">+\max \left\{\ell_{p}, \ell_{c}\right\}</span> (under standard assumptions).</p></li>
-<li><p>A <span class="math inline">\left(16/9+\epsilon\right)</span>-approximation algorithm is presented for the case when only cycles of length at most 3 are allowed and no paths are allowed.</p></li>
-</ol>
+<section id="degreewidth" class="level3">
+<h3 class="anchored" data-anchor-id="degreewidth">Degreewidth</h3>
+<p>Let us recall the definition of cutwidth.</p>
 </section>
-<section id="pointers" class="level2">
-<h2 class="anchored" data-anchor-id="pointers">Pointers</h2>
-<p>Some discussion that came up during the talk:</p>
-<ol type="1">
-<li><p>The so-called dual parameter <span class="math inline">(n-t)</span>, which in this case corresponds to the number of patients who were “left out”, is perhaps a natural parameter to study as well.</p></li>
-<li><p>The notion of a patient without a matching donor seems complementary notion of altrusitic donors. Such patients would be the last vertices on paths kickstarted by altruistic donors. However, this notion likely does not manifest in practice.</p></li>
-</ol>
-<p>If you’d like to dig deeper, be sure to <a href="https://arxiv.org/pdf/2112.10250.pdf">check out the preprint</a>! A few additional pointers:</p>
-<ol type="1">
-<li><p>This work closely builds on the works of <a href="https://www.ijcai.org/proceedings/2018/77">Xiao and Wang</a> (IJCAI, 2018), who proposed an exact algorithm with running time <span class="math inline">\mathcal{O}(2^nn^3)</span> where <span class="math inline">n</span> is the number of vertices in the underlying graph. They also show an FPT algorithm parameterized by the number of vertex types if we do not have any restriction on the length of cycles and chains.</p></li>
-<li><p><a href="https://www.mdpi.com/1999-4893/12/2/50">Lin, Wang, Feng, and Fu</a> (Algorithms, 2019) studied the version of the kidney exchange problem which allows only cycles and developed a randomized parameterized algorithm with respect to the parameter being (number of patients receiving a kidney, maximum allowed length of any cycle).</p></li>
-<li><p>Alvin E. Roth was awarded the Nobel Prize in Economic Sciences 2012 (along with Lloyd S. Shapley) in part for his pioneering contributions to the theory and practice of kidney exchange — his <a href="https://www.nobelprize.org/prizes/economic-sciences/2012/roth/biographical/">biographical account</a> indicates that he had started anticipating the problem even before it emerged as a legal practice. His <a href="https://www.youtube.com/watch?v=exB1O3pTf7E">talk at Simons Institute</a> surveys “fifteen years of history” in the kidney exchange problem, with an emphasis on the game-theoretic aspects. (h/t: <a href="https://csatravelblog.wordpress.com/2016/04/05/rohit-vaish-cmu-visit/">Rohit’s blog</a> on this topic.)</p></li>
-</ol>
+<section id="relationship-with-other-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="relationship-with-other-parameters">Relationship with other parameters</h3>
+</section>
+<section id="open-problems" class="level3">
+<h3 class="anchored" data-anchor-id="open-problems">Open Problems</h3>
 
 
 </section>
@@ -374,7 +404,9 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p><a href="https://arxiv.org/pdf/1606.01623.pdf">Dickerson, Manlove, Plaut, Sandholm, and Trimble.</a> (EC 2016) introduced the notion of “vertex type” and showed its usefulness as a graph parameter in real-world kidney exchange instances. Two vertices is said to have the same vertex type if their neighbourhoods are the same.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Indeed, you cannot keep going forever since you cannot repeat vertices (since there are no cycles), and at some point you would run out of vertices, and the outdegree is zero because you are stuck.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Note that if <span class="math inline">T</span> is an acyclic tournament and <span class="math inline">v \in V(T)</span>, then <span class="math inline">T \setminus \{v\}</span>, the tournament with <span class="math inline">v</span> removed, is <em>also</em> acyclic.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>…and yours truly!<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>

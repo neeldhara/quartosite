@@ -75,21 +75,29 @@ For a graph $G$, define $X_G$ to be the radom variable returning the size of the
 
 For integers $k,n$ define:
 $$
-X_{k,n}=\max_G E[X_G],
+X_{n,k}=\max_G E[X_G],
 $$
 
 where the $\max$ is taken over all graphs with $\leqslant n$ vertices^[We could have also considered $X_k = \max_G E[X_G]$, where the max is over all graphs whose vertex cover is at most $k$: but there are infinitely many graphs that have vertex covers of size at most $k$, and it is not _immediate_ that the max is well-defined, so we restrict ourselves to graphs on $n$ vertices that have vertex covers of size at most $k$.] and vertex cover of size $\leqslant k$. 
 
-Now let's analyze the number $X_{n,k}$. Let $G^\star$ be the "worst-case graph" that bears witness to the $\max$ in the definition of $X_{k,n}$. Run the first step of `ALG` on $G^\star$. Suppose we choose to pick ${\color{indianred}s}$ in this step.
+Now let's analyze the number $X_{n,k}$. Let $G^\star$ be the "worst-case graph" that bears witness to the $\max$ in the definition of $X_{n,k}$. Run the first step of `ALG` on $G^\star$. Suppose we choose to pick ${\color{indianred}s}$ in this step.
 $$
 \begin{aligned}
-X_{n,k}=E[X_{G^\star}] & = {\color{indianred}1}+\frac{1}{2} E\left[{\color{darkseagreen}X_{G^\star-s} \mid s \in \text{OPT}}\right]+\frac{1}{2} E\left[{\color{palevioletred}X_{G^\star-s} \mid s \notin \text {OPT}}\right] \\
-& \leqslant 1 + \frac{1}{2}{\color{darkseagreen}X_{n, k-1}}+\frac{1}{2} {\color{palevioletred}X_{n, k}}
+X_{n,k}=E[X_{G^\star}] & = {\color{indianred}1}+\left(\frac{1}{2}+\varepsilon \right) E\left[{\color{darkseagreen}X_{G^\star-s} \mid s \in \text{OPT}}\right]+\left(\frac{1}{2} - \varepsilon\right) E\left[{\color{palevioletred}X_{G^\star-s} \mid s \notin \text {OPT}}\right] \\
+& = 1 + \left(\frac{1}{2} + \varepsilon \right){\color{darkseagreen}X_{n, k-1}}+ \left(\frac{1}{2} - \varepsilon \right){\color{palevioletred}X_{n-1, k}}\\
+& \leqslant 1 + \left(\frac{1}{2} + \varepsilon \right){\color{darkseagreen}X_{n, k-1}}+ \left(\frac{1}{2} - \varepsilon \right){\color{dodgerblue}X_{n, k}}\\
+& = 1 + \frac{1}{2} X_{n, k-1} + \varepsilon \cdot X_{n, k-1} + \frac{1}{2} X_{n, k} - \varepsilon X_{n, k}\\
+& \leqslant 1 + \frac{1}{2} X_{n, k-1} + \varepsilon \cdot {\color{dodgerblue}X_{n, k}} + \frac{1}{2} X_{n, k} - \varepsilon X_{n, k}\\
+& = 1 + \frac{1}{2} X_{n, k-1} + {\color{indianred}\varepsilon \cdot X_{n, k}} + \frac{1}{2} X_{n, k} - {\color{indianred}\varepsilon X_{n, k}}\\
+& = 1 + \frac{1}{2} X_{n, k-1} + \frac{1}{2} X_{n, k} 
 \end{aligned}
 $$
 
 Note that:
 
+- <span style="color:dodgerblue;"> $X_{n,k} \geqslant X_{n-1,k}$ and  $X_{n,k} \geqslant X_{n,k-1}$.</span>
+- $\operatorname{Pr}[s \in \text{OPT}] \geqslant \frac{1}{2}$, in particular we let $\operatorname{Pr}[s \in \text{OPT}] = \frac{1}{2} + \varepsilon$.
+- $\operatorname{Pr}[s \notin \text{OPT}] = 1 - \operatorname{Pr}[s \in \text{OPT}] = \frac{1}{2} - \varepsilon$.
 - <span style="color:darkseagreen;"> ${\color{darkseagreen}G^\star-s}$ is a graph on at most ${\color{darkseagreen}n}$ vertices with a vertex cover of size ${\color{darkseagreen}\leqslant k-1}$
 - <span style="color:palevioletred;"> ${\color{palevioletred}G^\star-s}$ is a graph on at most ${\color{palevioletred}n}$ vertices with a vertex cover of size ${\color{palevioletred}\leqslant k}$
 

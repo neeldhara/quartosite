@@ -307,17 +307,25 @@ Cute randomized algorithm <code>ALG</code>
 <p>In particular: we will show that the size of the vertex cover output by <code>ALG</code> is at most twice <span class="math inline">|</span><code>OPT</code><span class="math inline">|</span> in expectation.</p>
 <p>For a graph <span class="math inline">G</span>, define <span class="math inline">X_G</span> to be the radom variable returning the size of the set <span class="math inline">S</span> output by the algorithm.</p>
 <p>For integers <span class="math inline">k,n</span> define: <span class="math display">
-X_{k,n}=\max_G E[X_G],
+X_{n,k}=\max_G E[X_G],
 </span></p>
 <p>where the <span class="math inline">\max</span> is taken over all graphs with <span class="math inline">\leqslant n</span> vertices<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and vertex cover of size <span class="math inline">\leqslant k</span>.</p>
-<p>Now let’s analyze the number <span class="math inline">X_{n,k}</span>. Let <span class="math inline">G^\star</span> be the “worst-case graph” that bears witness to the <span class="math inline">\max</span> in the definition of <span class="math inline">X_{k,n}</span>. Run the first step of <code>ALG</code> on <span class="math inline">G^\star</span>. Suppose we choose to pick <span class="math inline">{\color{indianred}s}</span> in this step. <span class="math display">
+<p>Now let’s analyze the number <span class="math inline">X_{n,k}</span>. Let <span class="math inline">G^\star</span> be the “worst-case graph” that bears witness to the <span class="math inline">\max</span> in the definition of <span class="math inline">X_{n,k}</span>. Run the first step of <code>ALG</code> on <span class="math inline">G^\star</span>. Suppose we choose to pick <span class="math inline">{\color{indianred}s}</span> in this step. <span class="math display">
 \begin{aligned}
-X_{n,k}=E[X_{G^\star}] &amp; = {\color{indianred}1}+\frac{1}{2} E\left[{\color{darkseagreen}X_{G^\star-s} \mid s \in \text{OPT}}\right]+\frac{1}{2} E\left[{\color{palevioletred}X_{G^\star-s} \mid s \notin \text {OPT}}\right] \\
-&amp; \leqslant 1 + \frac{1}{2}{\color{darkseagreen}X_{n, k-1}}+\frac{1}{2} {\color{palevioletred}X_{n, k}}
+X_{n,k}=E[X_{G^\star}] &amp; = {\color{indianred}1}+\left(\frac{1}{2}+\varepsilon \right) E\left[{\color{darkseagreen}X_{G^\star-s} \mid s \in \text{OPT}}\right]+\left(\frac{1}{2} - \varepsilon\right) E\left[{\color{palevioletred}X_{G^\star-s} \mid s \notin \text {OPT}}\right] \\
+&amp; = 1 + \left(\frac{1}{2} + \varepsilon \right){\color{darkseagreen}X_{n, k-1}}+ \left(\frac{1}{2} - \varepsilon \right){\color{palevioletred}X_{n-1, k}}\\
+&amp; \leqslant 1 + \left(\frac{1}{2} + \varepsilon \right){\color{darkseagreen}X_{n, k-1}}+ \left(\frac{1}{2} - \varepsilon \right){\color{dodgerblue}X_{n, k}}\\
+&amp; = 1 + \frac{1}{2} X_{n, k-1} + \varepsilon \cdot X_{n, k-1} + \frac{1}{2} X_{n, k} - \varepsilon X_{n, k}\\
+&amp; \leqslant 1 + \frac{1}{2} X_{n, k-1} + \varepsilon \cdot {\color{dodgerblue}X_{n, k}} + \frac{1}{2} X_{n, k} - \varepsilon X_{n, k}\\
+&amp; = 1 + \frac{1}{2} X_{n, k-1} + {\color{indianred}\varepsilon \cdot X_{n, k}} + \frac{1}{2} X_{n, k} - {\color{indianred}\varepsilon X_{n, k}}\\
+&amp; = 1 + \frac{1}{2} X_{n, k-1} + \frac{1}{2} X_{n, k}
 \end{aligned}
 </span></p>
 <p>Note that:</p>
 <ul>
+<li><span style="color:dodgerblue;"> <span class="math inline">X_{n,k} \geqslant X_{n-1,k}</span> and <span class="math inline">X_{n,k} \geqslant X_{n,k-1}</span>.</span></li>
+<li><span class="math inline">\operatorname{Pr}[s \in \text{OPT}] \geqslant \frac{1}{2}</span>, in particular we let <span class="math inline">\operatorname{Pr}[s \in \text{OPT}] = \frac{1}{2} + \varepsilon</span>.</li>
+<li><span class="math inline">\operatorname{Pr}[s \notin \text{OPT}] = 1 - \operatorname{Pr}[s \in \text{OPT}] = \frac{1}{2} - \varepsilon</span>.</li>
 <li><span style="color:darkseagreen;"> <span class="math inline">{\color{darkseagreen}G^\star-s}</span> is a graph on at most <span class="math inline">{\color{darkseagreen}n}</span> vertices with a vertex cover of size <span class="math inline">{\color{darkseagreen}\leqslant k-1}</span></span></li>
 <li><span style="color:palevioletred;"> <span class="math inline">{\color{palevioletred}G^\star-s}</span> is a graph on at most <span class="math inline">{\color{palevioletred}n}</span> vertices with a vertex cover of size <span class="math inline">{\color{palevioletred}\leqslant k}</span></span></li>
 </ul>
@@ -588,8 +596,12 @@ This leads to an $O(1.5^n)$ algorithm for Vertex Cover and an $O(1.75^n)$ algori
 <li id="fn5"><p>Except when the cycle <em>only</em> contains <span class="math inline">u</span>, i.e, <span class="math inline">u</span> has a self-loop.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
 <script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
 <script async="" src="https://tally.so/widgets/embed.js"></script>
+
 <script type="text/javascript">
     var HYVOR_TALK_WEBSITE = 6210;
         var HYVOR_TALK_CONFIG = {
@@ -601,7 +613,6 @@ This leads to an $O(1.5^n)$ algorithm for Vertex Cover and an $O(1.75^n)$ algori
     script.src = "https://talk.hyvor.com/web-api/embed.js";
     document.body.appendChild(script);
 </script>
-
 <div id="hyvor-talk-view"></div>
 
 <div class="column-screen-inset">

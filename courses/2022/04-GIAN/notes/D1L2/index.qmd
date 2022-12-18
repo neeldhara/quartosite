@@ -14,7 +14,33 @@ css: /css/teaching.css
 _[Back to the Course Page](../../)_
 
 
-`Coming Soon.`
+## Integer Linear Programs
+
+An integer linear program involves $n$ variables $x_1, x_2, \ldots, x_n \in \mathbb{Z}$ and a linear _objective function_ to be _optimized_.
+
+In particular, we would like to minimize or maximize a function that looks like:
+$$\sum_{i = 1}^n {\color{indianred}c_i} x_i,$$
+
+subject to $m$ linear inequalities:
+
+\begin{aligned}
+a_1^1 x_1+a_2^1 x_2+ \cdots + a_i^1 x_i + \cdots+a_n^1 x_n & \leqslant b_1 \\
+a_1^2 x_1+a_2^2 x_2+ \cdots + a_i^2 x_i + \cdots+a_n^2 x_n & \leqslant b_2 \\
+\vdots & \\
+a_1^j x_1+a_2^j x_2+ \cdots + a_i^j x_i + \cdots+a_n^3 x_n & \leqslant b_j\\
+\vdots & \\
+a_1^m x_1+a_2^m x_2+ \cdots + a_i^m x_i + \cdots+a_n^m x_n & \leqslant b_m.
+\end{aligned}
+
+Here ${\color{indianred}c_1,\cdots,c_n}$ are some constants in $\mathbb{Z}$ or $\mathbb{Q}$
+
+So given the $a_i^j$'s as input $(1 \leqslant i \leqslant n; 1 \leqslant j \leqslant m)$, the goal is to set the $x_i$'s such that:
+
+- all the inequalities are **satisfied**, and
+- the objective function is **optimized**^[i.e, maximized or minimized].
+
+
+
 
 
 :::

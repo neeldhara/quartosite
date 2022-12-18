@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-12-18">
 
-<title>Neeldhara - 191014K02 | Day 1 Lecture 2</title>
+<title>Neeldhara - b-Matching Games</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../../../">
-<script src="../../../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,8 +79,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
-<link rel="stylesheet" href="../../../../../css/styles.css">
-<link rel="stylesheet" href="../../../../../css/teaching.css">
+<link rel="stylesheet" href="../../css/styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -88,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../../../../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
@@ -98,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../about.html">
+    <a class="nav-link" href="../../about.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -107,19 +108,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../../../../research/overview.html">
+    <a class="dropdown-item" href="../../research/overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../research/people.html">
+    <a class="dropdown-item" href="../../research/people.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../research/publications.html">
+    <a class="dropdown-item" href="../../research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../research/surveys">
+    <a class="dropdown-item" href="../../research/surveys">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
@@ -130,11 +131,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../../../../courses/index.html">
+    <a class="dropdown-item" href="../../courses/index.html">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../materials/index.html">
+    <a class="dropdown-item" href="../../materials/index.html">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
@@ -145,11 +146,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../../../../tgif/">
+    <a class="dropdown-item" href="../../tgif/">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../bookmarks/">
+    <a class="dropdown-item" href="../../bookmarks/">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
@@ -160,21 +161,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../../../../talks/">
+    <a class="dropdown-item" href="../../talks/">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../videos/">
+    <a class="dropdown-item" href="../../videos/">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../events/">
+    <a class="nav-link" href="../../events/">
  <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../blog.html">
+    <a class="nav-link" href="../../blog.html">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -200,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../../../blog.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -211,68 +212,115 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">b-Matching Games</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">talk</div>
+                <div class="quarto-category">exposition</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 18, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#some-examples" id="toc-some-examples" class="nav-link active" data-scroll-target="#some-examples">Some Examples</a></li>
+  <li><a href="#the-assignment-game" id="toc-the-assignment-game" class="nav-link" data-scroll-target="#the-assignment-game">The Assignment Game</a></li>
+  <li><a href="#lp-formuations" id="toc-lp-formuations" class="nav-link" data-scroll-target="#lp-formuations">LP-formuations</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full column-body" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">191014K02 | Day 1 Lecture 2</h1>
+
+
+
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<div class="column-body-outset">
-<section id="k02-day-1-lecture-2" class="level2">
-<h2 class="anchored" data-anchor-id="k02-day-1-lecture-2">191014K02: Day 1 Lecture 2</h2>
-<p><em><a href="../../">Back to the Course Page</a></em></p>
+<div class="callout-body-container">
+<p>This is a post based on a talk given by Vijay Vazirani at FSTTCS.</p>
+</div>
+</div>
+</div>
+<hr>
+<section id="some-examples" class="level3">
+<h3 class="anchored" data-anchor-id="some-examples">Some Examples</h3>
+<p>Forming mixed-doubles teams for a tournament:</p>
 </section>
-<section id="integer-linear-programs" class="level2">
-<h2 class="anchored" data-anchor-id="integer-linear-programs">Integer Linear Programs</h2>
-<p>An integer linear program involves <span class="math inline">n</span> variables <span class="math inline">x_1, x_2, \ldots, x_n \in \mathbb{Z}</span> and a linear <em>objective function</em> to be <em>optimized</em>.</p>
-<p>In particular, we would like to minimize or maximize a function that looks like: <span class="math display">\sum_{i = 1}^n {\color{indianred}c_i} x_i,</span></p>
-<p>subject to <span class="math inline">m</span> linear inequalities:</p>
-<span class="math display">\begin{aligned}
-a_1^1 x_1+a_2^1 x_2+ \cdots + a_i^1 x_i + \cdots+a_n^1 x_n &amp; \leqslant b_1 \\
-a_1^2 x_1+a_2^2 x_2+ \cdots + a_i^2 x_i + \cdots+a_n^2 x_n &amp; \leqslant b_2 \\
-\vdots &amp; \\
-a_1^j x_1+a_2^j x_2+ \cdots + a_i^j x_i + \cdots+a_n^3 x_n &amp; \leqslant b_j\\
-\vdots &amp; \\
-a_1^m x_1+a_2^m x_2+ \cdots + a_i^m x_i + \cdots+a_n^m x_n &amp; \leqslant b_m.
-\end{aligned}</span>
-<p>Here <span class="math inline">{\color{indianred}c_1,\cdots,c_n}</span> are some constants in <span class="math inline">\mathbb{Z}</span> or <span class="math inline">\mathbb{Q}</span></p>
-<p>So given the <span class="math inline">a_i^j</span>’s as input <span class="math inline">(1 \leqslant i \leqslant n; 1 \leqslant j \leqslant m)</span>, the goal is to set the <span class="math inline">x_i</span>’s such that:</p>
+<section id="the-assignment-game" class="level3">
+<h3 class="anchored" data-anchor-id="the-assignment-game">The Assignment Game</h3>
+<p>The setting:</p>
 <ul>
-<li>all the inequalities are <strong>satisfied</strong>, and</li>
-<li>the objective function is <strong>optimized</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
+<li>Bipartite graph, <span class="math inline">G = (U,V,E), w:E \longrightarrow \mathbb{Q}_+</span></li>
+<li><span class="math inline">U</span>: women players</li>
+<li><span class="math inline">V</span>: men players</li>
+<li><span class="math inline">U \cup V</span>: grand coalition</li>
+<li><span class="math inline">E</span>: possible teams</li>
+<li><span class="math inline">w(e)</span>: expected earnings of team <span class="math inline">e</span></li>
+<li><span style="color: indianred;">Total profit: max weight matching in <span class="math inline">G</span>.</span></li>
 </ul>
-</section>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
+<div class="callout-caption-container flex-fill">
+<i class="bi-patch-question-fill" style="color: darkseagreen;" role="img" aria-hidden="true"></i> Key Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How to distribute the total profit among players <em>fairly</em>?</p>
+</div>
+</div>
+</section>
+<section id="lp-formuations" class="level3">
+<h3 class="anchored" data-anchor-id="lp-formuations">LP-formuations</h3>
+<p>Primal LP: <span class="math display">
+\begin{aligned}
+\max \sum_{e \in E}  w_e x_e &amp; \\
+\text { s.t. } \quad \forall i \in U: \sum_{(i, j) \in E} x_{i j} &amp; \leqslant 1 \\
+\forall j \in V: \sum_{(i, j) \in E} x_{i j} &amp; \leqslant 1 \\
+\forall e: x_e &amp; \geqslant 0
+\end{aligned}
+</span> Dual LP: <span class="math display">
+\begin{aligned}
+\min \sum_{i \in U} y_i+\sum_{j \in V} y_j &amp; \\
+\text{s.t.} \quad \forall(i, j) \in E:  y_i+y_j &amp; \geqslant &amp; 0 \\
+\forall i \in U:  y_i &amp; \geqslant 0 \\
+\forall j \in V:  y_j &amp; \geqslant 0
+\end{aligned}
+</span></p>
 
 
+</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>i.e, maximized or minimized<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
 
 <script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
@@ -295,10 +343,10 @@ a_1^m x_1+a_2^m x_2+ \cdots + a_i^m x_i + \cdots+a_n^m x_n &amp; \leqslant b_m.
 <div class="column-screen-inset">
     <hr class="about-sep">
     <div class="quarto-about-jolla column-body" style="margin-top:52px;">
-        <p> © 2022 • Neeldhara Misra • <a href="../../../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
             </p>
             <div class="collcontent">
-                <img src="../../../../../images/calvin.webp" style="border-radius:25px;">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
                 <p>&nbsp;</p>
             </div>
     
@@ -348,10 +396,10 @@ a_1^m x_1+a_2^m x_2+ \cdots + a_i^m x_i + \cdots+a_n^m x_n &amp; \leqslant b_m.
     <!-- Modal content -->
     <div class="modal-content" style="width: 460px !important;">
     <span class="close" data-dismiss="modal">×</span>
-    <img src="../../../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
 </div>
 
-<script type="text/javascript" src="../../../../../scripts.js"></script>
+<script type="text/javascript" src="../../scripts.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -489,5 +537,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</div><script src="../../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

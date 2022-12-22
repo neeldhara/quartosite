@@ -1,0 +1,68 @@
+---
+title: "[Rough Note] Reducing w,k to w alone"
+date: "2022-09-23"
+categories: [draftnote]
+fields: [date, title]
+toc: true
+draft: true
+---
+
+:::{.callout-note icon="false"}
+# {{< bi tools color="darkseagreen" >}} BiCriteria VC
+
+**Input.** A graph $G$, a weight function $w: V(G) \longrightarrow \mathbb{Q}^+$, and positive integers $k$ and $\ell$.
+
+**Output.** `YES` if $G$ admits a vertex cover of size at most $k$ and total weight at most $\ell$, and `NO` otherwise.
+:::
+
+:::{.callout-note icon="false"}
+# {{< bi tools color="darkseagreen" >}} Weighted VC
+
+**Input.** A graph $G$, a weight function $w: V(G) \longrightarrow \mathbb{Q}^+$, and positive integers $k$ and $\ell$.
+
+**Output.** `YES` if $G$ admits a vertex cover of total weight at most $\ell$, and `NO` otherwise.
+:::
+
+Let $(G,w,k,\ell)$ be an instance of BiCriteria VC.
+
+Add a pendant vertex $v^\star$ to every vertex $v$ of $G$ and call this new graph $H$. Consider a new weight function given by:
+
+ \begin{equation*}
+    |w^\star(v)| =
+    \begin{cases}
+      \Delta + w(v) & \text{if } v \in V(G),\\
+      1 & \text{if } v \in V(H) \setminus V(G),
+    \end{cases}
+\end{equation*}
+
+where $\Delta = \ell+1$.
+
+:::{.callout-important icon="false"}
+# {{< bi activity color="darkseagreen" >}} Reduction
+
+**Claim.** $(G,w,k,\ell)$ is a `YES` instance of BiCriteria VC if and only if $(H,w^\star,\Delta \cdot k + \ell + (n-k))$ is a `YES` instance of Weighted VC, where $n = |V(G)|$.
+:::
+
+_Forward Direction._ Suppose $S \subseteq V(G)$ is a solution. For every $v \in S$, pick $v \in V(H)$. For every $v \notin S$, pick $v^\star$ in $H$. Total weight:
+
+$$ \left[\sum_{u \in S} (w(v) + \Delta)\right] + (n-k) = \Delta \cdot k + \ell + (n-k),$$
+
+as desired.
+
+_Reverse Direction._ Suppose $S \subseteq V(H)$ is a solution. Project $S$ on the vertices of $G$: call this set $T$. 
+
+We claim that $T$ is a vertex cover of size at most $k$ and weight at most $\ell$. 
+
+<!-- Since _every_ vertex cover of $H$ has $\geqslant n$ vertices, the weight in $S$ _from_ $G$ is at most $\Delta \cdot n + \ell - \Delta \cdot n$. Thus the total weight of the vertices of $T$ back in $G$ is at most $\ell$. -->
+
+Suppose $|T| > k$. Then the total weight of $S$ is: 
+
+\begin{aligned}
+\geqslant \left[\sum_{u \in T} (w(v) + \Delta)\right] + (n-k-1) & \geqslant \Delta \cdot (k+1) + (n-k-1) + \sum_{u \in T} w(v) \\
+& = \Delta \cdot k + (n-k-1) + \sum_{u \in T} w(v) + \Delta \\
+& \geqslant \Delta \cdot k + (n-k-1) + \sum_{u \in T} w(v) + (\ell + 2)\\
+& \geqslant \Delta \cdot k + (n-k) + \sum_{u \in T} w(v) + (\ell + 1)\\
+& > \Delta \cdot k + (n-k) + \ell
+\end{aligned}
+
+Since $|T| \leqslant k$, we know that $|S \setminus T| \geqslant n-k$. 

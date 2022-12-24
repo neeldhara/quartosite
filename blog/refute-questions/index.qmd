@@ -1,0 +1,34 @@
+---
+title: "Refute Questions"
+date: "2022-12-23"
+categories: [csed]
+fields: [date, title]
+draft: true
+---
+
+
+:::{.callout-note appearance="minimal"}
+This is a post based on a talk given by Viraj Kumar at the ACM-India [CSEd Workshop](https://www.neeldhara.com/events/2022/csed/) at IIT Gandhinagar..
+:::
+
+---
+
+:::{.callout-note icon="false"}
+# {{< bi tools color="darkseagreen" >}} The Three Components of a Refute Question
+
+1. A buggy program/function.
+   ```
+   def repeated_prefix(a):
+    answer = 0
+    i = 0
+    while i < len(a):
+    if a[i] == a[0]:
+      answer += 1
+    i += 1
+    return answer
+    ```
+2. The (original) purpose of said program/function.
+3. A counterexample. 
+:::
+
+![Refute Question Example](refutequestion-example.png){width=87%}

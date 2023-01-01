@@ -10,6 +10,9 @@
     <% if (item.type == "deadline") { %>
     <div class="callout-important callout callout-style-simple no-icon callout-captioned" <%= metadataAttrs(item) %>>
     <% } %>
+    <% if (item.type == "celebration") { %>
+    <div class="callout-caution callout callout-style-simple no-icon callout-captioned" <%= metadataAttrs(item) %>>
+    <% } %>
     <% if (item.type == "other") { %>
     <div class="callout-note callout callout-style-simple no-icon callout-captioned" <%= metadataAttrs(item) %>>
     <% } %>

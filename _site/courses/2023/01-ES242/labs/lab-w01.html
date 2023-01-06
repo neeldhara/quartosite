@@ -123,6 +123,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 <link rel="stylesheet" href="../../../../css/teaching.css">
@@ -286,39 +302,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="es242.-data-structures-and-algorithms-i.">ES242. Data Structures and Algorithms I.</h2>
 <section id="lab-01" class="level5">
 <h5 class="anchored">Lab 01</h5>
+<p>Learn C syntax:</p>
+<ul>
+<li><a href="https://www.learn-c.org">Interactive Tutorial</a></li>
+<li><a href="https://www.codecademy.com/learn/learn-c">Codeacademy Lessons</a></li>
+</ul>
+<p>More practice problems:</p>
+<ul>
+<li>Try the first problem in any Codechef/Codeforces contest.</li>
+</ul>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 1. Finding the Coefficient
+Problem 1. CountDown
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>p(x) is a polynomial whose coefficients are between 0 and 9.</p>
-<p>You are given the <strong>value of p(10)</strong> and a number <strong>d</strong>.</p>
-<p>Return the coefficient of <strong>x^d</strong> in p(x).</p>
-<section id="input-format" class="level3">
-<h3 class="anchored" data-anchor-id="input-format">Input Format</h3>
-<p>The first line of the input contains a number <strong>T</strong>, which is the number of test cases.</p>
-<p>The next 2T lines contain T test cases. Each test case is two lines. The first line is the value of <strong>p(10)</strong> and the second line is the value of <strong>d</strong>.</p>
-<p>It is guaranteed that p(10) will be at most <code>10^9</code> and d will be at most <code>10</code>.</p>
+<p>Print all non-negative integers less than or equal to <span class="math inline">N</span> in descending order.</p>
+<section id="constraints" class="level3">
+<h3 class="anchored" data-anchor-id="constraints">Constraints</h3>
+<ul>
+<li><span class="math inline">1 \leq N \leq 100</span></li>
+<li><span class="math inline">N</span> is an integer.</li>
+</ul>
 </section>
-<section id="output-format" class="level3">
-<h3 class="anchored" data-anchor-id="output-format">Output Format</h3>
-<p>For each test case, print a single integer on a new line, which is the coefficient of <strong>x^d</strong> in p(x). DO NOT output anything else!</p>
+<section id="input" class="level3">
+<h3 class="anchored" data-anchor-id="input">Input</h3>
+<p>The input is given from Standard Input in the following format:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>N</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="output" class="level3">
+<h3 class="anchored" data-anchor-id="output">Output</h3>
+<p>Print <span class="math inline">X</span> lines, where <span class="math inline">X</span> is the number of non-negative integers less than or equal to <span class="math inline">N</span>. For each <span class="math inline">i = 1, 2, \ldots, X</span>, the <span class="math inline">i</span>-th line should contain the <span class="math inline">i</span>-th greatest non-negative integer less than or equal to N.</p>
 </section>
 <section id="sample-io" class="level3">
 <h3 class="anchored" data-anchor-id="sample-io">Sample I/O</h3>
 <p><code>Sample Input</code></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>1</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>9042</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>22</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>Expected Output</code></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>22</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>21</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>20</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>19</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>18</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>17</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>16</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>15</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>14</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>13</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>12</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>11</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>10</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>9</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>8</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>7</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>6</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>5</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>4</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>3</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>2</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>1</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </div>
 </div>
@@ -329,48 +378,50 @@ Problem 1. Finding the Coefficient
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 2. Finding the Coefficient Redux
+Problem 2. Life Goal
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>p(x) is a polynomial whose coefficients are either 0 or 1.</p>
-<p>You are given the <strong>value of p(2)</strong> and a number <strong>d</strong>.</p>
-<p>Return <code>YES</code> if the coefficient of <strong>x^d</strong> in p(x) is <code>1</code> and <code>NO</code> otherwise.</p>
-<section id="input-format-1" class="level3">
-<h3 class="anchored" data-anchor-id="input-format-1">Input Format</h3>
-<p>The first line of the input contains a number <strong>T</strong>, which is the number of test cases.</p>
-<p>The next 2T lines contain T test cases. Each test case is two lines. The first line is the value of <strong>p(2)</strong> and the second line is the value of <strong>d</strong>.</p>
-<p>It is guaranteed that p(2) will be at most <code>10^9</code> and d will be at most the degree of p(x).</p>
+<!-- (AtCoder Beginner Contest 270) -->
+<p>You are standing at the origin of a number line. You want to make it to a treasure chest at coordinate <span class="math inline">X</span>.</p>
+<p>There is a guard at coordinate <span class="math inline">Y</span>, who will block you if you encounter him on the way.</p>
+<p>However, there is a magic phrase written on a paper which is kept at coordinate <span class="math inline">Z</span>. If you pick up that paper, then you can whisper the magic phrase to the guard, who will then let you go.</p>
+<p>Determine whether you can reach the goal. If you can, find the minimum total distance you need to travel to do so.</p>
+<section id="constraints-1" class="level3">
+<h3 class="anchored" data-anchor-id="constraints-1">Constraints</h3>
+<ul>
+<li><span class="math inline">−1000 \leq X,Y,Z \leq 1000</span></li>
+<li><span class="math inline">X, Y, Z</span> are distinct, and none of them is <span class="math inline">0</span>.</li>
+<li>All values in the input are integers.</li>
+</ul>
 </section>
-<section id="output-format-1" class="level3">
-<h3 class="anchored" data-anchor-id="output-format-1">Output Format</h3>
-<p>For each test case, print a single integer on a new line, which is <code>YES</code> or <code>NO</code> depending on if the coefficient of <strong>x^d</strong> in p(x) is <code>1</code> or <code>0</code>. DO NOT output anything else!</p>
+<section id="input-1" class="level3">
+<h3 class="anchored" data-anchor-id="input-1">Input</h3>
+<p>The input is given from Standard Input in the following format:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>X Y Z </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="output-1" class="level3">
+<h3 class="anchored" data-anchor-id="output-1">Output</h3>
+<p>If you can reach the goal, print the minimum total distance he needs to travel to do so. If he cannot, print <code>-1</code> instead.</p>
 </section>
 <section id="sample-io-1" class="level3">
 <h3 class="anchored" data-anchor-id="sample-io-1">Sample I/O</h3>
 <p><code>Sample Input</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>6</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>45</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>0</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>45</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>1</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>45</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>2</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>45</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>3</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>45</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>4</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>45</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>Expected Output</code></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>YES</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>NO</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>YES</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>YES</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>NO</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>YES</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>10 -10 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can go straight to the goal.</p>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>20 10 -10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>40</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The goal is beyond the guard. You can get there by first picking up the magic phrase and then getting past the guard.</p>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>100 1 1000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>-1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </div>
 </div>
@@ -387,24 +438,24 @@ Problem 3. Game of Trust
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Write a simulation for the <em>Game of Trust</em> when played by a copycat player for <strong>R</strong> rounds.</p>
-<section id="input-format-2" class="level3">
-<h3 class="anchored" data-anchor-id="input-format-2">Input Format</h3>
+<p>Write a simulation for the <em><a href="https://ncase.me/trust">Game of Trust</a></em> when played by an <code>always cheat</code> player for <strong>R</strong> rounds.</p>
+<section id="input-format" class="level3">
+<h3 class="anchored" data-anchor-id="input-format">Input Format</h3>
 <p>The first line of the input contains a number <strong>T</strong>, which is the number of test cases.</p>
 <p>The next 2T lines contain T test cases. Each test case is two lines. The first line is the value <strong>R</strong> and the second line is <strong>R</strong> space-separated integers. The <strong>i</strong>-th integer on the second line is <code>1</code> if the <em>other</em> player cooperated in the <strong>i</strong>-th round, and <code>0</code> otherwise.</p>
 </section>
-<section id="output-format-2" class="level3">
-<h3 class="anchored" data-anchor-id="output-format-2">Output Format</h3>
-<p>For each test case, print two space-separated integers on a new line. The first integer is the total number of coins earned by the copycat player, while the second integer is the total number of coins earned by the other player. Note that you have to output the net balance. DO NOT output anything else!</p>
+<section id="output-format" class="level3">
+<h3 class="anchored" data-anchor-id="output-format">Output Format</h3>
+<p>For each test case, print two space-separated integers on a new line. The first integer is the total number of coins earned by the <code>always cheat</code> player, while the second integer is the total number of coins earned by the other player. Note that you have to output the net balance. DO NOT output anything else!</p>
 </section>
 <section id="sample-io-2" class="level3">
 <h3 class="anchored" data-anchor-id="sample-io-2">Sample I/O</h3>
 <p><code>Sample Input</code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>1</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>3</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>1 1 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>1</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>5</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>1 1 1 0 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>Expected Output</code></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>6 6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>12 -4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </div>
 </div>
@@ -415,14 +466,45 @@ Problem 3. Game of Trust
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 4. Game of Trust [Open Ended]
+Problem 4. Rock Papers Scissors
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>There are no tests or templates for this problem. Implement variations of the <em>Game of Trust</em> and feel free to get creative about I/O, language, and even come up with your own strategies.</p>
-<p>Check out the <a href="https://ncase.me/trust/">Sandbox Page</a> on the interactive essay by Nicky Case for inspiration.</p>
+<p>Rock Paper Scissors is a game between two players. Each game contains many rounds; in each round, the players each simultaneously choose one of Rock, Paper, or Scissors using a hand shape. Then, a winner for that round is selected: Rock defeats Scissors, Scissors defeats Paper, and Paper defeats Rock. If both players choose the same shape, the round instead ends in a draw.</p>
+<p>You are preparing for your first big RPS match. Someone has tipped you off with a strategy guide against your opponent on the first match, which consists of many rounds. The strategy guide can be interpreted as follows:</p>
+<ul>
+<li>The first column of the i-th row is what your opponent is going to play in the i-th round: A for Rock, B for Paper, and C for Scissors.</li>
+<li>The second column of the i-th row is what you should play in response in the i-th round: X for Rock, Y for Paper, and Z for Scissors.</li>
+</ul>
+<p>Winning every time would be suspicious, so the responses must have been carefully chosen.</p>
+<p>Your total score is the sum of your scores for each round. The score for a single round is the score for the shape you selected (1 for Rock, 2 for Paper, and 3 for Scissors) plus the score for the outcome of the round (0 if you lost, 3 if the round was a draw, and 6 if you won).</p>
+<p>Your task is to calculate the score you would get if you were to follow the strategy guide.</p>
+<section id="input-format-1" class="level3">
+<h3 class="anchored" data-anchor-id="input-format-1">Input Format</h3>
+<p>The first line of the input is a number <code>N</code>, which is the total number of rounds. The next <code>N</code> lines contain two space separated characters. The first character is one of <code>A</code> or <code>B</code> or <code>C</code>, and the second character is one of <code>X</code> or <code>Y</code> or <code>Z</code>.</p>
+</section>
+<section id="output-format-1" class="level3">
+<h3 class="anchored" data-anchor-id="output-format-1">Output Format</h3>
+<p>The output shound be a single integer, your total score across all rounds based on the strategy guide.</p>
+</section>
+<section id="sample-io-3" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io-3">Sample I/O</h3>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>A Y</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>B X</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>C Z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Expected Output</code></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>15</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This strategy guide predicts and recommends the following:</p>
+<ul>
+<li>In the first round, your opponent will choose Rock (A), and you should choose Paper (Y). This ends in a win for you with a score of 8 (2 because you chose Paper + 6 because you won).</li>
+<li>In the second round, your opponent will choose Paper (B), and you should choose Rock (X). This ends in a loss for you with a score of 1 (1 + 0).</li>
+<li>The third round is a draw with both players choosing Scissors, giving you a score of 3 + 3 = 6.</li>
+</ul>
+<p>In this example, if you were to follow the strategy guide, you would get a total score of 15 (8 + 1 + 6).</p>
+</section>
 </div>
 </div>
 </div>
@@ -432,14 +514,82 @@ Problem 4. Game of Trust [Open Ended]
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 5. Validating a Self-Working Card Trick [Open Ended]
+Problem 5. Finding the Coefficient
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p><span class="math inline">p(x)</span> is a polynomial whose coefficients are either <code>0</code> or <code>1</code>.</p>
+<p>You are given the value of <span class="math inline">p(2)</span> and a number <span class="math inline">d</span>.</p>
+<p>Return <code>YES</code> if the coefficient of <span class="math inline">x^d</span> in <span class="math inline">p(x)</span> is <code>1</code> and <code>NO</code> otherwise.</p>
+<section id="input-format-2" class="level3">
+<h3 class="anchored" data-anchor-id="input-format-2">Input Format</h3>
+<p>The first line of the input contains a number <strong>T</strong>, which is the number of test cases.</p>
+<p>The next 2T lines contain T test cases. Each test case is two lines. The first line is the value of <strong>p(2)</strong> and the second line is the value of <strong>d</strong>.</p>
+<p>It is guaranteed that p(2) will be at most <code>10^9</code> and d will be at most the degree of p(x).</p>
+</section>
+<section id="output-format-2" class="level3">
+<h3 class="anchored" data-anchor-id="output-format-2">Output Format</h3>
+<p>For each test case, print a single integer on a new line, which is <code>YES</code> or <code>NO</code> depending on if the coefficient of <strong>x^d</strong> in p(x) is <code>1</code> or <code>0</code>. DO NOT output anything else!</p>
+</section>
+<section id="sample-io-4" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io-4">Sample I/O</h3>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>6</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>45</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>0</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>45</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>1</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>45</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>2</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>45</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>3</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>45</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>4</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>45</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Expected Output</code></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>YES</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>NO</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>YES</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>YES</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>NO</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>YES</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 6. Validating a Self-Working Card Trick [Optional]
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Watch <a href="https://www.youtube.com/watch?v=aNpGxZ_1KXU">this video</a> and write a program to validate the mechanics of the card trick shown.</p>
 <p>In other words, your program should take as input a sequence of cards, with the promise that the number of red cards is equal to the number of black cards, and then “perform” the trick as shown in the video, and verify that the final claim about the number of red cards in the red pile being equal to the number of black cards in the black pile is, in fact, true.</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 7. Stable Marriage [Optional]
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Implement the Stable Marriage algorithm discussed in class. You can practice on <a href="https://www.codechef.com/problems/STABLEMP">this Codechef problem</a>.</p>
 </div>
 </div>
 </div>
@@ -449,7 +599,11 @@ Problem 5. Validating a Self-Working Card Trick [Open Ended]
 
 
 </main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
 <script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
 
 <script type="text/javascript">
     var HYVOR_TALK_WEBSITE = 6210;
@@ -462,7 +616,6 @@ Problem 5. Validating a Self-Working Card Trick [Open Ended]
     script.src = "https://talk.hyvor.com/web-api/embed.js";
     document.body.appendChild(script);
 </script>
-
 <div id="hyvor-talk-view"></div>
 
 <div class="column-screen-inset">

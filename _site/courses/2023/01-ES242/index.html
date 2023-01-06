@@ -98,9 +98,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-summary','listing-dateissued',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] }],
+      valueNames: ['listing-title','listing-summary','listing-dateissued','listing-problemset',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] }],
       
-      searchColumns: ["listing-title","listing-summary","listing-dateissued"],
+      searchColumns: ["listing-title","listing-summary","listing-dateissued","listing-problemset"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -995,7 +995,7 @@ No matching items
                 <p>TBA</p>
             </td>
             <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                    <a href="labs/lab-w01.html"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
                 </td>
             <td class="listing-solutions">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>

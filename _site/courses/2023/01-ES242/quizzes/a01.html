@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Neeldhara - ES242. Data Structures and Algorithms I. Week 01 Lab</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../../../css/styles.css">
+<link rel="stylesheet" href="../../../../css/teaching.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content page-columns page-full column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ES242. Data Structures and Algorithms I. Week 01 Lab</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="es242.-data-structures-and-algorithms-i." class="level2 column-body-outset">
+<h2 class="anchored" data-anchor-id="es242.-data-structures-and-algorithms-i.">ES242. Data Structures and Algorithms I.</h2>
+<section id="quiz-01-solutions" class="level5">
+<h5 class="anchored" data-anchor-id="quiz-01-solutions">Quiz 01 Solutions</h5>
+<p>Released: 10 Jan, 2023</p>
+<p><a href="../../../../courses/2023/01-ES242/index.html">Back to course page</a></p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 1. The 15-Puzzle
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose you are implementing the <a href="https://en.wikipedia.org/wiki/15_puzzle">15 puzzle</a> game:</p>
+<blockquote class="blockquote">
+<p>This is a sliding puzzle having 15 square tiles numbered 1–15 in a frame that is 4 tiles high and 4 tiles wide, leaving one unoccupied tile position. Tiles in the same row or column of the open position can be moved by sliding them horizontally or vertically, respectively. The goal of the puzzle is to rearrange the tiles and place them in increasing numerical order.</p>
+</blockquote>
+<p>Here’s an example configuration:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="q01-img01.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">An Example 15-Puzzle Instance</figcaption><p></p>
+</figure>
+</div>
+<p>You decide to record the game state as a list of length 16, with elements between 0-15 (0 denotes the empty cell), using the following convention:</p>
+<ol type="1">
+<li><p>the first four elements contain the numbers in the first row of the board,</p></li>
+<li><p>the fifth-eighth elements contain the numbers in the second row of the board,</p></li>
+<li><p>the ninth-twelfth elements contain the numbers in the third row of the board, and</p></li>
+<li><p>the thirteenth-sixteenth element csontain the numbers in the fourth row of the board.</p></li>
+</ol>
+<p>Suppose you generalise this to a game involving a <span class="math inline">N \times N</span> board, using a list of size <span class="math inline">N^2</span>. The user indicates how they want to move at every step. Assume you can directly access and update any element in your list.</p>
+<p>How much time do you need to update the configuration?</p>
+<ul>
+<li>proportional to <span class="math inline">N</span></li>
+<li>proportional to <span class="math inline">N^2</span></li>
+<li>constant</li>
+</ul>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Suppose the empty cell is at row <span class="math inline">R</span> (counting from the top; i.e, the top row is row <span class="math inline">1</span>) and column <span class="math inline">C</span> (counting from the left; i.e, the left-most column is column <span class="math inline">1</span>). The user may chose one of the following four moves:</p>
+<ul>
+<li>move the number at row <span class="math inline">R-1</span> and column <span class="math inline">C</span> into the empty cell, provided <span class="math inline">R</span> is not the top row.</li>
+<li>move the number at row <span class="math inline">R</span> and column <span class="math inline">C-1</span> into the empty cell, provided <span class="math inline">C</span> is not the left-most column.</li>
+<li>move the number at row <span class="math inline">R</span> and column <span class="math inline">C+1</span> into the empty cell, provided <span class="math inline">C</span> is not the right-most column.</li>
+<li>move the number at row <span class="math inline">R+1</span> and column <span class="math inline">C</span> into the empty cell, provided <span class="math inline">R</span> is not the bottom row.</li>
+</ul>
+<p>The procedure to update the configuration involves two things:</p>
+<ul>
+<li>identify the number to be moved into the empty slot based on the move chosen by the user;</li>
+<li>update (swap) the values of the list at locations <span class="math inline">(R-1)*N + (C-1)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and the location corresponding to the number to be moved.</li>
+</ul>
+<p>These two steps require knowledge of <span class="math inline">R</span> and <span class="math inline">C</span>, i.e, the location of the empty slot. Since we are given the contents of <em>all</em> locations as a list, we may need to — in the worst case — go through the entire list to find where the <code>0</code>-element lies.</p>
+<p>Note that to speed things up, we could store the integers <span class="math inline">R</span> and <span class="math inline">C</span>, representing the location of the <code>0</code>-element, separately: and update it as moves are made. With this approach, the update can be achieved in constant time.</p>
+<p>For this question, no such assumption is made, so the time required to update the configuration is proportional to <span class="math inline">N^2</span> in the worst-case.</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 2. 2048
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose you are implementing the <a href="https://play2048.co">2048 game</a>:</p>
+<blockquote class="blockquote">
+<p>2048 is played on a plain 4×4 grid, with numbered tiles that slide when a player moves them using the four arrow keys. Every turn, a new tile randomly appears in an empty spot on the board with a value of either 2 or 4. Tiles slide as far as possible in the chosen direction until they are stopped by either another tile or the edge of the grid. If two tiles of the same number collide while moving, they will merge into a tile with the total value of the two tiles that collided. The resulting tile cannot merge with another tile again in the same move.</p>
+</blockquote>
+<p>Feel free to play the game at the link above to get a feel for it.</p>
+<p>Suppose you are implementing a version of 2048 on a <span class="math inline">N \times N</span> board, using a list of size <span class="math inline">N^2</span>. As in the previous question, the list carries information about the state of the board: the first <span class="math inline">N</span> elements correspond to the numbers in the first row, and so on. The user indicates in which direction they want to move at every step. Assume you can directly access and update any element in your list.</p>
+<p>How much time do you need to update the configuration?</p>
+<ul>
+<li>proportional to <span class="math inline">N</span></li>
+<li>proportional to <span class="math inline">N^2</span></li>
+<li>constant</li>
+</ul>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Notice that there are moves that may require that you update the status of every cell in the board (as an extreme example, suppose all the odd-numbered rows have elements in them and all the even-numbered rows are empty; and the user choses to move downwards: then except for possibly the bottom row have to be updated in a single move).</p>
+<p>So one would have to examine the impact of the move on each cell in board and update all the cells, which requires time proportional to <span class="math inline">N^2</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 3. Game of Trust
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Describe how to define a set of marriage preferences among <span class="math inline">n</span> men and <span class="math inline">n</span> women such that there is exactly one stable marriage possible.</p>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>One situation where there is exactly one matching that is stable is when all the men and women have identical preferences. In particular, if we denote the set of <span class="math inline">n</span> men as <span class="math inline">V := \{m_1,\ldots,m_n\}</span> and the <span class="math inline">n</span> women as <span class="math inline">W := \{w_1,\ldots,w_n\}</span>, and further:</p>
+<ul>
+<li>every man has the preference <span class="math inline">w_1 \succ w_2 \succ \cdots w_n</span> and</li>
+<li>every woman has the preference <span class="math inline">m_1 \succ m_2 \succ \cdots m_n</span>;</li>
+</ul>
+<p>then then only stable matching is <span class="math inline">(w_1,m_1),\cdots,(w_n,m_n)</span>.</p>
+<p>To see this, suppose a stable matching <span class="math inline">M</span> matches <span class="math inline">w_i</span> to <span class="math inline">m_j</span> where <span class="math inline">i \neq j</span>, and let <span class="math inline">i</span> be the smallest index for which this happens (i.e, for all <span class="math inline">\ell &lt; i</span>, <span class="math inline">M</span> matches <span class="math inline">w_\ell</span> with <span class="math inline">m_\ell</span>). Then: it must be that <span class="math inline">j &gt; i</span> (since all men <span class="math inline">m_j</span> with <span class="math inline">j &lt; i</span> are already matched to <span class="math inline">w_j</span>). However, this implies that <span class="math inline">(w_i,m_i)</span> will form a blocking pair (note that <span class="math inline">m_i</span> is also matched to some <span class="math inline">w_t</span> with <span class="math inline">t &gt; i</span>), contradicting our assumption that <span class="math inline">M</span> is stable.</p>
+<p>Food for thought: are there other examples?</p>
+<blockquote class="blockquote">
+<p>Evaluation remark: for full credit, it suffices that the answer describes a valid example, even if there is no justification.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This assumes 0-based indexing; the exact index <em>can</em> be slightly different depending on convention.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

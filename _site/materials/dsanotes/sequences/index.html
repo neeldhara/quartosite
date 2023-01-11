@@ -83,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 <body class="nav-sidebar docked nav-fixed slimcontent">
 
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
@@ -244,6 +245,11 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../materials/dsanotes/stable-matchings/index.html" class="sidebar-item-text sidebar-link">Stable Matchings</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../materials/dsanotes/sequences/index.html" class="sidebar-item-text sidebar-link active">Representing Sequences</a>
   </div>
 </li>
@@ -283,6 +289,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#arrays" id="toc-arrays" class="nav-link" data-scroll-target="#arrays">Arrays</a></li>
   <li><a href="#linked-lists" id="toc-linked-lists" class="nav-link" data-scroll-target="#linked-lists">Linked Lists</a></li>
   <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison">Comparison</a></li>
+  <li><a href="#dynamic-arrays" id="toc-dynamic-arrays" class="nav-link" data-scroll-target="#dynamic-arrays">Dynamic Arrays</a></li>
   <li><a href="#what-should-you-use" id="toc-what-should-you-use" class="nav-link" data-scroll-target="#what-should-you-use">What should you use?</a></li>
   </ul></li>
   </ul>
@@ -329,6 +336,8 @@ ul.task-list li input[type="checkbox"] {
 <li>People living in a house</li>
 <li>Teams that played in the Asia Cup 2022</li>
 <li>Chess pieces on a board mid-game</li>
+<li>Preferences of men and women in the <a href="../../../materials/dsanotes/stable-matchings/index.html">stable marriage</a> problem</li>
+<li>List of marks obtained in all the assessments of a course</li>
 </ol>
 <div class="page-columns page-full"><p>While some people play their happy songs in shuffle mode, for some the playlist is carefully organized, and the order matters. A stack of cards and chess pieces on a board are clearly collections with a natural sense of order, and one that is very likely to be important. On the other hand, people who live in a particular house or the set of teams that participated in the Asia cup in 2022 can be thought of as sets with no underlying order: of course, if you had to impose one you could cook something up<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> (e.g, alphabetical, favorites, and so on). We will focus on storing ordered lists for now and return to sets in due course.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;For example, the C++ implementation of <code>set</code> maintains a default order even though it is, by nomenclature, modeling unordered sets. On the other hand, the <code>unordered_set</code> data structure in the C++ STL throws all caution to the wind and buys faster operations on average.</p></li></div></div>
 <p>There are a few different ways that you can store a list of things in a computer’s memory. Imagine that you are real estate agent and you want to book some houses in a complex for your current and future clients. Stretching your imagination a little bit further, say all houses are numbered from 1 to 1000 and are positioned on a straight line in the natural order (i.e, 2 after 1, 3 after 2, and so on). Some houses are occupied and others are not. If you reserve <span class="math inline">k</span> houses, management will find some contiguous block of <span class="math inline">k</span> unoccupied houses and give you the number of the first house in the block. For instance, if you ask for 50 houses, you would get a letter from the management saying 50 houses starting from #420 are yours. If you need 20 more houses later, you would get a letter from the management saying 70 houses starting from #777 are yours. That’s right: they are not obiligied to give you houses #470 to #489, indeed, these may not be avaiailable. They <em>could</em> just give you an additional chunk of 20 houses somewhere else, but sadly that’s not how they roll: them management, them rules. There are also no refunds: you can’t give back reserved houses.</p>
@@ -360,8 +369,13 @@ ul.task-list li input[type="checkbox"] {
 <p>An array is a data structure consisting of a collection of elements (values or variables), each identified by at least one array index or key. An array is stored such that the position of each element can be computed from its index tuple by a mathematical formula.</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>For example, an array of 10 32-bit (4-byte) integer variables, with indices 0 through 9, may be stored as 10 words at memory addresses 2000, 2004, 2008, …, 2036, (in hexadecimal: 0x7D0, 0x7D4, 0x7D8, …, 0x7F4) so that the element with index i has the address 2000 + (i × 4).[4]</p>
+<p>For example, an array of 10 32-bit (4-byte) integer variables, with indices 0 through 9, may be stored as 10 words at memory addresses 2000, 2004, 2008, …, 2036, (in hexadecimal: 0x7D0, 0x7D4, 0x7D8, …, 0x7F4) so that the element with index i has the address 2000 + (i × 4).</p>
 </blockquote>
+<p>Arrays are usually <em>static</em>, which is to say that their sizes are fixed upfront:</p>
+<blockquote class="blockquote">
+<p>As an example consider the C declaration int anArrayName[10]; which declares a one-dimensional array of ten integers. Here, the array can store ten elements of type int . This array has indices starting from zero through nine. For example, the expressions anArrayName[0] and anArrayName[9] are the first and last elements respectively.</p>
+</blockquote>
+<p>Now if you decide to add an eleventh element to <code>anArrayName</code>, the default situation is that you have an array overflow and the operation is not permitted. However, you could work around this by copying everything in <code>anArrayName</code> to a <em>new</em> array of larger size: this is going to be expensive, but it allows you to expand the size as you go along.</p>
 </section>
 <section id="linked-lists" class="level2">
 <h2 class="anchored" data-anchor-id="linked-lists">Linked Lists</h2>
@@ -373,7 +387,7 @@ ul.task-list li input[type="checkbox"] {
 <p>More complex variants add additional links, allowing more efficient insertion or removal of nodes at arbitrary positions. A drawback of linked lists is that access time is linear (and difficult to pipeline). Faster access, such as random access, is not feasible. Arrays have better cache locality compared to linked lists.</p>
 </blockquote>
 </section>
-<section id="comparison" class="level2">
+<section id="comparison" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="comparison">Comparison</h2>
 <p>Given a fully occupied array with n elements v/s a linked list with n elements, here are the costs of some operations that you might want to perform:</p>
 <table class="table">
@@ -391,27 +405,42 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">Looking up the i-th element</td>
+<td style="text-align: center;">Looking up the <code>i</code>-th element</td>
 <td style="text-align: center;">instant</td>
-<td style="text-align: center;"><span class="math inline">\approx</span> i</td>
+<td style="text-align: center;"><span class="math inline">\approx</span> <code>i</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Adding a new element at the start</td>
-<td style="text-align: center;"><span class="math inline">\approx</span> n</td>
+<td style="text-align: center;"><span class="math inline">\approx</span> <code>n</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
 <td style="text-align: center;">instant</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">Adding a new element at the end</td>
-<td style="text-align: center;"><span class="math inline">\approx</span> n</td>
-<td style="text-align: center;"><span class="math inline">\approx</span> n</td>
+<td style="text-align: center;"><span class="math inline">\approx</span> <code>n</code><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></td>
+<td style="text-align: center;">instant<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Removing the i-th element</td>
-<td style="text-align: center;"><span class="math inline">\approx</span> n-i</td>
-<td style="text-align: center;"><span class="math inline">\approx</span> i</td>
+<td style="text-align: center;">Adding a new element at the <code>i</code>-th location</td>
+<td style="text-align: center;"><span class="math inline">\approx</span> <code>n</code></td>
+<td style="text-align: center;"><span class="math inline">\approx</span> min(<code>i</code>,<code>n-i</code>)<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Removing the <code>i</code>-th element</td>
+<td style="text-align: center;"><span class="math inline">\approx</span> <code>n-i</code></td>
+<td style="text-align: center;"><span class="math inline">\approx</span> min(<code>i</code>,<code>n-i</code>)<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></td>
 </tr>
 </tbody>
 </table>
+<div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;The actual cost is the number of elements in the array.</p></li><li id="fn3"><p><sup>3</sup>&nbsp;This is instant if there’s room, but <code>n</code> in the worst case, when the array overflows.</p></li><li id="fn4"><p><sup>4</sup>&nbsp;assuming we remember where the list ends</p></li><li id="fn5"><p><sup>5</sup>&nbsp;assuming we remember where the list ends <em>and</em> store backward pointers; from each element to the <em>previous</em> one.</p></li><li id="fn6"><p><sup>6</sup>&nbsp;assuming we remember where the list ends <em>and</em> store backward pointers; from each element to the <em>previous</em> one.</p></li></div></section>
+<section id="dynamic-arrays" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="dynamic-arrays">Dynamic Arrays</h2>
+<div class="page-columns page-full"><p>In a bid to get the best of both worlds, one often resorts to <em>dynamic arrays</em> — which are resizable arrays that have an average constant expense of insertion and instant lookups always. The way this works is the following: start out with a modest-sized array with room for <span class="math inline">k</span> elements<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>, and whenever you overflow, you book a new array which is <em>double</em> the size of the original, which buys you free insert operations for another <span class="math inline">n</span> steps, where <span class="math inline">n</span> is the current array size. This way, you can think of every copy operation as “paying forward” for an insert operation, and since the total number of insertions is <span class="math inline">n</span>, the total number of operations overall is at most <span class="math inline">2n</span>, amounting to a total cost that is constant per insertion (by averaging). This is called an <em>amortized</em> analysis. Every insertion is one of two kinds:</p><div class="no-row-height column-margin column-container"><li id="fn7"><p><sup>7</sup>&nbsp;Where <span class="math inline">k</span> is a reasonable estimate for what you would need; if you don’t have such an estimate begin with <span class="math inline">k = 2</span>.</p></li></div></div>
+<ul>
+<li><em>lucky</em>: an operation that costs one unit of time, because the array has free space;</li>
+<li><em>unlucky</em>: an operation that costs <span class="math inline">n+1</span> units of time, because the array has overflown and we need to copy <span class="math inline">n</span> elements before we can perform the insert.</li>
+</ul>
+<p>Note that the unlucky operations are few and far between: if we have an <em>unlucky</em> operation of cost <span class="math inline">n+1</span>, then the <em>next</em> <span class="math inline">n</span> inserts are going to be lucky. So while the worst-case insertion time can be as bad as the size of the array, the <em>average</em> time is, in fact, constant.</p>
+<p>Note that deleting arbitrary elements remains expensive, we have to clean up the empty spaces created by the deletions.</p>
 </section>
 <section id="what-should-you-use" class="level2">
 <h2 class="anchored" data-anchor-id="what-should-you-use">What should you use?</h2>

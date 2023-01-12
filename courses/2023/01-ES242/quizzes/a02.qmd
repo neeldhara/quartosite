@@ -1,0 +1,149 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: ES242. Data Structures and Algorithms I. Quiz 02 Solutions
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### Quiz 02 Solutions
+
+Released: 12 Jan, 2023
+
+[Back to course page](../index.qmd)
+
+:::{.callout-note icon="false" collapse="true"}
+
+# Problem 1. Double Linked Lists
+
+If `p` is the address of a node in a doubly linked list `L`, then:
+
+- `next(p)` is the address of the next node in the linked list 
+- `prev(p)` is the address of the previous node in the linked list 
+- `data(p)` is the information contained in the the node at address `p`
+
+Note that:
+
+- if `p` is the address of the first node in `L` then `prev(p)` is `NULL`.
+- if `p` is the address of the last node in `L` then `next(p)` is `NULL`.
+
+Also,  `data(p)`, `next(p)` and `prev(p)` returns a sensible value only if `p` is not `NULL`, otherwise they are `UNDEFINED`.
+
+If `L` is a linked list with five elements and `p` is the address of the third element, then what does `next(prev(next(next(p))))` represent?
+
+- Address of the 1st element
+- Address of the 2nd element
+- Address of the 3rd element
+- Address of the 4th element
+- Address of the 5th element
+- `UNDEFINED`
+
+If `L` is a linked list with five elements and `p` is the address of the third element, then what does `data(prev(prev(next(p))))` represent?
+
+- Data of the 1st element
+- Data of the 2nd element
+- Data of the 3rd element
+- Data of the 4th element
+- Data of the 5th element
+- `UNDEFINED`
+
+:::
+
+
+:::{.callout-caution icon="false" collapse="true"}
+
+# Solution
+
+For the first part:
+
+`next(prev(next(next(p))))` = `next(prev(next(next(3))))` = `next(prev(next(4)))` = `next(prev(5))` =  `next(4)` = `5`
+
+For the second part:
+
+`data(prev(prev(next(p))))` = `data(prev(prev(next(3))))` = `data(prev(prev(4)))` = `data(prev(3))` = `data(2)`
+
+:::
+
+
+:::{.callout-note icon="false"  collapse="true"}
+
+# Problem 2. Adjacency Lists
+
+Suppose $A$ is the adjacency matrix of a simple undirected graph $G = (V,E)$ with $n$ vertices given by $\{1,2,\ldots,n\}$, that is, 
+
+$$
+    A[i,j] =
+    \begin{cases}
+      1 & \text{if } (i,j) \in E,\\
+      0 & \text{if } (i,j) \notin E.
+    \end{cases}
+$$
+
+Note that $A[i,i] = 0$ for all $i \in \{1,2,\ldots,n\}$ since $G$ is simple.
+
+Suppose $(i,j) \in E$ for some $i,j \in \{1,2,\ldots,n\}$, $i \neq j$. Let $k$ denote the number of vertices that are adjacent to _both_ $i$ and $j$.
+
+What is the value of $A^2[i,j]$?
+
+- $0$
+- $1$
+- $k$
+- $k+1$
+
+
+Suppose $(i,j) \notin E$ for some $i,j \in \{1,2,\ldots,n\}$, $i \neq j$. Let $k$ denote the number of vertices that are adjacent to _both_ $i$ and $j$.
+
+What is the value of $A^2[i,j]$?
+
+- $0$
+- $1$
+- $k$
+- $k+1$
+
+:::
+
+
+:::{.callout-caution icon="false" collapse="true"}
+
+# Solution
+
+ $A^2[i,j] = k$ irrespective of whether $(i,j) \in E$ or not. Notice that the entry in the $i$-th row and $j$-th column of $A^2$ is the product of the $i$-th row of $A$ and the $j$-th column of $A$, and the only terms that are not zeroed-out in this product are those that correspond to vertices adjacent to _both_ $i$ and $j$. Note that both $i$ and $j$ are not adjacent to themselves, which is why their adjacency (or lack of it) does not change the final answer.
+
+:::
+
+
+:::{.callout-note icon="false" collapse="true"}
+
+# Problem 3. Edge List
+
+Suppose every vertex of a graph $G$ on $n$ vertices has $d$ neighbors.
+
+What is the size of the edge list?
+
+- $d \cdot n$
+- $d \cdot n/2$
+- $2d \cdot n$
+- $(d + n)$
+
+Is it possible that both $d$ and $n$ are odd?
+
+- Yes
+- No
+
+:::
+
+
+:::{.callout-caution icon="false" collapse="true"}
+
+# Solution
+
+If every vertex has $d$ neighbors then there are $d$ edges incident to all the $n$ vertices in the graph. Thus we have $dn$ edges but with each edge counted exactly twice: in particular the edge $(u,v)$ gets counted as being one of the edges incident on $u$ _and_ one of the edges incident on $v$. Therefore the total number of edges, and therefore the size of the edge list, is $d \cdot n/2$.
+
+Since the total number of edges in any graph is a whole number, and is given by $d \cdot n/2$, it is not possible that _both_ $d$ and $n$ are odd. 
+:::
+
+:::

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - ES242. Data Structures and Algorithms I. Quiz 01</title>
+<title>Neeldhara - ES242. Data Structures and Algorithms I. Quiz 02</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -220,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ES242. Data Structures and Algorithms I. Quiz 01</h1>
+<h1 class="title">ES242. Data Structures and Algorithms I. Quiz 02</h1>
 </div>
 
 
@@ -237,9 +237,9 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="es242.-data-structures-and-algorithms-i." class="level2 column-body-outset">
 <h2 class="anchored" data-anchor-id="es242.-data-structures-and-algorithms-i.">ES242. Data Structures and Algorithms I.</h2>
-<section id="quiz-01" class="level5">
-<h5 class="anchored" data-anchor-id="quiz-01">Quiz 01</h5>
-<p>Issued: 5 Jan, 2023</p>
+<section id="quiz-02" class="level5">
+<h5 class="anchored" data-anchor-id="quiz-02">Quiz 02</h5>
+<p>Issued: 12 Jan, 2023</p>
 <p><a href="../../../../courses/2023/01-ES242/index.html">Back to course page</a></p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -247,34 +247,39 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 1. The 15-Puzzle
+Problem 1. Double Linked Lists
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Suppose you are implementing the <a href="https://en.wikipedia.org/wiki/15_puzzle">15 puzzle</a> game:</p>
-<blockquote class="blockquote">
-<p>This is a sliding puzzle having 15 square tiles numbered 1–15 in a frame that is 4 tiles high and 4 tiles wide, leaving one unoccupied tile position. Tiles in the same row or column of the open position can be moved by sliding them horizontally or vertically, respectively. The goal of the puzzle is to rearrange the tiles and place them in increasing numerical order.</p>
-</blockquote>
-<p>Here’s an example configuration:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="q01-img01.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">An Example 15-Puzzle Instance</figcaption><p></p>
-</figure>
-</div>
-<p>You decide to record the game state as a list of length 16, with elements between 0-15 (0 denotes the empty cell), using the following convention:</p>
-<ol type="1">
-<li><p>the first four elements contain the numbers in the first row of the board,</p></li>
-<li><p>the fifth-eighth elements contain the numbers in the second row of the board,</p></li>
-<li><p>the ninth-twelfth elements contain the numbers in the third row of the board, and</p></li>
-<li><p>the thirteenth-sixteenth element csontain the numbers in the fourth row of the board.</p></li>
-</ol>
-<p>Suppose you generalise this to a game involving a <span class="math inline">N \times N</span> board, using a list of size <span class="math inline">N^2</span>. The user indicates how they want to move at every step. Assume you can directly access and update any element in your list.</p>
-<p>How much time do you need to update the configuration?</p>
+<p>If <code>p</code> is the address of a node in a doubly linked list <code>L</code>, then:</p>
 <ul>
-<li>proportional to <span class="math inline">N</span></li>
-<li>proportional to <span class="math inline">N^2</span></li>
-<li>constant</li>
+<li><code>next(p)</code> is the address of the next node in the linked list</li>
+<li><code>prev(p)</code> is the address of the previous node in the linked list</li>
+<li><code>data(p)</code> is the information contained in the the node at address <code>p</code></li>
+</ul>
+<p>Note that:</p>
+<ul>
+<li>if <code>p</code> is the address of the first node in <code>L</code> then <code>prev(p)</code> is <code>NULL</code>.</li>
+<li>if <code>p</code> is the address of the last node in <code>L</code> then <code>next(p)</code> is <code>NULL</code>.</li>
+</ul>
+<p>Also, <code>data(p)</code>, <code>next(p)</code> and <code>prev(p)</code> returns a sensible value only if <code>p</code> is not <code>NULL</code>, otherwise they are <code>UNDEFINED</code>.</p>
+<p>If <code>L</code> is a linked list with five elements and <code>p</code> is the address of the third element, then what does <code>next(prev(next(next(p))))</code> represent?</p>
+<ul>
+<li>Address of the 1st element</li>
+<li>Address of the 2nd element</li>
+<li>Address of the 3rd element</li>
+<li>Address of the 4th element</li>
+<li>Address of the 5th element</li>
+<li><code>UNDEFINED</code></li>
+</ul>
+<p>If <code>L</code> is a linked list with five elements and <code>p</code> is the address of the third element, then what does <code>data(prev(prev(next(p))))</code> represent?</p>
+<ul>
+<li>Data of the 1st element</li>
+<li>Data of the 2nd element</li>
+<li>Data of the 3rd element</li>
+<li>Data of the 4th element</li>
+<li>Data of the 5th element</li>
+<li><code>UNDEFINED</code></li>
 </ul>
 </div>
 </div>
@@ -284,21 +289,34 @@ Problem 1. The 15-Puzzle
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 2. 2048
+Problem 2. Adjacency Lists
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Suppose you are implementing the <a href="https://play2048.co">2048 game</a>:</p>
-<blockquote class="blockquote">
-<p>2048 is played on a plain 4×4 grid, with numbered tiles that slide when a player moves them using the four arrow keys. Every turn, a new tile randomly appears in an empty spot on the board with a value of either 2 or 4. Tiles slide as far as possible in the chosen direction until they are stopped by either another tile or the edge of the grid. If two tiles of the same number collide while moving, they will merge into a tile with the total value of the two tiles that collided. The resulting tile cannot merge with another tile again in the same move.</p>
-</blockquote>
-<p>Feel free to play the game at the link above to get a feel for it.</p>
-<p>Suppose you are implementing a version of 2048 on a <span class="math inline">N \times N</span> board, using a list of size <span class="math inline">N^2</span>. As in the previous question, the list carries information about the state of the board: the first <span class="math inline">N</span> elements correspond to the numbers in the first row, and so on. The user indicates in which direction they want to move at every step. Assume you can directly access and update any element in your list.</p>
-<p>How much time do you need to update the configuration?</p>
+<p>Suppose <span class="math inline">A</span> is the adjacency matrix of a simple undirected graph <span class="math inline">G = (V,E)</span> with <span class="math inline">n</span> vertices given by <span class="math inline">\{1,2,\ldots,n\}</span>, that is,</p>
+<p><span class="math display">
+    A[i,j] =
+    \begin{cases}
+      1 &amp; \text{if } (i,j) \in E,\\
+      0 &amp; \text{if } (i,j) \notin E.
+    \end{cases}
+</span></p>
+<p>Note that <span class="math inline">A[i,i] = 0</span> for all <span class="math inline">i \in \{1,2,\ldots,n\}</span> since <span class="math inline">G</span> is simple.</p>
+<p>Suppose <span class="math inline">(i,j) \in E</span> for some <span class="math inline">i,j \in \{1,2,\ldots,n\}</span>, <span class="math inline">i \neq j</span>. Let <span class="math inline">k</span> denote the number of vertices that are adjacent to <em>both</em> <span class="math inline">i</span> and <span class="math inline">j</span>.</p>
+<p>What is the value of <span class="math inline">A^2[i,j]</span>?</p>
 <ul>
-<li>proportional to <span class="math inline">N</span></li>
-<li>proportional to <span class="math inline">N^2</span></li>
-<li>constant</li>
+<li><span class="math inline">0</span></li>
+<li><span class="math inline">1</span></li>
+<li><span class="math inline">k</span></li>
+<li><span class="math inline">k+1</span></li>
+</ul>
+<p>Suppose <span class="math inline">(i,j) \notin E</span> for some <span class="math inline">i,j \in \{1,2,\ldots,n\}</span>, <span class="math inline">i \neq j</span>. Let <span class="math inline">k</span> denote the number of vertices that are adjacent to <em>both</em> <span class="math inline">i</span> and <span class="math inline">j</span>.</p>
+<p>What is the value of <span class="math inline">A^2[i,j]</span>?</p>
+<ul>
+<li><span class="math inline">0</span></li>
+<li><span class="math inline">1</span></li>
+<li><span class="math inline">k</span></li>
+<li><span class="math inline">k+1</span></li>
 </ul>
 </div>
 </div>
@@ -308,11 +326,23 @@ Problem 2. 2048
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 3. Game of Trust
+Problem 3. Edge List
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Describe how to define a set of marriage preferences among <span class="math inline">n</span> men and <span class="math inline">n</span> women such that there is exactly one stable marriage possible.</p>
+<p>Suppose every vertex of a graph <span class="math inline">G</span> on <span class="math inline">n</span> vertices has <span class="math inline">d</span> neighbors.</p>
+<p>What is the size of the edge list?</p>
+<ul>
+<li><span class="math inline">d \cdot n</span></li>
+<li><span class="math inline">d \cdot n/2</span></li>
+<li><span class="math inline">2d \cdot n</span></li>
+<li><span class="math inline">(d + n)</span></li>
+</ul>
+<p>Is it possible that both <span class="math inline">d</span> and <span class="math inline">n</span> are odd?</p>
+<ul>
+<li>Yes</li>
+<li>No</li>
+</ul>
 </div>
 </div>
 </section>

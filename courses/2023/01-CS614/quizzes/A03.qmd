@@ -1,0 +1,111 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: CS614. Advanced Algorithms. L02 Quiz.
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## CS614. Advanced Algorithms. 
+
+##### L03 Quiz
+
+[Back to the course page](../index.qmd)
+
+
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Partition Matroid
+
+Show that the exchange axiom holds for the Partition Matroid defined in class.
+
+:::
+
+
+:::{.callout-caution collapse="true" icon="false"} 
+
+# Solution
+
+Let $(U := U_1 \cup \cdots \cup U_\ell, \mathcal{F})$ be a partition matroid with budgets $a_1,\ldots,a_\ell$.
+
+Suppose $S, T \subseteq U_1 \cup \cdots \cup U_\ell$  such that $S,T \in \mathcal{F}$, and $|T| > |S|$. 
+
+Then, there exists at least one part $U_i$ where $|T \cap U_i| > |S \cap U_i|$. Now let $x \in (T \setminus S) \cap U_i$. Note that $S \cup \{x\} \in \mathcal{F}$ since:
+
+\begin{equation*}
+    |S \cap U_j| =
+    \begin{cases}
+      < a_j & \text{if } j = i,\\
+      \leqslant a_j & \text{otherwise}.
+    \end{cases}
+\end{equation*}
+
+and therefore:
+
+\begin{equation*}
+    |(S \cup \{x\}) \cap U_j| =
+    \begin{cases}
+      |S \cap U_i| + 1 \leqslant a_j & \text{if } j = i,\\
+      \leqslant a_j & \text{otherwise}.
+    \end{cases}
+\end{equation*}
+
+
+
+::: 
+
+
+:::{.callout-note icon="false"}
+
+# Problem 2. Representing the Graphic Matroid
+
+The graphic matroid of a graph $G$ can be represented by the following matrix: we have one row for each vertex, and one column for each edge. The column for edge $e$ has $+1$ in the row for one endpoint, $-1$ in the row for the other endpoint, and $0$ elsewhere; the choice of which endpoint to give which sign is arbitrary. 
+
+Argue that this is a valid representation (i.e, that the forests correspond to linearly independent columns and the subsets of edges that have cycles in them correspond to dependent columns).
+
+:::
+
+
+
+:::{.callout-caution collapse="true" icon="false"} 
+
+# Solution
+
+Suppose we have a subset of edges that contains a cycle. For simplicity, suppose the cycle is given by:
+
+$$\{pq, qr, rs, st\}$$
+
+Now consider the column vectors $c_p, c_q, c_r, c_s$:
+
+\begin{bmatrix}
+c_p & c_q & c_r & c_s\\ 
+1 & 0 & 0 & -1 \\
+-1 & 1 & 0 & 0 \\
+0 & -1 & -1 & 0 \\
+0 & 0 & 1 & 1 
+\end{bmatrix}
+
+Note that:
+
+$$1 \cdot c_p + 1 \cdot c_q + (-1) \cdot c_r + 1 \cdot c_s$$
+
+is a linear combination with constants $(1,1,-1,1)$ that establish that these vectors are linearly dependent. In general, write down the columns in the order in which they appear on the cycle. If the first entry in the column is not $+1$, then multiply the column by $-1$ (except the last column, where we do the reverse: if the first entry is $+1$, then we multiply the column by $-1$). This way, we have a situation where every row contains exactly one $+1$ entry and one $-1$ entry, and the linear combination sums to $0$.
+
+This shows that dependent subsets of the matroid correspond to linearly dependent columns of $M$.
+
+To see that independent subsets $S \subseteq E(G)$ correspond to linearly independent columns, consider the set of columns that correspond to $S$:
+
+$$\{c_e ~|~ e \in S\    }$$
+
+Suppose, for the sake of contradiction, that there was some non-trivial linear combination of these columns that vanished, i.e, for non-empty subset $T \subseteq S$, there exist constants $\{\alpha_e\}_{e \in T}$ where:
+
+$$\sum_{e \in T} \alpha_e c_e = 0$$
+
+But now consider the subgraph consisting of the edges in $T$. Note that the minimum degree of $T$ must be two (suppose $u \in T$ has degree one, and its unique neighbor is $v$: then consider the entry in the row corresponding to $u$ in the column corresponding to the edge $uv$: this is non-zero and there is no cancelation possible in the sum above). However, a graph whose minimum degree is two cannot be acyclic, and this is a contradiction. 
+
+:::
+
+:::

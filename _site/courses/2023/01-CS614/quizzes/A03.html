@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - ES242. Data Structures and Algorithms I. Week 01 Lab</title>
+<title>Neeldhara - CS614. Advanced Algorithms. L02 Quiz.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -220,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ES242. Data Structures and Algorithms I. Week 01 Lab</h1>
+<h1 class="title">CS614. Advanced Algorithms. L02 Quiz.</h1>
 </div>
 
 
@@ -235,71 +235,55 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="es242.-data-structures-and-algorithms-i." class="level2 column-body-outset">
-<h2 class="anchored" data-anchor-id="es242.-data-structures-and-algorithms-i.">ES242. Data Structures and Algorithms I.</h2>
-<section id="quiz-01" class="level5">
-<h5 class="anchored" data-anchor-id="quiz-01">Quiz 01</h5>
-<p>Issued: 5 Jan, 2023</p>
-<p><a href="../../../../courses/2023/01-ES242/index.html">Back to course page</a></p>
+<section id="cs614.-advanced-algorithms." class="level2 column-body-outset">
+<h2 class="anchored" data-anchor-id="cs614.-advanced-algorithms.">CS614. Advanced Algorithms.</h2>
+<section id="l03-quiz" class="level5">
+<h5 class="anchored" data-anchor-id="l03-quiz">L03 Quiz</h5>
+<p><a href="../../../../courses/2023/01-CS614/index.html">Back to the course page</a></p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 1. The 15-Puzzle
+Problem 1. Partition Matroid
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Suppose you are implementing the <a href="https://en.wikipedia.org/wiki/15_puzzle">15 puzzle</a> game:</p>
-<blockquote class="blockquote">
-<p>This is a sliding puzzle having 15 square tiles numbered 1–15 in a frame that is 4 tiles high and 4 tiles wide, leaving one unoccupied tile position. Tiles in the same row or column of the open position can be moved by sliding them horizontally or vertically, respectively. The goal of the puzzle is to rearrange the tiles and place them in increasing numerical order.</p>
-</blockquote>
-<p>Here’s an example configuration:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="q01-img01.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">An Example 15-Puzzle Instance</figcaption><p></p>
-</figure>
-</div>
-<p>You decide to record the game state as a list of length 16, with elements between 0-15 (0 denotes the empty cell), using the following convention:</p>
-<ol type="1">
-<li><p>the first four elements contain the numbers in the first row of the board,</p></li>
-<li><p>the fifth-eighth elements contain the numbers in the second row of the board,</p></li>
-<li><p>the ninth-twelfth elements contain the numbers in the third row of the board, and</p></li>
-<li><p>the thirteenth-sixteenth element csontain the numbers in the fourth row of the board.</p></li>
-</ol>
-<p>Suppose you generalise this to a game involving a <span class="math inline">N \times N</span> board, using a list of size <span class="math inline">N^2</span>. The user indicates how they want to move at every step. Assume you can directly access and update any element in your list.</p>
-<p>How much time do you need to update the configuration?</p>
-<ul>
-<li>proportional to <span class="math inline">N</span></li>
-<li>proportional to <span class="math inline">N^2</span></li>
-<li>constant</li>
-</ul>
+<p>Show that the exchange axiom holds for the Partition Matroid defined in class.</p>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 2. 2048
+Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Suppose you are implementing the <a href="https://play2048.co">2048 game</a>:</p>
-<blockquote class="blockquote">
-<p>2048 is played on a plain 4×4 grid, with numbered tiles that slide when a player moves them using the four arrow keys. Every turn, a new tile randomly appears in an empty spot on the board with a value of either 2 or 4. Tiles slide as far as possible in the chosen direction until they are stopped by either another tile or the edge of the grid. If two tiles of the same number collide while moving, they will merge into a tile with the total value of the two tiles that collided. The resulting tile cannot merge with another tile again in the same move.</p>
-</blockquote>
-<p>Feel free to play the game at the link above to get a feel for it.</p>
-<p>Suppose you are implementing a version of 2048 on a <span class="math inline">N \times N</span> board, using a list of size <span class="math inline">N^2</span>. As in the previous question, the list carries information about the state of the board: the first <span class="math inline">N</span> elements correspond to the numbers in the first row, and so on. The user indicates in which direction they want to move at every step. Assume you can directly access and update any element in your list.</p>
-<p>How much time do you need to update the configuration?</p>
-<ul>
-<li>proportional to <span class="math inline">N</span></li>
-<li>proportional to <span class="math inline">N^2</span></li>
-<li>constant</li>
-</ul>
+<p>Let <span class="math inline">(U := U_1 \cup \cdots \cup U_\ell, \mathcal{F})</span> be a partition matroid with budgets <span class="math inline">a_1,\ldots,a_\ell</span>.</p>
+<p>Suppose <span class="math inline">S, T \subseteq U_1 \cup \cdots \cup U_\ell</span> such that <span class="math inline">S,T \in \mathcal{F}</span>, and <span class="math inline">|T| &gt; |S|</span>.</p>
+<p>Then, there exists at least one part <span class="math inline">U_i</span> where <span class="math inline">|T \cap U_i| &gt; |S \cap U_i|</span>. Now let <span class="math inline">x \in (T \setminus S) \cap U_i</span>. Note that <span class="math inline">S \cup \{x\} \in \mathcal{F}</span> since:</p>
+<p><span class="math display">\begin{equation*}
+    |S \cap U_j| =
+    \begin{cases}
+      &lt; a_j &amp; \text{if } j = i,\\
+      \leqslant a_j &amp; \text{otherwise}.
+    \end{cases}
+\end{equation*}</span></p>
+<p>and therefore:</p>
+<p><span class="math display">\begin{equation*}
+    |(S \cup \{x\}) \cap U_j| =
+    \begin{cases}
+      |S \cap U_i| + 1 \leqslant a_j &amp; \text{if } j = i,\\
+      \leqslant a_j &amp; \text{otherwise}.
+    \end{cases}
+\end{equation*}</span></p>
+</div>
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
@@ -308,11 +292,46 @@ Problem 2. 2048
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 3. Game of Trust
+Problem 2. Representing the Graphic Matroid
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Describe how to define a set of marriage preferences among <span class="math inline">n</span> men and <span class="math inline">n</span> women such that there is exactly one stable marriage possible.</p>
+<p>The graphic matroid of a graph <span class="math inline">G</span> can be represented by the following matrix: we have one row for each vertex, and one column for each edge. The column for edge <span class="math inline">e</span> has <span class="math inline">+1</span> in the row for one endpoint, <span class="math inline">-1</span> in the row for the other endpoint, and <span class="math inline">0</span> elsewhere; the choice of which endpoint to give which sign is arbitrary.</p>
+<p>Argue that this is a valid representation (i.e, that the forests correspond to linearly independent columns and the subsets of edges that have cycles in them correspond to dependent columns).</p>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Suppose we have a subset of edges that contains a cycle. For simplicity, suppose the cycle is given by:</p>
+<p><span class="math display">\{pq, qr, rs, st\}</span></p>
+<p>Now consider the column vectors <span class="math inline">c_p, c_q, c_r, c_s</span>:</p>
+<span class="math display">\begin{bmatrix}
+c_p &amp; c_q &amp; c_r &amp; c_s\\
+1 &amp; 0 &amp; 0 &amp; -1 \\
+-1 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 1
+\end{bmatrix}</span>
+<p>Note that:</p>
+<p><span class="math display">1 \cdot c_p + 1 \cdot c_q + (-1) \cdot c_r + 1 \cdot c_s</span></p>
+<p>is a linear combination with constants <span class="math inline">(1,1,-1,1)</span> that establish that these vectors are linearly dependent. In general, write down the columns in the order in which they appear on the cycle. If the first entry in the column is not <span class="math inline">+1</span>, then multiply the column by <span class="math inline">-1</span> (except the last column, where we do the reverse: if the first entry is <span class="math inline">+1</span>, then we multiply the column by <span class="math inline">-1</span>). This way, we have a situation where every row contains exactly one <span class="math inline">+1</span> entry and one <span class="math inline">-1</span> entry, and the linear combination sums to <span class="math inline">0</span>.</p>
+<p>This shows that dependent subsets of the matroid correspond to linearly dependent columns of <span class="math inline">M</span>.</p>
+<p>To see that independent subsets <span class="math inline">S \subseteq E(G)</span> correspond to linearly independent columns, consider the set of columns that correspond to <span class="math inline">S</span>:</p>
+<p><span class="math display">\{c_e ~|~ e \in S\}</span></p>
+<p>Suppose, for the sake of contradiction, that there was some non-trivial linear combination of these columns that vanished, i.e, for non-empty subset <span class="math inline">T \subseteq S</span>, there exist constants <span class="math inline">\{\alpha_e\}_{e \in T}</span> where:</p>
+<p><span class="math display">\sum_{e \in T} \alpha_e c_e = 0</span></p>
+<p>But now consider the subgraph consisting of the edges in <span class="math inline">T</span>. Note that the minimum degree of <span class="math inline">T</span> must be two (suppose <span class="math inline">u \in T</span> has degree one, and its unique neighbor is <span class="math inline">v</span>: then consider the entry in the row corresponding to <span class="math inline">u</span> in the column corresponding to the edge <span class="math inline">uv</span>: this is non-zero and there is no cancelation possible in the sum above). However, a graph whose minimum degree is two cannot be acyclic, and this is a contradiction.</p>
+</div>
 </div>
 </div>
 </section>

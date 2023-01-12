@@ -154,9 +154,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-problemset','listing-solutions',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-title','listing-dateissued','listing-due','listing-problemset','listing-solutions',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
       
-      searchColumns: ["listing-title","listing-problemset","listing-solutions"],
+      searchColumns: ["listing-title","listing-dateissued","listing-due","listing-problemset","listing-solutions"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -1344,8 +1344,9 @@ Note
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
-        <tr data-index="0" data-categories="null">            
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="05 Jan, 2023" data-listing-due-sort="05 Jan, 2023">            
             <td class="listing-date">
+                05 Jan, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Quiz 01</strong><br>
@@ -1358,22 +1359,25 @@ Note
                     <a href="../../../courses/2023/01-ES242/quizzes/a01.html"><i class="bi bi-journal-richtext" style="padding-left: 32px;"></i></a>
                 </td>
             <td class="listing-due">
+                    05 Jan, 2023
             </td>
         </tr>
-        <tr data-index="0" data-categories="null">            
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="12 Jan, 2023" data-listing-due-sort="12 Jan, 2023">            
             <td class="listing-date">
+                12 Jan, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Quiz 02</strong><br>
                 <p></p>
             </td>
             <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                    <a href="../../../courses/2023/01-ES242/quizzes/q02.html"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
                 </td>
             <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                    <a href="../../../courses/2023/01-ES242/quizzes/a02.html"><i class="bi bi-journal-richtext" style="padding-left: 32px;"></i></a>
                 </td>
             <td class="listing-due">
+                    12 Jan, 2023
             </td>
         </tr>
         <tr data-index="0" data-categories="null">            

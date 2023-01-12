@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - CS614. Advanced Algorithms. L02 Quiz.</title>
+<title>Neeldhara - CS614. Advanced Algorithms. L03 Solutions.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -220,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CS614. Advanced Algorithms. L02 Quiz.</h1>
+<h1 class="title">CS614. Advanced Algorithms. L03 Solutions.</h1>
 </div>
 
 
@@ -237,8 +237,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="cs614.-advanced-algorithms." class="level2 column-body-outset">
 <h2 class="anchored" data-anchor-id="cs614.-advanced-algorithms.">CS614. Advanced Algorithms.</h2>
-<section id="l03-quiz" class="level5">
-<h5 class="anchored" data-anchor-id="l03-quiz">L03 Quiz</h5>
+<section id="l03-solutions" class="level5">
+<h5 class="anchored" data-anchor-id="l03-solutions">L03 Solutions</h5>
 <p><a href="../../../../courses/2023/01-CS614/index.html">Back to the course page</a></p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -327,7 +327,7 @@ c_p &amp; c_q &amp; c_r &amp; c_s\\
 <p>is a linear combination with constants <span class="math inline">(1,1,-1,1)</span> that establish that these vectors are linearly dependent. In general, write down the columns in the order in which they appear on the cycle. If the first entry in the column is not <span class="math inline">+1</span>, then multiply the column by <span class="math inline">-1</span> (except the last column, where we do the reverse: if the first entry is <span class="math inline">+1</span>, then we multiply the column by <span class="math inline">-1</span>). This way, we have a situation where every row contains exactly one <span class="math inline">+1</span> entry and one <span class="math inline">-1</span> entry, and the linear combination sums to <span class="math inline">0</span>.</p>
 <p>This shows that dependent subsets of the matroid correspond to linearly dependent columns of <span class="math inline">M</span>.</p>
 <p>To see that independent subsets <span class="math inline">S \subseteq E(G)</span> correspond to linearly independent columns, consider the set of columns that correspond to <span class="math inline">S</span>:</p>
-<p><span class="math display">\{c_e ~|~ e \in S\}</span></p>
+<p><span class="math display">\{c_e ~|~ e \in S\    }</span></p>
 <p>Suppose, for the sake of contradiction, that there was some non-trivial linear combination of these columns that vanished, i.e, for non-empty subset <span class="math inline">T \subseteq S</span>, there exist constants <span class="math inline">\{\alpha_e\}_{e \in T}</span> where:</p>
 <p><span class="math display">\sum_{e \in T} \alpha_e c_e = 0</span></p>
 <p>But now consider the subgraph consisting of the edges in <span class="math inline">T</span>. Note that the minimum degree of <span class="math inline">T</span> must be two (suppose <span class="math inline">u \in T</span> has degree one, and its unique neighbor is <span class="math inline">v</span>: then consider the entry in the row corresponding to <span class="math inline">u</span> in the column corresponding to the edge <span class="math inline">uv</span>: this is non-zero and there is no cancelation possible in the sum above). However, a graph whose minimum degree is two cannot be acyclic, and this is a contradiction.</p>

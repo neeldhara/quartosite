@@ -389,10 +389,10 @@ Problem 2. Sorting a List: Challenge the Solution
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>while current &lt; n:</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    if current + k - 1 &lt;= n:</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        Apply the operation to the elements [current, current+1, ..., current+k-1]</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        answer += 1 </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    else:</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        Apply the operation to the elements [current, current+1, ..., n] </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        answer += 1</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    else:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        Apply the operation to the elements [current, current+1, ..., n] </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    answer += 1</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    current += k</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>return answer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Give an example of input where this algorithm fails.</p>
 <p>Name your input file <code>tests.txt</code> and make sure it has exactly two lines in the following format:</p>

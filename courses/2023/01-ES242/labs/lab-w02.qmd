@@ -100,10 +100,10 @@ answer = 0
 while current < n:
     if current + k - 1 <= n:
         Apply the operation to the elements [current, current+1, ..., current+k-1]
-        answer += 1 
     else:
         Apply the operation to the elements [current, current+1, ..., n] 
-        answer += 1
+    answer += 1
+    current += k
 return answer
 ```
 

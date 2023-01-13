@@ -98,6 +98,8 @@ Consider the following algorithm for solving the first problem:
 current = 1
 answer = 0
 while current < n:
+    if the array is sorted:
+        break
     if current + k - 1 <= n:
         Apply the operation to the elements [current, current+1, ..., current+k-1]
     else:

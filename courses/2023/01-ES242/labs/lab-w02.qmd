@@ -1,0 +1,404 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: ES242. Data Structures and Algorithms I. Week 01 Lab
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### Lab 02
+
+[Back to course page](../index.qmd)
+
+:::{.callout-warning appearance="minimal"}
+Theme: Arrays and Linked Lists
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 1. Sorting a List
+
+You are given a permutation $p$^[A permutation of length $n$ is an array consisting of $n$ distinct integers from 1 to $n$ in arbitrary order. For example, $[2,3,1,5,4]$ is a permutation, but $[1,2,2]$ is not a permutation (since $2$ appears twice in the array), and $[1,3,4]$ is also not a permutation $n=3$ but there is $4$ in the array).] of length $n$ and a positive integer $k \leq n$.
+
+In one operation, you:
+
+- Choose $k$ distinct elements $p_{i_1}, p_{i_2}, \ldots, p_{i_k}$.
+
+- Remove them and then add them sorted in increasing order to the end of the permutation.
+
+For example, if $p=[2,5,1,3,4]$ and $k=2$ and you choose $5$ and $3$ as the elements for the operation, then: 
+
+$$[2,5,1,3,4] \rightarrow[2,1,4,3,5].$$
+
+Find the minimum number of operations needed to sort the permutation in increasing order. It can be proven that it is always possible to do so.
+
+### Input
+
+The first line contains a single integer $t\left(1 \leq t \leq 10^4\right)-$ the number of test cases. The description of test cases follows.
+
+The first line of each test case contains two integers $n$ and $k\left(2 \leq n \leq 10^5, 1 \leq k \leq n\right)$.
+
+The second line of each test case contains $n$ integers $p_1, p_2, \ldots, p_n\left(1 \leq p_i \leq n\right)$. It is guaranteed that $p$ is a permutation.
+
+It is guaranteed that the sum of $n$ over all test cases does not exceed $10^5$.
+
+### Output
+
+For each test case output a single integer - the minimum number of operations needed to sort the permutation. It can be proven that it is always possible to do so.
+
+### Sample I/O
+
+`Sample Input`
+
+```
+4
+3 2
+1 2 3
+3 1
+3 1 2
+4 2
+1 3 2 4
+4 2
+2 3 1 4
+```
+
+`Sample Output`
+
+```
+0
+1
+1
+2
+```
+
+_Explanation_
+
+In the first test case, the permutation is already sorted.
+
+In the second test case, you can choose element $3$, and the permutation will become sorted as follows: $[3,1,2]\rightarrow[1,2,3]$.
+
+In the third test case, you can choose elements $3$ and $4$, and the permutation will become sorted as follows: $[1,3,2,4]\rightarrow[1,2,3,4]$
+
+In the fourth test case, it can be shown that it is impossible to sort the permutation in one operation. However, if you choose elements $2$ and $1$ in the first operation, and choose elements $3$ and $4$ in the second operation, the permutation will become sorted as follows: $[2,3,1,4]\rightarrow[3,4,1,2]\rightarrow[1,2,3,4]$.
+
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 2. Sorting a List: Challenge the Solution
+
+Consider the following algorithm for solving the first problem: 
+
+```default
+current = 1
+answer = 0
+while current < n:
+    if current + k - 1 <= n:
+        Apply the operation to the elements [current, current+1, ..., current+k-1]
+        answer += 1 
+    else:
+        Apply the operation to the elements [current, current+1, ..., n] 
+        answer += 1
+return answer
+```
+
+Give an example of input where this algorithm fails.
+
+Name your input file `tests.txt` and make sure it has exactly two lines in the following format:
+
+```default
+N K
+p1 p2 ... pn
+```
+
+where the first line consists of two space-separated integers corresponding to `N` and `K` and the second line has `n` space-separated integers that form a permutation. You get a full score on this problem if your input is valid, and it causes the algorithm above to output a sub-optimal solution.
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 3. Maintain a Network
+
+You have just launched a social network for the IITGN community, called GYAN.
+
+$Q$ operations have been performed since GYAN was launched. The $i$-th $(1 \leq i \leq Q)$ operation is represented by three integers $T_i, A_i$, and $B_i$, whose meanings are as follows:
+
+- If $T_i=1$ : it means that user $A_i$ follows user $B_i$. If user $A_i$ is already following user $B_i$ at the time of this operation, it does not make any change.
+- If $T_i=2$ : it means that user $A_i$ unfollows user $B_i$. If user $A_i$ is not following user $B_i$ at the time of this operation, it does not make any change.
+- If $T_i=3$ : it means that you are asked to determine if users $A_i$ and $B_i$ are following each other. You need to print Yes if user $A_i$ is following user $B_i$ and user $B_i$ is following user $A_i$, and No otherwise.
+
+When the service was launched, no users were following any users.
+
+Print the correct answers for all operations such that $T_i=3$ in ascending order of $i$.
+
+### Constraints
+
+- $2 \leq N \leq 10^9$
+- $1 \leq Q \leq 2 \times 10^5$
+- $T_i=1,2,3(1 \leq i \leq Q)$
+- $1 \leq A_i \leq N(1 \leq i \leq Q)$
+- $1 \leq B_i \leq N(1 \leq i \leq Q)$
+- $A_i \neq B_i(1 \leq i \leq Q)$
+- There exists $i(1 \leq i \leq Q)$ such that $T_i=3$.
+- All values in the input are integers.
+
+
+### Input
+
+The input is given from Standard Input in the following format:
+$$
+\begin{array}{lll}
+N & Q & \\
+T_1 & A_1 & B_1 \\
+T_2 & A_2 & B_2 \\
+\vdots & & \\
+T_Q & A_Q & B_Q
+\end{array}
+$$
+
+
+### Output
+
+Print $X$ lines, where $X$ is the number of $i$ 's $(1 \leq i \leq Q)$ such that $T_i=3$. The $j$-th $(1 \leq j \leq X)$ line should contain the answer to the $j$-th operation such that $T_i=3$.
+
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+3 9
+1 1 2
+3 1 2
+1 2 1
+3 1 2
+1 2 3
+1 3 2
+3 1 3
+2 1 2
+3 1 2
+```
+
+`Sample Output`
+
+```default
+No
+Yes
+No
+No
+```
+
+`Sample Input`
+
+```default
+2 8
+1 1 2
+1 2 1
+3 1 2
+1 1 2
+1 1 2
+1 1 2
+2 1 2
+3 1 2
+```
+
+`Sample Output`
+
+```default
+Yes
+No
+```
+
+`Sample Input`
+
+```default
+10 30
+3 1 6
+3 5 4
+1 6 1
+3 1 7
+3 8 4
+1 1 6
+2 4 3
+1 6 5
+1 5 6
+1 1 8
+1 8 1
+2 3 10
+1 7 6
+3 5 6
+1 6 7
+3 6 7
+1 9 5
+3 8 6
+3 3 8
+2 6 9
+1 7 1
+3 10 8
+2 9 2
+1 10 9
+2 6 10
+2 6 8
+3 1 6
+3 1 8
+2 8 5
+1 9 10
+```
+
+`Sample Output`
+
+```default
+No
+No
+No
+No
+Yes
+Yes
+No
+No
+No
+Yes
+Yes
+```
+
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 4. Stable Matchings
+
+There are $n$ men and $n$ women. Each woman ranks all men in order of her preference (her first choice, her second choice, and so on). Similarly, each man sorts all women according to his preference. The goal is to arrange n marriages in such a way that if a man $m$ prefers some woman $w$ more than his wife, and $w$ prefers $m$ more then her husband a new marriage occurs between $w$ and $m$. If $w$ prefers her husband more, then she stays married to him. This problem always has a solution and your task is to find one.
+
+### Input
+
+The first line contains a positive integer `t<=100` indicating the number of test cases. Each test case is an instance of the stable marriage problem defined above. The first line of each test case is a positive integer `n<=500` (the number of marriages to find). The next `n` lines are the woman's preferences: `i`-th line contains the number `i` (which means that this is the list given by the ith woman) and the numbers of men (the first choice of ith woman, the second choice,...). Then, the men's preferences follow in the same format.
+
+### Output
+
+For each test case print `n` lines, where each line contains two numbers `m` and `w`, which means that the man number m and the woman number `w` should get married.
+
+### Sample IO
+
+`Sample Input`
+
+```default
+2
+4
+1 4 3 1 2
+2 2 1 3 4
+3 1 3 4 2
+4 4 3 1 2
+1 3 2 4 1
+2 2 3 1 4
+3 3 1 2 4
+4 3 2 4 1
+7
+1 3 4 2 1 6 7 5
+2 6 4 2 3 5 1 7
+3 6 3 5 7 2 4 1
+4 1 6 3 2 4 7 5
+5 1 6 5 3 4 7 2
+6 1 7 3 4 5 6 2
+7 5 6 2 4 3 7 1
+1 4 5 3 7 2 6 1
+2 5 6 4 7 3 2 1
+3 1 6 5 4 3 7 2
+4 3 5 6 7 2 4 1
+5 1 7 6 4 3 5 2
+6 6 3 7 5 2 4 1
+7 1 7 4 2 6 5 3
+```
+
+` Sample Output`
+
+```default
+1 3
+2 2
+3 1
+4 4
+1 4
+2 5
+3 1
+4 3
+5 7
+6 6
+7 2
+```
+
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 5. Linked Lists
+
+```C
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+  //node structure
+  struct node
+  {
+      int data;
+      struct node *next;
+  };
+
+  //declaring nodes
+  struct node *head,*middle,*last;
+
+  //allocating memory for each node
+  head   = malloc(sizeof(struct node));
+  middle = malloc(sizeof(struct node));
+  last   = malloc(sizeof(struct node));
+
+  //assigning values to each node
+  head->data   = 10;
+  middle->data = 20;
+  last->data   = 30;
+
+  //connecting each nodes. head->middle->last
+  head->next   = middle;
+  middle->next = last;
+  last->next   = NULL;
+
+  //temp is a reference for head pointer.
+  struct node *temp = head;
+
+  //till the node becomes null, printing each nodes data
+  while(temp != NULL)
+  {
+      printf("%d->",temp->data);
+      temp = temp->next;
+  }
+  printf("NULL");
+
+  return 0;
+}
+```
+
+Extend the code above to perform the following tasks:
+
+1. Read a sequence of `n` numbers from the input, $p_1, \ldots, p_n$.
+2. Insert each of these number at a location where the linked list is still sorted when read from beginning to end.
+3. For any given input $i$, output the number in the linked list that comes before the number $i$.
+
+### Input
+
+The first line contains a positive integer `n`.
+The second line contains `n` space-separated integers.
+The third line contains a positive integer `m`.
+
+### Output
+
+Output the number that comes before `m` in the linked list. It is guaranteed that `m` is one of the numbers from the second line. If the number happens to be the first element of the list, return `-1`.
+:::
+
+:::

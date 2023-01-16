@@ -323,8 +323,22 @@ Problem 2. Maker-Breaker Game
 <p>(No marks for answering this question, take your best guess :) )</p>
 </div>
 </div>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Heads Up
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Part (3) was under-specified: the second player wins on complete graphs with at least four vertices but the first player has easy wins if the graph is an edge (a complete graph on two vertices) or a triangle (a complete graph on three vertices).</p>
+<p>Grading note: everyone recieves a full grade for this question.</p>
+</div>
+</div>
 <div class="callout-caution callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -333,12 +347,12 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>Suppose both players indeed win. Let us delete the edges chosen by the first player. What is left is: (a) the set of edges chosen by the second player and (b) a disconnected graph. But the second player also won, so this set contains a spanning tree. A graph cannot simultaneously admit a spanning <em>tree</em> and be disconnected, this is a contradiction when applied on the graph induced by the leftover edges.</p></li>
 <li><p>Player 1 can choose any edge in the first step and he already wins.</p></li>
-<li><p>Player 2 wins because notice that no matter how the first player plays the first <span class="math inline">(n-1)</span> steps, it is not enough to disconnect the graph. By chosing edges carefully<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, Player 2 can ensure that (s)he has booked a spanning tree already within the first <span class="math inline">(n-1)</span> moves.</p></li>
+<li><p>Assume that the graph has at least four vertices. Player 2 wins because notice that no matter how the first player plays the first <span class="math inline">(n-1)</span> steps, it is not enough to disconnect the graph. By chosing edges carefully<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, Player 2 can ensure that (s)he has booked a spanning tree already within the first <span class="math inline">(n-1)</span> moves.</p></li>
 <li><p>No spoilers on this one (yet).</p></li>
 </ol>
 </div>
@@ -353,7 +367,7 @@ Solution
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>e.g, by choosing an edge incident on the <span class="math inline">i</span>-th vertex in the <span class="math inline">i</span>-th move that connectes the <span class="math inline">i</span>-th vertex to the subgraph built so far by the second player<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>This can be done, for example, by choosing an edge incident on the <span class="math inline">i</span>-th vertex in the <span class="math inline">i</span>-th move that connectes the <span class="math inline">i</span>-th vertex to the subgraph built so far by the second player: it can be shown that this is doable.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>

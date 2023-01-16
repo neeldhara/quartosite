@@ -1,0 +1,74 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: CS614. Advanced Algorithms. L04 Quiz.
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## CS614. Advanced Algorithms. 
+
+##### L04 Quiz
+
+[Back to the course page](../index.qmd)
+
+
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Matroid Intersection Example
+
+Consider a directed graph $D=(V, E \subseteq V \times V)$. A set $T \subseteq E$ is an arborescence (oriented forest) if:
+
+1. $T$ does not contain a cycle (ignoring directions of edges).
+
+2. Every vertex in $V$ has at most one incoming edge.
+
+An arborescence $T$ with $|T|=n-1$ will have one incoming edge incident on each node except one. If we denote this special node as root, this is an oriented spanning tree as shown in the figure.
+
+![An example arborescence.](L04-img.png){width=25%}
+
+Consider the underlying undirected graph $G_D = (V,E)$ associated with $D$ (this is the graph obtained by "erasing the arrows" in $D$). Consider the universe given by $E$. Suggest two matroids ${\mathcal M}_1$ and ${\mathcal M}_2$ for which set of arborescences is given by the sets independent in both ${\mathcal M}_1$ and ${\mathcal M}_2$.
+
+Hint: these are both matroids seen in class. Further, you might find it useful to partition $E$ into $|V|$ many parts as follows --- the part $P_v$ contains all edges that are incoming arcs for the vertex $v$ in $D$. Can you define a matroid based on this partition?
+
+Describe ${\mathcal M}_1$ and ${\mathcal M}_2$.
+
+:::
+
+
+:::{.callout-note icon="false"}
+
+# Problem 2. Maker-Breaker Game
+
+Two players take turns removing edges from an undirected graph until there are no edges left. 
+
+Player 2 wins if the edges they remove contains a spanning tree, player 1 wins if the set of edges they remove would disconnect the original graph.
+
+1. Is it true that exactly one player wins this game? In other words, is the following statement true?
+
+"It is NOT the case that after the game has been played, _both_ players can claim a win."
+
+- Yes
+- No
+
+2. Which player wins on a path?
+
+- Player 1
+- Player 2
+
+3. Which player wins on a complete graph?
+
+- Player 1
+- Player 2
+
+4. Complete this sentence: player 2 has the winning strategy if and only if the graph contains `BLANK`.
+
+(No marks for answering this question, take your best guess :) )
+
+:::
+
+
+:::

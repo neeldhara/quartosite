@@ -1,0 +1,308 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: ES242. Data Structures and Algorithms I. Week 01 Lab
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### Lab 02
+
+[Back to course page](../index.qmd)
+
+:::{.callout-warning appearance="minimal"}
+Theme: Stacks
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 1. Linked Lists
+
+```C
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+  //node structure
+  struct node
+  {
+      int data;
+      struct node *next;
+  };
+
+  //declaring nodes
+  struct node *head,*middle,*last;
+
+  //allocating memory for each node
+  head   = malloc(sizeof(struct node));
+  middle = malloc(sizeof(struct node));
+  last   = malloc(sizeof(struct node));
+
+  //assigning values to each node
+  head->data   = 10;
+  middle->data = 20;
+  last->data   = 30;
+
+  //connecting each nodes. head->middle->last
+  head->next   = middle;
+  middle->next = last;
+  last->next   = NULL;
+
+  //temp is a reference for head pointer.
+  struct node *temp = head;
+
+  //till the node becomes null, printing each nodes data
+  while(temp != NULL)
+  {
+      printf("%d->",temp->data);
+      temp = temp->next;
+  }
+  printf("NULL");
+
+  return 0;
+}
+```
+
+Extend the code above to perform the following tasks:
+
+1. Read a sequence of `n` numbers from the input, $p_1, \ldots, p_n$.
+2. Insert each of these number at a location where the linked list is still sorted when read from beginning to end.
+3. For any given input $i$, output the number in the linked list that comes before the number $i$.
+
+### Input
+
+The first line contains a positive integer `n`.
+The second line contains `n` space-separated integers.
+The third line contains a positive integer `m`.
+
+### Output
+
+Output the number that comes before `m` in the linked list. It is guaranteed that `m` is one of the numbers from the second line. If the number happens to be the first element of the list, return `-1`.
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+# Problem 2. Parentheses
+
+You are given a string consisting of parentheses `(` and `)`. A string of this type is said to be _correct_:
+
+(a) if it is the empty string
+
+(b) if A and B are correct, AB is correct.
+
+(c) if A is correct, (A) is correct.
+
+
+Write a program that takes a sequence of strings of this of type and check their correctness. 
+
+Your program can assume that the maximum string length is 128. 
+
+## Input
+The first line of the input is a positive integer `n`, the number of tests.
+The next `n` lines consist of one test case each.
+Each test case is a string made of the parentheses `()`.
+
+## Output
+The output should consist of `n` lines, one for each test.
+The `i`-th line of the ouptut should be `Yes` if the the string in the `i`-th test case is correct, and `No` otherwise.
+
+### Sample Input
+
+```
+5
+(
+(((
+()()
+)
+)))
+```
+
+```
+No
+No
+Yes
+No
+No
+```
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+# Problem 3. Challenge the Parentheses Solution
+
+Consider the following algorithm for the previous problem:
+
+```
+If the first character is not ( return FALSE
+If the last character is not ) return FALSE
+Initialize i = 0
+For j in s:
+    if j == "(":
+        i++
+    else:
+        i--
+if i != 0 return FALSE
+else return TRUE
+```
+
+Provide an input for which the algorithm above does _not_ work. Your input should be a single line consisting of a string that has `(` and `)` characters only. 
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+# Problem 4. Print Alternate Cards
+
+Add a set of cards to a stack and print all the cards in odd-numbered positions of the stack.
+
+## I/O Format
+
+The first line contains a number `n`, the number of cards in the stack. The next `n` lines contain two numbers. The first number `b` indicates if the card is to be added on the top (`b=0`) or at the bottom (`b=1`). The second number indicates the card's value, an integer between 1 and 52.
+
+The output should the list of alternating cards from bottom to top (i.e, starting at the card pointed to by the first pointer). If there are an even number of cards, note that the last card on the stack does not get printed.
+
+Adding a card on the top can be done by using `pushBack`, while adding it at the bottom `pushFront`.
+
+### Sample input
+
+```
+5
+0 1
+0 2
+1 3
+1 5
+0 4
+```
+
+### Sample output
+
+```
+5
+1
+4
+```
+
+:::
+
+
+### The Cardstack Data Structure
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct s_card {
+  int cardvalue;
+  struct s_card *next;
+  struct s_card *prev;
+} t_card;
+
+typedef struct s_cardstack {
+  struct s_card *first;
+  struct s_card *last;
+} t_cardstack;
+
+t_cardstack *cardstackInit() {
+  t_cardstack *cardstack;
+  cardstack = malloc(sizeof(t_cardstack));
+  cardstack->first = NULL;
+  cardstack->last = NULL;
+  return cardstack;
+}
+
+int isEmpty(t_cardstack *cardstack) { return !cardstack->first; }
+
+void pushFront(t_cardstack *cardstack, int cardvalue) {
+  t_card *node = malloc(sizeof(t_card));
+  node->cardvalue = cardvalue;
+  node->prev = NULL;
+  node->next = cardstack->first;
+  if (isEmpty(cardstack))
+    cardstack->last = node;
+  else
+    cardstack->first->prev = node;
+  cardstack->first = node;
+}
+
+void pushBack(t_cardstack *cardstack, int cardvalue) {
+  t_card *node = malloc(sizeof(t_card));
+  node->cardvalue = cardvalue;
+  node->prev = cardstack->last;
+  node->next = NULL;
+  if (isEmpty(cardstack))
+    cardstack->first = node;
+  else
+    cardstack->last->next = node;
+  cardstack->last = node;
+}
+
+int popFront(t_cardstack *cardstack) {
+  t_card *node;
+  int cardvalue;
+  if (isEmpty(cardstack))
+    return -1;
+  node = cardstack->first;
+  cardstack->first = node->next;
+  if (!cardstack->first)
+    cardstack->last = NULL;
+  else
+    cardstack->first->prev = NULL;
+  cardvalue = node->cardvalue;
+  free(node);
+  return cardvalue;
+}
+
+int popBack(t_cardstack *cardstack) {
+  t_card *node;
+  int cardvalue;
+  if (isEmpty(cardstack))
+    return -1;
+  node = cardstack->last;
+  cardstack->last = node->prev;
+  if (!cardstack->last)
+    cardstack->first = NULL;
+  else
+    cardstack->last->next = NULL;
+  cardvalue = node->cardvalue;
+  free(node);
+  return cardvalue;
+}
+
+int peekFront(t_cardstack *cardstack) {
+  if (isEmpty(cardstack))
+    return -1;
+  return cardstack->first->cardvalue;
+}
+
+int peekBack(t_cardstack *cardstack) {
+  if (isEmpty(cardstack))
+    return -1;
+  return cardstack->last->cardvalue;
+}
+
+void *fronttoback(t_cardstack *cardstack) {
+  if (isEmpty(cardstack))
+    return NULL;
+  t_card *currpointer = cardstack->last;
+  while (currpointer) {
+    printf("%d\n", currpointer->cardvalue);
+    currpointer = currpointer->prev;
+  }
+}
+
+int main() { 
+  t_cardstack *ms;
+  // Remember to initialize!
+  return 0; 
+}
+```
+
+
+:::

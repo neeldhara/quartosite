@@ -279,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -298,7 +298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>:::{.column-body-outset}</p>
+<div class="column-body-outset">
 <section id="es242.-data-structures-and-algorithms-i." class="level2">
 <h2 class="anchored" data-anchor-id="es242.-data-structures-and-algorithms-i.">ES242. Data Structures and Algorithms I.</h2>
 <section id="lab-02" class="level5">
@@ -406,27 +406,29 @@ Problem 2. Parentheses
 </ol>
 <p>Write a program that takes a sequence of strings of this of type and check their correctness.</p>
 <p>Your program can assume that the maximum string length is 128.</p>
-<section id="input-1" class="level2">
-<h2 class="anchored" data-anchor-id="input-1">Input</h2>
+<section id="input-1" class="level3">
+<h3 class="anchored" data-anchor-id="input-1">Input</h3>
 <p>The first line of the input is a positive integer <code>n</code>, the number of tests. The next <code>n</code> lines consist of one test case each. Each test case is a string made of the parentheses <code>()</code>.</p>
 </section>
-<section id="output-1" class="level2">
-<h2 class="anchored" data-anchor-id="output-1">Output</h2>
+<section id="output-1" class="level3">
+<h3 class="anchored" data-anchor-id="output-1">Output</h3>
 <p>The output should consist of <code>n</code> lines, one for each test. The <code>i</code>-th line of the ouptut should be <code>Yes</code> if the the string in the <code>i</code>-th test case is correct, and <code>No</code> otherwise.</p>
-<section id="sample-input" class="level3">
-<h3 class="anchored" data-anchor-id="sample-input">Sample Input</h3>
-<pre><code>5
-(
-(((
-()()
-)
-)))</code></pre>
-<pre><code>No
-No
-Yes
-No
-No</code></pre>
 </section>
+<section id="sample-io" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io">Sample I/O</h3>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>5</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>(((</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>()()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>No</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>No</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Yes</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>No</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>No</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </div>
 </div>
@@ -444,16 +446,16 @@ Problem 3. Challenge the Parentheses Solution
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Consider the following algorithm for the previous problem:</p>
-<pre><code>If the first character is not ( return FALSE
-If the last character is not ) return FALSE
-Initialize i = 0
-For j in s:
-    if j == "(":
-        i++
-    else:
-        i--
-if i != 0 return FALSE
-else return TRUE</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>If the first character is not ( return FALSE</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>If the last character is not ) return FALSE</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Initialize i = 0</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>For j in s:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    if j == "(":</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        i++</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    else:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        i--</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>if i != 0 return FALSE</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>else return TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Provide an input for which the algorithm above does <em>not</em> work. Your input should be a single line consisting of a string that has <code>(</code> and <code>)</code> characters only.</p>
 </div>
 </div>
@@ -471,26 +473,25 @@ Problem 4. Print Alternate Cards
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Add a set of cards to a stack and print all the cards in odd-numbered positions of the stack.</p>
-<section id="io-format" class="level2">
-<h2 class="anchored" data-anchor-id="io-format">I/O Format</h2>
+<section id="io-format" class="level3">
+<h3 class="anchored" data-anchor-id="io-format">I/O Format</h3>
 <p>The first line contains a number <code>n</code>, the number of cards in the stack. The next <code>n</code> lines contain two numbers. The first number <code>b</code> indicates if the card is to be added on the top (<code>b=0</code>) or at the bottom (<code>b=1</code>). The second number indicates the card’s value, an integer between 1 and 52.</p>
 <p>The output should the list of alternating cards from bottom to top (i.e, starting at the card pointed to by the first pointer). If there are an even number of cards, note that the last card on the stack does not get printed.</p>
 <p>Adding a card on the top can be done by using <code>pushBack</code>, while adding it at the bottom <code>pushFront</code>.</p>
-<section id="sample-input-1" class="level3">
-<h3 class="anchored" data-anchor-id="sample-input-1">Sample input</h3>
-<pre><code>5
-0 1
-0 2
-1 3
-1 5
-0 4</code></pre>
 </section>
-<section id="sample-output" class="level3">
-<h3 class="anchored" data-anchor-id="sample-output">Sample output</h3>
-<pre><code>5
-1
-4</code></pre>
-</section>
+<section id="sample-io-1" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io-1">Sample I/O</h3>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>5</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>0 1</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>0 2</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>1 3</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>1 5</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>0 4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>5</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>1</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </div>
 </div>
@@ -620,10 +621,19 @@ Note
 </div>
 </div>
 </div>
-
-
 </section>
 </section>
+<section id="list-of-practice-problems" class="level2">
+<h2 class="anchored" data-anchor-id="list-of-practice-problems">List of Practice Problems</h2>
+<ol type="1">
+<li><a href="https://www.codechef.com/problems/COMPILER">Compilers</a> - a slight adaptation of the second problem in this lab.</li>
+<li><a href="https://codeforces.com/contest/343/problem/B">Alternating Current</a> - try to come up with a characterization of when the wires can be untangled in terms of the symbols.</li>
+<li><a href="https://www.spoj.com/problems/HISTOGRA/">Largest Rectangle in a Histogram</a> - a fun problem. See if you can make use of the cardstack!</li>
+</ol>
+</section>
+</div>
+
+
 
 </main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>

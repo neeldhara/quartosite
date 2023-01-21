@@ -86,7 +86,6 @@ The third line contains a positive integer `m`.
 Output the number that comes before `m` in the linked list. It is guaranteed that `m` is one of the numbers from the second line. If the number happens to be the first element of the list, return `-1`.
 :::
 
-
 :::{.callout-note collapse="true" icon="false"}
 # Problem 2. Parentheses
 
@@ -103,18 +102,22 @@ Write a program that takes a sequence of strings of this of type and check their
 
 Your program can assume that the maximum string length is 128. 
 
-## Input
+### Input
+
 The first line of the input is a positive integer `n`, the number of tests.
 The next `n` lines consist of one test case each.
 Each test case is a string made of the parentheses `()`.
 
-## Output
+### Output
+
 The output should consist of `n` lines, one for each test.
 The `i`-th line of the ouptut should be `Yes` if the the string in the `i`-th test case is correct, and `No` otherwise.
 
-### Sample Input
+### Sample I/O
 
-```
+`Sample Input`
+
+```default
 5
 (
 (((
@@ -123,7 +126,9 @@ The `i`-th line of the ouptut should be `Yes` if the the string in the `i`-th te
 )))
 ```
 
-```
+`Sample Output`
+
+```default
 No
 No
 Yes
@@ -137,7 +142,7 @@ No
 
 Consider the following algorithm for the previous problem:
 
-```
+```default
 If the first character is not ( return FALSE
 If the last character is not ) return FALSE
 Initialize i = 0
@@ -153,13 +158,12 @@ else return TRUE
 Provide an input for which the algorithm above does _not_ work. Your input should be a single line consisting of a string that has `(` and `)` characters only. 
 :::
 
-
 :::{.callout-note collapse="true" icon="false"}
 # Problem 4. Print Alternate Cards
 
 Add a set of cards to a stack and print all the cards in odd-numbered positions of the stack.
 
-## I/O Format
+### I/O Format
 
 The first line contains a number `n`, the number of cards in the stack. The next `n` lines contain two numbers. The first number `b` indicates if the card is to be added on the top (`b=0`) or at the bottom (`b=1`). The second number indicates the card's value, an integer between 1 and 52.
 
@@ -167,9 +171,10 @@ The output should the list of alternating cards from bottom to top (i.e, startin
 
 Adding a card on the top can be done by using `pushBack`, while adding it at the bottom `pushFront`.
 
-### Sample input
+### Sample I/O
 
-```
+`Sample Input`
+```default
 5
 0 1
 0 2
@@ -177,10 +182,9 @@ Adding a card on the top can be done by using `pushBack`, while adding it at the
 1 5
 0 4
 ```
+`Sample Output`
 
-### Sample output
-
-```
+```default
 5
 1
 4
@@ -188,9 +192,7 @@ Adding a card on the top can be done by using `pushBack`, while adding it at the
 
 :::
 
-
 ### The Cardstack Data Structure
-
 
 :::{.callout-note collapse="true" icon="false"}
 
@@ -303,6 +305,12 @@ int main() {
   return 0; 
 }
 ```
+:::
 
+## List of Practice Problems
+
+1. [Compilers](https://www.codechef.com/problems/COMPILER) - a slight adaptation of the second problem in this lab.
+2. [Alternating Current](https://codeforces.com/contest/343/problem/B) - try to come up with a characterization of when the wires can be untangled in terms of the symbols.
+3. [Largest Rectangle in a Histogram](https://www.spoj.com/problems/HISTOGRA/) - a fun problem. See if you can make use of the cardstack!
 
 :::

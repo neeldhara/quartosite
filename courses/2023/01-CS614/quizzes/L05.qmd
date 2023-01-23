@@ -1,0 +1,61 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: CS614. Advanced Algorithms. L05 Quiz.
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## CS614. Advanced Algorithms. 
+
+##### L05 Quiz
+
+[Back to the course page](../index.qmd)
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Approximate Vertex Cover
+
+Give an example of a graph where the 2-approximate solution (via maximal matchings) is worse than the optimal one. Even just slightly worse is enough :)
+
+:::
+
+
+:::{.callout-note icon="false"}
+
+# Problem 2. Approximate Independent Set
+
+Since the complement of a vertex cover is an independent set, you might be tempted to think that the approximation discussed in class also approximates independent set. In particular, consider the following algorithm for independent set:
+
+1. Run the 2-approximation for vertex cover discussed in class, let the output be $S$.
+2. Let $I := V(G) \setminus S$.
+3. If $I = \emptyset$, then let $v \in V(G)$ be an arbitrary vertex; set $I := \{v\}$.
+
+Let:
+
+- $p$ denote the size of a largest independent set in $G$
+- $q$ denote the size of the set obtained by taking the complement of the output of the 2-approximation discussed in class.
+- $r$ denote $\max(q,1)$
+
+Note that $r$ is the size of the independent set output by the algorithm above.
+
+Come up with a graph where $p$ can be a factor of $cn$ larger than $r$ for some constant $c$.
+
+:::
+
+:::{.callout-note icon="false"}
+
+# Problem 3. Vertex Cover Matroid
+
+Do the set of vertex covers in a graph $G$ form a matroid over the universe $V(G)$? If not, select the axiom that fails:
+
+- Exchange Axiom
+- Hereditary Axiom
+- Vertex covers do form a matroid
+
+:::
+
+
+:::

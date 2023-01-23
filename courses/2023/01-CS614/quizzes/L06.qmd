@@ -1,0 +1,101 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: CS614. Advanced Algorithms. L06 Quiz.
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## CS614. Advanced Algorithms. 
+
+##### L06 Quiz
+
+[Back to the course page](../index.qmd)
+
+
+:::{.callout-tip icon="false" minimal="true"}
+# Acknowledgement
+
+The questions in this problem set are adapted from the [Coursera course on Approximation Algorithms](https://www.coursera.org/learn/approximation-algorithms) taught by [Mark de Berg](https://www.coursera.org/instructor/~24705268).
+:::
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Changing the threshold
+
+Consider the algorithm `LPAPX-WVC` from the class.
+
+
+:::{.callout-note icon="false" minimal="true"}
+
+# Problem 1.1 Increasing the threshold
+
+Suppose that instead of putting a vertex $v_i$ into the cover when $x_i \geqslant 1/2$, we put $v_i$ into the cover when $x_i \geqslant 2/3$. What happens?
+
+- We still get a valid solution, and the algorithm remains a 2-approximation.
+- We still get a valid solution, and the algorithm becomes a (3/2)-approximation.
+- We still get a valid solution, and the algorithm becomes a 3-approximation.
+- We may no longer get a valid solution.
+
+:::
+
+:::{.callout-note icon="false" minimal="true"}
+
+# Problem 1.2 Decreasing the threshold
+
+Suppose that instead of putting a vertex $v_i$ into the cover when $x_i \geqslant 1/2$, we put $v_i$ into the cover when $x_i \geqslant 1/3$. What happens?
+
+- We still get a valid solution, and the algorithm remains a 2-approximation.
+- We still get a valid solution, and the algorithm becomes a (3/2)-approximation.
+- We still get a valid solution, and the algorithm becomes a 3-approximation.
+- We may no longer get a valid solution.
+
+:::
+
+:::
+
+
+:::{.callout-note icon="false"}
+
+# Problem 2. Changing the rounding scheme
+
+Consider a different rounding strategy for the LP relaxation of the vertex cover problem. Instead of rounding up every vertex whose value is at least $0.5$ after running the LP, we do the following: 
+
+We look at every edge, and then we round up the variable of the endpoint with the highest value, where in case of ties we take the endpoint with the highest index. 
+
+In other words, if the vertex set is $V=\left\{v_1, \ldots, v_n\right\}$ and we denote the associated variable of $v_i$ by $x_i$ then the cover $C$ is computed as follows:
+
+$C:=\left\{v_i \in V:\right.$ there is an edge $\left(v_i, v_j\right)$ such that $\left(x_i>x_j\right)$ or $\left(x_i=x_j\right.$ and $\left.\left.i>j\right)\right\}$
+
+Which statement is true?
+
+- This does not work, because we might report an invalid solution.
+- This gives a valid solution, but the approximation ratio becomes worse.
+- This gives a valid solution, and in fact the solution is always exactly the same as in the original rounding scheme.
+- This gives a valid solution. We sometimes report a better solution than in the original rounding scheme, but the approximation ratio of the algorithm is still more than $2 - \epsilon$ for any $\epsilon > 0$.
+- This gives a valid solution, and the approximation ratio of the algorithm becomes $3/2$.
+
+:::
+
+:::{.callout-note icon="false"}
+
+# Problem 3. Lower Bound
+
+Suppose you have created an algorithm for a certain problem using LP relaxation and you want to say something about its approximation ratio. Which lower bound on the optimal solution can you use?
+
+- The solution to the 0/1-LP.
+- The solution to the relaxed LP.
+- Depends on the problem.
+
+:::
+
+:::{.callout-note icon="false"}
+# Problem 4. Integrality Gap
+
+What is the integrality gap of the vertex-cover LP for the complete graph on $n$ vertices, where all vertices have weight 1?
+:::
+
+
+:::

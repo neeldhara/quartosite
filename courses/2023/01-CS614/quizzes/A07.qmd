@@ -1,0 +1,153 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: CS614. Advanced Algorithms. L07 Quiz.
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## CS614. Advanced Algorithms. 
+
+##### L07 Solutions
+
+[Back to the course page](../index.qmd)
+
+
+:::{.callout-tip icon="false" minimal="true"}
+# Acknowledgement
+
+The questions in this problem set are adapted from the [textbook on Parameterized Algorithms](https://parameterized-algorithms.mimuw.edu.pl) by Marek Cygan, Fedor V. Fomin, Łukasz Kowalik, Daniel Lokshtanov, Dániel Marx, Marcin Pilipczuk, Michał Pilipczuk, and Saket Saurabh.
+:::
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Cluster Vertex Deletion
+
+In the `Cluster Vertex Deletion` problem, we want to know if a simple undirected graph $G$ has a subset $S$ of at most $k$ vertices such that $G \setminus S$ is a disjoint union of cliques.
+
+
+:::{.callout-note icon="false" minimal="true"}
+
+# Problem 1.1 A Branching Algorithm
+
+Design a $3^k \cdot n^{\mathcal{O}(1)}$ algorithm for Cluster Vertex Deletion.
+
+
+:::
+
+:::{.callout-note icon="false" minimal="true"}
+
+# Problem 1.2 Decreasing the threshold
+
+Design a $3$-approximation algorithm for Cluster Vertex Deletion.
+
+:::
+
+:::
+
+
+
+:::{.callout-caution collapse="true" icon="false"} 
+
+# Solution
+
+As discussed in class, the induced path on three vertices is a forbidden substructure for a cluster graph. We state and prove this fact here for completeness.
+
+---
+
+**Claim.** A graph $G$ is a disjoint union of cliques if and only if it does not contain a path on three vertices as an induced subgraph.
+
+_Proof (sketch)._ Suppose $G$ is a disjoint union of cliques, and for the sake of contradiction, suppose it has an induced path on vertices $x,y,z$ with the edges being between $x$ and $y$, and $y$ and $z$. Note that since this is an induced path, there is no edge between $x$ and $z$. Since every component of $G$ is a clique, we know that $x$ and $z$ must be in different components. However, there is a path from $x$ to $z$ via $y$, which is a contradiction.
+
+Suppose $G$ does not contain a path on three vertices as an induced subgraph. Again, for the sake of contradiction, suppose $G$ has a connected component that is not a clique. Let $(u,v)$ be a non-edge in this component. Let $P$ be a shortest path between $u$ and $v$ consisting of the vertices:
+
+$$P := \{u, w_1, \ldots, w_t, \ldots v\}.$$
+
+Notice that $t \geqslant 1$, otherwise $(u,v)$ is an edge. Further, notice that $u, w_1, w_2$ forms an induced path of length three^[Note that it is possible that $w_2 = v$.] (if $(u,w_2)$ was an edge then we have a shorter path by omitting $w_1$, contradicting our assumption that $P$ is a shortest path between $u$ and $v$). This contradicts our assumption.
+
+---
+
+Based on this, we have the following algorithm:
+
+```default
+CVD(G,k):
+    If k <= 0 and G has an induced P3 - RETURN NO
+    If k >= 0 and G is a cluster graph - RETURN YES
+
+    Let a,b,c be vertices such that ab and bc are edges and ac is not an edge.
+
+    Return (CVD(G-a,k-1) OR CVD(G-b,k-1) OR (G-c,k-1))
+```
+
+One can obtain a $3$-approximation by enumerating a maximal collection of _disjoint_ induced $P_3$'s and including all vertices from the collection in the solution. If the collection has size $t$, we know that any solution (and in particular, the optimal one) must contain at _least_ $t$ vertices and the output has at most $3t$ vertices. The algorithm is summarized below:
+
+```
+CVD-3-Approx(G):
+    Init S = emptyset
+
+    While there is an induced P3 = (x,y,z) in G:
+        include (x,y,z) in S
+        G = G - (x,y,z)
+
+    return S
+```
+:::
+
+
+:::{.callout-note icon="false"}
+
+# Problem 2. Don't Satisfy Too Much!
+
+In the `MIN-2-SAT` problem, we are given a 2-CNF formula $\phi$ and an integer $k$, and the objective is to decide whether there exists an assignment for $\phi$ that satisfies _at most_ $k$ clauses. 
+
+Show that `MIN-2-SAT` can be solved in time $2^k n^{\mathcal{O}(1)}$.
+
+:::
+
+
+
+:::{.callout-caution collapse="true" icon="false"} 
+
+# Solution
+
+If there is a variable $x$ that occurs only positively in $\phi$, we claim that there exists an optimal assignment that sets it to $0$. Indeed, let $\tau$ be an assignment that sets $x$ to $1$. Let $\tau_x$ be the assignment obtained from $\tau$ by flipping the value of $x$ from $1$ to $0$. Note that the clauses that do not contain the variable $x$ are either satisfied or falsified in both $\tau$ and $\tau_x$. For clauses that contain $x$, it is possible that they are satisfied by $\tau$ but not by $\tau_x$, but _not_ vice versa. Therefore, $\tau_x$ falsifies at least as many clauses as $\tau$, and we are done.
+
+Based on this, our algorithm proceeds as follows:
+
+```default
+if there is a variable x that occurs only as a positive literal:
+    set x to 0
+if there is a variable x that occurs only as a negated literal:
+    set x to 1
+```
+
+The argument for the negated occurrences is symmetric to the one we have for positive literals.
+
+Once we perform this preprocessing, assuming that have clauses remaining, we have the following guarantee:
+
+> Every variable has at least one positive _and_ one negated occurrence.
+
+Now we can branch exhuastively on the settings of variables; with the promise that either setting of the variable reduces our budget by at least one. The overall algorithm is summarized in the following pseudocode:
+
+```default
+MINSAT(phi,k):
+    if there is a variable x that occurs only as a positive literal:
+        set x to 0
+    if there is a variable x that occurs only as a negated literal:
+        set x to 1
+
+    if phi is empty:
+        return YES
+    if phi is not empty and k <= 0:
+        return NO
+
+    Let x be any variable that occurs in phi.
+    return MINSAT(phi|[x = TRUE],k-1) OR MINSAT(phi|[x = FALSE],k-1)
+```
+
+:::
+
+
+:::

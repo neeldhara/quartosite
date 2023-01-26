@@ -1,0 +1,62 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: CS614. Advanced Algorithms. L07 Quiz.
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## CS614. Advanced Algorithms. 
+
+##### L07 Quiz
+
+[Back to the course page](../index.qmd)
+
+
+:::{.callout-tip icon="false" minimal="true"}
+# Acknowledgement
+
+The questions in this problem set are adapted from the [textbook on Parameterized Algorithms](https://parameterized-algorithms.mimuw.edu.pl) by Marek Cygan, Fedor V. Fomin, Łukasz Kowalik, Daniel Lokshtanov, Dániel Marx, Marcin Pilipczuk, Michał Pilipczuk, and Saket Saurabh.
+:::
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Cluster Vertex Deletion
+
+In the `Cluster Vertex Deletion` problem, we want to know if a simple undirected graph $G$ has a subset $S$ of at most $k$ vertices such that $G \setminus S$ is a disjoint union of cliques.
+
+
+:::{.callout-note icon="false" minimal="true"}
+
+# Problem 1.1 A Branching Algorithm
+
+Design a $3^k \cdot n^{\mathcal{O}(1)}$ algorithm for Cluster Vertex Deletion.
+
+
+:::
+
+:::{.callout-note icon="false" minimal="true"}
+
+# Problem 1.2 Decreasing the threshold
+
+Design a $3$-approximation algorithm for Cluster Vertex Deletion.
+
+:::
+
+:::
+
+
+:::{.callout-note icon="false"}
+
+# Problem 2. Don't Satisfy Too Much!
+
+In the `MIN-2-SAT` problem, we are given a 2 -CNF formula $\phi$ and an integer $k$, and the objective is to decide whether there exists an assignment for $\phi$ that satisfies _at most_ $k$ clauses. 
+
+Show that `MIN-2-SAT` can be solved in time $2^k n^{\mathcal{O}(1)}$.
+
+:::
+
+
+:::

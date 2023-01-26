@@ -1,0 +1,116 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: ES242. Data Structures and Algorithms I. Quiz 03
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### Quiz 03 Solutions
+
+Issued: 19 Jan, 2023
+
+[Back to course page](../index.qmd)
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Party Puzzle I
+
+The following is true for $n$ guests at a party:
+
+- In any group of three guests, there are two guests who do not know each other, and
+- In any group of seven guests, there are two guests who do know each other.
+
+At the end of the party, everyone gives a present to all the guests he or she knows. 
+
+The total number of gifts given is at most:
+
+- $6n$
+- $4n$
+- $3n$
+- None of the above
+
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+
+# Solution
+
+Observe that every guest knows at most six people: indeed, if some guest (say `P`) knows seven people, among the people s/he knows, there must be a pair (say `A` and `B`) that know each other; but then we would have a group of three guests, consisting of `P`, `A`, and `B` who all know each other, which contradicts the first condition. So the number of relationships leading to the giving of gifts in this party is at most $6n$ (summing up, for all guests, the people they know), so $6n$ is a valid upper bound for the total number of gifts given.
+
+There can be parties where more than $4n$ gifts are given. For example, consider a party where there are two groups of six people each: call these groups $X$ and $Y$. Suppose everyone in $X$ knows everyone in $Y$ and vice versa, but no pair of people in group $X$ know each other and no pair of people in $Y$ know each other either. Then there are $12$ people, each of whom give six gifts each, amounting to a total of $72$ gifts being given, which is more than $4n = 4 \cdot 12 = 48$.
+:::
+
+
+:::{.callout-note icon="false"}
+
+# Problem 2. Party Puzzle II
+
+Is it possible that there is a group of six people where there is **no** group of three guests who are mutual friends _and_ there is **no** group of three guests who are mutual strangers?
+
+- Yes
+- No
+
+Assume that every pair of people are either mutual friends or mutual strangers.
+
+:::
+
+
+:::{.callout-caution icon="false" collapse="true"}
+
+# Solution
+
+The answer is: `NO`.
+
+Consider any person `P` in a party of six people and note that they either:
+
+- know three people or more, or
+- do not know three people or more.
+
+Indeed, if neither of the above holds, then they:
+
+- know at most two people, and
+- do not know at most two people,
+
+but this only accounts for four people among the remaining five.
+
+Now suppose `P` knows three people: call them `A`, `B`, `C`. If any pair of these three people know each other, then we have three guests who are mutual friends: `P` along with this pair. If not, then we have a group of three guests who are mutual strangers. So at least one of these two scenarios is _always_ unavoidable.
+:::
+
+:::{.callout-note icon="false"}
+
+# Problem 3. Party Puzzle III
+
+Is it possible that there is a group of five people where there is **no** group of three guests who are mutual friends _and_ there is **no** group of three guests who are mutual strangers?
+
+- Yes
+- No
+
+Assume that every pair of people are either mutual friends or mutual strangers.
+
+:::
+
+
+:::{.callout-caution icon="false" collapse="true"}
+
+# Solution
+
+The answer is: `YES`. 
+
+Consider five people `A`, `B`, `C`, `D`, and `E`; where:
+
+- `A` knows `B`
+- `B` knows `C`
+- `C` knows `D`
+- `D` knows `E`
+- `E` knows `A`
+
+Drawn out as a graph (with undirected edges representing the "knowing each other" relationship, which was given to be mutual), this will look like a pentagon or a cycle on five vertices. Note that there is no triangle, and no subset of three vertices with no edges between them. This is equivalent to saying that there is **no** group of three guests who are mutual friends _and_ there is **no** group of three guests who are mutual strangers, as asked.
+
+:::
+
+:::

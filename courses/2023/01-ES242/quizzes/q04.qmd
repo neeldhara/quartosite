@@ -1,0 +1,77 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: ES242. Data Structures and Algorithms I. Quiz 04
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### Quiz 04 
+
+Issued: 24 Jan, 2023
+
+[Back to course page](../index.qmd)
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Divide by two
+
+Let $n$ be a number given in decimal notation. Divide the number by two and push the remainder of each division onto to a `cardstack` until the number is reduced to 0. Then we pop all elements from the bottom. What is the output?
+
+- The representation of $n$ in binary.
+- The reverse of the representation of $n$ in binary.
+- Meaningless and has nothing to do with $n$.
+
+:::
+
+
+:::{.callout-note icon="false"}
+
+# Problem 2. Stacks I
+
+You have a sequence $\ell$  of A's and B's. You initialize an empty stack `S`. 
+
+You read the sequence $\ell$  from left to right. Every time you see an A, you push `0` on to `S`. Every time you see a B, you pop from `S`.  You never had to pop from an empty stack, and at the end, your stack is empty. Which of the following is true?
+
+- The sequence $\ell$ does NOT have an equal number of A's and B's.
+- The sequence $\ell$  started with ABBA.
+- For any $1 \leq k \leq \ell$, if you read first $k$ entries of the sequence $\ell$  the number of A's is at least the number of B's.
+- For any $1 \leq k \leq \ell$, if you read first $k$ entries of the sequence $\ell$  the number of B's is at least the number of A's.
+
+:::
+
+
+:::{.callout-note icon="false"}
+
+# Problem 3. Stacks II
+
+You have a sequence $\ell$  of A's and B's. You initialize an empty stack `S`. 
+
+You read the sequence $\ell$  from left to right. Every time you see an A, you push `0` on to `S`. Every time you see a B, you pop from `S`. At some point, you had to stop because you were trying to pop from an empty stack. Which of the following is definitely true?
+
+- The sequence $\ell$  has an equal number of A's and B's.
+- The sequence $\ell$  started with ABBA.
+- For some $1 \leq k \leq \ell$, if you read first $k$ entries of the sequence $\ell$  the number of A's is strictly more than the number of B's.
+- For some $1 \leq k \leq \ell$, if you read first $k$ entries of the sequence $\ell$  the number of B's is strictly more than the number of A's.
+
+:::
+
+:::{.callout-note icon="false"}
+
+# Problem 3. Navigate this apartment
+
+Consider the floor plan shown below of a 5-room apartment.
+
+Can you find a continuous line that pass through each door exactly once? The line does not have to end where it started. Note that there is space to move around the big enclosing rectangle.
+
+![A floor plan](q04-img.png)
+
+- Yes
+- No
+:::
+
+:::

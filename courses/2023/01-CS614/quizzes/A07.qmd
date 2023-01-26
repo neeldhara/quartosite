@@ -83,7 +83,7 @@ CVD(G,k):
 
 One can obtain a $3$-approximation by enumerating a maximal collection of _disjoint_ induced $P_3$'s and including all vertices from the collection in the solution. If the collection has size $t$, we know that any solution (and in particular, the optimal one) must contain at _least_ $t$ vertices and the output has at most $3t$ vertices. The algorithm is summarized below:
 
-```
+```default
 CVD-3-Approx(G):
     Init S = emptyset
 

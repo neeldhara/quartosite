@@ -384,14 +384,14 @@ Solution
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    Return (CVD(G-a,k-1) OR CVD(G-b,k-1) OR (G-c,k-1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>One can obtain a <span class="math inline">3</span>-approximation by enumerating a maximal collection of <em>disjoint</em> induced <span class="math inline">P_3</span>’s and including all vertices from the collection in the solution. If the collection has size <span class="math inline">t</span>, we know that any solution (and in particular, the optimal one) must contain at <em>least</em> <span class="math inline">t</span> vertices and the output has at most <span class="math inline">3t</span> vertices. The algorithm is summarized below:</p>
-<pre><code>CVD-3-Approx(G):
-    Init S = emptyset
-
-    While there is an induced P3 = (x,y,z) in G:
-        include (x,y,z) in S
-        G = G - (x,y,z)
-
-    return S</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>CVD-3-Approx(G):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    Init S = emptyset</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    While there is an induced P3 = (x,y,z) in G:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        include (x,y,z) in S</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        G = G - (x,y,z)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    return S</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>

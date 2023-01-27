@@ -15,13 +15,339 @@ code-copy: true
 [Back to course page](../index.qmd)
 
 :::{.callout-warning appearance="minimal"}
-Theme: Euler Tours
+Theme: Graph Representations and Euler Tours
 :::
 
 
 :::{.callout-note collapse="true" icon="false"}
 
-# Problem 1. Sanity Check
+# Problem 1. Adjacency Matrix
+
+The goal of this exercise is to:
+
+1. Read a graph and store it as an adjacency matrix.
+2. Return the largest degree, that is to say, return max(d(v)) over all vertices v in the graph G.
+
+<br>
+
+You can visualize the execution of a simplified version of the template code [here](https://pythontutor.com/render.html#code=//%20Adjacency%20Matrix%20representation%20in%20C%0A%0A%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20int%20n%20%3D%206%3B%0A%20%20int%20m%20%3D%204%3B%0A%20%20%0A%20%20int%20G%5B6%5D%5B6%5D%3B%0A%20%20%0A%20%20//%20Initialize%20array%20to%200%3A%0A%20%20for%20%28int%20i%20%3D%200%3B%20i%20%3C%20n%3B%20i%2B%2B%29%0A%20%20%20%20for%20%28int%20j%20%3D%200%3B%20j%20%3C%20n%3B%20j%2B%2B%29%0A%20%20%20%20%20%20G%5Bi%5D%5Bj%5D%20%3D%200%3B%0A%20%20%0A%20%20int%20edges%5B4%5D%5B2%5D%20%3D%20%7B%7B1,2%7D,%7B2,3%7D,%7B3,4%7D,%7B1,5%7D%7D%3B%0A%20%20%0A%20%20//%20Populate%20array%20with%20edges%3A%0A%20%20for%28int%20k%20%3D%200%3B%20k%20%3C%20m%3B%20k%2B%2B%29%7B%0A%20%20%20%20%0A%20%20%20%20int%20u,v%3B%0A%20%20%20%20u%20%3D%20edges%5Bk%5D%5B0%5D%3B%0A%20%20%20%20v%20%3D%20edges%5Bk%5D%5B1%5D%3B%0A%20%20%20%20%0A%20%20%20%20G%5Bu%5D%5Bv%5D%20%3D%201%3B%0A%20%20%20%20G%5Bv%5D%5Bu%5D%20%3D%201%3B%0A%20%20%7D%0A%20%20%0A%20%20return%200%3B%0A%7D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D&textReferences=false).
+
+### Input
+
+The first line of input is two space-separated integers `n` and `m`, denoting the number of vertices and edges of `G`, respectively. Vertices are indexed from `0` to `n-1`.
+
+The next `m` lines of code are two space separated integers `u` and `v` in the range `0` and `n-1`, indicating an (undirected) edge between vertices `u` and `v`.
+
+### Output
+
+The output is a single integer, corresponding to the maximum degree of the graph.
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+5 4
+0 1
+0 2
+0 3
+0 4
+```
+
+`Sample Output`
+
+```default
+4
+```
+
+### Template Code
+
+```C
+// Adjacency Matrix representation in C
+#include <stdio.h>
+
+int main() {
+  int n;
+  scanf("%d", &n);
+
+  int m;
+  scanf("%d", &m);
+
+  int G[n][n];
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < n; j++)
+      G[i][j] = 0;
+
+  for (int i = 0; i < m; i++) {
+    // Write the logic to read the endpoints of the edge here.
+    // ...
+    
+    // Write the logic to add the edge just read next.
+    // ...
+  }
+
+  int maxdegree = 0;
+
+  // Write the logic to print the maxdegree of the graph here.
+  // ...
+
+  printf("%d", maxdegree);
+  return 0;
+
+}
+```
+
+:::
+
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 2. Adjacency List
+
+
+In this exercise your goal is to implement a graph as an adjacency list and determine, given a pair of vertices `u` and `v`, the number of common nieghbors that they have: that is, the number of vertices `w` such that `w` is adjacent to `u` AND `w` is adjacent to `v` (note that `w` is _not_ equal to either `u` or `v`).
+
+You can visualize the execution of a simplified version of the template code [here](https://pythontutor.com/render.html#code=%23include%20%3Cstdio.h%3E%0A%23include%20%3Cstdlib.h%3E%0A%0A//%20A%20structure%20to%20represent%20an%20adjacency%20list%20node%0Astruct%20AdjListNode%20%7B%0A%20%20int%20vertex%3B%0A%20%20struct%20AdjListNode%20*next%3B%0A%7D%3B%0A%0A//%20A%20structure%20to%20represent%20a%20graph.%20A%20graph%20is%20an%20array%20of%20adjacency%20lists.%0A//%20Size%20of%20array%20will%20be%20V%20%28number%20of%20vertices%20in%20graph%29%0Astruct%20Graph%20%7B%0A%20%20int%20n%3B%0A%20%20struct%20AdjListNode*%20vertices%3B%0A%7D%3B%0A%0A//%20A%20utility%20function%20to%20create%20a%20new%20adjacency%20list%20node%0Astruct%20AdjListNode*%20newAdjListNode%28int%20v%29%20%7B%0A%20%20struct%20AdjListNode%20*newNode%20%3D%0A%20%20%20%20%20%20%28struct%20AdjListNode%20*%29malloc%28sizeof%28struct%20AdjListNode%29%29%3B%0A%20%20newNode-%3Evertex%20%3D%20v%3B%0A%20%20newNode-%3Enext%20%3D%20NULL%3B%0A%20%20return%20newNode%3B%0A%7D%0A%0A//%20A%20utility%20function%20that%20creates%20a%20graph%20of%20V%20vertices%0Astruct%20Graph%20*createGraph%28int%20V%29%20%7B%0A%20%20struct%20Graph%20*graph%20%3D%20%28struct%20Graph*%29malloc%28sizeof%28struct%20Graph%29%29%3B%0A%20%20graph-%3En%20%3D%20V%3B%0A%20%20%0A%20%20graph-%3Evertices%20%3D%20%28struct%20AdjListNode*%29%20malloc%28V%20*%20sizeof%28struct%20AdjListNode%29%29%3B%0A%20%20int%20i%3B%0A%20%20for%20%28i%20%3D%200%3B%20i%20%3C%20V%3B%20%2B%2Bi%29%7B%0A%20%20%20%20graph-%3Evertices%5Bi%5D.next%20%3D%20NULL%3B%0A%20%20%20%20graph-%3Evertices%5Bi%5D.vertex%20%3D%20-1%3B%0A%20%20%7D%0A%0A%20%20return%20graph%3B%0A%7D%0A%0A//%20Adds%20an%20edge%20to%20an%20undirected%20graph%0Avoid%20addEdge%28struct%20Graph%20*graph,%20int%20src,%20int%20dest%29%20%7B%0A%20%20//%20Add%20an%20edge%20from%20src%20to%20dest.%20%20A%20new%20node%20is%20added%20to%20the%20adjacency%0A%20%20//%20list%20of%20src.%20%20The%20node%20is%20added%20at%20the%20begining%0A%20%20struct%20AdjListNode%20*newNode%20%3D%20newAdjListNode%28dest%29%3B%0A%20%20%0A%20%20newNode-%3Enext%20%3D%20graph-%3Evertices%5Bsrc%5D.next%3B%0A%20%20graph-%3Evertices%5Bsrc%5D.next%20%3D%20newNode%3B%0A%0A%20%20//%20Since%20graph%20is%20undirected,%20add%20an%20edge%20from%20dest%20to%20src%20also%0A%20%20newNode%20%3D%20newAdjListNode%28src%29%3B%0A%20%20newNode-%3Enext%20%3D%20graph-%3Evertices%5Bdest%5D.next%3B%0A%20%20graph-%3Evertices%5Bdest%5D.next%20%3D%20newNode%3B%0A%7D%0A%0Aint%20main%28%29%20%7B%0A%20%20struct%20Graph%20*G%20%3D%20createGraph%285%29%3B%0A%0A%20%20for%20%28int%20i%20%3D%201%3B%20i%20%3C%205%3B%20i%2B%2B%29%20%7B%0A%20%20%20%20addEdge%28G,%200,%20i%29%3B%0A%20%20%7D%0A%0A%20%20return%200%3B%0A%7D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D&textReferences=false).
+
+### Input
+
+
+The first line of input is two space-separated integers `n` and `m`, denoting the number of vertices and edges of `G`, respectively. Vertices are indexed from `0` to `n-1`.
+
+The next `m` lines of code are two space separated integers `u` and `v` in the range `0` and `n-1`, indicating an (undirected) edge between vertices `u` and `v`.
+
+The last line is a pair of space-separated integers `x` and `y`.
+
+### Output
+
+The output is a single integer, corresponding to the number of common neighbors of `x` and `y`.
+
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+6 8
+0 1
+0 2
+0 3
+0 4
+5 1
+5 2
+5 3
+5 4
+0 5
+```
+
+`Sample Output`
+
+```default
+4
+```
+
+### Template Code
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+
+// A structure to represent an adjacency list node
+struct AdjListNode {
+  int vertex;
+  struct AdjListNode *next;
+};
+
+// A structure to represent a graph. A graph is an array of adjacency lists.
+// Size of array will be V (number of vertices in graph)
+struct Graph {
+  int n;
+  struct AdjListNode* vertices;
+};
+
+// A utility function to create a new adjacency list node
+struct AdjListNode* newAdjListNode(int v) {
+  struct AdjListNode *newNode =
+      (struct AdjListNode *)malloc(sizeof(struct AdjListNode));
+  newNode->vertex = v;
+  newNode->next = NULL;
+  return newNode;
+}
+
+// A utility function that creates a graph of V vertices
+struct Graph *createGraph(int V) {
+  struct Graph *graph = (struct Graph*)malloc(sizeof(struct Graph));
+  graph->n = V;
+  
+  graph->vertices = (struct AdjListNode*) malloc(V * sizeof(struct AdjListNode));
+  int i;
+  for (i = 0; i < V; ++i){
+    graph->vertices[i].next = NULL;
+    graph->vertices[i].vertex = -1;
+  }
+
+  return graph;
+}
+
+// Adds an edge to an undirected graph
+void addEdge(struct Graph *graph, int src, int dest) {
+  // Add an edge from src to dest.  A new node is added to the adjacency
+  // list of src.  The node is added at the begining
+  struct AdjListNode *newNode = newAdjListNode(dest);
+  newNode->next = graph->vertices[src].next;
+  graph->vertices[src].next = newNode;
+
+  // Since graph is undirected, add an edge from dest to src also. Write this part below.
+  // ...
+}
+
+int main() {
+
+  int n;
+  scanf("%d", &n);
+
+  struct Graph *G = createGraph(n);
+
+  int m;
+  scanf("%d", &m);
+
+  for (int i = 0; i < m; i++) {
+    int u, v;
+    scanf("%d", &u);
+    scanf("%d", &v);
+    addEdge(G, u, v);
+  }
+
+  int x, y;
+  
+  scanf("%d %d", &x, &y);
+
+  // Write your solution here.
+  
+  return 0;
+}
+```
+
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 3. Edge List
+
+
+You have to store the edges of a given graph as an edge list, and compute the degree of a given vertex.
+
+For understanding how the template code works [refer to this execution](https://pythontutor.com/render.html#code=%23include%20%3Cstdio.h%3E%0A%0A//%20Declare%20a%20datatype%20that%20stores%20a%20single%20edge.%0A%0Astruct%20SingleEdge%7B%0A%20%20int%20ep%5B2%5D%3B%0A%20%20struct%20SingleEdge*%20nextedge%3B%0A%7D%3B%0A%0A%0A%0Aint%20main%28void%29%20%7B%0A%0A%20%20//%20To%20begin%20with,%20there%20was%20nothing.%0A%0A%20%20%0A%20%20struct%20SingleEdge*%20head%20%3D%20NULL%3B%0A%0A%20%20head%20%3D%20%28struct%20SingleEdge*%29malloc%28sizeof%28struct%20SingleEdge%29%29%3B%20%0A%20%20%20%20%0A%20%20struct%20SingleEdge*%20current%20%3D%20NULL%3B%0A%0A%20%20current%20%3D%20%28struct%20SingleEdge*%29malloc%28sizeof%28struct%20SingleEdge%29%29%3B%0A%0A%20%20%0A%20%20head-%3Eep%5B0%5D%20%3D%200%3B%0A%20%20head-%3Eep%5B1%5D%20%3D%200%3B%0A%20%20head-%3Enextedge%20%3D%20current%3B%0A%20%20%0A%0A%20%20//%20Read%20the%20number%20of%20edges.%0A%20%20%0A%20%20int%20edgelist%5B3%5D%5B2%5D%20%3D%20%7B%7B1,2%7D,%7B2,3%7D,%7B3,4%7D%7D%3B%0A%0A%20%20for%28int%20i%20%3D%200%3B%20i%20%3C%203%3B%20i%2B%2B%29%7B%0A%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20struct%20SingleEdge*%20newedge%3B%0A%20%20%20%20%0A%20%20%20%20newedge%20%3D%20%28struct%20SingleEdge*%29malloc%28sizeof%28struct%20SingleEdge%29%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20newedge-%3Eep%5B0%5D%20%3D%20edgelist%5Bi%5D%5B0%5D%3B%0A%20%20%20%20newedge-%3Eep%5B1%5D%20%3D%20edgelist%5Bi%5D%5B1%5D%3B%0A%20%20%20%20newedge-%3Enextedge%20%3D%20NULL%3B%0A%20%20%20%20%0A%20%20%20%20current-%3Enextedge%20%3D%20newedge%3B%0A%20%20%20%20current%20%3D%20newedge%3B%0A%20%20%7D%0A%20%20%0A%20%20return%200%3B%0A%7D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D&textReferences=false) on a hard-coded example.
+
+### Input
+
+The first line contains a number `m`, which is the number of edges in the graph G.
+
+The next `m` lines contain two space-separated integers represnting the endpoints of the edges.
+
+The last line contains a single integer `k`.
+
+### Output
+
+The task is to report the degree of the vertex `k`, that is, the number of edges for which `k` is one of the endpoints.
+
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+6
+1 3
+2 1
+5 3
+1 7
+1 8
+2 5
+1
+```
+  
+`Sample Output`
+
+```default
+4
+```
+
+### Template Code
+
+```C
+#include <stdio.h>
+
+// Declare a datatype that stores a single edge.
+
+struct SingleEdge {
+  int ep[2];
+  struct SingleEdge *nextedge;
+};
+
+int main(void) {
+
+  // To begin with, there was nothing.
+  struct SingleEdge *head = NULL;
+  head = (struct SingleEdge *)malloc(sizeof(struct SingleEdge));
+
+  struct SingleEdge *current = NULL;
+  current = (struct SingleEdge *)malloc(sizeof(struct SingleEdge));
+
+  // head simply points to the first element of the list.
+  // current will move forward as things get added.
+
+  head->ep[0] = -1;
+  head->ep[1] = -1;
+  head->nextedge = current;
+
+  // Read the number of edges.
+
+  int m;
+  scanf("%d", &m);
+
+  for (int i = 0; i < m; i++) {
+
+    struct SingleEdge *newedge;
+
+    newedge = (struct SingleEdge *)malloc(sizeof(struct SingleEdge));
+
+    // Populate the newedge struct
+    // with information about the current edge.
+
+    current->nextedge = newedge;
+    current = newedge;
+  }
+
+  struct SingleEdge *navigator = head->nextedge;
+  int degree = 0;
+  int vertex;
+
+  scanf("%d", &vertex);
+
+  while (navigator) {
+    // CHECK IF "vertex" is an endpoint
+    // of the current edge being explored.
+    if (...) {
+      degree = degree + 1;
+    }
+    navigator = navigator->nextedge;
+  }
+
+  printf("%d", degree);
+
+  return 0;
+}
+```
+
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 4. Sanity Check
 
 Given a simple (no selfloops or multiedges), **connected** (any two vertices are reachable from each other), and undirected (no edge orientations) graph as input, return YES if it has a Euler path OR circuit, and NO otherwise.
 
@@ -66,7 +392,7 @@ YES
 :::
 
 :::{.callout-note collapse="true" icon="false"}
-# Problem 2. Which Way is the Highway?
+# Problem 5. [Optional] Which Way is the Highway?
 
 Imagine a grid country with nm axis-parallel highways (no kidding: check out this [video](https://www.youtube.com/watch?v=8Fn_30AD7Pk) about the U.S. interstate highway numbering system! - watching the video is not required for understanding this problem).
 
@@ -121,7 +447,7 @@ YES
 :::
 
 :::{.callout-note collapse="true" icon="false"}
-# Problem 3. Edge Orientation Puzzle
+# Problem 6. [Optional] Edge Orientation Puzzle
 
 
 Let's say that a vertex in a directed graph is _balanced_ if its indegree is the same as its outdegree.

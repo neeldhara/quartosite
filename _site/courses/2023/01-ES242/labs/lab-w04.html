@@ -310,7 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Theme: Euler Tours</p>
+<p>Theme: Graph Representations and Euler Tours</p>
 </div>
 </div>
 </div>
@@ -320,18 +320,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 1. Sanity Check
+Problem 1. Adjacency Matrix
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Given a simple (no selfloops or multiedges), <strong>connected</strong> (any two vertices are reachable from each other), and undirected (no edge orientations) graph as input, return YES if it has a Euler path OR circuit, and NO otherwise.</p>
-<p>You may assume the following:</p>
-<ul>
-<li><p>An undirected graph has an Eulerian cycle if and only if every vertex has even degree, and all of its vertices with nonzero degree belong to a single connected component.</p></li>
-<li><p>An undirected graph has an Eulerian path if and only if exactly zero or two vertices have odd degree, and all of its vertices with nonzero degree belong to a single connected component.</p></li>
-</ul>
+<p>The goal of this exercise is to:</p>
+<ol type="1">
+<li>Read a graph and store it as an adjacency matrix.</li>
+<li>Return the largest degree, that is to say, return max(d(v)) over all vertices v in the graph G.</li>
+</ol>
+<p><br></p>
+<p>You can visualize the execution of a simplified version of the template code <a href="https://pythontutor.com/render.html#code=//%20Adjacency%20Matrix%20representation%20in%20C%0A%0A%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20int%20n%20%3D%206%3B%0A%20%20int%20m%20%3D%204%3B%0A%20%20%0A%20%20int%20G%5B6%5D%5B6%5D%3B%0A%20%20%0A%20%20//%20Initialize%20array%20to%200%3A%0A%20%20for%20%28int%20i%20%3D%200%3B%20i%20%3C%20n%3B%20i%2B%2B%29%0A%20%20%20%20for%20%28int%20j%20%3D%200%3B%20j%20%3C%20n%3B%20j%2B%2B%29%0A%20%20%20%20%20%20G%5Bi%5D%5Bj%5D%20%3D%200%3B%0A%20%20%0A%20%20int%20edges%5B4%5D%5B2%5D%20%3D%20%7B%7B1,2%7D,%7B2,3%7D,%7B3,4%7D,%7B1,5%7D%7D%3B%0A%20%20%0A%20%20//%20Populate%20array%20with%20edges%3A%0A%20%20for%28int%20k%20%3D%200%3B%20k%20%3C%20m%3B%20k%2B%2B%29%7B%0A%20%20%20%20%0A%20%20%20%20int%20u,v%3B%0A%20%20%20%20u%20%3D%20edges%5Bk%5D%5B0%5D%3B%0A%20%20%20%20v%20%3D%20edges%5Bk%5D%5B1%5D%3B%0A%20%20%20%20%0A%20%20%20%20G%5Bu%5D%5Bv%5D%20%3D%201%3B%0A%20%20%20%20G%5Bv%5D%5Bu%5D%20%3D%201%3B%0A%20%20%7D%0A%20%20%0A%20%20return%200%3B%0A%7D&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=c_gcc9.3.0&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">here</a>.</p>
 <section id="input" class="level3">
 <h3 class="anchored" data-anchor-id="input">Input</h3>
 <p>The first line of input is two space-separated integers <code>n</code> and <code>m</code>, denoting the number of vertices and edges of <code>G</code>, respectively. Vertices are indexed from <code>0</code> to <code>n-1</code>.</p>
@@ -339,20 +340,53 @@ Problem 1. Sanity Check
 </section>
 <section id="output" class="level3">
 <h3 class="anchored" data-anchor-id="output">Output</h3>
-<p>Output YES if it has a Euler path or circuit, and NO otherwise.</p>
+<p>The output is a single integer, corresponding to the maximum degree of the graph.</p>
 </section>
 <section id="sample-io" class="level3">
 <h3 class="anchored" data-anchor-id="sample-io">Sample I/O</h3>
 <p><code>Sample Input</code></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>10 6</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>1 3</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>2 1</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>5 3</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>1 7</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>1 8</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>2 5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>5 4</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>0 1</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>0 2</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>0 3</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>0 4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>Sample Output</code></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>YES</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="template-code" class="level3">
+<h3 class="anchored" data-anchor-id="template-code">Template Code</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Adjacency Matrix representation in C</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">"%d"</span><span class="op">,</span> <span class="op">&amp;</span>n<span class="op">);</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> m<span class="op">;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">"%d"</span><span class="op">,</span> <span class="op">&amp;</span>m<span class="op">);</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> G<span class="op">[</span>n<span class="op">][</span>n<span class="op">];</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> n<span class="op">;</span> j<span class="op">++)</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      G<span class="op">[</span>i<span class="op">][</span>j<span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> m<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Write the logic to read the endpoints of the edge here.</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Write the logic to add the edge just read next.</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> maxdegree <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Write the logic to print the maxdegree of the graph here.</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="co">// ...</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">"%d"</span><span class="op">,</span> maxdegree<span class="op">);</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </div>
 </div>
@@ -363,40 +397,119 @@ Problem 1. Sanity Check
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 2. Which Way is the Highway?
+Problem 2. Adjacency List
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Imagine a grid country with nm axis-parallel highways (no kidding: check out this <a href="https://www.youtube.com/watch?v=8Fn_30AD7Pk">video</a> about the U.S. interstate highway numbering system! - watching the video is not required for understanding this problem).</p>
-<p>Of these highways, <span class="math inline">n</span> are east-west and m are north-south. Note that the highways form an <span class="math inline">(n - 1) \times (m - 1)</span> grid. In order to control the traffic, a policy was enforced which involved making each highway one way.</p>
-<p>This means in each east-west highway, the traffic moves from “left to right” or “right to left”. Also, traffic moves “top to bottom” or “bottom to top” in each highway that runs north-south. It is possible to enter a horizontal highway from a vertical highway, or vice versa, at their intersection.</p>
-<p>A proposed set of orientations is given to you. You have to figure out if it is possible, after making the highways one-way based on these suggested orientations, if it is possible to reach any intersection from any other (without breaking traffic rules!)</p>
+<p>In this exercise your goal is to implement a graph as an adjacency list and determine, given a pair of vertices <code>u</code> and <code>v</code>, the number of common nieghbors that they have: that is, the number of vertices <code>w</code> such that <code>w</code> is adjacent to <code>u</code> AND <code>w</code> is adjacent to <code>v</code> (note that <code>w</code> is <em>not</em> equal to either <code>u</code> or <code>v</code>).</p>
+<p>You can visualize the execution of a simplified version of the template code <a href="https://pythontutor.com/render.html#code=%23include%20%3Cstdio.h%3E%0A%23include%20%3Cstdlib.h%3E%0A%0A//%20A%20structure%20to%20represent%20an%20adjacency%20list%20node%0Astruct%20AdjListNode%20%7B%0A%20%20int%20vertex%3B%0A%20%20struct%20AdjListNode%20*next%3B%0A%7D%3B%0A%0A//%20A%20structure%20to%20represent%20a%20graph.%20A%20graph%20is%20an%20array%20of%20adjacency%20lists.%0A//%20Size%20of%20array%20will%20be%20V%20%28number%20of%20vertices%20in%20graph%29%0Astruct%20Graph%20%7B%0A%20%20int%20n%3B%0A%20%20struct%20AdjListNode*%20vertices%3B%0A%7D%3B%0A%0A//%20A%20utility%20function%20to%20create%20a%20new%20adjacency%20list%20node%0Astruct%20AdjListNode*%20newAdjListNode%28int%20v%29%20%7B%0A%20%20struct%20AdjListNode%20*newNode%20%3D%0A%20%20%20%20%20%20%28struct%20AdjListNode%20*%29malloc%28sizeof%28struct%20AdjListNode%29%29%3B%0A%20%20newNode-%3Evertex%20%3D%20v%3B%0A%20%20newNode-%3Enext%20%3D%20NULL%3B%0A%20%20return%20newNode%3B%0A%7D%0A%0A//%20A%20utility%20function%20that%20creates%20a%20graph%20of%20V%20vertices%0Astruct%20Graph%20*createGraph%28int%20V%29%20%7B%0A%20%20struct%20Graph%20*graph%20%3D%20%28struct%20Graph*%29malloc%28sizeof%28struct%20Graph%29%29%3B%0A%20%20graph-%3En%20%3D%20V%3B%0A%20%20%0A%20%20graph-%3Evertices%20%3D%20%28struct%20AdjListNode*%29%20malloc%28V%20*%20sizeof%28struct%20AdjListNode%29%29%3B%0A%20%20int%20i%3B%0A%20%20for%20%28i%20%3D%200%3B%20i%20%3C%20V%3B%20%2B%2Bi%29%7B%0A%20%20%20%20graph-%3Evertices%5Bi%5D.next%20%3D%20NULL%3B%0A%20%20%20%20graph-%3Evertices%5Bi%5D.vertex%20%3D%20-1%3B%0A%20%20%7D%0A%0A%20%20return%20graph%3B%0A%7D%0A%0A//%20Adds%20an%20edge%20to%20an%20undirected%20graph%0Avoid%20addEdge%28struct%20Graph%20*graph,%20int%20src,%20int%20dest%29%20%7B%0A%20%20//%20Add%20an%20edge%20from%20src%20to%20dest.%20%20A%20new%20node%20is%20added%20to%20the%20adjacency%0A%20%20//%20list%20of%20src.%20%20The%20node%20is%20added%20at%20the%20begining%0A%20%20struct%20AdjListNode%20*newNode%20%3D%20newAdjListNode%28dest%29%3B%0A%20%20%0A%20%20newNode-%3Enext%20%3D%20graph-%3Evertices%5Bsrc%5D.next%3B%0A%20%20graph-%3Evertices%5Bsrc%5D.next%20%3D%20newNode%3B%0A%0A%20%20//%20Since%20graph%20is%20undirected,%20add%20an%20edge%20from%20dest%20to%20src%20also%0A%20%20newNode%20%3D%20newAdjListNode%28src%29%3B%0A%20%20newNode-%3Enext%20%3D%20graph-%3Evertices%5Bdest%5D.next%3B%0A%20%20graph-%3Evertices%5Bdest%5D.next%20%3D%20newNode%3B%0A%7D%0A%0Aint%20main%28%29%20%7B%0A%20%20struct%20Graph%20*G%20%3D%20createGraph%285%29%3B%0A%0A%20%20for%20%28int%20i%20%3D%201%3B%20i%20%3C%205%3B%20i%2B%2B%29%20%7B%0A%20%20%20%20addEdge%28G,%200,%20i%29%3B%0A%20%20%7D%0A%0A%20%20return%200%3B%0A%7D&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=c_gcc9.3.0&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">here</a>.</p>
 <section id="input-1" class="level3">
 <h3 class="anchored" data-anchor-id="input-1">Input</h3>
-<p>The first line of input contains two integers <span class="math inline">n</span> and <span class="math inline">m</span>, denoting the number of east-west highways and the number of north-south highways.</p>
-<p>The second line contains a string of length <span class="math inline">n</span>, made of characters ‘{’ and ‘}’, denoting direction of each horizontal highway. If the i-th character is equal to ‘{’, the highway is directed from right to left otherwise, the highway is directed from left to right. Highways are listed in order from top to bottom.</p>
-<p>The third line contains a string of length m, made of characters ‘B’ and ‘T’, denoting direction of each vertical highway. If the i-th character is equal to ‘T’, the highway is directed from south to north (towards the top), and if it is ‘B’ the highway is directed from north to south (towards the bottom). Highways are listed in order from left to right.</p>
+<p>The first line of input is two space-separated integers <code>n</code> and <code>m</code>, denoting the number of vertices and edges of <code>G</code>, respectively. Vertices are indexed from <code>0</code> to <code>n-1</code>.</p>
+<p>The next <code>m</code> lines of code are two space separated integers <code>u</code> and <code>v</code> in the range <code>0</code> and <code>n-1</code>, indicating an (undirected) edge between vertices <code>u</code> and <code>v</code>.</p>
+<p>The last line is a pair of space-separated integers <code>x</code> and <code>y</code>.</p>
 </section>
 <section id="output-1" class="level3">
 <h3 class="anchored" data-anchor-id="output-1">Output</h3>
-<p>If the given pattern meets the mayor’s criteria, print a single line containing “YES”, otherwise print a single line containing “NO”.</p>
+<p>The output is a single integer, corresponding to the number of common neighbors of <code>x</code> and <code>y</code>.</p>
 </section>
 <section id="sample-io-1" class="level3">
 <h3 class="anchored" data-anchor-id="sample-io-1">Sample I/O</h3>
 <p><code>Sample Input</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>3 3</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>}{}</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>BTB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>6 8</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>0 1</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>0 2</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>0 3</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>0 4</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>5 1</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>5 2</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>5 3</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>5 4</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>0 5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>Sample Output</code></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>NO</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>Sample Input</code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>4 6</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>{}{}</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>BTBTBT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>Sample Output</code></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>YES</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="template-code-1" class="level3">
+<h3 class="anchored" data-anchor-id="template-code-1">Template Code</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">// A structure to represent an adjacency list node</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> AdjListNode <span class="op">{</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> vertex<span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> AdjListNode <span class="op">*</span>next<span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">// A structure to represent a graph. A graph is an array of adjacency lists.</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">// Size of array will be V (number of vertices in graph)</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Graph <span class="op">{</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> AdjListNode<span class="op">*</span> vertices<span class="op">;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">// A utility function to create a new adjacency list node</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> AdjListNode<span class="op">*</span> newAdjListNode<span class="op">(</span><span class="dt">int</span> v<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> AdjListNode <span class="op">*</span>newNode <span class="op">=</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>      <span class="op">(</span><span class="kw">struct</span> AdjListNode <span class="op">*)</span>malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span><span class="kw">struct</span> AdjListNode<span class="op">));</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  newNode<span class="op">-&gt;</span>vertex <span class="op">=</span> v<span class="op">;</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  newNode<span class="op">-&gt;</span>next <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> newNode<span class="op">;</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co">// A utility function that creates a graph of V vertices</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Graph <span class="op">*</span>createGraph<span class="op">(</span><span class="dt">int</span> V<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> Graph <span class="op">*</span>graph <span class="op">=</span> <span class="op">(</span><span class="kw">struct</span> Graph<span class="op">*)</span>malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span><span class="kw">struct</span> Graph<span class="op">));</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  graph<span class="op">-&gt;</span>n <span class="op">=</span> V<span class="op">;</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  graph<span class="op">-&gt;</span>vertices <span class="op">=</span> <span class="op">(</span><span class="kw">struct</span> AdjListNode<span class="op">*)</span> malloc<span class="op">(</span>V <span class="op">*</span> <span class="kw">sizeof</span><span class="op">(</span><span class="kw">struct</span> AdjListNode<span class="op">));</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> i<span class="op">;</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> V<span class="op">;</span> <span class="op">++</span>i<span class="op">){</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    graph<span class="op">-&gt;</span>vertices<span class="op">[</span>i<span class="op">].</span>next <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    graph<span class="op">-&gt;</span>vertices<span class="op">[</span>i<span class="op">].</span>vertex <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> graph<span class="op">;</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="co">// Adds an edge to an undirected graph</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> addEdge<span class="op">(</span><span class="kw">struct</span> Graph <span class="op">*</span>graph<span class="op">,</span> <span class="dt">int</span> src<span class="op">,</span> <span class="dt">int</span> dest<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Add an edge from src to dest.  A new node is added to the adjacency</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>  <span class="co">// list of src.  The node is added at the begining</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> AdjListNode <span class="op">*</span>newNode <span class="op">=</span> newAdjListNode<span class="op">(</span>dest<span class="op">);</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>  newNode<span class="op">-&gt;</span>next <span class="op">=</span> graph<span class="op">-&gt;</span>vertices<span class="op">[</span>src<span class="op">].</span>next<span class="op">;</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>  graph<span class="op">-&gt;</span>vertices<span class="op">[</span>src<span class="op">].</span>next <span class="op">=</span> newNode<span class="op">;</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Since graph is undirected, add an edge from dest to src also. Write this part below.</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>  <span class="co">// ...</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">"%d"</span><span class="op">,</span> <span class="op">&amp;</span>n<span class="op">);</span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> Graph <span class="op">*</span>G <span class="op">=</span> createGraph<span class="op">(</span>n<span class="op">);</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> m<span class="op">;</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">"%d"</span><span class="op">,</span> <span class="op">&amp;</span>m<span class="op">);</span></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> m<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> u<span class="op">,</span> v<span class="op">;</span></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">"%d"</span><span class="op">,</span> <span class="op">&amp;</span>u<span class="op">);</span></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">"%d"</span><span class="op">,</span> <span class="op">&amp;</span>v<span class="op">);</span></span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>    addEdge<span class="op">(</span>G<span class="op">,</span> u<span class="op">,</span> v<span class="op">);</span></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> x<span class="op">,</span> y<span class="op">;</span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">"%d %d"</span><span class="op">,</span> <span class="op">&amp;</span>x<span class="op">,</span> <span class="op">&amp;</span>y<span class="op">);</span></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Write your solution here.</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </div>
 </div>
@@ -407,49 +520,242 @@ Problem 2. Which Way is the Highway?
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 3. Edge Orientation Puzzle
+Problem 3. Edge List
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>You have to store the edges of a given graph as an edge list, and compute the degree of a given vertex.</p>
+<p>For understanding how the template code works <a href="https://pythontutor.com/render.html#code=%23include%20%3Cstdio.h%3E%0A%0A//%20Declare%20a%20datatype%20that%20stores%20a%20single%20edge.%0A%0Astruct%20SingleEdge%7B%0A%20%20int%20ep%5B2%5D%3B%0A%20%20struct%20SingleEdge*%20nextedge%3B%0A%7D%3B%0A%0A%0A%0Aint%20main%28void%29%20%7B%0A%0A%20%20//%20To%20begin%20with,%20there%20was%20nothing.%0A%0A%20%20%0A%20%20struct%20SingleEdge*%20head%20%3D%20NULL%3B%0A%0A%20%20head%20%3D%20%28struct%20SingleEdge*%29malloc%28sizeof%28struct%20SingleEdge%29%29%3B%20%0A%20%20%20%20%0A%20%20struct%20SingleEdge*%20current%20%3D%20NULL%3B%0A%0A%20%20current%20%3D%20%28struct%20SingleEdge*%29malloc%28sizeof%28struct%20SingleEdge%29%29%3B%0A%0A%20%20%0A%20%20head-%3Eep%5B0%5D%20%3D%200%3B%0A%20%20head-%3Eep%5B1%5D%20%3D%200%3B%0A%20%20head-%3Enextedge%20%3D%20current%3B%0A%20%20%0A%0A%20%20//%20Read%20the%20number%20of%20edges.%0A%20%20%0A%20%20int%20edgelist%5B3%5D%5B2%5D%20%3D%20%7B%7B1,2%7D,%7B2,3%7D,%7B3,4%7D%7D%3B%0A%0A%20%20for%28int%20i%20%3D%200%3B%20i%20%3C%203%3B%20i%2B%2B%29%7B%0A%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20struct%20SingleEdge*%20newedge%3B%0A%20%20%20%20%0A%20%20%20%20newedge%20%3D%20%28struct%20SingleEdge*%29malloc%28sizeof%28struct%20SingleEdge%29%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20newedge-%3Eep%5B0%5D%20%3D%20edgelist%5Bi%5D%5B0%5D%3B%0A%20%20%20%20newedge-%3Eep%5B1%5D%20%3D%20edgelist%5Bi%5D%5B1%5D%3B%0A%20%20%20%20newedge-%3Enextedge%20%3D%20NULL%3B%0A%20%20%20%20%0A%20%20%20%20current-%3Enextedge%20%3D%20newedge%3B%0A%20%20%20%20current%20%3D%20newedge%3B%0A%20%20%7D%0A%20%20%0A%20%20return%200%3B%0A%7D&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=c_gcc9.3.0&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">refer to this execution</a> on a hard-coded example.</p>
+<section id="input-2" class="level3">
+<h3 class="anchored" data-anchor-id="input-2">Input</h3>
+<p>The first line contains a number <code>m</code>, which is the number of edges in the graph G.</p>
+<p>The next <code>m</code> lines contain two space-separated integers represnting the endpoints of the edges.</p>
+<p>The last line contains a single integer <code>k</code>.</p>
+</section>
+<section id="output-2" class="level3">
+<h3 class="anchored" data-anchor-id="output-2">Output</h3>
+<p>The task is to report the degree of the vertex <code>k</code>, that is, the number of edges for which <code>k</code> is one of the endpoints.</p>
+</section>
+<section id="sample-io-2" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io-2">Sample I/O</h3>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>6</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>1 3</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>2 1</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>5 3</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>1 7</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>1 8</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>2 5</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="template-code-2" class="level3">
+<h3 class="anchored" data-anchor-id="template-code-2">Template Code</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Declare a datatype that stores a single edge.</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> SingleEdge <span class="op">{</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> ep<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> SingleEdge <span class="op">*</span>nextedge<span class="op">;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// To begin with, there was nothing.</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> SingleEdge <span class="op">*</span>head <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  head <span class="op">=</span> <span class="op">(</span><span class="kw">struct</span> SingleEdge <span class="op">*)</span>malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span><span class="kw">struct</span> SingleEdge<span class="op">));</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> SingleEdge <span class="op">*</span>current <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  current <span class="op">=</span> <span class="op">(</span><span class="kw">struct</span> SingleEdge <span class="op">*)</span>malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span><span class="kw">struct</span> SingleEdge<span class="op">));</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">// head simply points to the first element of the list.</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">// current will move forward as things get added.</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  head<span class="op">-&gt;</span>ep<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  head<span class="op">-&gt;</span>ep<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  head<span class="op">-&gt;</span>nextedge <span class="op">=</span> current<span class="op">;</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Read the number of edges.</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> m<span class="op">;</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">"%d"</span><span class="op">,</span> <span class="op">&amp;</span>m<span class="op">);</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> m<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> SingleEdge <span class="op">*</span>newedge<span class="op">;</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    newedge <span class="op">=</span> <span class="op">(</span><span class="kw">struct</span> SingleEdge <span class="op">*)</span>malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span><span class="kw">struct</span> SingleEdge<span class="op">));</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Populate the newedge struct</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    <span class="co">// with information about the current edge.</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    current<span class="op">-&gt;</span>nextedge <span class="op">=</span> newedge<span class="op">;</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    current <span class="op">=</span> newedge<span class="op">;</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> SingleEdge <span class="op">*</span>navigator <span class="op">=</span> head<span class="op">-&gt;</span>nextedge<span class="op">;</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> degree <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> vertex<span class="op">;</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">"%d"</span><span class="op">,</span> <span class="op">&amp;</span>vertex<span class="op">);</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> <span class="op">(</span>navigator<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    <span class="co">// CHECK IF "vertex" is an endpoint</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    <span class="co">// of the current edge being explored.</span></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(...)</span> <span class="op">{</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>      degree <span class="op">=</span> degree <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>    navigator <span class="op">=</span> navigator<span class="op">-&gt;</span>nextedge<span class="op">;</span></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">"%d"</span><span class="op">,</span> degree<span class="op">);</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 4. Sanity Check
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Given a simple (no selfloops or multiedges), <strong>connected</strong> (any two vertices are reachable from each other), and undirected (no edge orientations) graph as input, return YES if it has a Euler path OR circuit, and NO otherwise.</p>
+<p>You may assume the following:</p>
+<ul>
+<li><p>An undirected graph has an Eulerian cycle if and only if every vertex has even degree, and all of its vertices with nonzero degree belong to a single connected component.</p></li>
+<li><p>An undirected graph has an Eulerian path if and only if exactly zero or two vertices have odd degree, and all of its vertices with nonzero degree belong to a single connected component.</p></li>
+</ul>
+<section id="input-3" class="level3">
+<h3 class="anchored" data-anchor-id="input-3">Input</h3>
+<p>The first line of input is two space-separated integers <code>n</code> and <code>m</code>, denoting the number of vertices and edges of <code>G</code>, respectively. Vertices are indexed from <code>0</code> to <code>n-1</code>.</p>
+<p>The next <code>m</code> lines of code are two space separated integers <code>u</code> and <code>v</code> in the range <code>0</code> and <code>n-1</code>, indicating an (undirected) edge between vertices <code>u</code> and <code>v</code>.</p>
+</section>
+<section id="output-3" class="level3">
+<h3 class="anchored" data-anchor-id="output-3">Output</h3>
+<p>Output YES if it has a Euler path or circuit, and NO otherwise.</p>
+</section>
+<section id="sample-io-3" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io-3">Sample I/O</h3>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>10 6</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>1 3</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>2 1</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>5 3</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>1 7</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>1 8</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>2 5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output</code></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>YES</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 5. [Optional] Which Way is the Highway?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Imagine a grid country with nm axis-parallel highways (no kidding: check out this <a href="https://www.youtube.com/watch?v=8Fn_30AD7Pk">video</a> about the U.S. interstate highway numbering system! - watching the video is not required for understanding this problem).</p>
+<p>Of these highways, <span class="math inline">n</span> are east-west and m are north-south. Note that the highways form an <span class="math inline">(n - 1) \times (m - 1)</span> grid. In order to control the traffic, a policy was enforced which involved making each highway one way.</p>
+<p>This means in each east-west highway, the traffic moves from “left to right” or “right to left”. Also, traffic moves “top to bottom” or “bottom to top” in each highway that runs north-south. It is possible to enter a horizontal highway from a vertical highway, or vice versa, at their intersection.</p>
+<p>A proposed set of orientations is given to you. You have to figure out if it is possible, after making the highways one-way based on these suggested orientations, if it is possible to reach any intersection from any other (without breaking traffic rules!)</p>
+<section id="input-4" class="level3">
+<h3 class="anchored" data-anchor-id="input-4">Input</h3>
+<p>The first line of input contains two integers <span class="math inline">n</span> and <span class="math inline">m</span>, denoting the number of east-west highways and the number of north-south highways.</p>
+<p>The second line contains a string of length <span class="math inline">n</span>, made of characters ‘{’ and ‘}’, denoting direction of each horizontal highway. If the i-th character is equal to ‘{’, the highway is directed from right to left otherwise, the highway is directed from left to right. Highways are listed in order from top to bottom.</p>
+<p>The third line contains a string of length m, made of characters ‘B’ and ‘T’, denoting direction of each vertical highway. If the i-th character is equal to ‘T’, the highway is directed from south to north (towards the top), and if it is ‘B’ the highway is directed from north to south (towards the bottom). Highways are listed in order from left to right.</p>
+</section>
+<section id="output-4" class="level3">
+<h3 class="anchored" data-anchor-id="output-4">Output</h3>
+<p>If the given pattern meets the mayor’s criteria, print a single line containing “YES”, otherwise print a single line containing “NO”.</p>
+</section>
+<section id="sample-io-4" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io-4">Sample I/O</h3>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>3 3</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>}{}</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>BTB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output</code></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>NO</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Input</code></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>4 6</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>{}{}</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>BTBTBT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sample Output</code></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>YES</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 6. [Optional] Edge Orientation Puzzle
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Let’s say that a vertex in a directed graph is <em>balanced</em> if its indegree is the same as its outdegree.</p>
 <p>You are given a simple and undirected graph <span class="math inline">G</span>. An orientation of <span class="math inline">G</span> is an assigment of a direction to every edge in <span class="math inline">G</span>.</p>
 <p>You want to come up with an orientation that maximizes the number of balanced vertices.</p>
 <p>Return the number of balanced vertices in a orientation that maximizes this number.</p>
-<section id="input-2" class="level3">
-<h3 class="anchored" data-anchor-id="input-2">Input</h3>
+<section id="input-5" class="level3">
+<h3 class="anchored" data-anchor-id="input-5">Input</h3>
 <p>The first line contains a positive integer <span class="math inline">t~(1 \leqslant t \leqslant 200)</span> — the number of testsets in the input.</p>
 <p>Each of the testsets is given in the following way.</p>
 <p>The first line contains two integers <span class="math inline">n</span> and <span class="math inline">m</span> <span class="math inline">(1 \leqslant n \leqslant 200, 0 \leqslant m \leqslant n·(n - 1) / 2)</span> — the number of vertices and the number of edges in <span class="math inline">G</span>.</p>
 <p>The next m lines contain the description of the edges. Each line contains two integers <span class="math inline">u</span> and <span class="math inline">v</span> <span class="math inline">(1 \leqslant u, v \leqslant n)</span> — the endpoints of the edge. It’s guaranteed that there are no self-loops and multiedges. It is possible that the graph is not connected.</p>
 </section>
-<section id="output-2" class="level3">
-<h3 class="anchored" data-anchor-id="output-2">Output</h3>
+<section id="output-5" class="level3">
+<h3 class="anchored" data-anchor-id="output-5">Output</h3>
 <p>For each testset print the number of balanced vertices in an orientation that maximizes the number of balanced vertices.</p>
 </section>
-<section id="sample-io-2" class="level3">
-<h3 class="anchored" data-anchor-id="sample-io-2">Sample I/O</h3>
+<section id="sample-io-5" class="level3">
+<h3 class="anchored" data-anchor-id="sample-io-5">Sample I/O</h3>
 <p><code>Sample Input</code></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>2</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>5 5</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>2 1</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>4 5</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>2 3</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>1 3</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>3 5</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>7 2</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>3 7</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>4 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>2</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>5 5</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>2 1</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>4 5</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>2 3</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>1 3</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>3 5</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>7 2</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>3 7</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>4 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>Sample Output</code></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>3</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>3</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Here is an orientation of the first graph that has three balanced vertices:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>1 3</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>3 5</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>5 4</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>3 2</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>2 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>1 3</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>3 5</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>5 4</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>3 2</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>2 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In the second graph, no matter how the two edges are oriented, there will be four imbalanced and three balanced vertices.</p>
 </section>
 </div>

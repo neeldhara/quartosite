@@ -1,0 +1,196 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: ES242. Data Structures and Algorithms I. Week 04 Lab
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### Lab 04
+
+[Back to course page](../index.qmd)
+
+:::{.callout-warning appearance="minimal"}
+Theme: Euler Tours
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 1. Sanity Check
+
+Given a simple (no selfloops or multiedges), **connected** (any two vertices are reachable from each other), and undirected (no edge orientations) graph as input, return YES if it has a Euler path OR circuit, and NO otherwise.
+
+You may assume the following:
+
+- An undirected graph has an Eulerian cycle if and only if every vertex has even degree, and all of its vertices with nonzero degree belong to a single connected component.
+
+- An undirected graph has an Eulerian path if and only if exactly zero or two vertices have odd degree, and all of its vertices with nonzero degree belong to a single connected component.
+
+
+### Input
+
+The first line of input is two space-separated integers `n` and `m`, denoting the number of vertices and edges of `G`, respectively. Vertices are indexed from `0` to `n-1`.
+
+The next `m` lines of code are two space separated integers `u` and `v` in the range `0` and `n-1`, indicating an (undirected) edge between vertices `u` and `v`.
+
+
+### Output
+
+Output YES if it has a Euler path or circuit, and NO otherwise.
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+10 6
+1 3
+2 1
+5 3
+1 7
+1 8
+2 5
+```
+
+`Sample Output`
+
+```default
+YES
+```
+
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+# Problem 2. Which Way is the Highway?
+
+Imagine a grid country with nm axis-parallel highways (no kidding: check out this [video](https://www.youtube.com/watch?v=8Fn_30AD7Pk) about the U.S. interstate highway numbering system! - watching the video is not required for understanding this problem).
+
+Of these highways, $n$ are east-west and m are north-south. Note that the highways form an $(n - 1) \times (m - 1)$ grid. In order to control the traffic, a policy was enforced which involved making each highway one way.
+
+This means in each east-west highway, the traffic moves from "left to right" or "right to left". Also, traffic moves "top to bottom" or "bottom to top" in each highway that runs north-south. It is possible to enter a horizontal highway from a vertical highway, or vice versa, at their intersection.
+
+A proposed set of orientations is given to you. You have to figure out if it is possible, after making the highways one-way based on these suggested orientations, if it is possible to reach any intersection from any other (without breaking traffic rules!)
+
+### Input
+
+The first line of input contains two integers $n$ and $m$, denoting the number of east-west highways and the number of north-south highways.
+
+The second line contains a string of length $n$, made of characters '{' and '}', denoting direction of each horizontal highway. If the i-th character is equal to '{', the highway is directed from right to left otherwise, the highway is directed from left to right. Highways are listed in order from top to bottom.
+
+The third line contains a string of length m, made of characters 'B' and 'T', denoting direction of each vertical highway. If the i-th character is equal to 'T', the highway is directed from south to north (towards the top), and if it is 'B' the highway is directed from north to south (towards the bottom). Highways are listed in order from left to right.
+
+### Output
+
+If the given pattern meets the mayor's criteria, print a single line containing "YES", otherwise print a single line containing "NO".
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+3 3
+}{}
+BTB
+```
+
+`Sample Output`
+
+```default
+NO
+```
+
+`Sample Input`
+
+```default
+4 6
+{}{}
+BTBTBT
+```
+
+`Sample Output`
+
+```default
+YES
+```
+
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+# Problem 3. Edge Orientation Puzzle
+
+
+Let's say that a vertex in a directed graph is _balanced_ if its indegree is the same as its outdegree.
+
+You are given a simple and undirected graph $G$. An orientation of $G$ is an assigment of a direction to every edge in $G$. 
+
+You want to come up with an orientation that maximizes the number of balanced vertices. 
+
+Return the number of balanced vertices in a orientation that maximizes this number.
+
+### Input
+
+The first line contains a positive integer $t~(1 \leqslant t \leqslant 200)$ — the number of testsets in the input.
+
+Each of the testsets is given in the following way. 
+
+The first line contains two integers $n$ and $m$ $(1 \leqslant n \leqslant 200, 0 \leqslant m \leqslant n·(n - 1) / 2)$ — the number of vertices and the number of edges in $G$.
+
+The next m lines contain the description of the edges. Each line contains two integers $u$ and $v$ $(1 \leqslant u, v \leqslant n)$ — the endpoints of the edge. It's guaranteed that there are no self-loops and multiedges. It is possible that the graph is not connected.
+
+### Output
+
+For each testset print the number of balanced vertices in an orientation that maximizes the number of balanced vertices.
+
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+2
+5 5
+2 1
+4 5
+2 3
+1 3
+3 5
+7 2
+3 7
+4 2
+```
+
+`Sample Output`
+
+```default
+3
+3
+```
+
+
+Here is an orientation of the first graph that has three balanced vertices:
+
+```default
+1 3
+3 5
+5 4
+3 2
+2 1
+```
+
+In the second graph, no matter how the two edges are oriented, there will be four imbalanced and three balanced vertices.
+
+
+:::
+
+
+## List of Practice Problems
+
+1. [Weird Journey](https://codeforces.com/contest/789/problem/D) - if you already know how to check if a graph is connected, go for this! Otherwise you could come back to it after learning BFS/DFS :)
+2. [ROOKPATH](https://www.codechef.com/problems/ROOKPATH) - can you figure out how to model this problem as finding an Euler Tour?
+3. [Mashtali: a Space Oddysey](https://codeforces.com/contest/1610/problem/F) - at least one method of solving this question involves constructing an Euler tour (but it is less direct than the previous problem), revisit it once you have figured out how to.
+:::

@@ -1,0 +1,151 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: ES242. Data Structures and Algorithms I. Week 05 Lab
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### Lab 05
+
+[Back to course page](../index.qmd)
+
+:::{.callout-warning appearance="minimal"}
+Breadth First Search
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 1. Implement BFS
+
+In this exercise your goal is to output a BFS traversal of a given graph `G` starting from a given source `s`.
+
+
+### Input Format
+
+
+The first line of input is three space-separated integers `n`, `m` and `s`, denoting the number of vertices and edges of `G`, and the id of the source vertex, respectively. Vertices are indexed from `0` to `n-1`.
+
+The next `m` lines of code are two space separated integers `u` and `v` in the range `0` and `n-1`, indicating an (undirected) edge between vertices `u` and `v`.
+
+The last line is a pair of space-separated integers `x` and `y`.
+
+### Output Format
+
+The output is formatted as follows: if the BFS lasts for t rounds, there are t lines of output. The i-th line consists of a space-separated list of the vertices visited by BFS in the i-th round of the traversal in increasing order of labels.
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+6 8 0
+0 1
+0 2
+0 3
+0 4
+5 1
+5 2
+5 3
+5 4
+```
+
+`Sample Output`
+
+```default
+0
+1 2 3 4
+5
+```
+
+:::
+
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 2. Unique Servers
+
+Networking company _Dagm_ is reponsible for extending internet services to town _Xelo_ with `n` devices. To deploy such services, and guarantee their connection to the internet, _Dagm_ has set up **x** services in its head office.
+
+You are given a matrix `same_server[n][n]` which denotes if two devices are always connected to the same server. It implies, `same_serve[i][j]=1` if device `i` and `j` are facilitated by the same server. Else, it is `0`.
+
+Your task is compute the number **x**. That is, the number of unique servers set up by _Dagm_.
+
+You are asked to complete the `count_unique_servers()` function in line `8`
+
+Consider the illustration below:
+
+![An Example](lab-05-img1.jpeg){width=70%}
+
+Here, number of unique servers is **2** (_S1_ and _S2_).
+
+### Input Format
+The first line contains an integer `n`, the number of devices in the city.
+The next `n` input line contains `n` space separated integers (0 or 1).
+
+### Output Format
+Output a single number representing the answer.
+
+
+`Sample Input 1`
+
+```default
+7
+1 1 1 0 1 0 0
+1 1 1 0 1 0 0
+1 1 1 0 1 0 0
+0 0 0 1 0 1 1
+1 1 1 0 1 0 0
+0 0 0 1 0 1 1
+0 0 0 1 0 1 1
+```
+
+`Sample Output 1`
+
+```default
+2
+```
+<!-- 
+Then `same_server[4][6]` is `1`. This indicates that 4th and 6th device are served by the same server.
+Note that this matrix is the representation of the figure above.
+
+_For the sake of illustration and explanation, matrices are 1-based indexed._ -->
+
+`Sample Input 2`
+
+```default
+10 
+1 0 0 0 0 0 0 0 0 0
+0 1 0 0 0 0 0 0 0 0
+0 0 1 0 0 0 0 0 0 0
+0 0 0 1 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 1 0 0
+0 0 0 0 0 0 0 0 1 0
+0 0 0 0 0 0 0 0 0 1
+```
+
+`Sample Output 2`
+
+```default
+10
+```
+  
+:::
+
+
+
+
+## List of Practice Problems
+
+1. [Wonderland Chase](https://codingcompetitions.withgoogle.com/codejam/round/000000000087762e/0000000000b9c499) This Google Code Jam Finals problem from 2022 has a small test case that can be solved by brute force but you'd need to apply BFS to solve the advanced test set.
+
+2. [Blizzard Basin](https://adventofcode.com/2022/day/24) This Day 24 AoC question from 2022 involves a constantly changing graph. Can you make your way out? Give it a shot!

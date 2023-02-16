@@ -182,9 +182,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-lecid','listing-title','listing-summary','listing-problemset','listing-solutions',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-lecid','listing-title','listing-summary','listing-problemset','listing-solutions','listing-dateissued','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
       
-      searchColumns: ["listing-lecid","listing-title","listing-summary","listing-problemset","listing-solutions"],
+      searchColumns: ["listing-lecid","listing-title","listing-summary","listing-problemset","listing-solutions","listing-dateissued","listing-due"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -1648,8 +1648,9 @@ No matching items
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
-        <tr data-index="0" data-categories="null">            
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="16 02 2023" data-listing-due-sort="16 02 2023">            
             <td class="listing-date">
+                16 Feb, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Exam 1</strong><br>
@@ -1659,9 +1660,10 @@ No matching items
                     <a href="exams/exam01.html"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
                 </td>
             <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                    <a href="exams/solutions01.html"><i class="bi bi-journal-richtext" style="padding-left: 32px;"></i></a>
                 </td>
             <td class="listing-due">
+                    16 Feb, 2023
             </td>
         </tr>
         <tr data-index="0" data-categories="null">            

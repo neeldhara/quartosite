@@ -2,7 +2,7 @@
 css: /css/teaching.css
 toc: false
 sidebar: false
-title: ES242. Data Structures and Algorithms I. Exam 01
+title: ES242. Data Structures and Algorithms I. Exam 01 - Solutions
 code-copy: true
 ---
 
@@ -10,7 +10,7 @@ code-copy: true
 
 ## ES242. Data Structures and Algorithms I.
 
-##### Exam 01 
+##### Solutions to Exam 01 
 
 Issued: 16 Feb, 2023
 
@@ -20,15 +20,9 @@ Issued: 16 Feb, 2023
 
 :::{.callout-caution icon="false"} 
 
-# Instructions
+# Remark
 
-We will have Exam 1 at the usual classroom venue. The exam will be released on Gradescope by 9:05PM, and will be available until 10:30PM.
-
-All questions are multiple choice or require a numeric answer. Do not enter any explanations for any questions. If required, we will follow up with individual vivas to understand any alternate explanations you had in mind.
-
-You have been asked to rate your confidence for all answers that you give. Please see [this slide](https://docs.google.com/presentation/d/1zHliTFMs5YCp7OHb5J1DXXOIWBmIoAuviOwurkIDKLQ/edit?usp=sharing) for the grading scheme and instructions.
-
-Any violations of the honor code (in particular including, but not limited to, communicating during the quiz, or using the internet for anything other than looking up the official course materials) will be reported and will result in a F grade in the course.
+The question indices may be different from what you see on Gradescope because of the extra confidence rating questions. Multiply by two and subtract one from the question number to map it to Gradescope :)
 :::
 
 :::{.callout-note icon="false"}
@@ -62,6 +56,14 @@ Suppose we have a cube is in some state (not necessarily solved), and we want to
 - `cube-bottom[3][3]`
 - `cube-left[3][3]`
 - `cube-right[3][3]`
+
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+If the top face is rotated then the bottom face is the only face that is _certainly_ not affected. The top face itself _may_ not be affected (for example, when all stickers on the top face have the same color), however, this is not guaranteed.
+:::
+
 :::
 
 :::{.callout-note icon="false" collapse="true"}
@@ -76,12 +78,27 @@ Suppose you want to determine the color of a sticker at a particular location, w
 - The array approach
 - The linked list approach
 
+
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+While the index of the location in the linked list can be calculated in constant time, since we do not have direct access, the linked list approach will require more steps in the worst case.
+:::
+
 :::
 
 :::{.callout-note icon="false" collapse="true"}
 
 # Problem 1.3 
 Consider the linked list approach from the previous question. What is the index of the element that stores the color of the center sticker (i.e, row 1 and column 1 with 0-based indexing) of the bottom face? Assume that the linked list is 1-indexed: for example the index of the element that stores the color of the center sticker for the front face is `5`.
+
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+The answer is 32 by direct inspection.
+:::
 
 :::
 
@@ -108,6 +125,15 @@ Which data structure for representing the state of a Rubik's cube takes up the l
 - the first approach with six 2D arrays
 - the second approach using a linked list
 - the current approach using two cubie arrays
+
+
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+The cubie approach requires employing a total of `40` units of memory, which is less than the `54` units we needed in the other two approaches. 
+:::
+
 :::
 
 :::{.callout-note icon="false" collapse="true"}
@@ -116,6 +142,14 @@ Which data structure for representing the state of a Rubik's cube takes up the l
 Consider the representation involving cubies described in the previous part.
 
 Suppose we have a cube is in some state (not necessarily solved), and we want to transform the state to the one the cube would be in if the top face was rotated clockwise. How many values would you have to update in the `CC` array?
+
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+Since only four corner cubes are involved in one rotation, the answer is `4`. Note that the set of affected cubies is the same for 90 and 180 degree rotations of the top face.
+:::
+
 :::
 
 :::{.callout-note icon="false" collapse="true"}
@@ -124,6 +158,14 @@ Suppose we have a cube is in some state (not necessarily solved), and we want to
 Consider the representation involving cubies described in the previous part.
 
 Suppose we have a cube is in some state (not necessarily solved), and we want to transform the state to the one the cube would be in if the top face was rotated clockwise. How many values would you have to update in the `EE` array?
+
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+Since only four edge cubes are involved in one rotation, the answer is `4`. Note that the set of affected cubies is the same for 90 and 180 degree rotations of the top face.
+:::
+
 :::
 
 :::
@@ -148,6 +190,28 @@ What can we say about Z?
 - Z is not necessarily a matching.
 - Z is a matching but not necessarily stable.
 - Z is always a stable matching.
+
+
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+First, let us argue that Z is a matching. Suppose not: this means that some woman appears in more than one pair. Suppose there are two men `p` and `q` who are both matched to a woman `b`. Then `p` and `q` both prefer `b` over their matched partners in the matching where they are _not_ matched to `b`. Now:
+
+- If `b` prefers `p` over `q`, and `p` was matched to `b` in the matching X, then observe that `b` must have been matched to `q` in Y and `(p,b)` is a blocking pair for Y.
+- If `b` prefers `p` over `q`, and `p` was matched to `b` in the matching Y, then observe that `b` must have been matched to `q` in X and `(p,b)` is a blocking pair for X.
+- If `b` prefers `q` over `p`, and `q` was matched to `b` in the matching X, then observe that `b` must have been matched to `p` in Y and `(q,b)` is a blocking pair for Y.
+- If `b` prefers `q` over `p`, and `q` was matched to `b` in the matching Y, then observe that `b` must have been matched to `p` in X and `(q,b)` is a blocking pair for X.
+
+In all cases, we have a contradiction to the assumption that both X and Y are stable.
+
+So Z is a matching. We now argue that Z is stable. Suppose not, and let `(a,b)` be a blocking pair in Z, with `a` being the man and `b` being the woman. Further, let the matched partner of `a` in Z be `p` and the matched partner of `b` in Z be `q`. 
+
+Note that `b` was matched to `q` in either X or Y. Suppose `b` was matched to `q` in X. In X, `a` is matched either to `p` or someone that `a` prefers less to `p`. Since `a` prefers `b` over `p` (since `(a,b)` is a blocking pair), `a` prefers `b` over his matched partner in X. We already know that `b` prefers `a` over `q` for the same reason. So, `(a,b)` remains a blocking pair in the matching X, which contradicts our assumption that X was stable. 
+
+A similar argument holds if `b` was matched to `q` in Y, where we contradict the stability of Y instead.
+:::
+
 :::
 
 :::{.callout-note icon="false" collapse="true"}
@@ -164,6 +228,14 @@ What can we say about Z?
 - Z is not necessarily a matching.
 - Z is a matching but not necessarily stable.
 - Z is always a stable matching.
+
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+It turns out that Z is always a stable matching, the argument is analogous to the previous question.
+:::
+
 :::
 
 :::
@@ -187,6 +259,13 @@ For example, if $A$ is the array `(1,2,1,3)` and $D = 0$ then the answer is `7`.
 
 # Problem 3.1
 If A = `(1,2,1,3)` and $D = 1$, what is $f(A,D)$?
+
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+34
+:::
 
 <!-- \begin{explanation}
 	\begin{mybox}
@@ -214,6 +293,12 @@ If $A =$ `(500)` and $D = 120$, what is $f(A,D)$?
 \end{explanation} -->
 
 
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+500
+:::
 
 :::
 
@@ -231,6 +316,12 @@ If A = `(1,2)` and $D = 10$, what is $f(A,D)$?
 	\end{mybox}
 \end{explanation} -->
 
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+33
+:::
 :::
 
 :::{.callout-note icon="false" collapse="true"}
@@ -239,6 +330,12 @@ If A = `(1,2)` and $D = 10$, what is $f(A,D)$?
 
 If $A$ has four elements, how many arrays of length _one_ are there after two steps? 
 
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+20
+:::
 <!-- \begin{explanation}
 	\begin{mybox}
 	Correct answer(s): 20
@@ -249,10 +346,11 @@ If $A$ has four elements, how many arrays of length _one_ are there after two st
 
 
 :::
-
 :::
 
-::: Problem 4. A Bit of a Graph
+:::{.callout-note icon="false"}
+
+# Problem 4. A Bit of a Graph
 
 The bit strings of length four are given by:
 
@@ -271,6 +369,13 @@ For example, we will have an edge from the vertex representing `0010` to the ver
 
 How many vertices does this graph have?
 
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+16
+:::
+
 :::
 
 :::{.callout-note icon="false" collapse="true"}
@@ -278,6 +383,13 @@ How many vertices does this graph have?
 # Problem 4.2
 
 How many edges does this graph have?
+
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+32
+:::
 
 :::
 
@@ -287,6 +399,13 @@ How many edges does this graph have?
 
 How many vertices in this graph have a self-loop?
 
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+Two
+:::
+
 :::
 
 :::{.callout-note icon="false" collapse="true"}
@@ -294,6 +413,13 @@ How many vertices in this graph have a self-loop?
 # Problem 4.4
 
 Does this graph have a closed Euler Tour?
+
+:::{.callout-tip icon="false" collapse="true"}
+
+# Answer
+
+Yes
+:::
 
 :::
 

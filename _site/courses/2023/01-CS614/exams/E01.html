@@ -529,15 +529,15 @@ Problem 1.6 The Branching Step
 </div>
 </div>
 <p>We summarize the overall algorithm below.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>If `k &lt; 0`, return NO.</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>If $V(G) = \emptyset$, return $\emptyset$.</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>If k &lt; 0, return NO.</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>If V(G) is empty, return the empty set.</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Apply rules 1.0, 1.1, and 1.2.</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>Pick a vertex v in G\F of maximum degree.</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>If d(v) = 2, apply rule 1.5.</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>Otherwise branch according to 1.6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>Otherwise branch according to 1.6.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In the next few questions, we will analyze the running time of this algorithm. Assume that the algorithm is called with <span class="math inline">F = \emptyset</span>, i.e, there are no forbidden vertices to begin with. Fix an execution path <span class="math inline">P</span> in the branching tree<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> of the algorithm that does <em>not</em> return NO. Now:</p>
 <ul>
 <li><p>We use <span class="math inline">S(P)</span> to denote the output: note that this would consist of the set of vertices that are removed from the instance for inclusion in the solution, i.e, vertices chosen by the first branch in Step 1.6.</p></li>

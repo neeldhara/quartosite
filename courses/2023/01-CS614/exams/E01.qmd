@@ -208,15 +208,15 @@ Pick the right branching strategy and justify your answer.
 We summarize the overall algorithm below.
 
 ```default
-If `k < 0`, return NO.
-If $V(G) = \emptyset$, return $\emptyset$.
+If k < 0, return NO.
+If V(G) is empty, return the empty set.
 
 Apply rules 1.0, 1.1, and 1.2.
 
 Pick a vertex v in G\F of maximum degree.
 
 If d(v) = 2, apply rule 1.5.
-Otherwise branch according to 1.6
+Otherwise branch according to 1.6.
 ```
 
 In the next few questions, we will analyze the running time of this algorithm. Assume that the algorithm is called with $F = \emptyset$, i.e, there are no forbidden vertices to begin with. Fix an execution path $P$ in the branching tree^[Note that the branching tree has a node for all executions of step 1.6, with all non-branching steps executed at the node itself.] of the algorithm that does _not_ return NO. Now:

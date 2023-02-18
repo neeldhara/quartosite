@@ -42,7 +42,7 @@ Our algorithm will be denoted `solve-CCHS(G,F,k)`. We begin the following straig
 - If `k < 0`, return NO.
 - If $V(G) = \emptyset$, return $\emptyset$.
 
-:::{.callout-warning icon="false"}
+:::{.callout-warning icon="false" collapse="true"}
 
 # Problem 1.0 No Hope Rule
 
@@ -56,7 +56,7 @@ Choose the correct option and justify the correctness of the reduction rule.
 
 :::
 
-:::{.callout-warning icon="false"}
+:::{.callout-warning icon="false" collapse="true"}
 
 # Problem 1.1 Low Degree Rule.
 
@@ -69,7 +69,7 @@ Choose the correct option and justify the correctness of the reduction rule.
 
 :::
 
-:::{.callout-warning icon="false"}
+:::{.callout-warning icon="false" collapse="true"}
 
 # Problem 1.2 Forced Vertex Rule.
 
@@ -82,7 +82,7 @@ Choose the correct option and justify the correctness of the reduction rule.
 
 :::
 
-:::{.callout-warning icon="false"}
+:::{.callout-warning icon="false" collapse="true"}
 
 # Problem 1.3 High Degree Vertex Has Low Degree - Structure I
 
@@ -98,7 +98,7 @@ Pick the correct option and justify your answer briefly.
 
 :::
 
-:::{.callout-warning icon="false"}
+:::{.callout-warning icon="false" collapse="true"}
 
 # Problem 1.4 High Degree Vertex Has Low Degree - Structure II
 
@@ -115,7 +115,7 @@ Pick the correct option and justify your answer briefly.
 :::
 
 
-:::{.callout-warning icon="false"}
+:::{.callout-warning icon="false" collapse="true"}
 
 # Problem 1.5 High Degree Vertex Has Low Degree - Rule
 
@@ -145,7 +145,7 @@ Pick the correct option and justify your answer briefly. If you believe this is 
 :::
 
 
-:::{.callout-warning icon="false"}
+:::{.callout-warning icon="false" collapse="true"}
 
 # Problem 1.6 The Branching Step
 
@@ -219,12 +219,16 @@ If d(v) = 2, apply rule 1.5.
 Otherwise branch according to 1.6
 ```
 
-In the next few questions, we will analyze the running time of this algorithm. Assume that the algorithm is called with $F = \emptyset$, i.e, there are no forbidden vertices to begin with. For a fixed execution path $P$ that does _not_ return NO, we use $S(P)$ to denote the output: note that this would consist of the set of vertices that are removed from the instance for inclusion in the solution, i.e, vertices chosen by the first branch in Step 1.6. Also use $F(P)$ to denote the set of vertices that are made forbidden along the path $P$, i.e, these are vertices chosen by the second branch in Step 1.6. 
+In the next few questions, we will analyze the running time of this algorithm. Assume that the algorithm is called with $F = \emptyset$, i.e, there are no forbidden vertices to begin with. Fix an execution path $P$ in the branching tree^[Note that the branching tree has a node for all executions of step 1.6, with all non-branching steps executed at the node itself.] of the algorithm that does _not_ return NO. Now:
 
-Note that at the output node, the instance we have is $(G,F(P),\ell)$ for some $\ell \leq k$, where $S(P)$ is a constrained cycle hitting set with respect to $F(P)$ of size at most $k - \ell$.
+- We use $S(P)$ to denote the output: note that this would consist of the set of vertices that are removed from the instance for inclusion in the solution, i.e, vertices chosen by the first branch in Step 1.6.
+
+- We use $F(P)$ to denote the set of vertices that are made forbidden along the path $P$, i.e, these are vertices chosen by the second branch in Step 1.6. 
+
+Note that at the output node, the instance we have is $(G,F(P),\ell)$ for some $\ell \leqslant k$, where $S(P)$ is a constrained cycle hitting set with respect to $F(P)$ of size at most $k - \ell$. Also the number of steps in the execution path $P$ is given by $|F(P)| + |S(P)|$, since every time we branch, we either include a vertex in the solution or make it forbidden.
 
 
-:::{.callout-warning icon="false"}
+:::{.callout-warning icon="false" collapse="true"}
 
 # Problem 1.7 Degree 3 vs Leaves in Trees
 
@@ -235,11 +239,11 @@ $$\sum_{v \in Y} (d(v)-2) = |X| - 2,$$
 using elementary facts about trees.
 :::
 
-:::{.callout-warning icon="false"}
+:::{.callout-warning icon="false" collapse="true"}
 
 # Problem 1.8 Degree Evolution
 
-Fix an execution path $P$ on an instance $(G,\emptyset,k)$ and consider a vertex $v$ that belongs to $F(P)$, which is to say that the vertex $v$ was included in the set of forbidden vertices at some point during the execution of the algorithm. Denote the instance at this stage of the algorithm by $(H,F,\ell)$ Let $d(v)$ denote the degree of the vertex $v$ in the original instance $G$, and let $d^\star(v)$ denote its degree in the graph $H$. Which of the following is true?
+Fix an execution path $P$ on an instance $(G,\emptyset,k)$ and consider a vertex $v$ that belongs to $F(P)$, which is to say that the vertex $v$ was included in the set of forbidden vertices at some point during the execution of the algorithm. Denote the instance at this stage of the algorithm by $(H,F,k^\prime)$ Let $d(v)$ denote the degree of the vertex $v$ in the original instance $G$, and let $d^\star(v)$ denote its degree in the graph $H$. Which of the following is true?
 
 - $3 \leqslant d^\star(v) \leqslant d(v)$
 - $3 \leqslant d^\star(v) < d(v)$
@@ -248,7 +252,7 @@ Fix an execution path $P$ on an instance $(G,\emptyset,k)$ and consider a vertex
 
 :::
 
-:::{.callout-important icon="false"}
+:::{.callout-important icon="false" collapse="true"}
 
 # Problem 1.9 Successful Execution Paths are Short
 
@@ -259,7 +263,7 @@ _This is an optional question that you can skip. It carries no points._
 
 :::
 
-:::{.callout-warning icon="false"}
+:::{.callout-warning icon="false" collapse="true"}
 
 # Problem 1.10 The Final Running Time
 

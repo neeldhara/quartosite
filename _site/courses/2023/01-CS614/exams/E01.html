@@ -303,6 +303,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="exam-1" class="level5">
 <h5 class="anchored" data-anchor-id="exam-1">Exam 1</h5>
 <p><a href="../../../../courses/2023/01-CS614/index.html">Back to the course page</a></p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Remarks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Problem indices on Gradescope for Problem 1 are off-by-one. Add one to the index here to match to Gradescope.</p>
+<p>Errata based on feedback from the class (thanks!) — these changes have been made in the questions below:</p>
+<ul>
+<li>Q5: it should have been <span class="math inline">v \in S</span> and not <span class="math inline">v \in G</span>.</li>
+<li>Q1.4, assume that the cycles <span class="math inline">C</span> and <span class="math inline">D</span> are edge-disjoint.</li>
+<li>Q1.6, the last return statement is <code>G</code> and not <code>G-v</code> (the vertex <span class="math inline">v</span> is moved to <span class="math inline">F</span>, not removed from the graph).</li>
+</ul>
+</div>
+</div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -343,7 +362,7 @@ Marks Distribution.
 <li>If <span class="math inline">V(G) = \emptyset</span>, return <span class="math inline">\emptyset</span>.</li>
 </ul>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -352,7 +371,7 @@ Problem 1.0 No Hope Rule
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Suppose <span class="math inline">G[F]</span> has a cycle <span class="math inline">C</span>. Note that all vertices of <span class="math inline">C</span> belong to <span class="math inline">F</span>. Then return:</p>
 <ul>
@@ -365,7 +384,7 @@ Problem 1.0 No Hope Rule
 </div>
 </div>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -374,7 +393,7 @@ Problem 1.1 Low Degree Rule.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If a vertex <span class="math inline">v</span> has degree zero or one, then return:</p>
 <ul>
@@ -386,7 +405,7 @@ Problem 1.1 Low Degree Rule.
 </div>
 </div>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -395,7 +414,7 @@ Problem 1.2 Forced Vertex Rule.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If a vertex <span class="math inline">v \in G \setminus F</span> has two neighbors in a single connected component of <span class="math inline">G[F]</span>, then return:</p>
 <ul>
@@ -407,7 +426,7 @@ Problem 1.2 Forced Vertex Rule.
 </div>
 </div>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -416,7 +435,7 @@ Problem 1.3 High Degree Vertex Has Low Degree - Structure I
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">v</span> be a vertex of maximum degree in <span class="math inline">G \setminus F</span>, and suppose <span class="math inline">G</span> is an instance where the rules from Problem 1.0, 1.1 and 1.2 do not apply. Suppose further that <span class="math inline">d(v) = 2</span>.</p>
 <p>Let <span class="math inline">C</span> be a cycle in <span class="math inline">G</span>. Which of the following scenarios are <em>not</em> feasible?</p>
@@ -430,7 +449,7 @@ Problem 1.3 High Degree Vertex Has Low Degree - Structure I
 </div>
 </div>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -439,10 +458,10 @@ Problem 1.4 High Degree Vertex Has Low Degree - Structure II
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">v</span> be a vertex of maximum degree in <span class="math inline">G \setminus F</span>, and suppose <span class="math inline">G</span> is an instance where the rules from Problem 1.0, 1.1 and 1.2 do not apply. Suppose further that <span class="math inline">d(v) = 2</span>.</p>
-<p>Let <span class="math inline">C</span> and <span class="math inline">D</span> be cycles in <span class="math inline">G</span>. Which of the following scenarios are <em>not</em> feasible?</p>
+<p>Let <span class="math inline">C</span> and <span class="math inline">D</span> be two <em>edge-disjoint</em> cycles in <span class="math inline">G</span>. Which of the following scenarios are <em>not</em> feasible?</p>
 <ul>
 <li><span class="math inline">C \cap D \neq \emptyset</span></li>
 <li><span class="math inline">(C \cap F) \cap (D \cap F) \neq \emptyset</span></li>
@@ -453,7 +472,7 @@ Problem 1.4 High Degree Vertex Has Low Degree - Structure II
 </div>
 </div>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -462,7 +481,7 @@ Problem 1.5 High Degree Vertex Has Low Degree - Rule
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">v</span> be a vertex of maximum degree in <span class="math inline">G \setminus F</span>, and suppose <span class="math inline">G</span> is an instance where the rules from Problem 1.0, 1.1 and 1.2 do not apply. Suppose further that <span class="math inline">d(v) = 2</span>.</p>
 <p>Consider the following algorithm to solve this instance:</p>
@@ -485,7 +504,7 @@ Problem 1.5 High Degree Vertex Has Low Degree - Rule
 </div>
 </div>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -494,7 +513,7 @@ Problem 1.6 The Branching Step
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">v</span> be a vertex of maximum degree in <span class="math inline">G \setminus F</span>, and suppose <span class="math inline">G</span> is an instance where the rules from Problem 1.0, 1.1, 1.2, and 1.5 do not apply. Let <span class="math inline">v</span> be a vertex in <span class="math inline">G \setminus F</span> of maximum degree. Now we branch as follows:</p>
 <p><strong>Option A.</strong></p>
@@ -502,28 +521,28 @@ Problem 1.6 The Branching Step
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>if X is not NO:</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    return X U {v}</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>otherwise:</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    return solve-CCHS(G-v,F U {v},k) // omit v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    return solve-CCHS(G,F U {v},k) // omit v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Option B.</strong></p>
 <!-- k-1 is superflous -->
 <div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X = solve-CCHS(G-v,F,k-1) // pick v</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>if X is not NO:</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    return X U {v}</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>otherwise:</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    return solve-CCHS(G-v,F U {v},k-1) // omit v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    return solve-CCHS(G,F U {v},k-1) // omit v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Option C.</strong></p>
 <!-- X U {v} is missing -->
 <div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>X = solve-CCHS(G-v,F,k-1) // pick v</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>if X is not NO:</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    return X</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>otherwise:</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    return solve-CCHS(G-v,F U {v},k) // omit v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    return solve-CCHS(G,F U {v},k) // omit v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Option D.</strong></p>
 <!-- F U {v} is missing -->
 <div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X = solve-CCHS(G-v,F,k-1) // pick v</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>if X is not NO:</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    return X U {v}</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>otherwise:</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    return solve-CCHS(G-v,F,k) // omit v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    return solve-CCHS(G,F,k) // omit v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Pick the right branching strategy and justify your answer.</p>
 </div>
 </div>
@@ -545,7 +564,7 @@ Problem 1.6 The Branching Step
 </ul>
 <p>Note that at the output node, the instance we have is <span class="math inline">(G,F(P),\ell)</span> for some <span class="math inline">\ell \leqslant k</span>, where <span class="math inline">S(P)</span> is a constrained cycle hitting set with respect to <span class="math inline">F(P)</span> of size at most <span class="math inline">k - \ell</span>. Also the number of steps in the execution path <span class="math inline">P</span> is given by <span class="math inline">|F(P)| + |S(P)|</span>, since every time we branch, we either include a vertex in the solution or make it forbidden.</p>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -554,7 +573,7 @@ Problem 1.7 Degree 3 vs Leaves in Trees
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">T</span> be a tree and let <span class="math inline">X</span> be the set of leaves in <span class="math inline">T</span>, and let <span class="math inline">Y</span> be the set of vertices of degree three or more in <span class="math inline">T</span>. Show that:</p>
 <p><span class="math display">\sum_{v \in Y} (d(v)-2) = |X| - 2,</span></p>
@@ -563,7 +582,7 @@ Problem 1.7 Degree 3 vs Leaves in Trees
 </div>
 </div>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -572,9 +591,9 @@ Problem 1.8 Degree Evolution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Fix an execution path <span class="math inline">P</span> on an instance <span class="math inline">(G,\emptyset,k)</span> and consider a vertex <span class="math inline">v</span> that belongs to <span class="math inline">F(P)</span>, which is to say that the vertex <span class="math inline">v</span> was included in the set of forbidden vertices at some point during the execution of the algorithm. Denote the instance at this stage of the algorithm by <span class="math inline">(H,F,k^\prime)</span> Let <span class="math inline">d(v)</span> denote the degree of the vertex <span class="math inline">v</span> in the original instance <span class="math inline">G</span>, and let <span class="math inline">d^\star(v)</span> denote its degree in the graph <span class="math inline">H</span>. Which of the following is true?</p>
+<p>Fix an execution path <span class="math inline">P</span> on an instance <span class="math inline">(G,\emptyset,k)</span> (i.e, a path from root to leaf in the branching tree associated with the algorithm when the input is <span class="math inline">(G,\emptyset,k)</span>) and consider a vertex <span class="math inline">v</span> that belongs to <span class="math inline">F(P)</span>, which is to say that the vertex <span class="math inline">v</span> was included in the set of forbidden vertices at some point during the execution of the algorithm. Denote the instance at this stage of the algorithm by <span class="math inline">(H,F,k^\prime)</span>. In particular, <span class="math inline">H</span> is the graph obtained <em>after</em> <span class="math inline">v</span> was included in <span class="math inline">F</span>. Let <span class="math inline">d(v)</span> denote the degree of the vertex <span class="math inline">v</span> in the original instance <span class="math inline">G</span>, and let <span class="math inline">d^\star(v)</span> denote its degree in the graph <span class="math inline">H</span>. Which of the following is true?</p>
 <ul>
 <li><span class="math inline">3 \leqslant d^\star(v) \leqslant d(v)</span></li>
 <li><span class="math inline">3 \leqslant d^\star(v) &lt; d(v)</span></li>
@@ -585,7 +604,7 @@ Problem 1.8 Degree Evolution
 </div>
 </div>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -594,7 +613,7 @@ Problem 1.9 Successful Execution Paths are Short
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Consider an execution path <span class="math inline">P</span> that does not return NO. Show that <span class="math inline">F(P) \leqslant 3S(P)</span>.</p>
 <p><em>This is an optional question that you can skip. It carries no points.</em></p>
@@ -602,7 +621,7 @@ Problem 1.9 Successful Execution Paths are Short
 </div>
 </div>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -611,7 +630,7 @@ Problem 1.10 The Final Running Time
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Can you use the fact from the previous question to come up with an algorithm for CCHS that runs in time <span class="math inline">O^\star(16^k)</span>? Note that the <span class="math inline">O^\star(\cdot)</span> notation is used to hide factors that are polynomial in <span class="math inline">n</span> and <span class="math inline">k</span>.</p>
 <p>Hint: Use the algorithm described previously in the question, but modify it slightly. In particular, if an execution path pushes more than <span class="math inline">3S(P)</span> vertices into the forbidden set <span class="math inline">F</span>, can you terminate it prematurely? Also, what is the cost of the successful execution paths?</p>
@@ -626,7 +645,7 @@ Problem 1.10 The Final Running Time
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 2. GreedyCNF [2 points]
+Problem 2. GreedyHS [2 points]
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -680,7 +699,38 @@ Problem 4. Rectangle Covering [4 Points]
 </div>
 <p>Suppose we have a set <span class="math inline">P=\left\{p_1, \ldots, p_n\right\}</span> of <span class="math inline">n</span> points and a set <span class="math inline">R=\left\{r_1 \ldots, r_m\right\}</span> of <span class="math inline">m</span> rectangles, as in the image above. Each rectangle <span class="math inline">r_i \in R</span> has a certain cost <span class="math inline">c_i&gt;0</span> associated with it. We wish to find a subset <span class="math inline">S \subseteq R</span> of rectangles whose cost is minimized such that the rectangles in <span class="math inline">S</span> together cover all points in <span class="math inline">P</span>.</p>
 <p>We wish to model this problem as a 0/1-LP. To this end we introduce a decision variable <span class="math inline">x_i</span> for each rectangle <span class="math inline">r_i \in R</span>, where <span class="math inline">x_i=1</span> corresponds to putting rectangle <span class="math inline">r_i</span> into <span class="math inline">S</span> and <span class="math inline">x_i=0</span> corresponds to not putting <span class="math inline">r_i</span> into <span class="math inline">S</span>. otherwise. Furthermore, for a point <span class="math inline">p_j \in P</span>, define <span class="math inline">R\left(p_j\right)=\left\{r_i \in R: p_j \in r_i\right\}</span>.</p>
-<p>Describe a 0/1-LP that models the problem correctly. Also describe a <span class="math inline">5</span>-approximation assuming that each point is contained in at most 5 rectangles.</p>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+LP for Rectangle Cover
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Describe a 0/1-LP that models the problem correctly.</p>
+</div>
+</div>
+</div>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+LP-based Approximation for Rectangle Cover
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Describe a <span class="math inline">5</span>-approximation assuming that each point is contained in at most 5 rectangles.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
@@ -694,7 +744,7 @@ Problem 5. Dominating Set Reduction Rule When The Graph has No Short Cycles [2 p
 </div>
 <div class="callout-body-container callout-body">
 <p>Suppose <span class="math inline">G</span> is a simple, undirected graph that has no cycles of length three or four. Recall that a subset <span class="math inline">S</span> of vertices of <span class="math inline">G</span> is called a dominating set if every vertex <span class="math inline">v</span> of <span class="math inline">G</span> either belongs to <span class="math inline">S</span> or has a neighbor in <span class="math inline">S</span>, in other words, <span class="math inline">N[v] \cap S \neq \emptyset</span>.</p>
-<p>Let <span class="math inline">S</span> be a dominating set of <span class="math inline">G</span> of size at most <span class="math inline">k</span>, where <span class="math inline">G</span> is as given above (i.e, <span class="math inline">G</span> has no triangles and no cycles of length four). Show that if the degree of <span class="math inline">v</span> is more than <span class="math inline">k</span> in <span class="math inline">G</span>, then <span class="math inline">v \in G</span>.</p>
+<p>Let <span class="math inline">S</span> be a dominating set of <span class="math inline">G</span> of size at most <span class="math inline">k</span>, where <span class="math inline">G</span> is as given above (i.e, <span class="math inline">G</span> has no triangles and no cycles of length four). Show that if the degree of <span class="math inline">v</span> is more than <span class="math inline">k</span> in <span class="math inline">G</span>, then <span class="math inline">v \in S</span>.</p>
 </div>
 </div>
 </section>

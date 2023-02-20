@@ -14,6 +14,19 @@ code-copy: true
 
 [Back to the course page](../index.qmd)
 
+:::{.callout-caution}
+
+# Remarks
+
+Problem indices on Gradescope for Problem 1 are off-by-one. Add one to the index here to match to Gradescope.
+
+Errata based on feedback from the class (thanks!) --- these changes have been made in the questions below:
+
+- Q5: it should have been $v \in S$ and not $v \in G$.
+- Q1.4, assume that the cycles $C$ and $D$ are edge-disjoint.
+- Q1.6, the last return statement is `G` and not `G-v` (the vertex $v$ is moved to $F$, not removed from the graph).
+:::
+
 :::{.callout-note icon="false"}
 
 # Problem 1. The Constrained Cycle Hitting Set (CCHS) Problem.
@@ -104,7 +117,7 @@ Pick the correct option and justify your answer briefly.
 
 Let $v$ be a vertex of maximum degree in $G \setminus F$, and suppose $G$ is an instance where the rules from Problem 1.0, 1.1 and 1.2 do not apply. Suppose further that $d(v) = 2$.
 
-Let $C$ and $D$ be cycles in $G$. Which of the following scenarios are _not_ feasible?
+Let $C$ and $D$ be two _edge-disjoint_ cycles in $G$. Which of the following scenarios are _not_ feasible?
 
 - $C \cap D \neq \emptyset$
 - $(C \cap F) \cap (D \cap F) \neq \emptyset$
@@ -158,7 +171,7 @@ X = solve-CCHS(G-v,F,k-1) // pick v
 if X is not NO:
     return X U {v}
 otherwise:
-    return solve-CCHS(G-v,F U {v},k) // omit v
+    return solve-CCHS(G,F U {v},k) // omit v
 ```
 
 
@@ -171,7 +184,7 @@ X = solve-CCHS(G-v,F,k-1) // pick v
 if X is not NO:
     return X U {v}
 otherwise:
-    return solve-CCHS(G-v,F U {v},k-1) // omit v
+    return solve-CCHS(G,F U {v},k-1) // omit v
 ```
 
 
@@ -184,7 +197,7 @@ X = solve-CCHS(G-v,F,k-1) // pick v
 if X is not NO:
     return X
 otherwise:
-    return solve-CCHS(G-v,F U {v},k) // omit v
+    return solve-CCHS(G,F U {v},k) // omit v
 ```
 
 
@@ -197,7 +210,7 @@ X = solve-CCHS(G-v,F,k-1) // pick v
 if X is not NO:
     return X U {v}
 otherwise:
-    return solve-CCHS(G-v,F,k) // omit v
+    return solve-CCHS(G,F,k) // omit v
 ```
 
 Pick the right branching strategy and justify your answer.
@@ -243,7 +256,7 @@ using elementary facts about trees.
 
 # Problem 1.8 Degree Evolution
 
-Fix an execution path $P$ on an instance $(G,\emptyset,k)$ and consider a vertex $v$ that belongs to $F(P)$, which is to say that the vertex $v$ was included in the set of forbidden vertices at some point during the execution of the algorithm. Denote the instance at this stage of the algorithm by $(H,F,k^\prime)$ Let $d(v)$ denote the degree of the vertex $v$ in the original instance $G$, and let $d^\star(v)$ denote its degree in the graph $H$. Which of the following is true?
+Fix an execution path $P$ on an instance $(G,\emptyset,k)$ (i.e, a path from root to leaf in the branching tree associated with the algorithm when the input is $(G,\emptyset,k)$) and consider a vertex $v$ that belongs to $F(P)$, which is to say that the vertex $v$ was included in the set of forbidden vertices at some point during the execution of the algorithm. Denote the instance at this stage of the algorithm by $(H,F,k^\prime)$. In particular, $H$ is the graph obtained _after_ $v$ was included in $F$. Let $d(v)$ denote the degree of the vertex $v$ in the original instance $G$, and let $d^\star(v)$ denote its degree in the graph $H$. Which of the following is true?
 
 - $3 \leqslant d^\star(v) \leqslant d(v)$
 - $3 \leqslant d^\star(v) < d(v)$
@@ -277,7 +290,7 @@ Hint: Use the algorithm described previously in the question, but modify it slig
 
 :::{.callout-warning icon="false"}
 
-# Problem 2. GreedyCNF [2 points]
+# Problem 2. GreedyHS [2 points]
 
 Let $U=\left\{x_1, \ldots, x_n\right\}$ be an univere of $n$ elements. Suppose we have a family $\mathcal{F}$ over $U$ that consists of three-sized subsets of $U$, for example:
 
@@ -325,7 +338,17 @@ Suppose we have a set $P=\left\{p_1, \ldots, p_n\right\}$ of $n$ points and a se
 
 We wish to model this problem as a 0/1-LP. To this end we introduce a decision variable $x_i$ for each rectangle $r_i \in R$, where $x_i=1$ corresponds to putting rectangle $r_i$ into $S$ and $x_i=0$ corresponds to not putting $r_i$ into $S$. otherwise. Furthermore, for a point $p_j \in P$, define $R\left(p_j\right)=\left\{r_i \in R: p_j \in r_i\right\}$.
 
-Describe a 0/1-LP that models the problem correctly. Also describe a $5$-approximation assuming that each point is contained in at most 5 rectangles. 
+:::{.callout-warning icon="false" collapse="true"}
+# LP for Rectangle Cover
+Describe a 0/1-LP that models the problem correctly. 
+:::
+
+
+:::{.callout-warning icon="false" collapse="true"}
+# LP-based Approximation for Rectangle Cover
+Describe a $5$-approximation assuming that each point is contained in at most 5 rectangles. 
+:::
+
 :::
 
 
@@ -337,7 +360,7 @@ Describe a 0/1-LP that models the problem correctly. Also describe a $5$-approxi
 
 Suppose $G$ is a simple, undirected graph that has no cycles of length three or four. Recall that a subset $S$ of vertices of $G$ is called a dominating set if every vertex $v$ of $G$ either belongs to $S$ or has a neighbor in $S$, in other words, $N[v] \cap S \neq \emptyset$. 
 
-Let $S$ be a dominating set of $G$ of size at most $k$, where $G$ is as given above (i.e, $G$ has no triangles and no cycles of length four). Show that if the degree of $v$ is more than $k$ in $G$, then $v \in G$.
+Let $S$ be a dominating set of $G$ of size at most $k$, where $G$ is as given above (i.e, $G$ has no triangles and no cycles of length four). Show that if the degree of $v$ is more than $k$ in $G$, then $v \in S$.
 :::
 
 

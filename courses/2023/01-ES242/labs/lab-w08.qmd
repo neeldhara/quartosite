@@ -1,0 +1,141 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: ES242. Data Structures and Algorithms I. Week 08 Lab
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### Lab 08
+
+[Back to course page](../index.qmd)
+
+:::{.callout-warning appearance="minimal"}
+Depth First Search
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 1. Implement BFS
+
+In this exercise your goal is to output a DFS traversal of a given graph `G` starting from a given source `s`.
+
+
+### Input Format
+
+
+The first line of input is three space-separated integers `n`, `m` and `s`, denoting the number of vertices and edges of `G`, and the id of the source vertex, respectively. Vertices are indexed from `0` to `n-1`.
+
+The next `m` lines of code are two space separated integers `u` and `v` in the range `0` and `n-1`, indicating an (undirected) edge between vertices `u` and `v`.
+
+The last line is a pair of space-separated integers `x` and `y`.
+
+### Output Format
+
+The output is a sequence of vertices in the order in which they were pushed on to the stack. Assume that you always find your lexicographically smallest unvisited neighbor in your DFS implementation. 
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+6 8 0
+0 1
+0 2
+0 3
+0 4
+5 1
+5 2
+5 3
+5 4
+```
+
+`Sample Output`
+
+```default
+0 1 5 2 3 4
+```
+
+:::
+
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 2. Is it a DAG?
+
+Recall that a path in a directed graph is a sequence of edges having the property that the ending vertex of each edge in the sequence is the same as the starting vertex of the next edge in the sequence; a path forms a cycle if the starting vertex of its first edge equals the ending vertex of its last edge. A _directed acyclic graph_ (also known as a DAG) is a directed graph that has no cycles.
+
+You are given a directed graph $G$. Your task is to determine whether the input graph is a DAG.
+
+Note that the vertices are _0-indexed_. That is, the vertices are numbered as $0 \ldots n-1$.
+
+Your code should output `YES` if $G$ is a DAG, else `NO`
+
+### Input Format
+
+The first line contains an integer `n`, the number of nodes in the graph. <br>
+The next line contains an integer `m`, denoting the number of edges in the graph. <br>
+The next `m` input lines contain two space-separated integers `u`,`v` denoting a directed edge from u to v (u->v).
+
+### Output Format
+
+Output `YES` if $G$ is a DAG, else `NO`
+
+`Sample Input 1`
+
+```default
+6
+6
+5 0
+5 2
+4 0
+4 1
+2 3
+3 1
+```
+
+`Sample Output 1`
+
+```default
+YES
+```
+
+`Sample Input 2`
+
+```default
+4
+4
+0 1
+1 2
+2 3
+3 0
+```
+
+`Sample Output 2`
+
+```default
+NO
+```
+  
+  
+:::
+
+
+
+
+## List of Practice Problems
+
+1. 
+
+
+2.
+
+
+
+:::

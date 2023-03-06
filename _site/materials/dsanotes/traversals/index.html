@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link rel="stylesheet" href="../../../css/styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed slimcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 
 <div id="quarto-search-results"></div>
@@ -370,7 +370,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full column-body" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -399,18 +399,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="background" class="level2 page-columns page-full">
+<section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>So far, we have been exploring graphs with an emphasis on visiting all the edges: we want to cross <em>all</em> our bridges, draw <em>every</em> line that there is, and so on. Now we will switch gears and obsess over visiting vertices instead. While the language in our conversation will implicitly assume that the graphs in question are undirected, everything we say here can be easily adapted to directed graphs as well. The pseudocode presented here is for graphs on <span class="math inline">n</span> vertices with vertex labels ranging between <span class="math inline">0</span> and <span class="math inline">n-1</span> (inclusive).</p>
-<div class="page-columns page-full"><p>To illustrate, let us go way back in time to when Facebook was a thing. You start off by making your Facebook account, and making friends with everyone you know. Now, as a part of your preparations for the apocalypse<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, you want to make a list of everyone who you believe is <em>accessible</em> to you: these are people who are your friends, of course, but also friends of your friends, because you trust your friends to put you in touch with their friends if you need it; but now we can extend this confidence to friends of those who are friends of your friends, and so on. To make the “and so on” bit explicit, let us define the set of people you can access as follows:</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Who knows what — and who — may come in handy.</p></li></div></div>
+<p>To illustrate, let us go way back in time to when Facebook was a thing. You start off by making your Facebook account, and making friends with everyone you know. Now, as a part of your preparations for the apocalypse<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, you want to make a list of everyone who you believe is <em>accessible</em> to you: these are people who are your friends, of course, but also friends of your friends, because you trust your friends to put you in touch with their friends if you need it; but now we can extend this confidence to friends of those who are friends of your friends, and so on. To make the “and so on” bit explicit, let us define the set of people you can access as follows:</p>
 <ul>
 <li>your friends on Facebook are accessible;</li>
 <li>if person <code>A</code> is accessible and person <code>B</code> is a Facebook friend of <code>A</code>, then <code>A</code> is also accessible.</li>
 </ul>
 <p>So: how do you go about making this list? This is a good time to take a pause and work it out.</p>
-<section id="spread-out" class="level3 page-columns page-full">
+<section id="spread-out" class="level3">
 <h3 class="anchored" data-anchor-id="spread-out">Spread Out</h3>
-<div class="page-columns page-full"><p>Well, one natural way — at the risk of looking like a stalker — is the following. Let us call people on Facebook <strong>new</strong> if they are not yet on our list. To begin with, everyone is new and our list is empty. Also assume that all names are distinct<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Our list will spawn several notebooks, and we will build it up as follows.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;In practice, every profile has an unique ID, so the actual names do not matter: what is important is that we can easily verify, when we are exploring a profile, if it is new or not.</p></li></div></div>
+<p>Well, one natural way — at the risk of looking like a stalker — is the following. Let us call people on Facebook <strong>new</strong> if they are not yet on our list. To begin with, everyone is new and our list is empty. Also assume that all names are distinct<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Our list will spawn several notebooks, and we will build it up as follows.</p>
 <ul>
 <li><p>on day 1, make a list of all your friends on Facebook in a notebook called <code>Volume 1</code>.</p></li>
 <li><p>on day 2, go to the profiles of everyone you have listed in <code>Volume 1</code>. For each person, go through their friends list, and make a list of everyone who is new to you in <code>Volume 2</code>.</p></li>
@@ -456,11 +456,11 @@ Food For Thought
 <li>terminates pre-apocalypse assuming that Facebook is finite.</li>
 </ul>
 </section>
-<section id="taking-a-deep-dive" class="level3 page-columns page-full">
+<section id="taking-a-deep-dive" class="level3">
 <h3 class="anchored" data-anchor-id="taking-a-deep-dive">Taking a Deep Dive</h3>
 <p>Now, suppose that you are going to attend a hypothetical Facebook party: all the first 1729 users will be there, and in particular, you will get to meet your seven friends as well. Now you want to say hi to everyone who’s accessible, and maybe get them to sign your slam book too: but you haven’t finished building your list yet!</p>
-<div class="page-columns page-full"><p>So how do you go about discovering all the accessible people? Well, you do what people do at networking events<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> — you ask to be introduced to someone you have not met already. Start by approaching a friend, who will introduce you to one of <em>their</em> friends, who may or may not be a mutual: but you move on to said friend regardless, who will in turn introduce you to someone else, etc.</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;Or at least what the author <em>thinks</em> people do at networking events.</p></li></div></div>
-<div class="page-columns page-full"><p>In particular, let us proceed<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> as follows:</p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;Don’t try this at an actual party.</p></li></div></div>
+<p>So how do you go about discovering all the accessible people? Well, you do what people do at networking events<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> — you ask to be introduced to someone you have not met already. Start by approaching a friend, who will introduce you to one of <em>their</em> friends, who may or may not be a mutual: but you move on to said friend regardless, who will in turn introduce you to someone else, etc.</p>
+<p>In particular, let us proceed<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Go to an arbitrary friend `X`.</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Repeatedly do the following:</span>
@@ -839,7 +839,15 @@ Food For Thought
 </section>
 
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Who knows what — and who — may come in handy.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>In practice, every profile has an unique ID, so the actual names do not matter: what is important is that we can easily verify, when we are exploring a profile, if it is new or not.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Or at least what the author <em>thinks</em> people do at networking events.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Don’t try this at an actual party.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
 
 <script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>

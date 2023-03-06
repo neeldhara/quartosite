@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../../css/styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed slimcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 
 <div id="quarto-search-results"></div>
@@ -270,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/dsanotes/dfs/index.html" class="sidebar-item-text sidebar-link">Navigating Graphs</a>
+  <a href="../../../materials/dsanotes/traversals/index.html" class="sidebar-item-text sidebar-link">Navigating Graphs</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -300,7 +300,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full column-body" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -329,12 +329,12 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="of-cards-and-graphs-de-bruijn-seuqences" class="level1 page-columns page-full">
+<section id="of-cards-and-graphs-de-bruijn-seuqences" class="level1">
 <h1>Of Cards and Graphs: de Bruijn seuqences</h1>
 <p><a href="https://slides.com/neeldhara/dsa1-w04#/1/2">Link to slides</a></p>
 <p><a href="https://twitter.com/neeldhara/status/1569407947100266499">Link to a Tweet thread summarizing these notes</a></p>
 <p>Before we talk about exploring graphs, we will take a small detour to throw in some motivation. In our discussion here we will establish that knowing how to go around a graph can meaningfully help us pull off a spectacular card trick. I trust that this should leave us sufficiently interested in finding out how we can actually find those Euler tours, which is our next stop.</p>
-<section id="the-trick" class="level2 page-columns page-full">
+<section id="the-trick" class="level2">
 <h2 class="anchored" data-anchor-id="the-trick">The Trick</h2>
 <ul>
 <li><p>A deck with 32 cards is given to someone in the audience.</p></li>
@@ -348,13 +348,13 @@ S takes the top card and passes the deck to the next person (T).</code></pre></l
 <li><p>Those who got red cards are requested to stand up.</p></li>
 <li><p>All cards are identified.</p></li>
 </ul>
-<div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;A cut shuffle involves taking some number of cards from the top of the deck, placing them on the table, and then placing the rest of the deck on top of them. So if the stack has cards 1,2,3,4,5 from bottom to top, then it will look like 4,5,1,2,3 after a cut shuffle with two cards shaved off the top.</p></li></div></section>
-<section id="behind-the-scenes" class="level2 page-columns page-full">
+</section>
+<section id="behind-the-scenes" class="level2">
 <h2 class="anchored" data-anchor-id="behind-the-scenes">Behind the scenes</h2>
 <p>Interpreting reds as 1’s and blacks as 0’s, any sequence of five cards is a signal: a bitstring of length 5. This is — at least in principle — enough to ID one of the cards in a 32-card deck, for sure. But to ID the next five cards too? Wow!</p>
 <p>So to begin with, let’s just focus on ID-ing card. The deck, of course, is setup: the cards appear in a specific order, one whose relevant properties are unperturbed by cut shuffles. Note that we have no control over how many times the deck is cut, so the top card could be effectively anywhere in from the original sequence. So what we need is a sequence of 32 bits:</p>
 <p><span class="math display">b_0, b_1, \ldots, b_i, \ldots, b_{31}</span></p>
-<div class="page-columns page-full"><p>with the following property. For any <span class="math inline">i \in \{0,\ldots,31\}</span>, if <span class="math inline">B_i</span> denotes<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> the substring:</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;subscripts are mod 32</p></li></div></div>
+<p>with the following property. For any <span class="math inline">i \in \{0,\ldots,31\}</span>, if <span class="math inline">B_i</span> denotes<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> the substring:</p>
 <p><span class="math display">b_{i}, b_{i+1}, b_{i+2}, b_{i+3}, b_{i+4},</span></p>
 <p>then we would very much like that <span class="math inline">b_i \neq b_j</span> whenever <span class="math inline">i \neq j</span>. This ensures that no matter how many times the deck is cut, when the members of the audience with the red cards stand up, we have a clean and unambiguous signal, which we can pre-relate by our powers of rote memory to the card at position <span class="math inline">i</span> in said sequence. Because subscripts are read mod 32, note that this is really all we need. For example, here’s a seuquence that does happen to have the property we are after:</p>
 <blockquote class="blockquote">
@@ -390,7 +390,7 @@ You perhaps see now how you can perform the entire trick:
 </div>
 <p>Notice that once you can read off one card, having committed the seuqence and the association to memory, you can also read off any of the cards after that. This does seem like a lot of memorizing, but it’s worth it for the impact.</p>
 </section>
-<section id="mnemonic-improvements-for-an-actual-performance" class="level2 page-columns page-full">
+<section id="mnemonic-improvements-for-an-actual-performance" class="level2">
 <h2 class="anchored" data-anchor-id="mnemonic-improvements-for-an-actual-performance">Mnemonic improvements for an actual performance</h2>
 <p>If you want to make your life easier, you could use an association that is easy to remember:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -409,16 +409,16 @@ You perhaps see now how you can perform the entire trick:
 <li>Finally, the value of the card is just translating the last three bits to their value in decimal (remembering to map all zeroes to eight).</li>
 </ul>
 <p>If you want to really impress with the next four, you could just memorize the whole sequence, but to avoid visible murmuring, you can also exploit a handy feature of this particular sequence that helps you navigate it with only a little bit of mental math.</p>
-<div class="page-columns page-full"><p>It turns out that if you know <span class="math inline">b_i</span> (which you do based on who stands up), you can obtain the next bit (i.e, the sixth bit relative to the start of <span class="math inline">b_i</span>) in the sequence by simply adding the first and third bits from <span class="math inline">b_i</span>. In other words, the sequence has the following nice pattern: standing anywhere, you can obtain the next bit by taking the sum (mod 2) of the bits that are three and five bits behind wherever you are standing. Go on, verify this for yourself!<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;If you do, you’ll find this is not quite true at the fourth and fifth positions. The claimactually works if you drop any one of the leading <code>0</code>’s, e.g.&nbsp;the first one. This gives you a sequence of 31 cards to work with which have this nice pattern. If you want to be a purist, though, you can commit this exception to memory.</p></li></div></div>
+<p>It turns out that if you know <span class="math inline">b_i</span> (which you do based on who stands up), you can obtain the next bit (i.e, the sixth bit relative to the start of <span class="math inline">b_i</span>) in the sequence by simply adding the first and third bits from <span class="math inline">b_i</span>. In other words, the sequence has the following nice pattern: standing anywhere, you can obtain the next bit by taking the sum (mod 2) of the bits that are three and five bits behind wherever you are standing. Go on, verify this for yourself!<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 </section>
-<section id="de-bruijn-sequences" class="level2 page-columns page-full">
+<section id="de-bruijn-sequences" class="level2">
 <h2 class="anchored" data-anchor-id="de-bruijn-sequences">de Bruijn Sequences</h2>
 <p>So how does this lovely self-working card-trick fit, even if as a detour, into our discussion about graphs?</p>
 <p>Let’s step back for a bit. We pulled out the driver of this whole setup, the sequence:</p>
 <blockquote class="blockquote">
 <p>00000100101100111110001101110101</p>
 </blockquote>
-<div class="page-columns page-full"><p>much like a real magician pulls out a real rabbit from a real hat. You very likely raised an eyebrow and wondered about where this sequence came from. It’s a useful exercise to experiment with coming up with one, even if by means of ad-hoc scribbling. As a warmup, it’s worth trying to find one of length eight, where every 3-bit string occurs exactly once<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;Apparently the Sanskrit sutra <em>yamätärajabhänasalagam</em> (and variants thereof), which describes all possible triplets of short and long syllables, is considered evidence that such sequences were known in India from a while ago. Sanskrit meters are based on the system of short (laghu) and long (guru) syllables, and you might count this as a hint for the exercise here. If you are curious about the history of the sutra, look no further than <a href="https://web.archive.org/web/20141029120230/http://202.41.82.144/rawdataupload/upload/insa/INSA_2/200059d2_123.pdf">this article</a>.</p></li></div></div>
+<p>much like a real magician pulls out a real rabbit from a real hat. You very likely raised an eyebrow and wondered about where this sequence came from. It’s a useful exercise to experiment with coming up with one, even if by means of ad-hoc scribbling. As a warmup, it’s worth trying to find one of length eight, where every 3-bit string occurs exactly once<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
 <p>It turns out that such sequences are in fact <a href="https://en.wikipedia.org/wiki/De_Bruijn_sequence">rather well-studied</a>, and one way of generating them involves taking a walk in an appropriate graph! In particular, let us go back to our original task of generating a 32-bit sequence like the one shown above, except that we are on our own this time. Consider a graph where we have:</p>
 <ul>
 <li>a vertex for every bit string of length <em>four</em>, and let us say that the bit string associated with a vertex <span class="math inline">u</span> is denoted by <span class="math inline">b_u</span>; and</li>
@@ -514,8 +514,8 @@ there are exactly _____ self-loops
 </div>
 </div>
 </div>
-<div class="page-columns page-full"><p>If you were to take an Euler tour in this graph, i.e, walk around visiting every edge exactly once, then it very naturally spells out a sequence as follows. Start with an empty string. Now as you move around, going from the vertex <span class="math inline">u</span> to <span class="math inline">v</span> along the edge <span class="math inline">(u,v)</span> amounts to essentially “seeing one new bit”: recall that the suffix of <span class="math inline">u</span> almost fully eats up the prefix of <span class="math inline">v</span>, leaving one new bit to observe, which <em>is what we tag on to our sequence</em>. Once you have traveled along every edge exactly once, you’ve collected exactly 32 bits, so we have written out a sequence of length 32 by the time we are done<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p><div class="no-row-height column-margin column-container"><li id="fn5"><p><sup>5</sup>&nbsp;If edges were 1km roads, we would have been just 10km shy of a full marathon.</p></li></div></div>
-<div class="page-columns page-full"><p>Now: our somewhat outrageous claim is that this infact is a valid de Bruijn sequence! Given that we have written out exactly 32 bits, it is enough to show that any bit sequence of length 5 shows up as a substring in this sequence starting from some position. The main intuition here is the following: suppose you want to “see” the bitstring <code>PQRST</code> in your sequence. Well, at some point in our walk on the graph, we moved from the vertex representing <code>PQRS</code> to the one representing <code>QRST</code><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. This made us add <code>T</code> to whatever sequence we had so far. Let’s rewind our walk a bit and see what happened in the last few steps too:</p><div class="no-row-height column-margin column-container"><li id="fn6"><p><sup>6</sup>&nbsp;Indeed, this must have happened at some point, since we visit every edge exactly once.</p></li></div></div>
+<p>If you were to take an Euler tour in this graph, i.e, walk around visiting every edge exactly once, then it very naturally spells out a sequence as follows. Start with an empty string. Now as you move around, going from the vertex <span class="math inline">u</span> to <span class="math inline">v</span> along the edge <span class="math inline">(u,v)</span> amounts to essentially “seeing one new bit”: recall that the suffix of <span class="math inline">u</span> almost fully eats up the prefix of <span class="math inline">v</span>, leaving one new bit to observe, which <em>is what we tag on to our sequence</em>. Once you have traveled along every edge exactly once, you’ve collected exactly 32 bits, so we have written out a sequence of length 32 by the time we are done<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p>
+<p>Now: our somewhat outrageous claim is that this infact is a valid de Bruijn sequence! Given that we have written out exactly 32 bits, it is enough to show that any bit sequence of length 5 shows up as a substring in this sequence starting from some position. The main intuition here is the following: suppose you want to “see” the bitstring <code>PQRST</code> in your sequence. Well, at some point in our walk on the graph, we moved from the vertex representing <code>PQRS</code> to the one representing <code>QRST</code><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. This made us add <code>T</code> to whatever sequence we had so far. Let’s rewind our walk a bit and see what happened in the last few steps too:</p>
 <p><code>LMNO</code> → <code>MNOP</code> → <code>NOPQ</code> → <code>OPQR</code> → <code>PQRS</code> → <code>QRST</code></p>
 <p>Retracing our steps, here are the bits that would have been triggered by this walk: <code>PQRST</code>, and thus we are almost done. You might say: perhaps the edge from the vertex representing <code>PQRS</code> to the one representing <code>QRST</code> was taken very early on, at the start of the tour, so we don’t have these many steps to retrace: but here’s the thing — we are on a <em>tour</em>, so you can continue walking back past your starting point and the sequence would still have this overall form: it’s just that a few of those bits would be written at the end, rather than at the start, and that just means that we can find our substring wrapped around the end, which is a perfectly valid place to discover it.</p>
 <p>Notice that there was nothing special about this whole process and the numbers four and five: you can generate so-called “de Bruijn sequences of order <span class="math inline">k</span>”, which are bitstrings of length <span class="math inline">2^k</span> with the property that every <span class="math inline">k</span>-bit string appears exactly once in the sequence as a substring (including wraparoudns), using exactly the same idea.</p>
@@ -530,7 +530,17 @@ there are exactly _____ self-loops
 </section>
 
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>A cut shuffle involves taking some number of cards from the top of the deck, placing them on the table, and then placing the rest of the deck on top of them. So if the stack has cards 1,2,3,4,5 from bottom to top, then it will look like 4,5,1,2,3 after a cut shuffle with two cards shaved off the top.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>subscripts are mod 32<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>If you do, you’ll find this is not quite true at the fourth and fifth positions. The claimactually works if you drop any one of the leading <code>0</code>’s, e.g.&nbsp;the first one. This gives you a sequence of 31 cards to work with which have this nice pattern. If you want to be a purist, though, you can commit this exception to memory.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Apparently the Sanskrit sutra <em>yamätärajabhänasalagam</em> (and variants thereof), which describes all possible triplets of short and long syllables, is considered evidence that such sequences were known in India from a while ago. Sanskrit meters are based on the system of short (laghu) and long (guru) syllables, and you might count this as a hint for the exercise here. If you are curious about the history of the sutra, look no further than <a href="https://web.archive.org/web/20141029120230/http://202.41.82.144/rawdataupload/upload/insa/INSA_2/200059d2_123.pdf">this article</a>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>If edges were 1km roads, we would have been just 10km shy of a full marathon.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Indeed, this must have happened at some point, since we visit every edge exactly once.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
 
 <script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>

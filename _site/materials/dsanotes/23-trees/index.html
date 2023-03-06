@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../../css/styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed slimcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 
 <div id="quarto-search-results"></div>
@@ -271,7 +271,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/dsanotes/dfs/index.html" class="sidebar-item-text sidebar-link">Navigating Graphs</a>
+  <a href="../../../materials/dsanotes/traversals/index.html" class="sidebar-item-text sidebar-link">Navigating Graphs</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -296,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full column-body" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -325,7 +325,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="background" class="level2 page-columns page-full">
+<section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>Suppose we want to store a collection of distinct integers (henceforth, we call them <em>keys</em>, for no good reason except that I can refer to them with the 🔑 emoji) with support for:</p>
 <ul>
@@ -338,7 +338,7 @@ ul.task-list li input[type="checkbox"] {
 <li>if I store my data fully sorted, then it is hard to insert and delete<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, but easy to search<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, but</li>
 <li>if I store my data in chaos-mode, then it is easy to insert and delete<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, but hard to search<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</li>
 </ul>
-<div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;can be as bad as linear time</p></li><li id="fn2"><p><sup>2</sup>&nbsp;can be as good as logarithmic time</p></li><li id="fn3"><p><sup>3</sup>&nbsp;constant time!</p></li><li id="fn4"><p><sup>4</sup>&nbsp;can be as bad as linear time</p></li></div><p>Binary search trees are the natural answer to the question:</p>
+<p>Binary search trees are the natural answer to the question:</p>
 <blockquote class="blockquote">
 <p>If binary search was a data structure, what would it look like?</p>
 </blockquote>
@@ -353,11 +353,11 @@ ul.task-list li input[type="checkbox"] {
 <li>if <code>x</code> is greater than <span class="math inline">k_r</span>, continue searching in the 🌳 rooted at the right child of <span class="math inline">r</span></li>
 <li>if <code>x</code> is smaller than <span class="math inline">k_r</span>, continue searching in the 🌳 rooted at the left child of <span class="math inline">r</span></li>
 </ul>
-<div class="page-columns page-full"><p>Notice that if you hit a leaf without a match, you can safely conclude that <code>x</code> does not belong to the collection. Also notice that the complexity of search is proportional to the length of the longest root-to-leaf path in the tree<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> in the worst case.</p><div class="no-row-height column-margin column-container"><li id="fn5"><p><sup>5</sup>&nbsp;Since it’s going to be awkward to keep talking about the “length of the longest root-to-leaf path in the tree”, we will simply refer to this as the <em>height</em> of the tree.</p></li></div></div>
+<p>Notice that if you hit a leaf without a match, you can safely conclude that <code>x</code> does not belong to the collection. Also notice that the complexity of search is proportional to the length of the longest root-to-leaf path in the tree<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> in the worst case.</p>
 <p>To <code>insert(x)</code>, first <code>search(x)</code>: if <code>x</code> is found, there’s nothing to do; if <code>x</code> is not found, then make note of the leaf where the search stopped — say <span class="math inline">\ell</span>: then if <code>x</code> is greater than <span class="math inline">k_\ell</span>, introduce a right child of <span class="math inline">\ell</span> and assign to it the key value <code>x</code>; on the other hand if <code>x</code> is less than <span class="math inline">k_\ell</span>, introduce a left child of <span class="math inline">\ell</span> and assign to it the key value <code>x</code>. Notice the tree with the newly added node is still a valid binary search tree.</p>
 <p>What about <code>delete(x)</code>? If <code>x</code> is not in the collection, there’s nothing to do. If <code>x</code> does belong to the collection and is associated with a leaf node, then the node can simply be knocked out, no further action required. However, what if the node whose key value is <code>x</code> — say <span class="math inline">v</span> — is an serious one, with a left and a right child? One possibility is to swap <code>x</code> with an appropriate value ascribed to some leaf node, and <em>then</em> knock out the leaf: which now carries the value of <code>x</code>. Which leaf should we swap with? It’s clear that it can’t be just <em>any</em> leaf: but you could pick the smallest value in the right subtree or the largest value in the left subtree — both of these reside and leaves, and the swaps with them would leave you with a valid BST after the deed is done.</p>
 <p>To find the smallest value in the right subtree, you can take the right turn from <span class="math inline">v</span> and then go left until you are stuck. If you prefer the largest value in left subtree instead, take the left turn from <span class="math inline">v</span> and go right until you are stuck. Either of these should work fine. You can find some examples of <a href="https://inst.eecs.berkeley.edu/~cs61bl/r//cur/binary-search-trees/deletion-bst.html?topic=lab17.topic&amp;step=1&amp;course=">deletions in a BST</a> here.</p>
-<div class="page-columns page-full"><p>Notice that the complexity of all three operations are proportional to the height of the tree: so if we can control the height, we control the complexity of these operations! Notice also that the height of a BST — if built by implementing the algorithms above — can be as bad as linear in the number of keys<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, which is no good. Play around with <a href="https://www.cs.usfca.edu/~galles/visualization/BST.html">this visualization of BSTs</a> to get a feel!</p><div class="no-row-height column-margin column-container"><li id="fn6"><p><sup>6</sup>&nbsp;Try, for example, inserting <span class="math inline">1,2,3,\ldots,n</span> in that order.</p></li></div></div>
+<p>Notice that the complexity of all three operations are proportional to the height of the tree: so if we can control the height, we control the complexity of these operations! Notice also that the height of a BST — if built by implementing the algorithms above — can be as bad as linear in the number of keys<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, which is no good. Play around with <a href="https://www.cs.usfca.edu/~galles/visualization/BST.html">this visualization of BSTs</a> to get a feel!</p>
 </section>
 <section id="trees" class="level2">
 <h2 class="anchored" data-anchor-id="trees">(2,3) Trees</h2>
@@ -422,7 +422,17 @@ Practice!
 </section>
 
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>can be as bad as linear time<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>can be as good as logarithmic time<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>constant time!<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>can be as bad as linear time<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Since it’s going to be awkward to keep talking about the “length of the longest root-to-leaf path in the tree”, we will simply refer to this as the <em>height</em> of the tree.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Try, for example, inserting <span class="math inline">1,2,3,\ldots,n</span> in that order.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
 
 <script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>

@@ -434,6 +434,32 @@ References
 <li><a href="https://www.cambridge.org/core/books/beyond-the-worstcase-analysis-of-algorithms/8A8128BBF7FC2857471E9CA52E69AC21">Beyond the Worst-Case Analysis of Algorithms</a> • Tim Roughgarden</li>
 <li><a href="http://jeffe.cs.illinois.edu/teaching/algorithms/">Algorithms</a> • Jeff Erickson</li>
 </ol>
+<p>Specific Pointers:</p>
+<ol type="1">
+<li>Matroids: <a href="https://jeffe.cs.illinois.edu/teaching/algorithms/notes/E-matroids.pdf">Erickson</a>, the entire chapter and Section 12.2.1 from <a href="https://www.mimuw.edu.pl/~malcin/book/parameterized-algorithms.pdf">Parameterized Algorithms</a>.</li>
+<li>Vertex Cover:
+<ul>
+<li>Branching: see Section 3.1 in <a href="https://www.mimuw.edu.pl/~malcin/book/parameterized-algorithms.pdf">Parameterized Algorithms</a>.</li>
+<li>Kernels: see Section 2.2.1 for the simple kernel, and Section 2.3.1 for the kernel based on Crown Decomposition in <a href="https://www.mimuw.edu.pl/~malcin/book/parameterized-algorithms.pdf">Parameterized Algorithms</a>.</li>
+<li>2-approximation via matchings and LP: Section 21.3 in <a href="https://www.cs.cmu.edu/~avrim/451f12/lectures/lect1106.pdf">these notes</a>.</li>
+</ul></li>
+<li>Set Cover:
+<ul>
+<li><span class="math inline">f</span>-Approximation via LP rounding: Section 1.2 and 1.3 in <a href="https://www.designofapproxalgs.com/book.pdf">The Design of Approximation Algorithms</a>.</li>
+<li>Rounding a dual solution: Sections 1.4 and 1.5 in <a href="https://www.designofapproxalgs.com/book.pdf">The Design of Approximation Algorithms</a>. Also see Chapter A in the appendix for more background on weak duality and complementary slackness.</li>
+<li>Greedy approximation: Section 1.6 in <a href="https://www.designofapproxalgs.com/book.pdf">The Design of Approximation Algorithms</a>.</li>
+</ul></li>
+<li>Feedback Vertex Set:
+<ul>
+<li>The <span class="math inline">O(\log n)</span>-approximation: Section 7.2 in <a href="https://www.designofapproxalgs.com/book.pdf">The Design of Approximation Algorithms</a>.</li>
+<li>The <span class="math inline">2</span>-approximation: Section 14.2 in <a href="https://www.designofapproxalgs.com/book.pdf">The Design of Approximation Algorithms</a>.</li>
+</ul></li>
+<li>Miscellaneous
+<ul>
+<li>Color Coding: Section 5.2 in <a href="https://www.mimuw.edu.pl/~malcin/book/parameterized-algorithms.pdf">Parameterized Algorithms</a>.</li>
+<li>Inclusion-Exclusion for Hamiltonian Path: Section 10.1.1 in <a href="https://www.mimuw.edu.pl/~malcin/book/parameterized-algorithms.pdf">Parameterized Algorithms</a>.</li>
+</ul></li>
+</ol>
 </div>
 </div>
 </div>
@@ -639,7 +665,7 @@ Register
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>8. Vertex Cover</strong><br>
-                <p>Introduction to Above-Guarantee Parameterization • FPT in above-guarantee parameters by branching</p>
+                <p>Introduction to Kernelization • A Quadratic Kernel for Vertex Cover based on degree reductions</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -654,7 +680,7 @@ Register
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>9. Vertex Cover</strong><br>
-                <p>Introduction to Kernelization • A Quadratic Kernel for Vertex Cover based on degree reductions • A Linear Kernel for Vertex Cover based on the LP formulation</p>
+                <p>A Linear Kernel for Vertex Cover based on the LP formulation</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -669,7 +695,7 @@ Register
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>10. Set Cover</strong><br>
-                <p>A Greedy Approximation Algorithm • A LP formulation and its dual</p>
+                <p>A Greedy Approximation Algorithm • A LP formulation</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -684,7 +710,7 @@ Register
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>11. Set Cover</strong><br>
-                <p>Rounding a Dual Solution</p>
+                <p>Dual LP formulation • Weak Duality • Complementary Slackness Conditions • Rounding a Dual Solution</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -698,8 +724,8 @@ Register
                 20 Feb, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>12. Feedback Vertex Set</strong><br>
-                <p>An O(log n)-approximation via primal dual</p>
+                <strong>12. Detour: Long Path</strong><br>
+                <p>Principle of Inclusion-Exclusion for a poly-space single-exponential algorithm for HAMPATH • Color Coding for Longest Path</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -714,7 +740,7 @@ Register
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>13. Feedback Vertex Set</strong><br>
-                <p>An O(log n)-approximation via primal dual (contd.)</p>
+                <p>An O(log n)-approximation via primal dual</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -1159,13 +1185,13 @@ No matching items
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Vertex Cover</strong><br>
-                <p>Introduction to Above-Guarantee Parameterization • FPT in above-guarantee parameters by branching</p>
+                <p>Introduction to Kernelization • A Quadratic Kernel for Vertex Cover based on degree reductions</p>
             </td>
             <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                    <a href="../../../courses/2023/01-CS614/quizzes/L08.html"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
                 </td>
             <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                    <a href="quizzes/A08.qmd"><i class="bi bi-journal-richtext" style="padding-left: 32px;"></i></a>
                 </td>
             <td class="listing-due">
                     01 Feb, 2023
@@ -1177,13 +1203,13 @@ No matching items
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Vertex Cover</strong><br>
-                <p>Introduction to Kernelization • A Quadratic Kernel for Vertex Cover based on degree reductions • A Linear Kernel for Vertex Cover based on the LP formulation</p>
+                <p>A Linear Kernel for Vertex Cover based on the LP formulation</p>
             </td>
             <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                    <a href="../../../courses/2023/01-CS614/quizzes/L09.html"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
                 </td>
             <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                    <a href="quizzes/A09.qmd"><i class="bi bi-journal-richtext" style="padding-left: 32px;"></i></a>
                 </td>
             <td class="listing-due">
                     03 Feb, 2023
@@ -1195,7 +1221,7 @@ No matching items
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Set Cover</strong><br>
-                <p>A Greedy Approximation Algorithm • A LP formulation and its dual</p>
+                <p>A Greedy Approximation Algorithm • A LP formulation</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1213,7 +1239,7 @@ No matching items
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Set Cover</strong><br>
-                <p>Rounding a Dual Solution</p>
+                <p>Dual LP formulation • Weak Duality • Complementary Slackness Conditions • Rounding a Dual Solution</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1230,8 +1256,8 @@ No matching items
                 20 Feb, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Feedback Vertex Set</strong><br>
-                <p>An O(log n)-approximation via primal dual</p>
+                <strong>Detour: Long Path</strong><br>
+                <p>Principle of Inclusion-Exclusion for a poly-space single-exponential algorithm for HAMPATH • Color Coding for Longest Path</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1249,7 +1275,7 @@ No matching items
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Feedback Vertex Set</strong><br>
-                <p>An O(log n)-approximation via primal dual (contd.)</p>
+                <p>An O(log n)-approximation via primal dual</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>

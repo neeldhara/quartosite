@@ -1,0 +1,46 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: CS614. Advanced Algorithms. L08 Quiz.
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## CS614. Advanced Algorithms. 
+
+##### L08 Quiz
+
+[Back to the course page](../index.qmd)
+
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Dominating Set
+
+A dominating set of a graph $G$ is a subset of vertices $S$ such that every vertex in $G$ either belongs to $S$ or has a neighbor in $S$.
+
+Suppose you have an instance of dominating set given by $(G,k)$, which is a YES-instance if and only if $G$ has a dominating set of size at most $k$.
+
+Is the following reduction rule safe?
+
+RR. If $d(v) > k$, then return $(G-v,k-1)$.
+
+Briefly justify your answer.
+
+:::
+
+
+:::{.callout-note icon="false"}
+
+# Problem 2. Connected Vertex Cover
+
+A connected vertex cover of a graph $G$ is a subset of vertices $S$ such that: (a) $S$ is a vertex cover of $G$, and (b) $G[S]$ is a connected subgraph of $G$.
+
+Suppose you have an instance of connected vertex cover given by $(G,k)$, which is a YES-instance if and only if $G$ has a connected vertex cover of size at most $k$.
+
+:::
+
+
+:::

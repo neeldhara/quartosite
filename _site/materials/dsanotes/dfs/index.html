@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-03-06">
+
+<title>Neeldhara - Navigating Graphs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed slimcontent">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Navigating Graphs</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../materials/dsanotes/index.html" class="sidebar-item-text sidebar-link">Data Structures and Algorithms</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/dsanotes/introduction/index.html" class="sidebar-item-text sidebar-link">Data Structures and Structured Data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/dsanotes/stable-matchings/index.html" class="sidebar-item-text sidebar-link">Stable Matchings</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/dsanotes/sequences/index.html" class="sidebar-item-text sidebar-link">Representing Sequences</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/dsanotes/graphs/index.html" class="sidebar-item-text sidebar-link">Representing Graphs</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/dsanotes/debruijn/index.html" class="sidebar-item-text sidebar-link">On Cards and Graphs</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/dsanotes/eulertours/index.html" class="sidebar-item-text sidebar-link">Walking Around via Euler Tours</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/dsanotes/dfs/index.html" class="sidebar-item-text sidebar-link active">Navigating Graphs</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/dsanotes/23-trees/index.html" class="sidebar-item-text sidebar-link">Balanced BSTs</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a>
+  <ul class="collapse">
+  <li><a href="#spread-out" id="toc-spread-out" class="nav-link" data-scroll-target="#spread-out">Spread Out</a></li>
+  <li><a href="#taking-a-deep-dive" id="toc-taking-a-deep-dive" class="nav-link" data-scroll-target="#taking-a-deep-dive">Taking a Deep Dive</a></li>
+  <li><a href="#recap-the-two-ways" id="toc-recap-the-two-ways" class="nav-link" data-scroll-target="#recap-the-two-ways">Recap: The Two Ways</a></li>
+  <li><a href="#exploring-wikipedia" id="toc-exploring-wikipedia" class="nav-link" data-scroll-target="#exploring-wikipedia">Exploring Wikipedia</a></li>
+  </ul></li>
+  <li><a href="#paths-and-connectivity" id="toc-paths-and-connectivity" class="nav-link" data-scroll-target="#paths-and-connectivity">Paths and Connectivity</a></li>
+  <li><a href="#breadth-first-search" id="toc-breadth-first-search" class="nav-link" data-scroll-target="#breadth-first-search">Breadth-First Search</a>
+  <ul class="collapse">
+  <li><a href="#a-faster-implementation" id="toc-a-faster-implementation" class="nav-link" data-scroll-target="#a-faster-implementation">A Faster Implementation</a></li>
+  </ul></li>
+  <li><a href="#depth-first-search" id="toc-depth-first-search" class="nav-link" data-scroll-target="#depth-first-search">Depth-First Search</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Navigating Graphs</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">dsanotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 6, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="background" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>So far, we have been exploring graphs with an emphasis on visiting all the edges: we want to cross <em>all</em> our bridges, draw <em>every</em> line that there is, and so on. Now we will switch gears and obsess over visiting vertices instead. While the language in our conversation will implicitly assume that the graphs in question are undirected, everything we say here can be easily adapted to directed graphs as well. The pseudocode presented here is for graphs on <span class="math inline">n</span> vertices with vertex labels ranging between <span class="math inline">0</span> and <span class="math inline">n-1</span> (inclusive).</p>
+<div class="page-columns page-full"><p>To illustrate, let us go way back in time to when Facebook was a thing. You start off by making your Facebook account, and making friends with everyone you know. Now, as a part of your preparations for the apocalypse<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, you want to make a list of everyone who you believe is <em>accessible</em> to you: these are people who are your friends, of course, but also friends of your friends, because you trust your friends to put you in touch with their friends if you need it; but now we can extend this confidence to friends of those who are friends of your friends, and so on. To make the “and so on” bit explicit, let us define the set of people you can access as follows:</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Who knows what — and who — may come in handy.</p></li></div></div>
+<ul>
+<li>your friends on Facebook are accessible;</li>
+<li>if person <code>A</code> is accessible and person <code>B</code> is a Facebook friend of <code>A</code>, then <code>A</code> is also accessible.</li>
+</ul>
+<p>So: how do you go about making this list? This is a good time to take a pause and work it out.</p>
+<section id="spread-out" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="spread-out">Spread Out</h3>
+<div class="page-columns page-full"><p>Well, one natural way — at the risk of looking like a stalker — is the following. Let us call people on Facebook <strong>new</strong> if they are not yet on our list. To begin with, everyone is new and our list is empty. Also assume that all names are distinct<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Our list will spawn several notebooks, and we will build it up as follows.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;In practice, every profile has an unique ID, so the actual names do not matter: what is important is that we can easily verify, when we are exploring a profile, if it is new or not.</p></li></div></div>
+<ul>
+<li><p>on day 1, make a list of all your friends on Facebook in a notebook called <code>Volume 1</code>.</p></li>
+<li><p>on day 2, go to the profiles of everyone you have listed in <code>Volume 1</code>. For each person, go through their friends list, and make a list of everyone who is new to you in <code>Volume 2</code>.</p></li>
+<li><p>on day 3, go to the profiles of everyone you have listed in <code>Volume 2</code>. For each person, go through their friends list, and make a list of everyone who is new to you in <code>Volume 3</code>.</p>
+<p><img src="../figures/ch6-eternity.jpg" class="img-fluid" width="500"></p></li>
+<li><p>on day t, go to the profiles of everyone you have listed in <code>Volume t-1</code>. For each person, go through their friends list, and make a list of everyone who is new to you to <code>Volume t</code>. Stop if the new volume is empty.</p></li>
+</ul>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+New People Only!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice that it is crucial that you <strong>only list people who are new to you</strong>. Consider an example where all of Facebook is three people: you and your friends Akash and Babita, who are friends with each other as well. Now Akash and Babita make it to <code>Volume 1</code>, but on day 2, if you are not careful about listing only new people, you will:</p>
+<ul>
+<li>add Babita to <code>Volume 2</code> based on Akash’s list, and</li>
+<li>add Akash to <code>Volume 2</code> based on Babita’s list.</li>
+</ul>
+<p>Now, since <code>Volume 2</code> is the same as <code>Volume 1</code>, it will spawn an identical <code>Volume 3</code>, and this will go on <em>ad infinitum</em>, which is not what we want!</p>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Food For Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How long does it take to build up the whole list of accessible people, if all of Facebook has <span class="math inline">N</span> people and everyone has at most <span class="math inline">D</span> friends? Assume that you can figure out — when looking at a profile — whether it is new or not. This is not terribly unrealistic: for example, your browser typically tells you if you have visited a page before or not by coloring the links purple instead of blue, at least in the <a href="https://en.wikipedia.org/wiki/Hyperlink#Link_behavior_in_web_browsers">early days of Facebook</a>.</p>
+</div>
+</div>
+<p>You should convince yourself that the process above indeed:</p>
+<ul>
+<li>lists everyone who is accessible,</li>
+<li>does not list anyone who is not accessible, and</li>
+<li>terminates pre-apocalypse assuming that Facebook is finite.</li>
+</ul>
+</section>
+<section id="taking-a-deep-dive" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="taking-a-deep-dive">Taking a Deep Dive</h3>
+<p>Now, suppose that you are going to attend a hypothetical Facebook party: all the first 1729 users will be there, and in particular, you will get to meet your seven friends as well. Now you want to say hi to everyone who’s accessible, and maybe get them to sign your slam book too: but you haven’t finished building your list yet!</p>
+<div class="page-columns page-full"><p>So how do you go about discovering all the accessible people? Well, you do what people do at networking events<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> — you ask to be introduced to someone you have not met already. Start by approaching a friend, who will introduce you to one of <em>their</em> friends, who may or may not be a mutual: but you move on to said friend regardless, who will in turn introduce you to someone else, etc.</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;Or at least what the author <em>thinks</em> people do at networking events.</p></li></div></div>
+<div class="page-columns page-full"><p>In particular, let us proceed<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> as follows:</p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;Don’t try this at an actual party.</p></li></div></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Go to an arbitrary friend `X`.</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Repeatedly do the following:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    Declare under your breath that you have met `X`.</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    Ask X to introduce you to a friend of theirs </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    (whom you have not yet met).</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    if X introduces you to Y:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        Y is the new X.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    else X has nothing new to offer:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        EXIT PARTY.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Clearly, everyone you meet this way is accessible, but do you get to meet everyone who is accessible?</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Misses
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose you have a friend Ravi who knows both Seeta and Geeta<a href="https://en.wikipedia.org/wiki/Seeta_Aur_Geeta">,</a> but Seeta and Geeta do not know each other. To begin with, you meet Ravi and say Ravi introduces you to Seeta. Seeta knows nobody whom you have not yet met, so you leave without meeting Geeta, but she was accessible! Had Ravi introduced you to Geeta instead, then you would have missed meeting Seeta with the approach above.</p>
+<p>Pause and think about how you can fix your procedure so that you meet everyone who is accessible.</p>
+</div>
+</div>
+<p>One way to expand the scope of people we meet at the party is by not giving up so early: specifically, if you meet someone who observes that you have already met all their friends, then you have a dead end, but for all you know you are just stuck in a local minima. You need to pull yourself up and keep looking — and there are a few different possibilities that you could experiment with here:</p>
+<ol type="1">
+<li>find another OG friend you have not met at the party and restart the process above</li>
+<li>find a random person at the party to restart the process above</li>
+<li>go back to the last person you were speaking with and continue the process above</li>
+</ol>
+<p>Note that with approach (1), you would still miss meeting either Seeta or Geeta in the example above, so while it’s a perfectly valid approach it may still fail to be comprehensive.</p>
+<p>The issue with approach (2) — apart from the fact that it may not be well-suited to introverts — is that you might end up meeting and listing people who are not, in fact, accessible.</p>
+<p>So let’s try approach (3), which you can think of as retracing your steps backward whenever you are stuck:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Go to an arbitrary friend X.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Repeatedly do the following:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    Ask X to introduce you to a friend of theirs </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    (whom you have not yet met).</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    if X introduces you to Y:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        Remember that X introduced you to Y.</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        Declare that you have met Y.</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        Y is the new X.</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    else X has nothing new to offer:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        Who introduced you to X?</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            Nobody: EXIT PARTY.</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            It was Z: Z is the new X.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As before, you should convince yourself that the process above indeed:</p>
+<ul>
+<li>ensures you meet everyone who is accessible,</li>
+<li>does not have you meet anyone who is not accessible.</li>
+</ul>
+<p>Further, you can also show that you exit the party before the party exits you: in other words, the process above does not go on forever. Why is this?</p>
+<p>Well, notice that you never meet someone for the first time more than once, so the <code>if</code> block inside <code>Repeatedly</code> triggers at most 1728 times.</p>
+<p>Now lets talk about the <code>else</code> block inside <code>Repeatedly</code>. Let us say that you get “stuck at someone” if they have nothing new to offer. Now we claim that you never get stuck at someone more than once. To see this, lets put ourselves in the shoes of someone — say 💃 — attending this party and largely minding their own business. From <em>their</em> perspective, a novice networker — say 🕺 — keeps approaching them to meet new people. They meet this person some <span class="math inline">k</span> times: perhaps they hope that <span class="math inline">k</span> is zero, but if they are not so lucky, then the meetings pan out as follows.</p>
+<ul>
+<li>The first meeting is when someone introduces 🕺 to 💃.
+<ul>
+<li>Now 💃 introduces 🕺 to <span class="math inline">P_1</span>, a new person.</li>
+</ul></li>
+<li>The second meeting is when 🕺 backtracks from <span class="math inline">P_1</span> back to 💃.
+<ul>
+<li>Now 💃 introduces 🕺 to <span class="math inline">P_2</span>, a new person.</li>
+</ul></li>
+<li>The second meeting is when 🕺 backtracks from <span class="math inline">P_2</span> back to 💃.
+<ul>
+<li>Now 💃 introduces 🕺 to <span class="math inline">P_3</span>, a new person. <span class="math display">\vdots</span></li>
+</ul></li>
+<li>The <span class="math inline">k^{th}</span> meeting is when 🕺 backtracks from <span class="math inline">P_{k-1}</span> back to 💃.
+<ul>
+<li>Now 💃 has nobody left to introduce 🕺 to.</li>
+</ul></li>
+</ul>
+<p>Note how all meetings but one are fruitful in that they lead to further progress, and it is only the last meeting where one gets stuck and backtracks <em>from</em> 💃. In other words, you never get stuck at the same person more than once, so the <code>else</code> block inside <code>Repeatedly</code> triggers at most 1728 times. So given a sufficiently long party, we will indeed build our lists in time.</p>
+</section>
+<section id="recap-the-two-ways" class="level3">
+<h3 class="anchored" data-anchor-id="recap-the-two-ways">Recap: The Two Ways</h3>
+<p>So we have evidently figured out two ways of exploring the part of the graph accessible from a particular location. These belong to a family of graph traversal algorithms, dubbed <em>Whatever-First-Search</em> by Erickson, and can be <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/05-graphs.pdf">generically described</a> as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Whatever-First-Search(s):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    put s into the bag</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    while the bag is not empty:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        take v out of the bag</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        if v is unmarked</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            mark v</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                for each edge vw</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                    put w into the bag</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Recall that the notion of accessibility is recursively defined, so for many people it is most natural to think of the algorithms also as being recursive. In particular, it’s either:</p>
+<ul>
+<li>ping all your friends, rinse, repeat, or</li>
+<li>go to a friend, rinse, repeat;</li>
+</ul>
+<p>keeping in mind that — in the spirit of recursion — when you are rinsing and repeating, you re-identify yourself as whoever you are working with currently, and also take care to ensure that you don’t end up going in circles forever by remembering what you have already seen and making good use of that intel.</p>
+</section>
+<section id="exploring-wikipedia" class="level3">
+<h3 class="anchored" data-anchor-id="exploring-wikipedia">Exploring Wikipedia</h3>
+<p>Imagine that you open up Wikipedia’s featured article today, and it happens to be about <a href="https://en.wikipedia.org/wiki/Operation_Flavius">Operation Flavius</a>. Call this page <code>P</code>, and let’s say that another page <code>Q</code> on Wikipedia is reachable from <code>P</code> if you can arrive at <code>Q</code> by starting at <code>P</code> and following links that are visible on whatever the current page is. To make a list of all pages reachable from <code>P</code>, you can start with <code>P</code> as the current page and then either:</p>
+<ul>
+<li>open up all blue links visible on the current page in background tabs, close the current page, and process the next tab similarly; or,</li>
+<li>open the first blue link you see on the current page, and keep doing this, hitting the back button when you hit a page with no blue links.</li>
+</ul>
+<p>The background tab hoarder is browsing breadth-first, while the distracted clicker is browsing depth-first :) With all this intuition collected, let us now describe professional-looking implementations for these algorithms and argue their correctness.</p>
+</section>
+</section>
+<section id="paths-and-connectivity" class="level2">
+<h2 class="anchored" data-anchor-id="paths-and-connectivity">Paths and Connectivity</h2>
+<p>We now turn to some definitions that are standard in graph theory. A <em>path</em> is a non-empty graph <span class="math inline">P=(V, E)</span> of the form</p>
+<p><span class="math display">
+V=\left\{x_0, x_1, \ldots, x_k\right\} \quad E=\left\{x_0 x_1, x_1 x_2, \ldots, x_{k-1} x_k\right\},</span></p>
+<p>where the <span class="math inline">x_i</span>’s are all distinct.</p>
+<p>The vertices <span class="math inline">x_0</span> and <span class="math inline">x_k</span> are linked by <span class="math inline">P</span> and are called its ends; the vertices <span class="math inline">x_1, \ldots, x_{k-1}</span> are the inner vertices of <span class="math inline">P</span>.</p>
+<p>The number of edges of a path is its <em>length</em>, and the path of length <span class="math inline">k</span> is denoted by <span class="math inline">P^k</span>.</p>
+<p>If <span class="math inline">P=x_0 \ldots x_{k-1}</span> is a path and <span class="math inline">k \geqslant 3</span>, then the graph <span class="math inline">C:=</span> <span class="math inline">P+x_{k-1} x_0</span> is called a <em>cycle</em>.</p>
+<p>The <em>distance</em> <span class="math inline">d_G(x, y)</span> in <span class="math inline">G</span> of two vertices <span class="math inline">x, y</span> is the length of a shortest <span class="math inline">x-y</span> path in <span class="math inline">G</span>; if no such path exists, we set <span class="math inline">d(x, y):=\infty</span>.</p>
+<p>The greatest distance between any two vertices in <span class="math inline">G</span> is the <em>diameter</em> of <span class="math inline">G</span>, denoted by <span class="math inline">\operatorname{d}(G)</span>.</p>
+<p>A non-empty graph <span class="math inline">G</span> is called <em>connected</em> if any two of its vertices are linked by a path in <span class="math inline">G</span>. If <span class="math inline">U \subseteq V(G)</span> and <span class="math inline">G[U]</span> is connected, we also call <span class="math inline">U</span> itself connected in <span class="math inline">G</span>. A maximal connected subgraph of <span class="math inline">G</span> is a connected component of <span class="math inline">G</span>.</p>
+<p>Given a vertex <span class="math inline">s</span> in a graph <span class="math inline">G</span>, we may want to know:</p>
+<ul>
+<li>the size of the connected component that <span class="math inline">s</span> belongs to;</li>
+<li>the set of all vertices in the connected component that <span class="math inline">s</span> belongs to;</li>
+<li>the distance between <span class="math inline">s</span> and <span class="math inline">t</span> for some vertex <span class="math inline">t \neq s</span>;</li>
+<li>if <span class="math inline">s</span> belongs to a cycle in <span class="math inline">G</span>.</li>
+</ul>
+<p>It turns out that navigation algorithms can help us address all these questions and then some.</p>
+</section>
+<section id="breadth-first-search" class="level2">
+<h2 class="anchored" data-anchor-id="breadth-first-search">Breadth-First Search</h2>
+<p>Breadth-first search maintains an evolving state of visited vertices. A vertex that is not yet upgrades itself to visited status if it is adjacent to a visited vertex. So we iteratively update the set of visited vertices — starting with just <code>s</code> as per tradition — by having the current set of visited vertices pull in their neighbors, and stop when there is nothing new to see.</p>
+<p>Letting <code>visited</code> denote a set of vertices in the global scope, one round of this process might look like this:</p>
+<pre><code>execute_one_round():
+    marked = {}
+    for all v in visited:
+        for all u in N(v):
+            if u is not in visited:
+                add u to marked
+    visited = visited U marked</code></pre>
+<p>and now we keep going until we have nothing new to see:</p>
+<pre><code>visited = {s}
+while true:
+    prev = visited
+    execute_one_round()
+    if prev == visited:
+        exit</code></pre>
+<p>Note that if working with a graph on <span class="math inline">n</span> vertices as input, the <code>while</code> loop will run at most <span class="math inline">n</span> times, and <code>execute_one_round</code> takes at most <span class="math inline">O(n^2)</span> time, so overall we have an implementation that is straightforward but suffers a running time of <span class="math inline">O(n^3)</span> overall.</p>
+<section id="a-faster-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="a-faster-implementation">A Faster Implementation</h3>
+<p>Notice that we are wasting time by pinging <em>all</em> visited vertices in <em>every</em> round: notice that only the new inductees are going to help with discovery — so we can save time by only focusing on them. This is what we did with the notebooks earlier: we only scanned volume <code>t-1</code> in round t to develop volume <code>t</code>.</p>
+<p>The most natural way of tracking the volumes efficiently is to use a queue: we begin by adding the starting point, and in general, pop elements off the queue. As we do that, we add any unvisited neighbors offered by the popped element back at the end:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>visited[v] = -1 for all v</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>visited[s] = 0</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>add s to head of Q</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>while Q is non-empty:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    v = pop(Q) //remove the head of Q</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    for u in N(v):</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        if visited[u] is -1:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            visited[u] = visited[v] + 1</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            push (Q,u)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now you might figure this to be an <span class="math inline">O(n^2)</span> algorithm based on the fact that the while loop and the inner for loop run at most <span class="math inline">n</span> times each, but you can in fact argue that the running time is bounded by <span class="math inline">O(n+m)</span>.</p>
+<p>To see this, notice that the line <code>u in N(v)</code> is executed twice for every edge <code>(p,q)</code>: once when <code>p</code> is at the head of the queue and once when <code>q</code> is at the head of the queue. Also notice that every vertex gets pushed on the queue at most once, so the line <code>v = pop(Q)</code> is executed at most <code>n</code> times. This gives us a tighter and neater upper bound of <span class="math inline">O(n+m)</span>. 🎉</p>
+<p>We now argue that the procedure above sees exactly what it is supposed to see: nothing more and nothing less. Not only that: the visited array that we sneaked in tracks the “volume numbers” from the notebooks analogy, and in fact records distances from the starting point.</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Lemma.</strong> For finite <span class="math inline">d</span>, any vertex <span class="math inline">u</span> is at a distance of <span class="math inline">d</span> from <span class="math inline">s</span> if and only if <code>visited[u] = d</code>.</p>
+</div>
+</div>
+</div>
+<p>Consider the case of finite <span class="math inline">d</span>. For both statements, we argue by induction on <span class="math inline">d</span>. We omit the base cases because they are easy to verify.</p>
+<p>First, suppose <code>visited[u] = d</code>. Then:</p>
+<ul>
+<li>by the mechanics of the algorithm, there is a vertex <code>v</code> such that:
+<ol type="a">
+<li><code>u in N(v)</code> and</li>
+<li><code>visited[v] = d-1</code>, and</li>
+</ol></li>
+<li>by the induction hypothesis, the distance of <span class="math inline">v</span> from <span class="math inline">s</span> is <span class="math inline">d-1</span>.</li>
+</ul>
+<p>The claim follows by adding <span class="math inline">u</span> to the <span class="math inline">(d-1)</span>-length path from <span class="math inline">s</span> to <span class="math inline">v</span> guaranteed by the induction hypothesis.</p>
+<p>Now, suppose <span class="math inline">u</span> is at a distance of <span class="math inline">d</span> from <span class="math inline">s</span>. Then there is a path <span class="math inline">P</span> of length <span class="math inline">d</span> from <span class="math inline">s</span> to <span class="math inline">u</span>, and this is a shortest path. Let <span class="math inline">u</span>’s neighbor on this path be <span class="math inline">v</span>. Notice that the sub-path <span class="math inline">P</span> that starts at <span class="math inline">s</span> and ends at <span class="math inline">v</span> is a shortest path between <span class="math inline">s</span> and <span class="math inline">v</span> — if not, then we could plug the edge <span class="math inline">(v,u)</span> at the end of a hypothetical shorter path, say <span class="math inline">Q</span>, to contradict the assumption that <span class="math inline">u</span> is at a distance of <span class="math inline">d</span> from <span class="math inline">s</span>.</p>
+<p>Apply the induction hypothesis on <span class="math inline">v</span> to see that <code>visited[v] = d-1</code>. Notice that when <code>v</code> is popped from the queue, the visited array has values between <span class="math inline">-1</span> and <span class="math inline">d</span> (inclusive). At this point, it must be the case that <code>visited[u] = -1</code> or <code>visited[u] = d</code>: if not, then by previous claim, we again contradict our assumption about the distance of <span class="math inline">u</span> from <span class="math inline">s</span>. Now:</p>
+<ul>
+<li>if <code>visited[u] = d</code>, we are done, and</li>
+<li>if <code>visited[u] = -1</code>, then <span class="math inline">v</span> pulls <span class="math inline">u</span> into the queue and <code>visited[u] = d</code> after this step, so we are done again.</li>
+</ul>
+<p>Note that this implies that vertices unreachable from <span class="math inline">s</span> are not visited.</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Corollary.</strong> We have that <span class="math inline">d(s,u) = \infty</span> if and only if <code>visited[u] = -1</code>.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="depth-first-search" class="level2">
+<h2 class="anchored" data-anchor-id="depth-first-search">Depth-First Search</h2>
+<p>A Depth-First Search mainly involves:</p>
+<ul>
+<li>a way of discovering new univisted neighbors so we can go forward</li>
+<li>a way of remembering where we came from to be able to backtrack</li>
+</ul>
+<p>The first is easily achieved by the use of a <code>visited</code> array again, and for the second, we introduce a <code>prev</code> array that can help us find our way back to where we came from. Here is an implementation that closely follows the description of the algorithm we discussed earlier. We throw in a clock variable and birth and death arrays for some extra bookkeeping that will help us remember the timing of our first and final encounters with the vertices that we meet as we go along.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>for all v: prev[v] = -1 </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>//prev[v] = -1 iff v is unvisited</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>current = s</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>prev[s] = s</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>clock = 0</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>while true:</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    clock = clock + 1</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    X = unvisited_neighbor(current)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    // this returns -1 if X has no univisited neighbors</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    // and an arbitrary unvisited neighbor otherwise</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    If X is not -1:</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    // we have discovered a new thing</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        // lets remember where we came from:    </span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        prev[X] = current</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        // record the time of discovery:</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        birth[X] = clock</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        // and then go to this new place:    </span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        current = X</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    Else: </span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    // i.e, X has no new neighbors to offer</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        If X == s:</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>            // we are back where we started        </span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>            // and we are done:</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>            break</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        Else:</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>            // we know where to go        </span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>            // step back to make progress:</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>            set current to prev[current]</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>            // note that we are done with X:</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>            set death[v] = clock</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To analyze the running time here, we need to know how <code>unvisited_neighbor()</code> is implemented. Let us work with the adjacency list representation, and let’s say that for every vertex <code>v</code>, we have a pointer <code>pv</code> that initially points to the head of the adjacency list of <code>v</code>. Now consider the following implementation of <code>unvisited_neighbor()</code>, where we are using <code>pv.vertex</code> to denote the neighbor of <code>v</code> that <code>pv</code> is pointing to:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>unvisited_neighbor(v):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    while prev[pv.vertex] != -1:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        if pv-&gt;next is NULL:</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>            return -1</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        else:</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            pv = pv-&gt;next</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    return pv.vertex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Notice that the number of times the line:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>X = unvisited_neighbor(current)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>is executed is bounded by the total amount of “movement” experienced the pointers <code>pv</code>, where the totaling is being done over all vertices <code>v</code>. This is at most twice the number of edges.</p>
+<p>Also observe that the <code>if</code> and <code>else</code> blocks can be triggered at most <code>n</code> times each since they correpsond to our first and last visits to a vertex, respectively.</p>
+<p>Therefore, the overall running time of the algorithm is <span class="math inline">O(m+n)</span>, just like it was with breadth-first search.</p>
+<p>Also, as with breadth-first search, we can see that we visit exactly the vertices we are supposed to: the set of visited vertices coincides with the set of vertices reachable from <code>s</code>. First, we make note of the following invariant:</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Lemma.</strong> For every vertex <span class="math inline">u</span>, if <code>prev[u] &gt; -1</code> and <span class="math inline">v</span> is a neighbor of <span class="math inline">u</span>, then <code>prev[v] &gt; -1</code>.</p>
+</div>
+</div>
+</div>
+<p>The intuition for this invariant is the following: once a vertex is “born”, we do not let it “die” until all its neighbors are visited. A visited vertex keeps feeding the algorithm its unvisited neighbors, thereby prolonging its own lifespan, until it runs out.</p>
+<p>Somewhat more formally, suppose <code>prev[u] &gt; -1</code> and, for the sake of contradiction, say <code>prev[v] = -1</code> for some neighbor of <span class="math inline">u</span>. Since <code>prev[u] &gt; -1</code>, the line:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>X = unvisited_neighbor(current)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>is executed with <code>current</code> being <code>u</code> at least once.</p>
+<p>Since <code>prev[v] = -1</code> at the end of the algorithm, note that <code>prev[v] = -1</code> throughout the algorithm. However, none of the calls to <code>unvisited_neighbor(u)</code> could have possibly output <code>v</code>, since this would immediately lead to <code>prev[v]</code> being overwritten with <code>u</code>.</p>
+<p>From this we can only conclude that <code>unvisited_neighbor(u)</code> was dysfunctional: <code>u</code> had an unvisited neighbor <code>v</code> that was not returned by any of the calls to <code>unvisited_neighbor(u)</code>, which is the desired contradiction.</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Lemma.</strong> For every vertex <span class="math inline">u</span>, <span class="math inline">d(s,u) = \infty</span> if and only if <code>prev[u] = -1</code>.</p>
+</div>
+</div>
+</div>
+<p>We first show that if <code>prev[u] = -1</code> then <span class="math inline">d(s,u) = \infty</span>, the contrapositive of which is that everything reachable is visited.</p>
+<p>Suppose <code>prev[u] = -1</code> but <span class="math inline">d(s,u) = d</span> for some finite <span class="math inline">d</span>. Then there is a path <span class="math inline">P</span> from <span class="math inline">s</span> to <span class="math inline">u</span> of length <span class="math inline">d</span>. Let <span class="math inline">v</span> be the first vertex on this path for which <code>prev[v] = -1</code>, and let <span class="math inline">w</span> be the previous vertex on the path; in other words, <span class="math inline">w</span> is the nieghbor of <span class="math inline">v</span> in <span class="math inline">P</span> whose distance from <span class="math inline">s</span> is the smallest.</p>
+<p>By assumption, <code>prev[w]</code> is not <code>-1</code>, implying that <span class="math inline">w</span> was in fact visited by the algorithm. However, if <span class="math inline">w</span> is visited, then the mechanics of the algorithm ensures that all neighbors of <span class="math inline">w</span> are visited as well (see above), and in particular, so is <span class="math inline">v</span>. However, this contradicts our assumption that <code>prev[v] = -1</code>.</p>
+<p>We now show that if <span class="math inline">d(s,u) = \infty</span> then <code>prev[u] = -1</code>, the contrapositive of which is that everything visited is reachable.</p>
+<p>Let us, in fact, establish the contrapositive: <code>prev[u] &gt; -1</code> implies that there exists a finite <span class="math inline">d</span> for which <span class="math inline">d(s,u) \leqslant d</span>. The intuition here is that we can climb our way back to <span class="math inline">s</span> from <span class="math inline">u</span> following the previous pointers. We need to be sure that the previous pointers always exist and don’t send us around in cycles.</p>
+<p>In particular, consider the following sequence of previous pointers:</p>
+<p><code>prev[u]</code>, <code>prev[prev[u]]</code>, <code>prev[prev[prev[u]]]</code>, …</p>
+<p>Consider the value of the clock when <code>prev[u]</code> is set: this coincides with <code>birth[u]</code>. Let us associate with <code>prev[u]</code> the time <code>birth[u]</code>.</p>
+<p>Now, suppose <code>prev[u]</code> is <code>v</code>. Note that <code>prev[u] = v</code> implies that <code>u</code> is an unvsited neighbor of <code>v</code>, where <code>v</code> itself is a visited vertex. Therefore, <code>prev[v]</code> is also well-defined and associated with <code>birth[v]</code>. We can repeat this argument for every step of the sequence, noting that the clock value strictly decreases at every step: and hence the sequence must reach <code>s</code>, at which point we can truncate it.</p>
+<p>It is also easy to check that the vertices in the sequence are distinct: if not, we will have to contend with time travel! For instance, say:</p>
+<ul>
+<li><code>prev[a] = b</code> and <code>birth[a] = p</code></li>
+<li><code>prev[b] = c</code> and <code>birth[b] = q</code></li>
+<li><code>prev[c] = a</code> and <code>birth[c] = r</code></li>
+</ul>
+<p>Note that <span class="math inline">p &gt; q &gt; r</span>, so <code>c</code> was introduced by <code>a</code> at a time when <code>a</code> was not even visited, which is impossible. This argument is easily <del>complicated</del> completed with generic subscripts, an exercise we leave to the reader.</p>
+<p>Following the sequence backwards gives us the desired path, and its length is (loosely) upper bounded by <code>birth[u]</code>, and we are done. 🎉</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Food For Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Show that for any two vertices <span class="math inline">u</span> and <span class="math inline">v</span>, the intervals (<code>birth[u]</code>,<code>death[u]</code>) and (<code>birth[v]</code>,<code>death[v]</code>) are either such that one is strictly contained in another, or are fully disjoint.</p>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Food For Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let us say that a vertex <code>v</code> is alive when the clock value is <code>T</code> if:</p>
+<ul>
+<li><code>T</code> &gt; <code>birth[v]</code> and</li>
+<li><code>T</code> &lt; <code>death[v]</code>.</li>
+</ul>
+<p>Suppose further that you were working with a directed graph. Show that if, when you visit a vertex <span class="math inline">u</span> for the first time, there is an edge from <span class="math inline">u</span> to some vertex <span class="math inline">v</span> that is alive then, there is a cycle that contains <span class="math inline">u</span> and <span class="math inline">v</span>. Is it true that if a directed graph has a cycle, then you will have an edge of this form: one from a vertex newly visited to one that is alive?</p>
+<p>Protip: Google for backedges if you are trying to look this up!</p>
+</div>
+</div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li><p>Here are nice animated explanations, including actual implementations, for <a href="https://www.youtube.com/watch?v=oDqjPvD54Ss">BFS</a> and <a href="https://www.youtube.com/watch?v=7fujbpJ0LB4">DFS</a>.</p></li>
+<li><p>Play around with examples of your own with <a href="https://visualgo.net/en/dfsbfs?slide=1">visualgo</a> implementations of graph traversals.</p></li>
+<li><p>The following writeups emphasize recursive approaches to DFS:</p>
+<ul>
+<li><a href="https://dcic-world.org/2023-02-21/size-of-dag.html">DFS on DAGs</a></li>
+<li><a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/06-dfs.pdf">Jeff Erickson on DFS</a></li>
+</ul></li>
+</ol>
+
+
+</section>
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

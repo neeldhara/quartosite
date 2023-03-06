@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - Data Structures and Algorithms</title>
+<title>Neeldhara - CS614. Advanced Algorithms. L08 Quiz.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,20 +60,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
-<link rel="stylesheet" href="../../css/styles.css">
-<link rel="stylesheet" href="../../css/materials.css">
+<link rel="stylesheet" href="../../../../css/styles.css">
+<link rel="stylesheet" href="../../../../css/teaching.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
-
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
@@ -83,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
+    <a class="nav-link" href="../../../../about.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -92,19 +107,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../research/overview.html">
+    <a class="dropdown-item" href="../../../../research/overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../research/people.html">
+    <a class="dropdown-item" href="../../../../research/people.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../research/publications.html">
+    <a class="dropdown-item" href="../../../../research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../research/surveys">
+    <a class="dropdown-item" href="../../../../research/surveys">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
@@ -115,11 +130,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../courses/index.html">
+    <a class="dropdown-item" href="../../../../courses/index.html">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../materials/index.html">
+    <a class="dropdown-item" href="../../../../materials/index.html">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
@@ -130,11 +145,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../tgif/">
+    <a class="dropdown-item" href="../../../../tgif/">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../bookmarks/">
+    <a class="dropdown-item" href="../../../../bookmarks/">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
@@ -145,21 +160,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../talks/">
+    <a class="dropdown-item" href="../../../../talks/">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../videos/">
+    <a class="dropdown-item" href="../../../../videos/">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../events/">
+    <a class="nav-link" href="../../../../events/">
  <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html">
+    <a class="nav-link" href="../../../../blog.html">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -185,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../../blog.xml"><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -194,87 +209,18 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Data Structures and Algorithms</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-      </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../materials/dsanotes/index.html" class="sidebar-item-text sidebar-link active">Data Structures and Algorithms</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../materials/dsanotes/introduction/index.html" class="sidebar-item-text sidebar-link">Data Structures and Structured Data</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../materials/dsanotes/stable-matchings/index.html" class="sidebar-item-text sidebar-link">Stable Matchings</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../materials/dsanotes/sequences/index.html" class="sidebar-item-text sidebar-link">Representing Sequences</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../materials/dsanotes/graphs/index.html" class="sidebar-item-text sidebar-link">Representing Graphs</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../materials/dsanotes/debruijn/index.html" class="sidebar-item-text sidebar-link">On Cards and Graphs</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../materials/dsanotes/eulertours/index.html" class="sidebar-item-text sidebar-link">Walking Around via Euler Tours</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../materials/dsanotes/dfs/index.html" class="sidebar-item-text sidebar-link">Navigating Graphs</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../materials/dsanotes/23-trees/index.html" class="sidebar-item-text sidebar-link">Balanced BSTs</a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Data Structures and Algorithms</h1>
+<h1 class="title">CS614. Advanced Algorithms. L08 Quiz.</h1>
 </div>
 
 
@@ -289,22 +235,46 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="lecture-notes" class="level5">
-<h5 class="anchored" data-anchor-id="lecture-notes">Lecture Notes</h5>
+<section id="cs614.-advanced-algorithms." class="level2 column-body-outset">
+<h2 class="anchored" data-anchor-id="cs614.-advanced-algorithms.">CS614. Advanced Algorithms.</h2>
+<section id="l08-quiz" class="level5">
+<h5 class="anchored" data-anchor-id="l08-quiz">L08 Quiz</h5>
+<p><a href="../../../../courses/2023/01-CS614/index.html">Back to the course page</a></p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 1. Dominating Set
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A dominating set of a graph <span class="math inline">G</span> is a subset of vertices <span class="math inline">S</span> such that every vertex in <span class="math inline">G</span> either belongs to <span class="math inline">S</span> or has a neighbor in <span class="math inline">S</span>.</p>
+<p>Suppose you have an instance of dominating set given by <span class="math inline">(G,k)</span>, which is a YES-instance if and only if <span class="math inline">G</span> has a dominating set of size at most <span class="math inline">k</span>.</p>
+<p>Is the following reduction rule safe?</p>
+<p>RR. If <span class="math inline">d(v) &gt; k</span>, then return <span class="math inline">(G-v,k-1)</span>.</p>
+<p>Briefly justify your answer.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Problem 2. Connected Vertex Cover
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A connected vertex cover of a graph <span class="math inline">G</span> is a subset of vertices <span class="math inline">S</span> such that: (a) <span class="math inline">S</span> is a vertex cover of <span class="math inline">G</span>, and (b) <span class="math inline">G[S]</span> is a connected subgraph of <span class="math inline">G</span>.</p>
+<p>Suppose you have an instance of connected vertex cover given by <span class="math inline">(G,k)</span>, which is a YES-instance if and only if <span class="math inline">G</span> has a connected vertex cover of size at most <span class="math inline">k</span>.</p>
+</div>
+</div>
 </section>
-<section id="on-data-structures-and-algorithms" class="level3">
-<h3 class="anchored" data-anchor-id="on-data-structures-and-algorithms"><em>on Data Structures and Algorithms</em></h3>
-<hr>
-<p>
-&nbsp;
-</p>
-<p>These are running notes on selected topics in Data Structures and Algorithms.</p>
-<p>I have been developing these as a part of my course on Data Structures and Algorithms at IIT Gandhinagar. Please see the course website for additional materials (e.g, problems and programming challenges).</p>
-<p>At the time of this writing these notes are largely raw and informal. They certainly do not substitute — but hopefully do supplement — an actual textbook :)</p>
-<p>If you have any general comments or questions, please leave them below. Thanks!</p>
+</section>
 
 
-</section>
 
 </main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
@@ -329,10 +299,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="column-screen-inset">
     <hr class="about-sep">
     <div class="quarto-about-jolla column-body" style="margin-top:52px;">
-        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+        <p> © 2022 • Neeldhara Misra • <a href="../../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
             </p>
             <div class="collcontent">
-                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <img src="../../../../images/calvin.webp" style="border-radius:25px;">
                 <p>&nbsp;</p>
             </div>
     
@@ -382,10 +352,10 @@ ul.task-list li input[type="checkbox"] {
     <!-- Modal content -->
     <div class="modal-content" style="width: 460px !important;">
     <span class="close" data-dismiss="modal">×</span>
-    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+    <img src="../../../../images/calvin.jpg" style="border-radius:25px;" width="420">
 </div>
 
-<script type="text/javascript" src="../../scripts.js"></script>
+<script type="text/javascript" src="../../../../scripts.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -523,5 +493,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</div><script src="../../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

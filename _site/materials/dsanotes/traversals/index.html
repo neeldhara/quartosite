@@ -550,6 +550,12 @@ Misses
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            mark v</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                for each edge vw</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                    put w into the bag</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/ch6-breadfirst.png" class="img-fluid figure-img" width="500"></p>
+<p></p><figcaption class="figure-caption">Bread-first search, courtsey XKCD</figcaption><p></p>
+</figure>
+</div>
 <p>Recall that the notion of accessibility is recursively defined, so for many people it is most natural to think of the algorithms also as being recursive. In particular, it’s either:</p>
 <ul>
 <li>ping all your friends, rinse, repeat, or</li>
@@ -565,6 +571,12 @@ Misses
 <li>open the first blue link you see on the current page, and keep doing this, hitting the back button when you hit a page with no blue links.</li>
 </ul>
 <p>The background tab hoarder is browsing breadth-first, while the distracted clicker is browsing depth-first :) With all this intuition collected, let us now describe professional-looking implementations for these algorithms and argue their correctness.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/ch6-xkcd-wikipedia.png" class="img-fluid figure-img" width="500"></p>
+<p></p><figcaption class="figure-caption">The problem with Wikipedia, as observed by XKCD</figcaption><p></p>
+</figure>
+</div>
 </section>
 </section>
 <section id="paths-and-connectivity" class="level2">
@@ -714,7 +726,7 @@ while true:
 <span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>            set current to prev[current]</span>
 <span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>            // note that we are done with X:</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>            set death[v] = clock</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>            set death[X] = clock</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To analyze the running time here, we need to know how <code>unvisited_neighbor()</code> is implemented. Let us work with the adjacency list representation, and let’s say that for every vertex <code>v</code>, we have a pointer <code>pv</code> that initially points to the head of the adjacency list of <code>v</code>. Now consider the following implementation of <code>unvisited_neighbor()</code>, where we are using <code>pv.vertex</code> to denote the neighbor of <code>v</code> that <code>pv</code> is pointing to:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>unvisited_neighbor(v):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    while prev[pv.vertex] != -1:</span>
@@ -723,9 +735,9 @@ while true:
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        else:</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            pv = pv-&gt;next</span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    return pv.vertex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Notice that the number of times the line:</p>
+<p>Consider the number of times the line:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>X = unvisited_neighbor(current)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>is executed is bounded by the total amount of “movement” experienced the pointers <code>pv</code>, where the totaling is being done over all vertices <code>v</code>. This is at most twice the number of edges.</p>
+<p>is executed. Observe that this is bounded by the total amount of “movement” experienced the pointers <code>pv</code>, where the totaling is being done over all vertices <code>v</code>. Since the pointers always shift further along the adjacency lists, and the total length of all the adjacency lists put together is the sum of the degrees of all the vertices, we can bound the total amount of work by twice the number of edges.</p>
 <p>Also observe that the <code>if</code> and <code>else</code> blocks can be triggered at most <code>n</code> times each since they correpsond to our first and last visits to a vertex, respectively.</p>
 <p>Therefore, the overall running time of the algorithm is <span class="math inline">O(m+n)</span>, just like it was with breadth-first search.</p>
 <p>Also, as with breadth-first search, we can see that we visit exactly the vertices we are supposed to: the set of visited vertices coincides with the set of vertices reachable from <code>s</code>. First, we make note of the following invariant:</p>
@@ -772,6 +784,12 @@ while true:
 </ul>
 <p>Note that <span class="math inline">p &gt; q &gt; r</span>, so <code>c</code> was introduced by <code>a</code> at a time when <code>a</code> was not even visited, which is impossible. This argument is easily <del>complicated</del> completed with generic subscripts, an exercise we leave to the reader.</p>
 <p>Following the sequence backwards gives us the desired path, and its length is (loosely) upper bounded by <code>birth[u]</code>, and we are done. 🎉</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/ch6-xkcd-dfs.png" class="img-fluid figure-img" width="500"></p>
+<p></p><figcaption class="figure-caption">Careful what you wish for with DFS (thanks again, XKCD)…</figcaption><p></p>
+</figure>
+</div>
 <div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

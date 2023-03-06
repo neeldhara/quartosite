@@ -157,6 +157,8 @@ Whatever-First-Search(s):
                     put w into the bag
 ```
 
+![Bread-first search, courtsey XKCD](../figures/ch6-breadfirst.png){width=500px}
+
 Recall that the notion of accessibility is recursively defined, so for many people it is most natural to think of the algorithms also as being recursive. In particular, it's either: 
 
 - ping all your friends, rinse, repeat, or
@@ -172,6 +174,8 @@ Imagine that you open up Wikipedia's featured article today, and it happens to b
 - open the first blue link you see on the current page, and keep doing this, hitting the back button when you hit a page with no blue links.
 
 The background tab hoarder is browsing breadth-first, while the distracted clicker is browsing depth-first :) With all this intuition collected, let us now describe professional-looking implementations for these algorithms and argue their correctness.
+
+![The problem with Wikipedia, as observed by XKCD](../figures/ch6-xkcd-wikipedia.png){width=500px}
 
 ## Paths and Connectivity
 
@@ -339,7 +343,7 @@ while true:
             set current to prev[current]
             
             // note that we are done with X:
-            set death[v] = clock
+            set death[X] = clock
 ```
 
 To analyze the running time here, we need to know how `unvisited_neighbor()` is implemented. Let us work with the adjacency list representation, and let's say that for every vertex `v`, we have a pointer `pv` that initially points to the head of the adjacency list of `v`. Now consider the following implementation of `unvisited_neighbor()`, where we are using `pv.vertex` to denote the neighbor of `v` that `pv` is pointing to:
@@ -354,13 +358,13 @@ unvisited_neighbor(v):
     return pv.vertex
 ```
 
-Notice that the number of times the line:
+Consider the number of times the line:
 
 ```default
 X = unvisited_neighbor(current)
 ```
 
-is executed is bounded by the total amount of "movement" experienced the pointers `pv`, where the totaling is being done over all vertices `v`. This is at most twice the number of edges.
+is executed. Observe that this is bounded by the total amount of "movement" experienced the pointers `pv`, where the totaling is being done over all vertices `v`. Since the pointers always shift further along the adjacency lists, and the total length of all the adjacency lists put together is the sum of the degrees of all the vertices, we can bound the total amount of work by twice the number of edges.
 
 Also observe that the `if` and `else` blocks can be triggered at most `n` times each since they correpsond to our first and last visits to a vertex, respectively.
 
@@ -417,6 +421,8 @@ Note that $p > q > r$, so `c` was introduced by `a` at a time when `a` was not e
 
 Following the sequence backwards gives us the desired path, and its length is (loosely) upper bounded by `birth[u]`, and we are done. 🎉
 
+![Careful what you wish for with DFS (thanks again, XKCD)...](../figures/ch6-xkcd-dfs.png){width=500px}
+
 :::{.callout-caution}
 # Food For Thought
 
@@ -437,6 +443,7 @@ Protip: Google for backedges if you are trying to look this up!
 :::
 
 
+
 ## References
 
 1. Here are nice animated explanations, including actual implementations, for [BFS](https://www.youtube.com/watch?v=oDqjPvD54Ss) and [DFS](https://www.youtube.com/watch?v=7fujbpJ0LB4). 
@@ -447,4 +454,3 @@ Protip: Google for backedges if you are trying to look this up!
 
     - [DFS on DAGs](https://dcic-world.org/2023-02-21/size-of-dag.html) 
     - [Jeff Erickson on DFS](http://jeffe.cs.illinois.edu/teaching/algorithms/book/06-dfs.pdf)
-

@@ -1,0 +1,220 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: ES242. Data Structures and Algorithms I. Week 10 Lab
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## ES242. Data Structures and Algorithms I.
+
+##### Lab 10
+
+[Back to course page](../index.qmd)
+
+:::{.callout-warning appearance="minimal"}
+BFS and DFS Puzzles
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 1. Make It Happen
+
+You are playing a game on a coordinate grid that has $n$ special locations that we call _magical_. If you are at a magical location $L$ at $(p,q)$, you can teleport to any other magical location that shares either the $x$-coordinate or the $y$-coordinate of $L$. These teleports are your only way of moving in the landscape of the game.
+
+You want to ensure that if you start at any magical location, you should be able to reach any other magical location. This may not be possible with the original set of magical locations. You can open up new magical locations anywhere you like, but opening a new location is expensive. Therefore, you want to open as few new ones as possible. 
+
+The goal in this problem is to determine the _smallest_ number of _new_ magical locations that you have to open to achieve your goal of complete connectivity among magical locations.
+
+
+### Input Format
+
+
+The first line of input contains a single integer `n` $(1 \leqslant n \leqslant 100)$ — the number of magical locations. Each of the following `n` lines contains two integers $x_i$ and $y_i$ ($1 \leqslant x_i, y_i \leqslant 1000$) — the coordinates of the `i`-th location.
+
+The magical locations are all distinct.
+
+### Output Format
+
+Output the smallest number of new magical locations that you have to open to achieve your goal of complete connectivity among magical locations.
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+2
+2 1
+1 2
+```
+
+`Sample Output`
+
+```default
+1
+```
+
+`Sample Input`
+
+```default
+2
+2 1
+4 1
+```
+
+`Sample Output`
+
+```default
+0
+```
+
+:::
+
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 2. Switching Lines
+
+You are trying to navigate the Ahmedabad Metro, which consists of `N` stations and `M` railway lines. 
+
+The stations are numbered `1` through  `N`. 
+
+Each line is operated by a company. Each company has an identification number.
+
+The `i`-th ($1 \leqslant i \leqslant M$) line connects station $p_i$ and $q_i$ bidirectionally. There is no intermediate station. This line is operated by company $c_i$.
+
+You can change trains at a station where multiple lines are available.
+
+The fare system used in this subway system works as follows. 
+
+- As long as you only use lines that are operated by the same company, the fare remains 10 rupees. 
+
+- Whenever you change to a line that is operated by a different company from the current line, you will be charged an additional fare of 10 rupees. 
+
+- In a case where you changed from some company A's line to another company's line, and then you change back to company A's line, the additional fare is incurred again.
+
+You begin at station `1` and you want to travel to station `N` using the metro. Find the minimum required fare.
+
+### Input Format
+
+The input is given in the following format. The first line consists of two space-separated integers, $N$ and $M$. Then, $M$ lines follow. The `i`-th line consists of three space-separated numbers $p_i$, $q_i$ and $c_i$.
+
+
+```default
+N M
+p1 q1 c1
+.
+.
+.
+pM qM cM
+```
+
+
+### Output Format
+
+Print the minimum required fare. If it is impossible to get to station $N$ by subway, print `-1` instead.
+
+
+
+`Sample Input 1`
+
+```default
+3 3
+1 2 1
+2 3 1
+3 1 2
+```
+
+`Sample Output 1`
+
+```default
+10
+```
+
+Use only company 1's lines.
+
+`Sample Input 2`
+
+```default
+8 11
+1 3 1
+1 4 2
+2 3 1
+2 5 1
+3 4 3
+3 6 3
+3 7 3
+4 8 4
+5 6 1
+6 7 5
+7 8 5
+```
+
+`Sample Output 2`
+
+```default
+20
+```
+  
+First, use company 1's lines: `1 → 3 → 2 → 5 → 6`. Then, use company 5's lines: `6 → 7 → 8`. 
+
+:::
+
+
+
+:::{.callout-note collapse="true" icon="false"}
+
+# Problem 3. Prolonged Vacation
+
+You have won a contest, and the prize is a free flight trip that can consist of one or more flights through cities. Of course, you want to max out on the prize and make the trip as long as possible.
+
+In particular, you want to fly from Ahmedabad to Mumbai while visiting the maximum number of cities. You are given the list of possible flights, and you are also given that there are **no directed cycles** in the flight network.
+
+### Input Format
+
+The first input line has two integers $n$ and $m$: the number of cities and flights. 
+
+The cities are numbered $1,2,\ldots,n$. 
+
+City `1` is Ahmedabad, and City `n` is Mumbai.
+
+After this, there are $m$ lines describing the flights. Each line has two integers $a$ and $b$: there is a flight from city $a$ to city $b$.
+
+Note that each flight is a one-way flight.
+
+
+### Output Format
+
+First print the maximum number of cities on the route. After this, print the cities in the order they will be visited. You can print any valid solution.
+
+If there are no solutions, print "IMPOSSIBLE".
+
+
+`Sample Input`
+
+```default
+5 5
+1 2
+2 5
+1 3
+3 4
+4 5
+```
+
+`Sample Output`
+
+```default
+4
+```
+
+Note that `1 3 4 5` is a valid route.
+
+:::
+
+
+
+:::

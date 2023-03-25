@@ -10,7 +10,410 @@
 <atom:link href="https://www.neeldhara.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.2.262</generator>
-<lastBuildDate>Sat, 26 Nov 2022 18:30:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 25 Mar 2023 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>13 Sheep</title>
+  <link>https://www.neeldhara.com/blog/13sheep/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><a href="https://www.moritzdressler.de/en/13_Sheep">13 Sheep</a> happens to be a cute roll-and-write game that involves protecting a bunch of sheep on a grid by placing small fences that have pre-defined shapes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/13sheep/13sheep.png" class="img-fluid figure-img" width="300"></p>
+<p></p><figcaption class="figure-caption">The Roll and Write Game</figcaption><p></p>
+</figure>
+</div>
+<p>The initial position of a certain number — typically 13, as the name suggests — of sheep over a 7x7 grid is given. Some grid edges are not available because there happen to be bushes: so you cannot fence them. The bushes do not protect the sheep either, the wolf can slide under them.</p>
+<p>Your goal is to enclose as many sheep as possible: the ones that are not fully protected by fences may, alas, be at considerable risk when the inevitable wolf attack happens.</p>
+<p>There are three main constrianing factors in this game:</p>
+<ul>
+<li>The shape of the fences that you can draw are determined by the roll of a die;</li>
+<li>You cannot overwrite lines that are already drawn, you cannot also draw over bushes;</li>
+<li>You have ~11 chances to place your randomly gifted fence shapes.</li>
+</ul>
+<p>You can find out more about the game <a href="https://www.moritzdressler.de/en/13_Sheep">here</a>, where you can generate board layouts to print and play as well.</p>
+<p>I found this game a lot of fun to play, and I thought it would be lovely to be able to play it on a computer, where the user can decide how many rounds, sheep, and bushes they want to play with. Given also that chatGPT has been apparently remarkably adept at coding games, I figured I’d give it a shot.</p>
+<p>My first prompt was just a polite inquiry about whether chatGPT would be willing to participate in this exercise:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>We want to code a game called 13 Sheep using HTML, CSS, and Javascript. Ready?</p>
+</div>
+</div>
+</div>
+<p>And well, it immediately made <a href="https://13-sheep-v3-GPT4-v30.neeldhara.repl.co">this</a>, based on the prompt above: a game where you get to count to 13 sheep. Huh. Promising.</p>
+<p>In my next few prompts, I steered it away from the default game. The first few steps just involved setting up the UI:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Great start! Please make the main canvas a square and draw a 7 x 7 grid in it. I want all the corners of the cells to look like small + signs. Do not draw any grid borders yet.</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Nice, how can I make the grid background mediumseagreen?</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On load, I want 13 grid cells to be identified at random, and the image sheep.png to be placed at their centers, appropriately scaled to fit.</p>
+</div>
+</div>
+</div>
+<p>At this point I already had a nice-looking grid with 13 sheep on it (thanks to Flaticon for the cute sheep icon). The plus signs drawn on the boundary were oddly cropped out, so we fixed that next:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Ok this looks great. Can you update the drawcross function so that crosses are also drawn on the grid boundary? And make the canvas a little bigger if needed so the entire cross is visible?</p>
+</div>
+</div>
+</div>
+<p>This didn’t immediately work but some nudging fixed it:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The crosses at the bottom are getting cut off and now the sheep are off center. Please fix?</p>
+</div>
+</div>
+</div>
+<p>Now we draw the bushes:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Very nice. Can you randomly select 7 cells now and for each such cell make one of the cell boundaries colored indianred?</p>
+</div>
+</div>
+</div>
+<p>Next we get the dice roll UI up:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Excellent. Now please add six divs below the canvas, centered, evenly spaced, and with a light grey circular background, with the text 1, 2, 3, 4, 5, and 6 written inside them. Note that the first div should have the text 1, the second should have 2, and so on. Make sure the divs have at least 10px spacing between them.</p>
+<p>Below these divs, please add a large button in the shape of a rounded rectangle, with the text “Roll Dice” written on it. The background color for this button should be indianred with a transparency of 0.42.</p>
+</div>
+</div>
+</div>
+<p>This actually worked out of the box, the next step was to make the roll dice functional:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Super nice!</p>
+<p>Now can you make it so that when the user clicks on the button labeled “Roll Dice”, we generate a number between 1 and 6 at random, and highlight the corresponding circular div by changing its background to Lavendar, while also resetting any previous highlight?</p>
+</div>
+</div>
+</div>
+<p>So far, so good. Now all that was left was to get the fences drawn depending on what dice was rolled out.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Fence Shapes Based on Dice Rolls
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/13sheep/1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Dice Roll 1</figcaption><p></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/13sheep/2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Dice Roll 2</figcaption><p></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/13sheep/3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Dice Roll 3</figcaption><p></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/13sheep/4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Dice Roll 4</figcaption><p></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/13sheep/5.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Dice Roll 5</figcaption><p></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/13sheep/6.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Dice Roll 6</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This was perhaps the trickiest bit. My first attempt was this prompt here:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Great! Now can you update it so that:</p>
+<p>if the outcome of the dice roll is a 1, the cursor should change to a shape that looks like a U, and nothing outside the grid should be clickable. If the user clicks on a grid cell, then the left, bottom, and right borders of the cell should change color and become a thick line colored in olivedrab. Once the user has clicked on a grid cell the cursor should change back to normal.</p>
+<p>if the outcome of the dice roll is a 2, the cursor should change to a shape that looks like a long line, and nothing outside the grid should be clickable, and none of the cells in the last column should be clickable either. If the user clicks on a grid cell, then the bottom border of the cell should change color and become a thick line colored in olivedrab, and the the bottom border of the horizontally adjacent cell should change color and become a thick line colored in olivedrab. Once the user has clicked on a grid cell the cursor should change back to normal.</p>
+</div>
+</div>
+</div>
+<p>My hope was that the change of cursor would be a good way for the player to register that they need to move on the grid now. At this point, I was not thinking about the different orientations of the fences, because I was not sure about how to incorporate that into the UI (my first thought was to have the fences rotate on subsequent clicks until the player clicks on a confirm button, but that seemed too messy). I also did not give all six scenarios in one go since — from recent experience — the interface dies out on longer requests. You can prod it to continue from where it left off, but it’s typically messy.</p>
+<p>In any case, we could not get the change of cursor to work. At this point, note that the code is also not tracking what borders are colored, so even as we got things to mildly work, we were often overwriting fences and bushes. So anyway, at some point I gave up and it was back to square one, but smaller steps. First, instead of a change of cursor, I just requested a canvas background color change to subtly communicate a change of game state:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Once the dice roll button is clicked, can you change the background of the canvas to dodgerblue with transparency 0.42, and disable the roll dice button until the user clicks on a grid cell?</p>
+</div>
+</div>
+</div>
+<p>Then we added a round tracker:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Add the following text just below the “Roll Dice” button: “Roll a dice now, 11 rounds left”. Every time the user clicks on “Roll Dice”, change the text to “Place a fence now.” Once the user clicks on a grid cell, change the text back to “Roll a dice now, 11 rounds left”, but decrease the number of rounds by one each time. Can you do this?</p>
+</div>
+</div>
+</div>
+<p>This took some back and forth to get working, since it was getting some details mixed up, but it was finally alright. I had to prompt more to take care of some edge cases and minor details, for instance:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Anyway, can you make it so that when there are 0 rounds left, the text simply says “Game Over”?</p>
+<p>Also when the roll dice button is not active, can it have a grey background? Only when it is not active.</p>
+</div>
+</div>
+</div>
+<p>Now we are back to actually trying to get the fences to be drawn. With some nervousness, I go:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Very nice. Now, if the dice roll is a 1 and the user clicks on a grid cell, can you do the following?</p>
+<ol type="1">
+<li>let us say that a cell is valid if the top, left, and bottom borders of the grid have no visible borders.</li>
+<li>if the cell is valid, then make its top, left, and bottom borders colored olivedrab.</li>
+</ol>
+</div>
+</div>
+</div>
+<p>At this point the code generated starts tracking what borders are visible: I had to prompt it explicitly to update the function that generated the bushes to feed into the visibility states, but this went off pretty smoothly. For quite some time the fences drawn were not the ones I wanted, but after a few nudges it got it about right.</p>
+<p>Now it occured to me that I could actually show the orientations after the dice is rolled and the user can select one of them, and we can draw the appropriate fence after this selection is made.</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Great. This works. Now below the instruction-text element, please add another div with ID “orientation-select” that begins with the text: “Pick an orientation”. Below this, add four circular divs with a light grey backgorund with the content: “0”, “90”, “180”, “270”. This div should only be visible when the gamestate is “chooseFenceOrientation” or “placeFence”.</p>
+<p>Once a dice is rolled, the game state should change to chooseFenceOrientation and the user should be allowed to click any of these four divs. Once the user clicks one of the four divs, highlight it with the color burntorange and change the gamestate to placeFence. Store the choice of which div the user clicked on in a variable called fenceorientation and change the game state to placeFence.</p>
+<p>Once the user clicks on a grid cell, clear the burntorange highlight and hide the “orientation-select” div, as it should not be visible any more.</p>
+</div>
+</div>
+</div>
+<p>Of course in the UI at the moment we just have these four numbers so it does not make a lot of sense to the player, so I whipped some images to show the user what fences would be drawn depending on what grid cell was clicked.</p>
+<p>Now we come back to the fence drawing thing to account for the orientations as well:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>In the handleGridClick() function, we want to implement the following functionality.</p>
+<p>If the outcome is 1 and the orientation is 0, then do the following when the user clicks on a grid cell.</p>
+<ol type="1">
+<li>let us say that a cell is valid if the top, left, and bottom borders of the grid have no visible borders.</li>
+<li>if the cell is valid, then make its top, left, and bottom borders colored olivedrab.</li>
+</ol>
+<p>If the outcome is 1 and the orientation is 90, then do the following when the user clicks on a grid cell.</p>
+<ol type="1">
+<li>let us say that a cell is valid if the right, left, and bottom borders of the grid have no visible borders.</li>
+<li>if the cell is valid, then make its right, left, and bottom borders colored olivedrab.</li>
+</ol>
+<p>If the outcome is 1 and the orientation is 180, then do the following when the user clicks on a grid cell.</p>
+<ol type="1">
+<li>let us say that a cell is valid if the right, top, and bottom borders of the grid have no visible borders.</li>
+<li>if the cell is valid, then make its right, top, and bottom borders colored olivedrab.</li>
+</ol>
+<p>If the outcome is 1 and the orientation is 270, then do the following when the user clicks on a grid cell.</p>
+<ol type="1">
+<li>let us say that a cell is valid if the right, left, and top borders of the grid have no visible borders.</li>
+<li>if the cell is valid, then make its right, left, and top borders colored olivedrab.</li>
+</ol>
+<p>Please remember to use the drawBorder function from before as you work out these cases. Also remember to update the grid visibility values, for the two relevant cells per border drawn. Thanks.</p>
+</div>
+</div>
+</div>
+<p>Getting this going for all the 20 different cases was really the bulk of the back and forth. While it got the overall functionality right, there would be small and frequent bugs in the details. For instance, if a cell’s top border is being fenced, then the cell above it should have its bottom border’s visibility updated: it knows this, but frequently got combinations wrong, and so I did have to read the code generated carefully. I either fixed it manually when the bugs were minor, or went back to requesting corrections by explaining the issue when it was off by a whole lot.</p>
+<p>You can see that some of the prompts are longer than the corresponding code :D</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Looks great! Lets continue with our updates. Please remember to account for all the cases when updating the grid visibility values.</p>
+<p>If the outcome is 4 and the orientation is 0, then do the following when the user clicks on a grid cell.</p>
+<ol type="1">
+<li>let us say that a cell is valid if its bottom and left borders are not visible and the horizontally adjacent cell (i.e, the cell to the right of it) also does not have a bottom border. if a cell is on the right-most column, it is automatically not valid.</li>
+<li>if the cell is valid, then make its bottom and left borders colored olivedrab. Also make the bottom border of the horizontally adjacent cell colored olivedrab. Update the grid visibility values as appropriate.</li>
+</ol>
+<p>If the outcome is 4 and the orientation is 180, then do the following when the user clicks on a grid cell.</p>
+<ol type="1">
+<li>let us say that a cell is valid if its top border is not visible and the horizontally adjacent cell (i.e, the cell to the right of it) also does not have a top border and the horizontally adjacent cell (i.e, the cell to the right of it) also does not have a right border. if a cell is on the right-most column, it is automatically not valid.</li>
+<li>if the cell is valid, then make its top border colored olivedrab. Also make the top border of the horizontally adjacent cell colored olivedrab. Also make the right border of the horizontally adjacent cell colored olivedrab. Update the grid visibility values as appropriate.</li>
+</ol>
+<p>If the outcome is 4 and the orientation is 90, then do the following when the user clicks on a grid cell.</p>
+<ol type="1">
+<li>let us say that a cell is valid if its top and left borders are not visible and the vertically adjacent cell (i.e, the cell below it) also does not have a left border. if a cell is on the right-most column, it is automatically not valid.</li>
+<li>if the cell is valid, then make its top and left borders colored olivedrab. Also make the left border of the vertically adjacent cell colored olivedrab. Update the grid visibility values as appropriate.</li>
+</ol>
+<p>If the outcome is 4 and the orientation is 270, then do the following when the user clicks on a grid cell.</p>
+<ol type="1">
+<li>let us say that a cell is valid if its bottom and right borders are not visible and the vertically adjacent cell (i.e, the cell to the top of it) also does not have a right border. if a cell is on the right-most column, it is automatically not valid.</li>
+<li>if the cell is valid, then make its bottom and right borders colored olivedrab. Also make the right border of the vertically adjacent cell colored olivedrab. Update the grid visibility values as appropriate.</li>
+</ol>
+</div>
+</div>
+</div>
+<p>Maybe it’ll soon be possible to just upload a picture of the game instruction booklet and let chatGPT do the rest of the heavy lifting. Until then, this was the best I could think of: maybe there’s a shorter way? I did try using generic shape descriptions, but no luck on those.</p>
+<p>Now the basic game was done, and there were three main features I’d have really liked to add at this point:</p>
+<ul>
+<li>Allow the user undo the previous fence placement.</li>
+<li>Count the number of protected sheep at the end.</li>
+<li>Make a version of this game where instead of rolling a dice, we let the user pick the fences they want: this can be useful for a multiplayer setting where we want the random choices to be the same for all players: so one player can roll the dice and the others can follow along.</li>
+</ul>
+<p>I did try some of this: it’s impressive that chatGPT gets the main ideas right the first two requirements (the use of an action stack for implementing undo, and recognizing that we need some kind of flood fill algorithm for the score). However, all the implementations ended up being somewhat buggy and after some wrestling I decided to push these extras to the roadmap. The deterministic version of the game should not be hard to make, even manually at this point, so I hope to come back to it soon.</p>
+<p>After this I mainly asked for chatGPT to let the user customize the parameters of the game:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Can you make it so that when the page loads we ask the user (via an alert) for a number between 7 and 32 and set the number of rounds to the number specified by the user?</p>
+</div>
+</div>
+</div>
+<p>It got this immediately right, and I wanted some styling:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Can you add some css styling so that this prompt looks nice?</p>
+</div>
+</div>
+</div>
+<p>and it’s response was:</p>
+<div class="callout-tip callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Unfortunately, you cannot directly style the default JavaScript prompt function. Instead, you can create a custom modal using HTML, CSS, and JavaScript to achieve a more visually appealing and flexible solution.</p>
+<p>Here’s an example of how you can create a custom modal to ask for the number of rounds:</p>
+<p>…</p>
+</div>
+</div>
+</div>
+<p>Good to know! The modals worked out of the box, and it was easy to extend them so they asked for the number of sheep and bushes as well. The last thing I wanted to add was a sharing feature:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Can you add code so that the user can share a screenshot of just the canvas once the game is over? So once the game is over, I want to show a link called “Share My Game!” The screenshot and options to share on social media should show up in a modal when the user clicks this link.</p>
+</div>
+</div>
+</div>
+<p>Now this it did remarkably well, except that when it tried to pass the entire image as a URL parameter, that didn’t work out. When I conveyed this, the response was:</p>
+<div class="callout-tip callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>I apologize for the inconvenience. The reason for this issue is that sharing an image directly using a URL is not possible due to security reasons. To share your game image on social media platforms like Facebook and Twitter, you’ll need to use their respective APIs.</p>
+<p>Here’s a modified approach for sharing the image on Facebook and Twitter. You’ll need to create Facebook and Twitter developer accounts and register your app to get the API keys.</p>
+</div>
+</div>
+</div>
+<p>Whoa… so ok, I don’t have developer accounts and I was not going to follow through, but this was definitely interesting!</p>
+<p>I did interleave responses from chatGPT with help from Ghostwriter, which is the intelligence built into repl.it out of the box. Ghostwriter’s responses were usually not as sophisticated on comparable prompts, but on a couple of occassions chatGPT was completely lost on why something wasn’t working, but Ghostwriter would figure it out when asked pointed questions about an error.</p>
+<p>Anyway, I cleaned up a little further with some styling, and the game is <a href="https://13sheep.netlify.app">here</a>, while the source is <a href="https://github.com/neeldhara/13sheep/">here</a>.</p>
+
+
+
+ ]]></description>
+  <category>games</category>
+  <category>exposition</category>
+  <guid>https://www.neeldhara.com/blog/13sheep/index.html</guid>
+  <pubDate>Sat, 25 Mar 2023 18:30:00 GMT</pubDate>
+  <media:content url="https://www.neeldhara.com/blog/13sheep/13sheep.png" medium="image" type="image/png" height="96" width="144"/>
+</item>
 <item>
   <title>Letters with Pandoc</title>
   <link>https://www.neeldhara.com/blog/pandoc-letters/index.html</link>
@@ -2176,265 +2579,6 @@ May not commit for mutual accountability :) But a suggestion.<br><br>Instead of 
   <category>exportober</category>
   <guid>https://www.neeldhara.com/blog/exportober/2021/index.html</guid>
   <pubDate>Sat, 18 Sep 2021 18:30:00 GMT</pubDate>
-</item>
-<item>
-  <title>Envelope Budgeting with Notion</title>
-  <link>https://www.neeldhara.com/blog/envelope-budgeting-notion/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p><a href="https://www.youneedabudget.com">YNAB</a> (c.f. <a href="https://www.reddit.com/r/ynab">r/YNAB</a>) (short for <em>You Need a Budget</em>) is a budgeting application that lets you track and manage your finances. Like most apps in this category, it provides a slick interface to enter all your transactions. YNAB is more than just cataloging transactions and tracking account balances, though. The design here revolves around (and goes beyond) what is called <a href="https://en.wikipedia.org/wiki/Envelope_system">envelope budgeting</a>, which basically boils down to this:</p>
-<blockquote class="blockquote">
-<p>Give every dollar a job.</p>
-</blockquote>
-<p>You can dig a little deeper into how YNAB works by looking up their <a href="https://www.youneedabudget.com/the-four-rules/">four rules</a> here. I am going to try and create an envelope budgeting system in Notion that is loosely inspired by my use of YNAB.</p>
-<p>To be clear, I don’t expect to stop using YNAB, nor do I expect to replicate many of its sophisticated features. Also, there are some nice envelope budgeting systems on Notion already! For instance, you might want to check out the one <a href="https://www.reddit.com/r/Notion/comments/mzfog5/envelope_budget_zerobased_budget_system/">here</a> by <a href="https://www.reddit.com/user/sff_fan_17/">u/sff_fan_17</a> or <a href="https://www.notion.so/Zero-based-Budget-21f015953116430ba4c3414a4691081e">the one here</a> by <a href="https://t.co/3Vv2zRGQuy?amp=1">Ben Smith</a>. These are really neat, but the only reason I’m not just duplicating one of them is that what I have in mind looks slightly different from the setups here. In particular, I would like the transactions to be dated and tied to specific accounts, and I would also like the system here to account for <em>all</em> the inflows and outflows in my actual system. Neither of these templates feature a hierarchy of categories either, which is something that we will attempt to do here.</p>
-<p>In the first template above, I think the total income is mentioned separately, outside of the database system; and the budget covers a part of the total available income. There are explicit instructions on how to update this month-to-month, so do check this out — perhaps it works for what you might have in mind! The second template explicitly accounts for inflows, and is apparently based on <a href="https://docs.google.com/spreadsheets/d/1JVQzq20raZGwxnjsJhLjBrMDswOHL028dwPXdIHoeOQ/template/preview">this Google sheet</a>. It does seem that the transactions are missing information about accounts and dates, which could be a little limiting if you wanted to generate a report or a dashboard for a particular period of time. Again, a great starting point, and if it resonates with your kind of setup, it’s definitely worth duplicating and playing with. Both templates are free to access and replicate.</p>
-<p>Incidentally, if you don’t use Notion and are hesitant to try YNAB, you could take a look at <a href="https://www.youneedabudget.com/how-to-create-a-budget-template/">their guide to building your own budgeting template</a> — this does not require using YNAB at all and can even be made to work pen and paper. Many people have also recreated YNAB’s core features using their own favourite tools, the most popular among which appears to be Google sheets — see, for example: <a href="https://aspirebudget.com">Aspire Budget</a> (c.f. <a href="https://www.reddit.com/r/aspirebudgeting">r/aspirebudgeting</a>) — I have not tried this myself, but it appears to be very feature-rich and neat overall.</p>
-<p>That said, onto our own YNAB-esque budgeting template in Notion! We’re on our way to something that looks like this:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_9.11.50_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Categories</figcaption><p></p>
-</figure>
-</div>
-<p>If you want to just skip ahead and play with the template, you can duplicate it by following <a href="http://42templates.notion.site/Template-Envelope-Budgeting-in-Notion-447cacf529dd4149b18317460b8f9805">this link</a>:</p>
-<p>There are three key pieces to this setup: the first is the categories (these are the labels on the envelopes, if you like), the second is the actual transactions that take take place, and the third is a list of accounts that you have (could be bank accounts, credit accounts, virtual wallets, and so on). You would want the transactions database to be linked to both categories and the accounts. More on the exact table designs below. I’m going to assume some familiarity with Notion terminology, if this is your first time with Notion then some of this may not make sense right away, but if you could just <a href="https://www.notion.vip/how-to-create-your-first-relational-database-in-notion/">look up how Notion databases work</a> — especially the relational aspect — then I think you’d have all you need to follow along!</p>
-<section id="budgeting-categories" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="budgeting-categories">Budgeting Categories</h2>
-<p>It may be natural for this table to just have one row for each category. You probably want to have a small number of higher-order categories (e.g: monthly supplies, services, maintenance, health, investments, etc.) and smaller, more specific ones under these broad umbrellas (e.g, services would likely have sub-categories along the lines of internet, phone, electricity, water, etc.). You can do this by setting up a relation property to the table itself, and have it sync two-way, like so:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_3.29.11_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Screenshot 2021-09-18 at 3.29.11 PM.png</figcaption><p></p>
-</figure>
-</div>
-<aside>
-⚡ We want to make a database that captures the categories that our expenses fall under, and the budget that’s available for these categories.
-</aside>
-<p>If you want to see just the higher-order categories nicely, you can setup a gallery view with a filter for the main category to be empty, which would look like this (I’ve disabled the preview and added some <a href="https://www.notion.vip/icons/">icons from notion.vip</a>):</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_3.33.56_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">The Gallery View</figcaption><p></p>
-</figure>
-</div>
-<p>Next, we want to specify a budget for each of these categories. We can do this directly for the lower-order categories first. Then, we can have the main category budgets calculated automatically by rolling up the budgets of the corresponding child categories and adding up their budget values. To have a clean view of the budget, you could add a formula column that just adds up the values from the direct budgets and the rollup, like so:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_8.18.35_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Budget View</figcaption><p></p>
-</figure>
-</div>
-<p>You can add two dummy properties with the text <code>Budgeted:</code> and <code>Remaining:</code> for each row, and set them to show along with the budget in the Gallery view so you get something like this:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_3.43.12_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Budgeted and Remaining Labels</figcaption><p></p>
-</figure>
-</div>
-<p>There are two natural questions at this point:</p>
-<ul>
-<li>How do we know that we have budgeted what we actually have?</li>
-<li>How do we know what amounts are remaining at any given point of time in the month?</li>
-</ul>
-<p>To address both of these questions, we will need to flesh out the transactions database, link it to the categories and come back to this. But before that, let’s do a quick detour with an accounts database just to setup the foundation we need for the transactions database.</p>
-</section>
-<section id="accounts" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="accounts">Accounts</h2>
-<p>For this demonstration, I am just going to add two accounts — one savings bank account and one credit card account:</p>
-<p>The most natural property we want for the Accounts database would be a <em>balance</em> column. Instead of maintaining this manually, we will just link this with the transactions database and derive the balance by rolling up the relevant transactions.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_9.49.12_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Accounts View</figcaption><p></p>
-</figure>
-</div>
-<aside>
-⚡ The accounts database simply has one row for every account you have — these could be savings accounts, credit card accounts, a cash account, or your virtual wallets.
-</aside>
-</section>
-<section id="transactions" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="transactions">Transactions</h2>
-<p>You might want to optionally add a memo property that lets you add a quick note or explanation for the transaction. However, given that each database entry is also a page, you could also quite flexibly add all the additional information you want to the page corresponding to any transaction. Meanwhile, you might also want to setup relations to other parts of your Notion setup if you find anything relevant — for instance, if you have a books database, or an inventory database, and so on. That said, we’re going to keep it simple here, and here’s an example transaction:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_4.56.45_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">An Example Transaction</figcaption><p></p>
-</figure>
-</div>
-<aside>
-⚡ Every transaction has the following: an amount, a payee, the account to which the amount was debited or credited to, the date the transaction happened, and and the expense category that the transaction belonged to. We set these up as columns with the appropriate properties, with the accounts and categories being relational links.
-</aside>
-<p>You’ll notice that I’ve linked to both the child and the parent category for this transaction. It would be nice if the parent category was pulled up automatically — and this is possible with a formula, but as far as I know the formula will not actually <em>link</em> the transaction to the main category. So for now, we assign both categories manually. 🤷‍♀️</p>
-<p>One quick thing to do now is to go back to the Accounts database and add a rollup property that takes on the sum of the amounts property from the related transactions table, and once done, the balances show up nicely in the gallery view:</p>
-<div class="columns">
-<div class="column" style="width:34%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_4.35.18_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Rollup sum of amounts in accounts</figcaption><p></p>
-</figure>
-</div>
-</div><div class="column" style="width:66%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_4.37.52_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Gallery view of balances</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Now we go back to our categories database and rename the relational column to <strong>transactions</strong> and add a rollup that collects all expenses from the transactions that happened in a particular category, so this is what it looks like:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_5.50.57_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Category view</figcaption><p></p>
-</figure>
-</div>
-<p>Now add a formula column <strong>available</strong> that simply adds up the budget and the expense columns so you can find out how much of your budget is still available for use. My formula looks like this:</p>
-<p><code>prop("Final Budget") + prop("Expenses")</code></p>
-<p>Note that it might feel more natural to subtract expenses, but my expenses are already negative amount transactions, so I just need to bundle it all together.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_6.30.27_PM.png" class="img-fluid figure-img" style="width:42.0%"></p>
-<p></p><figcaption class="figure-caption">Category View</figcaption><p></p>
-</figure>
-</div>
-<p>Just for fun, you could also add a <strong>status</strong> column that visually indicates how much of your budget you have left. The progress-bar style of the status property here is inspired <a href="https://www.notion.vip/notion-formulas-create-a-progress-bar/">by this guide</a>, and the formula I used requires a couple of auxiliary columns that calculate the percentage and determine if a half-star should be used or not based on the value of the decimal part. It also first checks that the available balance is in fact positive, if not, it’s going to display a suitably scary warning emoji. I won’t bore you with the specifics here, but you can find the formula in the template that I’ve linked to at the end of this post.</p>
-<p>So now we are at a point where the remaining amounts are calculated based on the transactions. However, we still have to think about how to link the budgeted amounts to the actual money available. In fact, speaking of money available, I haven’t really touched upon how to handle transactions that are not expenses; i.e, transactions with a positive amount value and that reflect money coming <em>into</em> the system as opposed to leaving it. These are, of course, just regular transactions — but what category do we assign them to? All the ones we have so far really capture spends, not inflows…</p>
-<p>So, it turns out that YNAB would take all this money and automatically categorize it as unassigned, or to be budgeted. We can mimic this by creating a special category called <code>to be assigned</code>, and have all income-type transactions categorized as such. Typically this would be transactions corresponding to a salary, client payments, refunds, credit from interest, and so forth.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_6.38.19_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">The TBA Category</figcaption><p></p>
-</figure>
-</div>
-<div class="page-columns page-full"><p>Notice that the so-called <strong>expenses</strong><sup>1</sup> that are now accumulating in this category is actually the total amount of money that came into the system. Incidentally, if you were to just look at the sum of the <strong>balance</strong> column in the accounts database, that’s the net amount of money in the system at any given point of time.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Remember that the expenses column just rolled up the transaction amounts in a particular category.</p></li></div></div>
-<hr>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_6.42.06_PM.png" class="img-fluid figure-img" style="width:77.0%"></p>
-<p></p><figcaption class="figure-caption">Accounts View</figcaption><p></p>
-</figure>
-</div>
-<aside>
-⚡ Note that transactions that just move money within your accounts, like a credit card payment, don’t need any explicit expense categories.
-</aside>
-<p>You also don’t need to budget separately for credit card payments, because your credit card bill is composed of transactions that were already budgeted for! Even if they were items corresponding to, say, credit card fees, you probably categorized them under Services, for example. So we won’t have a separate budget for credit card bill payments (although I should mention that YNAB does this explicitly and handles it automatically).</p>
-<p>Alright, so it seems like we are nearly there, except that our current situation is the following:</p>
-<ol type="1">
-<li>The amount the <em>to be assigned</em> category is a true reflection of incoming funds.</li>
-<li>The amounts that we added to our category budgets were setup manually and generally divorced from the reality in the transactions database.</li>
-</ol>
-<aside>
-<p>⚡ To fix this, we need some way to move funds from the <em>to be assigned</em> category to the other ones.</p>
-</aside>
-<p>For example, let’s say I want to budget 750 for ebooks this month. I could do this by adding a dummy transaction that debits an amount of 750 to the <em>to be assigned</em> category and credits it to the <em>ebooks</em> category<em>.</em> What this means is that when we roll up the amounts from all transactions, we directly obtain the amount remaining for us to spend!</p>
-<p>So for the very first month, when we have a clean slate, we just have a bunch of such transactions — these won’t have any explicit account associated with them because they aren’t real transactions; and in fact you can always filter your transactions table so that you only see the meaningful ones by setting the condition that the accounts column should be non-empty.</p>
-<p>Meanwhile, here is how we do the budgets for our categories all over again, this time via these virtual transactions:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_9.57.40_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Budget Overview</figcaption><p></p>
-</figure>
-</div>
-<p>If you go to the <em>to be assigned</em> row in the categories table and look at the rollup value in the expenses column, then you’ll see that it corresponds to either the amount of money that’s still assigned (these are dollars — or in my case, rupees — that don’t have a job yet), or, in case you happen to have overshot the budget, the amount by which you are falling short. In the former situation, the available amount will be a positive number, while in the latter, it’ll be negative.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_7.57.35_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">To Be Assigned</figcaption><p></p>
-</figure>
-</div>
-<p>Ideally, we just want this number to be <em>zero</em>, indicating that everything has been assigned appropriately. To achieve this:</p>
-<ol type="1">
-<li>If your budgets have collectively overshot the amount of money available, re-adjust them them — specifically, reduce some of the amounts — so that this is no longer the case. Of course, I am saying this from a theoretical standpoint; if your situation is that you have real expenses that you don’t have real money for, then you would want to plan for this by bringing the differential amount of money into the system via a loan, and then planning the repayment by budgeting for it as well. Dealing with debt is beyond the scope of this discussion, but I think the <a href="https://www.youneedabudget.com/blog/">YNAB blog</a>, <a href="https://www.youneedabudget.com/ynab-the-book/">book</a>, and <a href="https://www.youtube.com/user/youneedabudget">videos</a> go into this at length.</li>
-<li>If you have money left over, you could either add it to your budgets, giving yourself some extra wiggle room; but I prefer to budget for fixed amounts generally, so in this situation I’ll just add this amount to something I call a <em>Miscellaneous</em> or <em>Scratchpad</em> category. It’s something you can borrow from if you fall short later, it has no particular semantics. Some people like to sweep off any excess money into deposit accounts, and if you do this, then you might want to create those accounts in the system and enter those transactions to get rid of this positive balance.</li>
-</ol>
-<p>At the end of this, you are in a situation where all money is nice and assigned. Since we started off by specifying budgets manually, we should go back and fix some formulas in our database of categories. In particular, here’s what I did to simplify things:</p>
-<ul>
-<li>Remove the <code>Available</code> column (previously this was the difference of the manually set budget and the rolled up expenses).</li>
-<li>Rename <code>Expenses</code> to <code>Available</code>, since the rollup now just reflects what’s truly available.</li>
-</ul>
-<p>I’m going to leave the manually added budgets in — although we won’t use them to calculate what’s truly available any more, they will help us plan our budgets going forward.</p>
-<p>Everything so far should make sense for an initial setup, but what do we do when we have new incoming transactions that need to be assigned to categories? I generally like to do the budgeting exercise once at the start of every month, so any intermediate positive transactions into the system will either remain in the <em>To be assigned</em> category, or if you are OCD about wanting that that category to be set to zero always, you can always push this number out into your scratchpad.</p>
-<p>At the start of the month (this could be another day and a different frequency; but I do recommend being consistent for simplicity), we need to refuel the categories with the funds available. There are two kinds of things that could happen here, broadly speaking:</p>
-<ol type="1">
-<li>For categories that represent a plan to save up to something, like a vacation, or a category where you feel like you want to have a certain amount of money set aside every month irrespective of how much you spent in the last month, you just want to push <code>budget</code> amount of money into that category via the virtual transactions we discussed earlier.</li>
-<li>For other categories, which I like to think of as those having <em>rolling</em> budgets, you want to only assign the difference between what was budgeted and what was spent… and hopefully this is a non-negative quantity!</li>
-</ol>
-<p>You could setup a checkbox to indicate which categories have rolling budgets and which ones do not, and then this formula:</p>
-<p><code>prop("IsRolling?") ? (prop("Budget") - prop("Available")) : prop("Budget")</code></p>
-<p>will tell you how much you should budget for next month.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_8.23.47_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">In this example, Ebooks are not a rolling category, so even though I need only 628.95 to meet the original budget, I’ll still set aside the full 750, and the amount that will be available will be 871.05. On the other hand, Phone is a rolling category, and presumably my phone-related expenses in the current month added up to 420, so the recommendation is to budget 420 next time so you’ll still have 500 available total.</figcaption><p></p>
-</figure>
-</div>
-<p>In this example, Ebooks are not a rolling category, so even though I need only 628.95 to meet the original budget, I’ll still set aside the full 750, and the amount that will be available will be 871.05. On the other hand, Phone is a rolling category, and presumably my phone-related expenses in the current month added up to 420, so the recommendation is to budget 420 next time so you’ll still have 500 available total.</p>
-</section>
-<section id="the-process-after-setting-up" class="level2">
-<h2 class="anchored" data-anchor-id="the-process-after-setting-up">The Process After Setting Up</h2>
-<p>There are two main times that you’ll interact with this budget: whenever a transaction is made, and once every X days to reset the budgets for the individual categories.</p>
-<p>Adding transactions is reasonably easy, although admittedly it’s probably not as smooth as a specialized app that might have a Siri command to do this for you or a widget that let’s you quick-add things. However, it’s not too bad, especially if you enter it right away. You could also potentially automate this via API integrations, or enter your transactions in your regular app and export them as a CSV and import them into the Notion system once every so often.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_8.37.56_PM.png" class="img-fluid figure-img" style="width:42.0%"></p>
-<p></p><figcaption class="figure-caption">Transaction Table</figcaption><p></p>
-</figure>
-</div>
-<p>The budgeting bit is going to be a little more work, especially if you work with a gazillion categories. The formulas will guide to you what needs to be done, but those virtual transactions still need to be added manually. On YNAB, you can do what I described above (adding the deficit to rollup categories and the originally intended budgets to the others) in one click — and there are other options too, for example, you may have moved to a new location and you’re still getting the hang of what you’ll need to set aside for groceries, so YNAB will offer to budget what you spent last month, or your average expenses from the last six months, and so on. Here, since you are assigning things manually, you can definitely tweak as you go; the <strong>next month</strong> column is just a suggestion.</p>
-<p>You can probably prepare a CSV file with the default budget amounts and just merge this in at the start of every month if your expenses are super predictable, and just adjust the entries that need adjusting. This will save you some time, but remember that the categories still need to be linked to manually. It’s not too bad for something that happens once a month and that will hopefully bring you some sense of control and awareness 😇</p>
-<p>Perhaps also try and not have a gazillion categories and sub-categories, at least to begin with — it helps to keep things simple, especially when starting out.</p>
-</section>
-<section id="common-pitfalls" class="level2">
-<h2 class="anchored" data-anchor-id="common-pitfalls">Common Pitfalls</h2>
-<p>Here are a couple of mistakes I made frequently, even while just setting up this template!</p>
-<ul>
-<li>Forgetting that transaction amounts corresponding to expenses should be recorded as negative numbers! If this happens very very frequently to you, you could also set this up a little differently — have a checkbox to indicate if a transaction is an expense or an inflow, and always enter a positive number reflecting the amount, and let a formula do the work of adding the sign!</li>
-<li>Forgetting to add the parent category — this can mess up the views of what’s available in the high-level categories and cause the numbers to not tally. So if you need to debug your numbers, check for whether you have added both categories to your transactions or not!</li>
-</ul>
-</section>
-<section id="dashboards" class="level2">
-<h2 class="anchored" data-anchor-id="dashboards">Dashboards</h2>
-<p>Most of the action here is happening in the Transactions database. You could create linked copies of this database anywhere you like and filter things out to see what you want. For instance, if you want to keep tabs on the transactions in specific accounts, you could have this on your account pages:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_8.47.47_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Account Overview</figcaption><p></p>
-</figure>
-</div>
-<p>You could filter out transactions for a particular month, a particular category (either a top-level category or an atomic one), and so on. I think there’s plenty you can do here, but I am not sure how much of this can be automated. For instance, you might want to generate — or have over email — a monthly report of your expenses across various categories and how did relative to your estimated budgets. This should be possible by leveraging the API and tools like Integromat/Zapier/Automate.io - but I haven’t really explored the possibilities here.</p>
-</section>
-<section id="missing-features" class="level2">
-<h2 class="anchored" data-anchor-id="missing-features">Missing Features</h2>
-<p>It would be nice to have a gallery view of the months of the year showing spends and budgets in each (high-level?) category. For this though I’d need the rows to correspond to months, columns corresponding to categories, which pull up transactions that happened in a particular month from said category.</p>
-<p>Even if I manually linked the transactions database to this calendar one, and made sure each transaction was linked to the correct row, I don’t see how I can split up those transactions across categories, since it’s not possible to add a filter to relational columns or rollups as far as I know. It’s a similar bottleneck going through the Categories database as well. This information is of course implicit in the system, I just can’t think of a neat way of visualizing it.</p>
-<p>This is possible to do for the current month though:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_9.08.56_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Monthly Overview</figcaption><p></p>
-</figure>
-</div>
-<p>YNAB also has more sophisticated category types — apart from budgets that roll or accumulate, you could have categories that aim to have a certain amount of funds assigned by a certain date and so on. For those who are freelancers with incomes spread over the days of the month, I think YNAB has a lot of little features that allow for a more flexible way of budgeting, which I’m not super familiar with because I’m not in this situation. This is just to say that this setup here may be both limiting and feeing because of how much of the setup is manually done. At least that’s my optimistic view right now 😀</p>
-<p>Finally, YNAB also has an option to reconcile accounts, which is when you declare that the numbers in YNAB match the book balance according to your bank or credit card agency. This is a neat little thing that I like to check off every so often. Here, I suppose you could just glance through the balances on the Accounts database (remember the gallery view from earlier?), but it won’t have the same song-and-dance-y feeling — but maybe this could be a recurring task that you can check off, and hopefully <em>that</em> will feel good 😅</p>
-<p>So that’s about it! I’d love to hear any feedback on this, and suggestions for improving the setup would be very welcome too. You can duplicate the template <a href="https://www.notion.so/Template-Envelope-Budgeting-in-Notion-447cacf529dd4149b18317460b8f9805">from here</a>.</p>
-
-
-</section>
-
-
- ]]></description>
-  <category>notion</category>
-  <category>workflows</category>
-  <category>tutorial</category>
-  <guid>https://www.neeldhara.com/blog/envelope-budgeting-notion/index.html</guid>
-  <pubDate>Fri, 17 Sep 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://www.neeldhara.com/blog/envelope-budgeting-notion/Screenshot_2021-09-18_at_9.11.50_PM.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

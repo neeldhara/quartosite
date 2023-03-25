@@ -22,7 +22,7 @@
 <p><a href="https://www.moritzdressler.de/en/13_Sheep">13 Sheep</a> happens to be a cute roll-and-write game that involves protecting a bunch of sheep on a grid by placing small fences that have pre-defined shapes.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/13sheep/13sheep.png" class="img-fluid figure-img" width="300"></p>
+<p><img src="https://www.neeldhara.com/blog/13sheep/13sheep.png" class="img-fluid figure-img" width="420"></p>
 <p></p><figcaption class="figure-caption">The Roll and Write Game</figcaption><p></p>
 </figure>
 </div>
@@ -35,8 +35,24 @@
 <li>You have ~11 chances to place your randomly gifted fence shapes.</li>
 </ul>
 <p>You can find out more about the game <a href="https://www.moritzdressler.de/en/13_Sheep">here</a>, where you can generate board layouts to print and play as well.</p>
-<p>I found this game a lot of fun to play, and I thought it would be lovely to be able to play it on a computer, where the user can decide how many rounds, sheep, and bushes they want to play with. Given also that chatGPT has been apparently remarkably adept at coding games, I figured I’d give it a shot.</p>
-<p>My first prompt was just a polite inquiry about whether chatGPT would be willing to participate in this exercise:</p>
+<p>I found this game a lot of fun to play, and I thought it would be lovely to be able to play it on a computer, where the user can decide how many rounds, sheep, and bushes they want to play with. Given also that chatGPT has been apparently <a href="https://twitter.com/ammaar/status/1637830530216390658?s=20">remarkably adept at coding games</a>, I figured I’d give it a shot<sup>1</sup>.</p>
+<p>I describe my conversation with chatGPT below, but if you just want to cut to the case and check the game out, you can find the playable version <a href="https://13sheep.netlify.app/">here</a> and the source <a href="https://github.com/neeldhara/13sheep/">here</a>.</p>
+<p>Here’s what we finally built:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/13sheep/finalui.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">The 13 Sheep UI</figcaption><p></p>
+</figure>
+</div>
+<p>And once you’ve finished playing you can share your accomplishment like so:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/13sheep/download.png" class="img-fluid figure-img" width="420"></p>
+<p></p><figcaption class="figure-caption">One of my completed games… where we protect five sheep, can you figure out how many rounds?</figcaption><p></p>
+</figure>
+</div>
+<hr>
+<p>So, back to chatGPT. My first prompt was just a polite inquiry about willingness to participate in this exercise:</p>
 <div class="callout-note callout callout-style-simple no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -101,7 +117,7 @@
 </div>
 </div>
 </div>
-<p>Now we draw the bushes:</p>
+<p>That worked — phew! Now we draw the bushes:</p>
 <div class="callout-note callout callout-style-simple no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -256,7 +272,7 @@ Fence Shapes Based on Dice Rolls
 </div>
 </div>
 </div>
-<p>At this point the code generated starts tracking what borders are visible: I had to prompt it explicitly to update the function that generated the bushes to feed into the visibility states, but this went off pretty smoothly. For quite some time the fences drawn were not the ones I wanted, but after a few nudges it got it about right.</p>
+<p>At this point the code generated starts tracking what borders are visible. I did have to prompt it explicitly to update the earlier function that generated the bushes to feed into the visibility states. However, this went off pretty smoothly overall. For quite some time the fences drawn when the user clicked a grid cell were not the ones I wanted, but after a few nudges it got it about right.</p>
 <p>Now it occured to me that I could actually show the orientations after the dice is rolled and the user can select one of them, and we can draw the appropriate fence after this selection is made.</p>
 <div class="callout-note callout callout-style-simple no-icon">
 <div class="callout-body d-flex">
@@ -402,12 +418,34 @@ Fence Shapes Based on Dice Rolls
 </div>
 </div>
 <p>Whoa… so ok, I don’t have developer accounts and I was not going to follow through, but this was definitely interesting!</p>
-<p>I did interleave responses from chatGPT with help from Ghostwriter, which is the intelligence built into repl.it out of the box. Ghostwriter’s responses were usually not as sophisticated on comparable prompts, but on a couple of occassions chatGPT was completely lost on why something wasn’t working, but Ghostwriter would figure it out when asked pointed questions about an error.</p>
-<p>Anyway, I cleaned up a little further with some styling, and the game is <a href="https://13sheep.netlify.app">here</a>, while the source is <a href="https://github.com/neeldhara/13sheep/">here</a>.</p>
+<p>I did interleave responses from chatGPT with help from Ghostwriter, which is the intelligence built into repl.it out of the box. Ghostwriter’s responses were usually not as sophisticated on comparable prompts, but on a couple of occassions chatGPT was completely lost on why something wasn’t working, but Ghostwriter would figure it out when asked pointed questions about an error. There seems to be some potential that they will be a good team — possibly also alongside Copilot, which I did not use at all here.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+The Final Product
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Anyway, long story short, I cleaned up a little further on my own, and finally: the game is <a href="https://13sheep.netlify.app">here</a>, the source is <a href="https://github.com/neeldhara/13sheep/">here</a>.</p>
+</div>
+</div>
+<p>My experience with chatGPT and Ghostwriter as pair programmers was — I daresay — rewarding overall. When I first thought of doing this, perhaps partially <a href="https://twitter.com/ShriramKMurthi/status/1637058628187312134">intoxicated by all the hype</a>, I figured I could get this done in a couple of hours at the most: I estimated twenty minutes for functional code, and about a 100 minutes for making up my mind about colors and fonts. This was a vast underestimate: I think I spent close to a good twelve hours (including a couple of early throw-away prototypes, and all the failed attempts on the flood filling) altogether<sup>2</sup>… at some point it did get a little addictive, and perhaps there was a sunk cost argument for not letting go halfway through.</p>
+<p>As someone who does not know javascript, I found this to be a part empowering, part learning, and mostly amusing experience. It felt like picking up a natural language by directly talking to mostly fluent speakers who made random and small mistakes. My overall sentiments were very similar to the process described <a href="https://twitter.com/ammaar/status/1637592014446551040">in this thread</a>, where <a href="https://twitter.com/ammaar">Ammaar Reshi</a> uses GPT-4, Replit, MidJourney, and Claude to create a 3D space runner from scratch with ZERO [sic] knowledge of Javascript or 3D game programming: you should check this out if you are interested in a much more sophisticated demonstration for deploying AI tools to make games!</p>
+<p>In its current form I think this also has interesting implications for how programming is taught: I hesitate to elaborate any further on this given how likely it is that any commentary will be obsolete by tomorrow. But in the very near term, I can imagine that reading, analyzing, and even learning alongside chatGPT could make for interesting experiences in the classroom.</p>
 
 
 
- ]]></description>
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Incidentally, I couldn’t find a playable version like this one online. If you know of one please let me know and I’ll be sure to add a pointer!↩︎</p></li>
+<li id="fn2"><p>At least I’m <a href="https://twitter.com/ammaar/status/1637830530216390658?s=20">not the only one</a> spending hours in the plural.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
   <category>games</category>
   <category>exposition</category>
   <guid>https://www.neeldhara.com/blog/13sheep/index.html</guid>

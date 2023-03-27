@@ -17,28 +17,23 @@ code-copy: true
 
 :::{.callout-note icon="false"}
 
-# Problem 1. Dominating Set
+# Problem 1. Better Approximation given a k-coloring
 
-A dominating set of a graph $G$ is a subset of vertices $S$ such that every vertex in $G$ either belongs to $S$ or has a neighbor in $S$.
+Given a $k$-coloring of a graph $G$, show that we can find a vertex cover which is a $2\bigl(1−\frac{1}{k}\bigr)$ approximation. 
 
-Suppose you have an instance of dominating set given by $(G,k)$, which is a YES-instance if and only if $G$ has a dominating set of size at most $k$.
+Hint: use the $k$-coloring on the vertices of $V_{1/2}$.
 
-Is the following reduction rule safe?
-
-RR. If $d(v) > k$, then return $(G-v,k-1)$.
-
-Briefly justify your answer.
 
 :::
 
 
 :::{.callout-note icon="false"}
 
-# Problem 2. Connected Vertex Cover
+# Problem 2. Point Line Cover
 
-A connected vertex cover of a graph $G$ is a subset of vertices $S$ such that: (a) $S$ is a vertex cover of $G$, and (b) $G[S]$ is a connected subgraph of $G$.
+In the Point Line Cover problem, we are given a set of $n$ points in the plane and an integer $k$, and the goal is to check if there exists a set of $k$ lines on the plane that contain all the input points. 
 
-Suppose you have an instance of connected vertex cover given by $(G,k)$, which is a YES-instance if and only if $G$ has a connected vertex cover of size at most $k$.
+Show a kernel for this problem with $\mathcal{O}\left(k^2\right)$ points.
 
 :::
 

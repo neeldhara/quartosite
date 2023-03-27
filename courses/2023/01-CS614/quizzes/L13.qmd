@@ -1,0 +1,35 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: CS614. Advanced Algorithms. L13 Quiz.
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## CS614. Advanced Algorithms. 
+
+##### L13 Quiz
+
+[Back to the course page](../index.qmd)
+
+
+:::{.callout-note icon="false"}
+
+# Problem 1. FVS: is this FPT?
+
+Recall the following branching algorithm for Feedback Vertex Set (FVS) discussed in class:
+
+- Preprocess to eliminate vertices of degree at most two, resulting in an equivlaent multigraph.
+- Preprocess to force vertices with self-loops in the solution and adjust the budget as appropriate.
+- If a pair of vertices have more than two edges between them, delete all but two of these edges.
+- STOP if the graph is a forest or if we are out of budget.
+- Find a shortest cycle and branch on all its vertices.
+
+Since a graph of minimum degree three that is not acyclic always has a cycle of length $O(\lg n)$, this algorithm has a running time of $O^\star((\lg n)^k)$. Argue that this running time in fact shows that FVS is FPT in $k$.
+
+:::
+
+
+:::

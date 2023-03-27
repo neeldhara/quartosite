@@ -1,0 +1,40 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: CS614. Advanced Algorithms. L12 Quiz.
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## CS614. Advanced Algorithms. 
+
+##### L12 Quiz
+
+[Back to the course page](../index.qmd)
+
+
+:::{.callout-note icon="false"}
+
+# Problem 1. List Coloring
+
+In the List Coloring problem, we are given a graph $G$ and for each vertex $v \in V(G)$ there is a set (also called a list) of admissible colors $L(v) \subseteq N$. The goal is to verify whether it is possible to find a proper vertex coloring c: $V(G) \rightarrow \mathbb{N}$ of $G$ such that for ever y vertex $v$ we have $c(v) \in L(v)$. In other words, $L(v)$ is the set of colors allowed for $v$.
+
+Show a $2^n n^{\mathcal{O}(1)}$-time algorithm for List Coloring.
+
+Hint. Read Theorem 10.8 from the Parameterized Algorithms text.
+
+:::
+
+
+:::{.callout-note icon="false"}
+
+# Problem 2. Triangle Packing
+
+In the Triangle Packing problem, we are given an undirected graph $G$ and a positive integer $k$, and the objective is to test whether $G$ has $k$-vertex disjoint triangles. Using color coding show that the problem admits an algorithm with running time $2^{O(k)} n^{O(1)}$.
+
+:::
+
+
+:::

@@ -246,15 +246,12 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 1. Dominating Set
+Problem 1. Better Approximation given a k-coloring
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A dominating set of a graph <span class="math inline">G</span> is a subset of vertices <span class="math inline">S</span> such that every vertex in <span class="math inline">G</span> either belongs to <span class="math inline">S</span> or has a neighbor in <span class="math inline">S</span>.</p>
-<p>Suppose you have an instance of dominating set given by <span class="math inline">(G,k)</span>, which is a YES-instance if and only if <span class="math inline">G</span> has a dominating set of size at most <span class="math inline">k</span>.</p>
-<p>Is the following reduction rule safe?</p>
-<p>RR. If <span class="math inline">d(v) &gt; k</span>, then return <span class="math inline">(G-v,k-1)</span>.</p>
-<p>Briefly justify your answer.</p>
+<p>Given a <span class="math inline">k</span>-coloring of a graph <span class="math inline">G</span>, show that we can find a vertex cover which is a <span class="math inline">2\bigl(1−\frac{1}{k}\bigr)</span> approximation.</p>
+<p>Hint: use the <span class="math inline">k</span>-coloring on the vertices of <span class="math inline">V_{1/2}</span>.</p>
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
@@ -263,12 +260,12 @@ Problem 1. Dominating Set
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 2. Connected Vertex Cover
+Problem 2. Point Line Cover
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A connected vertex cover of a graph <span class="math inline">G</span> is a subset of vertices <span class="math inline">S</span> such that: (a) <span class="math inline">S</span> is a vertex cover of <span class="math inline">G</span>, and (b) <span class="math inline">G[S]</span> is a connected subgraph of <span class="math inline">G</span>.</p>
-<p>Suppose you have an instance of connected vertex cover given by <span class="math inline">(G,k)</span>, which is a YES-instance if and only if <span class="math inline">G</span> has a connected vertex cover of size at most <span class="math inline">k</span>.</p>
+<p>In the Point Line Cover problem, we are given a set of <span class="math inline">n</span> points in the plane and an integer <span class="math inline">k</span>, and the goal is to check if there exists a set of <span class="math inline">k</span> lines on the plane that contain all the input points.</p>
+<p>Show a kernel for this problem with <span class="math inline">\mathcal{O}\left(k^2\right)</span> points.</p>
 </div>
 </div>
 </section>

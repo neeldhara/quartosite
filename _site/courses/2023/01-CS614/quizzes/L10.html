@@ -250,7 +250,7 @@ Problem 1. Set Cover: The Greedy Bound is Tight
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We argued in class that the greedy approach to solving the unweighted Set Cover problem achieves an approximation ration of <span class="math inline">O(\lg m)</span>. Argue that this bound is tight, i.e, come up with examples where the algorithm picks sets in a manner that</p>
+<p>We argued in class that the greedy approach to solving the unweighted Set Cover problem achieves an approximation ratio of <span class="math inline">O(H_n)</span>. Argue that this bound is tight, i.e, come up with examples where the algorithm picks sets in a manner that the cost of the solution is roughly <span class="math inline">H_n</span> worse than optimal.</p>
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
@@ -259,47 +259,14 @@ Problem 1. Set Cover: The Greedy Bound is Tight
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 2. Don’t Satisfy Too Much!
+Problem 2. Set Cover and Related Problems
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In the Point Line Cover problem, we are given a set of <span class="math inline">n</span> points in the plane and an integer <span class="math inline">k</span>, and the goal is to check if there exists a set of <span class="math inline">k</span> lines on the plane that contain all the input points.</p>
-<p>Show a kernel for this problem with <span class="math inline">\mathcal{O}\left(k^2\right)</span> points.</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Problem 2.1 Connected Vertex Cover I.
-</div>
-</div>
-<div class="callout-body-container callout-body" data-minimal="true">
-<p>Design a <span class="math inline">\mathcal{O}(2^k)</span> vertex kernel for Connected Vertex Cover.</p>
-<p>Hint: What can you say about high degree vertices? How many can <span class="math inline">G</span> have?</p>
-<p>Follow up hint: What can you say about two vertices that have the same neighbourhood among the high-degree vertices?</p>
-</div>
-</div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Problem 2.2 Connected Vertex Cover II.
-</div>
-</div>
-<div class="callout-body-container callout-body" data-minimal="true">
-<p>Observe that the kernelization argument that we made for Vertex Cover does not work as-is for connected vertex cover. Recall that the reduction rules were the following:</p>
-<ul>
-<li><p>R0. If <span class="math inline">k \leqslant 0</span> and <span class="math inline">E</span> is non-empty, return a trivial no-instance.</p></li>
-<li><p>R1. If <span class="math inline">k \geqslant 0</span> and <span class="math inline">E</span> is empty, return a trivial yes-instance.</p></li>
-<li><p>R2. If <span class="math inline">v</span> is a degree zero vertex, return <span class="math inline">(G\setminus \{v\},k)</span>, i.e, delete <span class="math inline">v</span> from <span class="math inline">G</span> and keep the budget the same.</p></li>
-<li><p>R3. If <span class="math inline">v</span> is vertex whose degree is <em>more</em> than <span class="math inline">k</span>, return <span class="math inline">(G\setminus \{v\},k-1)</span>, i.e, delete <span class="math inline">v</span> from <span class="math inline">G</span> and reduce the budget by one.</p></li>
-</ul>
-<p>Where does it fail? Justify, if possible, with an example.</p>
-</div>
-</div>
+<ol type="1">
+<li><p>Show that Vertex Cover is a special case of Set Cover.</p></li>
+<li><p>Also show that Dominating Set and Set Cover are equivalent (i.e, Set Cover can be reduced to Dominating Set and vice versa).</p></li>
+</ol>
 </div>
 </div>
 </section>

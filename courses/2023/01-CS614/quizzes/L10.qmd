@@ -19,48 +19,17 @@ code-copy: true
 
 # Problem 1. Set Cover: The Greedy Bound is Tight
 
-We argued in class that the greedy approach to solving the unweighted Set Cover problem achieves an approximation ration of $O(\lg m)$. Argue that this bound is tight, i.e, come up with examples where the algorithm picks sets in a manner that 
+We argued in class that the greedy approach to solving the unweighted Set Cover problem achieves an approximation ratio of $O(H_n)$. Argue that this bound is tight, i.e, come up with examples where the algorithm picks sets in a manner that the cost of the solution is roughly $H_n$ worse than optimal.
 
 :::
-
 
 :::{.callout-note icon="false"}
 
-# Problem 2. Don't Satisfy Too Much!
+# Problem 2. Set Cover and Related Problems
 
-In the Point Line Cover problem, we are given a set of $n$ points in the plane and an integer $k$, and the goal is to check if there exists a set of $k$ lines on the plane that contain all the input points. 
+1. Show that Vertex Cover is a special case of Set Cover. 
 
-Show a kernel for this problem with $\mathcal{O}\left(k^2\right)$ points.
-
-:::{.callout-note icon="false" minimal="true"}
-
-# Problem 2.1 Connected Vertex Cover I.
-
-Design a $\mathcal{O}(2^k)$ vertex kernel for Connected Vertex Cover.
-
-Hint: What can you say about high degree vertices? How many can $G$ have?
-
-Follow up hint: What can you say about two vertices that have the same neighbourhood among the high-degree vertices?
-
-:::
-
-:::{.callout-note icon="false" minimal="true"}
-
-# Problem 2.2 Connected Vertex Cover II.
-
-Observe that the kernelization argument that we made for Vertex Cover does not work as-is for connected vertex cover. Recall that the reduction rules were the following:
-
-- R0. If $k \leqslant 0$ and $E$ is non-empty, return a trivial no-instance.
-
-- R1. If $k \geqslant 0$ and $E$ is empty, return a trivial yes-instance.
-
-- R2. If $v$ is a degree zero vertex, return $(G\setminus \{v\},k)$, i.e, delete $v$ from $G$ and keep the budget the same.
-
-- R3. If $v$ is vertex whose degree is _more_ than $k$, return $(G\setminus \{v\},k-1)$, i.e, delete $v$ from $G$ and reduce the budget by one.
-
-Where does it fail? Justify, if possible, with an example.
-
-:::
+2. Also show that Dominating Set and Set Cover are equivalent (i.e, Set Cover can be reduced to Dominating Set and vice versa).
 
 :::
 

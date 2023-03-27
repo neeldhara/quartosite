@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - CS614. Advanced Algorithms. L09 Quiz.</title>
+<title>Neeldhara - Finding Perfect Matching Cuts Faster</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../../">
-<script src="../../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,25 +60,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
-<link rel="stylesheet" href="../../../../css/styles.css">
-<link rel="stylesheet" href="../../../../css/teaching.css">
+<link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -88,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
@@ -98,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../about.html">
+    <a class="nav-link" href="../about.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -107,19 +90,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../../../research/overview.html">
+    <a class="dropdown-item" href="../research/overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../research/people.html">
+    <a class="dropdown-item" href="../research/people.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../research/publications.html">
+    <a class="dropdown-item" href="../research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../research/surveys">
+    <a class="dropdown-item" href="../research/surveys">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
@@ -130,11 +113,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../../../courses/index.html">
+    <a class="dropdown-item" href="../courses/index.html">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../materials/index.html">
+    <a class="dropdown-item" href="../materials/index.html">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
@@ -145,11 +128,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../../../tgif/">
+    <a class="dropdown-item" href="../tgif/">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../bookmarks/">
+    <a class="dropdown-item" href="../bookmarks/">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
@@ -160,21 +143,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../../../talks/">
+    <a class="dropdown-item" href="../talks/">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../videos/">
+    <a class="dropdown-item" href="../videos/">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../../events/">
+    <a class="nav-link" href="../events/">
  <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../blog.html">
+    <a class="nav-link" href="../blog.html">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -200,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../../blog.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../blog.xml"><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -214,13 +197,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
-<main class="content page-columns page-full column-body" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CS614. Advanced Algorithms. L09 Quiz.</h1>
+<h1 class="title">Finding Perfect Matching Cuts Faster</h1>
 </div>
 
 
@@ -228,88 +213,30 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Mar 27, 2023</p>
+    </div>
+  </div>
   
     
   </div>
   
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    <p>
+    Joint work with Yash More ⸱ To Appear at <a href="https://iwoca2023.csie.ncku.edu.tw/accepted-papers/">IWOCA 2023</a> ⸱ Preprint coming soon!
+    </p>
+    <p>
+    A cut (X,Y) is a perfect matching cut if and only if each vertex in X has exactly one neighbor in Y and each vertex in Y has exactly one neighbor in X. The computational problem of determining if a graph admits a perfect matching cut is NP-complete, even when restricted to the class of bipartite graphs of maximum degree 3 and arbitrarily large girth. We demonstrate a faster exact exponential time algorithm on general graphs and an even faster algorithm on graphs of maximum degree three that have girth six.
+    </p>
+  </div>
+</div>
 
 </header>
 
-<section id="cs614.-advanced-algorithms." class="level2 column-body-outset">
-<h2 class="anchored" data-anchor-id="cs614.-advanced-algorithms.">CS614. Advanced Algorithms.</h2>
-<section id="l09-quiz" class="level5">
-<h5 class="anchored" data-anchor-id="l09-quiz">L09 Quiz</h5>
-<p><a href="../../../../courses/2023/01-CS614/index.html">Back to the course page</a></p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Problem 1. Dominating Set
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A dominating set of a graph <span class="math inline">G</span> is a subset of vertices <span class="math inline">S</span> such that every vertex in <span class="math inline">G</span> either belongs to <span class="math inline">S</span> or has a neighbor in <span class="math inline">S</span>.</p>
-<p>Suppose you have an instance of dominating set given by <span class="math inline">(G,k)</span>, which is a YES-instance if and only if <span class="math inline">G</span> has a dominating set of size at most <span class="math inline">k</span>.</p>
-<p>Is the following reduction rule safe?</p>
-<p>RR. If <span class="math inline">d(v) &gt; k</span>, then return <span class="math inline">(G-v,k-1)</span>.</p>
-<p>( ) Yes (X) No</p>
-<p>Briefly justify your answer:</p>
-<p>|____|</p>
-</div>
-</div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Problem 2. Connected Vertex Cover
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A connected vertex cover of a graph <span class="math inline">G</span> is a subset of vertices <span class="math inline">S</span> such that: (a) <span class="math inline">S</span> is a vertex cover of <span class="math inline">G</span>, and (b) <span class="math inline">G[S]</span> is a connected subgraph of <span class="math inline">G</span>.</p>
-<p>Suppose you have an instance of connected vertex cover given by <span class="math inline">(G,k)</span>, which is a YES-instance if and only if <span class="math inline">G</span> has a connected vertex cover of size at most <span class="math inline">k</span>.</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Problem 2.1 Connected Vertex Cover I.
-</div>
-</div>
-<div class="callout-body-container callout-body" data-minimal="true">
-<p>Design a <span class="math inline">\mathcal{O}(2^k)</span> vertex kernel for Connected Vertex Cover.</p>
-<p>Hint: What can you say about high degree vertices? How many can <span class="math inline">G</span> have?</p>
-<p>Follow up hint: What can you say about two vertices that have the same neighbourhood among the high-degree vertices?</p>
-</div>
-</div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Problem 2.2 Connected Vertex Cover II.
-</div>
-</div>
-<div class="callout-body-container callout-body" data-minimal="true">
-<p>Observe that the kernelization argument that we made for Vertex Cover does not work as-is for connected vertex cover. Recall that the reduction rules were the following:</p>
-<ul>
-<li><p>R0. If <span class="math inline">k \leqslant 0</span> and <span class="math inline">E</span> is non-empty, return a trivial no-instance.</p></li>
-<li><p>R1. If <span class="math inline">k \geqslant 0</span> and <span class="math inline">E</span> is empty, return a trivial yes-instance.</p></li>
-<li><p>R2. If <span class="math inline">v</span> is a degree zero vertex, return <span class="math inline">(G\setminus \{v\},k)</span>, i.e, delete <span class="math inline">v</span> from <span class="math inline">G</span> and keep the budget the same.</p></li>
-<li><p>R3. If <span class="math inline">v</span> is vertex whose degree is <em>more</em> than <span class="math inline">k</span>, return <span class="math inline">(G\setminus \{v\},k-1)</span>, i.e, delete <span class="math inline">v</span> from <span class="math inline">G</span> and reduce the budget by one.</p></li>
-</ul>
-<p>Where does it fail? Justify, if possible, with an example.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-</section>
 
 
 
@@ -336,10 +263,10 @@ Problem 2.2 Connected Vertex Cover II.
 <div class="column-screen-inset">
     <hr class="about-sep">
     <div class="quarto-about-jolla column-body" style="margin-top:52px;">
-        <p> © 2022 • Neeldhara Misra • <a href="../../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+        <p> © 2022 • Neeldhara Misra • <a href="../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
             </p>
             <div class="collcontent">
-                <img src="../../../../images/calvin.webp" style="border-radius:25px;">
+                <img src="../images/calvin.webp" style="border-radius:25px;">
                 <p>&nbsp;</p>
             </div>
     
@@ -389,10 +316,10 @@ Problem 2.2 Connected Vertex Cover II.
     <!-- Modal content -->
     <div class="modal-content" style="width: 460px !important;">
     <span class="close" data-dismiss="modal">×</span>
-    <img src="../../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+    <img src="../images/calvin.jpg" style="border-radius:25px;" width="420">
 </div>
 
-<script type="text/javascript" src="../../../../scripts.js"></script>
+<script type="text/javascript" src="../scripts.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -530,5 +457,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</div><script src="../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</div><script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - CS614. Advanced Algorithms. L18 Quiz.</title>
+<title>Neeldhara - CS614. Advanced Algorithms. L19 Quiz.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -220,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CS614. Advanced Algorithms. L18 Quiz.</h1>
+<h1 class="title">CS614. Advanced Algorithms. L19 Quiz.</h1>
 </div>
 
 
@@ -237,8 +237,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="cs614.-advanced-algorithms." class="level2 column-body-outset">
 <h2 class="anchored" data-anchor-id="cs614.-advanced-algorithms.">CS614. Advanced Algorithms.</h2>
-<section id="l18-quiz" class="level5">
-<h5 class="anchored" data-anchor-id="l18-quiz">L18 Quiz</h5>
+<section id="l19-quiz" class="level5">
+<h5 class="anchored" data-anchor-id="l19-quiz">L19 Quiz</h5>
 <p><a href="../../../../courses/2023/01-CS614/index.html">Back to the course page</a></p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -246,11 +246,13 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 1. 3-Hitting Set
+Problem 1. Bin Packing
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Obtain an algorithm for 3-Hitting Set running in time <span class="math inline">2.4656^k n^{\mathcal{O}(1)}</span> using iterative compression.</p>
+<p>Consider the bin-packing problem:</p>
+<p>Input: <span class="math inline">n</span> items with sizes <span class="math inline">a_1 \cdots a_n</span> respectively, a positive integer <span class="math inline">B</span> (bin capacity) and a positive integer <span class="math inline">k</span> (number of bins). Question: Is there a partition of the set <span class="math inline">\{1 \cdots n\}</span> into sets <span class="math inline">S_1, \ldots, S_k</span> such that for each <span class="math inline">i \in\{1 \cdots k\}</span> we have that <span class="math inline">\sum_{i \in S} a_j \leq B</span>?</p>
+<p>Show that Bin Packing is NP-complete.</p>
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
@@ -259,11 +261,16 @@ Problem 1. 3-Hitting Set
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Problem 2. d-Hitting Set
+Problem 2. BOX-DEPTH
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Generalize the algorithm from the previous problem to obtain an algorithm for <span class="math inline">d</span>-Hitting Set running in time <span class="math inline">((d-1)+0.4656)^k n^{\mathcal{O}(1)}</span>.</p>
+<p>Consider the following problem, called BOX-DEPTH: Given a set of <span class="math inline">n</span> axisaligned rectangles in the plane, how big is the largest subset of these rectangles that contain a common point?</p>
+<ol type="1">
+<li><p>Describe a polynomial-time reduction from BOX-DEPTH to MAXCLIQUE.</p></li>
+<li><p>Describe and analyze a polynomial-time algorithm for BOX-DEPTH. [Hint: <span class="math inline">O\left(n^3\right)</span> time should be easy, but <span class="math inline">O(n \log n)</span> time is possible.]</p></li>
+<li><p>Why don’t these two results imply that <span class="math inline">\mathrm{P}=\mathrm{NP}</span>?</p></li>
+</ol>
 </div>
 </div>
 </section>

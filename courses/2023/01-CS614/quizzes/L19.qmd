@@ -22,7 +22,7 @@ code-copy: true
 Consider the bin-packing problem:
 
 Input: $n$ items with sizes $a_1 \cdots a_n$ respectively, a positive integer $B$ (bin capacity) and a positive integer $k$ (number of bins).
-Question: Is there a partition of the set $\{1 \cdots n\}$ into sets $S_1, \ldots, S_k$ such that for each $i \in\{1 \cdots k\}$ we have that $\sum_{i \in S} a_j \leq B$?
+Question: Is there a partition of the set $\{1 \cdots n\}$ into sets $S_1, \ldots, S_k$ such that for each $i \in\{1 \cdots k\}$ we have that $\sum_{j \in S_i} a_j \leq B$?
 
 Show that Bin Packing is NP-complete.
 

@@ -58,8 +58,12 @@ The output is a sequence of vertices in the order in which they were pushed on t
 `Sample Output`
 
 ```default
-0 1 5 2 3 4
+0 1 5 2 3 4 
 ```
+
+**There is a trailing whitespace at the end of the line in the output.**
+
+Note. This was a worked out example and the code is [here](https://replit.com/@neeldhara/Lab08-P1-solution#main.c). Please note that there some very minor changes from the version discussed in class to account for proper ordering of vertices. In particular, in the stack implementation, to make sure that you are visiting the lowest-indexed neighbor, the vertices need to be added to the adjacency list in reverse sorted order.
 
 :::
 

@@ -2,7 +2,7 @@
 css: /css/teaching.css
 toc: false
 sidebar: false
-title: ES242. Data Structures and Algorithms I. Exam 01
+title: ES242. Data Structures and Algorithms I. Exam 02
 code-copy: true
 ---
 
@@ -24,7 +24,7 @@ Issued: 31 Mar, 2023
 
 We will have Exam 2 at the usual classroom venue. The exam will be released on Gradescope by 9PM, and will be available until 10:30PM.
 
-Part 1 consists of 5 multiple choice questions, worth 2 points each.
+Part 1 consists of 5 multiple choice questions, worth 2 points each and is available directly on Gradescope.
 
 Part 2 consists of 3 programming assignments, worth 3, 3, and 4 points respectively.
 
@@ -39,6 +39,186 @@ Useful resources that you can access during the exam:
 
 
 :::
+
+
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Shortest Distance
+
+Given an undirected graph $G = (V,E)$ and two specified vertices $s$ and $t$, determine the length of the shortest path between $s$ and $t$, where the length of a path is defined as the number of edges on the path. 
+
+Hint: start a BFS at $s$. The BFS layer number of $t$ is the answer, where the layer number of vertex $s$ is $0$. If $t$ does not appear in the BFS traversal starting from $s$, then there no path from $s$ to $t$.
+
+
+### Input Format
+
+
+The first line of input is three space-separated integers `n`, `m`, `s` and `t`, denoting the number of vertices and edges of `G`, and the id of the source vertex and the target vertex, respectively. Vertices are indexed from `0` to `n-1`.
+
+The next `m` lines of code are two space separated integers `u` and `v` in the range `0` and `n-1`, indicating an (undirected) edge between vertices `u` and `v`.
+
+The last line is a pair of space-separated integers `x` and `y`.
+
+### Output Format
+
+The output is formatted as follows: if the BFS lasts for t rounds, there are t lines of output. The i-th line consists of a space-separated list of the vertices visited by BFS in the i-th round of the traversal in increasing order of labels.
+
+### Sample I/O
+
+`Sample Input`
+
+```default
+6 8 0 5
+0 1
+0 2
+0 3
+0 4
+5 1
+5 2
+5 3
+5 4
+```
+
+`Sample Output`
+
+```default
+2
+```
+
+:::
+
+
+:::{.callout-note icon="false"}
+
+## Problem 2. Bags of Pebbles
+
+Mahi and Brishti are playing with bags of pebbles. They have a row $a$ of $n$ bags of pebbles. The $i$-th bag has $a_i$ pebbles. The bags are given to the players in the order from the first bag to the $n$-th bag.
+
+If a bag has an even number of pebbles, Mahi grabs the bag. Otherwise, Brishti grabs the bag. Once a bag is grabbed, the number of pebbles in it gets added to the total number of pebbles of the player that took it.
+
+Mahi wants to show off, so he wants to reorder the array so that at any moment (except at the start when they both have no pebbles), Mahi will have strictly more pebbles than Brishti. Help Mahi find out if such a reordering exists.
+
+### Input
+
+- The first line of the input contains an integer $t(1 \leq t \leq 1000)-$ the number of test cases.
+- The first line of each test case contains a single integer $n(1 \leq n \leq 100)$ - the number of bags in the array.
+- The second line of each test case contains $n$ space-separated integers $a_i\left(1 \leq a_i \leq 100\right)$ - the number of pebbles in each bag.
+
+### Output
+
+For each test case, output "YES" (without quotes) if such a reordering exists, and "NO" (without quotes) otherwise.
+
+### Sample Input/Output
+
+`Sample Input`
+
+```default
+3
+4
+1 2 3 4
+4
+1 1 1 2
+3
+1 4 3
+```
+
+`Sample Output`
+
+```default
+YES
+NO
+NO
+```
+
+Note
+In the first test case, Mahi can reorder the array as follows: $[4,1,2,3]$. Then the process proceeds as follows:
+- the first bag has 4 pebbles, which is even, so Mahi takes it - Mahi has 4 pebbles, and Brishti has 0 .
+- the second bag has 1 pebbles, which is odd, so Brishti takes it - Mahi has 4 pebbles, and Brishti has 1.
+- the third bag has 2 pebbles, which is even, so Mahi takes it - Mahi has 6 pebbles, and Brishti has 1 .
+- the fourth bag has 3 pebbles, which is odd, so Brishti takes it - Mahi has 6 pebbles, and Brishti has 4.
+Since Mahi always has more pebbles than Brishti, this reordering works.
+:::
+
+:::{.callout-note icon="false"}
+
+## Problem 3. Learning Languages
+
+IITGN has $n$ students. These students can use $m$ languages for correspondence. The languages are numbered with integers from $1$ to $m$. For each student we have the list of languages, which s/he knows. This list could be empty, i. e. a student may know no languages. But the students are willing to learn any number of languages, as long as the IITGN pays for their lessons. A study course in one language for one student costs 5000 rupees.
+
+Find the minimum sum of money the IITGN needs to spend so as any student could talk to any other one (their correspondence can be indirect, i. e. other students can help out translating).
+
+Hint. Translate this into a graph where you have $n$ vertices representing the students and $m$ vertices representing languages. If this graph is fully connected then no money needs to be spent. Otherwise think of how much it costs to connect all the connected components of the graph. Which components do you need to worry about? Think about the special case when all students know no languages.
+
+### Input
+
+The first line contains two integers $n$ and $m$ $(2 \leqslant n, m \leqslant 100)$ — the number of students and the number of languages.
+
+Then $n$ lines follow — each student's language list. At the beginning of the $i$-th line is integer ki $(0 \leqslant k_i \leqslant m)$ — the number of languages the i-th student knows. Next, the $i$-th line contains $k_i$ integers — $a_{ij}$ $(1 \leqslant aij \leqslant m)$ — the identifiers of languages the $i$-th student knows. It is guaranteed that all the identifiers in one list are distinct. Note that an student may know zero languages.
+
+The numbers in the lines are separated by single spaces.
+
+### Output
+
+Print a single integer — the minimum amount of money to pay so that in the end every student could communicate with every other one (other students can help out translating).
+
+### Sample Input/Output
+
+
+`Sample Input`
+```default
+5 5
+1 2
+2 2 3
+2 3 4
+2 4 5
+1 5
+```
+
+`Sample Output`
+```default
+0
+```
+
+`Sample Input`
+```default
+8 7
+0
+3 1 2 3
+1 1
+2 5 4
+2 6 7
+1 3
+2 7 4
+1 1
+```
+
+`Sample Output`
+```default
+2
+```
+
+`Sample Input`
+```default
+2 2
+1 2
+0
+```
+
+`Sample Output`
+```default
+1
+```
+
+
+### Note
+
+In the second sample the student 1 can learn language 2, and student 8 can learn language 4.
+
+In the third sample student 2 must learn language 2.
+
+:::
+
 
 
 

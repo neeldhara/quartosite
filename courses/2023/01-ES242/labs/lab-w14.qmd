@@ -20,6 +20,8 @@ Heaps
 
 
 
+:::{.callout-note collapse="true" icon="false"}
+
 ### Problem 1. Build Heap by Insertions
 
 You are given an array `arr` of length `n`. The array is represented in the form of a complete binary tree. A representation of an array as a binary tree is said to be _heap compatible_ if it follows the following features:
@@ -32,6 +34,7 @@ Consider the array below:
 arr[] = {5,6,89,9,45,7,1}
 ```
 The _heap compatible_ representation of `arr[]` is as follows:
+
 ```
       5
       /\
@@ -40,7 +43,7 @@ The _heap compatible_ representation of `arr[]` is as follows:
    9 45 7 1
 ```
 
-### Task:
+### Task
 You are given an array representation of a _heap compatible_ binary tree. You have to construct a **max-heap** data structure using the given array. Return the BFS traversal of the data. Build the heap using iterated insertions.
 
 <br>
@@ -54,7 +57,7 @@ The next line contains `n` space-separated integers representing a _heap compati
 ### Output Format
 Return `n` space-separated integers that represent the max-heap.
 
-<hr>
+---
 
 ### Sample I/O
 
@@ -69,7 +72,9 @@ Return `n` space-separated integers that represent the max-heap.
 ```
 10 4 3 2 1
 ```
+:::
 
+:::{.callout-note collapse="true" icon="false"}
 
 ### Problem 2. Heapify
 
@@ -105,7 +110,7 @@ The next line contains `n` space-separated integers representing a _heap compati
 ### Output Format
 Return `n` space-separated integers that represent the max-heap.
 
-<hr>
+---
 
 ### Sample I/O
 
@@ -121,8 +126,6 @@ Return `n` space-separated integers that represent the max-heap.
 10 5 3 4 1
 ```
 
-<hr>
-
 `Sample Input 2`
 ```
 11
@@ -134,7 +137,7 @@ Return `n` space-separated integers that represent the max-heap.
 17 15 13 9 6 5 10 4 8 3 1
 ```
 
-
+:::
 
 
 

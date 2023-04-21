@@ -28,19 +28,6 @@ listing:
     field-types:
       dateissued: date
       due: date
-  - id: assignments-listing
-    contents: materials-assignments.yml
-    sort: issuedate asc
-    page-size: 100
-    type: table
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    feed: false
-    template: ../../materials-assessments.ejs
-    field-types:
-      dateissued: date
-      due: date
   - id: quizzes-listing
     contents: materials-quizzes.yml
     sort: issuedate asc
@@ -151,7 +138,7 @@ By appointment.
 :::{.callout-important collapse="true" icon="false"}
 
 ##### Evaluation policy
-- Each of the three exams account for 20% of the grade. The first and last exams will be pen-and-paper exams, while the second exam will be a lab exam.
+- Each of the three exams account for 20% of the grade. The first exam will be pen-and-paper exams, the second exam will be a lab exam, and the third exam will be a viva.
 
 - Labs for Weeks 1 --- 4 count for two points each on an all-or-none basis. The seven problems in labs for Weeks 6,8 and 10 have seven problems worth 2 points each. Labs for Weeks 12 and 13 will count for two points each on an all-or-none basis.  The total number of points you can earn from quizzes and assignments combined is capped at 20.
 

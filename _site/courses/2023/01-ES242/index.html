@@ -119,34 +119,6 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-assignments-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-lecid','listing-title','listing-problemset','listing-solutions',{ data: ['index'] },{ data: ['categories'] }],
-      
-      searchColumns: ["listing-lecid","listing-title","listing-problemset","listing-solutions"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-assignments-listing'] = new List('listing-assignments-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-quizzes-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -523,7 +495,7 @@ Evaluation policy
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Each of the three exams account for 20% of the grade. The first and last exams will be pen-and-paper exams, while the second exam will be a lab exam.</p></li>
+<li><p>Each of the three exams account for 20% of the grade. The first exam will be pen-and-paper exams, the second exam will be a lab exam, and the third exam will be a viva.</p></li>
 <li><p>Labs for Weeks 1 — 4 count for two points each on an all-or-none basis. The seven problems in labs for Weeks 6,8 and 10 have seven problems worth 2 points each. Labs for Weeks 12 and 13 will count for two points each on an all-or-none basis. The total number of points you can earn from quizzes and assignments combined is capped at 20.</p></li>
 <li><p>Quizzes 2, 3, and 4 count for 2 points each. Assignments 1, 2, and 3 count for 7 points each. The total number of points you can earn from quizzes and assignments combined is capped at 20.</p></li>
 <li><p>There is no mandatory attendance requirement for this course, although it is strongly recommended that you attend classes, labs, and the ADH sessions.</p></li>
@@ -814,7 +786,7 @@ Registration &amp; Logistics
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>16. Sorting Algorithms [W10]</strong><br>
-                <p>Selection Sort • Properties of sorting algorithms</p>
+                <p>Examples of Sorting Algorithms • Properties of sorting algorithms</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
@@ -1164,64 +1136,13 @@ No matching items
             <td class="listing-due">
             </td>
         </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="31 03 2023">            
-            <td class="listing-date">
-                31 Mar, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>W12. Sorting Algorithms</strong><br>
-                <p>TBA</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="07 04 2023">            
             <td class="listing-date">
                 07 Apr, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>W13. Heaps</strong><br>
-                <p>TBA</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="14 04 2023">            
-            <td class="listing-date">
-                14 Apr, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>W14. Binary Search Trees - I</strong><br>
-                <p>TBA</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="21 04 2023">            
-            <td class="listing-date">
-                21 Apr, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>W15. Binary Search Trees - II</strong><br>
-                <p>TBA</p>
+                <p>Heap operations (ExtractMax, Delete, Insert) • Heapify • Heapsort</p>
             </td>
             <td class="listing-problemset">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
@@ -1437,71 +1358,7 @@ No matching items
 
 
 
-<div class="quarto-listing quarto-listing-container-custom" id="listing-assignments-listing">
-
-<table class="quarto-listing-table table">
-    <thead>
-        <tr><td>Issued</td>
-        <td>Assessment</td>
-        <td>Problem Set</td>
-        <td>Solutions</td>
-        <td>Due</td>
-    </tr></thead>
-    <tbody class="list">
-        <tr data-index="0" data-categories="null">            
-            <td class="listing-date">
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Assignment 1</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">            
-            <td class="listing-date">
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Assignment 2</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">            
-            <td class="listing-date">
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Assignment 3</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
 
 <script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>

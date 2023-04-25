@@ -10,7 +10,69 @@
 <atom:link href="https://www.neeldhara.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.2.262</generator>
-<lastBuildDate>Sat, 25 Mar 2023 18:30:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 24 Apr 2023 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Course Plan Generator</title>
+  <link>https://www.neeldhara.com/blog/course-plan/index.html</link>
+  <description><![CDATA[ 
+<script src="plan.js"></script>
+<style>
+    .checkbox-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .custom-button {
+        background-color: darkseagreen;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .custom-button:hover {
+        background-color: seagreen;
+    }
+</style>
+
+
+
+
+<p>If you are</p>
+<ol type="a">
+<li>teaching a course at IIT Gandhinagar next term (Aug-Dec 2023),</li>
+<li>working on your course plan, and</li>
+<li>need a list of dates on which you have classes,</li>
+</ol>
+<p>then you can use the generator below to get a list, by checking your teaching days.</p>
+<p>Dates during Exam I (Sep 02 – 06, 2023), Exam II (Oct 11 – 15, 2023), and the mid-sem recess (Oct 21 - 29, 2023) are excluded. Holidays are excluded too, but <em>restricted holidays are not</em>. If you need to view the holidays, you can indicate as much via the checkbox below.</p>
+<p>For those outside IITGN: a standalone version is <a href="https://classplan.neeldhara.repl.co/">here</a> and the source is <a href="https://github.com/neeldhara/ClassPlan/tree/main">here</a>, in case you’d like to adapt this to your own context.</p>
+<div>
+<form>
+<input type="checkbox" id="monday" name="day">&nbsp;Monday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="tuesday" name="day">&nbsp;Tuesday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="wednesday" name="day">&nbsp;Wednesday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="thursday" name="day">&nbsp;Thursday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="friday" name="day">&nbsp;Friday
+</form>
+</div>
+<br> <label><input type="checkbox" id="includeHolidays" name="includeHolidays"> Include Holidays</label> <br> <label><input type="checkbox" id="indicateRestrictedHolidays"> Indicate Restricted Holidays</label> <br> <br> <button class="custom-button" onclick="generateDates()"> Generate Dates for Course Plan </button> <br><br>
+<div class="sourceCode" style="background: #f1f3f5;">
+<pre class="sourceCode plaintext code-with-copy"><code class="sourceCode plaintext" id="datesList">
+</code>
+</pre>
+</div>
+
+
+
+ ]]></description>
+  <category>workflow</category>
+  <guid>https://www.neeldhara.com/blog/course-plan/index.html</guid>
+  <pubDate>Mon, 24 Apr 2023 18:30:00 GMT</pubDate>
+</item>
 <item>
   <title>13 Sheep</title>
   <link>https://www.neeldhara.com/blog/13sheep/index.html</link>
@@ -2547,76 +2609,6 @@ I really don’t like the illusion that there is one process for making and that
   <category>exposition</category>
   <guid>https://www.neeldhara.com/blog/moving-blocks-ctis/index.html</guid>
   <pubDate>Mon, 20 Sep 2021 18:30:00 GMT</pubDate>
-</item>
-<item>
-  <title>An Invitation to Exportober 2021</title>
-  <link>https://www.neeldhara.com/blog/exportober/2021/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="callout-note callout callout-style-simple no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>📝 Update: You can now track everyone’s progress <a href="../2021-tracker/">from here</a>!</p>
-</div>
-</div>
-</div>
-<div class="callout-tip callout callout-style-simple no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>You can also check out a little more about the format, intent and background <a href="../about/">here</a>.</p>
-</div>
-</div>
-</div>
-</div></div><p>As you can see — at least at the time of this writing — this is a blog under construction with some mild ambition, going by the long list of empty categories on the homepage.</p>
-<p>I’ve heard a lot about the effectiveness of something something <em>public</em> something something <em>accountability</em>, so I’m going to give this a shot: if there’s anyone else who wants a bit of a jumpstart and encouragement for getting into the habit of putting stuff out there, this is for you!</p>
-<p>Presenting the EXPress yOuR Thoughts, i.e, export, challenge.</p>
-<p>Here be some rules, or not, make this your own!</p>
-<ol type="1">
-<li>Put something out there — could be an essay, a video, a sketchnote, some code, a piece of music, a photograph — I think the only criteria is that this should be something you put together that you feel compelled to share, and something that can be accessed via a public URL. I suppose quotes and curated round-ups are good too, but ideally you want this to be something that has a bit of you in it.</li>
-<li>Share it on Twitter with #exportober (umm, the export challenge in October 😬 … it had to be something that wasn’t already taken so I can scrape it off and put it up in one place, and everyone participating can keep an eye out on others participating — the general hope is that everyone finds themselves encouraged by everyone else 🎉).</li>
-<li>I’m going to find a way of listing everything that comes up starting <strong>27th September</strong>. This gives you five weeks until the end of October. Try and get something up everyday - this puts the challenge in the Export Challenge 😀 That said, allowing ourselves one cheat day per week means that we all hopefully end up with 30 things by the 30th of October. Yays 🤞</li>
-<li>Since I’ll hopefully find a way of tracking all the content tagged this way and automatically pushing it to a page where we can find it all in one place, please don’t put up anything illegal or damaging. Other than this, practically anything goes, but please do respect the basic idea, which is is to build up some positive vibes and keep this a fun exercise!</li>
-</ol>
-<p>So I hope you spend the coming week getting setup — figure out what you want to do and how you’ll do it, and maybe even cheating a little and preparing some buffer content for the rainy days? We’ve already had some great suggestions for tools you can use to get started:</p>
-<div class="grid">
-<div class="g-col-6">
-<blockquote class="twitter-tweet blockquote" data-conversation="none">
-<p lang="en" dir="ltr">
-GitHub pages is great for this. I don't use Markdown, but it still works as a quick, lightweight publishing system, automatic ssh setup, etc. Since I store the content on GitHub anyway, everything is nicely unified.
-</p>
-— ShriramKrishnamurthi (<span class="citation" data-cites="ShriramKMurthi">@ShriramKMurthi</span>) <a href="https://twitter.com/ShriramKMurthi/status/1439625380055425033?ref_src=twsrc%5Etfw">September 19, 2021</a>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div class="g-col-6">
-<blockquote class="twitter-tweet blockquote" data-conversation="none">
-<p lang="en" dir="ltr">
-May not commit for mutual accountability :) But a suggestion.<br><br>Instead of blogging platforms, how about markdown/Jupyter notebooks in a github repo and/or short code/docs as github gists?<br><br>Can use versioning to improve - no need to get the content "right" at the first "publish".
-</p>
-— A. Sundararajan (<span class="citation" data-cites="sundararajan_a">@sundararajan_a</span>) <a href="https://twitter.com/sundararajan_a/status/1439609462759706627?ref_src=twsrc%5Etfw">September 19, 2021</a>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-</div>
-<div class="page-columns page-full"><p>Throw in your Twitter username in the form below to add your name to the list of people who <del>are thinking about</del> will be participating! The list will evolve automatically below, and I’ll probably clean it out of spurious entries manually every so often. </p><div class="no-row-height column-margin column-container"><span class="">Thanks to everyone who participated! The form is no longer relevant, but you can check out the posts by looking for #exportober on Twitter :)</span></div></div>
-
-
-
- ]]></description>
-  <category>exportober</category>
-  <guid>https://www.neeldhara.com/blog/exportober/2021/index.html</guid>
-  <pubDate>Sat, 18 Sep 2021 18:30:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

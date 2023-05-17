@@ -1,0 +1,122 @@
+---
+title: "1. Storing Files on a Tape"
+date: "2023-05-16"
+categories: [algonotes, lecturenotes]
+fields: [date, title]
+page-layout: full
+toc: true
+order: 1
+include-before-body:
+  text: |
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+---
+
+:::{.callout-note}
+# Acknowledgements
+This write up is borrowed (with minor adaptations) from Chapter 4 of [Jeff Erickson](http://jeffe.cs.illinois.edu/)'s [textbook on Algorithms](http://jeffe.cs.illinois.edu/teaching/algorithms/). The interactive illustrations were generated with assistance from ChatGPT (the May 12 version).
+:::
+
+### The Problem
+
+Suppose we have a set of $n$ files that we want to store on magnetic tape^[Just in case you have not heard of them, here's [Wikipedia on magnetic tapes](https://en.wikipedia.org/wiki/Magnetic_tape#:~:text=Magnetic%20tape%20is%20a%20medium,magnetic%20wire%20recording%20from%20Denmark.) :)]. In the future, users will want to read those files from the tape. Reading a file from tape isn't like reading a file from disk; first we have to fast-forward past all the other files, and that takes a significant amount of time. Let $L[1 \ldots n]$ be an array listing the lengths of each file; specifically, file $i$ has length $L[i]$. If the files are stored in order from 1 to $n$, then the cost of accessing the $k$ th file is
+
+$$
+\operatorname{cost}(k)=\sum_{i=1}^{k} L[i] .
+$$
+
+The cost reflects the fact that before we read file $k$ we must first scan past all the earlier files on the tape. If we assume for the moment that each file is equally likely to be accessed, then the expected cost of searching for a random file is
+
+$$
+\mathrm{E}[\operatorname{cost}]=\sum_{k=1}^{n} \frac{\operatorname{cost}(k)}{n}=\frac{1}{n} \sum_{k=1}^{n} \sum_{i=1}^{k} L[i] \text {. }
+$$
+
+If we change the order of the files on the tape, we change the cost of accessing the files; some files become more expensive to read, but others become cheaper. Different file orders are likely to result in different expected costs. Specifically, let $\pi(i)$ denote the index of the file stored at position $i$ on the tape. Then the expected cost of the permutation $\pi$ is
+
+$$
+\mathrm{E}[\operatorname{cost}(\pi)]=\frac{1}{n} \sum_{k=1}^{n} \sum_{i=1}^{k} L[\pi(i)]
+$$
+
+Which order should we use if we want this expected cost to be as small as possible? Try this yourself in the demonstration below. The tape is the grey rectangle, and the files are the colored boxes below it. The widths of the boxes are proportional to the file lengths. Double-click to get a file outside the tape to push it on the tape, and double-click a file on the tape to remove it. Can you match the optimal cost?
+
+<div style="align:center; margin: 0 auto; width: 50%; padding-top: 25px; padding-bottom: 25px;">
+<div id="container">
+  <div id="tape" class="tape"></div>
+  <div id="storage" class="storage"></div>
+  <div id="sumDisplay" class="sum-display">Average: 0</div>
+  <div id="target">Target: </div>
+  <div id="message">Keep going until all pieces are on the tape...</div>
+</div>
+</div>
+
+After some playing around, you may have come to the conclusion that you should sort the files by increasing length. Indeed, the length of the first file shows up the _most frequently_ in the expression we are trying to optimize, while the length of the last file shows up just once: so it seems clear that the larger files should be pushed to the end.
+
+However --- and especially so with greedy approaches --- intuition is a tricky beast. The only way to be sure that this order works is to actually prove that it works!
+
+### Greedy Works Out
+
+:::{.callout-tip}
+# Correctness of Greedy - I
+**Lemma.** $\mathrm{E}[\operatorname{cost}(\pi)]$ is minimized when $L[\pi(i)] \leq L[\pi(i+1)]$ for all $i$.
+
+Suppose $L[\pi(i)]>L[\pi(i+1)]$ for some index $i$. To simplify notation, let $a=\pi(i)$ and $b=\pi(i+1)$. If we swap files $a$ and $b$, then the cost of accessing $a$ increases by $L[b]$, and the cost of accessing $b$ decreases by $L[a]$. Overall, the swap changes the expected cost by $(L[b]-L[a]) / n$. But this change is an improvement, because $L[b]<L[a]$. Thus, if the files are out of order, we can decrease the expected cost by swapping some mis-ordered pair of files.
+:::
+
+Try dragging the borders below to see how changes in file sizes impacts the average cost.
+
+<div style="align:center; align-items: center; margin: 0 auto; width: 50%; padding-top: 25px; padding-bottom: 25px;">
+<div id="container2">
+<div class="region" id="region1">105</div>
+<div class="divider"></div>
+<div class="region" id="region2">105</div>
+<div class="divider"></div>
+<div class="region" id="region3">105</div>
+<div class="divider"></div>
+<div class="region" id="region4">105</div>
+</div>
+<div style="width:420px;">
+<p id="cost" style="text-align:center;">Current Cost: 262.5</p>
+<p id="optimal-cost" style="text-align:center;">Optimal Cost: 262.5</p>
+</div>
+</div>
+
+This is our first example of a correct greedy algorithm. To minimize the total expected cost of accessing the files, we put the file that is cheapest to access first, and then recursively write everything else; no backtracking, no dynamic programming, just make the best local choice and blindly plow ahead. If we use an efficient sorting algorithm, the running time is clearly $O(n \log n)$, plus the time required to actually write the files. To show that the greedy algorithm is actually correct, we proved that the output of any other algorithm can be improved by some sort of exchange.
+
+
+### Frequencies
+
+Let's generalize this idea further. Suppose we are also given an array $F[1 \ldots n]$ of access frequencies for each file; file $i$ will be accessed exactly $F[i]$ times over the lifetime of the tape. Now the total cost of accessing all the files on the tape is
+
+$$
+\Sigma \cos t(\pi)=\sum_{k=1}^{n}\left(F[\pi(k)] \cdot \sum_{i=1}^{k} L[\pi(i)]\right)=\sum_{k=1}^{n} \sum_{i=1}^{k}(F[\pi(k)] \cdot L[\pi(i)]) .
+$$
+
+As before, reordering the files can change this total cost. So what order should we use if we want the total cost to be as small as possible? (This question is similar in spirit to the optimal binary search tree problem, but the target data structure and the cost function are both different, so the algorithm must be different, too.)
+
+We already proved that if all the frequencies are equal, we should sort the files by increasing size. If the frequencies are all different but the file lengths $L[i]$ are all equal, then intuitively, we should sort the files by decreasing access frequency, with the most-accessed file first. 
+
+:::{.callout-caution}
+# Food For Thought
+Prove this formally by adapting the proof from the previous discussion.
+:::
+
+But what if the sizes and the frequencies both vary? In this case, we should sort the files by the ratio $L / F$.
+
+:::{.callout-tip}
+# Correctness of Greedy - II
+
+**Lemma.** $\Sigma \operatorname{cost}(\pi)$ is minimized when $\frac{L[\pi(i)]}{F[\pi(i)]} \leq \frac{L[\pi(i+1)]}{F[\pi(i+1)]}$ for all $i$.
+
+Proof: Suppose $L[\pi(i)] / F[\pi(i)]>L[\pi(i+1)] / F[\pi(i+i)]$ for some index $i$. To simplify notation, let $a=\pi(i)$ and $b=\pi(i+1)$. If we swap files $a$ and $b$, then the cost of accessing $a$ increases by $L[b]$, and the cost of accessing $b$ decreases by $L[a]$. Overall, the swap changes the total cost by $L[b] F[a]-L[a] F[b]$. But this change is an improvement, because
+
+$$
+\frac{L[a]}{F[a]}>\frac{L[b]}{F[b]} \Longleftrightarrow L[b] F[a]-L[a] F[b]<0 .
+$$
+
+Thus, if any two adjacent files are out of order, we can improve the total cost by swapping them.
+:::
+
+
+

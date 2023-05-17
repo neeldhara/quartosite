@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2022-11-26">
 
-<title>Neeldhara - Stable Matchings</title>
+<title>Neeldhara - 3. Stable Matchings</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -275,7 +275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Stable Matchings</h1>
+      <h1 class="quarto-secondary-nav-title">3. Stable Matchings</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -303,12 +303,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/dsanotes/introduction/index.html" class="sidebar-item-text sidebar-link">Data Structures and Structured Data</a>
+  <a href="../../../materials/dsanotes/stable-matchings/index.html" class="sidebar-item-text sidebar-link active">3. Stable Matchings</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/dsanotes/stable-matchings/index.html" class="sidebar-item-text sidebar-link active">Stable Matchings</a>
+  <a href="../../../materials/dsanotes/introduction/index.html" class="sidebar-item-text sidebar-link">Data Structures and Structured Data</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -352,7 +352,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references">References</a></li>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem">The Problem</a></li>
+  <li><a href="#developing-a-solution" id="toc-developing-a-solution" class="nav-link" data-scroll-target="#developing-a-solution">Developing a Solution</a></li>
+  <li><a href="#the-algorithm-and-its-properties" id="toc-the-algorithm-and-its-properties" class="nav-link" data-scroll-target="#the-algorithm-and-its-properties">The Algorithm and its Properties</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -361,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Stable Matchings</h1>
+<h1 class="title d-none d-lg-block">3. Stable Matchings</h1>
   <div class="quarto-categories">
     <div class="quarto-category">dsanotes</div>
     <div class="quarto-category">lecturenotes</div>
@@ -386,6 +389,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<section id="the-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-problem">The Problem</h3>
 <p>The problem of pairing up people and/or resources shows up a lot:</p>
 <ul>
 <li>Matching students who graduate high school to seats in various colleges.</li>
@@ -578,6 +583,10 @@ Verifying that a matching is stable.
 <li>If not: can we efficiently find matchings that minimize the number of blocking pairs?</li>
 </ul></li>
 </ul>
+<p>This is a good place to pause and ponder!</p>
+</section>
+<section id="developing-a-solution" class="level3">
+<h3 class="anchored" data-anchor-id="developing-a-solution">Developing a Solution</h3>
 <p>It turns out that (somewhat surprisingly!) stable matchings indeed always exist!</p>
 <p>The algorithm for finding a stable matching works as follows. To begin with, we say that all men and women are <em>single</em>, i.e, unmatched to anyone so far.</p>
 <p>Anticipating our need for stability, we take a greedy approach: the men attempt to match up to their best option by <em>proposing</em> to them. But notice that this may not be immediately workable: possibly multiple men have the same choice for their top option. This puts the ball in the woman’s court, so to speak, and again in the interest of being eventually stable, it’s intuitive that the woman will choose to align with the best offer she has among the proposals she’s recieved.</p>
@@ -600,7 +609,10 @@ Verifying that a matching is stable.
 <blockquote class="blockquote">
 <p>Any woman who was not single at the end of the first round remains engaged at the end of the second round as well.</p>
 </blockquote>
-<p>Men, on the other hand, may become single again. At this point, we simply continue as before: at the end of every round, the single men continue to propose to their current best option, and the women continue to accept the best offer that they have. We continue this until there are no</p>
+<p>Men, on the other hand, may become single again. At this point, we simply continue as before: at the end of every round, the single men continue to propose to their current best option, and the women continue to accept the best offer that they have. We continue this until there are no single men left.</p>
+</section>
+<section id="the-algorithm-and-its-properties" class="level3">
+<h3 class="anchored" data-anchor-id="the-algorithm-and-its-properties">The Algorithm and its Properties</h3>
 <p>Here’s pseudocode (borrowed from Wikipedia) summarizing the algorithm, which is due to Gale and Shapley. The version below is morally equivalent to our description above, except that all proposals happen one by one, and it turns out that this way of looking at it simplifies the analysis.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode pascal code-with-copy"><code class="sourceCode pascal"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>algorithm stable_matching <span class="kw">is</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    Initialize m ∈ M <span class="kw">and</span> w ∈ W <span class="kw">to</span> free</span>
@@ -666,8 +678,9 @@ The GS matching is weakly PO
 </div>
 </div>
 <p>We state these claims above without proof. The interested reader should look them up!</p>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
 <p><a href="https://www.youtube.com/watch?v=Qcv1IqHWAzg">Numberphile video about the algorithm</a></p>
 <p><a href="https://www.youtube.com/watch?v=LtTV6rIxhdo">Numberphile video about the proof</a></p>
 <p><a href="https://cse.buffalo.edu/faculty/atri/courses/331/fall14/handouts/GS-details.pdf">Notes on implementation details</a></p>

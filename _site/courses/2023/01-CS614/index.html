@@ -91,34 +91,6 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-assignments-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-title','listing-problemset','listing-solutions','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
-      
-      searchColumns: ["listing-lecid","listing-dateissued","listing-title","listing-problemset","listing-solutions","listing-due"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-assignments-listing'] = new List('listing-assignments-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-quizzes-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -154,9 +126,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-title','listing-problemset','listing-solutions','listing-due',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-lecid','listing-dateissued','listing-due','listing-title','listing-problemset',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
       
-      searchColumns: ["listing-lecid","listing-dateissued","listing-title","listing-problemset","listing-solutions","listing-due"],
+      searchColumns: ["listing-lecid","listing-dateissued","listing-due","listing-title","listing-problemset"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -475,29 +447,16 @@ Timings and Venue
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Lectures on Mondays and Wednesdays • 2PM — 3:30PM • 7/206</p>
-</div>
-</div>
-</div>
-<div class="callout-caution callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-TAs and Office hours
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Office Hours: By email.</p>
-<p>TAs TBA.</p>
+<ul>
+<li>Lectures on Mondays: 9PM — 10:30PM (7/206)</li>
+<li>Lectures on Wednesdays: 2PM — 3:30PM (7/206)</li>
+<li>Office Hours: By email.</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -506,7 +465,7 @@ Evaluation policy
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>Each of the three exams account for 20% of the grade.</li>
@@ -517,7 +476,7 @@ Evaluation policy
 </div>
 </div>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -526,15 +485,15 @@ Register
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>For IITGN students, (pre-)register through IMS as usual.</p>
+<p>For IITGN students, (pre-)register through IMS as usual and on Gradescope via course code 485628.</p>
 <p>If you are not from IITGN and are interested in taking up the course, then please send me an email.</p>
 </div>
 </div>
 </div>
 <div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Lectures</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Assignments</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Quizzes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Exams</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Lectures</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Quizzes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Exams</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Reflections</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div id="listing-lectures-listing" class="quarto-listing quarto-listing-container-custom">
@@ -985,89 +944,13 @@ No matching items
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>
-These are some practice assignments: the due date is simply the recommended completion deadline. There is no need to submit these assignments.
-</p>
-<div id="listing-assignments-listing" class="quarto-listing quarto-listing-container-custom">
-
-<table class="quarto-listing-table table">
-    <thead>
-        <tr><td>Issued</td>
-        <td>Assessment</td>
-        <td>Problem Set</td>
-        <td>Solutions</td>
-        <td>Due</td>
-    </tr></thead>
-    <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="11 01 2023" data-listing-due-sort="01 02 2023">            
-            <td class="listing-date">
-                11 Jan, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Assignment 1</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    01 Feb, 2023
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="20 02 2023" data-listing-due-sort="20 03 2023">            
-            <td class="listing-date">
-                20 Feb, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Assignment 2</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    20 Mar, 2023
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="03 04 2023" data-listing-due-sort="26 04 2023">            
-            <td class="listing-date">
-                03 Apr, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Assignment 3</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    26 Apr, 2023
-            </td>
-        </tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div id="listing-quizzes-listing" class="quarto-listing quarto-listing-container-custom">
 
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Issued</td>
         <td>Assessment</td>
-        <td>Problem Set</td>
+        <td>Problems</td>
         <td>Solutions</td>
         <td>Due</td>
     </tr></thead>
@@ -1333,31 +1216,13 @@ No matching items
                 <p>Reductions from 3-Partition</p>
             </td>
             <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                    <a href="../../../courses/2023/01-CS614/quizzes/L20.html"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
                 </td>
             <td class="listing-solutions">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
                     29 Mar, 2023
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="03 04 2023" data-listing-due-sort="03 04 2023">            
-            <td class="listing-date">
-                03 Apr, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Lower Bounds</strong><br>
-                <p>SAT and Circuit SAT • CNF SAT • 3SAT • 3SAT-4 • Monotone 3SAT • Polynomial-time variants</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    03 Apr, 2023
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="05 04 2023" data-listing-due-sort="05 04 2023">            
@@ -1369,121 +1234,13 @@ No matching items
                 <p>Schaefer's Dichotomy Theorem • 2-colorable perfect matching</p>
             </td>
             <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                    <a href="../../../courses/2023/01-CS614/quizzes/L22.html"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
                 </td>
             <td class="listing-solutions">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
                     05 Apr, 2023
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 04 2023" data-listing-due-sort="10 04 2023">            
-            <td class="listing-date">
-                10 Apr, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Lower Bounds</strong><br>
-                <p>Parameterized Intractability • The W-hierarchy • Reductions from CLIQUE</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    10 Apr, 2023
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="12 04 2023" data-listing-due-sort="12 04 2023">            
-            <td class="listing-date">
-                12 Apr, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Lower Bounds</strong><br>
-                <p>Kernel Lower Bounds • Composition and Distillation • Examples of compositions • Parameter preserving transformations</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    12 Apr, 2023
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="17 04 2023" data-listing-due-sort="17 04 2023">            
-            <td class="listing-date">
-                17 Apr, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Lower Bounds</strong><br>
-                <p>The (Strong) Exponential Time Hypothesis • Sparsification Lemma • Implications for parameterized algorithms</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    17 Apr, 2023
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="19 04 2023" data-listing-due-sort="19 04 2023">            
-            <td class="listing-date">
-                19 Apr, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Lower Bounds</strong><br>
-                <p>Reductions based on the ETH</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    19 Apr, 2023
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="24 04 2023" data-listing-due-sort="24 04 2023">            
-            <td class="listing-date">
-                24 Apr, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Lower Bounds</strong><br>
-                <p>Inapproximability Introduction • NP optimization problems • PTAS, APX • Stronger notions of reductions that preserve approximability • APX-hardness of vertex cover</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    24 Apr, 2023
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="26 04 2023" data-listing-due-sort="26 04 2023">            
-            <td class="listing-date">
-                26 Apr, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Lower Bounds</strong><br>
-                <p>Gap Inapproximability • Gap Problems • Gap-producing and gap-preserving reductions • PCP theorem • Unique Games Conjecture</p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-                    26 Apr, 2023
             </td>
         </tr>
 </tbody>
@@ -1493,21 +1250,21 @@ No matching items
 </div>
 </div>
 </div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div id="listing-exams-listing" class="quarto-listing quarto-listing-container-custom">
 
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Issued</td>
         <td>Assessment</td>
-        <td>Problem Set</td>
+        <td>Problems</td>
         <td>Solutions</td>
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
-        <tr data-index="0" data-categories="null">            
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="18 02 2023" data-listing-due-sort="18 02 2023">            
             <td class="listing-date">
-                TBA
+                18 Feb, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Exam 1</strong><br>
@@ -1520,12 +1277,12 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    -
+                    18 Feb, 2023
             </td>
         </tr>
-        <tr data-index="0" data-categories="null">            
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="27 03 2023" data-listing-due-sort="09 04 2023">            
             <td class="listing-date">
-                TBA
+                27 Mar, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Exam 2</strong><br>
@@ -1538,25 +1295,25 @@ No matching items
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    -
+                    09 Apr, 2023
             </td>
         </tr>
-        <tr data-index="0" data-categories="null">            
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="26 04 2023" data-listing-due-sort="27 04 2023">            
             <td class="listing-date">
-                TBA
+                26 Apr, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Exam 3</strong><br>
                 <p></p>
             </td>
             <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                    <a href="exams/E03.html"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
                 </td>
             <td class="listing-solutions">
                     <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
                 </td>
             <td class="listing-due">
-                    -
+                    27 Apr, 2023
             </td>
         </tr>
 </tbody>
@@ -1565,6 +1322,21 @@ No matching items
 No matching items
 </div>
 </div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>This course had seven attendees, and included Btech/Mtech/PhD students.</p>
+<p>I’d like to thank everyone for keeping all the classes — which were all traditional whiteboard lectuers — very interactive, and frequently helping me out with several arguments. Everyone also put in a lot of effort everyone into the various assessments: kudos on your successful completion of the course!</p>
+<div id="hyvor-talk-view">
+
+</div>
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6232;
+    var HYVOR_TALK_CONFIG = {
+        url: false,
+        id: false
+    };
+</script>
+<script async="" type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script>
 </div>
 </div>
 </div>

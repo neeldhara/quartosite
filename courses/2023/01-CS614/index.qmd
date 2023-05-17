@@ -14,19 +14,6 @@ listing:
     filter-ui: false
     feed: false
     template: ../../materials.ejs
-  - id: assignments-listing
-    contents: materials-assignments.yml
-    sort: issueddate asc
-    page-size: 100
-    type: table
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    feed: false
-    template: ../../materials-assessments.ejs
-    field-types: 
-      dateissued: date
-      due: date
   - id: quizzes-listing
     contents: materials-quizzes.yml
     sort: issueddate asc
@@ -50,6 +37,9 @@ listing:
     filter-ui: false
     feed: false
     template: ../../materials-assessments.ejs
+    field-types: 
+      dateissued: date
+      due: date
 date-format: DD MMM, YYYY
 ---
 
@@ -122,15 +112,11 @@ Specific Pointers:
 :::{.callout-caution collapse="true" icon="false"}
 
 ##### Timings and Venue
-Lectures on Mondays and Wednesdays • 2PM --- 3:30PM • 7/206
+- Lectures on Mondays: 9PM --- 10:30PM  (7/206)
+- Lectures on Wednesdays: 2PM --- 3:30PM  (7/206)
+- Office Hours: By email.
 
-:::
-:::{.callout-caution collapse="true" icon="false"}
 
-##### TAs and Office hours
-Office Hours: By email.
-
-TAs TBA.
 :::
 :::{.callout-important collapse="true" icon="false"}
 
@@ -143,24 +129,15 @@ TAs TBA.
 :::{.callout-important collapse="true" icon="false"}
 
 ##### Register
-For IITGN students, (pre-)register through IMS as usual. 
+For IITGN students, (pre-)register through IMS as usual and on Gradescope via course code 485628.
 
 If you are not from IITGN and are interested in taking up the course, then please send me an email.
-
 :::
 
 ::: {.panel-tabset}
 ## Lectures
 
 ::: {#lectures-listing}
-:::
-
-
-## Assignments
-
-<p>These are some practice assignments: the due date is simply the recommended completion deadline. There is no need to submit these assignments.</p>
-
-::: {#assignments-listing}
 :::
 
 ## Quizzes
@@ -173,6 +150,21 @@ If you are not from IITGN and are interested in taking up the course, then pleas
 ::: {#exams-listing}
 :::
 
+## Reflections
+
+This course had seven attendees, and included Btech/Mtech/PhD students. 
+
+I'd like to thank everyone for keeping all the classes --- which were all traditional whiteboard lectuers --- very interactive, and frequently helping me out with several arguments. Everyone also put in a lot of effort everyone into the various assessments: kudos on your successful completion of the course!
+
+<div id="hyvor-talk-view"></div>
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6232;
+    var HYVOR_TALK_CONFIG = {
+        url: false,
+        id: false
+    };
+</script>
+<script async type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script>
 
 :::
 

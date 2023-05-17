@@ -1,0 +1,50 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: CS614. Advanced Algorithms. L20 Quiz.
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## CS614. Advanced Algorithms. 
+
+##### L20 Quiz
+
+[Back to the course page](../index.qmd)
+
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Monotone Satisfiability with Few True Variables
+
+Consider an instance of the Satisfiability Problem, specified by clauses $C_1, \ldots, C_k$ over a set of Boolean variables $x_1, \ldots, x_n$. We say that the instance is monotone if each term in each clause consists of a nonnegated variable; that is, each term is equal to $x_i$, for some $i$, rather than $\bar{x}_i$. Monotone instances of Satisfiability are very easy to solve: They are always satisfiable, by setting each variable equal to 1 .
+For example, suppose we have the three clauses
+$$
+\left(x_1 \vee x_2\right),\left(x_1 \vee x_3\right),\left(x_2 \vee x_3\right) .
+$$
+This is monotone, and indeed the assignment that sets all three variables to 1 satisfies all the clauses. But we can observe that this is not the only satisfying assignment; we could also have set $x_1$ and $x_2$ to 1 , and $x_3$ to 0 . Indeed, for any monotone instance, it is natural to ask how few variables we need to set to 1 in order to satisfy it.
+
+Given a monotone instance of Satisfiability, together with a number $k$, the problem of Monotone Satisfiability with Few True Variables asks: Is there a satisfying assignment for the instance in which at most $k$ variables are set to 1? 
+
+Prove this problem is NP-complete. Hint: reduce from vertex cover.
+
+
+:::
+
+
+:::{.callout-note icon="false"}
+
+# Problem 2. ALL-or-NOTHING-3SAT
+
+The problem ALL-or-NOTHING-3SAT asks, given a 3CNF boolean formula, whether there is an assignment to the variables such that each clause either has three TRUE literals or has three FALSE literals.
+
+1. Describe a polynomial-time algorithm to solve ALL-or-NOTHING-3SAT.
+
+2. But 3SAT is NP-hard! Why doesn't the existence of this algorithm prove that P=NP?
+
+:::
+
+
+:::

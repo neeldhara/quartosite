@@ -1,0 +1,36 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: CS614. Advanced Algorithms. L22 Quiz.
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## CS614. Advanced Algorithms. 
+
+##### L22 Quiz
+
+[Back to the course page](../index.qmd)
+
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Hall Set
+
+Given a bipartite graph $G$ with bipartite classes $A, B \subseteq V(G)$ and an integer $k$, the Hall SET problem asks for a Hall set of size at most $k$, that is, a set $S \subseteq A$ of size at most $k$ such that $|N(S)|<|S|$. Show that HalL SET is W[1]-hard.
+
+---
+
+Hint: Reduce from Clique. Given a graph $G$, we construct a bipartite graph where class $A$ corresponds to the edges of $G$ and class $B$ corresponds to the vertices of $B$; the vertex of $A$ corresponding to edge $u v$ of $G$ is adjacent to the two vertices $u, v \in B$. Additionally, we introduce a set of ${k \choose 2}-k-1$ vertices into $B$ and make them adjacent to every vertex of $A$. 
+
+Show that every Hall set of size at most ${k \choose 2}$ has size exactly ${k \choose 2}$ and corresponds to the edges of a $k$-clique in $G$.
+
+
+
+:::
+
+
+
+:::

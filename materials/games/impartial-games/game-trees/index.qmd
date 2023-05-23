@@ -1,0 +1,153 @@
+---
+title: "1. Game Trees"
+date: "2023-05-16"
+categories: [algonotes, lecturenotes]
+fields: [date, title]
+page-layout: full
+toc: true
+order: 1
+include-after-body:
+  text: |
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+    <script src="gametree.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+include-before-body:
+  text: |
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Hurricane&family=Luckiest+Guy&display=swap"
+---
+
+:::{.callout-note}
+# Acknowledgements
+This write up is based on material from Sections 0.1 --- 0.3 of [Kyle Burke](http://kyleburke.info/) and [Craig Tennenhouse](https://craigtennenhouse.uneportfolio.org/)'s [textbook on Playing wiht Discrete Mathematics](http://kyleburke.info/PlayingWithDiscreteMath.pdf). The interactive games were generated with assistance from ChatGPT (the May 12 version).
+:::
+
+## Main Ideas
+
+We are going to play some games, and analyze them! Informally speaking, our games consist of:
+
+- two players who take turns to play
+- a setup that describes the state of the game at the beginning
+- a ruleset that describe the moves that are available to the players, and a description of how these rules affect the state of the game
+- a winning condition: typically, the player who has no valid moves loses
+
+For now, there will be no probabilities involved (so Poker does not fit the bill above), and no skills required to execute the moves (so Cricket is not our kind of game here).
+
+The two players have several names by which we may refer to them:
+
+- first player, second player
+- left player, right player
+- Alice, Bob
+- Lata, Raj
+
+A winning strategy for any player is a powerful thing: it's a way for the player to respond to every move of the opponent in a manner that guarantees a win. You can think of a _strategy_ as a function that maps game states to valid moves, and a _winning strategy_ is a strategy which, if followed, always ends in a win for the player employing it. Instead of saying “Player X has a winning strategy”, we will just say “Player X wins”, or in question form, “Does player X win?” --- even though it may be technically possible for a player to throw a game, we will always assume optimal play unless mentioned otherwise.
+
+## Subtraction
+
+Here's our first game: 
+
+:::{.callout-tip}
+# Subtraction
+Subtraction is a game played on a heap of tokens. The game begins with `N` tokens on a pile.
+
+- Each turn, the current player can remove either `1`,`2`, or `3` tokens from the pile, provided enough tokens exist. 
+- When the pile is empty there are no available moves. 
+- The player with no valid moves left loses.
+:::
+
+You can play this game below: the number of tokens that we start with is chosen randomly, so you should have a new game every time you referesh this page :)
+
+<div class="game-container" style="border: 1px solid black; margin: 0 auto; width: 500px; height: 500px; display: flex;">
+<canvas id="gameCanvas" width="420" height="420"></canvas>
+<div class="game-content" style="border: 1px solid black; position: absolute; margin: 0 auto; ">
+<div id="centralBox"></div>
+<div class="button-container">
+<button onclick="updateNumber(1)">1</button>
+<button onclick="updateNumber(2)">2</button>
+<button onclick="updateNumber(3)">3</button>
+</div>
+<p></p>
+<p id="whoseTurn">Lata's turn to move.</p>
+</div>
+</div>
+<p></p>
+
+Here's a more general version of the game where the number of tokens you are allowed to remove is not `1`,`2`,`3`; but `1`, `a` and `b`, where `a` and `b` are distinct numbers chosen randomly between `2` and `10`. As before, it is a new game every time you referesh this page.
+
+
+<div class="game-container2" style="border: 1px solid black; margin: 0 auto; width: 500px; height: 500px; display: flex;">
+<canvas id="gameCanvas2" width="420" height="420"></canvas>
+<div class="game-content2" style="border: 1px solid black; position: absolute; margin: 0 auto; ">
+<div id="centralBox2"></div>
+<div class="button-container2">
+<button onclick="updateNumber2(1)">1</button>
+<button onclick="updateNumber2(2)"></button>
+<button onclick="updateNumber2(3)"></button>
+</div>
+<p></p>
+<p id="whoseTurn2">Lata's turn to move.</p>
+</div>
+</div>
+<p></p>
+
+Let us refer to the player whose turn it is as the `current player`, and the player who is up next as the `other player`. Coming back to the (`1`,`2`,`3`)-Subtraction game, note that:
+
+- If there are no tokens, the position is losing for the `current player`.
+- If the number of tokens is `1`, `2`, or `3`, the position is winning for the `current player`.
+- If the number of tokens is `4`, the position is losing for the `current player`. (Why?)
+
+
+Can you generalize the reasoning above?
+
+
+## Game Trees
+
+A _game tree_ is a useful representation of game states over all possible progressions of game play from the start. In particular:
+
+- The root represents the starting state of the game.
+- If the state of the game represented by a node $x$ has $t$ valid moves --- say $m_1, \ldots, m_t$ for the `current player`, then:
+  - $x$ has $t$ children $y_1, \ldots, y_t$
+  - the node $y_i$ represents the state of the game that is obtained from $x$ if the move $m_i$ is made by the `current player`
+
+Note the the leaf nodes are terminal states of the game, this is where there are no moves remaining to be made. Observe that:
+
+- Every leaf node is a losing position for the `current player`
+- An internal node is winning for the `current player` if and only if it has a child node that is losing for the `current player` (Why?)
+
+You can build out the game tree for (`1`,`a`,`b`)-Subtraction starting with `n` tokens, by supplying the values of `a`, `b`, and `n` below. The red nodes represent positions that are losing for the `current player` (equivalently, winning for the `other player`), while the green nodes represent positions that are winning for the `current player` (equivalently, losing for the `other player`). 
+
+:::{.callout-caution}
+## Heads up!
+
+Note that the nodes collapse on click, but unfortunately do not retain the correct color state on collapse. <br>
+This is a caveat that should be fixed soon!
+:::
+
+<form id="myForm">
+<label for="numA">a:</label> &nbsp;&nbsp;&nbsp;
+<input type="number" id="numA" name="numA" min="2" max="10" value="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label for="numB">b:</label> &nbsp;&nbsp;&nbsp;
+<input type="number" id="numB" name="numB" min="2" max="10" value="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label for="numN">n:</label> &nbsp;&nbsp;&nbsp;
+<input type="number" id="numN" name="numN" min="2" max="10" value="7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="submit" value="Submit">
+</form> 
+
+<div id="output"></div>
+
+---
+
+## Summary
+
+What we saw here:
+
+- The concept of a turn-based, two-player game with perfect information.
+- The notion of winning strategies and positions.
+- The idea of a game tree.
+
+Next time, we will discuss decomposing games into "disjoint unions" of smaller games.

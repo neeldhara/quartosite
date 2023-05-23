@@ -98,9 +98,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-lecid','listing-date','listing-title','listing-slides','listing-notes','listing-summary',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-lecid','listing-date','listing-title','listing-slides','listing-notes','listing-video','listing-summary',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-lecid","listing-date","listing-title","listing-slides","listing-notes","listing-summary"],
+      searchColumns: ["listing-lecid","listing-date","listing-title","listing-slides","listing-notes","listing-video","listing-summary"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -940,6 +940,7 @@ No matching items
         <td>Slides</td>
         <td>Notes</td>
         <td>Video</td>
+        <td>Recap</td>
     </tr></thead>
     <tbody class="list">
         <tr data-index="0" data-categories="null" data-listing-date-sort="1684693800000">            
@@ -948,11 +949,16 @@ No matching items
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>1. Impartial Game Trees</strong><br>
-                <p>(0.1 in PWDM)</p>
+                <p>(0.1, 0.2, 0.3 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <a href="slides/Day-01.pdf"><i class="bi bi-file-earmark-slides"></i></a>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <a href="../../../materials/games/impartial-games/game-trees/"><i class="bi bi-journal-richtext"></i></a>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=oQeYyESww4s"><i class="bi bi-film"></i></a>
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -962,12 +968,16 @@ No matching items
                 23 May, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>2. Impartial Outcome Classes</strong><br>
-                <p>(0.2 in PWDM)</p>
+                <strong>2. Game Sums</strong><br>
+                <p>(0.4, 0.5 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=5pTZ-ussThU"><i class="bi bi-film"></i></a>
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -977,12 +987,15 @@ No matching items
                 24 May, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>3. Trimming Game Trees</strong><br>
-                <p>(0.3 in PWDM)</p>
+                <strong>3. Nimbers and Nim Sums</strong><br>
+                <p>(0.6, 0.7 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -992,72 +1005,15 @@ No matching items
                 25 May, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>4. Game Sums</strong><br>
-                <p>(0.4 in PWDM)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1685039400000">            
-            <td class="listing-date">
-                26 May, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>5. Tweedledum and Tweedledee</strong><br>
-                <p>(0.5 in PWDM)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1685125800000">            
-            <td class="listing-date">
-                27 May, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>6. Nimbers</strong><br>
-                <p>(0.6 in PWDM)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1685212200000">            
-            <td class="listing-date">
-                28 May, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>7. Nim Sums</strong><br>
-                <p>(0.7 in PWDM)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1685298600000">            
-            <td class="listing-date">
-                29 May, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>08. Other Impartial Games</strong><br>
+                <strong>4. Other Impartial Games</strong><br>
                 <p>(0.8 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1067,12 +1023,15 @@ No matching items
                 30 May, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>09. Sequences of impartial game values</strong><br>
+                <strong>5. Sequences of impartial game values</strong><br>
                 <p>(0.9 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1082,12 +1041,15 @@ No matching items
                 31 May, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>10. Geography</strong><br>
+                <strong>6. Geography</strong><br>
                 <p>(1.1 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1097,12 +1059,15 @@ No matching items
                 01 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>11. Undirected Edge Geography</strong><br>
+                <strong>7. Undirected Edge Geography</strong><br>
                 <p>(1.2 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1112,12 +1077,15 @@ No matching items
                 02 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>12. Directed Geography</strong><br>
+                <strong>08. Directed Geography</strong><br>
                 <p>(1.3 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1127,12 +1095,15 @@ No matching items
                 03 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>13. Partisan Game Notation</strong><br>
+                <strong>09. Partisan Game Notation</strong><br>
                 <p>(2.1 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1142,12 +1113,15 @@ No matching items
                 04 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>14. Game Trees and Outcome Classes</strong><br>
+                <strong>10. Game Trees and Outcome Classes</strong><br>
                 <p>(2.2 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1157,12 +1131,15 @@ No matching items
                 05 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>15. Partisan Game Sums</strong><br>
+                <strong>11. Partisan Game Sums</strong><br>
                 <p>(2.3 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1172,12 +1149,15 @@ No matching items
                 06 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>16. Negatives and Equality</strong><br>
+                <strong>12. Negatives and Equality</strong><br>
                 <p>(2.4 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1187,12 +1167,15 @@ No matching items
                 07 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>17. Inequalities</strong><br>
+                <strong>13. Inequalities</strong><br>
                 <p>(2.5 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1202,12 +1185,15 @@ No matching items
                 08 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>18. Dominated Options</strong><br>
+                <strong>14. Dominated Options</strong><br>
                 <p>(2.6 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1217,12 +1203,15 @@ No matching items
                 09 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>19. Integers</strong><br>
+                <strong>15. Integers</strong><br>
                 <p>(3.1 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1232,12 +1221,15 @@ No matching items
                 10 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>20. Simplest Numbers</strong><br>
+                <strong>16. Simplest Numbers</strong><br>
                 <p>(3.2 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1247,12 +1239,15 @@ No matching items
                 11 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>21. Switches</strong><br>
+                <strong>17. Switches</strong><br>
                 <p>(3.3 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1262,12 +1257,15 @@ No matching items
                 12 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>22. Other rational game value</strong><br>
+                <strong>18. Other rational game value</strong><br>
                 <p>(3.4 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1277,12 +1275,15 @@ No matching items
                 13 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>23. Infinitesimals</strong><br>
+                <strong>19. Infinitesimals</strong><br>
                 <p>(3.5 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1292,12 +1293,15 @@ No matching items
                 14 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>24. They-Love-Me-They-Love-Me-Nc</strong><br>
+                <strong>20. They-Love-Me-They-Love-Me-Nc</strong><br>
                 <p>(4.1 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1307,12 +1311,15 @@ No matching items
                 15 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>25. Determining Winnability</strong><br>
+                <strong>21. Determining Winnability</strong><br>
                 <p>(4.2 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1322,12 +1329,15 @@ No matching items
                 16 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>26. Which Move Should we Make?</strong><br>
+                <strong>22. Which Move Should we Make?</strong><br>
                 <p>(4.3 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1337,12 +1347,15 @@ No matching items
                 17 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>27. More strategy stealing.</strong><br>
+                <strong>23. More strategy stealing.</strong><br>
                 <p>(4.4 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1352,12 +1365,15 @@ No matching items
                 18 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>28. Card games</strong><br>
+                <strong>24. Card games</strong><br>
                 <p>(5.1 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1367,12 +1383,15 @@ No matching items
                 19 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>29. Dice and role-playing games</strong><br>
+                <strong>25. Dice and role-playing games</strong><br>
                 <p>(5.2 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1382,12 +1401,15 @@ No matching items
                 20 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>30. Birthdays</strong><br>
+                <strong>26. Birthdays</strong><br>
                 <p>(6.1 in PWDM)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1397,12 +1419,15 @@ No matching items
                 21 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>31. SUMMARY OF PART I</strong><br>
+                <strong>27. SUMMARY OF PART I</strong><br>
                 <p></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1412,12 +1437,15 @@ No matching items
                 22 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>32. Introducing Complexity Classes and Constraint</strong><br>
+                <strong>28. Introducing Complexity Classes and Constraint</strong><br>
                 <p>Logic  (1 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1427,12 +1455,15 @@ No matching items
                 23 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>33. Constraint Graphs</strong><br>
+                <strong>29. Constraint Graphs</strong><br>
                 <p>(2.1 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1442,12 +1473,15 @@ No matching items
                 24 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>34. Planar Constraint Graphs</strong><br>
+                <strong>30. Planar Constraint Graphs</strong><br>
                 <p>(2.2 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1457,12 +1491,15 @@ No matching items
                 25 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>35. Constraint-Graph Conversion Techniques</strong><br>
+                <strong>31. Constraint-Graph Conversion Techniques</strong><br>
                 <p>(2.3 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1472,12 +1509,15 @@ No matching items
                 26 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>36. Zero-Player Games (Simulations)</strong><br>
+                <strong>32. Zero-Player Games (Simulations)</strong><br>
                 <p>(3.1 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1487,12 +1527,15 @@ No matching items
                 27 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>37. One-Player Games (Puzzles)</strong><br>
+                <strong>33. One-Player Games (Puzzles)</strong><br>
                 <p>(3.2 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1502,12 +1545,15 @@ No matching items
                 28 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>38. Two-Player Games</strong><br>
+                <strong>34. Two-Player Games</strong><br>
                 <p>(3.3 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1517,12 +1563,15 @@ No matching items
                 29 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>39. Team Games</strong><br>
+                <strong>35. Team Games</strong><br>
                 <p>(3.4 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1532,12 +1581,15 @@ No matching items
                 30 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>40. Bounded Games (Zero-Player)</strong><br>
+                <strong>36. Bounded Games (Zero-Player)</strong><br>
                 <p>(4.1 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1547,12 +1599,15 @@ No matching items
                 01 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>41. Unbounded Games (Zero-Player)</strong><br>
+                <strong>37. Unbounded Games (Zero-Player)</strong><br>
                 <p>(4.2 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1562,12 +1617,15 @@ No matching items
                 02 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>42. Bounded Games (One-Player)</strong><br>
+                <strong>38. Bounded Games (One-Player)</strong><br>
                 <p>(5.1 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1577,12 +1635,15 @@ No matching items
                 03 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>43. Unbounded Games (One-Player)</strong><br>
+                <strong>39. Unbounded Games (One-Player)</strong><br>
                 <p>(5.2 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1592,12 +1653,15 @@ No matching items
                 04 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>44. Bounded Games (Two-Player)</strong><br>
+                <strong>40. Bounded Games (Two-Player)</strong><br>
                 <p>(6.1 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1607,12 +1671,15 @@ No matching items
                 05 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>45. Unbounded Games (Two-Player)</strong><br>
+                <strong>41. Unbounded Games (Two-Player)</strong><br>
                 <p>(6.2 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1622,12 +1689,15 @@ No matching items
                 06 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>46. No-Repeat Games (Two-Player)</strong><br>
+                <strong>42. No-Repeat Games (Two-Player)</strong><br>
                 <p>(6.3 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1637,12 +1707,15 @@ No matching items
                 07 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>47. Bounded Games (Team)</strong><br>
+                <strong>43. Bounded Games (Team)</strong><br>
                 <p>(7.1 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1652,12 +1725,15 @@ No matching items
                 08 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>48. Unbounded Games (Team)</strong><br>
+                <strong>44. Unbounded Games (Team)</strong><br>
                 <p>(7.2 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1667,12 +1743,15 @@ No matching items
                 09 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>49. TipOver</strong><br>
+                <strong>45. TipOver</strong><br>
                 <p>(9.1 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1682,12 +1761,15 @@ No matching items
                 10 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>50. Hitori</strong><br>
+                <strong>46. Hitori</strong><br>
                 <p>(9.2 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1697,12 +1779,15 @@ No matching items
                 11 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>51. Sliding-Block Puzzles</strong><br>
+                <strong>47. Sliding-Block Puzzles</strong><br>
                 <p>(9.3 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1712,12 +1797,15 @@ No matching items
                 12 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>52. The Warehouseman’s Problem</strong><br>
+                <strong>48. The Warehouseman’s Problem</strong><br>
                 <p>(9.4 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1727,12 +1815,15 @@ No matching items
                 13 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>53. Sliding-Coin Puzzles</strong><br>
+                <strong>49. Sliding-Coin Puzzles</strong><br>
                 <p>(9.5 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1742,12 +1833,15 @@ No matching items
                 14 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>54. Plank Puzzles</strong><br>
+                <strong>50. Plank Puzzles</strong><br>
                 <p>(9.6 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1757,12 +1851,15 @@ No matching items
                 15 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>55. Sokoban</strong><br>
+                <strong>51. Sokoban</strong><br>
                 <p>(9.7 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1772,12 +1869,15 @@ No matching items
                 16 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>56. Push-2-F</strong><br>
+                <strong>52. Push-2-F</strong><br>
                 <p>(9.8 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1787,12 +1887,15 @@ No matching items
                 17 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>57. Rush Hour</strong><br>
+                <strong>53. Rush Hour</strong><br>
                 <p>(9.9 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1802,12 +1905,15 @@ No matching items
                 18 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>58. Triangular Rush Hour</strong><br>
+                <strong>54. Triangular Rush Hour</strong><br>
                 <p>(9.10 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1817,12 +1923,15 @@ No matching items
                 19 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>59. Hinged Polygon Dissections</strong><br>
+                <strong>55. Hinged Polygon Dissections</strong><br>
                 <p>(9.11 in GPC)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1832,12 +1941,15 @@ No matching items
                 20 Jul, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>60. SUMMARY OF PART II</strong><br>
+                <strong>56. SUMMARY OF PART II</strong><br>
                 <p></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <i class="bi bi-alarm" style="color:indianred;"></i>
+            </td>
+            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>

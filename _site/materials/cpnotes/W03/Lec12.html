@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-01">
+
+<title>Neeldhara - M 3 (Stable Marriage-II)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">M 3 (Stable Marriage-II)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../materials/cpnotes/index.html" class="sidebar-item-text sidebar-link">Competitive Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">W01</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec01.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec03.html" class="sidebar-item-text sidebar-link">M 03 (Numbers Game)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec02.html" class="sidebar-item-text sidebar-link">M 2 (Reversort Engineering)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec04.html" class="sidebar-item-text sidebar-link">M 4 (Will It Stop?)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec00.html" class="sidebar-item-text sidebar-link">Welcome and Initial Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">W02</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec05.html" class="sidebar-item-text sidebar-link">M 1 (Trouble Sort)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec06.html" class="sidebar-item-text sidebar-link">M 2 (The Meeting Place Cannot be</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec07.html" class="sidebar-item-text sidebar-link">M 3 (Magic Ship)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec8.html" class="sidebar-item-text sidebar-link">M 4 (Simple Skewness)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">W03</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec9.html" class="sidebar-item-text sidebar-link">M 1 (Pancake Flipping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec10.html" class="sidebar-item-text sidebar-link">M 2 (Islands War)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec11.html" class="sidebar-item-text sidebar-link">M 3 (Stable Marriage-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec12.html" class="sidebar-item-text sidebar-link active">M 3 (Stable Marriage-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec13.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Coin</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec14.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Guarding a</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec15.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Traveling</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">W04</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec17.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction-Part II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec18.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction-Part III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec16.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec19.html" class="sidebar-item-text sidebar-link">M 2 (Destroying Array-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec20.html" class="sidebar-item-text sidebar-link">M 2 (Destroying Array-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec21.html" class="sidebar-item-text sidebar-link">M 3 (War-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec22.html" class="sidebar-item-text sidebar-link">M 3 (War-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec23.html" class="sidebar-item-text sidebar-link">M 3 (War-III)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">W05</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec25.html" class="sidebar-item-text sidebar-link">M 1 (BFS and DFS)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec24.html" class="sidebar-item-text sidebar-link">M 1 (Graph Traversals)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec26.html" class="sidebar-item-text sidebar-link">M 2 (Mahmoud and Ehab and the</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec27.html" class="sidebar-item-text sidebar-link">M 3 (Cover It!)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec28.html" class="sidebar-item-text sidebar-link">M 4 (Diamond Inheritance)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">W06</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec31.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm-Sending Email)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec29.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec30.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec32.html" class="sidebar-item-text sidebar-link">M 1 (Modified Dijkstra)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec33.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec34.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec35.html" class="sidebar-item-text sidebar-link">M 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec36.html" class="sidebar-item-text sidebar-link">M 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">W07</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec37.html" class="sidebar-item-text sidebar-link">M 1 (Blingor’s Network | Foundations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec39.html" class="sidebar-item-text sidebar-link">M 1 (Kruskal’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec38.html" class="sidebar-item-text sidebar-link">M 1 (Prim’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec40.html" class="sidebar-item-text sidebar-link">M 2 (Cherries Mesh)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec41.html" class="sidebar-item-text sidebar-link">M 3 (Hierarchy)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec42.html" class="sidebar-item-text sidebar-link">M 4 (Island Hopping)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">W08</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec44.html" class="sidebar-item-text sidebar-link">M 1 (Ford-Fulkerson for Max Flow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec45.html" class="sidebar-item-text sidebar-link">M 1 (Implementing Edmonds-Karp)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec43.html" class="sidebar-item-text sidebar-link">M 1 (Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec46.html" class="sidebar-item-text sidebar-link">M 2 (Maximum Matching via MaxFlow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec47.html" class="sidebar-item-text sidebar-link">Sport Elimination via MaxFlow</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">W09</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec48.html" class="sidebar-item-text sidebar-link">MaxFlow-MinCut Duality</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec50.html" class="sidebar-item-text sidebar-link">Minimum Vertex Cover via Max Flow | SAM I AM (UVA 11419)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec49.html" class="sidebar-item-text sidebar-link">Police Chase</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">W10</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec53.html" class="sidebar-item-text sidebar-link">Bottom-Up DP | Dice Combinations (CSES Problem Set)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec52.html" class="sidebar-item-text sidebar-link">Introduction | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec51.html" class="sidebar-item-text sidebar-link">Memoization | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">M 3 (Stable Marriage-II)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cpnotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Lecture - 12</strong></p>
+<p><strong>Greedy Algorithms - Module 3 (Stable Marriage-II)</strong></p>
+<p>(Refer Slide Time: 00:11)</p>
+<p><img src="./Lec12_media/media/image5.png" style="width:3.13542in;height:1.5in"></p>
+<p>Hello, and welcome to this short follow-up video where we discuss the implementation for the ‘Stable Marriage’ problem that we discussed in the previous video. As I mentioned there, this problem is available both in the ICBC Regional Archives as well as the CodeChef problem archive. The code that I am going to share with you right now is tested on the CodeChef platform.</p>
+<p>If you want to run it on the ICPC platform instead, just make sure that you have appropriately adjusted for proper input-output. Make sure to double-check all the details at least once. With that said, let us get started. Our code for this problem is going to be in C++.</p>
+<p>(Refer Slide Time: 00:49)</p>
+<p><img src="./Lec12_media/media/image1.png" style="width:5.01042in;height:2.5625in"></p>
+<p>As usual, to begin with, we have the usual reading of input. We want to have 2N vectors to store the 2N rankings that have been given to us. The rankings are given as space-separated integers. The ‘men’ and the ‘women’ are represented as integers between 1 and N. The only little annoying detail to keep in mind is that the lines that give you the preferences begin with a number denoting whose preference it is.</p>
+<p>The first line is the first women’s preference, and it starts with a ‘1’ and is then followed by N integers between 1 to N in some order, which gives you the actual ranking. You have to remember to ignore this leading number. If you forget to do that, your algorithm is going to be all messed up. It is a very tiny detail, but just useful to note. That is why you have the stand-alone ‘cin’ person outside of the ‘for’ loop, which takes this input and does not really do anything with it. Then you read the rest of it into a vector.</p>
+<p>We have a collection of N vectors for the N women and a different collection of N vectors for the N men. You will notice that I am also reversing these rankings so that I have the top preferences at the end of the array. This just makes it easy for me to access the top choice that these people have because that is something that we will need to do frequently. But you can absolutely do this also without reversing the list. It would really be the same thing. It is a matter of minor details.</p>
+<p>All the heavy lifting is done in this ‘solve’ function. Let us go and try to understand what is happening in solve. It is going to use a few helper functions whose objectives will be self-explanatory. I will show you the helper functions at the very end, but I will show you the main function, the main solve function, to begin with.</p>
+<p>(Refer Slide Time: 02:44)</p>
+<p><img src="./Lec12_media/media/image3.png" style="width:3.11979in;height:1.66667in"></p>
+<p>Here, we are going to maintain a list of engagements in the arrays or the vectors WE and ME. So, WE[i] is going to store the current partner of the (i+1)<sup>th</sup> woman, and ME[i] stores the current partner of the (i+1)<sup>th</sup> man. The reason this is off by 1 is because the men and the women in the problem statement are denoted as numbers between 1 and N whereas these arrays are indexed from 0 to N minus 1. That is why the offset. Just keep in mind that this is what is happening.</p>
+<p>To begin with, if you remember also from the pseudocode, everybody is free. There are no engagements. Nobody is matched to anybody. We will use -1 to denote that somebody is currently single. The initialization is clearly that everybody is single. That is what is happening here.</p>
+<p>(Refer Slide Time: 03:39)</p>
+<p><img src="./Lec12_media/media/image2.png" style="width:4.42188in;height:2.58333in"></p>
+<p>Now, we turn to the main logic of actually creating the matching. The first thing we said was that as long as there is a single man left, who still has to propose to somebody, we are going to go ahead and actually execute that proposal. We have this helper function, which tells us if there are any single people remaining, and you could examine either of the arrays because WE and ME are symmetric in reflecting the matched state of all the people involved.</p>
+<p>We could pass either of them to the ‘singlesRemaining’ helper function. This helper function will return true if there is at least 1 person who is still single at this point and will return false otherwise. Hopefully, this ‘while’ statement makes sense. If there is at least 1 person remaining, who is single, we enter the loop. Then we go over the list of all men. In particular, we focus on those men who are currently single. That is the ‘for’ loop under ‘if’ block here.</p>
+<p>If we have a man who is single, so if ME[i] is -1, which is to say that the (i+1)<sup>th</sup> man is currently single, then we want this man to propose to the woman who is currently at the top of his list. That just essentially amounts to pulling back the last element of the array. Because remember, we said that we have reversed the preference list. The top element is really at the bottom of the array, or it is the last element of the array.</p>
+<p>That is what I am pulling in here and we have a -1 to adjust for the indexing. This is the correct index to refer to in the arrays that we are storing. Of course, what is being stored, is the number or the identity of the woman that this person likes the most currently. We remove this element from M[i]’s vector as well because we will have no need for it later. Remember that you always go further down in your preference list, and you never look back.</p>
+<p>This is just all about identifying the person that the (i+1)<sup>th</sup> man will propose to now. Once we are done with this, we actually try and look at what happens when the proposal is made. Here, we have to look at what is going on with the woman that we are now calling ‘top.’ For this woman, we have to distinguish between the cases of whether she is currently single or engaged. Let us do the easy case first.</p>
+<p>If this woman is currently single, then we go ahead and make the match. There is nothing else that needs to be done. The match can be immediately made. On the other hand, if the woman is currently engaged, then we have to compare the person that she is engaged to with the person who is making the proposal. Let us store in the variable ‘competitor,’ the current match of this woman, and now what we have to do is compare the competitor with the man ‘i+1.’</p>
+<p>We have another helper function ‘getRank,’ which tells us how the competitor is ranked, and how the current man is ranked. Remember all of these +1s and -1s are just adjusting for the indexing. If you read it carefully, you will see that all of it is consistent. We use the getRank function to retrieve the ranks of these two candidates in the preference list of the woman who is denoted by the variable top and we compare these two ranks.</p>
+<p>Remember that smaller ranks are going to be better. That is how the helper function is set up. If the man ‘i+1’ has a lower rank, then that means that the current engagement needs to be broken, and the previous person that ‘top’ was engaged to, we need to signify that he is back in the single spool of men. We make sure to set the competitors index in the ME array to -1 and we also make sure that man ‘i+1’ is matched with top. That is going to happen with this match helper function. So, that is essentially the heart of the algorithm.</p>
+<p>That is all the business that we need to do. We check if the woman who is at the top of the (i+1)<sup>th</sup> man’s preference list is single or not. If she is single, we make the match immediately. If she is not single, then we compare the new match with the old one. If the new match is better then we break off the old engagement and make the new match. Otherwise, we do nothing, and the man who was making the proposal continues to remain single. We just walk out of the ‘else’ block without any work being done in that case. That is the entire algorithm more or less. The only thing left is to show you how the helper functions work.</p>
+<p>(Refer Slide Time: 08:26)</p>
+<p><img src="./Lec12_media/media/image4.png" style="width:4.20313in;height:2.5in"></p>
+<p>All of these helper functions are fairly standard. What getRank will do is, it will try to return the rank of the person in a given list. The reason we have N minus here is that we had reversed the list, to begin with. If you did not reverse the list, then you do not need to do this N minus calculation here. You can just directly return the location of the person in the list.</p>
+<p>Now, the way the ‘find’ function works is that it actually gives you an index and memory. You need to adjust that to get the actual rank. You could also use something like distance to figure out the rank. You can have your own version of the getRank function, depending on which built-in functions you use, and whether you reversed the list in the beginning or not. Your version may vary a little bit from what we have here.</p>
+<p>Just make sure that the way you index things — the way you number of things — is consistent between all the functions that you write. The singlesRemaining function is also really simple. It just boils down to identifying if the input array has a -1 or not. All we are doing here is just checking if there is an occurrence of -1 or not. If there is no occurrence of -1, we return false, otherwise, we return true.</p>
+<p>The exact conditional and this ‘if’ statement here is basically based on the documentation for the find functions. If the ‘find’ function returns an index, which is just after the last location of the array, that is the signal, that the thing that you were looking for was not found. That is what we have here. I am sure there are many other ways of writing this as well. Take your pick. Essentially, the logic that you need to implement is to return false if -1 was not found in the array. Any way you have of doing that should be just fine.</p>
+<p>The match function essentially updates the ‘engagements’ array to reflect that a particular man got matched with a particular woman. This is really simple. You need to go to the w<sup>th</sup> index in the women’s engagement array, and make sure that it is updated to ‘m.’ You need to go to the m<sup>th</sup> index in the men’s engagement array and make sure that it is updated to ‘w.’</p>
+<p>Again, you could make a choice here about whether you want to reflect the true identity of the person, or do you want to use the index that you are going to be using, which is going to be essentially the identity -1. Whatever you do is fine, as long as you are consistent in your code and how you use it. I have tried to be careful here, and I think everything here is reasonably robust. As usual, you can find the entire code here in the GitHub repository.</p>
+<p>If you have any feedback, then that would be absolutely very welcome. Also, if you manage to write this in a different language, please do submit a pull request so that we can add it to the official repository. With that, we come to the conclusion of the ‘Stable Marriage’ problem. I think I should quickly mention that the one thing I have not shown you on the slides is the output statement.</p>
+<p>If you are just working from the video, and you try to imitate all of this code, please do not forget to write your final output statement where you output the stable matching that you found. I think we are done here. Let us call this a wrap. We have one more module left, which is going to be an interesting one because we will not really discuss any more problems.</p>
+<p>We will, in fact, look at problems for which greedy strategies actually fail. Hopefully, that will serve as a useful warning for us to keep in mind when we are applying this very powerful but also very slippery sort of paradigm in contest programming. So, I will see you there. Thanks for watching and bye for now!</p>
+
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

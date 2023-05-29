@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-01">
+
+<title>Bellman-Ford | Negative</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">M 2 (Wormholes [Bellman-Ford | Negative</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../materials/cpnotes/index.html" class="sidebar-item-text sidebar-link">Competitive Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">W01</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec01.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec03.html" class="sidebar-item-text sidebar-link">M 03 (Numbers Game)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec02.html" class="sidebar-item-text sidebar-link">M 2 (Reversort Engineering)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec04.html" class="sidebar-item-text sidebar-link">M 4 (Will It Stop?)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec00.html" class="sidebar-item-text sidebar-link">Welcome and Initial Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">W02</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec05.html" class="sidebar-item-text sidebar-link">M 1 (Trouble Sort)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec06.html" class="sidebar-item-text sidebar-link">M 2 (The Meeting Place Cannot be</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec07.html" class="sidebar-item-text sidebar-link">M 3 (Magic Ship)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec8.html" class="sidebar-item-text sidebar-link">M 4 (Simple Skewness)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">W03</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec9.html" class="sidebar-item-text sidebar-link">M 1 (Pancake Flipping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec10.html" class="sidebar-item-text sidebar-link">M 2 (Islands War)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec11.html" class="sidebar-item-text sidebar-link">M 3 (Stable Marriage-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec12.html" class="sidebar-item-text sidebar-link">M 3 (Stable Marriage-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec13.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Coin Change)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec14.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Guarding a Museum)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec15.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Traveling Salesman)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">W04</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec17.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction-Part II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec18.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction-Part III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec16.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec19.html" class="sidebar-item-text sidebar-link">M 2 (Destroying Array-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec20.html" class="sidebar-item-text sidebar-link">M 2 (Destroying Array-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec21.html" class="sidebar-item-text sidebar-link">M 3 (War-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec22.html" class="sidebar-item-text sidebar-link">M 3 (War-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec23.html" class="sidebar-item-text sidebar-link">M 3 (War-III)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">W05</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec25.html" class="sidebar-item-text sidebar-link">M 1 (BFS and DFS)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec24.html" class="sidebar-item-text sidebar-link">M 1 (Graph Traversals)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec26.html" class="sidebar-item-text sidebar-link">M 2 (Mahmoud and Ehab and the bipartiteness)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec27.html" class="sidebar-item-text sidebar-link">M 3 (Cover It!)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec28.html" class="sidebar-item-text sidebar-link">M 4 (Diamond Inheritance)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">W06</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec31.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm-Sending Email)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec29.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec30.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec32.html" class="sidebar-item-text sidebar-link">M 1 (Modified Dijkstra)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec33.html" class="sidebar-item-text sidebar-link active">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec34.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec35.html" class="sidebar-item-text sidebar-link">M 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec36.html" class="sidebar-item-text sidebar-link">M 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">W07</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec37.html" class="sidebar-item-text sidebar-link">M 1 (Blingor’s Network | Foundations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec39.html" class="sidebar-item-text sidebar-link">M 1 (Kruskal’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec38.html" class="sidebar-item-text sidebar-link">M 1 (Prim’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec40.html" class="sidebar-item-text sidebar-link">M 2 (Cherries Mesh)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec41.html" class="sidebar-item-text sidebar-link">M 3 (Hierarchy)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec42.html" class="sidebar-item-text sidebar-link">M 4 (Island Hopping)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">W08</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec44.html" class="sidebar-item-text sidebar-link">M 1 (Ford-Fulkerson for Max Flow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec45.html" class="sidebar-item-text sidebar-link">M 1 (Implementing Edmonds-Karp)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec43.html" class="sidebar-item-text sidebar-link">M 1 (Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec46.html" class="sidebar-item-text sidebar-link">M 2 (Maximum Matching via MaxFlow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec47.html" class="sidebar-item-text sidebar-link">Sport Elimination via MaxFlow</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">W09</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec48.html" class="sidebar-item-text sidebar-link">MaxFlow-MinCut Duality</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec50.html" class="sidebar-item-text sidebar-link">Minimum Vertex Cover via Max Flow | SAM I AM (UVA 11419)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec49.html" class="sidebar-item-text sidebar-link">Police Chase</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">W10</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec53.html" class="sidebar-item-text sidebar-link">Bottom-Up DP | Dice Combinations (CSES Problem Set)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec52.html" class="sidebar-item-text sidebar-link">Introduction | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec51.html" class="sidebar-item-text sidebar-link">Memoization | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">M 2 (Wormholes [Bellman-Ford | Negative</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cpnotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Lecture - 33</strong></p>
+<p><strong>Shortest Paths - Module 2 (Wormholes [Bellman-Ford | Negative Cycles])</strong></p>
+<p>Welcome back to the second module of week six and Getting Started with Competitive Programming. So, in this module, I want to focus on the single-source shortest path problem, even in the presence of negative cycles. So we are going to be learning about an algorithm that is popularly known as the Bellman-Ford algorithm.</p>
+<p>And we are going to implement this in the context of a problem called ‘wormholes,’ which is available from the UVa platform. So this module is in two segments. In the first one, we will talk about the general algorithmic approach and in the second segment, we will introduce the problem statement for wormholes and also work through its implementation.</p>
+<p>(Refer Slide Time: 00:59)</p>
+<p><img src="./Lec33_media/media/image3.png" style="width:1.55729in;height:0.41667in"> <img src="./Lec33_media/media/image14.png" style="width:4.01563in;height:2.67708in"></p>
+<p>Okay, so just to recap what we have seen so far – We have broadly identified four different scenarios based on the nature of the weights on the edges. So the first one which is the simplest is when there are no weights at all or you could think of this as all the weights being uniform or set to one. And the slightly more general case is when we have non-negative edge weights.</p>
+<p>And then we have a situation where we allow for negative edge weights but we do not have negative cycles, and the final situation is when anything goes and you could also have negative cycles. Now in terms of what we have seen about what we can do for these scenarios, we did say that breadth-first search traversal which you saw last week already is a nice linear time algorithm for the first case and is the preferred approach when you do have a situation without edge weights.</p>
+<p>Now when you do not have negative edge weights, then you could use Dijkstra’s algorithm even in its original form. And when you have negative edge weights but no negative cycles, then a small modification to Dijkstra’s algorithm works and makes it an accurate algorithm for the situation. But one thing to note is that that comes at the price of the algorithm being potentially more expensive, especially on instances that do have negative edge weights.</p>
+<p>If you are looking at instances of the second category where there are no negative edge weights at all, then it does not matter which version you are working with, they have the same complexity. Okay, but we do know that even the modified version of Dijkstra’s algorithm will run into potentially an infinite loop if there is a negative weight cycle in the input graph.</p>
+<p>So as we said, the focus of this module is to really address the issue of negative cycles, and why are negative cycles such a problem. Well, first of all, a fundamental issue is that even the very notion of shortest paths becomes ill-defined when you have a negative cycle in the graph. So let us take a look at an example.</p>
+<p>(Refer Slide Time: 03:23)</p>
+<p><img src="./Lec33_media/media/image1.png" style="width:4.17188in;height:1.70833in"></p>
+<p>So here is a graph, and you can see that there is a cycle on the vertices S, A, C, B, in that order, and the total weight of the cycle is easily seen to be negative. In particular, it is, I think, -37. Now let us say that we want to find the shortest path from A to D. A perfectly reasonable way of reaching D from A seems to be to go via vertex A. So let us see what that would look like. You go from S to A.</p>
+<p>Then you go from A to C, and then the final leg of this journey is going to be from C to D. Now, this path has a total cost of 1 + 2 + 3, which is 6. But do you think you can do better? Pause the video here and try to figure this out for yourself. Is there a path whose cost is less than six? And remember, when we talk about paths, we are allowed to repeat vertices in our journey. That is not a problem.</p>
+<p>So take a pause here and come back once you have had a chance to think about this whenever you are ready. Alright, so perhaps you were able to see that instead of taking this last hop from C to D, suppose we were to back up a little bit and we came back to the vertex C, and instead of going to D from here, let us say that we go to B instead. And from B we go to S, and then we go from S to A and A to C and then C to D.</p>
+<p>If you were to do this then you would essentially end up with a path whose length is -37 + 3, which is, I think -34, which is certainly much cheaper than 6. And now the problem is that there is nothing that prevents you from doing this detour twice for instance, or doing it thrice, or doing it four times. In fact, you could do it as many times as you like and every time you will end up making your previous path even shorter.</p>
+<p>So this could go on really forever and then you could ask yourself the question: What does it even mean to talk about the shortest path from S to D when you have this sort of a negative cycle detour on the way which can be taken as many times as you want to keep making the path shorter and shorter or cheaper and cheaper depending on how you want to think about it?</p>
+<p>So now that we appreciate why negative cycles can be problematic in the context of shortest paths, in particular, we see that the presence of negative cycles can make the very notion of shortest paths ill-defined. Now we want to think about how do we tackle this kind of situation. So I think there are two natural workarounds.</p>
+<p>The first is to, perhaps, even change the definition of the problem. One of the reasons we are able to do these infinitely many detours is because we are permitting ourselves to repeat vertices along our journey. We could say that this is intuitively wasteful and we could think about just trying to find the shortest path between S and T which happens to be a simple path, which is to say that we do not allow for vertices to repeat.</p>
+<p>I think this is a very interesting variant, and there is a good reason why it is considered to be a much harder problem than most of the shortest path variants that we are going to see here. So this is something that I am going to leave as food for thought. This is not the variant that we are going to consider.</p>
+<p>The more standard approach is to simply say that when we do have negative cycles then the notion of the shortest path is not well defined. So in this case we have no obligation to report the shortest path. So we basically detect a negative cycle and produce that as a witness to why we could not find the shortest path, basically because the notion is not well defined.</p>
+<p>So in this most general situation, our task essentially boils down to detecting the presence of a negative weight cycle if it exists, and if it does not then we just report the shortest paths as we have been doing so far.</p>
+<p>(Refer Slide Time: 08:00)</p>
+<p><img src="./Lec33_media/media/image12.png" style="width:4.61979in;height:3in"></p>
+<p>So just going back to the summary for the moment so that we can add to this picture: What we are going to look at now is the Bellman-Ford algorithm, which has a running time that is either order ‘n’ cubed or order ‘n’ * ‘m,’ depending on whether we model the graph is adjacency matrices, or adjacency lists, respectively. And this will algorithm will turn out to do exactly what we want, which is to say that it can identify negative cycles when they are present and compute shortest paths and absent.</p>
+<p>(Refer Slide Time: 08:38 &amp; 08:56)</p>
+<p><img src="./Lec33_media/media/image4.png" style="width:2.65535in;height:0.38915in"> <img src="./Lec33_media/media/image9.png" style="width:2.57813in;height:2.14583in"></p>
+<p>Now, just like Dijkstra’s algorithm, Bellman-Ford also works by relaxing tense edges, in some sense for as long as it can. And before we get to a more explicit description of what the Bellman-Ford algorithm does, let is just quickly recap the notion of a tense edge, and what it means to relax one.</p>
+<p>So an edge from ‘u’ to ‘v’ with weight ‘w’ is said to be tense if the following inequality holds: ‘t’ + ‘w’ &lt; ‘d,’ where t and d are our current understanding of the distances of the vertices u and v, respectively, from the source. So t can be thought of as the value of d of ‘v,’ if d is the distance array. And d can be thought of as the value of d[v], again, d being the same distance array.</p>
+<p>(Refer Slide Time: 09:44 &amp; 10:18)</p>
+<p><img src="./Lec33_media/media/image6.png" style="width:2.27604in;height:2.19792in"> <img src="./Lec33_media/media/image13.png" style="width:3.64063in;height:2.22917in"></p>
+<p>So when this inequality holds, it is clear that we have discovered a better way of getting to v compared to whatever it is that we had in mind so far. So we are going to put that on the record by relaxing this edge, and what it means to relax this edge is to essentially get rid of the information that we had so far about v and replace it with this updated information about this new and better path from the source to the vertex v.</p>
+<p>So the distance of v, the d array is going to reflect this new value, d + w. Now we have performed this kind of relaxation operation several times in the context of Dijkstra’s algorithm. Now let us take a look at how Bellman-Ford is going to perform these relaxations.</p>
+<p>So it is really a very elegant and simple algorithm. So what we are going to do is initialize a distance array, as usual, and then what we are going to do is we are going to repeat the following process ‘n-1’ times, the process being: Just relax every tense edge. So you are going to basically go over every edge in the graph, and check if it is tense, and if it is, then you are just going to relax it. That is it.</p>
+<p>That is pretty much the algorithm, except for one last step which I will come to in a moment, but you can probably already see where the running time is coming from. There is this outer loop that is going to run ‘n-1’ times, and the inner loop is going to run ‘m’ times because you are going to go through every edge to check if it is tense.</p>
+<p>So just to understand what is happening let is think about what happens in the very first iteration of the outer loop. Now, at this point, you know that the distance array looks something like this. It is just a more visual representation of the first line of code that you see here or at least pseudocode. And basically what we have is that the distance of the source to itself is zero, and everything else is initialized to some very large number.</p>
+<p>And at this point, we are going to go through all edges and ask them if they are tense. So which edges are going to be tense at this stage of the algorithm? Take a moment to think about this and come back when you have an answer.</p>
+<p>Okay. So, hopefully, you have also concluded that at the very first stage, the only edges that are tense are the ones that are basically incident on ‘s.’ These edges are definitely tense because you have d[u] being zero, and the weight of u to v, in this case from the source to any other neighborhood of the source, is going to be some finite value. So this is going to definitely be better than this initial infinite value that we have in the array.</p>
+<p>(Refer Slide Time: 12:18 &amp; 13:16)</p>
+<p><img src="./Lec33_media/media/image2.png" style="width:2.61458in;height:0.56253in"> <img src="./Lec33_media/media/image8.png" style="width:3.45313in;height:0.57292in"></p>
+<p>So, all of the edges that are incident on s are tense. So every vertex v that is a direct neighbor of ‘s’ has its distance values updated by the end of the first phase. Notice also that none of the other edges are going to be tense in the very beginning because if you consider any edge ‘u v,’ where neither u nor v is the source, then both of the distance values are going to be the same large number that is depicting infinity.</p>
+<p>And therefore there is no reason for this image to be tense. So the picture at the end of the first round of Bellman-Ford actually looks pretty similar to what happens in the first round of Dijkstra, but we will see that things pan out a little bit differently as we go along. So in particular, you might want to spend a little bit of time thinking about what happens at the end of the second round, what happens to the end of the third round, and more generally, what happens at the end of ‘i’ iterations of the outer ‘for’ loop in the Bellman-Ford algorithm.</p>
+<p>So here is a claim that I am going to make once again without proof, and as always, there are links in the description where you can find out more about why this is true, or you can try to prove it yourself using something like induction. So the claim is the following.</p>
+<p>At the end of ‘i’th round, if there is a vertex v that is reachable from vertex s by a sequence of atmost ’i’ edges, then the value in the distance array for the vertex v is going to reflect the cost of the shortest path sequence on atmost ‘i’ edges. So, among all paths that have length atmost ‘i,’ the value in the distance array is going to be the cost of the cheapest such path or the shortest such path.</p>
+<p>(Refer Slide Time: 14:25 &amp; 14:59)</p>
+<p><img src="./Lec33_media/media/image11.png" style="width:3.13021in;height:0.77083in"> <img src="./Lec33_media/media/image5.png" style="width:2.85938in;height:0.44792in"></p>
+<p>So, that is the claim, and that is what happens at the end of the ‘i’th round. So in particular, if I were to just think about ’i’ as being n-1, which is the other extreme, that is the last round. So what we want to say is that if v is reachable from s by a sequence of atmost ‘n-1’ edges, then d[v] reflects the cost of the cheapest such sequence.</p>
+<p>This is just the statement that we made a moment ago, but with ‘i’ being substituted for by ‘n-1.’ So this is what happens at the end of the algorithm. This is true when the algorithm has finished its course. So what can you say if there is a tense edge in the graph after all the ‘n-1’ rounds of Bellman-Ford have run their course, and have completed their work? What can you say if there is a tense edge after all of this?</p>
+<p>(Refer Slide Time: 15:31)</p>
+<p><img src="./Lec33_media/media/image10.png" style="width:2.47396in;height:0.38542in"> <img src="./Lec33_media/media/image7.png" style="width:3.59375in;height:0.70475in"></p>
+<p>Please do think about this for a moment because the answer to this question holds a key insight with regards to this algorithm. So take a pause here and come back once you are ready. Alright, so I claim that if there is a tense edge after all the ‘n-1’ rounds are done, then they must in fact be in a negative weight cycle in the graph. And the reason for this, roughly speaking, is the following.</p>
+<p>If you did not have negative weight cycles in the graph then all shortest paths would have, in fact, been simple paths. There would never be a reason to repeat a vertex because if you consider a path that repeats a vertex then you can look at the first time that you visit the vertex and the very next time that you visit the vertex.</p>
+<p>So this subpath is going to be a cycle. And because there are no negative weight cycles, this cycle must have a weight of either zero or positive. Now, if you were to just completely avoid this detour then you obtain a path, which has fewer edges and the cost is either the same as before, which would happen if the cycle had zero weight or it is in fact better than before. So that tells you that in a graph that does not have negative weight cycles, essentially, all shortest paths are in fact simple paths.</p>
+<p>And in particular, they will only involve at most ‘v-1’ edges. So, if your graph did not have any negative weight cycles then because of the claim that we made here at the end of ‘n-1’ rounds, we would have, in fact, correctly computed all the shortest paths already. And since all shortest paths have been computed, no remaining edge should be tense anymore because there is nothing to improve on.</p>
+<p>Now, if you turn this around on its head, what this means is that if you still have a tense edge that is left after all of the ‘n-1’ rounds are done, then that implies that there must be a negative weight cycle. So that is essentially how Bellman-Ford works to detect negative weight cycles when they exist and to compute shortest paths correctly when they are not present.</p>
+<p>So what we do is run ‘n-1’ iterations of this song and dance of identifying all tense edges. And when that is completed, we scan the set of all edges one more time. And in this last scrutiny, if any edge turns out to be tense, then we say: Okay, look, we have evidence that there is a negative weight cycle.</p>
+<p>So, you could stop there, but if no edges are tense once you have finished the first ‘n minus iterations’ – if in this last scrutiny, all edges are perfectly happy, then we know that the distance array has correctly captured the costs of the shortest paths from the source to the respective vertices. And so, we are done as well.</p>
+<p>Of course, the correctness of this hinges on a claim that we made about what happens in the ’i’th round. And once again, I should emphasize that this claim was made without proof. And if that is something you are interested in, you can certainly read up on the references that accompany the description of this video.</p>
+<p>So this brings us to the end of the description of the mechanics of Bellman-Ford. It is a really elegant idea, and it is also fairly easy to implement. And we are now going to study the implementation in the context of a problem called ‘wormholes.’ And, this was a problem that is available from the UVA platform, and we are going to continue this discussion in the next segment. I will see you there!</p>
+
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

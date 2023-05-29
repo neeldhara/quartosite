@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-01">
+
+<title>Neeldhara - Disjoint Set Union - Module 3 (War-II)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Disjoint Set Union - Module 3 (War-II)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../materials/cpnotes/index.html" class="sidebar-item-text sidebar-link">Getting Started with Competitive Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec01.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec03.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 03 (Numbers Game)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec02.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 2 (Reversort Engineering)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec04.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 4 (Will It Stop?)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec53.html" class="sidebar-item-text sidebar-link">Bottom-Up DP | Dice Combinations (CSES Problem Set)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec17.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec18.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec16.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec19.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec20.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec21.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec22.html" class="sidebar-item-text sidebar-link active">Disjoint Set Union - Module 3 (War-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec23.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec25.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (BFS and DFS)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec24.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (Graph Traversals)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec26.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 2 (Mahmoud and Ehab and the</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec27.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 3 (Cover It!)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec28.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 4 (Diamond Inheritance)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec9.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 1 (Pancake Flipping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec10.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 2 (Islands War)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec11.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec12.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec13.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Coin</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec14.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Guarding a</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec15.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Traveling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec52.html" class="sidebar-item-text sidebar-link">Introduction | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec48.html" class="sidebar-item-text sidebar-link">MaxFlow-MinCut Duality</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec51.html" class="sidebar-item-text sidebar-link">Memoization | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec37.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Blingor’s Network | Foundations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec39.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Kruskal’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec38.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Prim’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec40.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 2 (Cherries Mesh)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec41.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 3 (Hierarchy)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec42.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 4 (Island Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec50.html" class="sidebar-item-text sidebar-link">Minimum Vertex Cover via Max Flow | SAM I AM (UVA 11419)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec44.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Ford-Fulkerson for Max Flow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec45.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Implementing Edmonds-Karp)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec43.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec46.html" class="sidebar-item-text sidebar-link">Network Flows - Module 2 (Maximum Matching via MaxFlow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec49.html" class="sidebar-item-text sidebar-link">Police Chase</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec05.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 1 (Trouble Sort)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec06.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 2 (The Meeting Place Cannot be</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec07.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 3 (Magic Ship)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec8.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 4 (Simple Skewness)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec31.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm-Sending Email)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec29.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec30.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec32.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Modified Dijkstra)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec33.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec34.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec35.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec36.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec47.html" class="sidebar-item-text sidebar-link">Sport Elimination via MaxFlow</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec00.html" class="sidebar-item-text sidebar-link">Welcome and Initial Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Disjoint Set Union - Module 3 (War-II)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cpnotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Lecture - 22</strong></p>
+<p><strong>Disjoint Set Union - Module 3 (War-II)</strong></p>
+<p>Welcome back to the second segment of our discussion on ‘War.’ This will not make any sense if you have not seen the previous video, where we actually introduced the problem. Just in case you have stumbled on this directly, then please do make sure that you watch the first part first.</p>
+<p>(Refer Slide Time: 00:30)</p>
+<p><img src="./Lec22_media/media/image1.png" style="width:2.43229in;height:1.58333in"> <img src="./Lec22_media/media/image2.png" style="width:2.76042in;height:1.55208in"></p>
+<p>If you remember, when we stopped there, we said that we could use disjoint sets to fairly naturally model the friendships. But we were not sure how the enemies can be accounted for. Let me just say that one way of tracking the enemies is to just track the enmities between the leader elements. It turns out that will be sufficient to make all the inferences that we need to make.</p>
+<p>In particular, let us say that at some intermediate stage, you have developed some of these friendship clusters. Let us say that you know that there is some pair of people, one from the first cluster and one from the second that are enemies, then you can apply your rules to observe that this actually implies that all of these people from the first cluster are enemies with all the people from the other cluster.</p>
+<p>We are going to just succinctly make a note of that by adding an enemy relationship between the leaders. When we get an ‘ARE ENEMIES?’ query, basically, we ask ourselves, if the representative elements in the sets that the people belong to, if they are enemies. That is essentially necessary and sufficient to produce an affirmative answer to this query. Now, this will become clearer as we go along.</p>
+<p>But the foundations are the following. We will have a standard DSU data structure to keep track of the friendships between people as they evolve. We will have an array of length N to keep track of the enemies (just of the leaders). Because of the way enmities evolve, and this is something that, as I said, will probably become clearer later. It is sufficient for every leader element to point to at most one other leader element, saying, that that is my current enemy.</p>
+<p>You will never be in a situation where you need to point to the leader of more than one cluster in your friendship network. We will see why that is as we go along. But in terms of what you need to write down the code, it is going to be your standard disjoint set union data structure + an extra array, which is the book-keeping that we were talking about, to keep track of what is going on with the enemies.</p>
+<p>(Refer Slide Time: 02:56)</p>
+<p><img src="./Lec22_media/media/image15.png" style="width:2.9571in;height:1.27875in"></p>
+<p>Based on this, you can perhaps already anticipate how we will answer the ‘ARE FRIENDS?’ and ‘ARE ENEMIES?’ queries. This part is actually quite straightforward. Because the friendships are being maintained by disjoint sets, the ‘ARE FRIENDS?’ question just boils down to asking if the two people on whom the query is being made belong to the same cluster or the same set or not. We have already seen this as the ‘isSame’ set helper function.</p>
+<p>All that this does is check if the leader elements of the sets that these two people belong to are the same or not. The answer is ‘yes’ or ‘no,’ just based on that. For the ‘ARE ENEMIES?’ query, it turns out that two people are enemies if and only if their leaders are enemies. If the leader elements of your set are enemies, then of course, by applying the rule which says that the enemy of a friend is an enemy, you can conclude that the two people who are involved are enemies as well.</p>
+<p>If the two people who are involved are enemies, then very similarly you can infer that the leaders of their sets are also going to be enemies. That is all that you need to do here. You need to go to the leader elements for the two people on whom the query is being made. You need to check if they are mutual enemies. This information is being tracked by this enemy array. That is all that you need to check here.</p>
+<p>That takes care of two of the four queries that, that we had to worry about. It feels like half the battle won, at least psychologically. But it turns out that the bulk of the work really is in making sure that you build up an accurate picture as you receive operations of the first two kinds, which are the MAKE FRIENDS and the MAKE ENEMIES operations. There you want to make sure that you are building up an accurate picture and you are drawing all the inferences that you can. Let us turn to those operations now and see how we will deal with those.</p>
+<p>(Refer Slide Time: 04:52)</p>
+<p><img src="./Lec22_media/media/image16.png" style="width:1.76563in;height:1.45833in"> <img src="./Lec22_media/media/image10.png" style="width:1.81771in;height:1.46875in"> <img src="./Lec22_media/media/image6.png" style="width:1.96354in;height:1.45833in"></p>
+<p>We have ‘MAKE FRIENDS.’ Remember that friendships are being tracked by DSU essentially. The natural thing to do here is to interpret this as a union operation. If you remember what we do typically when we are trying to do a union is to first approach the leader elements of the sets that these people belong to. Of course, at the very initial stages, they will be the elements of the people themselves.</p>
+<p>But, we are talking about a generic situation. We approach the leader elements. Of course, first, we do check if these leaders are already enemies. If this is the case, then you cannot make friends out of people who are already enemies. Notice that if the leader elements of ‘your set’ are already enemies, then by inference, you are enemies as well. You already have this information.</p>
+<p>This will be the situation where you have a contradiction. Your output -1 and you move along. But suppose there is not a contradiction. Then what are the possible scenarios that could arise? Well, it is possible that the leader elements are the same. If that is the case, then this picture is not very accurate. But if the leader elements are the same, then that means that the two people that you were given in this operation are already friends.</p>
+<p>There is no work to be done. You could just, again, move along, this time for a different reason. Now, suppose that they are not already friends. But let us also say that the two leaders have no known enemies. If they have no known enemies, then when you merge these two clusters, there are no additional inferences to be made. There are no additional inferences to be made in the context of the enemies.</p>
+<p>We just do a simple union. Once again, at this point, we are done. But, there are some cases to be taken care of if one or both of these leader elements already have known enemies of their own. Let us take a look at how that could pan out. We know that we have to establish this friendship here. That is a non-contradictory operation and that is going to happen.</p>
+<p>(Refer Slide Time: 07:15)</p>
+<p><img src="./Lec22_media/media/image12.png" style="width:2.85417in;height:1.64592in"> <img src="./Lec22_media/media/image19.png" style="width:2.75in;height:1.65616in"></p>
+<p>Let us say that one of the leader elements has a known enemy, and the other leader element has no known enemies at this stage. That is what this picture would look like. But now remember that the enemy of a friend is also an enemy. Based on this, you can infer this additional enmity relation. So once you merge the two sets, you want to make sure that the new leader keeps track of the fact that the leader has an enemy in this, in this other leader element. This enemy is going to be the leader element of some other set.</p>
+<p>We would want to make a note of that. Normally, if the leader element does not change, after you do the union, you actually do not have to do anything. But it is possible that after the union, the leader element changes. In that case, you do have to update the enemy array to make sure that you continue to track this enmity.</p>
+<p>Similarly, you could be in a situation where both of these leaders have a known enemy. This is what that situation is going to look like. Once again, by applying the rule of the fact that the enemy of a friend is also an enemy, by applying this rule twice, you infer these two new rivalry relationships. But now based on this, can you say something more? Take a pause here to see if you can infer any new relationships based on the picture that we have built out so far.</p>
+<p>If you had a chance to think about this, you may notice that these two enemies also become friends after we have made the inferences that we just made. The reason for this is that if you have a common enemy, then you are friends. These two people actually have two common enemies now. This is essentially how the rules would play out in this situation. But in terms of the implementation, what would we like to do?</p>
+<p>Now we not only make the two people friends that we were supposed to make friends according to our operation, but we actually can establish a new friendship. There will be two pairs of clusters that get merged. We want to ensure that the leaders, the potential new leaders of these two clusters, record their enmity. That, again, the information about the enmity is carried forward as we would need it to.</p>
+<p>(Refer Slide Time: 09:44)</p>
+<p><img src="./Lec22_media/media/image7.png" style="width:2.06771in;height:1.52132in"> <img src="./Lec22_media/media/image20.png" style="width:2.03646in;height:1.51402in"> <img src="./Lec22_media/media/image14.png" style="width:2.11979in;height:1.54837in"></p>
+<p>Let us actually take a look at all of these cases, from the viewpoint of the friendship clusters that may have come about. Let us say we are at some intermediate stage and we have developed some friendship clusters. Let us say that these are the leader elements. Now, suppose that you have some known enmities between leaders. Notice that these will always show up as pairs of clusters. You will never have enmity show up in any other way.</p>
+<p>For example, you will never have this sort of situation. Again, take a moment here, if you need to, to think about why this picture is not a valid one? Why this would never arise? The reason this would never arise is that if you had the structure, then notice that the two clusters on the left would not really continue to persist as disjoint clusters because you have a common enemy situation here.</p>
+<p>These two clusters would have actually been merged if our algorithm was doing its job correctly up to this point. This picture never really arises. The clusters pair up in terms of known enmities, and some clusters are just hanging in isolation. The cases that we saw so far were the following. First, we said that maybe both of the leaders who are going to become friends have no known enemies.</p>
+<p>That is essentially a simple merger of two isolated clusters. It is also possible that one of them has a known enemy and the other does not. In this case, what we said was that we will do a simple merge as before but it is possible that after this merger, the leader gets updated. Then we have to make sure that the leader, the enemy pointer, is pointing correctly from the new leader to the old enemy.</p>
+<p>You could also be in a situation where the two leaders who are coming together, both of them have known enmities. In this case, what was happening is that you not only merge these two clusters, but you also merge the other two clusters that involved the known enemies. Both of these freshly minted clusters will have their own new leaders potentially, and you need to reestablish the enmity between those two leaders of these larger merged clusters.</p>
+<p>Hopefully, the algorithm is clear, and all the cases are clear. This is how we will handle the MAKE FRIENDS operation.</p>
+<p>(Refer Slide Time: 12:11)</p>
+<p><img src="./Lec22_media/media/image3.png" style="width:2.05729in;height:1.38542in"> <img src="./Lec22_media/media/image21.png" style="width:1.71875in;height:1.42188in"> <img src="./Lec22_media/media/image18.png" style="width:2.09896in;height:1.41667in"></p>
+<p>Now, let us turn to the MAKE ENEMIES operation. Just like with MAKE FRIENDS, when we are asked to MAKE ENEMIES, we will approach the leaders because those are the people between whom we want to establish the enemy team. That will take care of the clusters pretty much by inference. Also if you remember, the way that we address the ‘ARE ENEMIES?’ query - this is really all that we need to keep track of.</p>
+<p>Once again, just make sure that you handle the contradictory situation. In particular, if these two people involved here are already friends, then you need to output -1 and completely ignore this query. Similarly, another easy situation is if they are already enemies. In this case, for a different reason, you do not need to do anything because this relationship has already been established.</p>
+<p>We can move along. But now suppose that they are not already enemies. We want to, again, do a case analysis that is similar to what we had before. Suppose these are coming from two components that are hanging in isolation. Neither of these leaders have any known enemies. Then again, just as before, it is a matter of doing a simple pointer update.</p>
+<p>Notice that we do not need to do any unions here. These clusters, in fact, must remain separated. But, they sort of get magnetically attached through this rivalry relationship. That is being tracked by the red pointers. The red pointers that we were visualizing in the picture from a few moments ago are what is being tracked by the enemy arrays. Just keep that at the back of your mind. That is what we do in this case.</p>
+<p>(Refer Slide Time: 13:48)</p>
+<p><img src="./Lec22_media/media/image4.png" style="width:3.33585in;height:1.63411in"> <img src="./Lec22_media/media/image8.png" style="width:2.93229in;height:1.85534in"></p>
+<p><img src="./Lec22_media/media/image17.png" style="width:2.96354in;height:1.86023in"> <img src="./Lec22_media/media/image11.png" style="width:2.86979in;height:1.90291in"></p>
+<p>But suppose that you are actually connecting a leader who has a known enemy with a leader who does not have any known enemies. In this case, you can actually make some additional inferences. Pause here for a moment and think about what is an extra relationship that comes out of this situation.</p>
+<p>If you remember the rule about how a common enemy makes for a friendship, you will realize that these two leaders can actually become friends. If you establish an enmity between two leaders, and one of them already has an existing enmity, then you actually have a good reason to merge some two clusters.</p>
+<p>Just to make the cluster perspective a little more explicit, let us actually pull up a picture in terms of clusters. Notice that you are trying to establish an enmity between the cluster on the left and the cluster in the middle. That is the query. That is what we have been asked to do. But the cluster on the left has a known enmity with the cluster on the right, which means that by the common enemy rule we know that these two clusters must actually be friends.</p>
+<p>What we do first is we go ahead and merge these two clusters, and just to record that inferred friendship, and now depending on whether this merger created a new leader or not, we have to figure out if the enemy pointer needs to be updated. That is what is going on in this case.</p>
+<p>(Refer Slide Time: 15:18)</p>
+<p><img src="./Lec22_media/media/image13.png" style="width:2.93229in;height:1.76042in"> <img src="./Lec22_media/media/image9.png" style="width:2.83854in;height:1.76042in"></p>
+<p>The final situation is: If both the leaders have known enemies. Here, what is going to happen is that you can make some extra inferences as before. In particular, you can infer these two friendships. Once again, the reason that you can infer these friendships is because of the common enemy rule. For example, the person in the red circle is a common enemy for the two people in the yellow circle.</p>
+<p>That is why you can infer the friendship between them. It is symmetric for the other friendship relationship. How do you handle this situation? How do you put these new friendships on the record? Remember, we are tracking friendships with the standard disjoint sets model. What will happen is, you will end up essentially merging the sets that these pairs belong to.</p>
+<p>The two people in the yellow circles and the two people in the green circles, we go ahead and merge the sets that they belong to. After that merger is done, each of these two sets is going to have a new leader element emerge, which is going to be one of these existing leaders. But you are going to have the leaders identified after you do the union.</p>
+<p>The final step is to make sure that these two new leaders have the enmity relationship between them put on the record. That is all that you need to do here. That brings us to the end of the description of how you handle the MAKE ENEMIES operation. With this, we are in fact done with both the MAKE FRIENDS and the MAKE ENEMIES operations.</p>
+<p>(Refer Slide Time: 16:58)</p>
+<p><img src="./Lec22_media/media/image5.png" style="width:3.16423in;height:1.47025in"></p>
+<p>Let us do a high-level summary of what we have discussed so far. First, remember, we handled the contradictory cases and got them out of the way. If you are asked to make friends between two enemies, or you are asked to make enemies between two friends, then we remember to output -1 and we move on.</p>
+<p>Similarly, if the two people of whom you want to make friends are already friends or the two people you want to make enemies are already enemies, then once again, there is nothing that needs to be done and this is an easy case as well. The third easy case is: When the two people involved in the queries do not have any known enemies of their own.</p>
+<p>In this case, for MAKE FRIENDS, this was a simple union, a merging of two clusters. In the case of the MAKE ENEMIES operation, it was just a matter of updating the enemy pointers between the leaders. Now, the non-trivial case is where, when one of the leaders had an own enemy and the other one did not, or when both of the leaders had their own known enemies.</p>
+<p>In both of these cases, you could infer some extra relationships. This involved carefully merging some sets that you did not have to directly merge because of the operation but by inference. Then just keeping track of the new leaders and making sure that the enemy pointers are cleanly updated. The specifics of how you handle these two cases, we have already discussed.</p>
+<p>In case you missed it, you might want to just go back and look at that part of the discussion in the video. That brings us to the end of the algorithm. I think by now you have all the information that you need to actually implement this. We will do a quick overview of the implementation in the last segment of this module. The code in the implementation actually very closely follows the description.</p>
+<p>I am going to not do a very elaborate overview because this is a slightly non-trivial problem and it is a really good exercise to try on your own. In the implementation video, we will sort of briefly summarize the main modifications to the unionFind class. Go over a few of the cases and leave out the ones that are either symmetric or very similar to the cases that we have seen before. Hopefully, you have a chance to actually work through this yourself and treat the implementation excursion as an elaborate hint, rather than a line-by-line explanation.</p>
+<p>I will see you in the implementation video. In the meantime, if you have any questions or comments about this problem, then please do leave a note in the YouTube comment section. Or feel free to start a conversation in discord or at the Google Groups mailing list. We will as always look forward to hearing from you and I will see you in the final segment, which is going to cover the implementation!</p>
+
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-01">
+
+<title>Neeldhara - M 1 (Dijkstra’s Algorithm)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">M 1 (Dijkstra’s Algorithm)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../materials/cpnotes/index.html" class="sidebar-item-text sidebar-link">Competitive Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">W01</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec01.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec03.html" class="sidebar-item-text sidebar-link">M 03 (Numbers Game)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec02.html" class="sidebar-item-text sidebar-link">M 2 (Reversort Engineering)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec04.html" class="sidebar-item-text sidebar-link">M 4 (Will It Stop?)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec00.html" class="sidebar-item-text sidebar-link">Welcome and Initial Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">W02</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec05.html" class="sidebar-item-text sidebar-link">M 1 (Trouble Sort)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec06.html" class="sidebar-item-text sidebar-link">M 2 (The Meeting Place Cannot be</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec07.html" class="sidebar-item-text sidebar-link">M 3 (Magic Ship)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec8.html" class="sidebar-item-text sidebar-link">M 4 (Simple Skewness)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">W03</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec9.html" class="sidebar-item-text sidebar-link">M 1 (Pancake Flipping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec10.html" class="sidebar-item-text sidebar-link">M 2 (Islands War)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec11.html" class="sidebar-item-text sidebar-link">M 3 (Stable Marriage-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec12.html" class="sidebar-item-text sidebar-link">M 3 (Stable Marriage-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec13.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Coin</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec14.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Guarding a</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec15.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Traveling</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">W04</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec17.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction-Part II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec18.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction-Part III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec16.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec19.html" class="sidebar-item-text sidebar-link">M 2 (Destroying Array-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec20.html" class="sidebar-item-text sidebar-link">M 2 (Destroying Array-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec21.html" class="sidebar-item-text sidebar-link">M 3 (War-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec22.html" class="sidebar-item-text sidebar-link">M 3 (War-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec23.html" class="sidebar-item-text sidebar-link">M 3 (War-III)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">W05</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec25.html" class="sidebar-item-text sidebar-link">M 1 (BFS and DFS)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec24.html" class="sidebar-item-text sidebar-link">M 1 (Graph Traversals)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec26.html" class="sidebar-item-text sidebar-link">M 2 (Mahmoud and Ehab and the</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec27.html" class="sidebar-item-text sidebar-link">M 3 (Cover It!)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec28.html" class="sidebar-item-text sidebar-link">M 4 (Diamond Inheritance)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">W06</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec31.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm-Sending Email)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec29.html" class="sidebar-item-text sidebar-link active">M 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec30.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec32.html" class="sidebar-item-text sidebar-link">M 1 (Modified Dijkstra)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec33.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec34.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec35.html" class="sidebar-item-text sidebar-link">M 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec36.html" class="sidebar-item-text sidebar-link">M 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">W07</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec37.html" class="sidebar-item-text sidebar-link">M 1 (Blingor’s Network | Foundations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec39.html" class="sidebar-item-text sidebar-link">M 1 (Kruskal’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec38.html" class="sidebar-item-text sidebar-link">M 1 (Prim’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec40.html" class="sidebar-item-text sidebar-link">M 2 (Cherries Mesh)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec41.html" class="sidebar-item-text sidebar-link">M 3 (Hierarchy)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec42.html" class="sidebar-item-text sidebar-link">M 4 (Island Hopping)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">W08</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec44.html" class="sidebar-item-text sidebar-link">M 1 (Ford-Fulkerson for Max Flow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec45.html" class="sidebar-item-text sidebar-link">M 1 (Implementing Edmonds-Karp)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec43.html" class="sidebar-item-text sidebar-link">M 1 (Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec46.html" class="sidebar-item-text sidebar-link">M 2 (Maximum Matching via MaxFlow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec47.html" class="sidebar-item-text sidebar-link">Sport Elimination via MaxFlow</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">W09</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec48.html" class="sidebar-item-text sidebar-link">MaxFlow-MinCut Duality</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec50.html" class="sidebar-item-text sidebar-link">Minimum Vertex Cover via Max Flow | SAM I AM (UVA 11419)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec49.html" class="sidebar-item-text sidebar-link">Police Chase</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">W10</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec53.html" class="sidebar-item-text sidebar-link">Bottom-Up DP | Dice Combinations (CSES Problem Set)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec52.html" class="sidebar-item-text sidebar-link">Introduction | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec51.html" class="sidebar-item-text sidebar-link">Memoization | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">M 1 (Dijkstra’s Algorithm)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cpnotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Lecture - 29</strong></p>
+<p><strong>Shortest Paths - Module 1 (Dijkstra’s Algorithm)</strong></p>
+<p>(Refer Slide Time: 0:11)</p>
+<p><img src="./Lec29_media/media/image13.png" style="width:4.10938in;height:1.91667in"></p>
+<p>Hello, and welcome to the sixth week of Getting Started with Competitive Programming. So this week, our focus is going to be on the ‘shortest paths’ problem, which is both a very fundamental problem in graph algorithms as well as a really popular theme in contest programming. Typically, you are trying to figure out what is the fastest way of going from one vertex to another in a given graph.</p>
+<p>And in this module, which is broken up into four segments for your convenience, we are going to be leading up finally to this problem called ‘sending email,’ and we are going to see Djikstra’s algorithm along the way. But before we get started, let me give you a high-level overview of the different scenarios that we will be addressing this week.</p>
+<p>(Refer Slide Time: 01:02)</p>
+<p><img src="./Lec29_media/media/image7.png" style="width:3.72396in;height:2.19792in"></p>
+<p>So, generally speaking, we will be working with graphs that are weighted and directed. To say that a graph is weighted, in this context, simply means that there is a weight function that maps every edge in the graph to some number. So actually your weights could be any collection of objects that you have the ability to add and compare. But specifically, we will typically be working with integers and sometimes rational weights.</p>
+<p>And to say that the graph is directed, we already know what this means from our discussions last week. But just to repeat, a graph is directed if we think of every edge as being oriented, or we think of the edges as being ordered pairs. So (we distinguish) for a pair of vertices x and y, we distinguish the pair x y from the pair y x.</p>
+<p>So that is going to be the setting that we are working in. Now we are going to start this off by looking at the special case when all the edge weights are one. This is just another way of saying that you are working with an unweighted graph. Now in this situation, the nice thing is that the cost of a path is simply the number of edges on it.</p>
+<p>Notice that when you have weights, this need not be true because depending on how the weights are, it could be that you have a path with a small number of edges that is super expensive, and you have paths with a large number of edges which are cheap. Again, just because of the way the weights are. When all the weights are uniform, this is not something that you have to worry about.</p>
+<p>So the lengths of the paths are actually a true reflection of the cost of the path as well. Now, this setting is simple enough that we have actually already seen an algorithm to resolve the problem in this case. And our first exercise will be, essentially, to recap a breadth-first search and consider how it helps us solve the shortest path problem in this special case.</p>
+<p>After this, we will allow for weights to enter the picture and we will see that BFS no longer quite works in its default form, and we will have to explore a different way of approaching the problem. But we will still restrict ourselves first to the setting when all edge weights are positive because that is a little bit easier to think about compared to the more general case when we allow for negative edge weights.</p>
+<p>The thing about negative edge weight is that it can, again, mess up your intuition for what you expect to happen when you are dealing with the shortest paths. So we are going to explore this distinction as we go along. So to begin with, we will not allow for negative edge weights and then we will allow for them. But then we do allow for them again we are going to do it in two phases.</p>
+<p>First, we will allow for the presence of negative edge weights but we will disallow the presence of a negative weight cycle. Now a negative weight cycle in a graph is simply a cycle which is such that if you were to go around the cycle and add up all the weights of the edges that you encounter, then the cumulative rate is going to be negative. Now you will have to take my word for this at the moment that this distinction is actually important.</p>
+<p>The presence of negative weight cycles can cause some substantial disruption in the notion of shortest paths. So we will need to handle them carefully and separately. So in the setting when we also allow for negative cycles, we are going to see an approach that is different from the one that we take when we know or we assume that there are no such cycles.</p>
+<p>So this is going to be the essence of the three different approaches that we take to the shortest paths problem. First, we are going to see an approach when the graph is essentially unweighted, then we are going to look at an approach that works for positive edge weights, and we are going to modify that slightly to allow for negative arcs, but still, we assume that there are no negative cycles.</p>
+<p>So I am thinking of this as the second broad approach, and the third approach is going to be when we also allow for negative weight cycles and we will talk about that more when we get to it. Finally, we will also deal with separately the problem of all pairs’ shortest paths.</p>
+<p>Now, it turns out that if you know how to do shortest paths, then you can more or less trivially also find shortest paths between all pairs, by simply running this algorithm as a sub-routine between all pairs. But it turns out that there is a slightly faster approach to this problem which is very elegant and, you know, we are going to explore that and implement it as well.</p>
+<p>So, as is usually the case, we are going to describe these algorithms and describe their implementations, but we will not really have the time to get into proofs of correctness, which are also important to just have a feel for and to appreciate and understand. So if you are curious about which algorithms we are going to be learning so that you can go look them up in more detail after we are done, then I am just going to throw in the names here.</p>
+<p>So, first, the case of unweighted graphs, as I mentioned, is really the breadth-first search traversal that we discussed last time. And the case when all edge weights are positive can be handled by Djikstra’s algorithm and a slight modification to Djikstra’s algorithm makes it work even when we have negative edge weights but we do not have negative weight cycles.</p>
+<p>Once we do allow for the possibility of negative cycles, there is the Bellman-Ford algorithm which allows us to either determine the shortest paths correctly or detect the presence of such a cycle. And once again, when we get to this discussion in more detail, you will see why this sort of output actually makes sense. And for All-Pairs Shortest Path, the improvement that we are going to look at typically goes by Floyd Warshall.</p>
+<p>Now, I should mention that shortest paths being a really fundamental graph algorithms problem has been extensively studied, and some of these algorithms were proposed by several other researchers who are not mentioned on this slide. So if you are interested in the rich history of shortest path algorithms and how some of these really popular ones came about, I would highly recommend the chapter on shortest paths in the ‘algorithms text’ by Jeff Erickson.</p>
+<p>This book is conveniently available from the textbook’s website and I am going to add a link that you can follow in the description of this video. So please do check it out. It has many more details about how these algorithms came about, and there is a nice historical perspective that you will gain if you were to go through this.</p>
+<p>In the meantime, let us now get started with the special case when all edge weights are one. That will be the focus of this segment. And in the next two segments, we will consider Djikstra’s and modified Djikstra’s approaches, and we will round this off by looking at an implementation in the context of the sending email problems. So that is going to be the plan for this module.</p>
+<p>In the next module, we will look at Bellman-Ford. Again, we will split it into two segments. In the first, we will study the algorithm itself and in the second we will implement it in the context of a problem. And then in the third and the final module, we are going to do the same for All-Pairs Shortest Paths as well.</p>
+<p>(Refer Slide Time: 09:04)</p>
+<p><img src="./Lec29_media/media/image9.png" style="width:2.9375in;height:1.70194in"> <img src="./Lec29_media/media/image21.png" style="width:3.09896in;height:1.6875in"></p>
+<p>Okay, so that is the outline. Now, let us get started with the first case, and let me just begin by recapping the definitions for you here. So as we said, we will be working with weighted, directed graphs.</p>
+<p>Typically you might imagine that you have been given two vertices, which we will usually refer to as the source and the target, and you are trying to figure out what is the path that connects the source to the target that has the cheapest cost.</p>
+<p>The cost of a path is simply the sum of all the weights of the edges that participate in the path. So this quantity that we have just described here is often referred to as the distance. So we will talk about the distance of the vertex T from the source S as being the length of the shortest path that connects S to T.</p>
+<p>(Refer Slide Time: 09:51)</p>
+<p><img src="./Lec29_media/media/image10.png" style="width:3.42188in;height:1.25in"></p>
+<p>Now this problem that we have just described is often just called the shortest path problem, so you are given two vertices S and T, and you want to find the length of the shortest path from S to T. A very popular variant is the single-source shortest path problem, SSSP, where you are given a source vertex and you want to know the distance of every other vertex from this source. And this is something that you can of course solve by just solving the shortest path individually on every vertex.</p>
+<p>That is a valid algorithm. But sometimes it is just useful to think of this more holistically and you could come up with better ideas, which solve SSSP in one shot, so to speak. And the SSSP problem will pretty much be our focus for all of this module, and even the next one. But after that, we will turn our attention to this All-Pairs Shortest Path problem which is again a very popular variant. So here we want to know the distances between every pair of vertices in the graph.</p>
+<p>And once again, of course, if you know how to do SSSP, you can do APSP by simply running SSSP as a subroutine. Right. So you run an outer loop, which runs through every vertex, and for every vertex, you just run your SSSP algorithm, and you will then end up having discovered the distances between every pair of vertices.</p>
+<p>Now, that is going to have a certain complexity, which is basically the complexity of the SSSP algorithm with a multiplicative overhead of n, n being the number of vertices. And an interesting question is, can you do better? Can you somehow solve APSP directly? And it turns out that we will have some ideas to address that question as well.</p>
+<p>So these are the three problems that we will be considering. And before we actually get to try to understand what happens when all edge weights are one, let me also get a little more terminology out of the way.</p>
+<p>(Refer Slide Time: 11:50 &amp; 13:03)</p>
+<p><img src="./Lec29_media/media/image18.png" style="width:3.91146in;height:1.39583in"> <img src="./Lec29_media/media/image12.png" style="width:1.57813in;height:1.39583in"></p>
+<p>So, you might remember from the previous week, that we defined a path as a sequence of vertices where every consecutive pair is connected by an edge. And in the context of directed graphs, you want the edge to be from say U I to U I +1 if you are looking at the ’i’th and the ’i+1’th vertices of the sequence. So they have to be oriented exactly in the way that you expect them to be. So that is a path.</p>
+<p>And notice that when we define a path, we do not really have any constraints on whether vertices can repeat or not. So by default in a path, you could have a repeating vertex. And if you insist that you do not want vertices to repeat, you want all the vertices on the path to be distinct, then you emphasize that by calling it a simple path.</p>
+<p>So whenever we refer to paths, we will, generally speaking, allow for repetition of vertices. If we want to emphasize that vertices are not being repeated then we will use the phrase simple path instead. Now as long as you are working with non-negative edge weights and you want to observe shortest paths, this distinction is not very important because all of your shortest paths will automatically be certain paths only. To see this, let us look at an example of a path, which is not a simple path.</p>
+<p>So here, for instance, starting from S, suppose we go to T in this way. So notice that the vertex x is getting repeated, and then we finally land up at T. And imagine that all the edge weights are one here. It should be reasonably obvious that this is not an optimal path from S to T because this whole detour that we did on the cycle X R Q P could have simply been avoided.</p>
+<p>So whenever you have a path with these repeated vertices, if you just eliminate the detours then you will see that you always end up with a path that is better than the one that you started off with. So as long as your edge weights are non-negative, your shortest paths will automatically turn out to be simple paths. From this example, you can probably already start getting some sense of why negative cycles can be problematic for the definition of shortest paths.</p>
+<p>This is something that we will explore more fully later but I just wanted to drop a hint in case you were curious about that. But just went back to our definition here, this is just a reminder that whenever we talk about paths, in general, we will allow for repeating vertices. And whenever you are working with non-negative edge weights, your shortest paths will automatically turn out to be simple paths, anyways.</p>
+<p>(Refer Slide Time: 14:23 &amp; 14:54)</p>
+<p><img src="./Lec29_media/media/image11.png" style="width:3.08854in;height:1.48958in"> <img src="./Lec29_media/media/image19.png" style="width:3.15104in;height:1.47917in"></p>
+<p>Now, in terms of terminology, I should also point out that in some references, in some textbooks, especially graph theory textbooks, what we are calling a path is usually called a walk or a trail. Okay, and what we are calling a simple path is actually just called a path. So this can sometimes be confusing depending on where you are reading from.</p>
+<p>So it is just useful, I think, to fix one terminology and stick to it in a particular discussion and since this is the tradition and most algorithms books that you will read, I will just stick to this terminology where a path is a sequence of vertices where the constitutive vertices have an edge between them and the vertices need not be distinct. And if I want to emphasize that the vertices are distinct, I will refer to it as a simple path.</p>
+<p>(Refer Slide Time: 15:18 &amp; 15:42)</p>
+<p><img src="./Lec29_media/media/image20.png" style="width:2.39583in;height:1.10775in"> <img src="./Lec29_media/media/image5.png" style="width:3.73438in;height:2.54167in"></p>
+<p>So, with that out of the way, let us finally talk about what can we do when all the edge weights are one. So for this special situation, as we have hinted to earlier, we already know an algorithm that determines the distances from any source vertex for us. And this is in fact the breadth-first search or the BFS traversal that we have seen in the previous week.</p>
+<p>So, in fact, let us pull up the implementation to remind ourselves of what we were doing. So we had this distance array, which was initialized so that every vertex was initially at a distance of infinity from the source, meaning that these were all unexplored vertices and we do not know anything about how close or how far away they are from the source in the beginning. And the only thing that we know is that the source is immediately reachable from itself. So the distance from the source to itself is initialized to zero.</p>
+<p>And after this, we had an implementation where we essentially explored all the neighbors of the source first and then the neighbors of the neighbors, and so on and so forth. At every stage, we were careful to not revisit and already visited. And if you draw out a typical BFS traversal you will see that there is a natural layer-like progression. The BFS tree can be organized fairly naturally into layers and it turns out that all the vertices that are in the ‘k’th layer are in fact at a distance ’k’ from the source and this is something that you can prove.</p>
+<p>Now, although we will not be doing a formal proof of why BFS works as claimed, I would like to go through an example just to build some intuition for why you might expect to believe that this works out the way that it does. For this, it is crucial to understand how vertices enter the ’k’th layer in the BFS traversal.</p>
+<p>Now, our code here already has a trigger, which helps you understand when a new layer has started. This is the first time that the distance of the vertex that you are currently exploring mismatches with the layer number that you are currently storing. So when that happens you can print a statement saying that a new layer has just begun and, of course, after that, you update the layer variable, and so on.</p>
+<p>(Refer Slide Time: 17:42 &amp; 18:38)</p>
+<p><img src="./Lec29_media/media/image15.png" style="width:2.61458in;height:1.0489in"> <img src="./Lec29_media/media/image3.png" style="width:3.50521in;height:1.60417in"></p>
+<p>But to help our visualization along, I am just going to introduce a conceptual intervention here, which is the idea of using a token to keep track of what is going on with the layers. So this token is a completely artificial concept. It is just in our imagination. You do not have to change or update your code or anything like this. Just follow along with the example that I am going to show you.</p>
+<p>So the way the tokens are going to work is that, to begin with, we are going to enqueue the source and a token right behind it. And in general at any step, if we pull a token from the head of the queue, then we will just take the token and push it back to the end.</p>
+<p>Now, the idea is that whatever vertices are sandwiched between these two token operations, so to speak, are the vertices that get into a common layer of the BFS traversal. I think this will become clearer as we go through an example. So let us do that.</p>
+<p>So here is a graph with a source vertex that is been highlighted. So to begin with, as we said we have on the queue the source vertex followed by a token. Now, when we are currently processing the vertex at the head of the queue, what does BFS do? It is going to figure out what are all the neighbors of this vertex that is currently in the limelight, what are all of its neighbors that have not been visited yet.</p>
+<p>And we are going to collect all of those vertices and push them to the back of the queue. Now since this is the very beginning, no vertex has been visited so far. So we will just pick up all of the neighbors of S. In this case, there are three neighbors X, Y, and Z, and we are going to push all of these to the back of the queue, and we are going to mark them as visited.</p>
+<p>Now, as you can see, S left the queue and we pushed the token to the back because the token was the next thing on the queue. And now the next vertex to get processed – the vertex in the head of the queue is the vertex X, and X has two unvisited neighbors. I mean it has altogether four neighbors, but only two of those are unvisited so far. So we are going to queue these up, R and P at the end of the queue, and we are going to mark them as visited.</p>
+<p>Let us bring the queue a little bit to the left so we have a little more space. And at this point, we have finished processing the vertex X. So we will let X exit the queue. And now I am going to color code X with a different color because this is, notice, a shift in the layer numbers. So we have the first layer is, by default, just the source vertex.</p>
+<p>And now, until the next time that we see a token, all the other vertices are going to be on the first layer. So I am going to mark all of these vertices ‘yellow,’ just to remember that these have been processed, and they were members of the first layer. So the second vertex in the first layer is vertex Y. So this is our current active vertex. It has only one unvisited neighbor. So we are going to identify this neighbor T and push it to the back of the queue.</p>
+<p>Now, we will let go of Y and again mark it as a vertex that was processed as a part of the first layer. Now the last vertex in the first layer is the vertex Z, and Z has two unvisited neighbors. So let us identify U and V. So we go ahead and add U and V to the back of the queue. At this point, we are ready to let go of Z and we also remember to mark Z as the last vertex to be processed in the first layer.</p>
+<p>Now we see the token, which is a signal that we have finished processing all the vertices in the first layer. So we push the token to the back and we are now mindful of the fact that we have started off a new layer which in this case is going to be the second layer. So let us see what happens in the second layer. The first vertex at the head of the queue is the vertex R and R only has one unvisited neighbor, which is Q.</p>
+<p>So we identify Q and add it to the back of the queue, and then we let go of R. When we look at P and T, which are the next vertices in the queue, they have no unvisited neighbors. So we simply mark them as being processed. And notice that now the color-coding has changed to denote the fact that we are processing vertices in, now, the second layer. So the next vertex is U and U does have an unvisited neighbor which is W.</p>
+<p>So we add W to the back of the queue, let go of the vertex U, mark it as processed. And finally, we see V, which has no unvisited neighbors. So we simply let it go. And again mark it, as being processed. And the next thing on the queue is the token, which tells us that we have finished processing all the vertices on the second layer, and this marks the start of a new layer, which in our case is going to be the third layer.</p>
+<p>So as before, we push the token to the back, and we process the two vertices that we have on the third layer. None of these vertices have any unvisited neighbors. So we are simply going to run through them and let them go and just mark them as being vertices in the third, and in our case, also the last layer because now the only thing left in the queue is the token, which is a sign that BFS has run its course and the algorithm is now complete.</p>
+<p>So if you were to look at the sequence in which the vertices got processed, organized by layer, you will see that this is how everything panned out. So we started with the source which was on layer zero, and then on the first layer we saw its immediate neighbors X, Y, and Z. And X, Y, and Z were responsible for pulling in collectively the vertices R, P, T, U, V on the queue that constituted the second layer. And these guys brought in Q and W.</p>
+<p>Hopefully, it is intuitive that when you are on layer number k, you are at a distance of k from the source. It is clear that you are definitely reachable within k steps. That is for sure because you can just follow your parent pointers and trace your way back to the source. The only question and the thing that actually requires proof is to say that you cannot do it any faster. You cannot do it with fewer steps.</p>
+<p>(Refer Slide Time: 24:23 &amp; 25:07)</p>
+<p><img src="./Lec29_media/media/image17.png" style="width:2.86979in;height:1.42708in"> <img src="./Lec29_media/media/image6.png" style="width:2.58333in;height:0.88112in"></p>
+<p>And the intuition for that is that if you could do it with fewer steps, then you would have been recognized, and you could have been pulled in earlier in a previous layer. This is something that you can formalize using induction. And here are a couple of statements that you may want to think about proving if you have not seen formal proof of this in a previous class. It is worth sitting down and trying to work through this.</p>
+<p>So essentially, we are saying that when you are at the end of the ’k’th phase when you look at a vertex, its distance is either infinity, so this is distance as recorded in the distance array. So either it is so far an unseen vertex, or if it is a seen vertex then the value that is recorded in the distance array is going to be at most k. And it is exactly k if and only if you are in the queue at the ’k’th phase.</p>
+<p>Also, the correctness of BFS in the context of capturing distances is given by this claim here, which says that once BFS is done, the values in the distance array are a true reflection of the actual distances in the graph. This is something that you can prove using induction. As usual, I will not be going into proof here. But if you are interested, you could either try figuring this out on your own, or you can look up the pointers in the description of this video where you can read up on proof of this fact.</p>
+<p>(Refer Slide Time: 25:52 &amp; 26:17)</p>
+<p><img src="./Lec29_media/media/image14.png" style="width:2.76042in;height:0.66825in"> <img src="./Lec29_media/media/image1.png" style="width:1.39063in;height:1.26042in"></p>
+<p>So the main takeaway from our discussion so far is that if you have an unweighted graph, then BFS is your best choice in terms of computing distances between vertices. However, once edge weights come into play, then BFS might not work out. So in particular, you could try to pause the video here and come up with an example of a graph where BFS does not do the right thing in terms of capturing distances when edges have weights on them. So feel free to pause the video here and come back once you have had a chance to think about this.</p>
+<p>Alright so here is an example. It is a graph with just three vertices, and the edge weights are as shown. And you can see that if you are trying to figure out the distances from the source to all the remaining vertices, then the best way to get from S to B is not via the direct edge, but to actually take a detour and go via A because that is how the edge weights have been set up.</p>
+<p>On the other hand, because the way BFS works is the algorithm is not really trained anywhere to account for the weights at all. It is just going to blindly pick up both the neighbors of S in the first layer of the exploration. So both A and B will have the same status as vertices on the first layer. And if you were to do backtracking to find the shortest path, then BFS would tell you that the best way to reach B is via the direct edge from S, which in this case is not quite right.</p>
+<p>(Refer Slide Time: 27:27 &amp; 27:39)</p>
+<p><img src="./Lec29_media/media/image16.png" style="width:3.01563in;height:0.77083in"> <img src="./Lec29_media/media/image2.png" style="width:1.13542in;height:0.95833in"></p>
+<p>And it is not surprising once again because BFS is really not trained to look at weights at all. So you could try to fix this in some sense, by making BFS see the weights by potentially messing around with the graph a little bit. So one thing that you could do, which is actually a pretty common trick is to puncture the edges that have weights on them as many times as the weight, roughly.</p>
+<p>So actually, ‘weight - 1’ many times, so that the edge, which previously was just a direct edge is now automatically elongated to reflect the actual weight of the edge. Now, of course, this will work as long as your weights are positive integer weights so that you can do this puncturing an appropriate number of times. And you can convince yourself that if you run BFS on this modified graph, things will actually work out and you will get the correct distance values.</p>
+<p>(Refer Slide Time: 28:47 &amp; 29:02)</p>
+<p><img src="./Lec29_media/media/image8.png" style="width:2.91146in;height:0.42708in"> <img src="./Lec29_media/media/image4.png" style="width:1.16146in;height:1.0808in"></p>
+<p>So this feels like a tempting way to prolong the usefulness of BFS. So at least when you have positive integer weights, maybe you can actually do this. Would I recommend it? Well, unfortunately, no, not really. The reason for that is that this operation of subdividing the edges and inserting these artificial dummy vertices can be extremely expensive. And, in particular, the graph that you generate by doing this trick – the number of vertices in this graph, as you can imagine, is going to be proportional to the weights of the vertices.</p>
+<p>So if you have the weights of the edges, sorry, so if you have edges whose weights are rather large, you are going to be creating a humungous graph that you do not really want to deal with. Instead, what you might want to think about is – Come up with a way to predict the behavior of BFS. Really the key thing that you want to think about is, what is the next real vertex, not the dummy vertices, what is the next real vertex that BFS is going to add to the queue in this modified graph.</p>
+<p>And if you can distill the essence of BFS’ behavior on this graph, if you can predict properly which is the next vertex that gets added to the queue, then hopefully you can bypass the creation of this intermediate graph and you can directly write an algorithm that will do the right thing for graphs that have non-negative edge weights.</p>
+<p>So that is more or less what we are going to do, and that is going to lead us to a discussion of Djikstra’s algorithm which is what is coming up in the next segment of this video. So before you watch that, maybe just think about what would be your strategy to deal with edge weights, especially when you do not have to worry about negative edge weights. I will see you back in the next segment!</p>
+
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

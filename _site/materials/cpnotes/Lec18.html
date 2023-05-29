@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-01">
+
+<title>Neeldhara - Disjoint Set Union - Module 1 (An Introduction-Part III)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Disjoint Set Union - Module 1 (An Introduction-Part III)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../materials/cpnotes/index.html" class="sidebar-item-text sidebar-link">Getting Started with Competitive Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec01.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec03.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 03 (Numbers Game)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec02.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 2 (Reversort Engineering)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec04.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 4 (Will It Stop?)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec53.html" class="sidebar-item-text sidebar-link">Bottom-Up DP | Dice Combinations (CSES Problem Set)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec17.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec18.html" class="sidebar-item-text sidebar-link active">Disjoint Set Union - Module 1 (An Introduction-Part III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec16.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec19.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec20.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec21.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec22.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec23.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec25.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (BFS and DFS)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec24.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (Graph Traversals)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec26.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 2 (Mahmoud and Ehab and the</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec27.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 3 (Cover It!)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec28.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 4 (Diamond Inheritance)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec9.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 1 (Pancake Flipping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec10.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 2 (Islands War)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec11.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec12.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec13.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Coin</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec14.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Guarding a</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec15.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Traveling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec52.html" class="sidebar-item-text sidebar-link">Introduction | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec48.html" class="sidebar-item-text sidebar-link">MaxFlow-MinCut Duality</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec51.html" class="sidebar-item-text sidebar-link">Memoization | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec37.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Blingor’s Network | Foundations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec39.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Kruskal’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec38.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Prim’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec40.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 2 (Cherries Mesh)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec41.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 3 (Hierarchy)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec42.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 4 (Island Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec50.html" class="sidebar-item-text sidebar-link">Minimum Vertex Cover via Max Flow | SAM I AM (UVA 11419)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec44.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Ford-Fulkerson for Max Flow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec45.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Implementing Edmonds-Karp)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec43.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec46.html" class="sidebar-item-text sidebar-link">Network Flows - Module 2 (Maximum Matching via MaxFlow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec49.html" class="sidebar-item-text sidebar-link">Police Chase</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec05.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 1 (Trouble Sort)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec06.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 2 (The Meeting Place Cannot be</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec07.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 3 (Magic Ship)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec8.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 4 (Simple Skewness)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec31.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm-Sending Email)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec29.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec30.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec32.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Modified Dijkstra)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec33.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec34.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec35.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec36.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec47.html" class="sidebar-item-text sidebar-link">Sport Elimination via MaxFlow</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec00.html" class="sidebar-item-text sidebar-link">Welcome and Initial Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Disjoint Set Union - Module 1 (An Introduction-Part III)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cpnotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Lecture - 18</strong></p>
+<p><strong>Disjoint Set Union - Module 1 (An Introduction-Part III)</strong></p>
+<p>(Refer Slide Time 00:11)</p>
+<p><img src="./Lec18_media/media/image4.png" style="width:3.63021in;height:2.04199in"></p>
+<p>Welcome to the final segment of the first module on ‘Disjoint Set Union.’ This is the third and the last video in a three-part series. I hope you have seen the first two videos because I do not expect this one to make a lot of sense without the context from there. This is not a standalone video. We are going to actually implement the algorithms that we have already discussed for the two main DSU operations, which are the ‘find’ set and ‘union’ set.</p>
+<p>If you recall, we discussed a couple of different heuristics. First, we talked about ‘union by depth,’ and then we talked about ‘path compression’ and ‘union by rank.’ Basically, that is what we are going to implement and the specific implementation here is in C++ but it is quite easily adaptable to Python or any other language of your choice. The implementation here is really elegant and simple and it follows the pseudocode quite closely. I think we will have some fun.</p>
+<p>I should say that this implementation is heavily borrowed from the fourth edition of the competitive programming book. Even if you do not have access to the book, there is a GitHub repository that goes with the book and that is freely accessible. You can look that up. There is a link in the description. They have implemented a lot of other data structures as well. This is a really useful reference to have.</p>
+<p>You will find code and at least Python, C++ and Java as far as I remember, and maybe some other languages as well. This is a really useful thing to bookmark and keep handy. For DSU in particular, if you want to test out the data structures that you implement, Codeforces has a really nice series of practice problems for DSU.</p>
+<p>In fact, you will find quite a large collection of DSU based problems there. Unfortunately, we will not have enough time to actually go over all of them. But we are going to look at a couple of more examples from this section. Again, I will point you to exactly where you can go. This is not a standard contest. You will have to have a Codeforces account and then you can go to the EDU tab on the top of the navigation.</p>
+<p>This is the education section and there is one course that covers many different topics. But you want to look out for the one on ‘Disjoint Set Union,’ which in turn has multiple chapters. Just go to the first one and go to the practice section. You will find a customized contest with a bunch of problems. What we will be talking about here will be kind of geared towards solving the first two problems, which are essentially just asking you to implement DSU.</p>
+<p>That is the first problem. It is asking you to implement, basically find and union, and also this extra operation which asks you if two elements belong to the same set or not. We are going to look at how to take care of that. In the second problem, it is very similar, except that you are also asked to be able to not just find the set that an element belongs to but you are also asked to return the minimum and the maximum elements from that set.</p>
+<p>That is the extra book-keeping that we need to do. We are going to discuss both of these problems in this video. But before that, let us actually implement the basic data structure.</p>
+<p>(Refer Slide Time: 03:31)</p>
+<p><img src="./Lec18_media/media/image1.png" style="width:2.51563in;height:1.59473in"></p>
+<p>We are going to do this in an object-oriented style. You are free to just directly implement this using global arrays or, whatever your preferred method is. But this way, you essentially open up a convenient interface and this becomes code that you can just set aside and invoke quite easily when you actually needed in specific contest problems.</p>
+<p>This is the style that we are going to adopt. The UnionFind class is going to have a bunch of things. It is going to have a vector array, which is essentially going to store the information about the parent pointers. It is also going to try and store the rank and the sizes of the individual sets. The information in the rank and the set sizes array will evolve to being relevant only for the leader elements. We will see how that works out. We are also storing a little bit of auxiliary information in this integer numSets, which essentially keeps track of the number of sets that we are working with.</p>
+<p>(Refer Slide Time: 04:37)</p>
+<p><img src="./Lec18_media/media/image5.png" style="width:3.59375in;height:2.23126in"></p>
+<p>Now let us look at the public methods. First, we have the constructor, which is going to initialize your object with sensible values. Let us say that you initialize UnionFind with N, which is to say that you want to keep track of N elements. I will come back to this where, as I said to not have to worry about indexing issues if I want to do a disjoint set union with the universe of size N. I will typically instantiate this with N+1 just so that I can freely talk about the element at the ‘i’th index actually being the element ’i.’</p>
+<p>We will see that when we get to the main function. But suppose we are doing UnionFind with N elements, then what we want to do is initialize a parent array of size N. In this case, this is a vector with N elements. To begin with, remember that these are all singleton sets. We want all the leader pointers to just be pointing to themselves.</p>
+<p>So, p[i] = ‘i,’ for all ‘i’ from 0 to N-1. Now, the rank tries to keep track of the heights of the trees. As we said because we will be doing path compression, this is not really exactly the depth of the tree, but it is a useful upper bound to work with nevertheless. To begin with, all your trees are just basically one root element. We going to adopt the convention that these trees have depth 0, to begin with. All sets initially are singletons. They all have size 1.</p>
+<p>We are going to assign a value of 1 to every element in the set size vector and finally, the number of sets that we are working with initially is, in fact, N. Because remember, to begin with, every element is just a singleton set. There are N of these sets. We going to initialize the numSets variable to N. That is all of the initialization work.</p>
+<p>Remember that in a particular application, you might want to track more information. If you do add more stuff here to your class, just make sure that it is properly initialized. Because if not, you might run into all kinds of runtime errors and memory allocation issues. This is simple, but it is really important. So, just double-check that everything that you are trying to keep track of is properly initialized.</p>
+<p>(Refer Slide Time: 07:09)</p>
+<p><img src="./Lec18_media/media/image10.png" style="width:4.71875in;height:2.15999in"></p>
+<p>Now, with this out of the way, let us talk about the first operation that we want to implement, which is the find set operation. The first thing that we want to check for find set – remember that we are doing path compression here, and this is a recursive implementation. So, the first thing we want to check is if we are already working with a leader element. That check is just to see if the pointer is pointing to itself.</p>
+<p>If the element is pointing to itself, then we can just return that element. That is the first ‘if’ branch out here. But if you are not in this nice base case, then you need to actually walk up the tree. So, one step at a time, let us go to the parent and try to invoke find set on the parent and this is going to give you the value of the root of the tree. Remember, in path compression, we want to actually assign this root as the new parent of the element ‘i.’</p>
+<p>So, that is what is happening here when we say p[i] = findSet(p[i]). So, that is finding the root and reassigning the parent of ‘i’ all at the same time. This is also what we are going to return. All of this is combined in this succinct one-liner. You could write this down a little more explicitly. But this works out just the same.</p>
+<p>(Refer Slide Time: 08:35)</p>
+<p><img src="./Lec18_media/media/image2.png" style="width:3.49479in;height:1.02083in"></p>
+<p>Now before we move on to working with the union implementation, let me write down a small helper function, which will be useful both for the union as well as for the specific problem that is that on Codeforces. So, this is called the isSameSet function. So, isSameSet will return true if ‘i’ and ‘j’ belong to the same set and will return false otherwise.</p>
+<p>Notice that figuring out if ‘i’ and ‘j’ belong to the same set basically boils down to asking if ‘i’ and ‘j’ have the same leader element. So, it is possible that one of ‘i’ or ‘j’ themselves are leader elements. That is not particularly relevant. All we have to do is invoke the findSet on ‘i’ and ‘j’ and check if the outcomes of the findSet are identical on both ‘i’ and ‘j.’</p>
+<p>If it is, then i and j do belong to the same set and if it is not, then they belong to different sets. So, hopefully, this is clear. This follows just by the definition of the way representatives work and the promise that the findSet does its job properly. So, that is isSameSet.</p>
+<p>(Refer Slide Time: 09:31)</p>
+<p><img src="./Lec18_media/media/image11.png" style="width:2.64583in;height:2.46442in"></p>
+<p>Now, let us go on to talking about the ‘union’ set. When you want to take the union of the set that ‘i’ belongs to with the set that ‘j’ belongs to, the first sanity check is to see if the sets are the same or not. If the sets are the same, we do not have any work to do. So, we just check if i and j are in the same set and if so then we just do not do anything. We return.</p>
+<p>Otherwise, remember that with the union, we want to just make sure that the parent pointers are carefully adjusted based on the rank heuristic. First, let us find the leader elements of the sets that i and j belong to. Let us call them x and y respectively, and let us make sure that x is always the element that has the smaller rank that belongs to the set whose corresponding tree has a smaller rank (where rank is going to be some sort of a proxy for the depth).</p>
+<p>If the rank of x is larger than the rank of y, we make sure to swap the two and after this, we can peacefully make sure that x points to y, given that y is the root of the bigger tree in terms of the notion of rank. So, we go ahead and adjust this parent pointer. Notice that the rank does need to be updated if you are combining two trees that have the same rank.</p>
+<p>Originally, when we were working with depth and we did not have path compression, this would have been a legitimate reason for increasing the depth. If these two trees have exactly the same depth and one of them points to the root of the other, the final tree has a larger depth than before. We are going to do just the same with the rank value.</p>
+<p>If you are combining two trees that have the same rank, then you increment the rank of the tree that you just generated. Remember, this tree is being tracked by y. That is the current leader element. That is the current root. You make sure to increment the rank of y. Remember that we were also tracking the sizes of the individual sets and the total number of sets. Both of these values are affected by the union operation.</p>
+<p>The size of the set that y is representing has now been enhanced, and it has a few extra elements. How many extra elements does it have? That is as much as the size of the set that ‘i’ belong to, which is, in turn, the set that used to be tracked by x. We just go and look up the set size of x and update the set size of y.</p>
+<p>Notice that the set size of x is now not giving you accurate information about the size of the set that x belongs to because now x also belongs to this larger set. But this does not matter because when you want to find out the size of a set that some element belongs to, you will not directly look up its set size. But you will look at the size of the set of its representative element.</p>
+<p>That is why it is okay that some of the values in the set size array are not going to be completely accurate. What is crucial is that they are accurate for the leader elements. Whoever qualifies as a leader element in the current scenario, the set size information should be valid there. That is why we have this update here.</p>
+<p>What about the number of sets where you have just merged two distinct sets? That number goes down by 1. Notice that this does not happen if i and j belong to the same set and this code will not execute because you have already returned the control flow back to the main function, if that were the case on the third line in this code snippet that you see on your screen.</p>
+<p>That is essentially union set. You want to just go back and check that everything that you were tracking has been appropriately updated as it needs to be. I believe we have more or less covered everything. This is the implementation of the ‘union’ set.</p>
+<p>(Refer Slide Time: 13:27)</p>
+<p><img src="./Lec18_media/media/image6.png" style="width:4.78646in;height:1.35417in"></p>
+<p>Let us just write a couple of small helper functions. As I was mentioning earlier, if you want to find the size of a particular set, you do not just return the value in the set size array. But you actually go to the set size array as indexed by the leader element of the set that ‘i’ belongs to. So, you do the findSet of ‘i,’ and you do the set size of that element. That is what you return. If you wanted to know how many sets are right, now you can simply return numSets. These are two useful helper functions to have.</p>
+<p>(Refer Slide Time: 14:00)</p>
+<p><img src="./Lec18_media/media/image7.png" style="width:2.3125in;height:2.70548in"></p>
+<p>Now if you were solving the first problem in the Codeforces contest that I mentioned, which is also linked to in the description, then essentially what you are given is a sequence of queries, which are either union queries or same-set queries. Essentially, you just have to perform a sequence of unions, and sometimes in between, you get this question – Are these two elements in the same set or not? Essentially, this is how you would implement it.</p>
+<p>Given that all the work has already been done for you, this implementation should be straightforward to understand. In the first few lines, this is pretty typical. We are just taking in the input. Notice that I am initializing UnionFind with size ‘n+1.’ This is once again so that I can conveniently think of the ’i’th index is tracking the ’i’th element.</p>
+<p>If you were to initialize this with ‘n’ then you would have to remember to adjust for the indexing a little bit. Because even the notation in the input is that the elements are from 1 through n.&nbsp;If the elements were being denoted from 0 to ‘n-1,’ then you would not have to make this adjustment, one way or the other.</p>
+<p>That is, again, a small detail, but an important one because it is the sort of thing that can be annoying to debug when it does not fall in place correctly. So, I just wanted to flag that. But apart from that, everything else is pretty routine. You read off your queries and depending on whether it is a union query or a same-set query, you invoke the appropriate functions.</p>
+<p>From here, it looks like we never really use findSet in spite of implementing it. But notice that both ‘union’ set and ‘isSameSet’ actually make use of findSet in their implementation. Really, everything that we have written is more or less being used, except for some of the helper functions. Those are not really coming into play in this particular example. But again, it is useful to have them because you might need them depending on the situation.</p>
+<p>That brings us to the end of the first exercise. The second one is actually very similar. It kind of builds on this and just asks for a little more information. Just like here, you have a bunch of union queries. But now you also have these ‘get’ queries in which you are given one particular element and your task is to return the size of the set that this element belongs to. We have already implemented this by the way with the set size helper function.</p>
+<p>But apart from the size of the set that this element belongs to, you are also asked to output the value of the largest and the smallest elements in the set that this element belongs to. So, let us just briefly outline how you would handle something like this. I am not doing this from scratch but I am just showing you the extra information that you would need to store to be able to output the values of the largest and the smallest elements in any of the sets.</p>
+<p>(Refer Slide Time: 16:58)</p>
+<p><img src="./Lec18_media/media/image8.png" style="width:3.40104in;height:0.70833in"></p>
+<p>To begin with, let us add the maxSet and the minSet vectors to the class definition and although I am not showing it here, you should remember to initialize them properly. So, maxSet and minSet of ‘i’ will both have the value ‘i’ because you are working with singleton sets. The maximum and the minimum elements are both equal to the only element that you have in that set. Do remember to do that in the initialization function in the constructor.</p>
+<p>(Refer Slide Time: 17:25)</p>
+<p><img src="./Lec18_media/media/image9.png" style="width:3.39583in;height:1.50929in"></p>
+<p>Also add these helper functions where you are returning the values of the maximum and the minimum elements by not directly returning the value, just like we saw with the set size array, the values at ‘i’ may have become meaningless over time but you will be tracking them correctly for the leader elements.</p>
+<p>To find out the maximum value in the set that contains the element ‘i,’ first find the representative element of the set that contains ‘i’ and then look up maxSet for that element and this is analogous for minSet. We have these two very simple helper functions, which will give us the values that we want. You can invoke them when you are writing down your output and the main function.</p>
+<p>Again, I do not show the main function explicitly because this is a really straightforward addition. In any case, if you want to see the entire code, you can always go to the official GitHub repository and look it up there. The one thing that is very important to do is to update the values of maxSet and minSet for the leader elements when you actually implement the union. Notice that these values are not affected when you do things like findSet because nothing about the structure of the sets changes when you do findSet.</p>
+<p>(Refer Slide Time: 18:40)</p>
+<p><img src="./Lec18_media/media/image3.png" style="width:2.88021in;height:1.125in"></p>
+<p>But when you do ‘union,’ then the values of the max and the min can change. So, when you are doing union, remember that we had x and y as being the leaders of the sets represented by i and j. Once again, if x = y, you do not need to do anything because the set itself does not change. There is no union that is really happening. We do not have to worry about that case.</p>
+<p>In the other case, when you are actually merging two sets, remember we said that we will set p[x] to y. The set that was being tracked by x is getting absorbed into the set that is being currently represented by y. We do have to update the values of maxSet y and minSet y to account for this new information. These newly added elements may actually upset the old max and min values.</p>
+<p>That is essentially what these two lines of code are doing. It is very simple but it is crucial to ensure that you maintain correctness as you go along. Look at the maximum element that was there in the set that was being tracked by x and if that is larger than the maximum element in the old set that was being tracked by y, then the max set of y should be updated so that it reflects this new element as the maximum.</p>
+<p>However, if the maximum was smaller than the maximum element of the set being tracked by y previously, then you do not need to change anything. You could write this down as an ‘if-else’ block. But it is equally accurate and perhaps visually simpler to just take a max of the two old maxes, and similarly, for minSet, you take min of the older mins.</p>
+<p>Hopefully, this update makes sense and this ensures the accuracy of the maxSet and the minSet arrays at least on all the elements that are representatives at any stage of the algorithm. That brings us to the end of this discussion on basic DSU implementation. Now, that you have your own version of DSU, you are prepared to tackle problems that use this data structure.</p>
+<p>These two problems that we have discussed so far were very explicitly asking for a DSU implementation. Many problems have the DSU demand kind of hidden away in a more subtle way. We will see a couple of examples of problems where DSU comes in handy. But it may not be completely obvious that that is what you need to invoke.</p>
+<p>There will be links to a lot of practice problems that you can try out on the course website. But in the meantime, for the rest of this week, we will look at a couple of different problems quite explicitly. In the meantime, I hope that you have a chance to try out everything that we have discussed so far. As usual, if you have alternate implementations in Python or Java or any language of your choice, please do make sure to submit a pull request on the official repository.</p>
+<p>I look forward to seeing your submissions, and we will keep the conversation going on Discord. Thanks so much for watching so far, and I will see you in the next video. Bye for now!</p>
+
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

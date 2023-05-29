@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-01">
+
+<title>Neeldhara - M 2 (Reversort Engineering)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">M 2 (Reversort Engineering)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../materials/cpnotes/index.html" class="sidebar-item-text sidebar-link">Competitive Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">W01</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec01.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec03.html" class="sidebar-item-text sidebar-link">M 03 (Numbers Game)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec02.html" class="sidebar-item-text sidebar-link active">M 2 (Reversort Engineering)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec04.html" class="sidebar-item-text sidebar-link">M 4 (Will It Stop?)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec00.html" class="sidebar-item-text sidebar-link">Welcome and Initial Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">W02</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec05.html" class="sidebar-item-text sidebar-link">M 1 (Trouble Sort)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec06.html" class="sidebar-item-text sidebar-link">M 2 (The Meeting Place Cannot be</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec07.html" class="sidebar-item-text sidebar-link">M 3 (Magic Ship)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec8.html" class="sidebar-item-text sidebar-link">M 4 (Simple Skewness)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">W03</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec9.html" class="sidebar-item-text sidebar-link">M 1 (Pancake Flipping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec10.html" class="sidebar-item-text sidebar-link">M 2 (Islands War)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec11.html" class="sidebar-item-text sidebar-link">M 3 (Stable Marriage-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec12.html" class="sidebar-item-text sidebar-link">M 3 (Stable Marriage-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec13.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Coin</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec14.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Guarding a</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec15.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Traveling</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">W04</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec17.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction-Part II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec18.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction-Part III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec16.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec19.html" class="sidebar-item-text sidebar-link">M 2 (Destroying Array-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec20.html" class="sidebar-item-text sidebar-link">M 2 (Destroying Array-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec21.html" class="sidebar-item-text sidebar-link">M 3 (War-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec22.html" class="sidebar-item-text sidebar-link">M 3 (War-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec23.html" class="sidebar-item-text sidebar-link">M 3 (War-III)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">W05</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec25.html" class="sidebar-item-text sidebar-link">M 1 (BFS and DFS)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec24.html" class="sidebar-item-text sidebar-link">M 1 (Graph Traversals)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec26.html" class="sidebar-item-text sidebar-link">M 2 (Mahmoud and Ehab and the</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec27.html" class="sidebar-item-text sidebar-link">M 3 (Cover It!)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec28.html" class="sidebar-item-text sidebar-link">M 4 (Diamond Inheritance)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">W06</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec31.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm-Sending Email)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec29.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec30.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec32.html" class="sidebar-item-text sidebar-link">M 1 (Modified Dijkstra)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec33.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec34.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec35.html" class="sidebar-item-text sidebar-link">M 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec36.html" class="sidebar-item-text sidebar-link">M 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">W07</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec37.html" class="sidebar-item-text sidebar-link">M 1 (Blingor’s Network | Foundations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec39.html" class="sidebar-item-text sidebar-link">M 1 (Kruskal’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec38.html" class="sidebar-item-text sidebar-link">M 1 (Prim’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec40.html" class="sidebar-item-text sidebar-link">M 2 (Cherries Mesh)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec41.html" class="sidebar-item-text sidebar-link">M 3 (Hierarchy)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec42.html" class="sidebar-item-text sidebar-link">M 4 (Island Hopping)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">W08</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec44.html" class="sidebar-item-text sidebar-link">M 1 (Ford-Fulkerson for Max Flow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec45.html" class="sidebar-item-text sidebar-link">M 1 (Implementing Edmonds-Karp)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec43.html" class="sidebar-item-text sidebar-link">M 1 (Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec46.html" class="sidebar-item-text sidebar-link">M 2 (Maximum Matching via MaxFlow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec47.html" class="sidebar-item-text sidebar-link">Sport Elimination via MaxFlow</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">W09</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec48.html" class="sidebar-item-text sidebar-link">MaxFlow-MinCut Duality</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec50.html" class="sidebar-item-text sidebar-link">Minimum Vertex Cover via Max Flow | SAM I AM (UVA 11419)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec49.html" class="sidebar-item-text sidebar-link">Police Chase</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">W10</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec53.html" class="sidebar-item-text sidebar-link">Bottom-Up DP | Dice Combinations (CSES Problem Set)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec52.html" class="sidebar-item-text sidebar-link">Introduction | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec51.html" class="sidebar-item-text sidebar-link">Memoization | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">M 2 (Reversort Engineering)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cpnotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Lecture - 02</strong></p>
+<p><strong>Ad hoc and Implementation - Module 2 (Reversort Engineering)</strong></p>
+<p>(Refer Slide Time: 00:11)</p>
+<p><img src="./Lec02_media/media/image2.png" style="width:3.50521in;height:2.62056in"></p>
+<p>Welcome back to the second module of the first week of getting started with competitive programming. In this video, we will be talking about a problem called <em>Reversort Engineering</em>. This will be building upon the reversort algorithm that we discussed in the previous video. So, just in case you have not watched that, please make sure that you do before starting this video. Now, let us get started as usual with the problem statement.</p>
+<p>(Refer Slide Time: 00:36)</p>
+<p><img src="./Lec02_media/media/image1.png" style="width:3.40104in;height:2.44956in"></p>
+<p>In the previous problem, which was reversort, we were given a list of numbers as input, and our task was to calculate the cost of reversorting that list. In this problem, our task is going to be exactly the opposite, which is to say that we are now given a cost as input, and our task is to produce a list, which has that cost.</p>
+<p>(Refer Slide Time: 00:52)</p>
+<p><img src="./Lec02_media/media/image19.png" style="width:2.82813in;height:1.965in"></p>
+<p>Specifically, we are given two integers <em>n</em> and <em>C</em> as input, and we have to find a list of <em>n</em> distinct integers between 1 and <em>n</em>, such that the cost of applying reversort to this list is exactly <em>C</em> or we conclude correctly that there is no such list. How do you go about tackling something like this? To begin with, notice that the question allows for the possibility that there might be some values of <em>C</em> for which this task is not feasible at all. So, maybe that is a good place to start - To try and understand what is a reasonable range of values for <em>C</em> where this task even makes sense.</p>
+<p>(Refer Slide Time: 01:36)</p>
+<p><img src="./Lec02_media/media/image13.png" style="width:3.01042in;height:1.53542in"></p>
+<p>Let us begin by recollecting what reversort actually does. Remember that it goes through N-1 iterations. In each iteration, it tries to locate the minimum element and reverses the sub-array from the current location all the way up to wherever the minimum element is.</p>
+<p>Let us recall a couple of minor but important details. The first is that if at any point, you are reversing a sub-array of length 1, it may not feel like you are doing any reversing at all, but it still has a cost of 1 unit. The other thing to remember is that the total number of iterations is N-1 for lists of length N. So, essentially, the last step is something you get for free.</p>
+<p>With that in mind, let us try and come up with a lower bound for the cost <em>C</em>. In other words if you are reversorting some array of length N, is there a minimum cost that you have to pay, irrespective of what the array looks like? If you feel like it, take a moment here to pause and think about this question.</p>
+<p>So you might notice that reversort has N-1 iterations and because of what we just said, the cost of every iteration is at least 1. There are no free lunches in this entire process at all. So, the cost of reversorting any array of length N is at least N-1. So, if the value of <em>C</em> is strictly less than N-1, then it is pretty safe to declare that there is no such list.</p>
+<p>On the other hand, let us think about if there is a list whose cost is exactly N-1. Feel free to take a minute if you needed to think about this. So, if you did have a list whose cost was N-1, what would it look like? We already know that there are N-1 iterations and each of them has a cost of at least 1. So, if the total cost had to be exactly N-1, then we could not afford to have a cost of greater than 1 in any iteration.</p>
+<p>(Refer Slide Time: 03:36)</p>
+<p><img src="./Lec02_media/media/image4.png" style="width:3.01285in;height:2.16713in"></p>
+<p>Eventually,</p>
+<p><img src="./Lec02_media/media/image32.png" style="width:3.24733in;height:2.36652in"></p>
+<p>In other words, every iteration must have a cost of exactly 1. When does that happen? Notice that that can only happen if, at every step, the minimum element in that step is already in its correct position. Therefore, the only arrays who have a reversorting cost of N-1 are those which are already sorted, to begin with. In fact, it is interesting to know that for this value of C, the solution is in fact unique.</p>
+<p>(Refer Slide Time: 04:15)</p>
+<p><img src="./Lec02_media/media/image28.png" style="width:3.26563in;height:1.70125in"></p>
+<p><img src="./Lec02_media/media/image24.png" style="width:3.08333in;height:1.86593in"></p>
+<p>So far, we have seen that the cost has to be at least N-1 for us to have a chance of constructing a list with cost C. Now, let us try to understand what is happening on the other end of the spectrum, which is to say, can we come up with an upper bound for the cost C? How large can C be for us to have some hope of constructing a list with cost C?</p>
+<p>This time, you want to think about coming up with a scenario where the cost of reversals is as large as it can be in every single iteration. This will lead to some sort of an upper bound. Think about this for a minute and come back when you are ready. So, let us recall that there are N-1 iterations.</p>
+<p>But notice that the length of the array that the algorithm is working with is shrinking in each step. So, in the very first step, you are looking at the entire array, and in the worst case, maybe you have to reverse the whole array. In fact, we have seen examples where this actually happens. Right?</p>
+<p>So, in the first step, your cost could be as high as N. But in the second step, since the first element has fallen in place, the sub-array under consideration starts from the second index and goes all the way, till the end. Again here, in the worst case, it is possible that your cost of reversal is N-1, but it is certainly no more than N-1.</p>
+<p>More generally, in the i<sup>th</sup> step, the cost of reversal can be as bad as N-i, but no more. And remember that the iterations only go on till the N-1<sup>th</sup> index. Putting everything together, we know that the cost of reversorting is no more than this sum. If you work it out, it turns out to be and into {[N(N+1)]/2}-1. This is the maximum cost of reversorting any array of length N.</p>
+<p>Once again, like before, if the cost that we have is greater than this bound, then we can immediately conclude that there is no list of length N, whose cost is exactly <em>C</em>. But now the more interesting question is the issue of finding a list, which actually realizes this upper bound.</p>
+<p>For a given N, can you come up with a list of numbers from 1 to N, whose cost of getting reversorted is exactly the expression that you see here? Feel free to try this out for some small values of N. I will say that this question is slightly harder than the question of coming up with a list whose cost was exactly N-1. So, take your time and come back to this lecture when you are ready.</p>
+<p>(Refer Slide Time: 06:36)</p>
+<p><img src="./Lec02_media/media/image8.png" style="width:2.49479in;height:2.01151in"></p>
+<p>As I was suggesting, let us look at some small values of N. The smallest possible value of N that makes sense is 1. Notice that the cost of reversorting, the only array of length 1 is actually 0 because remember, we have N-1 iterations and here, therefore we will have none.</p>
+<p>The next value of N is 2. There are only two arrays of length 2 over the numbers 1 and 2. So, the array ‘1, 2’ is already in its proper order and the cost of reversorting it is just 1. The array ‘2, 1’ requires a swap in the first step and has a reversort cost of 2. This, of course, is perfectly valid. But notice that we took a brute force approach to coming up with the solution. This is not likely to scale well for large values of N.</p>
+<p>Let us try to arrive at the same conclusion but in a slightly more general way. This may be a slightly funny exercise, because we are dealing with a really small array, but bear with me. We will also go through this when N=3. Hopefully, things will become clearer as we go along.</p>
+<p>Let us think in slightly more general terms about the task of coming up with a list whose cost is as high as it can be. What should we aim for in the first step? Well, in the first step, the maximum cost that we can have is N, which happens when you have to reverse the entire array. When would you reverse the entire array? You would do that if the minimum element is at the very end. So, we already know that in our array, we are forced to place the number 1 at the last position.</p>
+<p>Now, we have to fill up the rest of the array, just to say that we now turn our attention to the first N-1 slots of the array. Of course, with N being just 2, we only have one slot remaining and it is no surprise what should go in there. But bear with me, let us just continue thinking about a general strategy for filling up these first N-1 slots.</p>
+<p>Notice that in the row above, we already have an array of length N-1 whose cost is as high as it can be. So, it seems like a tempting idea to just copy-paste that array in these N-1 slots that we are yet to fill. What is the effect of this? The first thing is that we are no longer left with a valid permutation because we have copy-pasted an array that consists of numbers from 1 to N-1. We also have a 1 at the very end.</p>
+<p>But as you will see, what really matters is not the specific numbers, but their relative order. So, to fix this and to turn the current array into a permutation, let us just bump up each of the first N-1 elements by a plus 1. This brings us to the array ‘2, 1,’ which is the solution that we had identified, to begin with, by just exploring both the possibilities that we had at hand.</p>
+<p>Let us just make a note of the cost here and move on to the case when N=3, where this whole process might be a little more visible. Notice that as before, to begin with, we have to place 1 at the very last position, if we want the first step to have the maximum possible cost. After this, to fill in the blanks like before, let us just pull down a copy of the array from the previous row. Noting that we do not have a permutation yet, let us just go ahead and upgrade each of those numbers by 1.</p>
+<p>Notice what happens when you run reversort on this array that we have. In the first step, as we predicted, the whole array gets reversed and that has a cost of 3. But after that, notice that we actually have a fully sorted array. So, in the second iteration, we would not get the maximum cost that we are looking for, it is just going to be a cost of 1 for a total cost of 4. That means that we still have some work to do.</p>
+<p>So, what is going wrong here? Although we did copy-paste a full cost array from the previous row, notice that that array gets damaged after the first iteration. We have designed our array so that the first iteration reverses the whole list. So, as a result, the list that we carefully copied over from the previous step also gets reversed.</p>
+<p>But the list that we had in the previous step is the list that we want to see at the start of this second iteration, after the first reversal. So, to ensure that is what happens, all we need to do is reverse the list in advance so that the first reversal will reverse it back to what we actually wanted to see.</p>
+<p>You can pause the video here and convince yourself that this list that we have here has a cost of 5, which is the maximum cost that you can expect from an array of length 3. Now, you can repeat this process quite predictably for larger and larger values of N. Every time you will be able to leverage the list that you build in the previous step to obtain a full cost list in the current step.</p>
+<p>(Refer Slide Time: 11:38)</p>
+<p><img src="./Lec02_media/media/image27.png" style="width:1.96354in;height:0.99787in"></p>
+<p><img src="./Lec02_media/media/image30.png" style="width:2.31493in;height:1.12561in"></p>
+<p>Let us recap what we have learned so far. We have established some boundaries on the values of <em>C</em>. We said that <em>C</em> has to be at least N-1 and at most {[N(N+1)]/2}-1. Anything outside of this is already impossible. For these specific extreme values, we are also able to come up with strategies for building lists whose costs are these exact values.</p>
+<p>Notice, however, that we are still left with the question of what happens when <em>C</em> lies strictly between these two extremes. Then by just looking at these inequalities, it is not completely obvious if we can always build a list of length N whose cost is exactly <em>C</em>. Let us think about the recursive approach that we just used for building a list of the maximum possible cost. In fact, let us just play with a few scenarios to build up some intuition and from there, hopefully, we will be able to develop an actual algorithm.</p>
+<p>(Refer Slide Time: 12:18)</p>
+<p><img src="./Lec02_media/media/image3.png" style="width:2.76042in;height:1.27325in"></p>
+<p><img src="./Lec02_media/media/image29.png" style="width:2.73438in;height:1.29834in"></p>
+<p><img src="./Lec02_media/media/image6.png" style="width:2.74479in;height:1.10808in"></p>
+<p><img src="./Lec02_media/media/image12.png" style="width:2.80208in;height:1.24537in"></p>
+<p><img src="./Lec02_media/media/image7.png" style="width:2.75in;height:1.46in"></p>
+<p><img src="./Lec02_media/media/image25.png" style="width:2.88823in;height:1.37219in"></p>
+<p>Eventually,</p>
+<p><img src="./Lec02_media/media/image14.png" style="width:2.82813in;height:1.40403in"></p>
+<p><img src="./Lec02_media/media/image9.png" style="width:2.67049in;height:1.22348in"></p>
+<p>Suppose somebody gifts you an array of numbers from 2 to N, whose cost is D. Can you use the array to build an array of numbers from 1 to N, whose cost is, say, D+1? Notice that that is easy, you can do that by just adding element 1 to the head of the array. This way, the first step essentially has cost 1, and the second step encounters the original array and from there on, the total cost of the algorithm will be D.</p>
+<p>What if you wanted to build an array of numbers from 1 to N, whose total cost was D+2, instead? Well, then the natural thing to do seems to be to push element 1 to the second position so that the first step will have a cost of 2. Then, again you are left with the original array that you started with. From the second iteration onwards, you will have a cost of D.</p>
+<p>This array that you see right here has a total cost of D+2. What if you wanted to build an array whose total cost was D+3? It seems like the natural thing to do again would be to push 1 a little further up. But remember, just like we had this problem before, this particular array will not have a cost of D+3, because the first step will cause a reversal, which will mess up with the structure of the original array.</p>
+<p>In particular, after the first step, the array is going to look like 1, x2, x1, x3, and so on. So, you have really lost the base array that you started with. To fix this, we should swap the elements x1 and x2. Now this array, overall, will have the desired behavior. Notice that in the first step, the reversal will give us the array 1, x1, x2, and so on. That is exactly what we were looking for.</p>
+<p>You can probably see where this is headed. If somebody gives you a base array of numbers from 2 to N with the cost of D, then you can make use of this array to build an array of numbers from 1 to N, with a cost of, say, D+4, D+5, and so on. In fact, you can do this for any D+<em>x</em>, for any <em>x</em> in the range 1 to N.</p>
+<p>(Refer Slide Time: 14:33)</p>
+<p><img src="./Lec02_media/media/image16.png" style="width:2.90052in;height:1.55217in"></p>
+<p><img src="./Lec02_media/media/image23.png" style="width:3.11458in;height:1.59581in"></p>
+<p>Let us go back to the big picture and try and understand why all this is useful. To begin with, remember that when you are working with N, here is the valid range of values for <em>C</em>. <em>C</em> has to be at least N-1 and at most {[N(N+1)]/2}-1. Let us add to this picture the valid range of values for <em>C</em> relative to N-1.</p>
+<p>That is going to be N-2 for the lower bound and {[N(N-1)]/2}-1 for the upper bound. So, the idea is that you are starting with a cost <em>C</em> that is in the green range, and if you can subtract from it some amount that will take you to the red range, then the recursive algorithm pretty much writes itself.</p>
+<p>But the question is, can you always subtract something appropriate? Can you always subtract something that is workable? Well, notice that the difference between the two upper bounds is exactly N. What this means for us is that no matter where the original cost lies, as long as it is lying within the valid green range, we will always be able to subtract a quantity <em>x</em>, which is such that it is between 1 and N so that we get a cost which lies in the red range.</p>
+<p>Then we can pass this off to the recursion fairy, which will do its thing, and it will be able to give us an array whose elements are between 1 and N-1, and that has caused <em>C-x</em>. And of course, you can just add 1 to each of these elements to get an array of numbers between 2 and N, which have a cost of <em>C-x</em> to be reversorted.</p>
+<p>As the final step, what you want to do is add the number 1 in the correct place to adjust for the cost of <em>x</em>. You want to add the number 1 at the exit position from the left, and everything that you have before the number 1 needs to be reversed so that when the first reversal happens, you recover the array that you obtained from recursion.</p>
+<p>(Refer Slide Time: 16:40)</p>
+<p><img src="./Lec02_media/media/image21.png" style="width:3.32302in;height:2.00471in"></p>
+<p>By now, I think we have everything that we need to know to be able to implement this solution. Let us just do a super quick high-level recap, and then we will switch over to coding. The first thing we want to do is check the range of <em>C</em>. If <em>C</em> is not within the valid range, then we can immediately conclude that this is an impossible situation and we say as much. But if <em>C</em> is within the valid range, then we need to figure out how much we need to shave off from <em>C</em> to land in a valid recursive sub-instance.</p>
+<p>Once we do that, we obtain the array from recursion, adjust its values, place one in the correct place, and execute one final reversal to get to the array that has the desired cost. With all this being said, I think it is time to start coding. If you want to do this yourself, by all means, this is your usual spoiler alert, you might want to pause the lecture here and come back to it after you have given it a shot yourself.</p>
+<p>(Refer Slide Time: 17:29)</p>
+<p><img src="./Lec02_media/media/image15.png" style="width:4.80905in;height:2.69598in"></p>
+<p><img src="./Lec02_media/media/image5.png" style="width:4.84946in;height:2.27604in"></p>
+<p><img src="./Lec02_media/media/image17.png" style="width:4.86458in;height:2.3125in"></p>
+<p><img src="./Lec02_media/media/image11.png" style="width:4.875in;height:2.67708in"></p>
+<p><img src="./Lec02_media/media/image18.png" style="width:4.92708in;height:2.63542in"></p>
+<p><img src="./Lec02_media/media/image10.png" style="width:4.92708in;height:2.64583in"></p>
+<p><img src="./Lec02_media/media/image22.png" style="width:4.95313in;height:2.63542in"></p>
+<p><img src="./Lec02_media/media/image31.png" style="width:4.98438in;height:1.38542in"></p>
+<p><img src="./Lec02_media/media/image20.png" style="width:4.95833in;height:1.46819in"></p>
+<p><img src="./Lec02_media/media/image26.png" style="width:4.94792in;height:1.53533in"></p>
+<p>So, we have our usual setup here. As before, I have pulled in the values of the sample input and outputs for your reference in the files to the right. Now, the sample outputs for this problem are a bit different from usual, in the sense that it is not going to be a character-by-character match as it usually is for most problems. Notice that, for some values of N and <em>C</em> there might be multiple arrays of numbers between 1 and N whose cost is exactly <em>C</em>.</p>
+<p>In this case, the problem description says that as long as you print any one of them, your answer will be accepted. Your judge in this case is not going to be doing a character-by-character comparison with some sample output. But rather, it is going to take up the array that you output and it is going to compute the cost of reversorting it and check if it matches the expected cost.</p>
+<p>If your output does not match with the sample output, maybe because you had a different way of generating these arrays, then do not worry about it too much. Although I would recommend writing down a function that computes the cost of reversorting an array. You have probably already done this if you have solved the previous problem.</p>
+<p>So, you could use that function as a way to sanity-check your own answers. Once you are producing an array, just use this function to compute its cost, and see if it matches with the expected cost. Rather than trying to do a character-by-character comparison with the expected output, especially if it does not match.</p>
+<p>Moving on, I have already set up the parts about taking in the input. The output format is the usual Code Jam output format. You have to output case number <em>x</em>, followed by either the list or the word IMPOSSIBLE depending on the situation.</p>
+<p>Let me come back to the code. What is already done for you is the basic case analysis that we discussed in the beginning. So, if the cost <em>C</em> is not in the appropriate range that we discussed, then we just print IMPOSSIBLE directly. Otherwise, we have a helper function, which will actually construct this array for us, and you just print this array in the next step.</p>
+<p>Let us focus on building out this helper function because then we would pretty much be done. So, the construct function takes three parameters as input. The first two are quite natural: it is the length of the array you want to construct, that is N, and it is the cost that you want to achieve, that is <em>C</em>.</p>
+<p>The third parameter tracks the current minimum value of the array. To begin with, of course, this is 1. But in general, as you unravel the recursion, you will want to increase the value of this minimum element. There are other ways of implementing this, but I just found this one to be the most convenient.</p>
+<p>Let us try and see how we would actually do this. Let me just begin by pasting the function signature to save time. N and <em>C</em> are defined as before and <em>M</em> is the variable that we will use to track the current minimum. Now, whenever I am writing a recursive function, I like to get the base case out of the way first, to avoid dangerous situations. So, the natural base case here is when N=1.</p>
+<p>So, this is an array of length 1 where the minimum element has to be <em>M</em>. We do not have to worry about whether we are working with a valid cost because we kind of know that to be a precondition. So I am not going to really check for anything. The cost here must, in fact, be 0 by the time we have hit the base case.</p>
+<p>If you want, you could write a condition to check for this. But I am reasonably confident that because the costs were within the valid range, to begin with, they will continue to be within the valid range when we come down to the base case. So, here, I am just going to return the trivial array with just the element <em>M</em>.</p>
+<p>Alright, the more interesting case is what follows. Let me just pull up the picture, which represents our main solution idea. These are the relevant ranges that we are working with. Just going to get one easy case out of the way, which is to say that, when you reduce the cost by just 1, if you already fall within the valid range for N-1, then let us just do that and add the number 1 in the beginning.</p>
+<p>Just to save time, I am going to copy-paste this section of the code here and just take a look at what we are doing. So, we are saying that if <em>C</em>-1 is at least N-2, and <em>C</em>-1 is at most {[N(N-1)]/2}-1, then let us just invoke this function with length N-1 cost <em>C</em>-1 and of course, the minimum upgraded to N+1. We get this array, and then we just add the current minimum to the start of the array. In the beginning, this will be 1, but in a generic situation, you want to add the minimum element in the beginning and append the constructed array at the end.</p>
+<p>Hopefully, this case is clear. Otherwise, we just have a little bit of extra work to do, which is to say that, we have to figure out how much to subtract from the cost <em>C</em>, before delving into the recursion. This is the case when the current value is kind of between the right red point here and the right green point here. When you are here, you essentially know that you are within a length’ band N, but you need to figure out exactly where you fall so that you can subtract the right amount to get into the safe zone with respect to the red range, in some sense.</p>
+<p>Let us write down that difference. It is essentially going to be the current cost minus the lower bound. If you subtract {[N(N-1)]/2}-1 from the current cost, then you would have <em>x</em>, which is what do you want to subtract. So, I am going to call that difference <em>delta</em>.</p>
+<p>Now we want to construct an array whose cost is essentially <em>C - delta</em>, and an array of length N-1 and as usual with an upgraded minimum, which is N+1. So, we are going to invoke the current function. This is essentially the recursive step.</p>
+<p>Now, in the previous case, we could just place <em>M</em> at the head of the array. We have a little more work to do, which is to say that, we need to find the right place to place the minimum element <em>M</em>. Then we need to reverse everything that comes before it.</p>
+<p>Let us go ahead and do that. We will, first of all, convert this string into an array because that is going to be useful for the kind of manipulations that we will need to be doing later, in particular, reversing a part of the array and so on. Notice that this array has the minimum element at the first position because that is all that we have done so far.</p>
+<p>Let us see if we can perform the reversal that we need to do. Let us focus on what is inside the join function, which is the array-manipulation that we are doing. Notice that we are working with a new array, which just has the minimum element followed by everything we got from recursion, and we are walking up to the delta<sup>th</sup> element.</p>
+<p>Remember, that delta is excluded because of 0 based indexing. We essentially need to reverse that entire chunk. Then, we simply add on all the remaining elements of the array. Since construct needs to be returning a string, all we are doing here is converting this array back to a string. And at this point, we are actually done.</p>
+<p>Now, there are some small formalities that remain. Let us take care of them first. Notice that we have not yet returned the answer that we have so painstakingly created. One thing that is nice about VS Code is that it gives you this muted color for those variables that you have declared, but have not used yet. So, that is already a hint that I have left something hanging.</p>
+<p>Let us return the answer. At this point, all that remains to be done is to actually run this code and see how it works. Let me add the template to redirect the input-output to files. Let us run this program. So, we get some output. Notice that if I were to run a diff on my output with the expected output, then we do get some differences here. You can visibly see that the arrays that we are producing are a little bit different from the official outputs.</p>
+<p>As I said, in the beginning, this has nothing to worry about. But I will leave it as a bit of an exercise for you to come up with a different way of generating these arrays that possibly match with the sample outputs. Although it is not clear to me if the sample outputs were driven by an algorithm that generated them or if they just wanted to deliberately throw us off by using solutions that are different from, perhaps, the natural algorithm.</p>
+<p>In any case, what is really worth doing is sanity checking that the arrays that you are generating do have the cost that you expect them to have. So, for instance, for the first array here, we were supposed to have a cost of 6. Let us quickly see what reversort would do here.</p>
+<p>In the first step, you will have a cost of 1 because the minimum element is sitting right there. The next step: You will have a cost of 3 because the minimum element is at the very end. At this point, your array would look like 1, 2, 4, 3. So, the last two elements would need to be swapped, in the last step. That is an additional cost of 2. This array does have a total cost of 6. You can also verify that the array that appears in case number three has a cost of 12.</p>
+<p>Again, do try this out. Try writing a version of the solution on your own, and do upload it on the Code Jam platform and let us know how it went for you. I look forward to seeing you in the next video. That will be all for now. Thanks so much and have a great time!</p>
+
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

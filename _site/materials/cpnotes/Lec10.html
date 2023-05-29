@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-01">
+
+<title>Neeldhara - Greedy Algorithms - Module 2 (Islands War)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Greedy Algorithms - Module 2 (Islands War)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../materials/cpnotes/index.html" class="sidebar-item-text sidebar-link">Getting Started with Competitive Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec01.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec03.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 03 (Numbers Game)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec02.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 2 (Reversort Engineering)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec04.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 4 (Will It Stop?)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec53.html" class="sidebar-item-text sidebar-link">Bottom-Up DP | Dice Combinations (CSES Problem Set)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec17.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec18.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec16.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec19.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec20.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec21.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec22.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec23.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec25.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (BFS and DFS)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec24.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (Graph Traversals)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec26.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 2 (Mahmoud and Ehab and the</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec27.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 3 (Cover It!)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec28.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 4 (Diamond Inheritance)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec9.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 1 (Pancake Flipping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec10.html" class="sidebar-item-text sidebar-link active">Greedy Algorithms - Module 2 (Islands War)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec11.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec12.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec13.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Coin</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec14.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Guarding a</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec15.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Traveling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec52.html" class="sidebar-item-text sidebar-link">Introduction | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec48.html" class="sidebar-item-text sidebar-link">MaxFlow-MinCut Duality</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec51.html" class="sidebar-item-text sidebar-link">Memoization | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec37.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Blingor’s Network | Foundations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec39.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Kruskal’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec38.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Prim’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec40.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 2 (Cherries Mesh)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec41.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 3 (Hierarchy)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec42.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 4 (Island Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec50.html" class="sidebar-item-text sidebar-link">Minimum Vertex Cover via Max Flow | SAM I AM (UVA 11419)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec44.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Ford-Fulkerson for Max Flow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec45.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Implementing Edmonds-Karp)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec43.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec46.html" class="sidebar-item-text sidebar-link">Network Flows - Module 2 (Maximum Matching via MaxFlow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec49.html" class="sidebar-item-text sidebar-link">Police Chase</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec05.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 1 (Trouble Sort)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec06.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 2 (The Meeting Place Cannot be</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec07.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 3 (Magic Ship)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec8.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 4 (Simple Skewness)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec31.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm-Sending Email)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec29.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec30.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec32.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Modified Dijkstra)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec33.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec34.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec35.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec36.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec47.html" class="sidebar-item-text sidebar-link">Sport Elimination via MaxFlow</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec00.html" class="sidebar-item-text sidebar-link">Welcome and Initial Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Greedy Algorithms - Module 2 (Islands War)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cpnotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Lecture - 10</strong></p>
+<p><strong>Greedy Algorithms - Module 2 (Islands War)</strong></p>
+<p>(Refer Slide Time: 00:11)</p>
+<p><img src="./Lec10_media/media/image1.png" style="width:3.81795in;height:2.14133in"></p>
+<p>Welcome back to the second module of the third week. We continue our exploration of ‘Greedy Algorithms.’ As I mentioned, this time, we will be talking about a problem called the ‘Islands War.’ It was the fourth problem of an ABC contest on ‘AtCoder.’ It was contest number 103. You can find a link to the problem statement in the description of this video, and this one turns out to be a problem with a really fun story about warring islands, as you can guess from the name of the problem.</p>
+<p>So, there will be a lot of conflict and drama, and your task will be to figure out how you can resolve all of these conflicts with minimum damage. So, we are going to have a lot of fun. Let us get started.</p>
+<p>(Refer Slide Time: 00:56)</p>
+<p><img src="./Lec10_media/media/image2.png" style="width:3.15104in;height:1.90625in"> <img src="./Lec10_media/media/image21.png" style="width:3.11979in;height:1.89583in"></p>
+<p><img src="./Lec10_media/media/image5.png" style="width:2.78125in;height:2.05729in"> Eventually <img src="./Lec10_media/media/image23.png" style="width:2.6875in;height:2.06771in"></p>
+<p>We have ‘n’ islands lining up from west to east connected by ‘n-1’ bridges. These bridges are not completely arbitrary. The i<sup>th</sup> bridge is given to connect the i<sup>th</sup> island from the west with the (i+1)<sup>th</sup> island from the west. So, it is a really clean visual. Here is an example with ten islands and the bridges. There are nine bridges, which just connect them from left to right.</p>
+<p>West to east has been, sort of, modeled as left to right on your screen. So, the westmost island is the first island here and so on. The real story begins when we are told that some disputes have broken out between some islands, and we want to make traveling between those islands using these bridges impossible. How do we do this? We must have something to work with to be able to meet this goal. The thing that we are allowed to do is we can remove some of these bridges.</p>
+<p>But as you can imagine, removing bridges is a fairly destructive thing to do. What we are also asked to do is to minimize the number of bridges that need to be removed. So, you want to pacify everybody involved in a dispute. In the language of the problem statement, these disputes are called ‘requests.’</p>
+<p>So we are given ‘m’ requests. Each request is a pair ‘ai bi,’ indicating which pair of islands are involved in the corresponding dispute. What you want to do is you want to remove bridges in such a way that every request is satisfied. That is the entire problem statement.</p>
+<p>That is the goal. What we are going to do is just try and think about this first with the help of a few scenarios. Before we get to actually thinking about specific examples, let us go through this one right here. As you probably have noticed already, we have five requests here and a useful way to visualize these requests. Because we want to be thinking about which bridges to remove to satisfy all of these requests.</p>
+<p>(Refer Slide Time: 3:31)</p>
+<p><img src="./Lec10_media/media/image30.png" style="width:3.10938in;height:1.86458in"> <img src="./Lec10_media/media/image25.png" style="width:3.11979in;height:1.85417in"></p>
+<p><img src="./Lec10_media/media/image16.png" style="width:3.07813in;height:1.76042in"> <img src="./Lec10_media/media/image31.png" style="width:3.13021in;height:1.76042in"></p>
+<p>We are going to visualize these requests as lines that have their endpoints at the two islands that are involved in the request. Let us just draw these out here. Maybe you can just try to figure out what is the optimal solution for this example. Just to get a feel for the question to make sure that we are on the same page with respect to the task at hand.</p>
+<p>Feel free to pause here because I am just going to give it away after I finish this sentence. For this example, you may have noticed that it is impossible to meet all requests by destroying just one bridge because, for instance, we have a pair of disjoint requests. So, we have two requests that do not have any bridge that is common to them. There is no single bridge that will handle both of these requests. You need at least two, and the interesting thing is that you can do it with just two bridges.</p>
+<p>You could, for example, remove these two bridges here, and you would be done. How do we go about thinking about this problem in a greedy fashion? What is a natural greedy strategy? Remember that we have to meet all requests and minimize the number of bridges we use to satisfy these requests.</p>
+<p>What sort of bridges should we prioritize? What sorts of bridges are likely to appear in an optimal solution? A natural thing to do is to probably just go over every bridge and count how many requests are such that they would be satisfied if we were to remove that bridge. You could call this the ‘power of a bridge’ or something like that. You could use whatever term seems natural to you. I am just going to go with power.</p>
+<p>Let us say that the power of a bridge is just the number of requests, which would be handled if we were to destroy that bridge hypothetically. Now, it seems to make sense to target the bridges that have the highest power because the more powerful a bridge, in some sense, the more requests you handle in one shot.</p>
+<p>(Refer Slide Time: 05:51)</p>
+<p><img src="./Lec10_media/media/image19.png" style="width:3.17188in;height:0.76431in"></p>
+<p>This motivates our first greedy approach to this problem. What we could do is compute the power of every bridge. Sort the bridges by their powers, and then pick the most powerful bridges first. In particular, to begin with, we include the most powerful bridge in our solution, breaking ties arbitrarily. Then we delete all of those requests that got handled due to deleting this bridge. Then we keep repeating this as long as we have at least one request left.</p>
+<p>Remember that you may have to re-compute the powers of the bridges because after you delete some requests, some bridges may become less powerful than they were before. You could do all of this and what you would have as a result is a perfectly valid approach. But this is a good time to pause and think about whether it actually works. It will certainly produce a subset of bridges whose removal will handle all the requests just by definition.</p>
+<p>The real question is whether this is the best that we can do? In other words, are we really getting to the minimum number of bridges that we need to destroy to handle all requests? This is a great time to pause the video and actually think about this. Play with some examples and see if you can come up with either an argument for the correctness or if you can come up with a counter-example showing that this may not actually be the best possible strategy.</p>
+<p>Please go ahead and take that pause and come back to this video once you are ready. Hopefully, you have had a chance to think about this. It turns out that while extremely tempting, this strategy does not, in fact, work.</p>
+<p>(Refer Slide Time: 07:32)</p>
+<p><img src="./Lec10_media/media/image24.png" style="width:3.21354in;height:1.6875in"> <img src="./Lec10_media/media/image22.png" style="width:3.13021in;height:1.67708in"></p>
+<p>We are going to show you an example where the strategy of choosing the most powerful bridges can actually lead you to a solution that is not the optimal solution. Here we have a collection of four disjoint requests, which tells you straight away that the optimal answer has to be at least 4. Then we have a bunch of other requests, which are going to play out over the next couple of seconds.</p>
+<p>Let us try and think about what the greedy strategy will do here. You can check that, to begin with, three bridges have a power of 4, and ‘4, 5’ is one among these most powerful bridges. The greedy algorithm could start by picking ‘4, 5’ followed by ‘8, 9,’ which is one of the most powerful bridges left in the second iteration.</p>
+<p>After deleting ‘4, 5,’ and ‘8, 9,’ you are still left with three disjoint requests, which means that the greedy algorithm will have to output a solution involving five bridges. However, notice that four bridges are actually enough for this instance. Remember, earlier, we said that we need at least four, but it turns out that four bridges are even enough.</p>
+<p>Now you might be thinking that was pretty close. It was off by just one. Do I really need to worry about this? So, once again, let me remind you that in contest programming, you have to get it exactly right. There is no partial credit for coming close to the right answer. Sometimes there are problem statements, which will allow for solutions close to the optimal.</p>
+<p>But these are rare and certainly out of the scope of this course. So, always work with the mindset of shooting for the exact optimum solution. Besides, although this particular example was off by one, you can probably think about coming up with ways of modifying this example so that you can really amplify the gap between the output of a greedy algorithm that follows the strategy of destroying the most powerful bridges first and the true optimal solution.</p>
+<p>I leave that to you as food for thought while we should probably move on, get back to the drawing board, and think about other alternate strategies. To get a feel for what is going on, let us actually begin by looking at two really simple scenarios. These are probably the simplest scenarios that we can come up with, but they will still give us some intuition for what is going on.</p>
+<p>(Refer Slide Time: 10:04)</p>
+<p><img src="./Lec10_media/media/image9.png" style="width:1.56771in;height:0.6875in"> <img src="./Lec10_media/media/image29.png" style="width:2.30729in;height:1.8125in"> <img src="./Lec10_media/media/image26.png" style="width:2.36979in;height:1.84375in"></p>
+<p>First, let us think about what if all the requests were disjoint? In this case, you know that there is no bridge that can handle more than one request. You know that the optimal solution must involve at least as many bridges as there are requests. So, ‘opt’ is actually equal to ‘m,’ in this case. In terms of actually coming up with a solution, if you had to, you could simply pick one bridge per request, and it could really be any bridge that kills that request. It would not matter.</p>
+<p>(Refer Slide Time: 10:41)</p>
+<p><img src="./Lec10_media/media/image18.png" style="width:1.78125in;height:0.76327in"> <img src="./Lec10_media/media/image3.png" style="width:2.29688in;height:1.88542in"> <img src="./Lec10_media/media/image7.png" style="width:2.19271in;height:1.88542in"></p>
+<p>On the other end of the spectrum: What if every request went over some common bridge? In other words, what if there was one bridge that was involved in every single request? Here is one example where this plays out, and you can probably, as we go along, identify the bridge that is common to each request. It is the one that is right in the middle. When you have a situation like this, ‘what should the optimum solution be?’, you can probably guess that the optimum solution is just that one bridge that every request is involved in. A typical instance is going to be some combination of these two very extreme scenarios. So, let us think about a more generic situation.</p>
+<p>(Refer Slide Time: 11:31)</p>
+<p><img src="./Lec10_media/media/image15.png" style="width:3.45166in;height:0.75085in"></p>
+<p>Often it helps to think about what an optimal solution looks like, especially at the extremes. If there is some notion of beginning or end in a problem, it is worth thinking about what is going on the edge. Let us do that here and think about a situation that has no special structure.</p>
+<p>Imagine that somebody has given you an optimal solution to look at and one question that I would like you to think about now is: Where is the leftmost bridge on this optimal solution? Where does it lie? Which request is driving the choice of the leftmost bridge? Please take a pause here and think about this because this is going to lead us to the main insight for the final solution. I hope you had a chance to think about that. We are going to work through this with an example.</p>
+<p>(Refer Slide Time: 12:24)</p>
+<p><img src="./Lec10_media/media/image12.png" style="width:3.18229in;height:1.6875in"></p>
+<p>Let us drop some requests right here and, as we said earlier, you really want to be thinking about: Which is that critical request that drives the choice of the leftmost bridge? There are some natural candidates. Is that the one that finishes first? Is it the one that starts first? Is it the one that finishes last? The one that starts the last? If you think about it, you will realize that it is probably the request that finishes first.</p>
+<p>Because if you choose a bridge that came after this request finished, then you are in deep trouble. We know that we have to, at least, pick the bridge ‘3, 4,’ or one of the ones before it, to make sure that the first request is satisfied. In this example, we know that we have to pick at least one of these three bridges ‘1, 2,’ ‘2, 3,’ and ‘3, 4,’ to satisfy the first request.</p>
+<p>The thing to think about here is: Between these three bridges, is there a natural greedy choice to be made? Is there a bridge that seems to be at least as powerful as the other ones, so that we can sort of pick it at this stage without having to worry about exploring all the choices that we have?</p>
+<p>A natural thing to target is the last bridge, which is the bridge ‘3, 4’ in this case. Because notice that every request that can be handled by ‘1, 2,’ or ‘2, 3’ can also be handled by ‘3, 4.’ If this was not the case, then we have a request that is being handled by the previous bridges but is not being handled by ‘3, 4,’ and that would contradict our choice of the bridge that finishes first.</p>
+<p>In case that was not completely clear, please take a moment to work through it. It is a simple argument, but it lies at the crux of why the strategy that we are going to propose is, in fact, correct. The idea here is to simply prioritize the bridge that is on the brink of the request that finishes first. Because, again, the overall intuition is that we know that we do have to pick either this bridge or one of the ones that come before it, and it seems like this bridge is at least as powerful as the ones that come before it. So, we might as well just pick this one. Let us convert this idea into an algorithm.</p>
+<p>(Refer Slide Time: 14:51)</p>
+<p><img src="./Lec10_media/media/image8.png" style="width:3.66795in;height:0.78134in"></p>
+<p><img src="./Lec10_media/media/image4.png" style="width:2.72917in;height:0.76563in"> <img src="./Lec10_media/media/image17.png" style="width:2.57292in;height:0.79688in"></p>
+<p>The natural thing to do here is to sort the requests by their right endpoints, which is to say that the requests that finish the earliest will come first in the sorted order. Just to be sure, let us look at this sorted order for one of the examples that we saw just a little bit earlier. Now from here, what does the algorithm do? It is going to look at the first request, pick the last bridge on it, and then eliminate all the requests that are handled by this bridge.</p>
+<p>(Refer Slide Time: 15:11)</p>
+<p><img src="./Lec10_media/media/image10.png" style="width:2.50521in;height:0.85417in"> <img src="./Lec10_media/media/image11.png" style="width:3.69271in;height:1.41667in"></p>
+<p>Then we simply continue. For as long as we have a request left, we are going to be picking the last bridge on the first request. Notice that the sorted order of the requests remains unchanged, even as bridges get deleted. We just have to make sure that we track which requests are being handled by the bridges that we are including in our solution.</p>
+<p>Let us just play this out on a couple of examples to get a feel for what is going on. At this stage of our discussion, you are actually exposed to the entire algorithm that finds the solution. Hopefully, you have some intuition for why it works. We are going to have more to say about that and the running time in just a minute. But if you cannot wait to implement this yourself, this would be a good time to take a pause and do it.</p>
+<p>(Refer Slide Time: 16:19)</p>
+<p><img src="./Lec10_media/media/image27.png" style="width:2.91667in;height:1.98438in"> <img src="./Lec10_media/media/image6.png" style="width:2.98958in;height:1.96354in"></p>
+<p>In the meantime, let us play out the algorithm once again on one of the examples that actually appeared in the problem statement. Speaking of the problem statement, let me also remind you about the constraints that we are given on the inputs. Notice that the number of islands and the number of requests can be as large as 10<sup>5</sup>, which means that an algorithm that is either quadratic in ‘N’ or ‘M’ would not be feasible.</p>
+<p>In fact, even a solution that has a worst-case complexity of ‘N*M’ might get you into trouble. Let us analyze the running time of the approach that we have just proposed. Recall that in the first step, we sort the requests according to their right endpoints. That is just a standard sorting procedure and it will take you time ‘M log M,’ which is still pretty safe within the given limits.</p>
+<p>The second phase is where we actually build up the solution. The way we did this was by performing one pass over the sorted list of requests. Every time we encountered a request, we would include the last bridge on that request in our solution. We would also eliminate all the other requests that were handled by this bridge.</p>
+<p>But if you implemented exactly according to this description, then you have to be a little bit careful because you might end up getting an order ‘M<sup>2</sup>’ kind of a running time. Because every time you include a bridge, you do one more pass over the list of requests to identify those that need to be eliminated.</p>
+<p>I will leave it to you to think a little bit about how you can implement this in a slightly different way to ensure that all your work is being done in just this one pass over the requests. One hint is that instead of actually explicitly eliminating requests as you go along, can you simply track the last bridge that you have included in your solution and for every request that you are going over, simply check as you go along, if it was handled by that last bridge or not and think about why this approach would also work?</p>
+<p>That is all that I will have to say about the implementation for now. I would like to go back a little bit to our discussion about the correctness of this algorithm. One of the really neat things about this algorithm is that the solution that it produces carries proof of correctness. If you think about the bridges that we chose finally, each of them corresponds very naturally to a request.</p>
+<p>That is that request, which triggered the choice of this bridge and the solution. If you think about it, you will realize that all of these requests are, in fact, disjoint. Because if they were not disjoint, then at least one of the overlapping requests would have been eliminated in a previous iteration. You get a really simple contradiction. Now you have a collection of disjoint requests that is exactly the same size as the solution, which means that our solution has to be optimal.</p>
+<p>(Refer Slide Time: 19:31)</p>
+<p><img src="./Lec10_media/media/image20.png" style="width:2.13021in;height:1.28125in"> <img src="./Lec10_media/media/image13.png" style="width:2.08854in;height:1.29167in"> <img src="./Lec10_media/media/image14.png" style="width:2.05729in;height:1.21875in"></p>
+<p>Going back to one of the first observations that we made, it was this really simple idea that you need at least as many bridges as there are disjoint requests in your instance. What this algorithm is telling you right now is that it is actually enough. You do not need anymore. It is this really nice duality telling you that the largest number of mutually disjoint requests actually determines the number of bridges that you need to destroy. That concludes our discussion about the algorithm and its correctness.</p>
+<p>(Refer Slide Time: 20:07)</p>
+<p><img src="./Lec10_media/media/image32.png" style="width:5.59896in;height:3.21875in"></p>
+<p><img src="./Lec10_media/media/image28.png" style="width:5.63542in;height:3.22917in"></p>
+<p>Let us move on to the implementation. This is your regular spoiler alert at this stage of the discussion. If you want to try this yourself, you should probably come back after you have given it a shot. In the meantime, let us get started here. Let us recall that the first line of the input is just the number of islands and the number of requests given as two space-separated integers.</p>
+<p>Let us just read those in and the next ‘M’ lines give you the ‘M’ requests. Let us declare a list of requests and let us read these in. I am going to store each request as a tuple, you could also store it as a list - does not really make a difference. This is the current request, which we are going to append to the list of requests.</p>
+<p>The first thing that we have to do is to sort this list of requests according to the right endpoint. What we are going to do is use the built-in sort function on the list of requests. But we also have to tell the ‘sort’ function to sort according to the second coordinate. There are many ways that we can do this.</p>
+<p>For brevity, I will just use a lambda function here. If you are not familiar with this sort of notation, you can look it up. But intuitively, you can imagine that it is instructing the sort function to sort according to the second coordinate of the tuples. Now that the requests are sorted the way we want them, let us actually get to the bit where we build up the solution.</p>
+<p>Let us declare an answer variable, which we initialize to 0. We will start looking at these requests and figure out if a request really demands that a bridge needs to be added to the solution. Let us start by going over the requests one by one. What do we need to know about this current request?</p>
+<p>What we need to know is: Is it being handled already by the solution that we have built up so far or not? If it is not, then we need to add the last bridge on this request to our solution. If it is, then there is nothing to be done and we can move on. How do we check this? How do we check if the current request is being handled by the solution that we have built up so far?</p>
+<p>Notice that if it is being handled by the solution, then certainly the last bridge in our solution covers this request. Because if the last bridge does not cover this request, then none of the previous bridges would either. If it covers the request, then we are done. It is enough to keep track of the last bridge in the solution that we have built up so far.</p>
+<p>In some sense, what we are going to have is something like this: If the last bridge is at least request of 0. What does this mean? Look at where the request starts, and make sure that the last bridge is after the starting of this request. If this is the case, then the last bridge covers this request. If this is the situation, then we can just keep going.</p>
+<p>But if it is not, then notice that we do need to add a bridge to our solution to handle this particular request. What is the bridge that we are going to add to the solution? As we have discussed when we were going over the greedy approach, we said that it is enough to pick the last bridge that covers this request.</p>
+<p>That is given by request of 1. What we want to do is, we want to add this bridge to our solution. When I am talking about the request of one, it is really the bridge that connects the islands’ request of 1-1 with request of 1. So, that is the bridge that I want to add to my solution.</p>
+<p>Remember that we are really just tracking the number of bridges in our solution and as we go through this one pass over the requests, what I need to remember is: What was the last bridge? In other words, what was the rightmost bridge in my solution? At this point, what do you want to update is just the value of last bridge to reflect that the last bridge is now the bridge that ends at request of 1.</p>
+<p>By the way, I am just thinking of representing the bridges by their right endpoints here. You could also represent a bridge by its left endpoint but then you would have to adapt the ‘if’ condition in the previous block. The other thing that we have to update is the answer variable. We need to increment that by 1, and we need to print this answer.</p>
+<p>One thing that we have not done is initialization. What happens to the first request? When you start this ‘for’ loop, you are going to run into a problem when you try to execute this ‘if’ statement because there is no last bridge. We have not even started building our solution so far.</p>
+<p>To make sure that the last bridge of the first request is actually chosen in the solution, what I initialize last bridge is -1 because that way even if the request started at island number 1, it is still not going to be covered by this last bridge. Notice that this is an artificial last bridge, it does not really exist.</p>
+<p>It is just so that the code that we have written picks up the last bridge of the first request, to begin with. Then it does its thing after that. You could also initialize this as requests of 1 of 0 and then you could start your ‘for’ loop from the second request onwards. That is just going to be a matter of preference.</p>
+<p>But I believe this should work. I think we have gotten all of the moving parts right here. So, I am going to try and run this. Notice that the output here turns out to be 2. I think this was one of the examples or at least close to one of the examples that we have discussed. We see that the expected output is also 2. In general, as a matter of practice, you just want to make sure that your output tallies exactly with what is expected.</p>
+<p>We could run this on one of the other examples as well. As usual, you probably also want to run this on examples that you come up with just to have an extra level of sanity check. Let us try running this on the last sample output where the expected answer is 4 and this is also an example that we have actually seen.</p>
+<p>Let us go back and run our program and we will see that the output actually matches and everything seems fine. I think we should have some confidence from the fact that we have discussed our approach by now, in quite some detail. At this point, I would encourage you to actually check this code or a version of it that you might have put together on the full set of test cases and let us know how it went.</p>
+<p>As usual, if you are stuck anywhere or if you are running into trouble with the logistics of submitting your solution, please give us a heads up on either the Discord channel or drop a message in the Google Forums for this course and one of us will be sure to get back to you. All the best and we will see you in the next problem. Bye for now!</p>
+
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

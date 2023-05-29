@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-01">
+
+<title>Neeldhara - Disjoint Set Union - Module 3 (War-I)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Disjoint Set Union - Module 3 (War-I)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../materials/cpnotes/index.html" class="sidebar-item-text sidebar-link">Getting Started with Competitive Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec01.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec03.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 03 (Numbers Game)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec02.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 2 (Reversort Engineering)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec04.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 4 (Will It Stop?)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec53.html" class="sidebar-item-text sidebar-link">Bottom-Up DP | Dice Combinations (CSES Problem Set)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec17.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec18.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec16.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec19.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec20.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec21.html" class="sidebar-item-text sidebar-link active">Disjoint Set Union - Module 3 (War-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec22.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec23.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec25.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (BFS and DFS)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec24.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (Graph Traversals)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec26.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 2 (Mahmoud and Ehab and the</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec27.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 3 (Cover It!)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec28.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 4 (Diamond Inheritance)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec9.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 1 (Pancake Flipping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec10.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 2 (Islands War)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec11.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec12.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec13.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Coin</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec14.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Guarding a</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec15.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Traveling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec52.html" class="sidebar-item-text sidebar-link">Introduction | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec48.html" class="sidebar-item-text sidebar-link">MaxFlow-MinCut Duality</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec51.html" class="sidebar-item-text sidebar-link">Memoization | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec37.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Blingor’s Network | Foundations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec39.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Kruskal’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec38.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Prim’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec40.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 2 (Cherries Mesh)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec41.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 3 (Hierarchy)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec42.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 4 (Island Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec50.html" class="sidebar-item-text sidebar-link">Minimum Vertex Cover via Max Flow | SAM I AM (UVA 11419)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec44.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Ford-Fulkerson for Max Flow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec45.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Implementing Edmonds-Karp)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec43.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec46.html" class="sidebar-item-text sidebar-link">Network Flows - Module 2 (Maximum Matching via MaxFlow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec49.html" class="sidebar-item-text sidebar-link">Police Chase</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec05.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 1 (Trouble Sort)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec06.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 2 (The Meeting Place Cannot be</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec07.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 3 (Magic Ship)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec8.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 4 (Simple Skewness)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec31.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm-Sending Email)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec29.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec30.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec32.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Modified Dijkstra)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec33.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec34.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec35.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec36.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec47.html" class="sidebar-item-text sidebar-link">Sport Elimination via MaxFlow</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec00.html" class="sidebar-item-text sidebar-link">Welcome and Initial Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Disjoint Set Union - Module 3 (War-I)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cpnotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Lecture - 21</strong></p>
+<p><strong>Disjoint Set Union - Module 3 (War-I)</strong></p>
+<p>(Refer Slide Time: 00:11)</p>
+<p><img src="./Lec21_media/media/image12.png" style="width:2.82813in;height:1.72917in"></p>
+<p>Hello, and welcome to the third and the final module in the fourth week of Getting Started with Competitive Programming. As you know, this week, we have been talking about applications of the Disjoint Set Union data structure. As our final example, I want to talk about a problem called ‘War.’ You can find this on the UVA online judge. The problem ID is 10158.</p>
+<p>But you do not really need to remember that because, as usual, a link to the problem statement is in the description of this video. This problem is also available on a platform called UDBug, where you can find additional test cases and hints and things like that. The link to that is provided in the description as well. Do check it out. Now, this problem has several things going on. Apart from an interesting story, there are a few different concepts to keep track of.</p>
+<p>You might find that the description is a bit longer than usual. In fact, I think in terms of just the number of lines in the code for the solution to this problem, this is probably the longest that we have seen. Actually, conceptually, it is a really clean problem once you get the hang of it. But I will say that it is a bit non-trivial. It takes some time to fully absorb all the moving parts and all the cases that are involved.</p>
+<p>Please be patient with this. It might take you some time before you can write everything out, especially if you like to write the solution out yourself before you follow along. Give yourself some time to make sure that you get all of the scenarios pinned down correctly. With that said, let us begin as always by taking a look at the problem statement.</p>
+<p>(Refer Slide Time: 01:55)</p>
+<p><img src="./Lec21_media/media/image10.png" style="width:2.04688in;height:1.90625in"> <img src="./Lec21_media/media/image6.png" style="width:2.01563in;height:1.89583in"> <img src="./Lec21_media/media/image25.png" style="width:2.11979in;height:1.90625in"></p>
+<p><img src="./Lec21_media/media/image13.png" style="width:2.19271in;height:1.92708in"> <img src="./Lec21_media/media/image2.png" style="width:2.06771in;height:1.94792in"></p>
+<p>We are given that there are ‘n’ people who are present at a party or something like this. That context is not so important. But what we are given about these ‘n’ people is that each one of them belongs to one of two countries. People who are from the same country - so here I have coded the two countries with a maroon-and-black background - so for people who are from the same country, they are all friends with each other.</p>
+<p>Here we have a group of five mutual friends on the one hand, and then three mutual friends on the other hand. Using the terminology from the problem statement, people who are from different countries, so if you pick any pair of people who come from different countries, we think of them as being enemies. Now, that is a pretty strong word. I might just call them rivals instead. We have these friends, and we have rivals.</p>
+<p>(Refer Slide Time: 02:55)</p>
+<p><img src="./Lec21_media/media/image9.png" style="width:2.24479in;height:1.95833in"> <img src="./Lec21_media/media/image1.png" style="width:1.99479in;height:2.01042in"> <img src="./Lec21_media/media/image18.png" style="width:1.98438in;height:1.97917in"></p>
+<p>That is the information that we are given, to begin with. But the interesting thing about the setting is that you do not actually know who is from which country. You have walked into this party and you see these ‘n’ people, and you do not really know who are friends and who are enemies and so on. The story goes that by observing people’s behavior at this party, by looking at how they are talking to each other, how they are interacting, and so on - who is getting into a fistfight? Who is exchanging pleasantries? - you can figure out, or you can make a pretty good guess about which pairs of people are friends and which pairs are enemies. Of course, you do not get to know all of this upfront; you have to spend some time at the party to infer more and more information. The way this is given to us is that as you spend time and you start inferring this information, you sort of make a record of it in your notebook or whatever.</p>
+<p>Let us say that you observe two people who are hanging out and having a good time. Then you decide to make a note of the fact that they are friends. This is given to you in the form of a query. You should not call this so much a query because it is not asking you for an answer. But this is something you can think of more as an operation. You just make a note of the fact that these two people are friends.</p>
+<p>This is something that will actually come through in your input. Your input is going to be a sequence of, you can think of them as a mix of, these commands and queries. We will come back to the queries a bit later. But the operations are essentially going to be either MAKE FRIENDS or MAKE ENEMIES, which is the operation that comes in when you observe that there are two people who are very likely to be enemies.</p>
+<p>So both MAKE FRIENDS and MAKE ENEMIES come with the IDs of two people on whom you want to impose either this friendship structure or this rivalry relationship. As you continue to spend time at this party, you start building up your observations. Let us say you note them down. Whenever you see two people, and you are convinced that they are friends, you make a note of that. If you are convinced they are enemies, you make a note of that as well.</p>
+<p>Formally, of course, the way this works out is that you are given a series of these MAKE FRIENDS and MAKE ENEMIES operations as input. You could just put them on the record as you go along. Let us say these are some of the relationships that you have been able to figure out by direct observation.</p>
+<p>(Refer Slide Time: 05:41)</p>
+<p><img src="./Lec21_media/media/image14.png" style="width:3.02083in;height:1.7939in"> <img src="./Lec21_media/media/image7.png" style="width:2.69271in;height:1.79167in"></p>
+<p>Now, if you remember, what we said earlier is that there is this friendship and rivalry structure or network that we know exists among these people. Essentially, what is happening is that as you spend more and more time as a neutral, third-party observer, it is like you are building out parts of this picture.</p>
+<p>You do not know this picture but it is like a few pieces of a jigsaw puzzle have been given to you, and you are trying to piece them together, and hopefully, eventually build up the complete picture as you go along. So far, though, all the information that you have built up is from your direct observations. An interesting aspect of this problem is that you can also build up a little bit of information from indirect inferences.</p>
+<p>Maybe you have not observed a pair of people directly, but you can draw some conclusions about them based on the other information that you have. The way that you can do this is driven by the fact that these friendship and rivalry relationships, because of the way they are, are driven by certain rules. There are basically three rules that we need to keep in mind and see how we can use them to draw these additional inferences. Let us go through these rules.</p>
+<p>(Refer Slide Time: 06:59)</p>
+<p><img src="./Lec21_media/media/image21.png" style="width:2.30729in;height:0.70833in"> <img src="./Lec21_media/media/image3.png" style="width:2.32813in;height:1.83333in"></p>
+<p>The first one is that friendship is transitive. What I mean by this is that if A is a friend of B, and B is a friend of C, then A is also a friend of C. Notice that this behavior is not really very intuitive in the sense that if you are thinking about friendships as in Facebook friendships, for instance, you do not really see transitivity.</p>
+<p>For instance, if you have a friend, just because this person is your friend, you do not automatically become friends with everybody that this person is friends with. However, that is the case in the context of the story that we have in this problem. Let us just keep this in mind and take a look at our example.</p>
+<p>See if we can infer any new friendships here by an application of this rule. Remember, the rule simply says that the friends of my friends are also my friends, which is to say, if we apply it to a specific people, let us say A is friends with B, and B is friends with C, then that implies that A is friends with C as well. Can you apply this to some three people in this picture and infer a new relationship? This would be a good time to pause and try and confirm this for yourself.</p>
+<p>Hopefully, you have also discovered at least this one new relationship that you can establish between two people because they are in this chain situation that I just described. This is one way of applying the first rule of friendship. I do not think there are any more inferences that we can draw just based on this rule.</p>
+<p>(Refer Slide Time: 08:44)</p>
+<p><img src="./Lec21_media/media/image15.png" style="width:2.58854in;height:0.86458in"> <img src="./Lec21_media/media/image23.png" style="width:2.33854in;height:1.85417in"></p>
+<p>Let us move on to the second rule which says that if you have a common enemy, then that makes two people friends. If you know that A is an enemy of B, and A is also an enemy of C, in that situation B and C have a good reason to be friends with each other because of this common enemy. Again, let us go back to the example that we have been looking at. Take a pause here and see if you can develop or infer any new relationships based on the second rule.</p>
+<p>Once again, the second rule says that a common enemy makes two people friends. Can you find two people who have a common enemy? You can probably discover that you can infer a new friendship between these two people here because they have a common enemy in the person who is the rightmost person on your screen right now.</p>
+<p>I do not think there are any more inferences that you can make based on this rule because there are just two rivalry relationships that you have so far. Let us move on and talk about the third role connecting friends and rivals.</p>
+<p>(Refer Slide Time: 09:58)</p>
+<p><img src="./Lec21_media/media/image4.png" style="width:2.16667in;height:0.76695in"> <img src="./Lec21_media/media/image17.png" style="width:1.85938in;height:1.77083in"> <img src="./Lec21_media/media/image19.png" style="width:1.94271in;height:1.77083in"></p>
+<p>The third rule, which I think is also a popular saying is that an enemy of a friend is an enemy. Notice that this is distinct from the previous situation. In the previous rule, what we said is that a common enemy makes two people friends. These are two people who, at least as far as we were concerned, were strangers. But let us say they have a chat, and they realize that they both have the same rival, then that becomes a reason for them to become friends.</p>
+<p>Here, however, you have two people who are already friends. One of them, let us say, realizes that the other person has an enemy, then this person is going to declare a rivalry with the rival of his friend because that is just how this rule works. If you are my friend and you have a rival, that person becomes my rival as well. Let us see how this rule plays out in our example.</p>
+<p>Take a look here and see if you can draw any new conclusions based on this third rule. Once again, remember, the third rule says that an enemy of a friend is an enemy. If you need to please pause here and try to figure out if you can apply this rule. We do have a situation where someone has a friend who has an enemy.</p>
+<p>You can see this playing out on sort of the bottom right corner of this picture. That is definitely one extra rivalry that you can deduce from the picture that you had built up so far. Now just take a look at this picture once again, and see if you can infer anything new based on what you have so far, especially after this last relationship was added.</p>
+<p>Was there anything new that can be concluded by applying one of the rules that we have discussed so far? You might spot that, here are two people who now have a common enemy. Because they have a common enemy, the second rule comes into play and they become friends. That is the picture that we have so far.</p>
+<p>(Refer Slide Time: 12:19)</p>
+<p><img src="./Lec21_media/media/image8.png" style="width:2.68229in;height:1.63554in"> <img src="./Lec21_media/media/image16.png" style="width:2.60938in;height:1.62451in"></p>
+<p>Let us just move things around so that this is a bit clearer to see. It is the exact same picture, which is the pieces adjusted a little bit. I think hopefully it is at least visually clear that at this point you have a dead-end in terms of indirect inferences based on the rules that we have discussed so far.</p>
+<p>Let us actually turn this around so that it is easier for me to draw the next connection that I want to draw. Suppose you have a MAKE FRIENDS operation, and this is a new direct observation. Let us say that you make friends between these two people here. Then you can probably guess that by applying the first rule of friendship, which is that your friends are my friends, you can actually infer these two new friendships in this picture. But that is not all.</p>
+<p>You can actually say more based on one of the other rules. Can you think of any other relationships that you can derive from the three rules that we have seen before? Take a pause here and think about it. Remember that we said that if you are my friend and you have a rival, then that person is also my rival. This was the third rule. Based on that, notice that if you pick any one of the people who are in a yellow circle and any person who is in a blue circle, then they are going to be mutual rivals for this reason.</p>
+<p>By the way, I should have mentioned this explicitly, but friendship and rivalry are always assumed to be mutual. It is never a one-sided relationship. That is also something that we are given. Let us not add these rivalries explicitly to this picture because it is going to make it crowded. But notice that there is one person who is kind of isolated from the rest of the picture that we have built so far.</p>
+<p>(Refer Slide Time: 14:16)</p>
+<p><img src="./Lec21_media/media/image11.png" style="width:2.60938in;height:1.70833in"> <img src="./Lec21_media/media/image24.png" style="width:2.57813in;height:1.69792in"></p>
+<p>Let us say that we make a direct inference or direct observation about a rivalry between the person on the bottom-left of your screen and this person who sits in the component on the right. What does this direct observation tell us? Can we infer something more from here? If you remember, we said that if two people have a common enemy, then they themselves become friends. You can probably identify here that these two people do have a common enemy.</p>
+<p>You can infer this new friendship here. From this new friendship, you can infer many more friendships, and I leave it as an exercise for you to build out the rest of this picture. Fill in the remaining blanks and see if there is anything that still remains to be inferred if you need more direct observations to build up the whole picture. Or, are you really done from here?</p>
+<p>Do think about that when you have a chance. But in the meantime, let us move on to actually describe the task that we are supposed to perform. With all this background in place, I think we are ready to understand what we are supposed to do.</p>
+<p>(Refer Slide Time: 15:29)</p>
+<p><img src="./Lec21_media/media/image22.png" style="width:1.83333in;height:1.64101in"></p>
+<p>The input is going to be a stream of queries. Some of these are actual queries, while the others are really operations or information about these direct observations. We have seen two of these already. You have: MAKE FRIENDS and MAKE ENEMIES. But apart from these, you will also get queries of the form ARE FRIENDS? and ARE ENEMIES?</p>
+<p>For these latter two queries, you are expected to output ‘yes’ or ‘no,’ based on the information that you have so far. For example, if you are asked if P and Q are friends, then you are supposed to say ‘yes,’ if you have evidence that they are friends, either from our direct observation or by inference, and you can say ‘no’ otherwise. As you might expect, it is similar to the ‘ARE ENEMIES?’ query.</p>
+<p>If you are asked if P and Q are enemies, you are supposed to say ‘yes,’ if you can deduce that they are enemies, either by direct observation or by some sort of inference. If this is not the case, then you say ‘no.’ Your task really boils down to keeping track of this picture, the one that we were building up like in the example before, as you get these MAKE FRIENDS and MAKE ENEMIES operations.</p>
+<p>Of course, the important thing is that you do not just make a note of the direct observations, you somehow want to also track all of the inferences, all of the implications that come out of applications of rules, 1, 2, and 3. Remember, the first rule was that all friends of my friend are my friends as well - friendship is transitive. The second rule was that if two people have a common rival, then they become friends.</p>
+<p>The third rule was that if my friend has a rival, then that person is my rival as well. You want to apply these rules as much as you can to actually infer additional relationships to be able to come up with accurate answers to the ‘ARE FRIENDS?’ and ‘ARE ENEMIES?’ queries, which is really the crux of what is going on here. Let us also point out a little bit of Fineprint, which I think is important.</p>
+<p>(Refer Slide Time: 17:40)</p>
+<p><img src="./Lec21_media/media/image20.png" style="width:3.06771in;height:1.5in"></p>
+<p>You might actually get ‘makeFriends’ or ‘makeEnemies’ queries, which contradict your previous knowledge. This could be as simple as the first line of input saying ‘makeFriends 1 comma 2,’ and the second line of input saying ‘makeEnemies 1 comma 2.’ This, of course, is a very direct example of contradictory behavior. But you could also have operations, which contradict the knowledge that you have gained so far by inference.</p>
+<p>Even if these indirect conclusions are contradicted, you are supposed to ignore these commands, or you are supposed to ignore these operations. Here is how this works. Whenever a makeFriends or makeEnemies operation does not contradict your previous knowledge, but it just adds to the picture that you are building, then you might do all this background work of making note of this information and drawing inferences and all of that. But you do not have to do anything in terms of output.</p>
+<p>So you produce nothing as output for the valid makeFriends and makeEnemies queries. But on the other hand, if you receive a query that contradicts your previous knowledge, then you output -1 to make a note of the fact that you encountered a contradiction, but you move on as if nothing has happened. You simply ignore this query in the context of the picture that you are building.</p>
+<p>That is how the problem works in terms of the input and the expected output. Now, we really have to think about coming up with a solution. Of course, you could try to brute force emulate everything. You could add this information. You could go over all pairs or triples, whatever it takes to exhaustively examine the impact of the three rules of friendships and rivalries that we discussed. But you can quickly see that that is going to be too expensive.</p>
+<p>We do need to do something smarter. Where do Disjoint Sets come into this picture? It is reasonably intuitive to think that the friendship relationship can be modeled using disjoint sets. Because of the fact that they are transitive, it would make sense to say that the friendships evolve in these clusters.</p>
+<p>Whenever two people from two different clusters are identified as friends, it makes sense to just mash the two clusters together. Because transitivity will imply that now everyone in the first cluster will become friends with everyone in the second cluster. So I think it is pretty natural to use disjoint sets to keep track of friendships.</p>
+<p>(Refer Slide Time: 20:28)</p>
+<p><img src="./Lec21_media/media/image5.png" style="width:2.48958in;height:1.70515in"></p>
+<p>But the real question is: how do you keep track of the enemies? That is some extra information that you do need to carry along. You need to find some way for making room for this extra baggage in your disjoint sets data structure. Now, there are multiple approaches to this problem, and we will be describing a specific one, but I think it is really worth taking a break here and seeing if you can puzzle this out for yourself. I think it is a really cute puzzle to work with.</p>
+<p>Just give it a shot. Join me back in the next part of this module. In the next video, we will talk about a complete solution to the problem, which involves using disjoint sets for the friendships and a little bit of extra book-keeping, and some case analysis to carefully track the enemies. I will see you there!</p>
+
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

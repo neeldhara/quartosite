@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-01">
+
+<title>Neeldhara - Minimum Spanning Trees - Module 1 (Prim’s Algorithm)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Minimum Spanning Trees - Module 1 (Prim’s Algorithm)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../materials/cpnotes/index.html" class="sidebar-item-text sidebar-link">Getting Started with Competitive Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec01.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec03.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 03 (Numbers Game)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec02.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 2 (Reversort Engineering)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec04.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 4 (Will It Stop?)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec53.html" class="sidebar-item-text sidebar-link">Bottom-Up DP | Dice Combinations (CSES Problem Set)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec17.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec18.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec16.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec19.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec20.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec21.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec22.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec23.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec25.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (BFS and DFS)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec24.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (Graph Traversals)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec26.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 2 (Mahmoud and Ehab and the</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec27.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 3 (Cover It!)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec28.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 4 (Diamond Inheritance)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec9.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 1 (Pancake Flipping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec10.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 2 (Islands War)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec11.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec12.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec13.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Coin</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec14.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Guarding a</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec15.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Traveling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec52.html" class="sidebar-item-text sidebar-link">Introduction | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec48.html" class="sidebar-item-text sidebar-link">MaxFlow-MinCut Duality</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec51.html" class="sidebar-item-text sidebar-link">Memoization | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec37.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Blingor’s Network | Foundations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec39.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Kruskal’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec38.html" class="sidebar-item-text sidebar-link active">Minimum Spanning Trees - Module 1 (Prim’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec40.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 2 (Cherries Mesh)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec41.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 3 (Hierarchy)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec42.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 4 (Island Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec50.html" class="sidebar-item-text sidebar-link">Minimum Vertex Cover via Max Flow | SAM I AM (UVA 11419)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec44.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Ford-Fulkerson for Max Flow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec45.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Implementing Edmonds-Karp)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec43.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec46.html" class="sidebar-item-text sidebar-link">Network Flows - Module 2 (Maximum Matching via MaxFlow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec49.html" class="sidebar-item-text sidebar-link">Police Chase</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec05.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 1 (Trouble Sort)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec06.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 2 (The Meeting Place Cannot be</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec07.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 3 (Magic Ship)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec8.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 4 (Simple Skewness)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec31.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm-Sending Email)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec29.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec30.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec32.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Modified Dijkstra)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec33.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec34.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec35.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec36.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec47.html" class="sidebar-item-text sidebar-link">Sport Elimination via MaxFlow</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec00.html" class="sidebar-item-text sidebar-link">Welcome and Initial Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Minimum Spanning Trees - Module 1 (Prim’s Algorithm)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cpnotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Lecture - 38</strong></p>
+<p><strong>Minimum Spanning Trees - Module 1 (Prim’s Algorithm)</strong></p>
+<p>Welcome back to the second segment of the first module on Minimum Spanning Trees. In this segment, I want to talk about Prim’s algorithm. And remember, from the previous segment, we talked about how most MST algorithms can be thought of as algorithms that build out a spanning forest step by step while making careful use of safe and useless edges. So, let us see how Prim’s algorithm realizes this framework.</p>
+<p>(Refer Slide Time: 00:40, 00:59 &amp; 01:19)</p>
+<p><img src="./Lec38_media/media/image2.png" style="width:1.76042in;height:0.26872in"> <img src="./Lec38_media/media/image7.png" style="width:2.04688in;height:0.27083in"> <img src="./Lec38_media/media/image1.png" style="width:2.34375in;height:0.41455in"></p>
+<p>To begin with, we are going to start with the empty spanning forest, which is to say that the vertex set is simply the vertex set of G, and every vertex at the moment is isolated. What Prim’s algorithm is going to do is essentially try and build out one component starting from some specific vertex.</p>
+<p>So, you can pick any vertex you like for this purpose. Let us just fixate on a vertex called ‘v.’ And let us call this vertex ‘T.’ That is to say, that is the spanning tree that we want to build out. So, this is a component that we want to continue focusing on, and (all of) Prim’s algorithm, the mechanics basically boils down to this.</p>
+<p>So, we look at the safe edge incident on T, which is to say, let us look at the cheapest edge among all edges that have one endpoint inside T and the other outside. So, to begin with, once again, this is just going to be the cheapest edge that is incident on the vertex v. And that is what is going to get pulled into T. The other endpoint of this edge is going to now become a part of T. And, in a general step, you have built out some ‘component’ starting from this vertex v.</p>
+<p>And you are going to look at all the edges that go out of this component, pick the one that has the least cost, and then add the vertex that is at the other end of this edge in component T. So, we continue doing this until T is fully fleshed out into a spanning tree, which is something that you get to know once T has ‘n minus 1’ edges. By this time, it would have automatically visited or accounted for all vertices being reachable from the vertex that you started with. Now, just to make sure that we are on the same page as to how this algorithm works, let us actually run it on an example.</p>
+<p>(Refer Slide Time: 02:30)</p>
+<p><img src="./Lec38_media/media/image12.png" style="width:3.14063in;height:1.75in"> <img src="./Lec38_media/media/image9.png" style="width:3.00521in;height:1.75in"></p>
+<p><img src="./Lec38_media/media/image8.png" style="width:3.14063in;height:1.33333in"> <img src="./Lec38_media/media/image5.png" style="width:2.95833in;height:1.34402in"></p>
+<p>Let us just pick up the example that we looked at in the first segment. So, here is the graph. And I have highlighted in yellow the vertex that is the vertex that we are going to start with. So, this is our vertex v. So, the vertices do not have labels here just to keep the slide a bit clutter-free. So, let me just explain how color coding works. So, the edges that have been marked red are going to represent edges that are under consideration in the current iteration, which is to say these are edges that have one endpoint inside T and the other endpoint outside of T.</p>
+<p>Typically, what we will do is we will then highlight in green, the cheapest edge among all of these edges that are under consideration. And then, once we have identified this edge, we are going to bring in the vertex, which is at the other endpoint into the fold of T. These are vertices that you can think of as the visited vertices, the seen vertices. So, such witnesses will also be marked yellow. So, as and when we see more and more vertices as the component T bells out, all the vertices that belong to T will be marked yellow.</p>
+<p>So, hopefully, that makes sense. Let us get started with the first step here. Notice that the edges under consideration are simply all the edges that go out of the vertex v. So, these are the highlighted edges here. And if you just read off the weights, you will see that the cheapest edge is the one that has weight 2. So, we bring in this neighbor into the fold. And now we see if we need to expand our set of edges that have one endpoint in the visited set and the other endpoint outside. And indeed, there are three such edges that need to be added.</p>
+<p>So, these have been highlighted for you. Now once again, let us go over the edge weights of the red edges. And we see that there are two edges that have a weight of 3, and both of these are in competition for being the current cheapest edge. At this point, I am going to break the tie by picking the edge at the bottom and incorporating this vertex into the fold. Now notice that one of these red edges became yellow because this red edge is now no longer an edge that has one endpoint inside T and the other outside.</p>
+<p>It has both of its endpoints inside T. So, we are going to mark it yellow as well. Now let us look at all the edges that are crossing T. So, there is one more that needs to be added. And once again, if you evaluate all the edge weights, you will see that now we have this other edge with a weight of 3 being the winner here. So, that brings in this vertex. And once again, we have more edges that cross now, at least one more. And this new edge is, in fact, the edge which has the smallest cost that is currently crossing. So, we use that to bring (in) this vertex into T. And now we have a few more edges that cross the cut.</p>
+<p>(Refer Slide Time: 05:43)</p>
+<p><img src="./Lec38_media/media/image11.png" style="width:1.79167in;height:0.95854in"> <img src="./Lec38_media/media/image10.png" style="width:1.82292in;height:0.92729in"> <img src="./Lec38_media/media/image14.png" style="width:1.80729in;height:0.96875in"></p>
+<p><img src="./Lec38_media/media/image3.png" style="width:1.88021in;height:0.95833in"> <img src="./Lec38_media/media/image13.png" style="width:2.04688in;height:0.97917in"></p>
+<p>And among these edges, among all the red edges right now, you can see that the next cheapest edge that gets chosen is the edge with a weight of 2. There is no contention here. It is the cheapest edge, and it brings in this vertex. And now you have all of these edges crossing the cut. And now, in fact, we have two edges that are both the cheapest from component T.</p>
+<p>And we pick one of them. This one that is closer to the center – this brings in the vertex that is the center of your screen into the component T, and it also adds one edge to the cut. Now if you look at all the crossing edges, you see that there is an edge still of weight 2. So, that is the next cheapest edge to go with. It brings (in) the corner vertex into the fold and adds this edge to the cut. And now, among all the crossing edges, you again have a tie between the two edges that have a weight of 4.</p>
+<p>So, let us break it by picking the vertex that is, once again, in the middle of this path at the bottom – this brings (in) this vertex into T. And at this point, you are going to have this edge crossing the cut, which would be in fact also the minimum edge for the current cut. And that is how the last vertex gets incorporated into your spanning tree. Now, you could try to rerun this simulation here by breaking ties differently, and you will see that you will end up with a different structure for the set of edges that witnessed the incorporation of vertices.</p>
+<p>So, by the way, all of these edges that are marked green, which were the edges that triggered the incorporation of the next vertex, these trees very naturally form a spanning tree. And this is in fact the minimum spanning tree that is returned by Prim’s algorithm. And as I said, if you had broken the ties differently, you would end up with different tree structures. But notice that all of them will in fact have the same cost. It should be easy for you to believe that the set of edges that you get at the end is spanning and it is a tree. I think these are fairly intuitive properties of the set of edges that you finally get your hands on. But what is quite a bit more non-trivial is the fact that this is in fact the best you can do. So, for example, if you add up the costs here, I think it will amount to 25. But it is not trivial, even for this example, to convince yourself that this is the best that you can hope for, you can do a little bit of trial and error. And, you know, just try and see if you can improve on this.</p>
+<p>But assuming that I have not made any mistakes in the simulation, this is going to be guaranteed to be the best that you can hope for because of the proof of correctness of Prim’s algorithm. So, this is a good point to remind you once again that in case you have not seen this proof before, although we will not be discussing it here, there are a number of pointers where you can find out more if you are so inclined. So, please do check either the course website or the description of this video for more. Now in the meantime, let us move on to the implementation of the ideas that we have discussed here.</p>
+<p>Notice that we are repeatedly finding the minimum cost edge incident to some ‘component.’ So, it is intuitive that priority queues come in somewhere in the picture. And notice that in spirit, this does seem to follow a very Dijkstra-like pattern, where we are constantly evolving some collection of visited vertices. But unlike Dijkstra, we do not really have to relax any edges or update the weights. So, we do not have to worry about the fact that, in particular, the C++ priority queue interface does not offer us a way to update the values of the keys. It does not matter here because we will never need to. So, we are going to use a priority queue to store the edge weights. And we are just going to carefully try and understand what are the edges that are incident on the component T as we go along. So, let us take a look at the code here.</p>
+<p>(Refer Slide Time: 09:46)</p>
+<p><img src="./Lec38_media/media/image4.png" style="width:6.13021in;height:2.375in"></p>
+<p>So, this is just an initialization of a taken array or a visited array. This just keeps track of which vertices have been visited so far by the algorithm. So, this array is basically the information about the yellow vertices from the previous simulation. So, initially, you could say that nothing is visited. And you could start things off by saying that the first vertex is visited. So, in this case, the first vertex is indexed by 0.</p>
+<p>And we just said, taken[0] = 1 to indicate that the story has, in fact, started. Now I just want to initialize also the priority queue with the values of the edges that are incident to this first or source vertex. So, let me just go over all the neighbors of the vertex 0 that is what is happening in AL[0]. By the way, I should mention that we are just storing all the information about the graph as an adjacency list because that is just something that happens to be convenient for this.</p>
+<p>So, we are just going to do the standard thing of visiting all the neighbors of the vertex 0 and loading up the weights of the corresponding edges into a priority queue, which has been initialized. Just before this code snippet, just make sure to initialize the priority queue so that it acts as a min-heap and not as a max-heap, which is the C++ default. Do make sure to take a look at the whole code in the official repository to look at the surrounding details of the initializations, and so on, especially if you are not sure about how to set it up so that it is a min-heap instead of a max-heap.</p>
+<p>Alright. So, now that we are done with the first element in the priority queue let us do a little more initialization. So, we have the variables mst_cost, and then the variable num_taken both initialized to 0: mst_cost is pretty self-explanatory, it is going to store the cost of the solution; the variable num_taken is going to keep track of how many edges are in the spanning tree so far. This allows us to exit as soon as we have seen that we have picked up n-1 edges because that is a signal that your spanning-tree build-up is complete.</p>
+<p>So, that gives us a way to exit the algorithm potentially earlier than waiting for the whole priority queue to be emptied out. So, that is why we have this extra variable here. You have to be careful about problems where you are handling multiple test cases. So, if you do this early exit, just make sure that you clean up the priority queue before you go to the next case. This is a very common source of bugs to have your adjacency lists or priority queues being corrupted with information from the previous test case.</p>
+<p>So, do make sure to clear them out or re-declared them, especially when you are using this sort of optimization that does not automatically empty out the priority queue for you. Now let us get to the main loop that is at the heart of this algorithm. So, the way we are going to do this is to actually process the priority queue for as long as it has an edge on it with our check for, you know, getting out of this loop early, if we have actually built out the tree, as just described.</p>
+<p>So, this is going to be our main outer loop. And what we are going to do is just repeatedly pull out the cheapest edges that we have in stock. Notice that one property of all the edges that get into the priority queue is that at least one of their endpoints is already in the set of the same vertices. That is how these edges got into the priority queue in the first place. This will become clearer when you see the entire body of the ‘while’ loop.</p>
+<p>But that is just an invariant that we are going to maintain. With the initialization, this is definitely true. All the edges on the priority queue, in the beginning, are edges that have one of their endpoints in the source vertex and the source vertex as already seen, to begin with. And as I said, this is something that we will maintain as we go along. So, when we pull out the cheapest edge in the priority queue, notice that it already has the property that it is an edge that has at least one endpoint in the set of seen vertices.</p>
+<p>But for this to be an edge that is of interest to us, we want to make sure that its other endpoint, in fact, is not seen so far. So, that is the first check that we want to implement. We want to make sure that take[u] is set to 0. So, if this is not the case, then we ignore this edge because this is an ‘edge,’ which has both of its endpoints in the component that we have built so far. And in the terminology that we discussed in the previous segment, this is a useless edge. So, we just want to have nothing to do with it. And that is why we just go back and continue with our loop.</p>
+<p>On the other hand, if this edge actually lands at a vertex that is not yet seen, then that is an edge that is interesting to us. Notice that this is in fact the cheapest edge that crosses across from the seen territory to the unseen territory at the moment. So, this is essentially a green edge. Remember, every edge that we labeled green was a signal that this is the edge that is going to guide the incorporation of the next vertex.</p>
+<p>So, this is the point where we have identified a green edge. And what we need to do is essentially look at the vertex that is at the other end of the green edge and make sure that it is incorporated. So, the first step to ensuring that this other vertex, which by the way is ‘u’ here is incorporated is by simply setting it is taken value to 1. So, that indicates that now this vertex has joined the club. The next thing that we want to do is to make sure that we update the cost of our solution with the cost of this edge.</p>
+<p>So, this edge has a cost of ‘w’ that is what we get out of the priority queue. So, we add w to the mst_cost variable. And finally, what we want to do is actually identify any other red edges. So, remember what we did while we were doing the simulation when we brought in a new vertex was to check if there are any other edges that now go from the seen territory to the unseen territory because of the incorporation of this vertex.</p>
+<p>So, what we are going to do is go over all the neighbors of this newly minted vertex, and check if any of those neighbors are unseen. That is, they have not been taken yet. Then these edges need to be pushed into our priority queue for consideration. So, that is what we are doing here. We are essentially processing this vertex to ensure that all of the edges (that are) incident on it are (being) now recognized in the system.</p>
+<p>Now, once you are done with this, all you have to do is update the number of taken edges by 1 and implement the sanity check that we discussed. If at this point, you have taken ‘n-1’ edges already, then you can quit this loop, and you are done. And once you are out of the loop, of course, you can print the cost of the MST or, if required, you could write a loop to print all the edges that belong to the MST.</p>
+<p>For this, you might need to do a little bit of extra bookkeeping within the ‘while’ loop just like you would do with something like Dijkstra. You could have a predecessor array that tells you about how each vertex got roped into the component T. And those are the edges that will basically form the MST for you. So, that is it. That is pretty much the entire algorithm.</p>
+<p>(Refer Slide Time: 17:24)</p>
+<p><img src="./Lec38_media/media/image6.png" style="width:3.46875in;height:0.75706in"></p>
+<p>Let us quickly talk about its running time. Notice that every edge gets enqueued and dequeued at most once there are ‘m’ edges and these enqueue and dequeue operations cost you log ‘n.’ This is the bulk of the cost of Prim’s algorithm. There are some costs associated with the initialization and so on. But those are all dominated by this m log n expression. So, it turns out that once we get to analyzing Kruskal’s algorithm, you are going to get a very similar running time.</p>
+<p>So, if you are pressed for a choice, either algorithm would work out similarly in terms of performance. But for some problems, it is just more natural to use one algorithm compared to the other and that will become evident as you practice through a number of problems. So, on that note, I would like to conclude our discussion on Prim’s algorithm and I will see you in the final segment for this module where we talk about Kruskal’s algorithm, which is a different way of building up a minimum spanning tree!</p>
+
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

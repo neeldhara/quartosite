@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-01">
+
+<title>Neeldhara - Ad hoc and Implementation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Ad hoc and Implementation</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../materials/cpnotes/index.html" class="sidebar-item-text sidebar-link">Competitive Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">W01</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec01.html" class="sidebar-item-text sidebar-link active">Ad hoc and Implementation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec03.html" class="sidebar-item-text sidebar-link">M 03 (Numbers Game)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec02.html" class="sidebar-item-text sidebar-link">M 2 (Reversort Engineering)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec04.html" class="sidebar-item-text sidebar-link">M 4 (Will It Stop?)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W01/Lec00.html" class="sidebar-item-text sidebar-link">Welcome and Initial Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">W02</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec05.html" class="sidebar-item-text sidebar-link">M 1 (Trouble Sort)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec06.html" class="sidebar-item-text sidebar-link">M 2 (The Meeting Place Cannot be</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec07.html" class="sidebar-item-text sidebar-link">M 3 (Magic Ship)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W02/Lec8.html" class="sidebar-item-text sidebar-link">M 4 (Simple Skewness)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">W03</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec9.html" class="sidebar-item-text sidebar-link">M 1 (Pancake Flipping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec10.html" class="sidebar-item-text sidebar-link">M 2 (Islands War)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec11.html" class="sidebar-item-text sidebar-link">M 3 (Stable Marriage-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec12.html" class="sidebar-item-text sidebar-link">M 3 (Stable Marriage-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec13.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Coin Change)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec14.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Guarding a Museum)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W03/Lec15.html" class="sidebar-item-text sidebar-link">M 4 (When Greedy Does Not Work - Traveling Salesman)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">W04</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec17.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction-Part II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec18.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction-Part III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec16.html" class="sidebar-item-text sidebar-link">M 1 (An Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec19.html" class="sidebar-item-text sidebar-link">M 2 (Destroying Array-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec20.html" class="sidebar-item-text sidebar-link">M 2 (Destroying Array-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec21.html" class="sidebar-item-text sidebar-link">M 3 (War-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec22.html" class="sidebar-item-text sidebar-link">M 3 (War-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W04/Lec23.html" class="sidebar-item-text sidebar-link">M 3 (War-III)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">W05</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec25.html" class="sidebar-item-text sidebar-link">M 1 (BFS and DFS)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec24.html" class="sidebar-item-text sidebar-link">M 1 (Graph Traversals)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec26.html" class="sidebar-item-text sidebar-link">M 2 (Mahmoud and Ehab and the bipartiteness)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec27.html" class="sidebar-item-text sidebar-link">M 3 (Cover It!)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W05/Lec28.html" class="sidebar-item-text sidebar-link">M 4 (Diamond Inheritance)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">W06</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec31.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm-Sending Email)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec29.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec30.html" class="sidebar-item-text sidebar-link">M 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec32.html" class="sidebar-item-text sidebar-link">M 1 (Modified Dijkstra)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec33.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec34.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec35.html" class="sidebar-item-text sidebar-link">M 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W06/Lec36.html" class="sidebar-item-text sidebar-link">M 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">W07</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec37.html" class="sidebar-item-text sidebar-link">M 1 (Blingor’s Network | Foundations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec39.html" class="sidebar-item-text sidebar-link">M 1 (Kruskal’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec38.html" class="sidebar-item-text sidebar-link">M 1 (Prim’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec40.html" class="sidebar-item-text sidebar-link">M 2 (Cherries Mesh)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec41.html" class="sidebar-item-text sidebar-link">M 3 (Hierarchy)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W07/Lec42.html" class="sidebar-item-text sidebar-link">M 4 (Island Hopping)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">W08</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec44.html" class="sidebar-item-text sidebar-link">M 1 (Ford-Fulkerson for Max Flow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec45.html" class="sidebar-item-text sidebar-link">M 1 (Implementing Edmonds-Karp)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec43.html" class="sidebar-item-text sidebar-link">M 1 (Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec46.html" class="sidebar-item-text sidebar-link">M 2 (Maximum Matching via MaxFlow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W08/Lec47.html" class="sidebar-item-text sidebar-link">Sport Elimination via MaxFlow</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">W09</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec48.html" class="sidebar-item-text sidebar-link">MaxFlow-MinCut Duality</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec50.html" class="sidebar-item-text sidebar-link">Minimum Vertex Cover via Max Flow | SAM I AM (UVA 11419)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W09/Lec49.html" class="sidebar-item-text sidebar-link">Police Chase</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">W10</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec53.html" class="sidebar-item-text sidebar-link">Bottom-Up DP | Dice Combinations (CSES Problem Set)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec52.html" class="sidebar-item-text sidebar-link">Introduction | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../materials/cpnotes/W10/Lec51.html" class="sidebar-item-text sidebar-link">Memoization | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Ad hoc and Implementation</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cpnotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Lecture - 01</strong></p>
+<p><strong>Ad hoc and Implementation</strong></p>
+<p>(Refer Slide Time: 00:11)</p>
+<p><img src="./Lec01_media/media/image1.png" style="width:5.24479in;height:2.9502in"></p>
+<p>Hello, and welcome to the second module of the first week of getting started with competitive programming. Hopefully, you have, by now, set up your coding environment in a way that you like and are comfortable with. If you have seen the previous video, you have also had an overview of the various platforms that we will be submitting code to reading problems from.</p>
+<p>So, just make sure that you have your accounts set up everywhere, and your basics sorted out about knowing where to submit your code, how to read input and write output, and so on. Also, do not get distracted with things like starter files that you might see from other more experienced competitive programmers.</p>
+<p>Especially if you are just getting started, it is perfectly fine to keep it pretty basic and simple right now. As you go along and build up your own experience, you will build out your own setup and startup files. I think it is a much better approach than copy-pasting large chunks of code that you probably do not even fully understand or appreciate right now.</p>
+<p>So, just feel free to keep it simple. If you are having any issues with the logistics of getting set up, please feel free to post a message on the <em>Discord</em> channel. If you are not on Discord, then you can send an email to the <em>Google Groups</em> set up for the course, and one of us will be sure to get back to you.</p>
+<p>So, with all that said, I hope you are excited to get started on your first problem-solving experience in this course. As you probably have noticed, the first week is called <em>Ad hoc and Implementation</em>. It generally means that these problems do not require any special data structures or algorithms background. They are fairly generic puzzles. You can have a go at them even if you are not particularly familiar with specialized data structures or algorithms.</p>
+<p>Usually, all that is needed is basic programming competence. It is also a great way to learn a new programming language. You might want to just practice with a lot of these implementation-based problems that show up in programming contests.</p>
+<p>Typically, if you go to a <em>CodeChef</em> long challenge or a <em>Codeforces</em> contest, the first problem is of this sort. You need to spend some time just trying to understand the setup. There are probably usually one or two small things that you have to figure out. But after that, the part about translating your thought process into code is generally relatively straightforward.</p>
+<p>Of course, sometimes, there are challenging implementation problems with many annoying corner cases and similar things. However, it will not be the scope of what we do this week. We will just see some interesting problems with fairly simple implementations.</p>
+<p>So, let us get started with a problem called <em>Reversort</em>. It will be a warm-up to another problem called <em>Engineering Reversort</em> that we will see in the next module. These problems appeared in the qualification round for <em>Google Code Jam 2021</em>. It is a fun problem!</p>
+<p>The first part is a very direct implementation problem. You see a description of a specific algorithm, and you just have to implement it. It turns out to be a sorting algorithm. We will have a lot more to say about sorting and searching next week. So, it is probably a good trailer for that as well. Let us look at what the problem statement says, and we will take it from there.</p>
+<p>(Refer Slide Time: 03:45)</p>
+<p><img src="./Lec01_media/media/image43.png" style="width:4.84375in;height:2.28095in"></p>
+<p>So, the problem statement introduces us to the Reversort algorithm. It is essentially a sorting algorithm designed to sort a list of distinct integers in ascending order. At the heart of the algorithm is the so-called reverse operation, which essentially takes a summary and reverses it completely. These summaries are carefully chosen so that after a certain number of iterations, the array ends up being fully sorted. So, we will take a look at the pseudocode for Reversort, understand how the algorithm works, and then we will get to the task that we are supposed to perform based on this algorithm.</p>
+<p>(Refer Slide Time: 04:21)</p>
+<p>Here is the pseudocode for Reversort. It is exactly as given in the problem statement. If you read it, you will discover that what the algorithm is doing is the following:</p>
+<p><img src="./Lec01_media/media/image45.png" style="width:4.83648in;height:2.71522in"></p>
+<p><img src="./Lec01_media/media/image6.png" style="width:4.90104in;height:2.75684in"></p>
+<p><img src="./Lec01_media/media/image41.png" style="width:4.53646in;height:2.54597in"></p>
+<p><img src="./Lec01_media/media/image37.png" style="width:4.66146in;height:2.61949in"></p>
+<p><img src="./Lec01_media/media/image21.png" style="width:4.70313in;height:2.64308in"></p>
+<p><img src="./Lec01_media/media/image23.png" style="width:4.83333in;height:2.71547in"></p>
+<p>The algorithm goes through the array from beginning to end. At the i<sup>th</sup> stage, it is trying to figure out what is the smallest element in the array from the current position to the variant. It takes the sub-array from the current position to wherever that minimum element is located. Then, it flips that entire sub-array over.</p>
+<p>So, this has the effect of bringing the i<sup>th</sup> smallest element to its correct place in the i<sup>th</sup> iteration. As a result, after n-1 iterations, your array is completely sorted. Notice that you do not need to do the last iteration explicitly because once you have sorted the first n-1 element, the last element automatically falls in place.</p>
+<p>Now, this may seem like a trivial thing to say, but for the task that we have to perform, these are the kinds of corner cases useful to observe and be careful about. Otherwise, you will end up getting these ‘off by 1’ errors, which can be silly and annoying. So, just be very careful in reading the algorithm down to these simple but minute details.</p>
+<p>Now we will simulate this algorithm on a couple of examples. My suggestion would be that once you see the example, pause the video and work through it yourself. Then resume the video to see if your execution tallied with ours. It is essential to go through these examples to build up your intuition for what the algorithm is doing. Having an accurate understanding of what the algorithm is doing will be crucial to being able to solve the task at hand correctly.</p>
+<p>We have not yet talked about what we are supposed to do with this algorithm. We will get to that in a minute after working through these examples. So, let us look at the first example. It is an array with just four elements <em>4, 2, 1, 3</em>, in that order. So, the first iteration discovers <em>element 1</em>, which is in the third position, and the array gets flipped. Notice that the second minimum element is already in its correct place in the second iteration. So, an array of length one effectively gets flipped.</p>
+<p>Notice that the last two elements need to be swapped for the third iteration. That is exactly what happens. As we discussed before, there are no more iterations after this because the fourth element is automatically sorted.</p>
+<p>(Refer Slide Time: 06:46)</p>
+<p>The next example is going to be a slightly longer and nearly sorted array, in some sense. See if you can spot why I am saying it is nearly sorted.</p>
+<p><img src="./Lec01_media/media/image17.png" style="width:4.04184in;height:2.26712in"></p>
+<p><img src="./Lec01_media/media/image2.png" style="width:4.05729in;height:2.2835in"></p>
+<p><img src="./Lec01_media/media/image15.png" style="width:3.93844in;height:2.19502in"></p>
+<p><img src="./Lec01_media/media/image27.png" style="width:3.65104in;height:2.05749in"></p>
+<p><img src="./Lec01_media/media/image3.png" style="width:3.69792in;height:2.07444in"></p>
+<p><img src="./Lec01_media/media/image33.png" style="width:3.76042in;height:2.10171in"></p>
+<p><img src="./Lec01_media/media/image12.png" style="width:3.64587in;height:2.03247in"></p>
+<p>So, in the first iteration, notice that the smallest element is right at the end of the array. When we reverse the array, the array becomes sorted. Because what happened was that the array, to begin with, was sorted in the reverse order. So, the very first reverse operation already sorted the array completely.</p>
+<p>But we do not stop just because the array is sorted. There is no check in the beginning, which says if the array is sorted, then let us not do any more iterations. The algorithm will go through the remaining five iterations just to make sure that everything is in place. This is how the algorithm is going to run on these examples.</p>
+<p>(Refer Slide Time: 07:52)</p>
+<p>Now, let us define the cost of a reverse operation as the length of the sub-array that is being reversed.</p>
+<p><img src="./Lec01_media/media/image44.png" style="width:4.74485in;height:2.65028in"></p>
+<p>Remember, I was saying that we have not really defined the task that we are supposed to do. Now, this is the stage where we realize that we are supposed to compute the total cost of reversorting a given input array. Let us go back to some of our examples to actually calculate the corresponding costs. Remember that when you are sorting the sub-array that spans positions ‘i to j,’ the length of the array that is being reversed is j-i+1.</p>
+<p>One way to compute the cost is to initialize a cost variable to 0 and just keep adding the lengths of the sub-arrays that are being reversed. This will involve implementing the Reversort algorithm and doing a little bit of extra book-keeping, just to see what is the length of the sub-array that is being reversed at every step. You just have to update your cost variable correctly and you would be done. Let us take a look at what the costs are for reversorting the two arrays that we just reversorted.</p>
+<p>So, the first example was the array <em>4, 2, 1, 3</em>.</p>
+<p>(Refer Slide Time: 07:49)</p>
+<p><img src="./Lec01_media/media/image31.png" style="width:4.16146in;height:2.33698in"></p>
+<p><img src="./Lec01_media/media/image22.png" style="width:4.14583in;height:2.32877in"></p>
+<p><img src="./Lec01_media/media/image10.png" style="width:4.16146in;height:2.33834in"></p>
+<p><img src="./Lec01_media/media/image16.png" style="width:3.91429in;height:2.20313in"></p>
+<p><img src="./Lec01_media/media/image26.png" style="width:4.02604in;height:2.25045in"></p>
+<p><img src="./Lec01_media/media/image34.png" style="width:3.98958in;height:2.23854in"></p>
+<p>Notice that in the first step we reversed a sub-array of length three, so that added a cost of 3. In the second step, the minimum element was in its correct position, but we still think of that as reversing an array of length 1. So, it does add one to the cost, it is not a step that comes for free. Do keep that in mind.</p>
+<p>In the next step, we swapped the last two elements for a cost of 2 and notice there are no steps after this, you get the last element in the array for free. So, the total cost here added up to a total of six.</p>
+<p>(Refer Slide Time: 09:38)</p>
+<p>Now, let us look at the next example where the whole array got sorted in the very first step.</p>
+<p><img src="./Lec01_media/media/image5.png" style="width:3.09896in;height:2.31935in"></p>
+<p><img src="./Lec01_media/media/image46.png" style="width:3.45833in;height:2.45188in"></p>
+<p><img src="./Lec01_media/media/image4.png" style="width:3.05208in;height:2.18802in"></p>
+<p><img src="./Lec01_media/media/image32.png" style="width:3.25521in;height:2.31579in"></p>
+<p><img src="./Lec01_media/media/image35.png" style="width:3.34375in;height:2.35056in"></p>
+<p><img src="./Lec01_media/media/image42.png" style="width:3.38822in;height:2.452in"></p>
+<p><img src="./Lec01_media/media/image7.png" style="width:3.26042in;height:2.32011in"></p>
+<p><img src="./Lec01_media/media/image47.png" style="width:3.18794in;height:2.23902in"></p>
+<p>The first step is expensive. You end up reversing the entire array for a cost of 7. But after this, you have to painstakingly investigate every element in the array to find out that the elements are already in their proper position. So, the algorithm in this case will basically continue for the next five steps, adding a cost of 1 per step.</p>
+<p>Remember that the algorithm does not have any sanity check at any step, which says that we can break if the array is already sorted. So, the total cost, in this case, will end up being 7 for the first super expensive step and then 1 unit of cost for each of the remaining five iterations. Only five iterations because the last step is for free. So, the total cost is 12.</p>
+<p>For the next problem that we will be discussing, we will be interested in constructing arrays whose cost of reversorting is some given number. That is a very interesting follow-up question. Here is a puzzle that you might want to play with. First of all, think about what is the maximum cost that you could incur as you reversort an array? Well, the maximum cost will be incurred, if at every step you need to reversort the entire remaining sub-array.</p>
+<p>(Refer Slide Time: 11:20)</p>
+<p><img src="./Lec01_media/media/image39.png" style="width:2.69271in;height:1.81644in"></p>
+<p>The specifics of the numbers in this array are not so important. But what do you want to think about is how do you come up with an example like this? Here is an example with 5 numbers. Can you generalize this and, say, give me an array of length 20, where, in every step, you find that the algorithm is forced to reverse the whole sub-array that it is working with? You might also conclude that, maybe, such arrays do not exist. That would also be a valid point to make if that were to be true.</p>
+<p>(Refer Slide Time: 11:40)</p>
+<p><img src="./Lec01_media/media/image24.png" style="width:3.22396in;height:2.25532in"></p>
+<p><img src="./Lec01_media/media/image11.png" style="width:3.11104in;height:2.18643in"></p>
+<p><img src="./Lec01_media/media/image36.png" style="width:2.86458in;height:2.03456in"></p>
+<p><img src="./Lec01_media/media/image18.png" style="width:2.80579in;height:1.96916in"></p>
+<p><img src="./Lec01_media/media/image28.png" style="width:2.81771in;height:2.03501in"></p>
+<p><img src="./Lec01_media/media/image8.png" style="width:2.7696in;height:1.93872in"></p>
+<p><img src="./Lec01_media/media/image38.png" style="width:2.84117in;height:2.01563in"></p>
+<p><img src="./Lec01_media/media/image25.png" style="width:2.86324in;height:2.01082in"></p>
+<p><img src="./Lec01_media/media/image40.png" style="width:2.96875in;height:2.1826in"></p>
+<p>What you can see playing out in this example is that in every step, you had to sort out whatever was remaining till the end. So, you have the maximum possible cost. In this case, it turns out to be 14.</p>
+<p>(Refer Slide Time: 12:13)</p>
+<p><img src="./Lec01_media/media/image29.png" style="width:2.67188in;height:0.88542in"></p>
+<p>Let us recap what we have going on here. So, essentially, we simulate the Reversort algorithm and we just keep track of the costs as we go along. At this point, I think we are ready to implement this. So, let us switch to coding.</p>
+<p>(Refer Slide Time: 12:39)</p>
+<p><img src="./Lec01_media/media/image30.png" style="width:6.5in;height:3.65278in"></p>
+<p>Welcome to the implementation segment of this discussion. I hope you are excited about writing the code for the very first problem that we have solved in this course. Because this is our first discussion about an implementation, I will go through every step of the process. But in the future videos, we might end up skipping some of the more routine paths, for example, taking input and things like that. In general, if you have any issues with the implementations of any programs that we discuss, please feel free to share your doubts in the Discord community that we have set up for this course.</p>
+<p>Notice that there is a separate channel for every week. We would really appreciate it if you could help us keep things streamlined by making sure that you are posting your questions in the correct channel. So, with all that said, I think we can get started here. Let me just walk you through the layout of the screen, which will be more or less the same in all the videos.</p>
+<p>I am using VS Code - that is my choice of ID. You could use anything that you are comfortable with. Just make sure that it is a plain text editor that has support for the basic features like syntax highlighting, and so on. I have divided my workspace into four panes. The main pane is the one that you see on the left, where I will be coding it. There is a floating screenshot of the section of the problem statement that I think will be relevant to us, because it has the details of the input and the output format. I will let that stay for a while, while we are still figuring out how to take the input and how to format the output.</p>
+<p>On the right, you will see that there are three panes and there are three files, one in each of them. So, there is <em>in.txt</em> and <em>out.txt</em>. These are the files that my program will be reading from and writing to. I find it convenient to redirect the standard input and output to these file streams, and this way, I can see the output of my code in this pane right here as opposed to going back and forth between the terminal or just having a cluttered terminal with the output of the code.</p>
+<p>This, of course, is a matter of purely personal preference. So, feel free to set up your environment in exactly whatever way you feel is the most comfortable for you. Importantly, I also have an <em>expectedout.txt</em> file. For now, it just has the output data from the sample output in the problem statement. But in general, you might want to be doing your own tests. In this case, you might have to generate this expected output file, either by working out the solutions by hand or in some other way. Or you have a brute force program that you are pretty confident about, which has generated the solutions for some instances. And, you want to compare if your algorithm which is doing something different is actually tallying with the solutions.</p>
+<p>So, <em>expectedout.txt</em> is a file with solutions that one would be typically confident about for some reason. Then what do you want to do at the very end after you have written your program is to just run a quick diff, either from the terminal or visually. I would recommend doing it from the terminal. Run a diff between these two files to make sure that the output from your program tallies exactly with what is expected.</p>
+<p>So, that is the overall setup. I will be using this terminal at the bottom to run the files. I have two very simple starter files. Here is the C starter file. And, I typically end up adding things based on what we need. This is some code that redirects the I/O to these file streams. This is something that is just recommended for speed and you will probably see it in many starter files. Most people would recommend using the <em>scanf</em> and <em>printf</em> style C input-output for speed.</p>
+<p>For most of the problems that we will be tackling, we are not really concerned about that level of optimization. So, I am going to stick to just doing the standard I/O Stream when I am using C++, which is to say I will use <em>Cin</em> and <em>Cout</em>. If you are stuck with program whose efficiency you are really convinced about and you are still getting some sort of TLE error, just check if you are using efficient input-output or not.</p>
+<p>Similarly, I also have a Python starter file, which I think looks even simpler. So, again, it is just redirecting the I/O Streams. I do have here a little bit of code that helps me track the time that my program is taking to actually produce its output. This is particularly useful for Python because it does tend to be the slower language. Sometimes, it just likes to sanity check that there is not a particular disadvantage. It is important to remember to remove any of these extra print statements.</p>
+<p>Remember that these would actually cause your tests to fail. On some platforms like Google Code Jam, for instance, you will end up just getting a runtime error if you submit your code with stuff like this. So, you just need to make sure that all of these extras are removed before you make your actual submission.</p>
+<p>Some people will have these <em>macro-if</em> statements to say that these things should execute only if you are not in a judging environment. I have personally found those to be a little bit unreliable. So, I just make sure that I manually clean up my files before I actually make a submission.</p>
+<p>On the other hand, if you do not want to mess around with your files, and you want to keep them clean, but you still want the input to be read from a file and the output to be written to a file, you can also do this using the appropriate commands on the command line. So, I use ‘Bash,’ and I can simply redirect the output to a file quite easily by just appending a small command to the regular compiler invocation.</p>
+<p>This is just to say that there are many ways of setting things up. I am not getting into any more specifics because the details will really vary based on your operating system, your compiler version and various other details. But there are a lot of resources online. I really encourage you to spend a little bit of time making sure that you have a comfortable working setup. So that you are not wasting any of your precious contest time on things like how to run your program and so forth. This is a small initial investment that is certainly worth making.</p>
+<p>(Refer Slide Time: 20:30)</p>
+<p><img src="./Lec01_media/media/image19.png" style="width:5.08854in;height:3.62313in"></p>
+<p><img src="./Lec01_media/media/image9.png" style="width:5.09028in;height:3.81771in"></p>
+<p><img src="./Lec01_media/media/image14.png" style="width:5.11458in;height:3.84415in"></p>
+<p><img src="./Lec01_media/media/image20.png" style="width:4.23958in;height:3.1825in"></p>
+<p><img src="./Lec01_media/media/image13.png" style="width:4.28125in;height:3.22899in"></p>
+<p>Let us go back to reversort and start the implementation that we were planning to get to. Let me switch back to the C starter file and just hope that the file names are correct, and everything is working fine. Let us test this with a small ‘Hello World’ output. There is ‘Hello World’ in the <em>out</em> file. So, that seems to be all right.</p>
+<p>Let us begin by taking the input. The first line gives the number of test cases T. By the way, before getting started, it is probably useful to just take a look at the limits for the input. Because, especially in languages like C++, one thing to be careful about is the types of the variables that you declare. So, you want to make sure that your variables types are conservatively large enough to hold the kind of values that are going to be thrown at them.</p>
+<p>Fortunately, this being a warm-up problem, the limits are fairly small. So, this is not something that we have to worry about specifically right now. I am just going to declare an integer, which can store the value of the number of test cases. Now, T test cases follow. I guess we should have a loop that accounts for each of these test cases. I am just going to use <em>c</em> as the loop variable. C for cases, but it does not really matter so much.</p>
+<p>What is the format of each test case? The description says that each test case consists of two lines, the first line contains a single integer, <em>N</em>. Let us read that in. The next thing that we want to read is the actual list itself. The second line of every test case consists of <em>N</em> distinct integers. So, the number <em>N</em> that we just read in is actually the size of the list. We can certainly write a <em>for loop</em> that is going to run <em>N</em> times. We could use this to actually pick up these integers.</p>
+<p>All the integers are on a single line, but they are separated by spaces. Although the description does not say it explicitly, if you look at the sample inputs right here, you can see that these are space-separated integers, which is going to be fairly convenient for us because we can just read them in like that, and we will be done.</p>
+<p>These numbers are not going anywhere. So, we need to put them in an array or vector or something similar. I am going to use a vector of integers, because that is what I find convenient. If you would prefer using an array that should be perfectly fine too. We are going to use the <em>push_back()</em> method to add these numbers to the list. This is analogous to append in Python if that is something that you are more comfortable with.</p>
+<p>We are done at this point in terms of reading the input. Just as a really basic sanity check, let us write this input back to make sure that we have it right, and we have not made any mistakes at this stage. Just remember to print some spaces, otherwise, the output will look unreadable. Let us just give a new line across test cases and tabs to distinguish between tests. If you look at the output file, now it looks like we have managed to read all the arrays correctly.</p>
+<p>Now, I do want to get rid of this floating screenshot. Let us also take care of the output. Of course, coming up with the answer is going to take some time. But let us just take care of it in terms of the formatting. What we want to do is print the case number. Google Code Jam is rather unusual in terms of its output format. Most other platforms would just require you to print the answer in some specified format. But Code Jam explicitly asks you to print the string involving the case number.</p>
+<p>So, what do we print here? We could invoke a function that we may want to write to solve this instance, and we would be done. Let us actually go ahead and define this function. Let us say it returns an integer, which is the cost of reversorting the array in question. And, let us say for now that we just return a dummy number. We can see that the formatting, at least, is okay in the output file.</p>
+<p>Since we are done with reading the input, I got rid of the references to input and output formatting. Just for our recollection, here is the pseudocode for Reversort. This is a snapshot from the problem description. Remember, our plan was to just implement Reversort, as is suggested here, and use a cost variable to keep track of the costs as we go along.</p>
+<p>Let us begin by introducing that cost variable, which is sufficient to be an integer at the moment. Let us also remember to return the cost. Let us try to implement the Reversort algorithm. So, we are going to need a <em>for loop</em>, where the loop index varies from 1 to the length of <em>L-1</em>.</p>
+<p>The one thing to keep in mind is that we probably should not be using 1-based indexing because that is not our scene here. So, let us start our loop variable from 0. This is going to go on until the <em>length-1</em>. Let us make sure that that makes sense.</p>
+<p>If you are going to stop strictly short of the <em>length-1</em>, remember that in our array, the index of the last element is going to be this <em>length-1</em>. And since <em>i</em> will be less than <em>length-1</em>, it will indeed ignore the last element which is exactly as desired. So, I think for us the extreme points of the loop variables make sense.</p>
+<p>What is the first step here? We want to find the minimum element, but it has to be the minimum element in a certain sub-array. Then we need to find the position of this minimum element and then execute the reversals. It is essentially these three steps: find the minimum element, find where the minimum element is, and identify the relevant sub-array and perform the reversal. Of course, we also need to track the cost that was associated with that reversal.</p>
+<p>Let us do this one step at a time. So, for finding the minimum, let us use the variable name <em>m</em> to keep track of the minimum value. We are going to use the function <em>min_element()</em> to actually find the min element. What the min element takes as input, we can think of this as the boundaries within which we want to search for the minimum.</p>
+<p>We are going to essentially say that we want to search from the start but <em>offset by i</em>. Of course, we want to go all the way till the end. You might want to just check that the indexing makes sense. So, in the very first step, you are looking for the minimum in the entire array. When <em>i=0</em>, for instance, notice that you are going to search for the minimum in the entire array. That is what it means to go from <em>L.begin()</em> to <em>L.end()</em>. These are essentially pointers to the start and the end of the list that we have.</p>
+<p>As the values of <em>i</em> increase, you correctly identify the sub-array within which to search for the minimum. If you are not completely convinced, then you might want to add some print statements here, just to see what is going on. But I believe this to be okay. Let us move on and try to do the circus of figuring out where this minimum element occurs.</p>
+<p>So, this is going to be an index, and we can use something called <em>find()</em> to find where the minimum element is. Since the elements of this list are all distinct, we can just search in the entire array. That will not hurt. If they were not all distinct, you will have to be a little bit careful in this step. So, I am just going to use the auto type here to keep things simple. And, that is going to keep track of the location of the minimum element. In the next step, we are going to actually perform the reversal.</p>
+<p>Now, you could probably write your own reversal function to do this from scratch. But in most languages, common operations like this are usually implemented through some built-in functions. I would generally recommend using a built-in function if it is accessible because that has been tried and tested and is likely to be more accurate than something that you code up from scratch. At least, for these really basic and fundamental operations.</p>
+<p>If you are not sure about what that function is or you do not remember the syntax, then that is something that you should feel free to lookup. Even if you are recording this in Python, there are any number of ways to reverse, say, a part of a list. So, there should be no problem to do in either language using just the built-in mechanisms.</p>
+<p>In C++, it turns out that the built-in function is just called <em>reverse()</em>. The one thing to be careful about, and where it is actually worth looking up the documentation a little bit, is to understand what is it that gets reversed. You probably give the reverse function two indices and it is quite natural that it is the sub-array that lies between those indices that gets reversed.</p>
+<p>The detail to worry about is whether the indices are inclusive or exclusive or some combination of both. It turns out that the <em>reverse()</em> function considers the first index to be inclusive and the last index to be exclusive. With that in mind, what we should input the reverse function is at the start of the array offset by <em>i</em>, because that is from where we want to start the reversal operation.</p>
+<p>We want to end at <em>x</em>, which is where the minimum element is located. Since the <em>reverse()</em> function is going to ignore that last index, if we had just given ‘begin plus i to x,’ then we would have reversed a shorter sub-array than what we intended. So, we need to add a plus 1 [<em>L.begin()+i,x+1</em>]. This performs the reversal that we require. Now we are ready for the final step, which is not present in the pseudocode. It is something that we have to do to solve the problem at hand.</p>
+<p>The very last step is to actually upgrade the cost by the length of the sub-array that we just reversed. So, when we were discussing this a few minutes ago in the lecture, we said that the cost is just going to be <em>j-i+1</em>, where <em>j</em> and <em>i</em> are the indices of the array that got reversed. But here, we have these indices in the slightly awkward format. And, it is not clear if we can just directly do arithmetic here.</p>
+<p>So, we are again going to use a built-in function to bail us out. So, there is this useful function called <em>distance()</em>, which does exactly what it sounds like it is supposed to do. If you essentially supply two locations, it will tell you how far apart they are. Let us find out how far apart the index of the minimum was from the start of the array. This essentially tells us the value of <em>j</em> in the pseudocode. We can now subtract <em>i</em>, which we know is the place that we are starting. That is our initial offset.</p>
+<p>Of course, this is over subtracting a bit, so I am just going to add a +1 as we had discussed earlier. This appends the right cost of reversing the sub-array that we encounter in the i<sup>th</sup> iteration. Let me get rid of the pseudocode here. Let us run the code and see what we get.</p>
+<p>If you look at the output file, it seems to tally quite exactly with the file called <em>expectedout.txt</em>, which is always a good sign. It is quite visible that everything seems okay. But as a matter of general habit, you might just want to run a diff to be sure.</p>
+<p>When you are running a diff, no news is good news. If the output of the diff command is empty, it means that the files have matched exactly. Sometimes even though the files are visually matched, diff may still give you some output because, maybe, there was an extra newline in one of the files and things like that.</p>
+<p>Fortunately, there seems to be no such indication here. So, nothing to worry about! I would recommend you try and run your code on a few different examples just to make sure that you identify some of the common edge cases, and they are accounted for properly before you actually upload your code.</p>
+<p>Of course, when you are practicing, you can upload your code as many times as you want and there is no penalty. It would be completely understandable if you are just keen to upload your code right away. Just be a little bit careful about making a habit out of this. When you are participating in an actual contest, you might incur penalties on these wrong submissions. So, you have to be a little bit more careful when you are participating in a live contest.</p>
+<p>In any case, this was a fairly straightforward problem. We have good reason to be confident about this code. You can go ahead and try and submit this on the Code Jam servers and see how that works out for you. One thing to be careful about is the corner cases and the indices. So, do watch out for issues that might occur there.</p>
+<p>Just as a little bit of trivia, if you have seen the intro video for this course, it opened with a bit of frustration about the first version of the code not going through as expected. The problem that we were solving in that video was actually this one. The line of code that was missing I think was the line that involved actually reversing the array. That is a common mistake that can be made.</p>
+<p>You keep track of everything else but forget to actually reverse your array in the process. Then your array has not been reversed and you are not tracking what you are supposed to be tracking. So, your answers end up being wildly different from what you expect.</p>
+<p>It is certainly not impossible to make mistakes, even in simple problems. In fact, the simpler the problem, the more frustrating it is that you are getting a wrong-answer kind of status from the judge. So, it is never too early to get into the habit of being careful. Anytime that you are working with a lot of indices or corner cases, it is definitely worth working through some examples and just making sure that you have those down.</p>
+<p>So, I hope you had a good time walking through this problem. I hope you will also get around to implementing it. As usual, we have the Discord community in case there is anything that you are stuck with, please do reach out there. We have a separate channel for every week. It would be great if you could keep your questions streamlined accordingly. This is week one and we have just finished the very first problem and the very first module. I hope you are all geared up for the next one, and I will see you there. Bye for now, and thanks for watching!</p>
+
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

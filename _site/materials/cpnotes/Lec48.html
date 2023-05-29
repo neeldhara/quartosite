@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-01">
+
+<title>Neeldhara - MaxFlow-MinCut Duality</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">MaxFlow-MinCut Duality</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../materials/cpnotes/index.html" class="sidebar-item-text sidebar-link">Getting Started with Competitive Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec01.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec03.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 03 (Numbers Game)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec02.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 2 (Reversort Engineering)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec04.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 4 (Will It Stop?)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec53.html" class="sidebar-item-text sidebar-link">Bottom-Up DP | Dice Combinations (CSES Problem Set)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec17.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec18.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec16.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec19.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec20.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec21.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec22.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec23.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec25.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (BFS and DFS)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec24.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (Graph Traversals)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec26.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 2 (Mahmoud and Ehab and the</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec27.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 3 (Cover It!)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec28.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 4 (Diamond Inheritance)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec9.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 1 (Pancake Flipping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec10.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 2 (Islands War)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec11.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec12.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec13.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Coin</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec14.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Guarding a</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec15.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Traveling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec52.html" class="sidebar-item-text sidebar-link">Introduction | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec48.html" class="sidebar-item-text sidebar-link active">MaxFlow-MinCut Duality</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec51.html" class="sidebar-item-text sidebar-link">Memoization | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec37.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Blingor’s Network | Foundations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec39.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Kruskal’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec38.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Prim’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec40.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 2 (Cherries Mesh)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec41.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 3 (Hierarchy)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec42.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 4 (Island Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec50.html" class="sidebar-item-text sidebar-link">Minimum Vertex Cover via Max Flow | SAM I AM (UVA 11419)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec44.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Ford-Fulkerson for Max Flow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec45.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Implementing Edmonds-Karp)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec43.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec46.html" class="sidebar-item-text sidebar-link">Network Flows - Module 2 (Maximum Matching via MaxFlow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec49.html" class="sidebar-item-text sidebar-link">Police Chase</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec05.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 1 (Trouble Sort)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec06.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 2 (The Meeting Place Cannot be</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec07.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 3 (Magic Ship)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec8.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 4 (Simple Skewness)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec31.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm-Sending Email)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec29.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec30.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec32.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Modified Dijkstra)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec33.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec34.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec35.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec36.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec47.html" class="sidebar-item-text sidebar-link">Sport Elimination via MaxFlow</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec00.html" class="sidebar-item-text sidebar-link">Welcome and Initial Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">MaxFlow-MinCut Duality</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cpnotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Lecture - 48</strong></p>
+<p><strong>MaxFlow-MinCut Duality</strong></p>
+<p>(Refer Slide Time: 0:11)</p>
+<p><img src="./Lec48_media/media/image18.png" style="width:3.75521in;height:2.26042in"></p>
+<p>Welcome to the ninth week of Getting Started with Competitive Programming. So, this week we continue our exploration of network flows. But our perspective this time is going to be slightly different from the one that we had last week. So, if you remember, in week 8, our goal was to find a maximum valued flow in a flow network. So, the goal was to push as much material as we could from a designated source vertex to a designated target vertex.</p>
+<p>This time, our goal will be somewhat the opposite. We want to see what is the minimum amount of damage that we need to do to the network to make sure that the target is unreachable from the source. So, this is called the problem of finding a minimum cut. And it turns out that it is intimately related to the problem of finding a maximum flow. In fact, so much so that without knowing it, you have already learned an algorithm to find a minimum cut because the Ford-Fulkerson’s algorithm for finding a maximum flow as a by-product automatically finds a minimum cut as well.</p>
+<p>Now, as you can imagine, the minimum cut problem has a variety of applications. One that is easy to visualize but probably a bit depressing to think about is war strategy. So, let us say that you are planning out an attack on the enemy camp. And what you are trying to ensure is that no useful supplies reach them from the other side. Then you may want to strategically destroy roads so that all connections are cut off. You either destroy roads or monitor them, whatever you do.</p>
+<p>Now, monitoring or destroying is expensive. So, you want to be able to identify the smallest number of key roads or locations that need this kind of attention. Minimum cuts are also interesting because they give you a sense of the weak points in your network. Right. So, if you have a minimum cut at hand, then you know that if these edges were to be destroyed, then you lose all contact between the source and the target.</p>
+<p>So, by identifying such minimum cuts, you may get ideas for how to strengthen your network and make it more robust. That goes into the realm of something called network design, which is a very interesting topic if you want to find out more about it. In the meantime, let us go ahead and talk about the relationship between MaxFlows and MinCuts, which is the topic of this module here.</p>
+<p>(Refer Slide Time: 2:32)</p>
+<p><img src="./Lec48_media/media/image11.png" style="width:3.67188in;height:1.375in"></p>
+<p>So, what is a cut? Formally, it is a partition of the vertex set of a flow network into two parts, which we will typically denote by capital S and capital T. So, these capital letters correspond to vertex subsets. And the only thing that this partition must satisfy is the constraint that the source vertex belongs to one of the parts and the target vertex belongs to the other part. That is all that we need. Other than that, you could distribute the remaining vertices however you like, and it will still be a valid S-T cut. Let us take a look at an example of an S-T cut.</p>
+<p>(Refer Slide Time: 3:05 and 3:35)</p>
+<p><img src="./Lec48_media/media/image7.png" style="width:2.23438in;height:1.25007in"> <img src="./Lec48_media/media/image15.png" style="width:1.83333in;height:1.16621in"> <img src="./Lec48_media/media/image23.png" style="width:2.11058in;height:1.12066in"></p>
+<p>Here is a flow network. The capacities are not shown here because they are not so relevant at the moment. You have the source vertex S, and the target vertex T on the extremes of your screen. And you will notice that all the green vertices, being the set capital S and all the red vertices being the set capital T forms a valid S-T cut in this particular flow network. Now, given a cut like this, we are specifically interested in edges that cross the cut. What do I mean by this?</p>
+<p>Well, an edge from u to v is set to cross the cut if u belongs to S and v belongs to T. So, in this example, once again, you can see that these are all the edges that cross the cut. They have been marked in pink. And hopefully, you agree that this is consistent with the definition that we just gave. Now, what is the capacity of this cut? Well, you just add up the capacities of the edges that cross the cut, and that is going to be the capacity of the cut. Okay.</p>
+<p>(Refer Slide Time: 3:59 and 4:08)</p>
+<p><img src="./Lec48_media/media/image20.png" style="width:3.27604in;height:0.55208in"> <img src="./Lec48_media/media/image10.png" style="width:2.55729in;height:0.54097in"></p>
+<p>Now, think about what happens when you delete all the edges that cross an S-T cut. Take a moment, if you would like to go back to the example and see what happens. And see if you notice something particularly spectacular that happens when you remove all the edges crossing any S-T cut.</p>
+<p>(Refer Slide Time: 4:25)</p>
+<p><img src="./Lec48_media/media/image2.png" style="width:2.19271in;height:1.18069in"> <img src="./Lec48_media/media/image3.png" style="width:2.20313in;height:1.20975in"> <img src="./Lec48_media/media/image22.png" style="width:1.78646in;height:0.8125in"></p>
+<p>Well, let us actually look at what happens in this example. So, we have these edges that cross the cut. And here is what you get when you remove these edges. Notice that when you do this, you have removed all possible connections from S to T. So, I would like to claim that this is true not only for this example but in general. If you were to delete all the edges that cross an S-T cut, then you end up disconnecting S from T in this graph, which is to say that after these edges are gone, there is no way for you to travel from S to T along a valid path.</p>
+<p>To see why this is true. Let us assume that all the edges in an S-T cut have been deleted. And let us suppose for the sake of contradiction, that you still have a path from S to T. And let us say that path looks like this. So, clearly, just by definition, this path starts from the source vertex and ends at the target vertex. Now, let us label the intermediate vertices of this path depending on which side of the garden they belong to. So, just for simplicity, you could think of coloring these vertices green or red, depending on whether they belong to capital S or capital T. Right.</p>
+<p>(Refer Slide Time: 5:07)</p>
+<p><img src="./Lec48_media/media/image1.png" style="width:2.91248in;height:0.56911in"> <img src="./Lec48_media/media/image17.png" style="width:2.77604in;height:0.51042in"></p>
+<p>So, when we go ahead and do that, notice that at some point, you must change color on this path because it is starting with a green vertex, and you are ending at a red vertex. So, at some point, there must be two consecutive vertices on this path, which have opposite colors. Right. So, if you can find such a consecutive pair, then you have also found an edge that crosses the cut.</p>
+<p>But remember that this edge is not there because we deleted all the edges that cross the cut. Therefore, this particular path has been destroyed and is in fact not there. So, depending on your taste, you can think of this as proof by contradiction, which simply says that this claimed path does not exist. Or you could think of it as a constructive proof, which says, well, let us go and examine every S-T path turn by turn.</p>
+<p>And let us argue that at least one of the edges on any of these paths was, in fact, destroyed when we deleted all the edges in an S-T cut. Either way, the point is that removing all the edges in an S-T cut disconnects S from T. And that is why a cut, which has the smallest number of edges that crosses it, would correspond to a minimum effort way of destroying all connections between the source and the target, which was sort of the original goal that we set out for ourselves when I was introducing the MinCut problem back at the beginning of this discussion.</p>
+<p>Also, recall that we are working with edges that have capacities and you could think of these numbers as being a reflection of how expensive it is going to be to destroy a particular edge. You can imagine that if these edges are modeling a road network, then a six-lane road, which of course has a large capacity is going to be more effort to destroy compared to some <em>kaccha-pakka</em> road, which has a capacity of maybe one bicycle at a time or something like this. Right.</p>
+<p>So, this naturally motivates the definition of a minimum cut as being a cut, which has the smallest capacity. Once again, remember that the capacity of a cut is simply the sum of the capacities of all the edges that cross the cut. Alright. Now, that the definitions are out of the way, it is time to make our first connection between flows and cuts. So, here is a preliminary claim.</p>
+<p>(Refer Slide Time: 7:43 and 8:23)</p>
+<p><img src="./Lec48_media/media/image21.png" style="width:2.19271in;height:1.21488in"> <img src="./Lec48_media/media/image9.png" style="width:3.90104in;height:0.95833in"></p>
+<p>I want to say that the value of any valid flow in a flow network is at most the capacity of any S-T cut. Please feel free to pause the video here and just absorb this statement and see if you find it intuitive. See if you can come up with your own reasoning for why something like this would be true. Come back once you are ready.</p>
+<p>Alright. So, we will not be proving this formally. If you are interested in proof that involves proper inequalities and everything, you can take a look at the references that have been linked to in the description. But what I will try to do instead is convey the main intuition for why you might expect this to be true.</p>
+<p>So, let us consider any flow ‘f.’ Right. And let us fix an S-T cut, S-T, which is capital S capital T. Let us think about what happens if the value of ‘f’ exceeds the capacity of the cut S-T. Alright. So, let us go back to our example here.</p>
+<p>(Refer Slide Time: 8:39)</p>
+<p><img src="./Lec48_media/media/image13.png" style="width:3.36979in;height:1.76042in"></p>
+<p>So, notice that the highlighted region on the left is the set capital S. Right. And we have that this cut has a certain capacity – could be whatever you like. And let us say that you have managed to push your flow from S to T, which is higher, the value of this flow is greater than the capacity of this cut. Now intuitively, you can think of the cut as being some sort of a bottleneck between S and T.</p>
+<p>It tells you, remember, when we were working with the trucks, right, we said that, well, there is only so much that you can push from S to T if this is going to be the situation that all of your trucks have to take one of these three roads that have been marked in pink. So, that essentially gives you a ‘bound’ for how many trucks can go through from S to T. So, in other words, if you have managed to push a flow whose value is more than the capacity of these three pink edges combined, then some of that flow is actually stuck on the yellow side of this network.</p>
+<p>It cannot get out, it cannot go to the other side. But remember when we introduced the flow problem, we also talked about how the flow that goes out of the source is the same as the flow that lands on the target. So, it cannot really be that some of your flow is stuck on one side of the graph and does not reach the target. If that is happening, then somewhere you have violated the conservation constraints.</p>
+<p>So, if you write down a few equations that involve starting from the starting value of the flow and relating it to the capacity of the cross edges, and applying the conservation constraint, you will see that you will end up with a contradiction if you start off with a flow that is more than the capacity of this particular cut.</p>
+<p>(Refer Slide Time: 10:27)</p>
+<p><img src="./Lec48_media/media/image14.png" style="width:2.39063in;height:1.20015in"></p>
+<p>So, what we know is that the value of any flow is bounded by the value of any cut. In particular, we could set this flow ‘f’ to be the MaxFlow, and we could choose this cut to be the MinCut, which tells us that the value of the maximum flow that you can achieve is bounded by the capacity of the minimum cut in this flow network. So, what we have discovered so far is that the capacity of a minimum cut gives us a target for the maximum value of the flow that we can hope to achieve. Right.</p>
+<p>So, if you found a minimum cut and it has some capacity, then this is the best that you can hope for in terms of how much flow you can push from the source to the target. Now, the interesting question is, is this an achievable target? Can you always push this amount of flow corresponding to the capacity of our MinCut from S to T? And this is the question that we will try to address next. Now, let us take a look at the flow that we get from the Ford Fulkerson algorithm. The first thing I want to point out is that this algorithm already gives us an S-T cut.</p>
+<p>(Refer Slide Time: 11:35)</p>
+<p><img src="./Lec48_media/media/image6.png" style="width:3.10609in;height:1.72927in"></p>
+<p>So, let us look at the residual graph that we get in the last iteration of Ford Fulkerson. Remember, we stop when we are not able to find an S-T path in the residual graph anymore. So, let us look at all the vertices that are reachable from S in the residual graph that we obtained at the last step, the step where we got stuck. Notice that this set of reachable vertices does not contain the target vertex T because if it did, then we would not be stuck here. We would have found a path, and we would have augmented the flow along this path. Right.</p>
+<p>So, we know that the set of all vertices that are reachable from the source in the residual graph at the end of the Ford Fulkerson algorithm is actually a set that contains the source vertex, and it does not contain the target vertex. That sounds familiar. Right. So, that is essentially a cut. So, you know that this is a valid S-T cut. And this is going to be a particularly interesting cut to work with.</p>
+<p>(Refer Slide Time: 12:33 and 12:59)</p>
+<p><img src="./Lec48_media/media/image12.png" style="width:2.50521in;height:0.52083in"> <img src="./Lec48_media/media/image5.png" style="width:2.95313in;height:1.46875in"></p>
+<p>Let us say that this particular cut has a capacity of C. Now I want you to think about what is the value of the flow that the Ford Fulkerson algorithm has found in terms of this capacity C. Pause the video here for a moment and just think about whether there might be a connection. Alright. So, it turns out that the value of the flow that is found by the Ford Fulkerson algorithm is also C.</p>
+<p>Okay. Let us try to think about why this might be the case. But before we do that, let us say we believe this for the moment. Then notice that your algorithm has also found a minimum cut. Right. Because you have a flow whose value is C. You have a cut whose capacity is C. You know that this flow whose value is C is actually the maximum possible value of any flow in this flow network. So, you know that you cannot have a cat whose capacity is smaller than C. Right.</p>
+<p>Because then this would violate the first inequality that we saw. So, in fact, the set of vertices that is reachable from S in the residual graph at the last iteration of Ford Fulkerson is also a minimum cut. The fact that that is a minimum cut, of course, relies on this observation here, which is that you have a flow whose value is equal to this capacity.</p>
+<p>So, again, let us try and see why this is true. Like before, I will not be proving this formally, but hopefully, I will be able to share enough ideas based on which you can go and work out the details of a formal proof. So, to begin with, let us try to understand the value of a flow in terms of the edges that go between the parts of a cut.</p>
+<p>(Refer Slide Time: 14:18)</p>
+<p><img src="./Lec48_media/media/image19.png" style="width:2.84896in;height:1.67708in"> <img src="./Lec48_media/media/image8.png" style="width:3.22396in;height:1.65625in"></p>
+<p>So, in particular, let us fix a flow ‘f’ and let us fix an S-T cut, capital S capital T. Right. Now, it turns out that the value of the flow is the sum of the flows on the edges that cross the cut, and you have to adjust for the flow that is coming back from T to S. So, you also add up the flows on the edges that originate in the set capital T and have the other endpoint in the set capital S. And all the flow that is coming on these so-called back edges, you need to subtract this from the total flow that is going on the cross edges.</p>
+<p>So, if you do that, the resulting number that you get will equal (to) the value of the flow itself. Now, if you think about it, this is fairly intuitive. It is essentially because of the conservation constraints that the amount of flow that you were able to push from S, or the amount of flow that lands at T, can also be understood in terms of, you know, the amount of flow that crosses any of these intermediate cuts.</p>
+<p>And you really want to be looking at the net flow that crosses this intermediate cut, which is the flow that is on the cross edges adjusted for the flow that is coming back into the set capital S. So, again, this is something that you can confirm by a fairly straightforward calculation, which I will not get into. But once you understand that this is true, let us look at what is going on in the cut that is finally discovered by the Ford Fulkerson algorithm.</p>
+<p>So, let us say that this cut that we are looking at is specifically the cut, which is obtained by considering all the vertices that are reachable from S in the residual graph in the last step of the Ford Fulkerson algorithm. So, now what is happening on the forward edges, which are the cross edges? Notice that each of these edges must be fully saturated by the flow. Because if they are not fully saturated by the flow, then in the residual graph, these edges would still be present with the residual capacity, which means that if you look at the vertices, which are sitting in T right now, at the other ends of these two blue edges, these vertices would not be in T, if these edges were not fully saturated.</p>
+<p>They would still be reachable from S, and they would be pulled to the other side. So, hopefully, it is clear that the edges that are crossing this cut must be fully saturated by the flow. Again, if this was not the case, then your ‘cut’ would not be looking like this. Okay. So, we need all of these edges to be missing. The only way to make these edges vanish in the residual graph is by fully saturating them so that their residual capacities are 0.</p>
+<p>On the other hand, let us look at these back edges in the flow network. Okay. So, these edges, I claim, cannot have any flow going through them. Because if you send any flow going through these edges, then in the residue graph, you would have introduced an artificial edge, which goes in the other direction, which would have a non-trivial capacity.</p>
+<p>And once again, this would not be an accurate picture of the cut that you obtain at the last step, and you would get a contradiction. So, in fact, if you look at the S-T cut that you obtain, at the very end of Ford Fulkerson, the cut that is obtained by looking at the vertices reachable from S in the residual graph at the last iteration, then it must be the case that your MaxFlow, again, as discovered by Ford Fulkerson, must have the following form.</p>
+<p>It saturates fully all the edges that cross this cut, and it does not touch the edges that come back from this cut, which is to say, edges that start in T and end in S, these I just do not have any flow going through them. Again, the reason for this is that if the flow did not look like this, then this cut also would not look like this, okay, and that is what we just discussed.</p>
+<p>(Refer Slide Time: 18:18)</p>
+<p><img src="./Lec48_media/media/image24.png" style="width:2.32813in;height:1.23958in"> <img src="./Lec48_media/media/image16.png" style="width:2.77083in;height:1.5502in"></p>
+<p>So, essentially, the value of this flow is in fact equal to the capacity of this cut. And both the flow and the cut have been discovered by this Ford Fulkerson algorithm. And we know from our previous discussions, that this flow is in fact, a max flow, from which we can conclude that this S-T cut must, in fact, be a MinCut.</p>
+<p>This is something that we also mentioned a while ago because notice that if you have a cut, which was smaller than this, then this flow would have trouble getting through. Right. So, Ford Fulkerson witnesses the fact that the minimum cut target is, in fact, achievable. And it also finds this minimum cut for you. So, what more could you ask for? So, in the next module, where we look at a problem that requires you to find the MinCut, we will see how to adapt our implementation slightly, so that we can find this MinCut and work with it.</p>
+<p>(Refer Slide Time: 19:16)</p>
+<p><img src="./Lec48_media/media/image4.png" style="width:2.07813in;height:1.26042in"></p>
+<p>In the meantime, if you had to have one major takeaway from this module, it would be this equality, the equality of the value of the MaxFlow, and the capacity of a MinCut. The fact that the value of the maximum flow is bounded above by the capacity of a minimum cut, I think, is pretty intuitive. And that is something that can be appreciated just pretty much directly from the definitions.</p>
+<p>But the fact that this upper bound can always be achieved, and the fact that that is a consequence of Ford Fulkerson, you have a constructive way of getting there, I think, it is absolutely amazing. And this is one of the most elegant dualities in graph theory and it can be used as a basis for proving some other very interesting dualities as well. And we will see one example of that in the last module this week.</p>
+<p>In the meantime, we would like to talk about how you can implement the process of finding a minimum cut. Because you have already implemented the MaxFlow algorithm, this turns out to be super easy to do. And that is what we are going to see in the context of this specific problem in the next module. So, I will see you there!</p>
+
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

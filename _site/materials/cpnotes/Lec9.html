@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-01">
+
+<title>Neeldhara - Greedy Algorithms - Module 1 (Pancake Flipping)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Greedy Algorithms - Module 1 (Pancake Flipping)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../materials/cpnotes/index.html" class="sidebar-item-text sidebar-link">Getting Started with Competitive Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec01.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec03.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 03 (Numbers Game)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec02.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 2 (Reversort Engineering)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec04.html" class="sidebar-item-text sidebar-link">Ad hoc and Implementation - Module 4 (Will It Stop?)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec53.html" class="sidebar-item-text sidebar-link">Bottom-Up DP | Dice Combinations (CSES Problem Set)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec17.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec18.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction-Part III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec16.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 1 (An Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec19.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec20.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 2 (Destroying Array-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec21.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec22.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec23.html" class="sidebar-item-text sidebar-link">Disjoint Set Union - Module 3 (War-III)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec25.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (BFS and DFS)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec24.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 1 (Graph Traversals)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec26.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 2 (Mahmoud and Ehab and the</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec27.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 3 (Cover It!)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec28.html" class="sidebar-item-text sidebar-link">Graph Foundations - Module 4 (Diamond Inheritance)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec9.html" class="sidebar-item-text sidebar-link active">Greedy Algorithms - Module 1 (Pancake Flipping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec10.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 2 (Islands War)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec11.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-I)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec12.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 3 (Stable Marriage-II)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec13.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Coin</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec14.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Guarding a</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec15.html" class="sidebar-item-text sidebar-link">Greedy Algorithms - Module 4 (When Greedy Does Not Work - Traveling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec52.html" class="sidebar-item-text sidebar-link">Introduction | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec48.html" class="sidebar-item-text sidebar-link">MaxFlow-MinCut Duality</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec51.html" class="sidebar-item-text sidebar-link">Memoization | Frogs 1 (AtCoder Educational DP Contest)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec37.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Blingor’s Network | Foundations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec39.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Kruskal’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec38.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 1 (Prim’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec40.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 2 (Cherries Mesh)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec41.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 3 (Hierarchy)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec42.html" class="sidebar-item-text sidebar-link">Minimum Spanning Trees - Module 4 (Island Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec50.html" class="sidebar-item-text sidebar-link">Minimum Vertex Cover via Max Flow | SAM I AM (UVA 11419)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec44.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Ford-Fulkerson for Max Flow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec45.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Implementing Edmonds-Karp)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec43.html" class="sidebar-item-text sidebar-link">Network Flows - Module 1 (Introduction)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec46.html" class="sidebar-item-text sidebar-link">Network Flows - Module 2 (Maximum Matching via MaxFlow)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec49.html" class="sidebar-item-text sidebar-link">Police Chase</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec05.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 1 (Trouble Sort)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec06.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 2 (The Meeting Place Cannot be</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec07.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 3 (Magic Ship)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec8.html" class="sidebar-item-text sidebar-link">Searching and Sorting - Module 4 (Simple Skewness)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec31.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm-Sending Email)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec29.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec30.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Dijkstra’s Algorithm)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec32.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 1 (Modified Dijkstra)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec33.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec34.html" class="sidebar-item-text sidebar-link">Bellman-Ford | Negative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec35.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec36.html" class="sidebar-item-text sidebar-link">Shortest Paths - Module 3 (APSP [Floyd-Warshall] | Page Hopping)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec47.html" class="sidebar-item-text sidebar-link">Sport Elimination via MaxFlow</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/cpnotes/Lec00.html" class="sidebar-item-text sidebar-link">Welcome and Initial Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Greedy Algorithms - Module 1 (Pancake Flipping)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cpnotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Lecture - 9</strong></p>
+<p><strong>Greedy Algorithms - Module 1 (Pancake Flipping)</strong></p>
+<p>(Refer Slide Time: 00:11)</p>
+<p><img src="./Lec9_media/media/image10.png" style="width:3.7285in;height:2.08925in"></p>
+<p>Welcome back to the third week of ‘Getting Started with Competitive Programming.’ I hope that you are excited about exploring a new theme. In this week, our focus will be completely on greedy algorithms. So, greedy is a fairly broad algorithms design, paradigm, or technique and it is fairly popular in contest programming.</p>
+<p>In our first module, we are going to be illustrating the technique through a problem called ‘Pancake Flipping,’ which is from the Google Code Jam qualifiers back in 2017. Before we get started though, let me just say a couple of things about greedy algorithms in general.</p>
+<p>(Refer Slide Time: 00:54)</p>
+<p><img src="./Lec9_media/media/image42.png" style="width:3.01042in;height:2.33819in"></p>
+<p>In most algorithm textbooks, you will find a lot of warnings about greedy algorithms. For instance, here is the table of contents from Jeff Erickson's Algorithms, which by the way, is an excellent reference that goes along very well with the course incidentally.</p>
+<p>(Refer Slide Time: 01:12)</p>
+<p><img src="./Lec9_media/media/image1.png" style="width:3.02604in;height:1.89583in"></p>
+<p>The warning here is fairly explicit. It says greedy algorithms never work. Well, this is a bit extreme, they, of course, do sometimes work. But the thing to be careful about is that they often do not work despite being very natural sounding and being the most tempting first card approach to a problem. So, for most optimization problems, you will probably naturally come up with a greedy style or a greedy approach to it, which by the way, is essentially characterized by doing whatever you need to do with minimal effort. Whatever seems like the right thing to do, in the moment. I really do not know of a formal definition of what makes an algorithm greedy. Although there are some really interesting mathematical formalisms around characterizing when a greedy algorithm will actually work. If you are really interested in this, then the thing to look up is matroid structures.</p>
+<p>(Refer Slide Time: 01:39)</p>
+<p><img src="./Lec9_media/media/image7.png" style="width:2.60938in;height:1.57292in"></p>
+<p>But you can completely ignore this comment for now. If you are curious, there are, of course, more links in the description as usual for you to pursue further. But in any case, as I said, at a high level, a greedy strategy is something that feels like the right thing to do locally. But it turns out that long term, this could have ramifications that make your solution suboptimal and that is what happens most of the time. That is why you need more sophisticated techniques like backtracking or dynamic programming or divide-and-conquer or whatever else that help you get through the search space in a more meaningful way.</p>
+<p>But it turns out that for many problems, even classic ones, greedy algorithms, sometimes, do get lucky and happen to work out all the way. Our goal with the lectures this week is to develop enough of a feel for why greedy algorithms do work when they do by giving you enough reasonably formal justification for the correctness of the approaches that we do discuss.</p>
+<p>On the other hand, we will also try to go over examples of when greedy algorithms do not work, so that you develop the practice of looking for counter-examples, to see that these strategies that you have come up with might fail. However, during a contest, you might just find it easier to code up your greedy algorithm and see if it actually passes the tests or not. This would be a reasonable thing to do, especially if you do not have penalties for wrong submissions. It may just be the faster approach because greedy algorithms typically tend to be simple and not so difficult to go up.</p>
+<p>So, you could do that quickly as a preliminary test if you have an approach for which you cannot quickly come up with a counter-example and it seems like it might be promising. However, outside of a ‘contest environment,’ it is definitely a good idea to actually go through the process of trying to understand why your greedy algorithm works or why it does not work.</p>
+<p>This is also a good time for me to point out that ‘greedy’ being a fairly universal idea will keep coming up in future weeks as well. So, watch out for the reappearance of greedy-based ideas in various other contexts as we go along. With all that background in place, let us finally talk about ‘Pancake Flipping.’</p>
+<p>(Refer Slide Time: 04:26)</p>
+<p><img src="./Lec9_media/media/image39.png" style="width:0.95313in;height:1.32967in"> <img src="./Lec9_media/media/image17.png" style="width:3.03646in;height:1.4375in"></p>
+<p>Now, normally, I start off with a problem statement. But here I am going to start off with a bit of logistics. I am going to replace the concept of a pancake with a cookie in the entire story, just because it was easier for me to find pictures of cookies. Sorry about that. But I promise you that nothing changes in terms of the mechanics of the problem statement or the solution for that matter. First, let us talk about the two faces of a cookie. You distinguish between the top side and the bottom side of a cookie.</p>
+<p>The top is going to look like this (center image) throughout the slides and the bottom is going to look like that (rightmost image). According to the terminology in the problem statement, these are called the ‘happy’ and the ‘blank’ sides respectively. The top side has the chocolate chips and it is the happy face and the back has nothing and it is the blank side.</p>
+<p>(Refer Slide Time: 05:26)</p>
+<p><img src="./Lec9_media/media/image20.png" style="width:3.10938in;height:1.875in"> <img src="./Lec9_media/media/image22.png" style="width:3.05729in;height:1.84375in"></p>
+<p>What is going on is that these cookies are being baked on a single row. It is some sort of long oven thing and the cookies are just being processed in some left to right order. As you can see, some of them are face up and some of them are face down. Our task is to make sure that all of these cookies are face up and we need to flip the ones that are face down for this to happen.</p>
+<p>What we have at our disposal is not something that can flip a single cookie at a time and the oven is too hot for you to do that directly. You have to use a flipper. But unfortunately, the only thing you have been given is an oversized cookie flipper. It is something that can flip cookies in batches.</p>
+<p>Here is an example of an oversized cookie flipper of size three. It can flip any three consecutive cookies at once and notice that it flips them one by one. It does not change the ordering of the cookies; the cookies stay in place. You can imagine scooping up the cookies from the front and just turning them over. So, the left to right order is not affected but the state of all the individual cookies basically flips and gets reversed.</p>
+<p>(Refer Slide Time: 06:55)</p>
+<p><img src="./Lec9_media/media/image33.png" style="width:2.84896in;height:1.57292in"> <img src="./Lec9_media/media/image3.png" style="width:3.07813in;height:1.5625in"></p>
+<p>Let us do another example. Suppose we move the flipper over here and flip again. Notice that we go from being ‘face-down, face-up, face-up’ to being ‘face-up, face-down, face-down.’ As usual, our first question would be, can we always manage what we have set out to do? We have a row of cookies, some of which are face up and some of which are face down. We also have at our disposal this K cookie flipper. So, K is the number of consecutive cookies that can be flipped in one shot.</p>
+<p>(Refer Slide Time: 07:09)</p>
+<p><img src="./Lec9_media/media/image30.png" style="width:3.0625in;height:2.12214in"> <img src="./Lec9_media/media/image26.png" style="width:3.10417in;height:2.03881in"></p>
+<p>Once again, remember that the cookies stay in place. The left to right order is not reversed. It is only the individual states that are flipped and they are guaranteed to be flipped. It does not depend on the skill of the person that is using the flipper. The cookies definitely get flipped, they do not drop anywhere, they do not get lost, etc., etc.</p>
+<p>That is the mechanics of the problem, hopefully, clear at this point. The question I am asking is, can we always do this? I have for your reference the limits that are given in the problem statement. Let us just go over a little bit of notation. The initial state of all the cookies is given by a string S and the encoding is that it is a ‘+’ if it is initially face-up, and it is a ‘-’ if it is initially face-down.</p>
+<p>Remember, face-up is what we call the happy side and face-down is the blank side. What do you want to know is if you can use a K-sized cookie flipper to fix up all of them, which is to say make everybody face up at the end of the day. Take a pause here and think about whether you can come up with scenarios where this task is impossible or with an argument for why even if it takes some time and it is a tedious process, possibly, but you will still always be able to manage.</p>
+<p>Hopefully, you had a chance to think about this and notice that there is something interesting going on with the limits for K. We see that K is at least 2 and notice that if K was in fact 1, which is that you have a flipper, which is like an ordinary cookie flipper, it is not an oversized flipper, it lets you flip one cookie at a time. Then, you can always fix any sequence of cookies by just going to the ones that are facing the wrong way and flipping them over. This is probably not such an exciting question anymore and perhaps that is why the range of K is between 2 and something. It is truly an oversized flipper.</p>
+<p>(Refer Slide Time: 09:51)</p>
+<p><img src="./Lec9_media/media/image24.png" style="width:3.22917in;height:2.19568in"> <img src="./Lec9_media/media/image43.png" style="width:3.02604in;height:2.20833in"></p>
+<p>Notice that when K = 2 already, it is not very hard to come up with an example, where it is impossible to achieve this task. Again, this is a bit of a spoiler alert. If you did not have a chance to pause before, maybe you want to think about this now with this hint in place.</p>
+<p>Notice that even with K = 2, which is the most basic kind of an oversized flipper that you can be working with, you could get stuck with just 2 cookies in front of you. If one of them is facing the right way and the other is facing the opposite way, then no matter how many times you try to flip them over, you will just get them to being in the opposite situation, but it will never really get fixed.</p>
+<p>Notice that you cannot flip something at the edge of the oven. Essentially, once you have reached the last K cookies on this row, you cannot flip anything that is after that because your pancake flipper just does not have enough place to fit in. You can imagine that it is not an open space where it can hang over the edge. You really get stuck at the very end!</p>
+<p>For instance, just to make this specific. If you are here, then you might think: Let us flip once to fix the state of the first cookie and now from here, let us try to just flip the second cookie onwards. What I was saying is that it is not allowed in the definition of this problem. There is no onwards from the second cookie, if you have a pancake flipper of size 2 or even more. This is not going to work. You will have to flip both of the cookies that you have in front of you in sync and that is why the situation can never be fixed.</p>
+<p>There are clearly situations that are impossible and our task at a high level boils down to being able to identify these and distinguish it from those cases where there is a feasible strategy for flipping everything over. In that case, our task is also to additionally find the minimum number of flips that we need to make everything work. Before we start thinking about an algorithmic strategy, let us just continue making some preliminary observations. Here is the first question that I would like to pose to you.</p>
+<p>(Refer Slide Time: 12:18)</p>
+<p><img src="./Lec9_media/media/image18.png" style="width:2.10938in;height:1.70833in"> <img src="./Lec9_media/media/image38.png" style="width:2.03646in;height:1.6875in"> <img src="./Lec9_media/media/image13.png" style="width:1.98958in;height:1.80876in"></p>
+<p>Do you think the order in which we make these flips matter? Suppose somebody comes up to you and says, look here is what we can do for this example. We could flip from the first location, then we could flip at the second location, and then we could flip at the seventh location. So, you could try executing these flips and see what happens.</p>
+<p>(Refer Slide Time: 12:43)</p>
+<p><img src="./Lec9_media/media/image41.png" style="width:2.02083in;height:1.4307in"> <img src="./Lec9_media/media/image21.png" style="width:2.05208in;height:1.49639in"> <img src="./Lec9_media/media/image35.png" style="width:2.03125in;height:1.4443in"></p>
+<p>But then somebody else comes along and says: No, let us flip at the seventh location first, and then go back and flip at the second location, and then flip at the first location. What do you think? Will the outcomes be for these two different ways of doing it? Will the final state be the same or will it be different? If you can think of some other ordering of these three flips, then try that as well and see if you get to a different final configuration.</p>
+<p>More generally, if you have a set of flips, where each flip can be uniquely pinned down by identifying the position at which the flip begins and once again, remember that your legitimate starting positions are between the first position and the cookie that is at the N-K+1<sup>th</sup> location.</p>
+<p>Any location in this range is a valid location for you to start off a flip. Now from here, what we really want to think about is whether the sequence in which we perform these flips matters or not. What do you want to do is either come up with an example of a set of flips that can be played out in two different sequences and they lead you to two different final outcomes. Or, you want an argument, which says that no matter which sequence you pursue these flips in, the final outcome will always be the same. Which one is it? Give it a thought and come back when you are ready. Hopefully, you had a chance to think about this.</p>
+<p>(Refer Slide Time: 14:10)</p>
+<p><img src="./Lec9_media/media/image31.png" style="width:2.73438in;height:1.54167in"> <img src="./Lec9_media/media/image29.png" style="width:2.81771in;height:1.54167in"></p>
+<p>As usual, let us try to work through this in the context of a specific example. Let us say that we want to perform the flips that you can see come up on your screen. By default, let us say that we just perform them in the order of appearance from top to bottom. Let us also try to live this experience through the lens of a specific cookie.</p>
+<p>Let us just focus our attention on the sixth cookie that is on the table right now, just as an example, and let us try to focus on the experiences that it goes through as you perform these flips. The first flip does affect the cookie. It is going to get flipped; its state is going to change. The second and the third flips do not influence the state of this cookie. In fact, even the fourth one does not touch this cookie at all, misses a set by a whisker. Right now the state of the cookie is just that it was flipped once from the beginning of the process.</p>
+<p>(Refer Slide Time: 15:11)</p>
+<p><img src="./Lec9_media/media/image5.png" style="width:1.97396in;height:1.5171in"> <img src="./Lec9_media/media/image40.png" style="width:1.87943in;height:1.50521in"> <img src="./Lec9_media/media/image25.png" style="width:2.16667in;height:1.47437in"></p>
+<p>The next flip is going to flip this cookie over again and so is the next one. In all, this cookie has been flipped three times. Notice that the last flip, again, does not affect the state of this cookie.</p>
+<p>At the end of the day, this particular cookie was flipped three times and that is going to be true no matter what order you perform the flips in. Hopefully, that is clear. Notice also that there was nothing special about the sixth cookie in this list. Whatever we said is true for every single one of them. Therefore, no matter what the order is in which you perform a set of flips, the final outcome is going to be the same, so the order does not matter.</p>
+<p>(Refer Slide Time: 15:53)</p>
+<p><img src="./Lec9_media/media/image4.png" style="width:2.76563in;height:1.51042in"></p>
+<p>An easy consequence of this observation is the fact that you never need to repeat a flip. Because if you have a sequence of flips, that does something and there are redundant flips or let us just say repeated flips, they are not redundant yet. What you could do is reorder the flip so that all the repeated ones come one after the other. Now notice that all these repeated flips are not really doing any valuable work for you.</p>
+<p>The only thing that matters is the parity of the number of times you repeated them. If there is a flip that you perform, say 6 times, then that is as good as not performing the flip at all. That will be the same thing. If there is a flip that you perform 7 times, then that is equivalent to performing it just once. So, why would you perform all of these extra flips? Remember that we are trying to minimize the total number of flips that get us to the answer. We know that without loss of generality, we can assume that flips are never repeated.</p>
+<p>(Refer Slide Time: 16:47)</p>
+<p><img src="./Lec9_media/media/image2.png" style="width:1.85193in;height:0.40363in"> <img src="./Lec9_media/media/image23.png" style="width:1.86979in;height:0.35417in"> <img src="./Lec9_media/media/image8.png" style="width:1.98438in;height:0.34248in"></p>
+<p><img src="./Lec9_media/media/image37.png" style="width:1.86979in;height:0.35374in"> <img src="./Lec9_media/media/image12.png" style="width:2.97396in;height:1.40625in"></p>
+<p>Let us go back to something that we have said before, which is the total number of possible flips that can happen in the first place. Notice that the legitimate locations where you can start to flip are the locations including the leftmost location on the table and all the way up to the N-K+1<sup>th</sup> location.</p>
+<p>At the very end, as we said, there is not enough room and further flips are not possible anymore. You have these ‘N-K+1’ possible flips and at this point, you might be tempted to think about a brute force approach to solving the problem. Given that there are only so many flips you can make and given the fact that the order does not matter, the question really just boils down to which flips are you going to make? Because we also know that flips are never repeated.</p>
+<p>What is the complexity of a brute force approach based on all the observations that we have made so far? Think about that for a minute and come back when you are ready. The dominant term in the complexity of the brute force approach is going to be ‘2<sup>N-K+1</sup>.’</p>
+<p>It turns out that you could just try all possible subsets of locations where you want to actually flip. If you try all of them and then simulate the flips and basically check if everything works out, then essentially, you are going to be trying all possible subsets of a set of size ‘N-K+1’ and that is going to be the complexity. There is going to be a bit of a polynomial overhead.</p>
+<p>But I have not written that down because this is really going to be, as I said, the dominant term. If you wanted to do it properly, the running time analysis, then you should also account for the amount of time it takes for you to actually simulate the flips and check if things work or not.</p>
+<p>Even without these observations, you could just try to brute force your way through the space of all possible flips using something like a BFS over this space. You could say that two states are adjacent, if say, reachable one from the other via a single flip at some location. I am not going to elaborate too much on the strategy. But essentially, there are other approaches in the spirit of brute force that would also work if you were working with a small data set on this problem.</p>
+<p>However, that is not going to scale when you are working with large data sets. We need to think about this some more. This is where the greedy ploy comes into play. Let us think about what is the absolute minimum work that we need to do at every stage.</p>
+<p>(Refer Slide Time: 19:28)</p>
+<p><img src="./Lec9_media/media/image28.png" style="width:3.46354in;height:1.1875in"></p>
+<p>Starting from left to right, let us begin by focusing on the very first cookie that we encounter, which is facing the wrong way. This right here is the leftmost cookie that has a blank side up, and notice that any valid solution will have to flip this cookie. Now in our solution, what we are going to do is position our first flip to start at this location.</p>
+<p>Notice that all the cookies that have appeared before this are facing the right way, just by definition, and it seems wasteful to start a flip anywhere earlier. Because it seems to be just unsettling things that are already fixed. So as they say, let us not fix what is not broken and position our first flip at the location of the leftmost cookie that is facing the wrong way.</p>
+<p>(Refer Slide Time: 20:14)</p>
+<p><img src="./Lec9_media/media/image19.png" style="width:2.84896in;height:0.5625in"> <img src="./Lec9_media/media/image16.png" style="width:3.00521in;height:0.46875in"></p>
+<p><img src="./Lec9_media/media/image15.png" style="width:2.83854in;height:0.45833in"> <img src="./Lec9_media/media/image36.png" style="width:3.02604in;height:0.46875in"></p>
+<p>We start there, then we execute the flips in the program. You could basically simulate these flips. Then you move the flipper along to the very next cookie that is facing the wrong way. You just walk along, stop when you see another cookie that is facing the wrong way, you position your next flip there and you keep doing this till you reach the very end.</p>
+<p>I am not actually executing these flips for you and I will leave this as an example that you can work out. Feel free to pause the video here and, sort of, go through the process. Now let us think about when we would declare an actual answer versus when would we say that the initial configuration is impossible with the value of K that we have been given to work with.</p>
+<p>When we finish, when we stop and get stuck, notice that we have actually fixed the states of the first ‘N-K+1’ cookies, just by the way that we have been performing these flips. That is easy to check.</p>
+<p>(Refer Slide Time: 21:17)</p>
+<p><img src="./Lec9_media/media/image9.png" style="width:3.26563in;height:0.42708in"></p>
+<p>The only thing that remains to check is the state of the last ‘K-1’ cookies. If these last ‘K-1’ cookies are not already facing the right way, there is nothing that we can do to fix them anymore. At this stage, we will declare that this situation is impossible. But if the last ‘K-1’ cookies are facing the right way, then we will say that we are done and we will report the number of flips that we have made.</p>
+<p>Notice that when your algorithm actually outputs a number, it is definitely doing the right thing because we have seen that we only made those flips that we were absolutely compelled to do. We know that any solution and, in particular, the optimal solution also must make at least that many flips and because we have actually demonstrably managed with that many flips because notice that by construction when we are done and we actually output a number, we have also given you a strategy for making a sequence of flips, which will actually fix everything and that is visible.</p>
+<p>Whenever we output a number, we know that we are at par with optimal and we are doing the right thing. The only thing to be careful about is when we report impossible, then we need to be sure that there is no other solution that actually manages to flip everything to its correct position while we just maybe missed out on it because of our greedy choices.</p>
+<p>You can actually argue that this algorithm does the right thing, even when it reports impossible. I will leave that as a little exercise for you to figure out in terms of what is the logic for why our impossible output is also always correct. If you are stuck on this, then you can go back and look at the notes on the course website and you will find a more elaborate argument then.</p>
+<p>In terms of implementation, you could exactly implement what we have discussed so far and that will work. It will have a complexity of something like ‘order N<sup>2</sup>’ or ‘N*K’ because you are doing sort of a linear pass. But within each pass, you are trying to figure out if a flip needs to happen or not and if it does need to happen, you do have to simulate the flip.</p>
+<p>That is going to be K units of work in every iteration. Now, this is good enough to pass the large data sets. Please feel free to give it a shot and let me know how it goes. In the meantime, let us discuss a small improvement to the implementation that we have just described. What we will do is, trade-off some space for time, which is to say that by keeping track of a little more information, what we will be able to do is bypass the simulation, which forces us to do order K extra work in all those iterations where we do decide to make a flip.</p>
+<p>As a result, what will happen is that we will end up with a purely linear time algorithm. One that runs in order N, but it uses order N extra memory to do this additional book-keeping. This is an optimization that has also been described in the official editorial and as it is pointed out there, you do not actually need this improvement for the large tests to go through.</p>
+<p>Nonetheless, it is a useful trick to be aware of. That is what we are going to try and understand now and this is also the version that we will implement. However, if you do have an implementation of the simulation-based approach and you want to share it with us, then please feel free to initiate a pull request in the GitHub repository where we are maintaining the codes for these lectures.</p>
+<p>(Refer Slide Time: 25:01)</p>
+<p><img src="./Lec9_media/media/image34.png" style="width:3.5625in;height:1.1875in"></p>
+<p>Let us go back to the original state of the array, and once again, begin with the left-most cookie that needs a bit of a nudge. Our overall strategy will still be to have this ‘for’ loop that is running through the initial state array, and the way we will deal with what we decide to do when we have to make a flip will be slightly different from before. Here is the first location where we do need to make a flip.</p>
+<p>The natural thing is to track this in a flip or an answer variable to remember that a flip had to be made and now in the simulation approach. What you would have done is you would have either flipped the state of the next ‘K-1’ cookies as well by actually changing the state array or you would have tried to keep track of this information in some other auxiliary array by recording number of flips at every location and incrementing them as appropriate.</p>
+<p>Notice that we really want to avoid having to do something ‘K’ times or ‘K-1’ times or whatever. Think about what is it that we really need to know. When we are processing the cookie at the j<sup>th</sup> location for some ‘j,’ what we really need to know is: How many times is this cookie been flipped so far? A hint to that is in the flip variable - the flip variable tells us how many flips have happened so far.</p>
+<p>That may not be the number of times that this cookie has been flipped because many of these flips have happened far away and are not relevant for this cookie. What we really need to know is how many of these flips are obsolete for the current variable. I should not say the current variable, but rather the current cookie, the one that is being processed right now.</p>
+<p>What we do is we keep an extra array called the ‘obsolete flips array.’ There what we do is, we make a note of the fact that this flip, the one that is the leftmost flip on your screen right now, is one that should not be counted when you are processing the K+1<sup>th</sup> cookie away from the current location.</p>
+<p>It becomes an obsolete flip for that cookie. So, when you are processing that cookie in the future, when you look at the number of flips that have happened, you are going to also subtract whatever is being stored in the ‘obsolete flips array’ at that point, to get the accurate number of flips that actually affect this cookie.</p>
+<p>Of course, you might say, look, this flip is obsolete not only for the K+1<sup>th</sup> cookie from the current location but for all the ones after that as well. Why do not we increment the values in obsolete flips array for all of the future locations as well? Well, we could do that. But that would defeat the purpose of getting to something faster. Because then that would mean actually doing ‘N-K’ amount of work in the worst case.</p>
+<p>So, we do not want to do that, instead what we will do is, we will just do some sort of a running sum of the number of obsolete flips. In particular, when I land at the j<sup>th</sup> cookie, I just look at the obsolete flips value of the j-1<sup>th</sup> cookie. The number of flips that have been obsolete for the previous cookie - they are all certainly obsolete for me as well. Because if those flips could not reach the cookie to the left of me, then they can certainly not reach the cookie at this location ‘j.’</p>
+<p>We borrow that value from the previous values stored in the obsolete flips array, and then we also lookup whatever was hinted to us from the flip that happened from this action that we are doing right now. That gives us the total number of obsolete flips, which we subtract from the actual number of flips to recover the correct number of flips that this cookie was actually involved in.</p>
+<p>This may be a little bit tricky to fully understand. Feel free to pause and take a moment here to really absorb this. Hopefully, it will also become clear as we go into the implementation. Before we can get to the implementation though, there is still one piece left that we need to understand.</p>
+<p>Once we are processing the j<sup>th</sup> cookie, we need a way to figure out if it needs to be flipped or not. When we were doing simulations, this was really easy, because you just looked at the state of the cookie, because it has actually gone through all the flips that have happened so far. The state of the cookie is reflective of its current state.</p>
+<p>We know that if it is facing the correct way we can skip it, and if it is blank side up, then we need to flip it. But now what you have is the original state of the cookie from the state array. You have this number which is the number of flips that it has experienced so far, which once again, you obtained by subtracting from the flips variable the ‘obsolete flips’ value.</p>
+<p>Based on these two pieces of information, which is the original state of the cookie, and the number of flips that it has experienced, can you come up with criteria for when you should actually flip this cookie? Take a moment here to think about this because once you have come up with these criteria, you would have a complete description of the algorithm that you need to implement.</p>
+<p>You just go through the whole set of cookies from the first position to the N-K+1<sup>th</sup> of the position, do the flips that are necessary, and then you essentially continue doing this for the last ‘K-1’ cookies as well. But this time, if your criteria do trigger and it says, ‘look you have a cookie that needs to be flipped,’ then instead of incrementing the flips variable and proceeding, what you will do is you will break out of the loop and declare that the situation is impossible.</p>
+<p>If however, your loop survives for the last ‘K-1’ cookies as well, then you can just report the number that you have in the flips variable. That is your entire algorithm. The only piece that you need to fill in is what is the criteria for determining if the cookie that has been processed currently needs to be flipped or not. Once again, to recap, you have the value of the original state of the cookie and the number of flips that it has experienced so far, what would you do from here? Hopefully, you had a chance to think about this. The criteria are actually fairly natural.</p>
+<p>(Refer Slide Time: 31:28)</p>
+<p><img src="./Lec9_media/media/image27.png" style="width:3.39063in;height:1.70833in"></p>
+<p>If the cookie was plain side up in the original array and the number of flips that it has experienced is even that means all these flips have canceled out. Even at this stage, the cookie is still the wrong way up. You do need to flip it.</p>
+<p>On the other hand, suppose the cookie was facing the right way, to begin with. But now it has experienced an odd number of flips, then you are in trouble because you have actually broken something that was correct in the beginning. Now you need to flip it again, to fix the situation and bring it back to the ‘happy’ state.</p>
+<p>That is your criteria for determining whether the current cookie needs to be flipped or not, and as we were just describing before, with this piece of the puzzle in place, you now have the entire algorithm in your head, hopefully, at this point. Once again, if you want to give this shot, this would be a good time to pause this video and try out the implementation yourself.</p>
+<p>The implementation that we have for you in the video is going to be in Python. We only use very simple data structures and it should be completely straightforward to translate this into a language of your choice.</p>
+<p>(Refer Slide Time: 32:42)</p>
+<p><img src="./Lec9_media/media/image32.png" style="width:4.06771in;height:2.54167in"></p>
+<p>To begin with, we just read all the input. ‘T’ is the number of test cases and every line is one test case. The first string is going to be a sequence of characters with no spaces, which essentially is composed of pluses and minuses, reflecting the original state of the cookies. Then there is a space and there is a number ‘K.’</p>
+<p>That is essentially what we are reading in two variables named ‘S’ and ‘K.’ S is going to be a string and K is going to be a number. Let us just use ‘N’ to record the length of the string because that is going to come in useful for stopping criteria, for our main ‘for’ loop. We have N being the length of the string or the number of cookies, to begin with.</p>
+<p>We also have this obsolete flips array that we just described. To begin with, everything in this array is 0. There are no obsolete flips to record before the process has even started. We also declare an answer variable. In the description in the video, previously, we call this the flips variable. But you could call it whatever you like in this code. This is the answer variable, which has been initialized to 0.</p>
+<p>(Refer Slide Time: 33:58)</p>
+<p><img src="./Lec9_media/media/image11.png" style="width:4.20313in;height:2.14583in"></p>
+<p>Let us do our first ‘for’ loop, which goes from the start of the array all the way up to the N-K+1<sup>th</sup> cookie. Notice that because we have 0 indexing, you really need to go on the up to the N-K<sup>th</sup> cookie. The way range works in Python, it does not actually go to the last number, the last number is omitted. That is why we have ‘j’ in the range ‘0’ to ‘N-K+1.’ This does the right thing.</p>
+<p>The initial state of the cookie can be read off from S of j; we do that and we store that in ‘state.’ The first thing we do is borrow the obsolete flips from the previous obsolete flips value. Notice that you might get an out-of-range error when j is 0 because what is j-1? This being Python, it is just going to read of the last element in the array.</p>
+<p>This is an initial condition thing. You could think of it as an edge case. I have not really bothered to say j &gt; 0 because there is no harm, to begin with, every value is 0. What happens in the first iteration really does not do any harm here. In a different language, you may have to be more careful about what happens at the first index.</p>
+<p>In general, what you are doing is, you are borrowing the number of obsolete slips from your neighbor because all of those flips are obsolete for you as well. Of course, your current value needs to remain anything that has been explicitly pointed out, you need to retain that value as well.</p>
+<p>That is why this ‘+’ equals, you are not copying the value over. You are using that value to increment whatever value you had in the first place. This correctly records the number of flips that should not be counted for the j<sup>th</sup> cookie or pancake. The next thing that we want to do is, record the number of flips that are relevant.</p>
+<p>That is going to be the total number of flips that have happened so far, which has been stored in the answer variable and you subtract from this the number of obsolete flips. That should be fairly straightforward, and this is the number of actual flips that we need to consider.</p>
+<p>If you remember from a few minutes ago, we had come up with this criteria for whether the current cookie under consideration should be flipped or not, and what we said was that it should be flipped exactly when either the original state was plain and the number of flips is even or when the original state was happy but the number of flips was odd.</p>
+<p>Let us just record these into Boolean variables. If you are writing this code during a contest, you will probably not really do this. You will most likely write an ‘if’ condition straight out. But I think this is easier to read and since we have all the time, right now, we have these descriptive variables here.</p>
+<p>Original destroyed is true, if the original state of the cookie was a plus or a happy state and the number of flips is odd, which is to say that you actually destroyed what was correct, to begin with. The other variable is blank, not fixed, which is to say that the original state of the cookie was that it was plain side up and the number of flips is even. We still have work to do here. If either of these variables happens to be true, then we should actually go ahead and make a flip.</p>
+<p>(Refer Slide Time: 37:27)</p>
+<p><img src="./Lec9_media/media/image14.png" style="width:3.34896in;height:1.92708in"></p>
+<p>The way we record that is to increment the answer by 1 to say that 1 more flip has been made, and equally importantly, we need to go to the obsolete flips array and make a record there. Look at the cookie that is K steps away from the current one and actually K+1 steps depending on how you are counting. Basically, this is the earliest cookie. The cookie with the smallest index not affected by this flip. We do need to make a note of that. That is what we are doing here.</p>
+<p>The obsolete flips variable needs to be appropriately incremented, as I said, you could also just increment all the values for obsolete flips for all larger indices. But that would be very expensive to do. We are not doing that and instead, we do the trick of borrowing a previous value as we did at the start of this ‘for’ loop. That is essentially the first part.</p>
+<p>(Refer Slide Time: 38:26)</p>
+<p><img src="./Lec9_media/media/image6.png" style="width:3.78125in;height:2.2718in"></p>
+<p>The second part is to go over the remaining ‘K-1’ cookie. We run the exact same loop, we do the exact same thing. The only difference is that this time, if you realize that a flip needs to happen, then you do not have the facility to actually make it happen. At this point, you have realized that you have an impossible task upon yourself. You declare the answer to be impossible and you break out of the loop.</p>
+<p>Now, if you do survive the loop, then the answer variable does have the right number. You can just go ahead and directly print the answer. There is a string conversion here because Python will probably not print the integer directly. The string conversion will not hurt if the answer was reset to a string and again, I think if you have a language where you have to worry about types, you may be a little bit careful about how you do this. You may need to store extra flag variable or something like that to detect if you went into that breakpoint in the second ‘for’ loop.</p>
+<p>Whatever you have to do is going to be completely straightforward. So with that, we actually come to the end of pancake-flipping. I hope that whatever we discussed made sense. At any rate, the more basic version of the algorithm without this optimization should be extremely doable, where you just go over the state array and simulate all the flips that need to happen.</p>
+<p>Just check if the last ‘K-1’ pancakes got automatically fixed or not. Hopefully, the optimization also made sense and the one thing that I leave you with is for thought is something I have mentioned earlier about trying to convince yourself that whenever the algorithm says impossible, it did not miss some way of doing things correctly.</p>
+<p>We have already argued that if you output a number, then that is going to be the right number. You just need to make sure that your impossible outputs are also accurate. It turns out that they are, but you need to convince yourself using some sort of a logical argument. So, with that, we come to an end of this video and next time we will talk about another fun problem called ‘Islands War.’ I will see you there and thanks so much for watching as always. Bye for now!</p>
+
+
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

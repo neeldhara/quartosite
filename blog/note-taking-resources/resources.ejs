@@ -1,0 +1,34 @@
+```{=html}
+<table class="quarto-listing-table table">
+    <thead>
+        <td class="listing-type" style="max-width: 42px !important; text-align: center;">Type</td>
+        <td class="listing-type" style="max-width: 42px !important; text-align: center;">Link</td>
+        <td>Resource</td>
+    </thead>
+    <tbody class="list">
+    <% for (const item of items) { %>
+        <tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>     
+            <td class="listing-type" style="max-width: 42px !important; text-align: center;">
+                <strong><% if (item.type == "youtube") { %> <i class="bi bi-youtube"></i> <% } %> 
+                <strong><% if (item.type == "book") { %> <i class="bi bi-book"></i> <% } %> 
+                <strong><% if (item.type == "course") { %> <i class="bi bi-journal-bookmark"></i> <% } %> 
+                <strong><% if (item.type == "MOC") { %> <i class="bi bi-map"></i> <% } %> 
+                <strong><% if (item.type == "other") { %> <i class="bi bi-stars"></i> <% } %> 
+                <strong><% if (item.type == "essay") { %> <i class="bi bi-card-text"></i> <% } %> 
+                <strong><% if (item.type == "software") { %> <i class="bi bi-code-square"></i> <% } %> 
+            </td>
+            <td class="listing-link" style="max-width: 42px !important; text-align: center;">
+                <% if (item.link) { %>
+                    <a href="<%= item.link %>"><i class="bi bi-link-45deg"></i></a>
+                <% } %>
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong><% if (item.slno) { %><%= item.slno %>.<% } %> <%= item.title %></strong><br>
+                <p><%= item.summary %></p>
+            </td>
+        </tr>
+    <% } %>
+</tbody>
+</table>
+
+```

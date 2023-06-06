@@ -1,0 +1,96 @@
+---
+title: "1. The Motivation"
+date: "2023-05-16"
+categories: [algonotes, lecturenotes]
+fields: [date, title]
+page-layout: full
+toc: true
+order: 1
+---
+
+:::{.callout-note}
+# Acknowledgements
+This write up is borrowed (with minor adaptations) from Chapter E of [Jeff Erickson](http://jeffe.cs.illinois.edu/)'s [textbook on Algorithms](http://jeffe.cs.illinois.edu/teaching/algorithms/).
+:::
+
+### A Generic Optimization Problem
+
+Suppose we have:
+
+- a finite universe of elements $\cal U = \{e_1, e_2, \cdots, e_n\}$
+- a weight function $w: \cal U \longrightarrow \mathbb{Q}^{\geqslant 0}$ that assigns a non-negative weight with every universe element
+- a family $\cal F = \{S_1, \ldots, S_m\}$ of subsets of $\cal U$
+
+and we "lift" $w$ to the sets in $\cal F$ as follows:
+
+$$w(S) = \sum_{e \in S} w(e).$$
+
+Here is, then, a natural optimization question: what is the maximum weight attained by a set in $\cal F$? 
+
+Notice that this need not be the set of the largest cardinality (a large number of light elements may fall short of a small number of heavy ones).
+
+Now, you may wonder why this is even an interesting question --- do we not find the answer by computing the weights of all the sets, and tracking the maximum?
+
+That would indeed work! However, the time we need to execute this is $O(mn)$ in the worst case (accounting for the time we need to add $O(n)$ weights), and note that $m$ is potentially exponential in $n$, which --- when it happens --- will not be fun.
+
+You can rebut this by suggesting that it does not matter how large $m$ is as a function of $n$: it counts as input, and so our approach is polynomial in the size of the input.
+
+Indeed! So to make this problem interesting, and one that captures problems that you will actually encounter, let's add the constraint that $\cal F$ is not given to us as _explicit_ input, but rather via an _oracle_. What this means is that we do not have the luxury of direct access to the list of sets in $\cal F$, but we can poke at the list indirectly: if we have a set at hand, we can feed it to the oracle, which will tell us if the set belongs in $\cal F$ or not.
+
+So our goal is to now build a set that has the largest weight, with some help from the oracle. We want to do this as efficiently as possible, in particular using only polynomially-in-$n$ many calls to the oracle. It is like navigating a room in the dark with a torch... we do not know most things, but we can get sneak peeks into the lay of the land using the torch, but we don't want to overuse the torch or the battery will run out.
+
+### A Greedy Approach
+
+If you had to build the heaviest set greedily, how would you go about it? A natural idea is to favor heavier elements over lighter ones. In particular, let us line up the elements from heaviest to lightest, and keep picking them up one by one. Well, this will always end with us choosing $U$, which is a set that is as heavy as it gets: however we have a problem --- this set may not be in $\cal F$! We may have lost the plot well before reaching the end, so we need to introduce some sanity check here. How about ensuring, using the oracle, that we only choose elements that keep us rooted in $\cal F$? Here's what we would do:
+
+:::{.callout-note}
+# A Greedy Algorithm
+
+1. Sort the elements of $U$ in descending order of weight; i.e, WLOG $w(e_1) \geqslant \cdots \geqslant w(e_n)$.
+2. Initialize a solution: specifically, let $X = \emptyset$.
+3. For $i \in [n]$: if $X \cup \{e_i\} \in \cal F$, $X \longleftarrow X \cup \{e_i\}$.
+:::
+
+
+Notice that we invoke the oracle $n$ times in step 3. This is a natural greedy approach, and it might remind you of, say, the mechanics of Kruskal's algorithm for finding spanning trees of maximum weight. Indeed, for a particular choice of $\cal U$ and $\cal F$, the algorithm above is exactly Kruskal's algorithm^[This is a remark you can safely ignore if you have not encountered Kruskal's algorithm yet.]! Fix a graph $G$, and let $\cal U = E(G)$ and $\cal F$ consisting of all acyclic subsets of $E(G)$. The "oracle" in this case just has to check if, given $S \subseteq E(G)$, the subgraph induced by $S$ contains a cycle or not.
+
+Now the question is if the algorithm _always_ works. A moment's reflection will reveal that it in fact, does not.
+
+
+:::{.callout-caution collapse="true"}
+# A Counterexample
+
+Let:
+
+- $\cal U = \{p,q,r\}$ 
+- $w(p) = 40, w(q) = 30, w(r) = 20$ 
+- $\cal F = \{\{p\},\{qr\}\}$
+
+The greedy output will be $\{p\}$, while the optimal output is $\{qr\}$.
+:::
+
+Even knowing that the algorithm fails, let us try to anticipate how a typical greedy exchange argument would have gone-and-gotten-stuck. Here's the cliche line of reasoning:
+
+Let:
+
+- $\{f_1,f_2,\ldots,f_k\}$ be the output of greedy, and
+- $\{g_1,g_2,\ldots,g_\ell\}$ be the optimal solution.
+
+If it exists, let $i$ be the smallest index for which $f_i < g_i$. If not, i.e, $f_i \geqslant g_i$ for all $1 \leq i \leq k$, then it must be the case that $\ell > k$. In either case, we have an element in the optimal solution that was not chosen by the greedy algorithm, even though in terms of weight, it was favorable over the greedy choice (either $f_i$ or early termination). Let us call this element $g$ and denote by $S$ the greedy choices made up to (and excluding) the point where "OPT trumped Greedy". 
+
+Note that the only reason the element $g$ was _not_ chosen by the greedy algorithm must have been that $g$ was not compatible with the greedy choices we had made up to that point, i.e, $S \cup \{g\} \notin \cal F$. Indeed, recall that this is what happened in the counterexample above as well!
+
+So clearly, the greedy approach will not work in general for any input $(\cal U, \cal F, w)$. However, what if $\cal F$ had some additional structure, which allowed us to push the key step in the proof above? In particular, let's make our wishlist explicit. If
+
+- $T$ is the set of greedy choices up to the $(i-1)^{th}$ iteration, and
+- $S$ is the set of optimal choices up to the $i^{th}$ iteration,
+
+then we would like to say that there is _some_ element in $S$ that is:
+
+- not yet chosen by the greedy algorithm, and
+- can be legitimately appended to the greedy choices made so far.
+
+In other words, we want that $\exists e \in T \setminus S$ such that $T \cup \{e\} \in \cal F$: why? Because such an element $e$ will be guaranteed to be better in terms of weight than greedy choice at the $i^{th}$ iteration (which is either the element $f_i$ or no element at all due to termination). But this time, $e$ is _also_ compatible with the greedy choices... so the greedy algorithm really had no good reason to ignore $e$, and we have a contradiction!
+
+Next up, we are going to define the notion of a matroid motivated by the need for a property like the one we described above.
+

@@ -339,19 +339,6 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Acknowledgements
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This write up is borrowed (with minor adaptations) from Chapter E of <a href="http://jeffe.cs.illinois.edu/">Jeff Erickson</a>’s <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/">textbook on Algorithms</a>.</p>
-</div>
-</div>
 <section id="a-generic-optimization-problem" class="level3">
 <h3 class="anchored" data-anchor-id="a-generic-optimization-problem">A Generic Optimization Problem</h3>
 <p>Suppose we have:</p>
@@ -393,7 +380,7 @@ A Greedy Algorithm
 <p>Notice that we invoke the oracle <span class="math inline">n</span> times in step 3. This is a natural greedy approach, and it might remind you of, say, the mechanics of Kruskal’s algorithm for finding spanning trees of maximum weight. Indeed, for a particular choice of <span class="math inline">\cal U</span> and <span class="math inline">\cal F</span>, the algorithm above is exactly Kruskal’s algorithm<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>! Fix a graph <span class="math inline">G</span>, and let <span class="math inline">\cal U = E(G)</span> and <span class="math inline">\cal F</span> consisting of all acyclic subsets of <span class="math inline">E(G)</span>. The “oracle” in this case just has to check if, given <span class="math inline">S \subseteq E(G)</span>, the subgraph induced by <span class="math inline">S</span> contains a cycle or not.</p>
 <p>Now the question is if the algorithm <em>always</em> works. A moment’s reflection will reveal that it in fact, does not.</p>
 <div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -402,7 +389,7 @@ A Counterexample
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let:</p>
 <ul>

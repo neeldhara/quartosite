@@ -32,15 +32,15 @@ and we wanted to determine the maximum weight attained by any set in $\cal F$, w
 
 and concluded that it does not quite work, but might if the family came with the following promise:
 
-If $S$ and $T$ are two sets with $T \in \cal F$, and $|S| > |T|$, then $\exists e \in T \setminus S$ such that $T \cup \{e\} \in \cal F$.
+If $S$ and $T$ are two subsets of $\cal U$ with $T \in \cal F$ and $|S| > |T|$, then $\exists e \in S \setminus T$ such that $T \cup \{e\} \in \cal F$.
 
-This is exactly what we need to make our proof work out: recall that $T$ corresponds to the greedy choices, which always correspond to a set in $\cal F$, while $S$ corresponds to a subset of the optimal solution, which has no obligation to be in $\cal F$. 
+This is exactly what we need to make our proof work out: recall that $T$ corresponds to the greedy choices, which always correspond to a set in $\cal F$, while $S$ corresponds to a subset of the optimal solution, which has no obligation to be in $\cal F$. Let us call a family _fantastic_ if it satisfies the property above. It is not difficult to show that the greedy algorithm produces the correct output when the input is a fantastic family: we leave this as an exercise.
 
-However, notice that this is not a very interesting defintion. Consider any family $\cal F$ that is non-trivial, i.e, has at least one non-empty subset of $U$ in it, say $X$. Then, by triggering this property on $X \cup \{e\}$ for any $e \notin X$, we see that "immediate supersets" of $X$ are forced to also belong to $\cal F$. Carrying this argument forward, we see that all supersets of $X$ are forced to belong to $\cal F$. In particular, if $\emptyset \in \cal F$ (which will be the case for most applications of this framework), then the only $\cal F$ that satisfies the restriction above is would be the family of _all_ possible subsets of $U$. So while the definition is perfectly valid, it is rather restrictive, and therefore arguably uninteresting.
+However, notice that this is not a very interesting defintion. Consider any family $\cal F$ that is non-trivial, i.e, has at least one non-empty subset of $U$ in it: call this $X$. Then, by triggering this property on $X \cup \{e\}$ for any $e \notin X$, we see that all "immediate supersets" of $X$ are forced to also belong to $\cal F$. Carrying this argument forward, we see that _all_ supersets of $X$ are forced to belong to $\cal F$. In particular, if $\emptyset \in \cal F$ --- which will be the case for most applications of this framework --- then the only family $\cal F$ that qualifies as fantastic is the family of _all_ possible subsets of $U$. So... while our notion of a fantastic family is perfectly well-defined and even useful, it is also rather restrictive and therefore uninteresting.
 
-So we need to see if we can still get to our desired outcome (i.e, the correctness of the greedy algorithm), while not being so demanding with our definition. How about we modify our constraint to the following:
+Our next step is to see if we can still get to our desired outcome (i.e, the correctness of the greedy algorithm), while not being so demanding with our definition. How about we modify our constraint to the following:
 
-If $S$ and $T$ are two sets with $S \in \cal F$ _and_ $T \in \cal F$, and $|S| > |T|$, then $\exists e \in T \setminus S$ such that $T \cup \{e\} \in \cal F$.
+If $S$ and $T$ are two sets with $S \in \cal F$ _and_ $T \in \cal F$, and $|S| > |T|$, then $\exists e \in S \setminus T$ such that $T \cup \{e\} \in \cal F$.
 
 So let us say that a family is _nice_ if it satisfies the property above. Can we now push our proof of correctness for the greedy algorithm above? Unfortunately, the answer is a negative. Can you come up with a counterexample before reading on?
 
@@ -62,11 +62,11 @@ So well, it is back to the drawing board. Let us recall how our proof was suppos
 - $T$ be the set of greedy choices up to the $(i-1)^{th}$ iteration, and
 - $S$ be the set of optimal choices up to the $i^{th}$ iteration,
 
-then the hope was that the property above would rescue us and contradict the greedy choices, since $|S| > |T|$. However, in the counterexample above, we are unable to take advantage of the fact that $\cal F$ is a nice family because $S \notin \cal F$. Note that the optimal solution is obliged to end with a set in $\cal F$, but the intermediate choices as we are viewing them now have no reason to necessarily be in $\cal F$. 
+then the hope was that the property above would rescue us and contradict the greedy choices, since $|S| > |T|$. However, in the counterexample above, we are unable to take advantage of the fact that $\cal F$ is a nice family because $S \notin \cal F$. Note that the optimal solution is obliged to only output a set in $\cal F$, but the intermediate choices as we are viewing them now have no obligation to necessarily belong to $\cal F$. 
 
 One way to force this is to insist that our family be heriditary, that is, the inclusion of a set $S \in \cal F$ implies the inclusion of all subsets of $S$ in $\cal F$ as well. If this were true, then $S \in \cal F$ since $S$ is a subset of the optimal solution, which we know to be in $\cal F$. Note that the counterexample above did not involve a heriditary family. It turns out that this combination of properties is both: (a) permissive, in that a non-trivial number of families enjoy the property; and (b) useful, in that it gives us enough leverage to prove the correctness of the greedy algorithm.
 
-With all this, we are now ready to bring in the official definition of a matroid. 
+With all this, we are now ready to bring up the official definition of a matroid. 
 
 :::{.callout-tip}
 # Matroids

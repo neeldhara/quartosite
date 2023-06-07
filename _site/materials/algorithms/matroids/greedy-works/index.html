@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-05-16">
+<meta name="dcterms.date" content="2023-06-07">
 
 <title>Neeldhara - 3. Greedy Works!</title>
 <style>
@@ -61,6 +61,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
@@ -249,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../materials/algorithms/matroids/index.html" class="sidebar-item-text sidebar-link">Greedy Algorithms</a>
+            <a href="../../../../materials/algorithms/matroids/index.html" class="sidebar-item-text sidebar-link">Matroids</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -306,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 16, 2023</p>
+      <p class="date">June 7, 2023</p>
     </div>
   </div>
   
@@ -326,10 +342,125 @@ Acknowledgements
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This write up is borrowed (with minor adaptations) from Chapter 4 of <a href="http://jeffe.cs.illinois.edu/">Jeff Erickson</a>’s <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/">textbook on Algorithms</a>. The interactive illustrations were generated with assistance from ChatGPT (the May 12 version).</p>
+<p>This write up is borrowed (with minor adaptations) from Chapter 4 of <a href="http://jeffe.cs.illinois.edu/">Jeff Erickson</a>’s <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/">textbook on Algorithms</a>.</p>
 </div>
 </div>
-<p>TBA</p>
+<p>Recall that from last time, we were dealing with:</p>
+<ul>
+<li>a finite universe of elements <span class="math inline">\cal U = \{e_1, e_2, \cdots, e_n\}</span></li>
+<li>a weight function <span class="math inline">w: \cal U \longrightarrow \mathbb{Q}^{\geqslant 0}</span> that assigns a non-negative weight with every universe element</li>
+<li>oracle access to a family <span class="math inline">\cal F = \{S_1, \ldots, S_m\}</span> of subsets of <span class="math inline">\cal U</span></li>
+</ul>
+<p>and we wanted to determine the maximum weight attained by any set in <span class="math inline">\cal F</span>, where the weight of a set is defined as the sum of the weights of the elements that belong to it.</p>
+<p>To this end, we proposed the following greedy algorithm:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+A Greedy Algorithm
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Sort the elements of <span class="math inline">U</span> in descending order of weight; i.e, WLOG <span class="math inline">w(e_1) \geqslant \cdots \geqslant w(e_n)</span>.</li>
+<li>Initialize a solution: specifically, let <span class="math inline">X = \emptyset</span>.</li>
+<li>For <span class="math inline">i \in [n]</span>: if <span class="math inline">X \cup \{e_i\} \in \cal F</span>, <span class="math inline">X \longleftarrow X \cup \{e_i\}</span>.</li>
+</ol>
+</div>
+</div>
+<p>Since the greedy algorithm did not work “at large”, we agreed that it might be interesting to impose some constraints on <span class="math inline">\cal F</span> and see if we could argue that the greedy algorithm works for all families that enjoy some additional structure. After some back and forth, here is what we came up with:</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Matroids
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A matroid <span class="math inline">(\cal U, \cal F)</span> consists of a finite ground set <span class="math inline">\cal U</span> and a collection <span class="math inline">\mathcal{J}</span> of subsets of <span class="math inline">X</span> that satisfies three axioms:</p>
+<ul>
+<li><p><strong>Non-emptiness</strong>. The empty set is in <span class="math inline">\mathcal{F}</span>. (Thus, <span class="math inline">\mathcal{F}</span> is not itself empty.)</p></li>
+<li><p><strong>Heredity</strong>. If <span class="math inline">\mathcal{F}</span> contains a subset <span class="math inline">X \subseteq \cal U</span>, then <span class="math inline">\mathcal{F}</span> contains every subset of <span class="math inline">X</span>.</p></li>
+<li><p><strong>Exchange</strong>. If <span class="math inline">X</span> and <span class="math inline">Y</span> are two sets in <span class="math inline">\cal F</span> where <span class="math inline">|X|&gt;|Y|</span>, then <span class="math inline">Y \cup\{x\} \in \mathcal{F}</span> for some element <span class="math inline">x \in X \backslash Y</span>.</p></li>
+</ul>
+</div>
+</div>
+<p>All this sets the stage for the main result that we want to get to:</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+The Greedy Algorithm Works
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Theorem.</strong> For any matroid <span class="math inline">\mathcal{M}=(\cal U, \mathcal{F})</span> and any weight function <span class="math inline">w</span>, the greedy algorithm that takes <span class="math inline">(\cal U, \mathcal{F}, w)</span> as input returns a maximum-weight basis of <span class="math inline">\mathcal{M}</span>.</p>
+<p><em>Proof.</em> As you might anticipate, we use an exchange argument.</p>
+<p>Let <span class="math inline">T=\left\{f_1, f_2, \ldots, f_k\right\}</span> be the independent set returned by the greedy algorithm on input <span class="math inline">(\cal U, \mathcal{F}, w))</span>.</p>
+<p>If any other element of <span class="math inline">\cal U</span> could be added to <span class="math inline">T</span> to obtain a larger independent set, the greedy algorithm would have added it. Thus, <span class="math inline">T</span> is a basis.</p>
+<p>For purposes of deriving a contradiction, suppose there is an independent set <span class="math inline">S=\left\{g_1, g_2, \ldots, g_{\ell}\right\}</span> such that <span class="math display">
+\sum_{i=1}^k w\left(f_i\right)&lt;\sum_{j=1}^{\ell} w\left(g_i\right) .
+</span> Without loss of generality, assume that <span class="math inline">S</span> is a basis. The exchange property now implies that <span class="math inline">k=\ell</span>.</p>
+<p>Now suppose the elements of <span class="math inline">T</span> and <span class="math inline">S</span> are indexed in order of decreasing weight. Let <span class="math inline">i</span> be the smallest index such that <span class="math inline">w\left(f_i\right)&lt;w\left(g_i\right)</span>, and consider the independent sets <span class="math display">
+T_{i-1}=\left\{f_1, f_2, \ldots, f_{i-1}\right\} \quad \text { and } \quad S_i=\left\{g_1, g_2, \ldots, g_{i-1}, g_i\right\}
+</span></p>
+<p>By the exchange property, there is some element <span class="math inline">g_j \in S_i</span> such that <span class="math inline">T_{i-1} \cup\left\{g_j\right\}</span> is an independent set. We have:</p>
+<p><span class="math display">w\left(g_j\right) \geq w\left(g_i\right)&gt;w\left(f_i\right).</span></p>
+<p>Thus, the greedy algorithm considers and rejects the heavier element <span class="math inline">g_j</span> before it considers the lighter element <span class="math inline">f_i</span>.</p>
+<p>But this is impossible, since the greedy algorithm accepts elements in decreasing order of weight.</p>
+<p><img src="micdrop.gif" class="img-fluid"> <!-- Mic Drop Minion Meme as a substitute for a QED --></p>
+</div>
+</div>
+<p>This result also has an interesting flip side, so to speak. When dealing with set systems that do <em>not</em> satisfy the exchange axiom, it turns out that we can adverserially choose a weight function that misleads the greedy algorithm into producing suboptimal output! The intuition is the following: a violation of the exchange axiom in a set system <span class="math inline">(\cal U, \cal F)</span> amounts to saying the following:</p>
+<p><span class="math inline">\exists S, T \in \cal F</span> such that <span class="math inline">|S| &gt; |T|</span> but for all <span class="math inline">e \in S \setminus T</span>, <span class="math inline">T \cup \{e\} \notin \cal F</span>.</p>
+<p>Now our plan is the following.</p>
+<p>We “tempt” greedy into picking all elements in <span class="math inline">T</span> before anything in <span class="math inline">S</span>, by making the elements of <span class="math inline">T</span> just a little heavier than elements in, say, <span class="math inline">S \setminus T</span>. Note that once greedy chooses all of <span class="math inline">T</span>, it cannot expand further into <span class="math inline">S</span> because of the violation above combined with its own committment to navigating with <span class="math inline">\cal F</span>. So it will skip over all elements of <span class="math inline">S \setminus T</span>: which is an opportunity for us to create a better optimal solution.</p>
+<p>In particular, our goal will be to assign weights to elements in <span class="math inline">S \setminus T</span> in such a way that <span class="math inline">w(S) &gt; w(T)</span> in spite of the fact that elements in <span class="math inline">T</span> are heavier than those in <span class="math inline">S \setminus T</span>. Here, we can take advantage of the fact that <span class="math inline">|S| &gt; |T|</span>.</p>
+<p>With these ideas in place, can you come up with the adverserial weight function?</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Adverserially Chosen Weights to Trip Greedy [Click to reval.]
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Using <span class="math inline">m</span> to denote <span class="math inline">|T|</span>, suppose we use the following scheme:</p>
+<ul>
+<li>Every element of <span class="math inline">T</span> has weight <span class="math inline">m+2</span>.</li>
+<li>Every element of <span class="math inline">S \backslash T</span> has weight <span class="math inline">m+1</span>.</li>
+<li>Every other element of the ground set has weight zero.</li>
+</ul>
+<p>With these weights, the greedy algorithm will consider and accept every element of <span class="math inline">T</span>, then consider and reject every element of <span class="math inline">S</span>, and finally consider all the other elements. The algorithm returns a set with total weight <span class="math inline">m(m+2)=m^2+2 m</span>. But the total weight of <span class="math inline">S</span> is at least <span class="math inline">(m+1)^2=m^2+2 m+1</span>. Thus, the output of the greedy algorithm is not the maximum-weight set in <span class="math inline">\cal F</span>.</p>
+</div>
+</div>
+</div>
+<p>This completes the argument for the following fact:</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Theorem. Greedy for set systems that do not satisfy the exchange axiom can be made to fail.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For any heriditary family <span class="math inline">(\cal U, \cal F)</span> that is not a matroid, there is a weight function <span class="math inline">w</span> such that the greedy algorithm fails to output the optimal answer.</p>
+</div>
+</div>
+<p>Recall the Dance Classes problem considered in Chapter 1. There is a natural subset system associated with this problem: A set of classes is independent if and only if no two classes overlap. This subset system is not a matroid, because there can be maximal independent sets of different sizes, which violates the exchange property. If we consider a weighted version of the class scheduling problem, where each class is worth a different number of hours, our result above implies that the greedy algorithm will not always find the optimal schedule.</p>
+<p>However, this result here does not contradict the correctness of the greedy algorithm for the original unweighted problem; that problem uses a particularly lucky choice of weights (all equal), whereas the claim here is simply that there exists particularly nasty choice of weights that is designed to mislead greedy into making suboptimal choices.</p>
 
 
 

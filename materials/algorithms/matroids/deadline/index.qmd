@@ -1,6 +1,6 @@
 ---
 title: "4. Scheduling with Deadlines"
-date: "2023-05-16"
+date: "2023-06-07"
 categories: [algonotes, lecturenotes]
 fields: [date, title]
 page-layout: full
@@ -10,7 +10,89 @@ order: 4
 
 :::{.callout-note}
 # Acknowledgements
-This write up is borrowed (with minor adaptations) from Chapter 4 of [Jeff Erickson](http://jeffe.cs.illinois.edu/)'s [textbook on Algorithms](http://jeffe.cs.illinois.edu/teaching/algorithms/). The interactive illustrations were generated with assistance from ChatGPT (the May 12 version).
+This write up is borrowed (with minor adaptations) from Chapter E of [Jeff Erickson](http://jeffe.cs.illinois.edu/)'s [textbook on Algorithms](http://jeffe.cs.illinois.edu/teaching/algorithms/). 
+
+<!-- The interactive illustrations were generated with assistance from ChatGPT (the May 12 version). -->
 :::
 
-TBA
+Suppose you have $n$ tasks to complete in $n$ days; each task requires your attention for a full day. Each task comes with a deadline, the last day by which the job should be completed, and a penalty that you must pay if you do not complete each task by its assigned deadline. What order should you perform your tasks in to minimize the total penalty you must pay?
+
+More formally, you are given:
+
+- an array $D[1,...,n]$ of deadlines and 
+- an array $P[1,...,n]$ of penalties. 
+
+Each deadline $D[i]$ is an integer between 1 and $n$, and each penalty $P[i]$ is a non-negative real number. A schedule is a permutation of the integers $\{1,2, \ldots, n\}$. 
+
+The scheduling problem asks you to find a schedule $\pi$ that minimizes the following cost:
+$$
+\operatorname{cost}(\pi):=\sum_{i=1}^n P[i] \cdot[\pi(i)>D[i]].
+$$
+
+This doesn't look anything like a matroid optimization problem. For one thing, matroid optimization problems ask us to find an optimal set; this problem asks us to find an optimal permutation. Surprisingly, however, this scheduling problem is actually a matroid optimization in disguise! 
+
+For any schedule $\pi$, call tasks $i$ such that $\pi(i)>D[i]$ late or delayed, and all other tasks on time. 
+
+To see this, consider that two schedules are equivalent from a cost perspective if they delay the same _set_ of tasks. In particular, let $S \subseteq [n]$ be some subset of tasks. Suppose we have a schedule $\pi_1$ that delays all tasks in $S$ and finishes all tasks that are not in $S$ on time, and another schedule $\pi_2 \neq \pi_1$ that also delays all tasks in $S$ and finishes all tasks that are not in $S$ on time. Observe that $\operatorname{cost}(\pi_1) = \operatorname{cost}(\pi_2)$. Intuitively, we might as well turn our attention to subsets of completed tasks as opposed to the sequence in which we execute them. We summarize our discussion here in the following claim:
+
+:::{.callout-tip}
+# Claim Relating Permutations to Subsets
+The cost of a schedule is determined by the subset of tasks that are on time.
+:::
+
+Call a subset $X$ of the tasks realistic if there is a schedule $\pi$ in which every task in $X$ is on time. We can precisely characterize the realistic subsets as follows. Let $X(t)$ denote the subset of tasks in $X$ whose deadline is on before $t$ :
+
+$$
+X(t):=\{i \in X \mid D[i] \leq t\}
+$$
+
+In particular, $X(0)=\varnothing$ and $X(n)=X$.
+
+
+:::{.callout-tip}
+# Lemma characterizing realistic sets
+
+**Lemma.** Let $X \subseteq\{1,2, \ldots, n\}$ be an arbitrary subset of the $n$ tasks. $X$ is realistic if and only if $|X(t)| \leq t$ for every integer $t$.
+
+_Proof._ Let $\pi$ be a schedule in which every task in $X$ is on time. Let $i_t$ be the $t$ th task in $X$ to be completed. On the one hand, we have $\pi\left(i_t\right) \geq t$, since otherwise, we could not have completed $t-1$ other jobs in $X$ before $i_{\mathrm{t}}$. On the other hand, $\pi\left(i_t\right) \leq D[i]$, because $i_t$ is on time. We conclude that $D\left[i_t\right] \geq t$, which immediately implies that $|X(t)| \leq t$
+
+Now suppose $|X(t)| \leq t$ for every integer $t$. If we perform the tasks in $X$ in increasing order of deadline, then we complete all tasks in $X$ with deadlines $t$ or less by day $t$. In particular, for any $i \in X$, we perform task $i$ on or before its deadline $D[i]$. Thus, $X$ is realistic.
+:::
+
+We can now define a canonical schedule for any set $X$ as follows: execute the tasks in $X$ in increasing deadline order, and then execute the remaining tasks in any order. The previous proof implies that a set $X$ is realistic if and only if every task in $X$ is on time in the canonical schedule for $X$. Thus, our scheduling problem can be rephrased as follows:
+
+
+:::{.callout-note appearance="minimal"}
+Find a realistic subset $X$ such that $\sum_{i \in X} P[i]$ is maximized.
+:::
+
+So we're looking for optimal subsets after all! Now we could describe a greedy algorithm and show that it works out, or... 
+
+
+:::{.callout-tip} 
+# Realistic Sets have the Matroid Properties
+
+**Lemma.** The collection of realistic sets of jobs forms a matroid.
+
+_Proof:_ The empty set is vacuously realistic, and any subset of a realistic set is clearly realistic. Thus, to prove the lemma, it suffices to show that the exchange property holds. Let $X$ and $Y$ be realistic sets of jobs with $|X|>|Y|$.
+
+Let $t^*$ be the largest integer such that $\left|X\left(t^*\right)\right| \leq\left|Y\left(t^*\right)\right|$. This integer must exist, because $|X(0)|=0 \leq 0=|Y(0)|$ and $|X(n)|=|X|>|Y|=|Y(n)|$. By definition of $t^*$, there are more tasks with deadline $t^*+1$ in $X$ than in $Y$. Thus, we can choose a task $j$ in $X \backslash Y$ with deadline $t^*+1$; let $Z=Y \cup\{j\}$.
+
+Let $t$ be an arbitrary integer. If $t \leq t^*$, then $|Z(t)|=|Y(t)| \leq t$, because $Y$ is realistic. On the other hand, if $t>t^*$, then $|Z(t)|=|Y(t)|+1 \leq|X(t)|<t$ by definition of $t^*$ and because $X$ is realistic. The previous lemma now implies that $Z$ is realistic. This completes the proof of the exchange property.
+:::
+
+
+This lemma implies that our scheduling problem is actually a matroid optimization problem, so the greedy algorithm finds the optimal schedule.
+
+```pascal
+GREEDYSCHEDULE(D[1 . . n], P[1 . . n]):
+Sort P in increasing order, and permute D to match
+j = 0
+for i in 1,n:
+    X[j+1] = i
+    if X[1,...,j+1] is realistic
+        j = j+1
+return the canonical schedule for X[1...j]
+```
+
+We leave as an exercise to the reader to figure out an implementation of the oracle access to the family of realistic sets. In particular, this involves coming up an efficient procedure to test whether a given subset of jobs is realistic. It is possible to do this in linear time based on the properties of realistic sets established from before.

@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-05-16">
+<meta name="dcterms.date" content="2023-06-07">
 
 <title>Neeldhara - 4. Scheduling with Deadlines</title>
 <style>
@@ -21,6 +21,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -61,6 +124,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
@@ -306,7 +385,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 16, 2023</p>
+      <p class="date">June 7, 2023</p>
     </div>
   </div>
   
@@ -326,10 +405,94 @@ Acknowledgements
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This write up is borrowed (with minor adaptations) from Chapter 4 of <a href="http://jeffe.cs.illinois.edu/">Jeff Erickson</a>’s <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/">textbook on Algorithms</a>. The interactive illustrations were generated with assistance from ChatGPT (the May 12 version).</p>
+<p>This write up is borrowed (with minor adaptations) from Chapter E of <a href="http://jeffe.cs.illinois.edu/">Jeff Erickson</a>’s <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/">textbook on Algorithms</a>.</p>
+<!-- The interactive illustrations were generated with assistance from ChatGPT (the May 12 version). -->
 </div>
 </div>
-<p>TBA</p>
+<p>Suppose you have <span class="math inline">n</span> tasks to complete in <span class="math inline">n</span> days; each task requires your attention for a full day. Each task comes with a deadline, the last day by which the job should be completed, and a penalty that you must pay if you do not complete each task by its assigned deadline. What order should you perform your tasks in to minimize the total penalty you must pay?</p>
+<p>More formally, you are given:</p>
+<ul>
+<li>an array <span class="math inline">D[1,...,n]</span> of deadlines and</li>
+<li>an array <span class="math inline">P[1,...,n]</span> of penalties.</li>
+</ul>
+<p>Each deadline <span class="math inline">D[i]</span> is an integer between 1 and <span class="math inline">n</span>, and each penalty <span class="math inline">P[i]</span> is a non-negative real number. A schedule is a permutation of the integers <span class="math inline">\{1,2, \ldots, n\}</span>.</p>
+<p>The scheduling problem asks you to find a schedule <span class="math inline">\pi</span> that minimizes the following cost: <span class="math display">
+\operatorname{cost}(\pi):=\sum_{i=1}^n P[i] \cdot[\pi(i)&gt;D[i]].
+</span></p>
+<p>This doesn’t look anything like a matroid optimization problem. For one thing, matroid optimization problems ask us to find an optimal set; this problem asks us to find an optimal permutation. Surprisingly, however, this scheduling problem is actually a matroid optimization in disguise!</p>
+<p>For any schedule <span class="math inline">\pi</span>, call tasks <span class="math inline">i</span> such that <span class="math inline">\pi(i)&gt;D[i]</span> late or delayed, and all other tasks on time.</p>
+<p>To see this, consider that two schedules are equivalent from a cost perspective if they delay the same <em>set</em> of tasks. In particular, let <span class="math inline">S \subseteq [n]</span> be some subset of tasks. Suppose we have a schedule <span class="math inline">\pi_1</span> that delays all tasks in <span class="math inline">S</span> and finishes all tasks that are not in <span class="math inline">S</span> on time, and another schedule <span class="math inline">\pi_2 \neq \pi_1</span> that also delays all tasks in <span class="math inline">S</span> and finishes all tasks that are not in <span class="math inline">S</span> on time. Observe that <span class="math inline">\operatorname{cost}(\pi_1) = \operatorname{cost}(\pi_2)</span>. Intuitively, we might as well turn our attention to subsets of completed tasks as opposed to the sequence in which we execute them. We summarize our discussion here in the following claim:</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Claim Relating Permutations to Subsets
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The cost of a schedule is determined by the subset of tasks that are on time.</p>
+</div>
+</div>
+<p>Call a subset <span class="math inline">X</span> of the tasks realistic if there is a schedule <span class="math inline">\pi</span> in which every task in <span class="math inline">X</span> is on time. We can precisely characterize the realistic subsets as follows. Let <span class="math inline">X(t)</span> denote the subset of tasks in <span class="math inline">X</span> whose deadline is on before <span class="math inline">t</span> :</p>
+<p><span class="math display">
+X(t):=\{i \in X \mid D[i] \leq t\}
+</span></p>
+<p>In particular, <span class="math inline">X(0)=\varnothing</span> and <span class="math inline">X(n)=X</span>.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Lemma characterizing realistic sets
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Lemma.</strong> Let <span class="math inline">X \subseteq\{1,2, \ldots, n\}</span> be an arbitrary subset of the <span class="math inline">n</span> tasks. <span class="math inline">X</span> is realistic if and only if <span class="math inline">|X(t)| \leq t</span> for every integer <span class="math inline">t</span>.</p>
+<p><em>Proof.</em> Let <span class="math inline">\pi</span> be a schedule in which every task in <span class="math inline">X</span> is on time. Let <span class="math inline">i_t</span> be the <span class="math inline">t</span> th task in <span class="math inline">X</span> to be completed. On the one hand, we have <span class="math inline">\pi\left(i_t\right) \geq t</span>, since otherwise, we could not have completed <span class="math inline">t-1</span> other jobs in <span class="math inline">X</span> before <span class="math inline">i_{\mathrm{t}}</span>. On the other hand, <span class="math inline">\pi\left(i_t\right) \leq D[i]</span>, because <span class="math inline">i_t</span> is on time. We conclude that <span class="math inline">D\left[i_t\right] \geq t</span>, which immediately implies that <span class="math inline">|X(t)| \leq t</span></p>
+<p>Now suppose <span class="math inline">|X(t)| \leq t</span> for every integer <span class="math inline">t</span>. If we perform the tasks in <span class="math inline">X</span> in increasing order of deadline, then we complete all tasks in <span class="math inline">X</span> with deadlines <span class="math inline">t</span> or less by day <span class="math inline">t</span>. In particular, for any <span class="math inline">i \in X</span>, we perform task <span class="math inline">i</span> on or before its deadline <span class="math inline">D[i]</span>. Thus, <span class="math inline">X</span> is realistic.</p>
+</div>
+</div>
+<p>We can now define a canonical schedule for any set <span class="math inline">X</span> as follows: execute the tasks in <span class="math inline">X</span> in increasing deadline order, and then execute the remaining tasks in any order. The previous proof implies that a set <span class="math inline">X</span> is realistic if and only if every task in <span class="math inline">X</span> is on time in the canonical schedule for <span class="math inline">X</span>. Thus, our scheduling problem can be rephrased as follows:</p>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Find a realistic subset <span class="math inline">X</span> such that <span class="math inline">\sum_{i \in X} P[i]</span> is maximized.</p>
+</div>
+</div>
+</div>
+<p>So we’re looking for optimal subsets after all! Now we could describe a greedy algorithm and show that it works out, or…</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Realistic Sets have the Matroid Properties
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Lemma.</strong> The collection of realistic sets of jobs forms a matroid.</p>
+<p><em>Proof:</em> The empty set is vacuously realistic, and any subset of a realistic set is clearly realistic. Thus, to prove the lemma, it suffices to show that the exchange property holds. Let <span class="math inline">X</span> and <span class="math inline">Y</span> be realistic sets of jobs with <span class="math inline">|X|&gt;|Y|</span>.</p>
+<p>Let <span class="math inline">t^*</span> be the largest integer such that <span class="math inline">\left|X\left(t^*\right)\right| \leq\left|Y\left(t^*\right)\right|</span>. This integer must exist, because <span class="math inline">|X(0)|=0 \leq 0=|Y(0)|</span> and <span class="math inline">|X(n)|=|X|&gt;|Y|=|Y(n)|</span>. By definition of <span class="math inline">t^*</span>, there are more tasks with deadline <span class="math inline">t^*+1</span> in <span class="math inline">X</span> than in <span class="math inline">Y</span>. Thus, we can choose a task <span class="math inline">j</span> in <span class="math inline">X \backslash Y</span> with deadline <span class="math inline">t^*+1</span>; let <span class="math inline">Z=Y \cup\{j\}</span>.</p>
+<p>Let <span class="math inline">t</span> be an arbitrary integer. If <span class="math inline">t \leq t^*</span>, then <span class="math inline">|Z(t)|=|Y(t)| \leq t</span>, because <span class="math inline">Y</span> is realistic. On the other hand, if <span class="math inline">t&gt;t^*</span>, then <span class="math inline">|Z(t)|=|Y(t)|+1 \leq|X(t)|&lt;t</span> by definition of <span class="math inline">t^*</span> and because <span class="math inline">X</span> is realistic. The previous lemma now implies that <span class="math inline">Z</span> is realistic. This completes the proof of the exchange property.</p>
+</div>
+</div>
+<p>This lemma implies that our scheduling problem is actually a matroid optimization problem, so the greedy algorithm finds the optimal schedule.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode pascal code-with-copy"><code class="sourceCode pascal"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>GREEDYSCHEDULE(D[<span class="dv">1</span> . . n], P[<span class="dv">1</span> . . n]):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Sort P <span class="kw">in</span> increasing order, <span class="kw">and</span> permute D <span class="kw">to</span> match</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>j = <span class="dv">0</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> i <span class="kw">in</span> <span class="dv">1</span>,n:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    X[j+<span class="dv">1</span>] = i</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> X[<span class="dv">1</span>,...,j+<span class="dv">1</span>] <span class="kw">is</span> realistic</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        j = j+<span class="dv">1</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>return the canonical schedule <span class="kw">for</span> X[<span class="dv">1</span>...j]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We leave as an exercise to the reader to figure out an implementation of the oracle access to the family of realistic sets. In particular, this involves coming up an efficient procedure to test whether a given subset of jobs is realistic. It is possible to do this in linear time based on the properties of realistic sets established from before.</p>
 
 
 

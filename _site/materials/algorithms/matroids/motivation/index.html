@@ -404,7 +404,7 @@ A Counterexample
 <p>Even knowing that the algorithm fails, let us try to anticipate how a typical greedy exchange argument would have gone-and-gotten-stuck. Here’s the cliche line of reasoning:</p>
 <p>Let:</p>
 <ul>
-<li><span class="math inline">\{f_1,f_2,\ldots,f_k\}</span> be the output of greedy, and</li>
+<li><span class="math inline">\{f_1,f_2,\ldots,f_k\}</span> be the output of the greedy algorithm, and</li>
 <li><span class="math inline">\{g_1,g_2,\ldots,g_\ell\}</span> be the optimal solution.</li>
 </ul>
 <p>If it exists, let <span class="math inline">i</span> be the smallest index for which <span class="math inline">f_i &lt; g_i</span>. If not, i.e, <span class="math inline">f_i \geqslant g_i</span> for all <span class="math inline">1 \leq i \leq k</span>, then it must be the case that <span class="math inline">\ell &gt; k</span>. In either case, we have an element in the optimal solution that was not chosen by the greedy algorithm, even though in terms of weight, it was favorable over the greedy choice (either <span class="math inline">f_i</span> or early termination). Let us call this element <span class="math inline">g</span> and denote by <span class="math inline">S</span> the greedy choices made up to (and excluding) the point where “OPT trumped Greedy”.</p>
@@ -419,7 +419,7 @@ A Counterexample
 <li>not yet chosen by the greedy algorithm, and</li>
 <li>can be legitimately appended to the greedy choices made so far.</li>
 </ul>
-<p>In other words, we want that <span class="math inline">\exists e \in T \setminus S</span> such that <span class="math inline">T \cup \{e\} \in \cal F</span>: why? Because such an element <span class="math inline">e</span> will be guaranteed to be better in terms of weight than greedy choice at the <span class="math inline">i^{th}</span> iteration (which is either the element <span class="math inline">f_i</span> or no element at all due to termination). But this time, <span class="math inline">e</span> is <em>also</em> compatible with the greedy choices… so the greedy algorithm really had no good reason to ignore <span class="math inline">e</span>, and we have a contradiction!</p>
+<p>In other words, we want that <span class="math inline">\exists e \in S \setminus T</span> such that <span class="math inline">T \cup \{e\} \in \cal F</span>: why? Because such an element <span class="math inline">e</span> will be guaranteed to be better in terms of weight than greedy choice at the <span class="math inline">i^{th}</span> iteration (which is either the element <span class="math inline">f_i</span> or no element at all due to termination). But this time, <span class="math inline">e</span> is <em>also</em> compatible with the greedy choices… so the greedy algorithm really had no good reason to ignore <span class="math inline">e</span>, and we have a contradiction!</p>
 <p>Next up, we are going to define the notion of a matroid motivated by the need for a property like the one we described above.</p>
 
 

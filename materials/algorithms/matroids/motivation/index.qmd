@@ -69,7 +69,7 @@ Even knowing that the algorithm fails, let us try to anticipate how a typical gr
 
 Let:
 
-- $\{f_1,f_2,\ldots,f_k\}$ be the output of greedy, and
+- $\{f_1,f_2,\ldots,f_k\}$ be the output of the greedy algorithm, and
 - $\{g_1,g_2,\ldots,g_\ell\}$ be the optimal solution.
 
 If it exists, let $i$ be the smallest index for which $f_i < g_i$. If not, i.e, $f_i \geqslant g_i$ for all $1 \leq i \leq k$, then it must be the case that $\ell > k$. In either case, we have an element in the optimal solution that was not chosen by the greedy algorithm, even though in terms of weight, it was favorable over the greedy choice (either $f_i$ or early termination). Let us call this element $g$ and denote by $S$ the greedy choices made up to (and excluding) the point where "OPT trumped Greedy". 
@@ -86,7 +86,7 @@ then we would like to say that there is _some_ element in $S$ that is:
 - not yet chosen by the greedy algorithm, and
 - can be legitimately appended to the greedy choices made so far.
 
-In other words, we want that $\exists e \in T \setminus S$ such that $T \cup \{e\} \in \cal F$: why? Because such an element $e$ will be guaranteed to be better in terms of weight than greedy choice at the $i^{th}$ iteration (which is either the element $f_i$ or no element at all due to termination). But this time, $e$ is _also_ compatible with the greedy choices... so the greedy algorithm really had no good reason to ignore $e$, and we have a contradiction!
+In other words, we want that $\exists e \in S \setminus T$ such that $T \cup \{e\} \in \cal F$: why? Because such an element $e$ will be guaranteed to be better in terms of weight than greedy choice at the $i^{th}$ iteration (which is either the element $f_i$ or no element at all due to termination). But this time, $e$ is _also_ compatible with the greedy choices... so the greedy algorithm really had no good reason to ignore $e$, and we have a contradiction!
 
 Next up, we are going to define the notion of a matroid motivated by the need for a property like the one we described above.
 

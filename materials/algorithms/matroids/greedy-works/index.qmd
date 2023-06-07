@@ -1,6 +1,6 @@
 ---
 title: "3. Greedy Works!"
-date: "2023-05-16"
+date: "2023-06-07"
 categories: [algonotes, lecturenotes]
 fields: [date, title]
 page-layout: full
@@ -10,8 +10,116 @@ order: 3
 
 :::{.callout-note}
 # Acknowledgements
-This write up is borrowed (with minor adaptations) from Chapter 4 of [Jeff Erickson](http://jeffe.cs.illinois.edu/)'s [textbook on Algorithms](http://jeffe.cs.illinois.edu/teaching/algorithms/). The interactive illustrations were generated with assistance from ChatGPT (the May 12 version).
+This write up is borrowed (with minor adaptations) from Chapter 4 of [Jeff Erickson](http://jeffe.cs.illinois.edu/)'s [textbook on Algorithms](http://jeffe.cs.illinois.edu/teaching/algorithms/).
 :::
 
 
-TBA
+
+Recall that from last time, we were dealing with:
+
+- a finite universe of elements $\cal U = \{e_1, e_2, \cdots, e_n\}$
+- a weight function $w: \cal U \longrightarrow \mathbb{Q}^{\geqslant 0}$ that assigns a non-negative weight with every universe element
+- oracle access to a family $\cal F = \{S_1, \ldots, S_m\}$ of subsets of $\cal U$
+
+and we wanted to determine the maximum weight attained by any set in $\cal F$, where the weight of a set is defined as the sum of the weights of the elements that belong to it.
+
+
+To this end, we proposed the following greedy algorithm:
+
+
+:::{.callout-note}
+# A Greedy Algorithm
+
+1. Sort the elements of $U$ in descending order of weight; i.e, WLOG $w(e_1) \geqslant \cdots \geqslant w(e_n)$.
+2. Initialize a solution: specifically, let $X = \emptyset$.
+3. For $i \in [n]$: if $X \cup \{e_i\} \in \cal F$, $X \longleftarrow X \cup \{e_i\}$.
+:::
+
+Since the greedy algorithm did not work "at large", we agreed that it might be interesting to impose some constraints on $\cal F$ and see if we could argue that the greedy algorithm works for all families that enjoy some additional structure. After some back and forth, here is what we came up with:
+
+:::{.callout-tip}
+# Matroids
+
+A matroid $(\cal U, \cal F)$ consists of a finite ground set $\cal U$ and a collection $\mathcal{J}$ of subsets of $X$ that satisfies three axioms:
+
+- **Non-emptiness**. The empty set is in $\mathcal{F}$. (Thus, $\mathcal{F}$ is not itself empty.)
+
+- **Heredity**. If $\mathcal{F}$ contains a subset $X \subseteq \cal U$, then $\mathcal{F}$ contains every subset of $X$.
+
+- **Exchange**. If $X$ and $Y$ are two sets in $\cal F$ where $|X|>|Y|$, then $Y \cup\{x\} \in \mathcal{F}$ for some element $x \in X \backslash Y$.
+
+:::
+
+All this sets the stage for the main result that we want to get to:
+
+:::{.callout-tip}
+# The Greedy Algorithm Works
+
+**Theorem.** For any matroid $\mathcal{M}=(\cal U, \mathcal{F})$ and any weight function $w$, the greedy algorithm that takes $(\cal U, \mathcal{F}, w)$ as input returns a maximum-weight basis of $\mathcal{M}$.
+
+_Proof._ As you might anticipate, we use an exchange argument. 
+
+Let $T=\left\{f_1, f_2, \ldots, f_k\right\}$ be the independent set returned by the greedy algorithm on input $(\cal U, \mathcal{F}, w))$. 
+
+If any other element of $\cal U$ could be added to $T$ to obtain a larger independent set, the greedy algorithm would have added it. Thus, $T$ is a basis.
+
+For purposes of deriving a contradiction, suppose there is an independent set $S=\left\{g_1, g_2, \ldots, g_{\ell}\right\}$ such that
+$$
+\sum_{i=1}^k w\left(f_i\right)<\sum_{j=1}^{\ell} w\left(g_i\right) .
+$$
+Without loss of generality, assume that $S$ is a basis. The exchange property now implies that $k=\ell$.
+
+Now suppose the elements of $T$ and $S$ are indexed in order of decreasing weight. Let $i$ be the smallest index such that $w\left(f_i\right)<w\left(g_i\right)$, and consider the independent sets
+$$
+T_{i-1}=\left\{f_1, f_2, \ldots, f_{i-1}\right\} \quad \text { and } \quad S_i=\left\{g_1, g_2, \ldots, g_{i-1}, g_i\right\}
+$$
+
+By the exchange property, there is some element $g_j \in S_i$ such that $T_{i-1} \cup\left\{g_j\right\}$ is an independent set. We have: 
+
+$$w\left(g_j\right) \geq w\left(g_i\right)>w\left(f_i\right).$$ 
+
+Thus, the greedy algorithm considers and rejects the heavier element $g_j$ before it considers the lighter element $f_i$. 
+
+But this is impossible, since the greedy algorithm accepts elements in decreasing order of weight.
+
+![](micdrop.gif)
+<!-- Mic Drop Minion Meme as a substitute for a QED -->
+:::
+
+This result also has an interesting flip side, so to speak. When dealing with set systems that do _not_ satisfy the exchange axiom, it turns out that we can adverserially choose a weight function that misleads the greedy algorithm into producing suboptimal output! The intuition is the following: a violation of the exchange axiom in a set system $(\cal U, \cal F)$ amounts to saying the following:
+
+$\exists S, T \in \cal F$ such that $|S| > |T|$ but for all $e \in S \setminus T$, $T \cup \{e\} \notin \cal F$.
+
+Now our plan is the following. 
+
+We "tempt" greedy into picking all elements in $T$ before anything in $S$, by making the elements of $T$ just a little heavier than elements in, say, $S \setminus T$. Note that once greedy chooses all of $T$, it cannot expand further into $S$ because of the violation above combined with its own committment to navigating with $\cal F$. So it will skip over all elements of $S \setminus T$: which is an opportunity for us to create a better optimal solution. 
+
+In particular, our goal will be to assign weights to elements in $S \setminus T$ in such a way that $w(S) > w(T)$ in spite of the fact that elements in $T$ are heavier than those in $S \setminus T$. Here, we can take advantage of the fact that $|S| > |T|$. 
+
+With these ideas in place, can you come up with the adverserial weight function?
+
+
+:::{.callout-caution collapse="true"}
+# Adverserially Chosen Weights to Trip Greedy [Click to reveal.]
+
+Using $m$ to denote $|T|$, suppose we use the following scheme:
+
+- Every element of $T$ has weight $m+2$.
+- Every element of $S \backslash T$ has weight $m+1$.
+- Every other element of the ground set has weight zero.
+
+With these weights, the greedy algorithm will consider and accept every element of $T$, then consider and reject every element of $S$, and finally consider all the other elements. The algorithm returns a set with total weight $m(m+2)=m^2+2 m$. But the total weight of $S$ is at least $(m+1)^2=m^2+2 m+1$. Thus, the output of the greedy algorithm is not the maximum-weight set in $\cal F$.
+:::
+
+This completes the argument for the following fact:
+
+
+:::{.callout-tip}
+# Theorem. Greedy for set systems that do not satisfy the exchange axiom can be made to fail.
+For any heriditary family $(\cal U, \cal F)$ that is not a matroid, there is a weight function $w$ such that the greedy algorithm fails to output the optimal answer.
+:::
+
+
+Recall the Dance Classes problem considered in Chapter 1. There is a natural subset system associated with this problem: A set of classes is independent if and only if no two classes overlap. This subset system is not a matroid, because there can be maximal independent sets of different sizes, which violates the exchange property. If we consider a weighted version of the class scheduling problem, where each class is worth a different number of hours, our result above implies that the greedy algorithm will not always find the optimal schedule. 
+
+However, this result here does not contradict the correctness of the greedy algorithm for the original unweighted problem; that problem uses a particularly lucky choice of weights (all equal), whereas the claim here is simply that there exists particularly nasty choice of weights that is designed to mislead greedy into making suboptimal choices.

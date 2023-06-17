@@ -54,7 +54,7 @@ In particular, $X(0)=\varnothing$ and $X(n)=X$.
 
 **Lemma.** Let $X \subseteq\{1,2, \ldots, n\}$ be an arbitrary subset of the $n$ tasks. $X$ is realistic if and only if $|X(t)| \leq t$ for every integer $t$.
 
-_Proof._ Let $\pi$ be a schedule in which every task in $X$ is on time. Let $i_t$ be the $t$ th task in $X$ to be completed. On the one hand, we have $\pi\left(i_t\right) \geq t$, since otherwise, we could not have completed $t-1$ other jobs in $X$ before $i_{\mathrm{t}}$. On the other hand, $\pi\left(i_t\right) \leq D[i]$, because $i_t$ is on time. We conclude that $D\left[i_t\right] \geq t$, which immediately implies that $|X(t)| \leq t$
+_Proof._ Let $\pi$ be a schedule in which every task in $X$ is on time. Let $i_t$ be the $t$ th task in $X$ to be completed. On the one hand, we have $\pi\left(i_t\right) \geq t$, since otherwise, we could not have completed $t-1$ other jobs in $X$ before $i_{\mathrm{t}}$. On the other hand, $\pi\left(i_t\right) \leq D[i]$, because $i_t$ is on time. We conclude that $D\left[i_t\right] \geq t$, which immediately implies that $|X(t)| \leq t$.
 
 Now suppose $|X(t)| \leq t$ for every integer $t$. If we perform the tasks in $X$ in increasing order of deadline, then we complete all tasks in $X$ with deadlines $t$ or less by day $t$. In particular, for any $i \in X$, we perform task $i$ on or before its deadline $D[i]$. Thus, $X$ is realistic.
 :::
@@ -76,9 +76,11 @@ So we're looking for optimal subsets after all! Now we could describe a greedy a
 
 _Proof:_ The empty set is vacuously realistic, and any subset of a realistic set is clearly realistic. Thus, to prove the lemma, it suffices to show that the exchange property holds. Let $X$ and $Y$ be realistic sets of jobs with $|X|>|Y|$.
 
-Let $t^*$ be the largest integer such that $\left|X\left(t^*\right)\right| \leq\left|Y\left(t^*\right)\right|$. This integer must exist, because $|X(0)|=0 \leq 0=|Y(0)|$ and $|X(n)|=|X|>|Y|=|Y(n)|$. By definition of $t^*$, there are more tasks with deadline $t^*+1$ in $X$ than in $Y$. Thus, we can choose a task $j$ in $X \backslash Y$ with deadline $t^*+1$; let $Z=Y \cup\{j\}$.
+Consider keeping two dated notebooks, where the cover page is day 0, and the last page is day $n$. In a thought experiment, let us go over the days one by one, starting from the 0-th day, and on each day, we make a note of the number of tasks in $X(t)$ on the first notebook, and the number of tasks in $Y(t)$ on the second notebook --- and we keep doing this until we observe that the number on the first notebook is bigger than the second. Notice that this has to happen at some point, since $|X(n)| > |Y(n)|$ and both notebooks start at zero.
 
-Let $t$ be an arbitrary integer. If $t \leq t^*$, then $|Z(t)|=|Y(t)| \leq t$, because $Y$ is realistic. On the other hand, if $t>t^*$, then $|Z(t)|=|Y(t)|+1 \leq|X(t)|<t$ by definition of $t^*$ and because $X$ is realistic. The previous lemma now implies that $Z$ is realistic. This completes the proof of the exchange property.
+Now, let $q \leqslant n$ be the smallest integer for which $|X(q)| > |Y(q)|$. Notice that this means that there is at least one task in $X$ with a deadline of $q$ which is not in $Y$. Pick any one such --- say $t$ --- for inclusion in $Y$: we claim that $Y \cup \{t\}$ is realistic. Indeed, on any day $p$ that is before $q$, we can appeal to the fact that $Y$ was realistic up to day $p$ and we have introduced no new tasks in $Y$ that have a deadline of $p$ or earlier. On the fated day $q$, the number of tasks we have in $Y$ is at most the number of tasks we have in $X$ up to day $q$, and since _that_ is at most $q$, we are done.
+<!-- Let $t^*$ be the largest integer such that $\left|X\left(t^*\right)\right| \leq\left|Y\left(t^*\right)\right|$. This integer must exist, because $|X(0)|=0 \leq 0=|Y(0)|$ and $|X(n)|=|X|>|Y|=|Y(n)|$. By definition of $t^*$, there are more tasks with deadline $t^*+1$ in $X$ than in $Y$. Thus, we can choose a task $j$ in $X \backslash Y$ with deadline $t^*+1$; let $Z=Y \cup\{j\}$. -->
+<!-- Let $t$ be an arbitrary integer. If $t \leq t^*$, then $|Z(t)|=|Y(t)| \leq t$, because $Y$ is realistic. On the other hand, if $t>t^*$, then $|Z(t)|=|Y(t)|+1 \leq|X(t)|<t$ by definition of $t^*$ and because $X$ is realistic. The previous lemma now implies that $Z$ is realistic. This completes the proof of the exchange property. -->
 :::
 
 

@@ -381,11 +381,11 @@ Matroids
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A matroid <span class="math inline">(\cal U, \cal F)</span> consists of a finite ground set <span class="math inline">\cal U</span> and a collection <span class="math inline">\mathcal{J}</span> of subsets of <span class="math inline">X</span> that satisfies three axioms:</p>
+<p>A matroid <span class="math inline">(\cal U, \cal F)</span> consists of a finite ground set <span class="math inline">\cal U</span> and a collection <span class="math inline">\mathcal{F}</span> of subsets of <span class="math inline">\cal U</span> that satisfies three axioms:</p>
 <ul>
 <li><p><strong>Non-emptiness</strong>. The empty set is in <span class="math inline">\mathcal{F}</span>. (Thus, <span class="math inline">\mathcal{F}</span> is not itself empty.)</p></li>
-<li><p><strong>Heredity</strong>. If <span class="math inline">\mathcal{F}</span> contains a subset <span class="math inline">X \subseteq \cal U</span>, then <span class="math inline">\mathcal{F}</span> contains every subset of <span class="math inline">X</span>.</p></li>
-<li><p><strong>Exchange</strong>. If <span class="math inline">X</span> and <span class="math inline">Y</span> are two sets in <span class="math inline">\cal F</span> where <span class="math inline">|X|&gt;|Y|</span>, then <span class="math inline">Y \cup\{x\} \in \mathcal{F}</span> for some element <span class="math inline">x \in X \backslash Y</span>.</p></li>
+<li><p><strong>Heredity</strong>. If <span class="math inline">\mathcal{F}</span> contains a subset <span class="math inline">S \subseteq \cal U</span>, then <span class="math inline">\mathcal{F}</span> contains every subset of <span class="math inline">S</span>.</p></li>
+<li><p><strong>Exchange</strong>. If <span class="math inline">S</span> and <span class="math inline">T</span> are two sets in <span class="math inline">\cal F</span> where <span class="math inline">|S|&gt;|T|</span>, then <span class="math inline">T \cup\{e\} \in \mathcal{F}</span> for some element <span class="math inline">e \in S \backslash T</span>.</p></li>
 </ul>
 </div>
 </div>
@@ -411,7 +411,7 @@ The Greedy Algorithm Works
 T_{i-1}=\left\{f_1, f_2, \ldots, f_{i-1}\right\} \quad \text { and } \quad S_i=\left\{g_1, g_2, \ldots, g_{i-1}, g_i\right\}
 </span></p>
 <p>By the exchange property, there is some element <span class="math inline">g_j \in S_i</span> such that <span class="math inline">T_{i-1} \cup\left\{g_j\right\}</span> is an independent set. We have:</p>
-<p><span class="math display">w\left(g_j\right) \geq w\left(g_i\right)&gt;w\left(f_i\right).</span></p>
+<p><span class="math display">w\left(g_j\right) \geqslant w\left(g_i\right)&gt;w\left(f_i\right).</span></p>
 <p>Thus, the greedy algorithm considers and rejects the heavier element <span class="math inline">g_j</span> before it considers the lighter element <span class="math inline">f_i</span>.</p>
 <p>But this is impossible, since the greedy algorithm accepts elements in decreasing order of weight.</p>
 <p><img src="micdrop.gif" class="img-fluid"> <!-- Mic Drop Minion Meme as a substitute for a QED --></p>

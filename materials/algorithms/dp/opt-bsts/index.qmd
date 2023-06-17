@@ -1,0 +1,54 @@
+---
+title: "4. Optimal BSTs"
+date: "2023-05-16"
+categories: [algonotes, lecturenotes]
+fields: [date, title]
+page-layout: full
+toc: true
+order: 4
+---
+
+:::{.callout-note}
+# Acknowledgements
+Some of this material is borrowed from [Jeff Erickson](http://jeffe.cs.illinois.edu/)'s chapters on [Recursion](http://jeffe.cs.illinois.edu/teaching/algorithms/book/01-recursion.pdf), [Backtracking](http://jeffe.cs.illinois.edu/teaching/algorithms/book/02-backtracking.pdf), and [Dynamic Programming](http://jeffe.cs.illinois.edu/teaching/algorithms/book/03-dynprog.pdf). Check them out for a more detailed comparison between recursive and memoized implementations.
+:::
+
+
+### The Problem
+
+- The input is a sorted array $A[1, \ldots, n]$ of search keys and an array $f[1, \ldots, n]$ of frequency counts, where $f[i]$ is the number of times we will search for $A[i]$. 
+- Our task is to construct a binary search tree for that set such that the total cost of all the searches is as small as possible, where the cost of a search for a key is the the number of anscestors^[The root is the only anscestor of itself, so the cost of access is just one.] that the key has multiplied by its frequency.
+
+This can be thought of as a non-linear version of the file storage problem. Food for thought: will a greedy strategy (insert in descending order of frequencies of access) work?
+
+Heads up: Note that the optimal solution may not be balanced at all.
+
+### The Solution
+
+This section is coming soon.
+
+:::{.callout-tip appearance="minimal"}
+# What are the fragments (AKA, what do we want to store)?
+
+:::
+
+:::{.callout-tip appearance="minimal"}
+# Are the fragments going to be useful (AKA, where is the final answer)?
+
+:::
+
+:::{.callout-tip appearance="minimal"}
+# Do we have a kickstart (AKA, what are the base cases)?
+
+:::
+
+
+:::{.callout-tip appearance="minimal"}
+# How do the fragments come together (AKA, how do we compute the values that we have agreed to store)?
+
+:::
+
+:::{.callout-tip appearance="minimal"}
+# Can we put the pieces together without getting stuck (AKA, are the dependencies in step #4 acyclic)?
+
+:::

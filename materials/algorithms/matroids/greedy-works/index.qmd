@@ -40,13 +40,13 @@ Since the greedy algorithm did not work "at large", we agreed that it might be i
 :::{.callout-tip}
 # Matroids
 
-A matroid $(\cal U, \cal F)$ consists of a finite ground set $\cal U$ and a collection $\mathcal{J}$ of subsets of $X$ that satisfies three axioms:
+A matroid $(\cal U, \cal F)$ consists of a finite ground set $\cal U$ and a collection $\mathcal{F}$ of subsets of $\cal U$ that satisfies three axioms:
 
 - **Non-emptiness**. The empty set is in $\mathcal{F}$. (Thus, $\mathcal{F}$ is not itself empty.)
 
-- **Heredity**. If $\mathcal{F}$ contains a subset $X \subseteq \cal U$, then $\mathcal{F}$ contains every subset of $X$.
+- **Heredity**. If $\mathcal{F}$ contains a subset $S \subseteq \cal U$, then $\mathcal{F}$ contains every subset of $S$.
 
-- **Exchange**. If $X$ and $Y$ are two sets in $\cal F$ where $|X|>|Y|$, then $Y \cup\{x\} \in \mathcal{F}$ for some element $x \in X \backslash Y$.
+- **Exchange**. If $S$ and $T$ are two sets in $\cal F$ where $|S|>|T|$, then $T \cup\{e\} \in \mathcal{F}$ for some element $e \in S \backslash T$.
 
 :::
 
@@ -76,7 +76,7 @@ $$
 
 By the exchange property, there is some element $g_j \in S_i$ such that $T_{i-1} \cup\left\{g_j\right\}$ is an independent set. We have: 
 
-$$w\left(g_j\right) \geq w\left(g_i\right)>w\left(f_i\right).$$ 
+$$w\left(g_j\right) \geqslant w\left(g_i\right)>w\left(f_i\right).$$ 
 
 Thus, the greedy algorithm considers and rejects the heavier element $g_j$ before it considers the lighter element $f_i$. 
 

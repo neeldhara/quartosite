@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-05-16">
+<meta name="dcterms.date" content="2023-06-16">
 
-<title>Neeldhara - Greedy Algorithms</title>
+<title>Neeldhara - Dynamic Programming</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -196,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Greedy Algorithms</h1>
+      <h1 class="quarto-secondary-nav-title">Dynamic Programming</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -224,12 +224,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../materials/algorithms/greedy/index.html" class="sidebar-item-text sidebar-link active">Greedy Algorithms</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a href="../../../materials/algorithms/greedy/index.html" class="sidebar-item-text sidebar-link">Greedy Algorithms</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../materials/algorithms/greedy/file-storage/index.html" class="sidebar-item-text sidebar-link">1. Storing Files on a Tape</a>
@@ -279,12 +279,12 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../materials/algorithms/dp/index.html" class="sidebar-item-text sidebar-link">Dynamic Programming</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a href="../../../materials/algorithms/dp/index.html" class="sidebar-item-text sidebar-link active">Dynamic Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../materials/algorithms/dp/lis/index.html" class="sidebar-item-text sidebar-link">1. Longest Increasing Subsequence</a>
@@ -326,7 +326,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Greedy Algorithms</h1>
+<h1 class="title d-none d-lg-block">Dynamic Programming</h1>
   <div class="quarto-categories">
     <div class="quarto-category">algonotes</div>
     <div class="quarto-category">lecturenotes</div>
@@ -341,7 +341,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 16, 2023</p>
+      <p class="date">June 16, 2023</p>
     </div>
   </div>
   
@@ -351,11 +351,34 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>It is perhaps not often that greed is good, but in the context of the problems that we encounter in this chapter, we are going to make greedy look good! Read on to find out more about:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Acknowledgements
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I borrow the phrasing “what to store/how to compute” from my classroom experience at IMSc, specifically in a class taught by Venkatesh Raman. Some of the checklist is inspired by Erik Demaine’s treatment of the material in his MIT OCW course. The choice of problems is a subset of Jeff Erickson’s chapter on Dynamic Programming, and a lot of the notation is borrowed from there as well.</p>
+</div>
+</div>
+<p>The dynamic programming approach to a problem involves miniaturizing the problem in a way that the pieces fit together to reveal a useful big picture — i.e, the answer you are after. Here’s the checklist:</p>
 <ol type="1">
-<li><a href="file-storage/">Files on a Tape</a></li>
-<li><a href="scheduling/">Dance Classes</a></li>
-<li><a href="stable-matchings/">Stable Marriages</a></li>
+<li>What are the fragments (AKA, what do we want to store)?</li>
+<li>Are the fragments going to be useful (AKA, where is the final answer)?</li>
+<li>Do we have a kickstart (AKA, what are the base cases)?</li>
+<li>How do the fragments come together (AKA, how do we compute the values that we have agreed to store)?</li>
+<li>Can we put the pieces together without getting stuck (AKA, are the dependencies in step #4 acyclic)?</li>
+</ol>
+<p>Let’s execute this checklist on a few problems:</p>
+<ol type="1">
+<li><a href="../../../lis">Longest Increasing Subsequence</a></li>
+<li><a href="../../../ss">Subset Sum</a></li>
+<li><a href="../../../set-cover">Set Cover</a></li>
+<li><a href="../../../opt-bsts">Optimal BSTs</a></li>
+<li><a href="../../../mis-trees">MIS on Trees</a></li>
 </ol>
 
 

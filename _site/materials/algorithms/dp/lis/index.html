@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-05-16">
+
+<title>Neeldhara - 1. Longest Increasing Subsequence</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../../../research/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../research/people.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../research/publications.html">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../research/surveys">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../../../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../materials/index.html">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../../../tgif/">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../bookmarks/">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../../../talks/">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../videos/">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../events/">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">1. Longest Increasing Subsequence</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../materials/algorithms/index.html" class="sidebar-item-text sidebar-link">Advanced Algorithms</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../materials/algorithms/greedy/index.html" class="sidebar-item-text sidebar-link">Greedy Algorithms</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/greedy/file-storage/index.html" class="sidebar-item-text sidebar-link">1. Storing Files on a Tape</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/greedy/scheduling/index.html" class="sidebar-item-text sidebar-link">2. A Scheduling Problem</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/greedy/stable-matchings/index.html" class="sidebar-item-text sidebar-link">3. Stable Matchings</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../materials/algorithms/matroids/index.html" class="sidebar-item-text sidebar-link">Matroids</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/matroids/motivation/index.html" class="sidebar-item-text sidebar-link">1. The Motivation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/matroids/definition/index.html" class="sidebar-item-text sidebar-link">2. The Definition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/matroids/greedy-works/index.html" class="sidebar-item-text sidebar-link">3. Greedy Works!</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/matroids/deadline/index.html" class="sidebar-item-text sidebar-link">4. Scheduling with Deadlines</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../materials/algorithms/dp/index.html" class="sidebar-item-text sidebar-link">Dynamic Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/dp/lis/index.html" class="sidebar-item-text sidebar-link active">1. Longest Increasing Subsequence</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/dp/ss/index.html" class="sidebar-item-text sidebar-link">2. Subset Sum</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/dp/set-cover/index.html" class="sidebar-item-text sidebar-link">3. Set Cover</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/dp/opt-bsts/index.html" class="sidebar-item-text sidebar-link">4. Optimal BSTs</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/dp/mis-trees/index.html" class="sidebar-item-text sidebar-link">5. Maximum Independent Set on Trees</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem">The Problem</a></li>
+  <li><a href="#the-solution-take-0-a-dead-end" id="toc-the-solution-take-0-a-dead-end" class="nav-link" data-scroll-target="#the-solution-take-0-a-dead-end">The Solution — Take 0 (a dead end)</a></li>
+  <li><a href="#the-solution-take-1-building-on-the-bad-take" id="toc-the-solution-take-1-building-on-the-bad-take" class="nav-link" data-scroll-target="#the-solution-take-1-building-on-the-bad-take">The Solution — Take 1 (building on the bad take)</a></li>
+  <li><a href="#the-solution-take-2-a-different-approach" id="toc-the-solution-take-2-a-different-approach" class="nav-link" data-scroll-target="#the-solution-take-2-a-different-approach">The Solution — Take 2 (a different approach)</a></li>
+  <li><a href="#time-and-space-complexity" id="toc-time-and-space-complexity" class="nav-link" data-scroll-target="#time-and-space-complexity">Time and Space Complexity</a></li>
+  <li><a href="#correctness" id="toc-correctness" class="nav-link" data-scroll-target="#correctness">Correctness</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">1. Longest Increasing Subsequence</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">algonotes</div>
+    <div class="quarto-category">lecturenotes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 16, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Acknowledgements
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some of this material is borrowed from <a href="http://jeffe.cs.illinois.edu/">Jeff Erickson</a>’s chapters on <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/01-recursion.pdf">Recursion</a>, <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/02-backtracking.pdf">Backtracking</a>, and <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/03-dynprog.pdf">Dynamic Programming</a>. In particular, the (very nice) analogy with traffic lights is from Erickson. Check them out for a more detailed comparison between recursive and memoized implementations.</p>
+</div>
+</div>
+<section id="the-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-problem">The Problem</h3>
+<p>For any sequence <span class="math inline">Q</span>, a subsequence of <span class="math inline">Q</span> is another sequence obtained from <span class="math inline">Q</span> by deleting zero or more elements, without changing the order of the remaining elements; the elements of the subsequence need not be contiguous in <span class="math inline">Q</span>.</p>
+<p>For example, when you drive down a major street in any city, you drive through a sequence of intersections with traffic lights, but you only have to stop at a subsequence of those intersections, where the traffic lights are red. If you’re very lucky, you never stop at all: the empty sequence is a subsequence of <span class="math inline">Q</span>. On the other hand, if you’re very unlucky, you may have to stop at every intersection: <span class="math inline">Q</span> is a subsequence of itself.</p>
+<p>Here are some examples:</p>
+<ol type="1">
+<li><code>BOAT</code> is a subsequence of <code>BOX-OF-CHOCOLATES</code>.</li>
+<li><code>OOF</code> is a subsequence of <code>BOX-OF-CHOCOLATES</code>, but <code>OO-F</code> is not.</li>
+<li><code>O-O-OOLA</code> is a subsequence of <code>BOX-OF-CHOCOLATES</code>, but <code>FOX</code> is not.</li>
+<li><code>FOOL</code> and <code>BHOLA</code> are a subsequences of <code>BOX-OF-CHOCOLATES</code>, but <code>LAX</code> and <code>BETA</code> are not.</li>
+</ol>
+<p>Now suppose we are given a sequence of integers, and we need to find the length of a longest subsequence whose elements are in increasing order:</p>
+<ul>
+<li>the input is an integer array <span class="math inline">A[1,\ldots,n]</span>, and</li>
+<li>we need to compute the length of a longest possible sequence of indices <span class="math inline">1 \leqslant i_1&lt;i_2&lt;\cdots&lt;i_{\ell} \leqslant n</span> such that <span class="math inline">A\left[i_k\right]&lt;A\left[i_{k+1}\right]</span> for all <span class="math inline">k</span>.</li>
+</ul>
+<p>We will use <code>LIS</code> to refer to the phrase <em>longest increasing subsequence</em>. Note that there may be multiple increasing subsequences, and even multiple choices for increasing subsequences that are the longest. The approaches below that work correctly to find the length of a LIS are easily adaptable to finding a LIS as well.</p>
+</section>
+<section id="the-solution-take-0-a-dead-end" class="level3">
+<h3 class="anchored" data-anchor-id="the-solution-take-0-a-dead-end">The Solution — Take 0 (a dead end)</h3>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+What are the fragments (AKA, what do we want to store)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For any <span class="math inline">1 \leqslant i \leqslant n</span>, let <span class="math inline">A[i\ldots]</span> denote the subarray of <span class="math inline">A</span> starting at <span class="math inline">A[i]</span>, and let <span class="math inline">T[i]</span> denote the length of a LIS of <span class="math inline">A[i\ldots]</span>. The <span class="math inline">T</span>’s will be our fragments.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Are the fragments going to be useful (AKA, where is the final answer)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">T[1]</span> is evidently the answer we are looking for!</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Do we have a kickstart (AKA, what are the base cases)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">T[n] = 1</span>, since there is only one increasing subsequence of <span class="math inline">A[n\ldots]</span>: no competition.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+How do the fragments come together (AKA, how do we compute the values that we have agreed to store)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the issue of computing the value of <span class="math inline">T[i]</span>. Let <span class="math inline">S_i</span> be the set of all the longest increasing subsequences of <span class="math inline">A[i\ldots]</span>. Let the common length of all the subsequences in <span class="math inline">S_i</span> be <span class="math inline">k</span>. We want to determine the value of <span class="math inline">k</span>. In the spirit of magic<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, let us assume that we know the values of <span class="math inline">T[j]</span> for <span class="math inline">j &gt; i</span>.</p>
+<p>In particular, say we know the value of <span class="math inline">T[i+1]</span> to be <span class="math inline">\ell</span>. Observe that <span class="math inline">\ell \leqslant k \leqslant \ell+1</span>:</p>
+<ul>
+<li>the first inequality follows from the fact that every LIS of <span class="math inline">A[i+1\ldots]</span> is also an increasing subsequence of <span class="math inline">A[i\ldots]</span>, and</li>
+<li>the second inequality follows from the fact that if there was a LIS of <span class="math inline">A[i\ldots]</span> of length <span class="math inline">\ell + 2</span> or more, then the tail of this subsequence (i.e, the subsequence without the first element) would be an increasing subsequence of length at least <span class="math inline">\ell + 1</span> of <span class="math inline">A[i+1\ldots]</span>, which contradicts <span class="math inline">T[i+1] = \ell</span>.</li>
+</ul>
+<p>So all we need to figure out — for computing <span class="math inline">T[i]</span> — is whether the value of <span class="math inline">T[i+1]</span> should be incremented or not. How do figure this out?</p>
+<p>Well, let <span class="math inline">S_{i+1}</span> be the set of all the longest increasing subsequences of <span class="math inline">A[i+1\ldots]</span>. Call a subsequence in <span class="math inline">S_{i+1}</span> <em>useful</em> if the first value is bigger than <span class="math inline">A[i]</span>, and <em>useless</em> otherwise. Why is this notion of interest? Well, if <em>all</em> subsequences in <span class="math inline">S_{i+1}</span> are useless, then we claim that <span class="math inline">k = \ell</span>! Indeed, if <span class="math inline">k = \ell+1</span>, then either:</p>
+<ul>
+<li>there is an increasing subsequence of length <span class="math inline">\ell + 1</span> that begins at an index <span class="math inline">j &gt; i</span> (this is not possible because <span class="math inline">T[i+1] = \ell</span>),</li>
+<li>there is an increasing subsequence of length <span class="math inline">\ell + 1</span> that begins with <span class="math inline">A[i]</span> (this is not possible because then the tail of this sequence — all elements but <span class="math inline">A[i]</span> — will belong to <span class="math inline">S_{i+1}</span> and also be useful, contradicting our assumption that all subsequences in <span class="math inline">S_{i+1}</span> are useless).</li>
+</ul>
+<p>On the other hand, if even one subsequence in <span class="math inline">S_{i+1}</span> is useful, then we know that we can “tag” <span class="math inline">A[i]</span> to it as a prefix and we will have an increasing subsequence in <span class="math inline">A[i\ldots]</span> which is in fact the best we can hope for in terms of length: so this is when <span class="math inline">T[i] = \ell + 1</span>.</p>
+<p>Having said all this, unfortunately, by just staring hard at the value of <span class="math inline">T[i+1]</span>, we have no way of knowing if <span class="math inline">S_{i+1}</span> is full of useless subsequences or not. So it is not at all clear how we can determine if the increment should happen or not!</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Can we put the pieces together without getting stuck (AKA, are the dependencies in step #4 acyclic)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not relevant, since step #2 is unspecified.</p>
+</div>
+</div>
+</section>
+<section id="the-solution-take-1-building-on-the-bad-take" class="level3">
+<h3 class="anchored" data-anchor-id="the-solution-take-1-building-on-the-bad-take">The Solution — Take 1 (building on the bad take)</h3>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+What are the fragments (AKA, what do we want to store)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We were stuck before because we had no way of knowing if the set of longest increasing subsequences of <span class="math inline">A[i\ldots]</span> had a useful one, and useful subsequences were ones that started off with an element larger than <span class="math inline">A[i]</span>. Let’s see if we can upgrade our fragments to incorporate this information explicitly: so given a starting index for a subarray (say <span class="math inline">j</span>) and a target array location (say <span class="math inline">i &lt; j</span>), let us record the length of a longest increasing subsequence of <span class="math inline">A[j\ldots]</span> whose first element is larger than <span class="math inline">A[i]</span>.</p>
+<p>In notation: for any <span class="math inline">1 \leqslant i &lt; j \leqslant n</span>, let <span class="math inline">S_{(i,j)}</span> denote the set of increasing subsequences of <span class="math inline">A[j\ldots]</span> that start with an element larger than <span class="math inline">A[i]</span>. Now, let <span class="math inline">T[i,j]</span> denote the length of a longest sequence in <span class="math inline">S_{(i,j)}</span>. The <span class="math inline">T</span>’s will be our fragments.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Are the fragments going to be useful (AKA, where is the final answer)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\max_{i \in [n]} T[i,i+1] + 1</span> is the answer we are looking for: since we don’t know where the first element of an optimal solution is located in an array, so we hazard a guess properly by taking a <span class="math inline">\max</span> over all possiblities.</p>
+<p>You could alternatively artificially expand the array to <span class="math inline">n+1</span> elements, with the last <span class="math inline">n</span> elements being the same as <span class="math inline">A</span>, and the first element being an element that’s smaller than <span class="math inline">\min_{i \in [n]} A[i]</span>: then the final answer is simply <span class="math inline">T[1,1]</span>.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Do we have a kickstart (AKA, what are the base cases)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For all <span class="math inline">1 \leqslant i &lt; n</span>, we have:</p>
+<ul>
+<li><span class="math inline">T[i,n] = 1</span> if <span class="math inline">A[n] &gt; A[i]</span>.</li>
+<li><span class="math inline">T[i,n] = 0</span> if <span class="math inline">A[n] \leqslant A[i]</span>.</li>
+</ul>
+<p>These equalities follow directly from the definition of <span class="math inline">T[i,j]</span>.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+How do the fragments come together (AKA, how do we compute the values that we have agreed to store)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the issue of computing the value of <span class="math inline">T[i,j]</span> for <span class="math inline">1 \leqslant i \leqslant n</span> and <span class="math inline">1 \leqslant j \leqslant n-1</span>.</p>
+<p>First, suppose <span class="math inline">A[i] \geqslant A[j]</span>. Then, if we have a subsequence in the set <span class="math inline">S_{(i,j)}</span>, then it certainly does not begin with <span class="math inline">A[j]</span>: since this would be a violation of the criteria for membership in <span class="math inline">S_{i,j}</span>. Therefore, in this situation, every subsequence that belongs to <span class="math inline">S_{(i,j)}</span> is also a subsequence in <span class="math inline">S_{(i,j+1)}</span>. Therefore, we have: <span class="math inline">T[i,j] = T[i,j+1]</span>.</p>
+<p>On the other hand, suppose <span class="math inline">A[i] &lt; A[j]</span>. Then the subsequences in <span class="math inline">S_{(i,j)}</span> are of two kinds: those that begin with <span class="math inline">A[j]</span> and those that do not. Let us denote these sets by <span class="math inline">X_{(i,j)}</span> and <span class="math inline">Y_{(i,j)}</span> respectively. Note that:</p>
+<ul>
+<li><p>Any longest increasing subsequence in <span class="math inline">X_{(i,j)}</span> is the element <span class="math inline">A[j]</span> followed by one of the longest increasing subsequences in <span class="math inline">S_{j,j+1}</span>, and therefore the length of any longest subsequence in <span class="math inline">X_{(i,j)}</span> is captured by <span class="math inline">T[j,j+1] + 1</span>.</p></li>
+<li><p>Any longest increasing subsequence in <span class="math inline">X_{(i,j)}</span> is a longest increasing subsequence in <span class="math inline">S_{(i,j+1)}</span> (this is, in fact, similar to the previous case), and therefore the length of any longest subsequence in <span class="math inline">X_{(i,j)}</span> is captured by <span class="math inline">T[i,j+1]</span>.</p></li>
+</ul>
+<p>Now, observing that if we have a set <span class="math inline">S</span> that is partitioned into <span class="math inline">X</span> and <span class="math inline">Y</span>, then <span class="math inline">\max(A) = \max(\max(X),\max(Y))</span>, we can summarize our observations above in the following recurrence.</p>
+<p><span class="math display">\operatorname{T}(i, j)= \begin{cases}\text { T }(i, j+1) &amp; \text { if } A[i] \geqslant A[j] \\ \max \left\{\begin{array}{c}\text { T }(i, j+1) \\ 1+\text { T }(j, j+1)\end{array}\right\} &amp; \text { otherwise }\end{cases}</span></p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Can we put the pieces together without getting stuck (AKA, are the dependencies in step #4 acyclic)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that computing <span class="math inline">T[i,j]</span> involves pinging two entries: <span class="math inline">T[i,j+1]</span> and <span class="math inline">T[j,j+1]</span>. So as long as all <span class="math inline">T[\star,j+1]</span> entries are computed before we get to <span class="math inline">T[i,j]</span>, then we are covered.</p>
+<p>Recall that the base case directly captures all entries of the form <span class="math inline">T[\star,n]</span>, and one valid sequence of comptuations would involve working our way backwards along the second dimension: i.e, compute <span class="math inline">T[\star,n-1], T[\star,n-2],\cdots</span>, and so on.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lis1.png" class="img-fluid figure-img" width="420"></p>
+<p></p><figcaption class="figure-caption">Sequence of computations for the recurrence above.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-solution-take-2-a-different-approach" class="level3">
+<h3 class="anchored" data-anchor-id="the-solution-take-2-a-different-approach">The Solution — Take 2 (a different approach)</h3>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+What are the fragments (AKA, what do we want to store)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For the sake of analysis, fix an optimal solution <span class="math inline">1 \leqslant i_1 &lt; i_2 &lt; \cdots &lt; i_k \leqslant n</span>. We don’t know <span class="math inline">i_1</span>: but what if we try to <em>guess</em> <span class="math inline">i_1</span>? That is, go over all possible choices for the starting point: <span class="math inline">1,2,\ldots,n</span>? Fix such a choice.</p>
+<p>At this point, we are asking ourselves the question: what is the length of a longest increasing subsequence in <span class="math inline">A</span> that begins at index <span class="math inline">i</span>? If we could answer this question correctly for every index <span class="math inline">i</span>, then we are done, because we can simply output the best of all answers obtained.</p>
+<p>So let <span class="math inline">S_i</span> denote the set of all increasing subsequences of <span class="math inline">A</span> that start at <span class="math inline">A[i]</span> and let <span class="math inline">T[i]</span> denote the length of a LIS in <span class="math inline">S_i</span>. The <span class="math inline">T</span>’s will be our fragments.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Are the fragments going to be useful (AKA, where is the final answer)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As hinted at above, <span class="math inline">\max_{i \in [n]} T[i]</span> is the answer we are looking for.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Do we have a kickstart (AKA, what are the base cases)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Clearly, <span class="math inline">T[n] = 1</span>.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+How do the fragments come together (AKA, how do we compute the values that we have agreed to store)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the issue of computing the value of <span class="math inline">T[i]</span> for <span class="math inline">1 \leqslant i \leqslant n</span>.</p>
+<p>We know that any optimal sequence of interest starts at <span class="math inline">A[i]</span>. For the sake of analysis, fix an optimal solution <span class="math inline">1 \leqslant i_1 = i &lt; i_2 &lt; \cdots &lt; i_k \leqslant n</span>.</p>
+<p>Now, we don’t know <span class="math inline">i_2</span>: but what if we try to <em>guess</em> <span class="math inline">i_2</span>? That is, go over all possible choices for the starting point: all <span class="math inline">j &gt; i</span> such that <span class="math inline">A[j] &gt; A[i]</span>? For each such <span class="math inline">j</span>, <span class="math inline">T[j]</span> is the answer that we are looking for: since we don’t know which <span class="math inline">j</span> is the right one a-priori, we simply consolidate all of them with a <span class="math inline">\max</span> as follows:</p>
+<p><span class="math display">T[i] = 1 + \max_{\{j | j &gt; i, A[j] &gt; A[i]\}} T[j], \text{ for any } i &lt; n.</span></p>
+<p>Note that if the <span class="math inline">\max</span> is taken over an empty set (this would happen if <span class="math inline">A[j] &lt; A[i]</span> for all <span class="math inline">j &gt; i</span>), then the output of <span class="math inline">\max(\cdot)</span> is <span class="math inline">0</span>.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Can we put the pieces together without getting stuck (AKA, are the dependencies in step #4 acyclic)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that computing <span class="math inline">T[i]</span> involves pinging a bunch of entries, but all of them are of the form <span class="math inline">T[j]</span> for some <span class="math inline">j &gt; i</span>. Thus if we compute the entries <span class="math inline">T[i]</span> in the order:</p>
+<p><span class="math display">T[n], T[n-1], \cdots, T[1],</span></p>
+<p>then we will be just fine.</p>
+</div>
+</div>
+</section>
+<section id="time-and-space-complexity" class="level3">
+<h3 class="anchored" data-anchor-id="time-and-space-complexity">Time and Space Complexity</h3>
+<p>For the first approach:</p>
+<ul>
+<li>We filled out <span class="math inline">O(n^2)</span> entries at <span class="math inline">O(1)</span> cost each, so the overall running time of the algorithm is <span class="math inline">O(n^2)</span>.</li>
+<li>We store <span class="math inline">O(n^2)</span> entries, although with a careful implementation the storage can be limited to <span class="math inline">O(n)</span>.</li>
+</ul>
+<p>For the second approach:</p>
+<ul>
+<li>We filled out <span class="math inline">O(n)</span> entries at <span class="math inline">O(n)</span> cost each, so the overall running time of the algorithm is <span class="math inline">O(n^2)</span> again.</li>
+<li>We store <span class="math inline">O(n)</span> values.</li>
+</ul>
+</section>
+<section id="correctness" class="level3">
+<h3 class="anchored" data-anchor-id="correctness">Correctness</h3>
+<p>The correctness of the computations of the <span class="math inline">T</span>-values specified by both approaches above is implicit in the design of the recurrence. However, we provide an explicit proof for the second approach here. The proof of correctness for most of the other recurrences that we will discuss can be established with a similar approach in spirit and is left as an exercise.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Correctness of the DP
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Theorem.</strong> Let <span class="math inline">T[i]</span> be given by:</p>
+<p><span class="math display">T[i] = 1 + \max_{\{j | j &gt; i, A[j] &gt; A[i]\}} T[j], \text{ for any } i \in [n],</span></p>
+<p>and let <span class="math inline">O[i]</span> denote the length of a LIS in <span class="math inline">S_i</span>. Then <span class="math inline">T[i] = O[i]</span>.</p>
+<p><em>Proof.</em></p>
+<p><strong>Part 1. The DP stores a value that is achievable.</strong></p>
+<p>First, let us show that <span class="math inline">O[i] \geqslant T[i]</span>, that is, there is an subsequence of length <span class="math inline">T[i]</span> that begins at <span class="math inline">A[i]</span>. We prove this by backward induction over <span class="math inline">i</span>.</p>
+<p><em>The base case.</em> <span class="math inline">T[n] = 1</span>, and this is witnessed by the subsequence <span class="math inline">\{A[n]\}</span>.</p>
+<p><em>The induction step.</em> If <span class="math inline">\{j | j &gt; i, A[j] &gt; A[i]\} = \emptyset</span>, then <span class="math inline">T[i] = 1</span> and this is witnessed by the subsequence <span class="math inline">\{A[i]\}</span>.</p>
+<p>Otherwise, Let <span class="math inline">j^\star</span> be the index that witnesses the <span class="math inline">\max</span> value (if there are multiple indices that fit this bill, choose any). Note that <span class="math inline">j^\star &gt; j</span>. By the induction hypothesis, there is an subsequence of length <span class="math inline">T[j^\star]</span> that begins at <span class="math inline">A[j^\star]</span>. Prepend to this subsequence the value <span class="math inline">A[i]</span>, this is clearly an increasing subsequence of length <span class="math inline">1 + T[j^\star]</span>, and we are done.</p>
+<p><strong>Part 2. The value computed by the DP cannot be beaten.</strong></p>
+<p>First, let us show that <span class="math inline">O[i] \leqslant T[i]</span>, that is, the length of any longest subsequence in <span class="math inline">S_i</span> is at most <span class="math inline">T[i]</span>. We prove this by backward induction over <span class="math inline">i</span>.</p>
+<p><em>The base case.</em> <span class="math inline">O[n] = 1</span>, and <span class="math inline">T[n] = 1</span>, so there is nothing to prove.</p>
+<p><em>The induction step.</em> Here we proceed by contradiction. Suppose there is a subsequence (say <span class="math inline">\sigma^\star</span>) in <span class="math inline">S_i</span> whose length is <span class="math inline">k \geqslant T[i] + 1</span>.</p>
+<p>Consider the tail of <span class="math inline">\sigma^\star</span>, that is, the entire subsequence with the first value — i.e, <span class="math inline">A[i]</span> — omitted. Denote this subsequence by <span class="math inline">\sigma</span>.</p>
+<p>Note that <span class="math inline">\sigma</span> has <span class="math inline">k-1</span> elements. Suppose the first element of <span class="math inline">\sigma</span> is <span class="math inline">A[\ell]</span>. Then <span class="math inline">\sigma \in S_\ell</span>. Note also that <span class="math inline">\ell &gt; i</span> and <span class="math inline">A[\ell] &gt; A[i]</span>, so <span class="math inline">T[\ell] \geqslant k-1</span> (by the induction hypothesis). Thus:</p>
+<p><span class="math display">T[i] =  1 + \max_{\{j | j &gt; i, A[j] &gt; A[i]\}} T[j] \geqslant 1 + T[\ell] \geqslant 1 + (k-1) = k \geqslant T[i] + 1,</span></p>
+<p>a contradiction.</p>
+</div>
+</div>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Indeed, since we already have a kickstart at the fragment <span class="math inline">T[n]</span>, if we can figure out a way of recovering the value of <span class="math inline">T[i]</span> assuming knowledge of <span class="math inline">T[j]</span> for <span class="math inline">j &gt; i</span>, then we are done: we can use this method to go backwards starting from <span class="math inline">T[n]</span> all the way back to <span class="math inline">T[1]</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

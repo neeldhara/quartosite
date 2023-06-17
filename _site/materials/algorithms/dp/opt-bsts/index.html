@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2023-05-16">
 
-<title>Neeldhara - Greedy Algorithms</title>
+<title>Neeldhara - 4. Optimal BSTs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,22 +24,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,7 +62,7 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="../../../css/styles.css">
+<link rel="stylesheet" href="../../../../css/styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html">
+    <a class="nav-link" href="../../../../about.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -92,19 +92,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../../research/overview.html">
+    <a class="dropdown-item" href="../../../../research/overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/people.html">
+    <a class="dropdown-item" href="../../../../research/people.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/publications.html">
+    <a class="dropdown-item" href="../../../../research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/surveys">
+    <a class="dropdown-item" href="../../../../research/surveys">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
@@ -115,11 +115,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../../courses/index.html">
+    <a class="dropdown-item" href="../../../../courses/index.html">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../materials/index.html">
+    <a class="dropdown-item" href="../../../../materials/index.html">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
@@ -130,11 +130,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../../tgif/">
+    <a class="dropdown-item" href="../../../../tgif/">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../bookmarks/">
+    <a class="dropdown-item" href="../../../../bookmarks/">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
@@ -145,21 +145,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../../talks/">
+    <a class="dropdown-item" href="../../../../talks/">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../videos/">
+    <a class="dropdown-item" href="../../../../videos/">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../events/">
+    <a class="nav-link" href="../../../../events/">
  <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html">
+    <a class="nav-link" href="../../../../blog.html">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -185,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../../blog.xml"><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -196,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Greedy Algorithms</h1>
+      <h1 class="quarto-secondary-nav-title">4. Optimal BSTs</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -216,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../materials/algorithms/index.html" class="sidebar-item-text sidebar-link">Advanced Algorithms</a>
+            <a href="../../../../materials/algorithms/index.html" class="sidebar-item-text sidebar-link">Advanced Algorithms</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -224,32 +224,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../materials/algorithms/greedy/index.html" class="sidebar-item-text sidebar-link active">Greedy Algorithms</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a href="../../../../materials/algorithms/greedy/index.html" class="sidebar-item-text sidebar-link">Greedy Algorithms</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/algorithms/greedy/file-storage/index.html" class="sidebar-item-text sidebar-link">1. Storing Files on a Tape</a>
+  <a href="../../../../materials/algorithms/greedy/file-storage/index.html" class="sidebar-item-text sidebar-link">1. Storing Files on a Tape</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/algorithms/greedy/scheduling/index.html" class="sidebar-item-text sidebar-link">2. A Scheduling Problem</a>
+  <a href="../../../../materials/algorithms/greedy/scheduling/index.html" class="sidebar-item-text sidebar-link">2. A Scheduling Problem</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/algorithms/greedy/stable-matchings/index.html" class="sidebar-item-text sidebar-link">3. Stable Matchings</a>
+  <a href="../../../../materials/algorithms/greedy/stable-matchings/index.html" class="sidebar-item-text sidebar-link">3. Stable Matchings</a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../materials/algorithms/matroids/index.html" class="sidebar-item-text sidebar-link">Matroids</a>
+            <a href="../../../../materials/algorithms/matroids/index.html" class="sidebar-item-text sidebar-link">Matroids</a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -257,57 +257,57 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/algorithms/matroids/motivation/index.html" class="sidebar-item-text sidebar-link">1. The Motivation</a>
+  <a href="../../../../materials/algorithms/matroids/motivation/index.html" class="sidebar-item-text sidebar-link">1. The Motivation</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/algorithms/matroids/definition/index.html" class="sidebar-item-text sidebar-link">2. The Definition</a>
+  <a href="../../../../materials/algorithms/matroids/definition/index.html" class="sidebar-item-text sidebar-link">2. The Definition</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/algorithms/matroids/greedy-works/index.html" class="sidebar-item-text sidebar-link">3. Greedy Works!</a>
+  <a href="../../../../materials/algorithms/matroids/greedy-works/index.html" class="sidebar-item-text sidebar-link">3. Greedy Works!</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/algorithms/matroids/deadline/index.html" class="sidebar-item-text sidebar-link">4. Scheduling with Deadlines</a>
+  <a href="../../../../materials/algorithms/matroids/deadline/index.html" class="sidebar-item-text sidebar-link">4. Scheduling with Deadlines</a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../materials/algorithms/dp/index.html" class="sidebar-item-text sidebar-link">Dynamic Programming</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a href="../../../../materials/algorithms/dp/index.html" class="sidebar-item-text sidebar-link">Dynamic Programming</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/algorithms/dp/lis/index.html" class="sidebar-item-text sidebar-link">1. Longest Increasing Subsequence</a>
+  <a href="../../../../materials/algorithms/dp/lis/index.html" class="sidebar-item-text sidebar-link">1. Longest Increasing Subsequence</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/algorithms/dp/ss/index.html" class="sidebar-item-text sidebar-link">2. Subset Sum</a>
+  <a href="../../../../materials/algorithms/dp/ss/index.html" class="sidebar-item-text sidebar-link">2. Subset Sum</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/algorithms/dp/set-cover/index.html" class="sidebar-item-text sidebar-link">3. Set Cover</a>
+  <a href="../../../../materials/algorithms/dp/set-cover/index.html" class="sidebar-item-text sidebar-link">3. Set Cover</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/algorithms/dp/opt-bsts/index.html" class="sidebar-item-text sidebar-link">4. Optimal BSTs</a>
+  <a href="../../../../materials/algorithms/dp/opt-bsts/index.html" class="sidebar-item-text sidebar-link active">4. Optimal BSTs</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../materials/algorithms/dp/mis-trees/index.html" class="sidebar-item-text sidebar-link">5. Maximum Independent Set on Trees</a>
+  <a href="../../../../materials/algorithms/dp/mis-trees/index.html" class="sidebar-item-text sidebar-link">5. Maximum Independent Set on Trees</a>
   </div>
 </li>
       </ul>
@@ -318,15 +318,22 @@ ul.task-list li input[type="checkbox"] {
     </div>
 </nav>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem">The Problem</a></li>
+  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution">The Solution</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Greedy Algorithms</h1>
+<h1 class="title d-none d-lg-block">4. Optimal BSTs</h1>
   <div class="quarto-categories">
     <div class="quarto-category">algonotes</div>
     <div class="quarto-category">lecturenotes</div>
@@ -351,14 +358,79 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>It is perhaps not often that greed is good, but in the context of the problems that we encounter in this chapter, we are going to make greedy look good! Read on to find out more about:</p>
-<ol type="1">
-<li><a href="file-storage/">Files on a Tape</a></li>
-<li><a href="scheduling/">Dance Classes</a></li>
-<li><a href="stable-matchings/">Stable Marriages</a></li>
-</ol>
+<section id="the-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-problem">The Problem</h3>
+</section>
+<section id="the-solution" class="level3">
+<h3 class="anchored" data-anchor-id="the-solution">The Solution</h3>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+What are the fragments (AKA, what do we want to store)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Are the fragments going to be useful (AKA, where is the final answer)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Do we have a kickstart (AKA, what are the base cases)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+How do the fragments come together (AKA, how do we compute the values that we have agreed to store)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Can we put the pieces together without getting stuck (AKA, are the dependencies in step #4 acyclic)?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
@@ -383,10 +455,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="column-screen-inset">
     <hr class="about-sep">
     <div class="quarto-about-jolla column-body" style="margin-top:52px;">
-        <p> © 2022 • Neeldhara Misra • <a href="../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+        <p> © 2022 • Neeldhara Misra • <a href="../../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
             </p>
             <div class="collcontent">
-                <img src="../../../images/calvin.webp" style="border-radius:25px;">
+                <img src="../../../../images/calvin.webp" style="border-radius:25px;">
                 <p>&nbsp;</p>
             </div>
     
@@ -436,10 +508,10 @@ ul.task-list li input[type="checkbox"] {
     <!-- Modal content -->
     <div class="modal-content" style="width: 460px !important;">
     <span class="close" data-dismiss="modal">×</span>
-    <img src="../../../images/calvin.jpg" style="border-radius:25px;" width="420">
+    <img src="../../../../images/calvin.jpg" style="border-radius:25px;" width="420">
 </div>
 
-<script type="text/javascript" src="../../../scripts.js"></script>
+<script type="text/javascript" src="../../../../scripts.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -577,5 +649,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</div><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</div><script src="../../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

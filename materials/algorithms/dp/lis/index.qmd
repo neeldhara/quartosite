@@ -1,0 +1,259 @@
+---
+title: "1. Longest Increasing Subsequence"
+date: "2023-05-16"
+categories: [algonotes, lecturenotes]
+fields: [date, title]
+page-layout: full
+toc: true
+order: 1
+---
+
+:::{.callout-note}
+# Acknowledgements
+Some of this material is borrowed from [Jeff Erickson](http://jeffe.cs.illinois.edu/)'s chapters on [Recursion](http://jeffe.cs.illinois.edu/teaching/algorithms/book/01-recursion.pdf), [Backtracking](http://jeffe.cs.illinois.edu/teaching/algorithms/book/02-backtracking.pdf), and [Dynamic Programming](http://jeffe.cs.illinois.edu/teaching/algorithms/book/03-dynprog.pdf). In particular, the (very nice) analogy with traffic lights is from Erickson. Check them out for a more detailed comparison between recursive and memoized implementations.
+:::
+
+### The Problem
+
+For any sequence $Q$, a subsequence of $Q$ is another sequence obtained from $Q$ by deleting zero or more elements, without changing the order of the remaining elements; the elements of the subsequence need not be contiguous in $Q$. 
+
+For example, when you drive down a major street in any city, you drive through a sequence of intersections with traffic lights, but you only have to stop at a subsequence of those intersections, where the traffic lights are red. If you're very lucky, you never stop at all: the empty sequence is a subsequence of $Q$. On the other hand, if you're very unlucky, you may have to stop at every intersection: $Q$ is a subsequence of itself.
+
+Here are some examples:
+
+1. `BOAT` is a subsequence of `BOX-OF-CHOCOLATES`.
+2. `OOF` is a subsequence of `BOX-OF-CHOCOLATES`, but `OO-F` is not.
+3. `O-O-OOLA` is a subsequence of `BOX-OF-CHOCOLATES`, but `FOX` is not.
+4. `FOOL` and `BHOLA` are a subsequences of `BOX-OF-CHOCOLATES`, but `LAX` and `BETA` are not.
+
+Now suppose we are given a sequence of integers, and we need to find the length of a longest subsequence whose elements are in increasing order:
+
+- the input is an integer array $A[1,\ldots,n]$, and 
+- we need to compute the length of a longest possible sequence of indices $1 \leqslant i_1<i_2<\cdots<i_{\ell} \leqslant n$ such that $A\left[i_k\right]<A\left[i_{k+1}\right]$ for all $k$.
+
+We will use `LIS` to refer to the phrase _longest increasing subsequence_. Note that there may be multiple increasing subsequences, and even multiple choices for increasing subsequences that are the longest. The approaches below that work correctly to find the length of a LIS are easily adaptable to finding a LIS as well.
+
+### The Solution --- Take 0 (a dead end)
+
+:::{.callout-tip appearance="minimal"}
+# What are the fragments (AKA, what do we want to store)?
+
+For any $1 \leqslant i \leqslant n$, let $A[i\ldots]$ denote the subarray of $A$ starting at $A[i]$, and let $T[i]$ denote the length of a LIS of $A[i\ldots]$. The $T$'s will be our fragments.
+:::
+
+:::{.callout-tip appearance="minimal"}
+# Are the fragments going to be useful (AKA, where is the final answer)?
+
+$T[1]$ is evidently the answer we are looking for!
+:::
+
+:::{.callout-tip appearance="minimal"}
+# Do we have a kickstart (AKA, what are the base cases)?
+
+$T[n] = 1$, since there is only one increasing subsequence of $A[n\ldots]$: no competition.
+
+:::
+
+
+:::{.callout-tip appearance="minimal"}
+# How do the fragments come together (AKA, how do we compute the values that we have agreed to store)?
+
+Consider the issue of computing the value of $T[i]$. Let $S_i$ be the set of all the longest increasing subsequences of $A[i\ldots]$. Let the common length of all the subsequences in $S_i$ be $k$. We want to determine the value of $k$. In the spirit of magic^[Indeed, since we already have a kickstart at the fragment $T[n]$, if we can figure out a way of recovering the value of $T[i]$ assuming knowledge of $T[j]$ for $j > i$, then we are done: we can use this method to go backwards starting from $T[n]$ all the way back to $T[1]$.], let us assume that we know the values of $T[j]$ for $j > i$. 
+
+In particular, say we know the value of $T[i+1]$ to be $\ell$. Observe that $\ell \leqslant k \leqslant \ell+1$:
+
+- the first inequality follows from the fact that every LIS of $A[i+1\ldots]$ is also an increasing subsequence of $A[i\ldots]$, and
+- the second inequality follows from the fact that if there was a LIS of $A[i\ldots]$ of length $\ell + 2$ or more, then the tail of this subsequence (i.e, the subsequence without the first element) would be an increasing subsequence of length at least $\ell + 1$ of $A[i+1\ldots]$, which contradicts $T[i+1] = \ell$.
+
+So all we need to figure out --- for computing $T[i]$ --- is whether the value of $T[i+1]$ should be incremented or not. How do figure this out?
+
+Well, let $S_{i+1}$ be the set of all the longest increasing subsequences of $A[i+1\ldots]$. Call a subsequence in $S_{i+1}$ _useful_ if the first value is bigger than $A[i]$, and _useless_ otherwise. Why is this notion of interest? Well, if _all_ subsequences in $S_{i+1}$ are useless, then we claim that $k = \ell$! Indeed, if $k = \ell+1$, then either:
+
+- there is an increasing subsequence of length $\ell + 1$ that begins at an index $j > i$ (this is not possible because $T[i+1] = \ell$),
+- there is an increasing subsequence of length $\ell + 1$ that begins with $A[i]$ (this is not possible because then the tail of this sequence --- all elements but $A[i]$ --- will belong to $S_{i+1}$ and also be useful, contradicting our assumption that all subsequences in $S_{i+1}$ are useless).
+
+On the other hand, if even one subsequence in $S_{i+1}$ is useful, then we know that we can "tag" $A[i]$ to it as a prefix and we will have an increasing subsequence in $A[i\ldots]$ which is in fact the best we can hope for in terms of length: so this is when $T[i] = \ell + 1$.
+
+Having said all this, unfortunately, by just staring hard at the value of $T[i+1]$, we have no way of knowing if $S_{i+1}$ is full of useless subsequences or not. So it is not at all clear how we can determine if the increment should happen or not!
+:::
+
+:::{.callout-tip appearance="minimal"}
+# Can we put the pieces together without getting stuck (AKA, are the dependencies in step #4 acyclic)?
+
+Not relevant, since step #2 is unspecified.
+
+:::
+
+
+### The Solution --- Take 1 (building on the bad take)
+
+
+:::{.callout-tip appearance="minimal"}
+# What are the fragments (AKA, what do we want to store)?
+
+We were stuck before because we had no way of knowing if the set of longest increasing subsequences of $A[i\ldots]$ had a useful one, and useful subsequences were ones that started off with an element larger than $A[i]$. Let's see if we can upgrade our fragments to incorporate this information explicitly: so given a starting index for a subarray (say $j$) and a target array location (say $i < j$), let us record the length of a longest increasing subsequence of $A[j\ldots]$ whose first element is larger than $A[i]$.
+
+In notation: for any $1 \leqslant i < j \leqslant n$, let $S_{(i,j)}$ denote the set of increasing subsequences of $A[j\ldots]$ that start with an element larger than $A[i]$. Now, let $T[i,j]$ denote the length of a longest sequence in $S_{(i,j)}$. The $T$'s will be our fragments.
+:::
+
+:::{.callout-tip appearance="minimal"}
+# Are the fragments going to be useful (AKA, where is the final answer)?
+
+$\max_{i \in [n]} T[i,i+1] + 1$ is the answer we are looking for: since we don't know where the first element of an optimal solution is located in an array, so we hazard a guess properly by taking a $\max$ over all possiblities.
+
+You could alternatively artificially expand the array to $n+1$ elements, with the last $n$ elements being the same as $A$, and the first element being an element that's smaller than $\min_{i \in [n]} A[i]$: then the final answer is simply $T[1,1]$.
+:::
+
+:::{.callout-tip appearance="minimal"}
+# Do we have a kickstart (AKA, what are the base cases)?
+
+For all $1 \leqslant i < n$, we have:
+
+- $T[i,n] = 1$ if $A[n] > A[i]$.
+- $T[i,n] = 0$ if $A[n] \leqslant A[i]$.
+
+These equalities follow directly from the definition of $T[i,j]$.
+:::
+
+
+:::{.callout-tip appearance="minimal"}
+# How do the fragments come together (AKA, how do we compute the values that we have agreed to store)?
+
+Consider the issue of computing the value of $T[i,j]$ for $1 \leqslant i \leqslant n$ and $1 \leqslant j \leqslant n-1$. 
+
+First, suppose $A[i] \geqslant A[j]$. Then, if we have a subsequence in the set $S_{(i,j)}$, then it certainly does not begin with $A[j]$: since this would be a violation of the criteria for membership in $S_{i,j}$. Therefore, in this situation, every subsequence that belongs to $S_{(i,j)}$ is also a subsequence in $S_{(i,j+1)}$. Therefore, we have: $T[i,j] = T[i,j+1]$.
+
+On the other hand, suppose $A[i] < A[j]$. Then the subsequences in $S_{(i,j)}$ are of two kinds: those that begin with $A[j]$ and those that do not. Let us denote these sets by $X_{(i,j)}$ and $Y_{(i,j)}$ respectively. Note that:
+
+- Any longest increasing subsequence in $X_{(i,j)}$ is the element $A[j]$ followed by one of the longest increasing subsequences in $S_{j,j+1}$, and therefore the length of any longest subsequence in $X_{(i,j)}$ is captured by $T[j,j+1] + 1$. 
+
+- Any longest increasing subsequence in $X_{(i,j)}$ is a longest increasing subsequence in $S_{(i,j+1)}$ (this is, in fact, similar to the previous case), and therefore the length of any longest subsequence in $X_{(i,j)}$ is captured by $T[i,j+1]$.
+
+Now, observing that if we have a set $S$ that is partitioned into $X$ and $Y$, then $\max(A) = \max(\max(X),\max(Y))$, we can summarize our observations above in the following recurrence.
+
+$$\operatorname{T}(i, j)= \begin{cases}\text { T }(i, j+1) & \text { if } A[i] \geqslant A[j] \\ \max \left\{\begin{array}{c}\text { T }(i, j+1) \\ 1+\text { T }(j, j+1)\end{array}\right\} & \text { otherwise }\end{cases}$$
+:::
+
+:::{.callout-tip appearance="minimal"}
+# Can we put the pieces together without getting stuck (AKA, are the dependencies in step #4 acyclic)?
+
+Note that computing $T[i,j]$ involves pinging two entries: $T[i,j+1]$ and $T[j,j+1]$. So as long as all $T[\star,j+1]$ entries are computed before we get to $T[i,j]$, then we are covered. 
+
+Recall that the base case directly captures all entries of the form $T[\star,n]$, and one valid sequence of comptuations would involve working our way backwards along the second dimension: i.e, compute $T[\star,n-1], T[\star,n-2],\cdots$, and so on.
+
+![Sequence of computations for the recurrence above.](lis1.png){width="420px"}
+
+:::
+
+
+
+### The Solution --- Take 2 (a different approach)
+
+
+:::{.callout-tip appearance="minimal"}
+# What are the fragments (AKA, what do we want to store)?
+
+For the sake of analysis, fix an optimal solution $1 \leqslant i_1 < i_2 < \cdots < i_k \leqslant n$. We don't know $i_1$: but what if we try to _guess_ $i_1$? That is, go over all possible choices for the starting point: $1,2,\ldots,n$? Fix such a choice. 
+
+At this point, we are asking ourselves the question: what is the length of a longest increasing subsequence in $A$ that begins at index $i$? If we could answer this question correctly for every index $i$, then we are done, because we can simply output the best of all answers obtained.
+
+So let $S_i$ denote the set of all increasing subsequences of $A$ that start at $A[i]$ and let $T[i]$ denote the length of a LIS in $S_i$. The $T$'s will be our fragments.
+:::
+
+:::{.callout-tip appearance="minimal"}
+# Are the fragments going to be useful (AKA, where is the final answer)?
+
+As hinted at above, $\max_{i \in [n]} T[i]$ is the answer we are looking for.
+:::
+
+:::{.callout-tip appearance="minimal"}
+# Do we have a kickstart (AKA, what are the base cases)?
+
+Clearly, $T[n] = 1$.
+
+:::
+
+
+:::{.callout-tip appearance="minimal"}
+# How do the fragments come together (AKA, how do we compute the values that we have agreed to store)?
+
+Consider the issue of computing the value of $T[i]$ for $1 \leqslant i \leqslant n$.
+
+We know that any optimal sequence of interest starts at $A[i]$. For the sake of analysis, fix an optimal solution $1 \leqslant i_1 = i < i_2 < \cdots < i_k \leqslant n$. 
+
+Now, we don't know $i_2$: but what if we try to _guess_ $i_2$? That is, go over all possible choices for the starting point: all $j > i$ such that $A[j] > A[i]$? For each such $j$, $T[j]$ is the answer that we are looking for: since we don't know which $j$ is the right one a-priori, we simply consolidate all of them with a $\max$ as follows:
+
+$$T[i] = 1 + \max_{\{j | j > i, A[j] > A[i]\}} T[j], \text{ for any } i < n.$$
+
+Note that if the $\max$ is taken over an empty set (this would happen if $A[j] < A[i]$ for all $j > i$), then the output of $\max(\cdot)$ is $0$.
+:::
+
+:::{.callout-tip appearance="minimal"}
+# Can we put the pieces together without getting stuck (AKA, are the dependencies in step #4 acyclic)?
+
+Note that computing $T[i]$ involves pinging a bunch of entries, but all of them are of the form $T[j]$ for some $j > i$. Thus if we compute the entries $T[i]$ in the order:
+
+$$T[n], T[n-1], \cdots, T[1],$$
+
+then we will be just fine.
+:::
+
+### Time and Space Complexity
+
+For the first approach:
+
+- We filled out $O(n^2)$ entries at $O(1)$ cost each, so the overall running time of the algorithm is $O(n^2)$.
+- We store $O(n^2)$ entries, although with a careful implementation the storage can be limited to $O(n)$.
+
+For the second approach:
+
+- We filled out $O(n)$ entries at $O(n)$ cost each, so the overall running time of the algorithm is $O(n^2)$ again.
+- We store $O(n)$ values.
+
+
+### Correctness
+
+The correctness of the computations of the $T$-values specified by both approaches above is implicit in the design of the recurrence. However, we provide an explicit proof for the second approach here. The proof of correctness for most of the other recurrences that we will discuss can be established with a similar approach in spirit and is left as an exercise.
+
+
+:::{.callout-tip}
+# Correctness of the DP
+
+**Theorem.** Let $T[i]$ be given by:
+
+$$T[i] = 1 + \max_{\{j | j > i, A[j] > A[i]\}} T[j], \text{ for any } i \in [n],$$
+
+and let $O[i]$ denote the length of a LIS in $S_i$. Then $T[i] = O[i]$.
+
+_Proof._
+
+**Part 1. The DP stores a value that is achievable.** 
+
+First, let us show that $O[i] \geqslant T[i]$, that is, there is an subsequence of length $T[i]$ that begins at $A[i]$. We prove this by backward induction over $i$.
+
+_The base case._ $T[n] = 1$, and this is witnessed by the subsequence $\{A[n]\}$.
+
+_The induction step._ If $\{j | j > i, A[j] > A[i]\} = \emptyset$, then $T[i] = 1$ and this is witnessed by the subsequence $\{A[i]\}$.
+
+Otherwise, Let $j^\star$ be the index that witnesses the $\max$ value (if there are multiple indices that fit this bill, choose any). Note that $j^\star > j$. By the induction hypothesis, there is an subsequence of length $T[j^\star]$ that begins at $A[j^\star]$. Prepend to this subsequence the value $A[i]$, this is clearly an increasing subsequence of length $1 + T[j^\star]$, and we are done.
+
+**Part 2. The value computed by the DP cannot be beaten.** 
+
+
+First, let us show that $O[i] \leqslant T[i]$, that is, the length of any longest subsequence in $S_i$ is at most $T[i]$.  We prove this by backward induction over $i$.
+
+
+_The base case._ $O[n] = 1$, and $T[n] = 1$, so there is nothing to prove.
+
+_The induction step._ Here we proceed by contradiction. Suppose there is a subsequence (say $\sigma^\star$) in $S_i$ whose length is $k \geqslant T[i] + 1$. 
+
+Consider the tail of $\sigma^\star$, that is, the entire subsequence with the first value --- i.e, $A[i]$ --- omitted. Denote this subsequence by $\sigma$. 
+
+Note that $\sigma$ has $k-1$ elements. Suppose the first element of $\sigma$ is $A[\ell]$. Then $\sigma \in S_\ell$. Note also that $\ell > i$ and $A[\ell] > A[i]$, so $T[\ell] \geqslant k-1$ (by the induction hypothesis). Thus:
+
+$$T[i] =  1 + \max_{\{j | j > i, A[j] > A[i]\}} T[j] \geqslant 1 + T[\ell] \geqslant 1 + (k-1) = k \geqslant T[i] + 1,$$
+
+a contradiction.
+
+
+:::

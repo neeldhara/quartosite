@@ -238,6 +238,11 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/flows/index.html" class="sidebar-item-text sidebar-link">Dynamic Programming</a>
+  </div>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../../materials/algorithms/greedy/index.html" class="sidebar-item-text sidebar-link">Greedy Algorithms</a>
@@ -388,7 +393,7 @@ Acknowledgements
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Some of this material is borrowed from <a href="http://jeffe.cs.illinois.edu/">Jeff Erickson</a>’s chapters on <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/01-recursion.pdf">Recursion</a>, <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/02-backtracking.pdf">Backtracking</a>, and <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/03-dynprog.pdf">Dynamic Programming</a>. In particular, the (very nice) analogy with traffic lights is from Erickson. Check them out for a more detailed comparison between recursive and memoized implementations.</p>
+<p>Some of this material is borrowed from <a href="http://jeffe.cs.illinois.edu/">Jeff Erickson</a>’s chapters on <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/01-recursion.pdf">Recursion</a>, <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/02-backtracking.pdf">Backtracking</a>, and <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/03-dynprog.pdf">Dynamic Programming</a>. In particular, the (very nice) analogy with traffic lights is from Erickson. Check them out for a more detailed comparison between recursive and memoized implementations. Thanks to Arya for pointing out a correction.</p>
 </div>
 </div>
 <section id="the-problem" class="level3">
@@ -404,7 +409,7 @@ Acknowledgements
 </ol>
 <p>Now suppose we are given a sequence of integers, and we need to find the length of a longest subsequence whose elements are in increasing order:</p>
 <ul>
-<li>the input is an integer array <span class="math inline">A[1,\ldots,n]</span>, and</li>
+<li>the input is an integer array <span class="math inline">A[1 .. n]</span>, and</li>
 <li>we need to compute the length of a longest possible sequence of indices <span class="math inline">1 \leqslant i_1&lt;i_2&lt;\cdots&lt;i_{\ell} \leqslant n</span> such that <span class="math inline">A\left[i_k\right]&lt;A\left[i_{k+1}\right]</span> for all <span class="math inline">k</span>.</li>
 </ul>
 <p>We will use <code>LIS</code> to refer to the phrase <em>longest increasing subsequence</em>. Note that there may be multiple increasing subsequences, and even multiple choices for increasing subsequences that are the longest. The approaches below that work correctly to find the length of a LIS are easily adaptable to finding a LIS as well.</p>
@@ -548,7 +553,7 @@ How do the fragments come together (AKA, how do we compute the values that we ha
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider the issue of computing the value of <span class="math inline">T[i,j]</span> for <span class="math inline">1 \leqslant i \leqslant n</span> and <span class="math inline">1 \leqslant j \leqslant n-1</span>.</p>
+<p>Consider the issue of computing the value of <span class="math inline">T[i,j]</span> for <span class="math inline">1 \leqslant i \leqslant n</span> and <span class="math inline">i+1 \leqslant j \leqslant n-1</span>.</p>
 <p>First, suppose <span class="math inline">A[i] \geqslant A[j]</span>. Then, if we have a subsequence in the set <span class="math inline">S_{(i,j)}</span>, then it certainly does not begin with <span class="math inline">A[j]</span>: since this would be a violation of the criteria for membership in <span class="math inline">S_{i,j}</span>. Therefore, in this situation, every subsequence that belongs to <span class="math inline">S_{(i,j)}</span> is also a subsequence in <span class="math inline">S_{(i,j+1)}</span>. Therefore, we have: <span class="math inline">T[i,j] = T[i,j+1]</span>.</p>
 <p>On the other hand, suppose <span class="math inline">A[i] &lt; A[j]</span>. Then the subsequences in <span class="math inline">S_{(i,j)}</span> are of two kinds: those that begin with <span class="math inline">A[j]</span> and those that do not. Let us denote these sets by <span class="math inline">X_{(i,j)}</span> and <span class="math inline">Y_{(i,j)}</span> respectively. Note that:</p>
 <ul>

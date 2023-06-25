@@ -22,7 +22,7 @@ Suppose you decide to sign up for dance classes, and a dance academy next door o
 
 More formally: 
 
-- Suppose you are given two arrays $S[1 \ldots n]$ and $F[1 \ldots n]$ listing the start and finish times of each class; to be concrete, we can assume that $0 \leq S[i]<F[i] \leq M$ for each $i$, for some value $M$. 
+- Suppose you are given two arrays $S[1 .. n]$ and $F[1 .. n]$ listing the start and finish times of each class; to be concrete, we can assume that $0 \leq S[i]<F[i] \leq M$ for each $i$, for some value $M$. 
 - Your task is to choose the largest possible subset $X \in\{1,2, \ldots, n\}$ so that for any pair $i, j \in X$, either $S[i]>F[j]$ or $S[j]>F[i]$. 
 
 We can illustrate the problem by drawing each class as a rectangle whose left and right $x$-coordinates show the start and finish times. The goal is to find a largest subset of rectangles that do not overlap vertically, as shown below^[Why is this optimal?].

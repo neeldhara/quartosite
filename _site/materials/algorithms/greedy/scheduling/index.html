@@ -238,6 +238,11 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/flows/index.html" class="sidebar-item-text sidebar-link">Dynamic Programming</a>
+  </div>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../../materials/algorithms/greedy/index.html" class="sidebar-item-text sidebar-link">Greedy Algorithms</a>
@@ -289,6 +294,41 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../materials/algorithms/matroids/deadline/index.html" class="sidebar-item-text sidebar-link">4. Scheduling with Deadlines</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../materials/algorithms/dp/index.html" class="sidebar-item-text sidebar-link">Dynamic Programming</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/dp/lis/index.html" class="sidebar-item-text sidebar-link">1. Longest Increasing Subsequence</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/dp/ss/index.html" class="sidebar-item-text sidebar-link">2. Subset Sum</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/dp/set-cover/index.html" class="sidebar-item-text sidebar-link">3. Set Cover</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/dp/opt-bsts/index.html" class="sidebar-item-text sidebar-link">4. Optimal BSTs</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/dp/mis-trees/index.html" class="sidebar-item-text sidebar-link">5. Maximum Independent Set on Trees</a>
   </div>
 </li>
       </ul>
@@ -359,7 +399,7 @@ Acknowledgements
 <p><img src="img01.png" class="img-fluid"></p>
 <p>More formally:</p>
 <ul>
-<li>Suppose you are given two arrays <span class="math inline">S[1 \ldots n]</span> and <span class="math inline">F[1 \ldots n]</span> listing the start and finish times of each class; to be concrete, we can assume that <span class="math inline">0 \leq S[i]&lt;F[i] \leq M</span> for each <span class="math inline">i</span>, for some value <span class="math inline">M</span>.</li>
+<li>Suppose you are given two arrays <span class="math inline">S[1 .. n]</span> and <span class="math inline">F[1 .. n]</span> listing the start and finish times of each class; to be concrete, we can assume that <span class="math inline">0 \leq S[i]&lt;F[i] \leq M</span> for each <span class="math inline">i</span>, for some value <span class="math inline">M</span>.</li>
 <li>Your task is to choose the largest possible subset <span class="math inline">X \in\{1,2, \ldots, n\}</span> so that for any pair <span class="math inline">i, j \in X</span>, either <span class="math inline">S[i]&gt;F[j]</span> or <span class="math inline">S[j]&gt;F[i]</span>.</li>
 </ul>
 <p>We can illustrate the problem by drawing each class as a rectangle whose left and right <span class="math inline">x</span>-coordinates show the start and finish times. The goal is to find a largest subset of rectangles that do not overlap vertically, as shown below<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>

@@ -238,6 +238,11 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/flows/index.html" class="sidebar-item-text sidebar-link">Dynamic Programming</a>
+  </div>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../../materials/algorithms/greedy/index.html" class="sidebar-item-text sidebar-link">Greedy Algorithms</a>
@@ -394,7 +399,7 @@ Acknowledgements
 </div>
 <section id="the-problem" class="level3">
 <h3 class="anchored" data-anchor-id="the-problem">The Problem</h3>
-<p>Suppose we have a set of <span class="math inline">n</span> files that we want to store on magnetic tape<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. In the future, users will want to read those files from the tape. Reading a file from tape isn’t like reading a file from disk; first we have to fast-forward past all the other files, and that takes a significant amount of time. Let <span class="math inline">L[1 \ldots n]</span> be an array listing the lengths of each file; specifically, file <span class="math inline">i</span> has length <span class="math inline">L[i]</span>. If the files are stored in order from 1 to <span class="math inline">n</span>, then the cost of accessing the <span class="math inline">k</span> th file is</p>
+<p>Suppose we have a set of <span class="math inline">n</span> files that we want to store on magnetic tape<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. In the future, users will want to read those files from the tape. Reading a file from tape isn’t like reading a file from disk; first we have to fast-forward past all the other files, and that takes a significant amount of time. Let <span class="math inline">L[1 .. n]</span> be an array listing the lengths of each file; specifically, file <span class="math inline">i</span> has length <span class="math inline">L[i]</span>. If the files are stored in order from 1 to <span class="math inline">n</span>, then the cost of accessing the <span class="math inline">k</span> th file is</p>
 <p><span class="math display">
 \operatorname{cost}(k)=\sum_{i=1}^{k} L[i] .
 </span></p>
@@ -483,7 +488,7 @@ Optimal Cost: 262.5
 </section>
 <section id="frequencies" class="level3">
 <h3 class="anchored" data-anchor-id="frequencies">Frequencies</h3>
-<p>Let’s generalize this idea further. Suppose we are also given an array <span class="math inline">F[1 \ldots n]</span> of access frequencies for each file; file <span class="math inline">i</span> will be accessed exactly <span class="math inline">F[i]</span> times over the lifetime of the tape. Now the total cost of accessing all the files on the tape is</p>
+<p>Let’s generalize this idea further. Suppose we are also given an array <span class="math inline">F[1 .. n]</span> of access frequencies for each file; file <span class="math inline">i</span> will be accessed exactly <span class="math inline">F[i]</span> times over the lifetime of the tape. Now the total cost of accessing all the files on the tape is</p>
 <p><span class="math display">
 \Sigma \cos t(\pi)=\sum_{k=1}^{n}\left(F[\pi(k)] \cdot \sum_{i=1}^{k} L[\pi(i)]\right)=\sum_{k=1}^{n} \sum_{i=1}^{k}(F[\pi(k)] \cdot L[\pi(i)]) .
 </span></p>

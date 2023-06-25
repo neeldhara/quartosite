@@ -238,6 +238,11 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../materials/algorithms/flows/index.html" class="sidebar-item-text sidebar-link">Dynamic Programming</a>
+  </div>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../../materials/algorithms/greedy/index.html" class="sidebar-item-text sidebar-link">Greedy Algorithms</a>
@@ -384,7 +389,7 @@ Acknowledgements
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Some of this material is borrowed from <a href="http://jeffe.cs.illinois.edu/">Jeff Erickson</a>’s chapters on <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/01-recursion.pdf">Recursion</a>, <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/02-backtracking.pdf">Backtracking</a>, and <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/03-dynprog.pdf">Dynamic Programming</a>. The fun factor at a party formulation can be found in an exercise of Erickson as well as <a href="https://www.mpi-inf.mpg.de/fileadmin/inf/d1/teaching/summer20/paraalg/Lectures/lecture_7.pdf">these slides</a> by <a href="https://cispa.de/en/people/c01dama">Dàniel Marx</a>.</p>
+<p>Some of this material is borrowed from <a href="http://jeffe.cs.illinois.edu/">Jeff Erickson</a>’s chapters on <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/01-recursion.pdf">Recursion</a>, <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/02-backtracking.pdf">Backtracking</a>, and <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/book/03-dynprog.pdf">Dynamic Programming</a>. The fun factor at a party formulation can be found in an exercise of Erickson as well as <a href="https://www.mpi-inf.mpg.de/fileadmin/inf/d1/teaching/summer20/paraalg/Lectures/lecture_7.pdf">these slides</a> by <a href="https://cispa.de/en/people/c01dama">Dàniel Marx</a>. Thanks to Arya for pointing out a correction.</p>
 </div>
 </div>
 <section id="the-problem" class="level3">
@@ -434,7 +439,7 @@ Do we have a kickstart (AKA, what are the base cases)?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If <span class="math inline">v</span> is a leaf node, then <span class="math inline">T[v] = 1</span>.</p>
+<p>If <span class="math inline">v</span> is a leaf node, then <span class="math inline">T[v] = w(v)</span>.</p>
 </div>
 </div>
 <div class="callout-tip callout callout-style-simple no-icon callout-captioned">

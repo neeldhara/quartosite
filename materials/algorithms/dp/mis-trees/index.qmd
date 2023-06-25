@@ -11,7 +11,7 @@ order: 5
 
 :::{.callout-note}
 # Acknowledgements
-Some of this material is borrowed from [Jeff Erickson](http://jeffe.cs.illinois.edu/)'s chapters on [Recursion](http://jeffe.cs.illinois.edu/teaching/algorithms/book/01-recursion.pdf), [Backtracking](http://jeffe.cs.illinois.edu/teaching/algorithms/book/02-backtracking.pdf), and [Dynamic Programming](http://jeffe.cs.illinois.edu/teaching/algorithms/book/03-dynprog.pdf). The fun factor at a party formulation can be found in an exercise of Erickson as well as [these slides](https://www.mpi-inf.mpg.de/fileadmin/inf/d1/teaching/summer20/paraalg/Lectures/lecture_7.pdf) by [Dàniel Marx](https://cispa.de/en/people/c01dama).
+Some of this material is borrowed from [Jeff Erickson](http://jeffe.cs.illinois.edu/)'s chapters on [Recursion](http://jeffe.cs.illinois.edu/teaching/algorithms/book/01-recursion.pdf), [Backtracking](http://jeffe.cs.illinois.edu/teaching/algorithms/book/02-backtracking.pdf), and [Dynamic Programming](http://jeffe.cs.illinois.edu/teaching/algorithms/book/03-dynprog.pdf). The fun factor at a party formulation can be found in an exercise of Erickson as well as [these slides](https://www.mpi-inf.mpg.de/fileadmin/inf/d1/teaching/summer20/paraalg/Lectures/lecture_7.pdf) by [Dàniel Marx](https://cispa.de/en/people/c01dama). Thanks to Arya for pointing out a correction.
 :::
 
 ### The Problem
@@ -39,7 +39,7 @@ Indeed, $T[r]$ is what we want!
 
 :::{.callout-tip appearance="minimal"}
 # Do we have a kickstart (AKA, what are the base cases)?
-If $v$ is a leaf node, then $T[v] = 1$.
+If $v$ is a leaf node, then $T[v] = w(v)$.
 :::
 
 

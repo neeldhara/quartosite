@@ -21,7 +21,7 @@ This write up is borrowed (with minor adaptations) from Chapter 4 of [Jeff Erick
 
 ### The Problem
 
-Suppose we have a set of $n$ files that we want to store on magnetic tape^[Just in case you have not heard of them, here's [Wikipedia on magnetic tapes](https://en.wikipedia.org/wiki/Magnetic_tape#:~:text=Magnetic%20tape%20is%20a%20medium,magnetic%20wire%20recording%20from%20Denmark.) :)]. In the future, users will want to read those files from the tape. Reading a file from tape isn't like reading a file from disk; first we have to fast-forward past all the other files, and that takes a significant amount of time. Let $L[1 \ldots n]$ be an array listing the lengths of each file; specifically, file $i$ has length $L[i]$. If the files are stored in order from 1 to $n$, then the cost of accessing the $k$ th file is
+Suppose we have a set of $n$ files that we want to store on magnetic tape^[Just in case you have not heard of them, here's [Wikipedia on magnetic tapes](https://en.wikipedia.org/wiki/Magnetic_tape#:~:text=Magnetic%20tape%20is%20a%20medium,magnetic%20wire%20recording%20from%20Denmark.) :)]. In the future, users will want to read those files from the tape. Reading a file from tape isn't like reading a file from disk; first we have to fast-forward past all the other files, and that takes a significant amount of time. Let $L[1 .. n]$ be an array listing the lengths of each file; specifically, file $i$ has length $L[i]$. If the files are stored in order from 1 to $n$, then the cost of accessing the $k$ th file is
 
 $$
 \operatorname{cost}(k)=\sum_{i=1}^{k} L[i] .
@@ -87,7 +87,7 @@ This is our first example of a correct greedy algorithm. To minimize the total e
 
 ### Frequencies
 
-Let's generalize this idea further. Suppose we are also given an array $F[1 \ldots n]$ of access frequencies for each file; file $i$ will be accessed exactly $F[i]$ times over the lifetime of the tape. Now the total cost of accessing all the files on the tape is
+Let's generalize this idea further. Suppose we are also given an array $F[1 .. n]$ of access frequencies for each file; file $i$ will be accessed exactly $F[i]$ times over the lifetime of the tape. Now the total cost of accessing all the files on the tape is
 
 $$
 \Sigma \cos t(\pi)=\sum_{k=1}^{n}\left(F[\pi(k)] \cdot \sum_{i=1}^{k} L[\pi(i)]\right)=\sum_{k=1}^{n} \sum_{i=1}^{k}(F[\pi(k)] \cdot L[\pi(i)]) .

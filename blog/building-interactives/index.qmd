@@ -1,0 +1,535 @@
+---
+title: "Building Interactives"
+date: "2023-07-30"
+categories: [exposition]
+fields: [date, title]
+toc: true
+---
+
+## Background
+
+Interactions and visualizations have been useful for explaining
+concepts, although they are known to potentially mislead or confuse as
+often as they have been thought of as tools that help clarify concepts.
+[VisuAlgo](https://visualgo.net/en) is a very successful[^1] example of
+interactive learning in CS education at an undergraduate level, which
+brings the algorithms that one would typically encounter in an
+introductory algorithms course to life: users can often provide their
+own input, and the interface does the rest. On the bottom-right corner
+one can typically see an implementation of the algorithm in code, which
+is "run through" as elements get manipulated on a "main stage".
+
+Other examples of deeply interactive experiences include:
+
+1. [Brilliant](https://brilliant.org/home/) 
+2. [Mathigon](https://mathigon.org/)
+3. [Seeing Theory](https://seeing-theory.brown.edu/) 
+4. [The Wisdom and/or Madness of the Crowds](https://ncase.me/crowds/)
+5. [The Evolution of Trust](https://ncase.me/trust)
+6. [Parable of the Polygons](https://ncase.me/polygons/)
+7. [To Build a Better Ballot](https://ncase.me/ballot/)
+8. [Visualizing Quaternions](https://eater.net/quaternions)
+9. [Mechanical Watch](https://ciechanow.ski/mechanical-watch/)
+
+...to name a few. These combine interactive workouts interleaved with text,
+and usually encourage active participation from the reader. However,
+while such tools can be invaluable, they are often tedious and
+time-consuming to build, not to mention that they require fairly
+specialized expertise. For instance, Ben Eater, the creator of the
+quaternions visualization, says about the process of builiding the
+visualization[^2]:
+
+> *Since there wasn't really anything like this yet, we built it all
+> ourselves from a variety of existing web tools: WebGL (using threejs
+> plus some custom shaders) for 3d stuff, raw canvas for the 2d stuff,
+> howlerjs for handling the audio playback, and lots of React for the UI
+> and to glue it all together. It's very much a bespoke app. In the
+> future, I hope we'll build more of these and as we do so, the tech
+> will evolve to something more easily generalized.*
+
+The availability of tools like chatGPT and its ilk, powered by large
+language models, have been the subject of much heated debate, especially
+in the context of their role in education. They have been viewed 
+(e.g, by [plagiairsm detectors](https://www.turnitin.com/blog/sneak-preview-of-turnitins-ai-writing-and-chatgpt-detection-capability),
+where [challenges about false positives](https://www.k12dive.com/news/turnitin-false-positives-AI-detector/652221/)
+persist)
+as tools that can help students cheat, although there is some work that
+develops possibilities of incorporating such tools into assessments and
+other workflows. Here, I want to focus on the use of chatGPT and similar
+tools can be very useful for instructors to create quick visual
+experiences to supplement their teaching materials and possibly
+assessments. 
+
+<!-- We also point out that these tools can be just as useful 
+for well-intentioned learners, who can leverage these tools to nearly
+substitute for one-on-one tutoring experiences. -->
+
+Note: Although a lot of this discussion is about how instructors can
+leverage chatGPT as a tool to efficiently create visualizations and
+interactive experiences for their learners, none of the text in the
+blog itself is generated with AI 😀 To make this distinction clear, all
+text quoted verbatim from either books or chatGPT's output will be
+placed in grey boxes. Prompts to chatGPT are not AI-generated either and
+are shown in boxes with a green background.
+
+I'll share here three examples of interactives built almost entirely
+using a conversations with chatGPT (the May 12 release was used for work
+presented here). The entire chatlogs for all three demonstrations can
+be found as PDFs at the following links:
+
+1. [Subtraction Game](chatGPT-subtraction-chatlog.pdf)
+2. [File Storage 1](tape-drag-drop.pdf)
+3. [File Storage 2](draggable-tape.pdf)
+
+## For Instructors
+
+I'll discuss here two examples of visualizations of textbook topics that
+may not be widely available otherwise. A repeating theme is the fact
+that visualizations created by hand allow for the instructor to incorporate
+their own variations on the textbook premise, and would also offer the
+flexibility to be transformed into assessments --- both of these goals
+are often hard to meet with off-the-shelf demonstrations (which abound
+for several standard topics).
+
+### Exhibit A. The Subtraction Game
+
+The subtraction game is the following.
+
+:::{.callout-note}
+# The Game of Subtraction
+[Subtraction]{.smallcaps} is a game played on a heap of tokens. Each
+turn, the current player can remove either 1, 2, or 3 tokens from the
+pile, provided enough tokens exist. When the pile is empty there are no
+available moves. In this text, we will use a fancy number script to
+denote a subtraction position, e.g. S for a subtraction game with five
+tokens. Sample game: $$6 \rightarrow 5 \rightarrow 3 \rightarrow 0$$
+Starting from a pile of 6 , the first player takes one, then the second
+player takes two, then the first player takes all three to win the game.
+
+_--- from [Playing with Discrete Math](http://kyleburke.info/PlayingWithDiscreteMath.pdf)._
+:::
+
+The text goes on to encourage the reader to play the game to develop a
+feel for it, and uses the game as a running example to develop various
+concepts in combinatorial game theory, including strategies, positions,
+game trees, and so on.
+
+The game of [Subtraction]{.smallcaps} can doubtless be played in a
+low-tech environment using a whiteboard, pen and paper, or an actual
+heap of tokens. However, an instructor may want to make an interactive
+version of the game available as a part of instructional material such
+as lecture notes. At this point, an instructor may look for an existing
+implementations, although in this particular example this may turn out
+to be a bit of a challenge: the internet is rife with so-called
+"subtraction" games, most of which have nothing to do with the game at
+hand. Besides, a custom implementation would provide a starting point
+for the development of related concepts, customized quizzes, and so on.
+
+As discussed earlier, creating a playable version of
+[Subtraction]{.smallcaps} from scratch is arguably not a difficult
+exercise, but for most people it would be time-consuming to the point
+where the cost may outweigh the benefits. However, with a tool like
+chatGPT at hand, the process becomes substantially easier.
+
+:::{.callout-tip}
+# chatGPT Prompt
+We are going to code a simple HTML/JS/CSS game.
+
+Please create a game arena that is a 420 x 420 canvas with rounded corners. The background outside the canvas should be lightseagreen.
+
+All the elements below should be centered within the canvas.
+
+Inside the canvas, close to the top, draw a box with a random number between 15 and 50.
+
+Just below this box, draw three boxes labeled 1, 2, and 3.
+
+Just below these three boxes, display the text: "Lata’s turn to move." Let us call this string ‘whoseTurn‘.
+
+Just below this text, add a link that says "Instructions". This should bring up a modal with the text "SUBTRACTION is a game played on a heap of tokens. Each turn, the current player can remove either 1, 2, or 3 tokens from the pile, provided enough tokens exist. When the pile is empty there are no available moves. The player with no valid moves left loses.".
+
+Finally, when the user clicks on either 1, 2, or 3, the number in the central box should reduce by 1, 2, or 3 respectively. If the subtraction results in a negative number, disregard the click and alert the user that "Only moves resulting in a positive result remaining."
+
+When a button is clicked, if whoseTurn is "Lata’s turn to move", then it should change to "Raj’s turn to move", and vice versa.
+
+When the number hits 0, if whoseTurn is "Lata’s turn to move", then update whoseTurn to "Game over, Lata won", and "Game over, Raj won" otherwise. At this point, none of the buttons should be clickable.
+:::
+
+The output of chatGPT on this prompt, with some minor modifications in
+styling, leads to an interface that looks as shown below:
+
+![An interactive version of Subtraction.](image001.png){#fig:001}
+
+A natural extension to the game of subtraction is go beyond the numbers
+1,2, and 3. One might then use a follow up prompt such as the one below.
+
+:::{.callout-tip}
+# chatGPT Prompt
+Can you make it so that instead of 1, 2, 3, the buttons display three distinct random numbers between 1 and 9 (inclusive), and the rules are the same?
+:::
+
+In this process we realize that the players may run out of moves even
+before the number in question hits zero. An easy way to mitigate this is
+to ensure that one of the numbers is always one, while the others are
+randomly chosen. The output of chatGPT may have minor issues: for
+instance, the documentation in the instructions modal would possibly not
+adapted to the new set of numbers, the buttons may display the numbers
+in non-ascending order, and so on. All of these "quirks" are easily
+fixed with follow up prompts, and a working demonstration of the final
+implementation can be found [here](https://subtraction.netlify.app/).
+
+### Exhibit B. Storing Files on Tape
+
+The problem of optimally storing files on a tape is a classic example of
+an optimization problem that admits a greedy algorithm: the intuitive
+approach to the solution turns out to be the correct one.
+
+We reproduce the problem statement as given in [Algorithms](http://jeffe.cs.illinois.edu/teaching/algorithms/)
+by [Jeff Erickson](http://jeffe.cs.illinois.edu/).
+
+:::{.callout-note}
+# The Optimal File Storage Problem
+Suppose we have a set of $n$ files that we want to store on magnetic
+tape. ${ }^1$ In the future, users will want to read those files from
+the tape. Reading a file from tape isn't like reading a file from disk;
+first we have to fast-forward past all the other files, and that takes a
+significant amount of time. Let $L[1 . n]$ be an array listing the
+lengths of each file; specifically, file $i$ has length $L[i]$. If the
+files are stored in order from 1 to $n$, then the cost of accessing the
+$k$ th file is $$\operatorname{cost}(k)=\sum_{i=1}^k L[i]$$
+
+The cost reflects the fact that before we read file $k$ we must first
+scan past all the earlier files on the tape. If we assume for the moment
+that each file is equally likely to be accessed, then the expected cost
+of searching for a random file is
+$$\mathrm{E}[\cos t]=\sum_{k=1}^n \frac{\operatorname{cost}(k)}{n}=\frac{1}{n} \sum_{k=1}^n \sum_{i=1}^k L[i] .$$
+If we change the order of the files on the tape, we change the cost of
+accessing the files; some files become more expensive to read, but
+others become cheaper. Different file orders are likely to result in
+different expected costs. Specifically, let $\pi(i)$ denote the index of
+the file stored at position $i$ on the tape. Then the expected cost of
+the permutation $\pi$ is
+$$\mathrm{E}[\operatorname{cost}(\pi)]=\frac{1}{n} \sum_{k=1}^n \sum_{i=1}^k L[\pi(i)] .$$
+Which order should we use if we want this expected cost to be as small
+as possible? The answer seems intuitively clear: **Sort the files by
+increasing length.** But intuition is a tricky beast. **The only way to
+be sure that this order works is to** take off and nuke the entire site
+from-orbit **actually prove that it works!** 
+
+_--- From [Algorithms](http://jeffe.cs.illinois.edu/teaching/algorithms/)._
+:::
+
+Now the key to appreciating the proof of the greedy algorithm here is to
+see that if we violate the "natural order" then we pay more in expected
+cost. While the calculation is straightforward, an instructor may find
+that it makes sense to motivate the main idea by allowing the learners
+to play around with some examples.
+
+There are two approaches to visualizing this problem. In both cases, the
+stage consists of a tape represented as a long horizontal rectangle, and
+the files are represented as rectangles whose height matches the height
+of the tape, and whose lengths are proportional to their sizes. The
+expected cost of access of whatever is on the tape is displayed at all
+times, along with the optimal cost possible.
+
+-   A predefined set of files are given and are initially placed outside
+    the tape. The user can position them on the tape by, for example,
+    dragging and dropping them on the tape, or double clicking them: in
+    either case, the chosen file is appended to the end of the tape. We
+    may allow the user to reorder the files on the tape by drag and drop
+    actions or remove them off the tape entirely. The expected cost is
+    dynamically calculated and displayed.
+
+-   A set of files, say all equal in size, are already on the tape. The
+    learner can then drag the boundaries to change the file lengths, and
+    the change in costs update dynamically.
+
+#### The First Approach 
+
+To create the first visualization, we started with the following prompt.
+
+
+:::{.callout-tip}
+# chatGPT Prompt
+I want to help students understand the problem of "storing files on a tape". I am seeking your help in creating the following interface via HTML, JS, and CSS.
+What I want is for the user to be able to drag and drop several rectangular blocks (which I will refer to as pieces henceforth), whose total length is a fixed number of units, on to something that looks like a tape.
+
+So the interface should have a thin rectangular strip (which I will refer to as a tape henceforth) with a grey background at the center, and a collection of draggable pieces placed below it (none overlapping). When a piece is dropped on the tape, it should snap and align to the left without overlapping any of the strips that are already there. When a piece is dragged out of the tape, it should disappear from the tape and the pieces to the right of it should move leftward until the gap is filled.
+
+Please make the total length of the tape 420px wide, and the lengths of the pieces should be either 20px, 30px, 40px, or 50px wide; and they should be made of different colors from a neutral palette. Note that the piece lengths should be generated randomly from this set, they should add up to 420px.
+
+Let N be the number of pieces on the tape at any given point of time. There should be a display which shows the sum of the following quantities (and this should update as pieces are added or dropped on the top): the length of the first (i.e, leftmost) piece multiplied by N, the length of the second piece multiplied by (N-1), and so on, until the length of the last piece, multiplied by 1.
+:::
+
+The first few outcomes on this and subsequent prompts had several
+issues:
+
+-   the boxes were not stacked horizontally;
+
+-   the drag and drop behaviors were unpredictable;
+
+-   the pieces had spacing between them when pushed on the tape.
+
+However, all of this was eventually fixed by describing the inaccuracies
+in natural language. We also added some functionality allowing the
+learner to see if their attempt was optimal:
+
+
+:::{.callout-tip}
+# chatGPT Prompt
+Below average, can we add the following text: "Target: " followed by the sum of the following numbers, where X is the total number of pieces:
+
+the size of the smallest piece multiplied by X
+the size of the second smallest piece multiplied by X-1
+and so on up to
+the size of the second largest piece multiplied by 2
+the size of the largest piece multiplied by 1
+
+Below the target, display the text "Keep going until all pieces are on the tape", and if the tape has all the pieces but the average is not equal to the target, change the message to "Nice try, but you can do better!" and if the tape has all the pieces and the average is equal to the target, change the message to "Mission Accomplished!".
+:::
+
+Eventually, we obtain an interface that looks as shown in  with some
+minor styling and updates in the desired widths.
+
+Notice that one of the things that chatGPT had to do was randomly
+generate a set of pieces from a given set of widths that added up the
+exact width of the tape (as per our prompt). It did this using the
+following loop:
+
+
+:::{.callout-note}
+# chatGPT Output
+      // Create pieces
+        let totalWidth = 0;
+        while(totalWidth < 420) {
+          
+        const size = 
+          sizes[Math.floor(Math.random() 
+          * sizes.length)];
+
+          if(totalWidth + size <= 420) {
+            totalWidth += size;
+            // Code to create the pieces
+          }
+        }
+:::
+
+Evidently, if the sizes array does not have an appropriate set of sizes,
+this can loop forever. It turns out that chatGPT did not recognize this
+issue on its own, and it is typical of the sort of bug that the user
+would have to watch out for, either at the time of formulating
+specifications or while working through the output. 
+
+You can play around with the implementation that I finally ended up with [here](https://filestorage1.netlify.app/).
+
+
+#### The Second Approach {#the-second-approach .unnumbered}
+
+For the second approach, we start off with the following prompt.[^3]
+
+
+:::{.callout-tip}
+# chatGPT Prompt
+Please give me separate css, js, and html files for the following demonstration
+
+What I want initially is as follows
+
+- centered on the screen there is a 420px x 50px horizontal slab
+
+- there are three draggable dividers shown as black dotted lines inside the slab that divide the region equally into 4 parts of width 105 eac
+
+- the regions should initially display the number 105.
+
+If a divider is dragged, it changes the width of at most two regions that it is involved in. These regions should update their width. If any region becomes smaller than 20 px on drag, then any further drag should not be possible
+
+Then I want a text below the slab which says cost, followed by the sum of the following numbers
+
+- the width of the leftmost region * 4
+
+- the width of the region next to the leftmost region * 3
+
+- the width of the region to the left of the rightmost region * 2
+
+- the width of the rightmost region * 1
+
+divided by 4. This number should be dynamically updated as the regions change
+
+Below cost, compute the following quantity and display it, prepended with the text "Optimal Cost"
+
+- the width of the smallest region * 4
+
+- the width of the second-smallest region * 3
+
+- the width of the second-largest region * 2
+
+- the width of the largest region * 1
+
+divided by 4.
+
+:::
+
+For visual clarity we also follow up with the following suggestion.
+
+
+:::{.callout-tip}
+# chatGPT Prompt
+Can the background color be Mediumseagreen but with opacity proportional
+to the width (i.e, more opaque for wider regions and more transparent
+for smaller ones)?
+:::
+
+<figure id="fig:003">
+<figure>
+<img src="image003-a.png" />
+<figcaption>The initial configuration</figcaption>
+</figure>
+<figure>
+<img src="image003-b.png" />
+<figcaption>An example where the current cost is worse than the optimal
+cost.</figcaption>
+</figure>
+<figure>
+<img src="image003-c.png" />
+<figcaption>An example where the current and optimal costs are the
+same.</figcaption>
+</figure>
+<figcaption>The second approach to visualizing the greedy approach to
+storing files on a tape. Note that the numbers are rounded to integers
+for clarity.</figcaption>
+</figure>
+
+The outcomes of these prompts, with appropriate back-and-forth to fix
+buggy or unexpected behavior, is shown in 
+
+## For Students
+
+Sal Khan makes a compelling case for the use of AI to help with the
+learning process [in a recent TED talk](https://www.ted.com/talks/sal_khan_how_ai_could_save_not_destroy_education?language=en). 
+In a computer programming
+exercise available on Khan Academy, a student needs to modify an
+existing snippet of code to "make two clouds drift apart". The
+student attempts this by writing "leftX--", but notices that this only
+affects the left cloud, and not the right one. The student then pulls up
+Khanmigo to inquire why the attempt did not work out, and Khanmigo
+recognized enough of the surrounding context to make a meaningful
+suggestion.
+
+![A typical exercise on Khan Academy, with the exercise material and the
+student's attempt on the left; and the rendering on the right. The goal
+is to modify the code so that the clouds drift
+apart.](image005.png)
+
+![Khanmigo trying to analyze the issue.](image004.png)
+
+While [Khanmigo](https://www.khanacademy.org/khan-labs) is still under 
+development a the time of this writing,
+this example already demonstrates the potential of a collaboration
+between a well-intentioned learner and a well-intentioned AI. Just as
+learning a language on a platform like Duolingo is an enhanced
+experience when we attempt talking with native speakers, so is
+programming language learning potentially enhanced by such transactions
+between the learner and someone who has the advantage of expertise.
+While one may currently doubt that LLMs are as good as real experts in
+their current forms, one could argue that: 
+
+(a) given the challenges of
+scale when it comes to the availability of real experts, 
+
+(b) the fact
+that LLMs are already demonstrating promise in the quality of their
+outputs and, 
+
+(c) since it not too difficult to know when the output of
+the LLM is not accurate, they make for serious contenders especially in
+scenarios where the alternatives happen to be bleak.
+
+As a sample counterpoint to this thread of thought, in a [CACM blog](https://cacm.acm.org/blogs/blog-cacm/273577-ai-does-not-help-programmers/fulltext#comments), 
+Bertrand Meyer argues that chatGPT may not, in fact,
+be helpful for programmers:
+
+> Here is my experience so far. As a programmer, I know where to go to solve a problem. But I am fallible; I would love to have an assistant who keeps me in check, alerting me to pitfalls and correcting me when I err. A effective pair-programmer. But that is not what I get. Instead, I have the equivalent of a cocky graduate student, smart and widely read, also polite and quick to apologize, but thoroughly, invariably, sloppy and unreliable. I have little use for such  supposed help. 
+
+Check out the blog to see where this is coming from: you can eavesdrop on Meyer's conversation with chatGPT and decide for yourself :)
+
+## What's Next?
+
+<!-- In a recent CACM viewpoint article, Welsh argues that:
+
+> The new atomic unit of computation becomes not a processor, memory,
+> and I/O system implementing a von Neumann machine, but rather a
+> massive, pre-trained, highly adaptive AI model. This is a seismic
+> shift in the way we think about computation---not as a predictable,
+> static process, governed by instruction sets, type systems, and
+> notions of decidability. AI-based computation has long since crossed
+> the Rubicon of being amenable to static analysis and formal proof. We
+> are rapidly moving toward a world where the fundamental building
+> blocks of computation are temperamental, mysterious, adaptive agents.
+
+We are evidently at the cusp of a new era in terms of how we interface
+with computers. Our thesis is that these developments can be leveraged
+to both (a) democratize access to tools for thought and exposition, and
+(b) scale up personalized education in ways that were simply not
+feasible before. The hope is that we can ultimately use "artificial
+intelligence to enhance human intelligence", as Khan puts it. -->
+
+For the interactives discussed here, there are several ways of extending 
+what we have cobbled together. For instance, for
+the visualization of [Subtraction]{.smallcaps}, a natural next step is
+to create an interactive process that allows the learner to visualize
+the game tree, at least for small versions of the game.
+
+For the visualization of the problem of storing files on a tape, there
+are several possible enhancements: 
+
+(a) Show the cost breakdown more
+explicitly in terms of the formula, with a color coding that relates the
+numeric file sizes shown in the formula with the colors of the boxes on
+the tape. 
+
+(b) Add an option to generate the optimal ordering in the
+first approach. 
+
+(c) Gamify the problem where two users take turns to
+position files on the tape, and one wants to minimize the expected cost,
+while the other wants to maximize it: in particular, we establish a
+target cost, and the first player wins if the final cost is smaller than
+the target, the second player wins if the final cost is higher than the
+target, and the game is a draw otherwise. 
+
+(d) Generalize the
+visualization to the situation where we not only have files, but also
+associated frequencies of access.
+
+Broadly speaking, I can't help feeling --- in the light of the wide
+availiability of tools like chatGPT --- that class materials and exercises 
+should be adapted so that the AI can be leveraged by students to 
+accelerate their learning processes, as opposed to using them to 
+"cheat" on assessments in the traditional format. I realize this is
+easier said than done, but it's already interesting to see all the ideas
+that have come up to this effect (see, for example, this very [nice preprint](https://arxiv.org/abs/2210.15157)).
+
+Conversations with chatGPT have shown mixed results on debugging, but
+often chatGPT can provide surprisingly relevant insights on why a piece
+of code does not work as expected. I think it would be fun to ask
+chatGPT why, say, a particular Codeforces solution does not work.
+Perhaps with some background from the editorials, chatGPT and its ilk
+can provide somewhat meaningful explanations of why something does not
+work. I am aware that the release of chatGPT and friends has no doubt
+unleashed a flurry of work along these lines, so do let me know in
+the comments if you have pointers!
+
+<!-- It may be interesting to use data sets of buggy solutions to 
+competitive programming contest problems, which are generally widely
+available, and run them through chatGPT --- while using the editorials
+to provide additional context --- to explore the potential and
+limitations of LLMs for this use case.-->
+
+[^1]: The success of Visualgo is witnessed by its wide usage and several
+    anecdotal reports of positive feedback.
+
+[^2]: At the time this writing, this comment is from five years ago, and
+    to the best of our knowledge, not much has moved along on the state
+    of the art in terms of tools for authors of interactive experiences.
+
+[^3]: The conversation found in the supplementary material differs
+    slightly from what is shown below; we have consolidated some of the
+    prompts in the interest of brevity.

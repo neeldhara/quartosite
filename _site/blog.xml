@@ -10,7 +10,371 @@
 <atom:link href="https://www.neeldhara.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.2.262</generator>
-<lastBuildDate>Thu, 01 Jun 2023 18:30:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 29 Jul 2023 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Building Interactives</title>
+  <link>https://www.neeldhara.com/blog/building-interactives/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>Interactions and visualizations have been useful for explaining concepts, although they are known to potentially mislead or confuse as often as they have been thought of as tools that help clarify concepts. <a href="https://visualgo.net/en">VisuAlgo</a> is a very successful<sup>1</sup> example of interactive learning in CS education at an undergraduate level, which brings the algorithms that one would typically encounter in an introductory algorithms course to life: users can often provide their own input, and the interface does the rest. On the bottom-right corner one can typically see an implementation of the algorithm in code, which is “run through” as elements get manipulated on a “main stage”.</p>
+<p>Other examples of deeply interactive experiences include:</p>
+<ol type="1">
+<li><a href="https://brilliant.org/home/">Brilliant</a></li>
+<li><a href="https://mathigon.org/">Mathigon</a></li>
+<li><a href="https://seeing-theory.brown.edu/">Seeing Theory</a></li>
+<li><a href="https://ncase.me/crowds/">The Wisdom and/or Madness of the Crowds</a></li>
+<li><a href="https://ncase.me/trust">The Evolution of Trust</a></li>
+<li><a href="https://ncase.me/polygons/">Parable of the Polygons</a></li>
+<li><a href="https://ncase.me/ballot/">To Build a Better Ballot</a></li>
+<li><a href="https://eater.net/quaternions">Visualizing Quaternions</a></li>
+<li><a href="https://ciechanow.ski/mechanical-watch/">Mechanical Watch</a></li>
+</ol>
+<p>…to name a few. These combine interactive workouts interleaved with text, and usually encourage active participation from the reader. However, while such tools can be invaluable, they are often tedious and time-consuming to build, not to mention that they require fairly specialized expertise. For instance, Ben Eater, the creator of the quaternions visualization, says about the process of builiding the visualization<sup>2</sup>:</p>
+<blockquote class="blockquote">
+<p><em>Since there wasn’t really anything like this yet, we built it all ourselves from a variety of existing web tools: WebGL (using threejs plus some custom shaders) for 3d stuff, raw canvas for the 2d stuff, howlerjs for handling the audio playback, and lots of React for the UI and to glue it all together. It’s very much a bespoke app. In the future, I hope we’ll build more of these and as we do so, the tech will evolve to something more easily generalized.</em></p>
+</blockquote>
+<p>The availability of tools like chatGPT and its ilk, powered by large language models, have been the subject of much heated debate, especially in the context of their role in education. They have been viewed (e.g, by <a href="https://www.turnitin.com/blog/sneak-preview-of-turnitins-ai-writing-and-chatgpt-detection-capability">plagiairsm detectors</a>, where <a href="https://www.k12dive.com/news/turnitin-false-positives-AI-detector/652221/">challenges about false positives</a> persist) as tools that can help students cheat, although there is some work that develops possibilities of incorporating such tools into assessments and other workflows. Here, I want to focus on the use of chatGPT and similar tools can be very useful for instructors to create quick visual experiences to supplement their teaching materials and possibly assessments.</p>
+<!-- We also point out that these tools can be just as useful 
+for well-intentioned learners, who can leverage these tools to nearly
+substitute for one-on-one tutoring experiences. -->
+<p>Note: Although a lot of this discussion is about how instructors can leverage chatGPT as a tool to efficiently create visualizations and interactive experiences for their learners, none of the text in the blog itself is generated with AI 😀 To make this distinction clear, all text quoted verbatim from either books or chatGPT’s output will be placed in grey boxes. Prompts to chatGPT are not AI-generated either and are shown in boxes with a green background.</p>
+<p>I’ll share here three examples of interactives built almost entirely using a conversations with chatGPT (the May 12 release was used for work presented here). The entire chatlogs for all three demonstrations can be found as PDFs at the following links:</p>
+<ol type="1">
+<li><a href="chatGPT-subtraction-chatlog.pdf">Subtraction Game</a></li>
+<li><a href="tape-drag-drop.pdf">File Storage 1</a></li>
+<li><a href="draggable-tape.pdf">File Storage 2</a></li>
+</ol>
+</section>
+<section id="for-instructors" class="level2">
+<h2 class="anchored" data-anchor-id="for-instructors">For Instructors</h2>
+<p>I’ll discuss here two examples of visualizations of textbook topics that may not be widely available otherwise. A repeating theme is the fact that visualizations created by hand allow for the instructor to incorporate their own variations on the textbook premise, and would also offer the flexibility to be transformed into assessments — both of these goals are often hard to meet with off-the-shelf demonstrations (which abound for several standard topics).</p>
+<section id="exhibit-a.-the-subtraction-game" class="level3">
+<h3 class="anchored" data-anchor-id="exhibit-a.-the-subtraction-game">Exhibit A. The Subtraction Game</h3>
+<p>The subtraction game is the following.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+The Game of Subtraction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="smallcaps">Subtraction</span> is a game played on a heap of tokens. Each turn, the current player can remove either 1, 2, or 3 tokens from the pile, provided enough tokens exist. When the pile is empty there are no available moves. In this text, we will use a fancy number script to denote a subtraction position, e.g.&nbsp;S for a subtraction game with five tokens. Sample game: <img src="https://latex.codecogs.com/png.latex?6%20%5Crightarrow%205%20%5Crightarrow%203%20%5Crightarrow%200"> Starting from a pile of 6 , the first player takes one, then the second player takes two, then the first player takes all three to win the game.</p>
+<p><em>— from <a href="http://kyleburke.info/PlayingWithDiscreteMath.pdf">Playing with Discrete Math</a>.</em></p>
+</div>
+</div>
+<p>The text goes on to encourage the reader to play the game to develop a feel for it, and uses the game as a running example to develop various concepts in combinatorial game theory, including strategies, positions, game trees, and so on.</p>
+<p>The game of <span class="smallcaps">Subtraction</span> can doubtless be played in a low-tech environment using a whiteboard, pen and paper, or an actual heap of tokens. However, an instructor may want to make an interactive version of the game available as a part of instructional material such as lecture notes. At this point, an instructor may look for an existing implementations, although in this particular example this may turn out to be a bit of a challenge: the internet is rife with so-called “subtraction” games, most of which have nothing to do with the game at hand. Besides, a custom implementation would provide a starting point for the development of related concepts, customized quizzes, and so on.</p>
+<p>As discussed earlier, creating a playable version of <span class="smallcaps">Subtraction</span> from scratch is arguably not a difficult exercise, but for most people it would be time-consuming to the point where the cost may outweigh the benefits. However, with a tool like chatGPT at hand, the process becomes substantially easier.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+chatGPT Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We are going to code a simple HTML/JS/CSS game.</p>
+<p>Please create a game arena that is a 420 x 420 canvas with rounded corners. The background outside the canvas should be lightseagreen.</p>
+<p>All the elements below should be centered within the canvas.</p>
+<p>Inside the canvas, close to the top, draw a box with a random number between 15 and 50.</p>
+<p>Just below this box, draw three boxes labeled 1, 2, and 3.</p>
+<p>Just below these three boxes, display the text: “Lata’s turn to move.” Let us call this string ’whoseTurn‘.</p>
+<p>Just below this text, add a link that says “Instructions”. This should bring up a modal with the text “SUBTRACTION is a game played on a heap of tokens. Each turn, the current player can remove either 1, 2, or 3 tokens from the pile, provided enough tokens exist. When the pile is empty there are no available moves. The player with no valid moves left loses.”.</p>
+<p>Finally, when the user clicks on either 1, 2, or 3, the number in the central box should reduce by 1, 2, or 3 respectively. If the subtraction results in a negative number, disregard the click and alert the user that “Only moves resulting in a positive result remaining.”</p>
+<p>When a button is clicked, if whoseTurn is “Lata’s turn to move”, then it should change to “Raj’s turn to move”, and vice versa.</p>
+<p>When the number hits 0, if whoseTurn is “Lata’s turn to move”, then update whoseTurn to “Game over, Lata won”, and “Game over, Raj won” otherwise. At this point, none of the buttons should be clickable.</p>
+</div>
+</div>
+<p>The output of chatGPT on this prompt, with some minor modifications in styling, leads to an interface that looks as shown below:</p>
+<div id="fig:001" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/building-interactives/image001.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">An interactive version of Subtraction.</figcaption><p></p>
+</figure>
+</div>
+<p>A natural extension to the game of subtraction is go beyond the numbers 1,2, and 3. One might then use a follow up prompt such as the one below.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+chatGPT Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Can you make it so that instead of 1, 2, 3, the buttons display three distinct random numbers between 1 and 9 (inclusive), and the rules are the same?</p>
+</div>
+</div>
+<p>In this process we realize that the players may run out of moves even before the number in question hits zero. An easy way to mitigate this is to ensure that one of the numbers is always one, while the others are randomly chosen. The output of chatGPT may have minor issues: for instance, the documentation in the instructions modal would possibly not adapted to the new set of numbers, the buttons may display the numbers in non-ascending order, and so on. All of these “quirks” are easily fixed with follow up prompts, and a working demonstration of the final implementation can be found <a href="https://subtraction.netlify.app/">here</a>.</p>
+</section>
+<section id="exhibit-b.-storing-files-on-tape" class="level3">
+<h3 class="anchored" data-anchor-id="exhibit-b.-storing-files-on-tape">Exhibit B. Storing Files on Tape</h3>
+<p>The problem of optimally storing files on a tape is a classic example of an optimization problem that admits a greedy algorithm: the intuitive approach to the solution turns out to be the correct one.</p>
+<p>We reproduce the problem statement as given in <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/">Algorithms</a> by <a href="http://jeffe.cs.illinois.edu/">Jeff Erickson</a>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+The Optimal File Storage Problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose we have a set of <img src="https://latex.codecogs.com/png.latex?n"> files that we want to store on magnetic tape. <img src="https://latex.codecogs.com/png.latex?%7B%20%7D%5E1"> In the future, users will want to read those files from the tape. Reading a file from tape isn’t like reading a file from disk; first we have to fast-forward past all the other files, and that takes a significant amount of time. Let <img src="https://latex.codecogs.com/png.latex?L%5B1%20.%20n%5D"> be an array listing the lengths of each file; specifically, file <img src="https://latex.codecogs.com/png.latex?i"> has length <img src="https://latex.codecogs.com/png.latex?L%5Bi%5D">. If the files are stored in order from 1 to <img src="https://latex.codecogs.com/png.latex?n">, then the cost of accessing the <img src="https://latex.codecogs.com/png.latex?k"> th file is <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7Bcost%7D(k)=%5Csum_%7Bi=1%7D%5Ek%20L%5Bi%5D"></p>
+<p>The cost reflects the fact that before we read file <img src="https://latex.codecogs.com/png.latex?k"> we must first scan past all the earlier files on the tape. If we assume for the moment that each file is equally likely to be accessed, then the expected cost of searching for a random file is <img src="https://latex.codecogs.com/png.latex?%5Cmathrm%7BE%7D%5B%5Ccos%20t%5D=%5Csum_%7Bk=1%7D%5En%20%5Cfrac%7B%5Coperatorname%7Bcost%7D(k)%7D%7Bn%7D=%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bk=1%7D%5En%20%5Csum_%7Bi=1%7D%5Ek%20L%5Bi%5D%20."> If we change the order of the files on the tape, we change the cost of accessing the files; some files become more expensive to read, but others become cheaper. Different file orders are likely to result in different expected costs. Specifically, let <img src="https://latex.codecogs.com/png.latex?%5Cpi(i)"> denote the index of the file stored at position <img src="https://latex.codecogs.com/png.latex?i"> on the tape. Then the expected cost of the permutation <img src="https://latex.codecogs.com/png.latex?%5Cpi"> is <img src="https://latex.codecogs.com/png.latex?%5Cmathrm%7BE%7D%5B%5Coperatorname%7Bcost%7D(%5Cpi)%5D=%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bk=1%7D%5En%20%5Csum_%7Bi=1%7D%5Ek%20L%5B%5Cpi(i)%5D%20."> Which order should we use if we want this expected cost to be as small as possible? The answer seems intuitively clear: <strong>Sort the files by increasing length.</strong> But intuition is a tricky beast. <strong>The only way to be sure that this order works is to</strong> take off and nuke the entire site from-orbit <strong>actually prove that it works!</strong></p>
+<p><em>— From <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/">Algorithms</a>.</em></p>
+</div>
+</div>
+<p>Now the key to appreciating the proof of the greedy algorithm here is to see that if we violate the “natural order” then we pay more in expected cost. While the calculation is straightforward, an instructor may find that it makes sense to motivate the main idea by allowing the learners to play around with some examples.</p>
+<p>There are two approaches to visualizing this problem. In both cases, the stage consists of a tape represented as a long horizontal rectangle, and the files are represented as rectangles whose height matches the height of the tape, and whose lengths are proportional to their sizes. The expected cost of access of whatever is on the tape is displayed at all times, along with the optimal cost possible.</p>
+<ul>
+<li><p>A predefined set of files are given and are initially placed outside the tape. The user can position them on the tape by, for example, dragging and dropping them on the tape, or double clicking them: in either case, the chosen file is appended to the end of the tape. We may allow the user to reorder the files on the tape by drag and drop actions or remove them off the tape entirely. The expected cost is dynamically calculated and displayed.</p></li>
+<li><p>A set of files, say all equal in size, are already on the tape. The learner can then drag the boundaries to change the file lengths, and the change in costs update dynamically.</p></li>
+</ul>
+<section id="the-first-approach" class="level4">
+<h4 class="anchored" data-anchor-id="the-first-approach">The First Approach</h4>
+<p>To create the first visualization, we started with the following prompt.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+chatGPT Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I want to help students understand the problem of “storing files on a tape”. I am seeking your help in creating the following interface via HTML, JS, and CSS. What I want is for the user to be able to drag and drop several rectangular blocks (which I will refer to as pieces henceforth), whose total length is a fixed number of units, on to something that looks like a tape.</p>
+<p>So the interface should have a thin rectangular strip (which I will refer to as a tape henceforth) with a grey background at the center, and a collection of draggable pieces placed below it (none overlapping). When a piece is dropped on the tape, it should snap and align to the left without overlapping any of the strips that are already there. When a piece is dragged out of the tape, it should disappear from the tape and the pieces to the right of it should move leftward until the gap is filled.</p>
+<p>Please make the total length of the tape 420px wide, and the lengths of the pieces should be either 20px, 30px, 40px, or 50px wide; and they should be made of different colors from a neutral palette. Note that the piece lengths should be generated randomly from this set, they should add up to 420px.</p>
+<p>Let N be the number of pieces on the tape at any given point of time. There should be a display which shows the sum of the following quantities (and this should update as pieces are added or dropped on the top): the length of the first (i.e, leftmost) piece multiplied by N, the length of the second piece multiplied by (N-1), and so on, until the length of the last piece, multiplied by 1.</p>
+</div>
+</div>
+<p>The first few outcomes on this and subsequent prompts had several issues:</p>
+<ul>
+<li><p>the boxes were not stacked horizontally;</p></li>
+<li><p>the drag and drop behaviors were unpredictable;</p></li>
+<li><p>the pieces had spacing between them when pushed on the tape.</p></li>
+</ul>
+<p>However, all of this was eventually fixed by describing the inaccuracies in natural language. We also added some functionality allowing the learner to see if their attempt was optimal:</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+chatGPT Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Below average, can we add the following text: “Target:” followed by the sum of the following numbers, where X is the total number of pieces:</p>
+<p>the size of the smallest piece multiplied by X the size of the second smallest piece multiplied by X-1 and so on up to the size of the second largest piece multiplied by 2 the size of the largest piece multiplied by 1</p>
+<p>Below the target, display the text “Keep going until all pieces are on the tape”, and if the tape has all the pieces but the average is not equal to the target, change the message to “Nice try, but you can do better!” and if the tape has all the pieces and the average is equal to the target, change the message to “Mission Accomplished!”.</p>
+</div>
+</div>
+<p>Eventually, we obtain an interface that looks as shown in with some minor styling and updates in the desired widths.</p>
+<p>Notice that one of the things that chatGPT had to do was randomly generate a set of pieces from a given set of widths that added up the exact width of the tape (as per our prompt). It did this using the following loop:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+chatGPT Output
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<pre><code>  // Create pieces
+    let totalWidth = 0;
+    while(totalWidth &lt; 420) {
+      
+    const size = 
+      sizes[Math.floor(Math.random() 
+      * sizes.length)];
+
+      if(totalWidth + size &lt;= 420) {
+        totalWidth += size;
+        // Code to create the pieces
+      }
+    }</code></pre>
+</div>
+</div>
+<p>Evidently, if the sizes array does not have an appropriate set of sizes, this can loop forever. It turns out that chatGPT did not recognize this issue on its own, and it is typical of the sort of bug that the user would have to watch out for, either at the time of formulating specifications or while working through the output.</p>
+<p>You can play around with the implementation that I finally ended up with <a href="https://filestorage1.netlify.app/">here</a>.</p>
+</section>
+<section id="the-second-approach" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="the-second-approach">The Second Approach</h4>
+<p>For the second approach, we start off with the following prompt.<sup>3</sup></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+chatGPT Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please give me separate css, js, and html files for the following demonstration</p>
+<p>What I want initially is as follows</p>
+<ul>
+<li><p>centered on the screen there is a 420px x 50px horizontal slab</p></li>
+<li><p>there are three draggable dividers shown as black dotted lines inside the slab that divide the region equally into 4 parts of width 105 eac</p></li>
+<li><p>the regions should initially display the number 105.</p></li>
+</ul>
+<p>If a divider is dragged, it changes the width of at most two regions that it is involved in. These regions should update their width. If any region becomes smaller than 20 px on drag, then any further drag should not be possible</p>
+<p>Then I want a text below the slab which says cost, followed by the sum of the following numbers</p>
+<ul>
+<li><p>the width of the leftmost region * 4</p></li>
+<li><p>the width of the region next to the leftmost region * 3</p></li>
+<li><p>the width of the region to the left of the rightmost region * 2</p></li>
+<li><p>the width of the rightmost region * 1</p></li>
+</ul>
+<p>divided by 4. This number should be dynamically updated as the regions change</p>
+<p>Below cost, compute the following quantity and display it, prepended with the text “Optimal Cost”</p>
+<ul>
+<li><p>the width of the smallest region * 4</p></li>
+<li><p>the width of the second-smallest region * 3</p></li>
+<li><p>the width of the second-largest region * 2</p></li>
+<li><p>the width of the largest region * 1</p></li>
+</ul>
+<p>divided by 4.</p>
+</div>
+</div>
+<p>For visual clarity we also follow up with the following suggestion.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+chatGPT Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Can the background color be Mediumseagreen but with opacity proportional to the width (i.e, more opaque for wider regions and more transparent for smaller ones)?</p>
+</div>
+</div>
+<figure id="fig:003" class="figure">
+<figure class="figure">
+<img src="https://www.neeldhara.com/blog/building-interactives/image003-a.png" class="figure-img">
+<figcaption class="figure-caption">
+The initial configuration
+</figcaption>
+</figure>
+<figure class="figure">
+<img src="https://www.neeldhara.com/blog/building-interactives/image003-b.png" class="figure-img">
+<figcaption class="figure-caption">
+An example where the current cost is worse than the optimal cost.
+</figcaption>
+</figure>
+<figure class="figure">
+<img src="https://www.neeldhara.com/blog/building-interactives/image003-c.png" class="figure-img">
+<figcaption class="figure-caption">
+An example where the current and optimal costs are the same.
+</figcaption>
+</figure>
+<figcaption class="figure-caption">
+The second approach to visualizing the greedy approach to storing files on a tape. Note that the numbers are rounded to integers for clarity.
+</figcaption>
+</figure>
+<p>The outcomes of these prompts, with appropriate back-and-forth to fix buggy or unexpected behavior, is shown in</p>
+</section>
+</section>
+</section>
+<section id="for-students" class="level2">
+<h2 class="anchored" data-anchor-id="for-students">For Students</h2>
+<p>Sal Khan makes a compelling case for the use of AI to help with the learning process <a href="https://www.ted.com/talks/sal_khan_how_ai_could_save_not_destroy_education?language=en">in a recent TED talk</a>. In a computer programming exercise available on Khan Academy, a student needs to modify an existing snippet of code to “make two clouds drift apart”. The student attempts this by writing “leftX–”, but notices that this only affects the left cloud, and not the right one. The student then pulls up Khanmigo to inquire why the attempt did not work out, and Khanmigo recognized enough of the surrounding context to make a meaningful suggestion.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/building-interactives/image005.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">A typical exercise on Khan Academy, with the exercise material and the student’s attempt on the left; and the rendering on the right. The goal is to modify the code so that the clouds drift apart.</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/building-interactives/image004.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Khanmigo trying to analyze the issue.</figcaption><p></p>
+</figure>
+</div>
+<p>While <a href="https://www.khanacademy.org/khan-labs">Khanmigo</a> is still under development a the time of this writing, this example already demonstrates the potential of a collaboration between a well-intentioned learner and a well-intentioned AI. Just as learning a language on a platform like Duolingo is an enhanced experience when we attempt talking with native speakers, so is programming language learning potentially enhanced by such transactions between the learner and someone who has the advantage of expertise. While one may currently doubt that LLMs are as good as real experts in their current forms, one could argue that:</p>
+<ol type="a">
+<li><p>given the challenges of scale when it comes to the availability of real experts,</p></li>
+<li><p>the fact that LLMs are already demonstrating promise in the quality of their outputs and,</p></li>
+<li><p>since it not too difficult to know when the output of the LLM is not accurate, they make for serious contenders especially in scenarios where the alternatives happen to be bleak.</p></li>
+</ol>
+<p>As a sample counterpoint to this thread of thought, in a <a href="https://cacm.acm.org/blogs/blog-cacm/273577-ai-does-not-help-programmers/fulltext#comments">CACM blog</a>, Bertrand Meyer argues that chatGPT may not, in fact, be helpful for programmers:</p>
+<blockquote class="blockquote">
+<p>Here is my experience so far. As a programmer, I know where to go to solve a problem. But I am fallible; I would love to have an assistant who keeps me in check, alerting me to pitfalls and correcting me when I err. A effective pair-programmer. But that is not what I get. Instead, I have the equivalent of a cocky graduate student, smart and widely read, also polite and quick to apologize, but thoroughly, invariably, sloppy and unreliable. I have little use for such supposed help.</p>
+</blockquote>
+<p>Check out the blog to see where this is coming from: you can eavesdrop on Meyer’s conversation with chatGPT and decide for yourself :)</p>
+</section>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s Next?</h2>
+
+<!-- In a recent CACM viewpoint article, Welsh argues that:
+
+> The new atomic unit of computation becomes not a processor, memory,
+> and I/O system implementing a von Neumann machine, but rather a
+> massive, pre-trained, highly adaptive AI model. This is a seismic
+> shift in the way we think about computation---not as a predictable,
+> static process, governed by instruction sets, type systems, and
+> notions of decidability. AI-based computation has long since crossed
+> the Rubicon of being amenable to static analysis and formal proof. We
+> are rapidly moving toward a world where the fundamental building
+> blocks of computation are temperamental, mysterious, adaptive agents.
+
+We are evidently at the cusp of a new era in terms of how we interface
+with computers. Our thesis is that these developments can be leveraged
+to both (a) democratize access to tools for thought and exposition, and
+(b) scale up personalized education in ways that were simply not
+feasible before. The hope is that we can ultimately use "artificial
+intelligence to enhance human intelligence", as Khan puts it. -->
+<p>For the interactives discussed here, there are several ways of extending what we have cobbled together. For instance, for the visualization of <span class="smallcaps">Subtraction</span>, a natural next step is to create an interactive process that allows the learner to visualize the game tree, at least for small versions of the game.</p>
+<p>For the visualization of the problem of storing files on a tape, there are several possible enhancements:</p>
+<ol type="a">
+<li><p>Show the cost breakdown more explicitly in terms of the formula, with a color coding that relates the numeric file sizes shown in the formula with the colors of the boxes on the tape.</p></li>
+<li><p>Add an option to generate the optimal ordering in the first approach.</p></li>
+<li><p>Gamify the problem where two users take turns to position files on the tape, and one wants to minimize the expected cost, while the other wants to maximize it: in particular, we establish a target cost, and the first player wins if the final cost is smaller than the target, the second player wins if the final cost is higher than the target, and the game is a draw otherwise.</p></li>
+<li><p>Generalize the visualization to the situation where we not only have files, but also associated frequencies of access.</p></li>
+</ol>
+<p>Broadly speaking, I can’t help feeling — in the light of the wide availiability of tools like chatGPT — that class materials and exercises should be adapted so that the AI can be leveraged by students to accelerate their learning processes, as opposed to using them to “cheat” on assessments in the traditional format. I realize this is easier said than done, but it’s already interesting to see all the ideas that have come up to this effect (see, for example, this very <a href="https://arxiv.org/abs/2210.15157">nice preprint</a>).</p>
+<p>Conversations with chatGPT have shown mixed results on debugging, but often chatGPT can provide surprisingly relevant insights on why a piece of code does not work as expected. I think it would be fun to ask chatGPT why, say, a particular Codeforces solution does not work. Perhaps with some background from the editorials, chatGPT and its ilk can provide somewhat meaningful explanations of why something does not work. I am aware that the release of chatGPT and friends has no doubt unleashed a flurry of work along these lines, so do let me know in the comments if you have pointers!</p>
+<!-- It may be interesting to use data sets of buggy solutions to 
+competitive programming contest problems, which are generally widely
+available, and run them through chatGPT --- while using the editorials
+to provide additional context --- to explore the potential and
+limitations of LLMs for this use case.-->
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>The success of Visualgo is witnessed by its wide usage and several anecdotal reports of positive feedback.↩︎</p></li>
+<li id="fn2"><p>At the time this writing, this comment is from five years ago, and to the best of our knowledge, not much has moved along on the state of the art in terms of tools for authors of interactive experiences.↩︎</p></li>
+<li id="fn3"><p>The conversation found in the supplementary material differs slightly from what is shown below; we have consolidated some of the prompts in the interest of brevity.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>exposition</category>
+  <guid>https://www.neeldhara.com/blog/building-interactives/index.html</guid>
+  <pubDate>Sat, 29 Jul 2023 18:30:00 GMT</pubDate>
+  <media:content url="https://www.neeldhara.com/blog/building-interactives/image001.png" medium="image" type="image/png" height="114" width="144"/>
+</item>
 <item>
   <title>Note Taking Resources</title>
   <link>https://www.neeldhara.com/blog/note-taking-resources/index.html</link>
@@ -543,7 +907,7 @@ No matching items
 
 
  ]]></description>
-  <category>workflow</category>
+  <category>workflows</category>
   <guid>https://www.neeldhara.com/blog/course-plan/index.html</guid>
   <pubDate>Mon, 24 Apr 2023 18:30:00 GMT</pubDate>
 </item>
@@ -2219,7 +2583,7 @@ Postpone gratification
 
  ]]></description>
   <category>books</category>
-  <category>list</category>
+  <category>lists</category>
   <guid>https://www.neeldhara.com/blog/women-in-mathematics/index.html</guid>
   <pubDate>Sun, 20 Feb 2022 18:30:00 GMT</pubDate>
 </item>
@@ -2612,250 +2976,6 @@ In the fourth slide from the end, why [DeMillo–Lipton]–Schwartz–Zippel Lem
   <guid>https://www.neeldhara.com/blog/cp/sam-i-am/index.html</guid>
   <pubDate>Thu, 30 Sep 2021 18:30:00 GMT</pubDate>
   <media:content url="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.003.jpeg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>New Mac</title>
-  <link>https://www.neeldhara.com/blog/new-mac/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>Here’s a list of 50 things<sup>1</sup> (with occasional additional context) that I install whenever I’m setting up macOS from scratch.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-via Setapp
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><p>Bartender</p>
-<p>Keeps the menubar clean. Very handy!</p></li>
-<li><p>Better Touch Tool</p>
-<p>I really need to leverage this a lot more, but even simple actions like swipe down with three fingers to close a tab, or tip-tap right left to move between tabs is pretty awesome already. Also use four-finger double tap to make the mouse pointer larger when it’s lost between screens… I’d guess this app can probably subsume a lot of the functionality offered by apps like Keyboard Maestro and Alfred.</p></li>
-<li><p>iStat Menus</p>
-<p>Good-looking stats in the menubar 👍️</p></li>
-<li><p>Yoink</p>
-<p>Has to be one of the best shelf apps out there. I know that there are a bunch of others in this space right now (👀, Filepane), however I have been using Yoink for so long that I haven’t considered switching. My common use-cases:</p>
-<ul>
-<li>Alfred actions to send-to-Yoink</li>
-<li>Using Yoink to stash away screenshots before the floating image disappears</li>
-<li>A KM shortcut that can send any Finder item to Yoink</li>
-</ul></li>
-<li><p>CleanMyMac</p>
-<p>Mostly to keep track of file sizes via the Space Lens, and running cleanups once in a while.</p>
-<p>Alternative if using only this feature: Daisy Disk</p></li>
-<li><p>Default Folder X</p>
-<p>Use this all the time to stash away stuff where it belongs to keep Downloads clutter-free. Also the Alfred DFX collection is handy for finding recent items even if not 100% reliable.</p></li>
-<li><p>Timing</p>
-<p>Use this to supplement manual time-tracking. Do not use it to its full potential at all, I think a little investment with setting up the right projects etc. can go a long way.</p></li>
-<li><p>Dropzone</p>
-<p>I mostly use this as a longer-term stash than Yoink. I think there are some very nice possibilities here, but the only things I’ve done with it so far include:</p>
-<ul>
-<li>uploading images online</li>
-<li>opening a finder path in a terminal (superseded by an Alfred shortcut)</li>
-<li>dropping files in select locations</li>
-<li>URL shortening</li>
-</ul></li>
-<li><p>Permute</p>
-<p>Handy for all kinds of (bulk) file conversions.</p></li>
-<li><p>Text Sniper</p>
-<p>Impressive OCR “from anywhere”. The newer releases of macOS may make this redundant eventually though.</p></li>
-<li><p>Swish</p>
-<p>Intuitive gestures for window management. Pretty confident all this can be done in Better Touch Tool (above), but the actions are inspiring, and I’m lazy, so yeah, this is explicitly installed.</p></li>
-<li><p>Downie</p>
-<p>Use this for downloading videos from Youtube for offline viewing/listening. Fairly robust.</p></li>
-<li><p>IconJar</p>
-<p>Icon collection, enough said. 🎁</p></li>
-<li><p>Sip</p>
-<p>Handy 🎨 color picker.</p></li>
-<li><p>World Clock Pro</p>
-<p>Visually appealing world-clock, nice for scheduling stuff across timezones, great screensaver option as well.</p></li>
-<li><p>Dash</p>
-<p>Documentation lookup, handy that it works inside VS Code (via an extension).</p></li>
-<li><p>MindNode</p>
-<p>Lovely mindmaps.</p></li>
-<li><p>PDFPen</p>
-<p>Although I mostly use Preview, PDFPen is useful for quickly rearranging and removing pages. Not sure about the several other features claimed, I find that it sadly crashes more often than not, so not my default application.</p></li>
-<li><p>TextSoap</p>
-<p>Occasional use, but very useful when I do need it for some pesky hidden-unicode-character-removal exercise.</p></li>
-<li><p>MathKey</p>
-<p>Niche app - on the rare occasion that I have a complicated LaTeX formula to write, I can write it in the iOS version of this app and receive it on the Mac (I don’t think the desktop app is even necessary for this; the iOS purchase can be bypassed by using the Mac app via Sidecar, but this is where I discovered the app so it makes the list).</p></li>
-<li><p>Marked</p>
-<p>Powerful previews for Markdown documents. Lots of interesting export features.</p></li>
-<li><p>ChronoSync Express</p>
-<p>This helps with keeping certain folders in sync, and setting up some backup schedules. Nothing that can’t be done with a few scripts (?) and/or Time Machine, but I did end up setting (and forgetting) a few things in here.</p></li>
-</ol>
-</div>
-</div>
-</div>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-General
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><p>Notion</p>
-<p>I’m (admittedly* experimentally) using Notion as my primary PKM tool, and it’s also where I am keeping most of my public-facing content (including this blog). My usage of Notion is gradually expanding in scope to include time/task/finance tracking as well. Too slow.</p>
-<p>*I’ve been in and out of Notion a few times by now, interleaved with fairly committed detours through Obsidian, Craft, and VSCode extensions for several months… I should mention that Craft is now available through Setapp, and that I am tentatively moving to Obsidian.</p></li>
-<li><p>Bibdesk</p>
-<p>Fairly robust reference management that has most of what I need — priority features include speed, reliability, flexibility in generating citekeys and decent auto-filing of papers added to the database (popular free and paid alternatives that I’ve tried briefly: Zotero, Mendeley, Setne, Papers, Readcube, JabRef, Bookends).</p>
-<p>Incidentally, if you are into Obsidian and Zotero, you might enjoy <a href="https://www.youtube.com/watch?v=XbGJH08ZfCs">this video</a>.</p></li>
-<li><p>MacTeX</p>
-<p>LaTeX and related tools, including TeX-friendly IDEs and reference management tools.</p></li>
-<li><p>Xcode Tools, pandoc, and homebrew</p>
-<p>Need these to work with code.</p></li>
-<li><p>Contexts</p>
-<p>The app that I miss the first when on a machine that doesn’t have it, next to Alfred. Makes window switching much more search and keyboard-driven.</p></li>
-<li><p>Alfred</p>
-<p>Apart from using it as a launcher (even for files), I almost use Alfred as a Finder replacement. Here are some of my favorite Alfred workflows:</p>
-<ul>
-<li>Menubar Search</li>
-<li>Simple Folder Search (only search for folders)</li>
-<li>Case Switch (combined with send-text-to-Alfred below, this can be quite nifty)</li>
-<li>Symbols Search (unicode goodness)</li>
-<li>Send to Yoink</li>
-<li>Quit Applications</li>
-<li>Send text to Alfred (double-tap the option key)</li>
-<li>Color</li>
-<li>Currency Exchanges</li>
-</ul></li>
-<li><p>Keyboard Maestro</p>
-<p>Really elaborate shortcut/automation app. I’ve only scratched the surface with my use cases, but one of the things I really dig about my setup is simulating keypress sequences.</p>
-<p>The way I do this is to activate a macro group for one action with one keyboard shortcut (e.g, CMD + ;) and then have all macros within that have one-letter or one-letter + one-modifier triggers - basically <em>very easy triggers.</em> This way, I only have to remember a bunch of high-level shortcuts for things in various categories, and from there it’s just a letter (and the same letter can be overloaded in different contexts).</p>
-<p>As a concrete example, I have a macro group called launchers, and a shortcut within that for launching chrome. So something like CMD+L followed by c would launch Chrome. Although I have to confess that I mostly launch stuff through Alfred still (at the cost of one or two extra keystrokes).</p>
-<p>Keypress-sequence-triggers are native to Better Touch Tool and since BTT supports AppleScript, you could also run KM macros from BTT. I haven’t quite tried this yet.</p>
-<p>More advice on this <a href="https://wiki.keyboardmaestro.com/Frequently_Asked_Questions#How_do_I_use_a_multiple_keystroke_trigger">here</a>.</p></li>
-<li><p>Typinator</p>
-<p>Fast snippet expansion - faster than TextExpander (one of the main competitors in this space) in my experience. Recent updates have some rad features, which of course I’m yet to explore and exploit!</p></li>
-<li><p>1Password</p>
-<p>Reasonably user-friendly and robust password management. Syncs to iOS, but I haven’t managed to leverage it so much on iOS. 1Password is ideal for storing confidential information nicely (IDs, bank stuff, and the like) - if used only for passwords I suppose the Keychain does a good job too.</p></li>
-<li><p>Fantastical and Calendar</p>
-<p>Fantastical is a nice (but expensive!) calendar app, mostly use it because of the calendar sets feature that keeps my <a href="https://www.macsparky.com/blog/2018/2/hyper-scheduling-mechanics">time blocking calendars</a> separate from the official one that is public within the organization. Of late, I especially like the way you can join online meetings from the notifications.</p>
-<p><del>Having said that, I realized that much of what I was doing with Fantastical was overkill and I’ve switched to the default calendar app for now, and it’s one paid subscription less<sup>2</sup> to have.</del></p>
-<p>Oh well: so I am back on Fantastical, I guess I really like the UI! Meanwhile, Busycal is a great alternative if you are on Setapp.</p></li>
-<li><p>VS Code</p>
-<p>This is where I am supposed to be spending most of my time, perhaps next only to Craft/Notion. A few things from my VSCode workflow:</p>
-<ul>
-<li>Use different themes for different file types (I mostly dabble in LaTeX, C++, Python, JavaScript, and Markdown)</li>
-<li>Little utility extensions save a lot of time: e.g, sort lines, increment value at cursor, file management, etc.</li>
-<li>Multicursor-powered find and replace is amazing.</li>
-<li>Workspaces are handy and I usually launch them from Alfred.</li>
-</ul></li>
-<li><p>Hook</p>
-<p>Looks very promising for cross-linking stuff across apps that have a common context (say, a project). I really need to explore this more!</p>
-<p>Update: Hook is now Hookmark, and is alo available through Setapp.</p></li>
-<li><p>Stream Deck (best with accompanying hardware)</p>
-<p>Particularly useful for switching OBS scenes although I use it less than I thought I would!</p>
-<p>In particular, I want to explore their VSCode and KM integrations.</p>
-<p>If without the physical device, Streamdeck does have a nice iOS app that simulates the hardware, but the pricing is based on a subscription model.</p></li>
-<li><p>Google Chrome</p>
-<p>I can’t make up my mind between Chrome/FF/Brave/Safari. I mostly switch between Chrome and Safari, with a mild preference for Chrome because of it’s more comprehensive extensions space, but I often end up with Safari as default for speed and privacy.</p></li>
-<li><p>Readkit</p>
-<p>Use this for RSS, although I’ve mostly migrated away to DEVONthink. Still looking for a nice stand-alone RSS reader though, Readkit doesn’t always render everything the way I expect, sadly.</p></li>
-<li><p>OBS</p>
-<p>For recording and live-streaming videos. Also useful as a virtual camera for meeting apps.</p></li>
-<li><p>Screenflow and Camtasia</p>
-<p>For recording videos, lots of features, still finding my way around them.</p></li>
-<li><p>Slack and Discord</p>
-<p>Online communities. I sometimes wish there was a native app for discourse too (is there?)</p></li>
-<li><p>Keynote</p>
-<p>Presentations - main alternative: Beamer + LaTeX + pgf/TikZ; or one of the JS-based slide generator tools from Markdown files (I did use react.js for one entire term).</p></li>
-<li><p>DEVONthink</p>
-<p>Use this fairly minimally (especially relative to the possibilities). At the moment DT indexes a couple of key finder folders and pulls in information from a lot of RSS feeds and even Twitter accounts. I try to review the stuff that automatically piles up in DT regularly, but — at the moment — it’s mostly a dumping ground and… messy.</p></li>
-<li><p>Microsoft Teams, Skype, and Zoom</p>
-<p>Use this for classes and online meetings.</p></li>
-<li><p>Office suite: Word/Powerpoint/Excel</p>
-<p>Use it only to open files I receive.</p></li>
-<li><p>Fruitjuice</p>
-<p>Useful battery health monitoring, discovered the app from a MPU podcast episode IIRC.</p></li>
-<li><p>Mathsnip</p>
-<p>Surprisingly good LaTeX-aware OCR.</p></li>
-</ol>
-</div>
-</div>
-</div>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Webapps
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><p>YNAB</p>
-<p>Budgeting and finance management.</p></li>
-<li><p>Gmail</p>
-<p>Until I setup Mailmate again, I’m checking email in my browser. 🙈</p></li>
-<li><p>GSuite (Docs, Sheets, Slides, and Calendar)</p>
-<p>I use these when others use them.</p></li>
-<li><p>Zapier, IFTTT, Integromat</p>
-<p>A few automations here and there, still on my bucket list to take full advantage here. Integromat has been great for <a href="https://www.notion.so/Tracking-Exportober-2416e14ae9254bc0b97532f73058b1bb">tracking Exportober</a> contributions, incidentally!</p></li>
-</ol>
-</div>
-</div>
-</div>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Omissions
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>(aka stuff I used to use but don’t use as much now.)</p>
-<ol type="1">
-<li><p>Karabiner Elements. I was quite taken in by the possibilities offered by <a href="https://medium.com/@nikitavoloboev/karabiner-god-mode-7407a5ddc8f6">“God Mode”</a>, but I realised that I prefer sequential shortcuts - like the ones I managed to setup in KM - to ones powered by arbitrary combinations of simultaneous keypresses.</p></li>
-<li><p>Mailmate. Will very likely be back in the workflow soon!</p></li>
-<li><p>Things. Retired when I switched to “Notion for Everything”. That said, Things is absolutely awesome!</p></li>
-<li><p>Ulyssess. Replaced by Notion → Craft → Obsidian → Notion.</p></li>
-<li><p>Bear. Replaced by Notion → Craft → Obsidian → Notion.</p></li>
-<li><p>Sublime Text. Replaced by VSCode.</p></li>
-<li><p>2Do. Replaced by Things a long time ago, but a really nice app!</p></li>
-<li><p>Shift. Combines many windows in one, basically. Not sure if it was sufficiently useful, living without it and not missing it much.</p></li>
-<li><p>IM+. Similar to Shift in scope, although this one is available on Setapp.</p></li>
-</ol>
-</div>
-</div>
-</div>
-<p>What’s on your list? Do share in the comments below!</p>
-
-
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>NB. This list does not include fonts and scripts — that’s for a separate round up in due course.↩︎</p></li>
-<li id="fn2"><p>I have nothing against paid subscriptions for software in general, but Fantastical’s pricing for the feature set does seem to have an unclear cost-benefit tradeoff, at least for users like me. I haven’t missed much since moving on.↩︎</p></li>
-</ol>
-</section></div> ]]></description>
-  <category>apps</category>
-  <category>list</category>
-  <guid>https://www.neeldhara.com/blog/new-mac/index.html</guid>
-  <pubDate>Wed, 29 Sep 2021 18:30:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

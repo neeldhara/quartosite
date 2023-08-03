@@ -53,16 +53,31 @@ in the context of their role in education. They have been viewed
 (e.g, by [plagiairsm detectors](https://www.turnitin.com/blog/sneak-preview-of-turnitins-ai-writing-and-chatgpt-detection-capability),
 where [challenges about false positives](https://www.k12dive.com/news/turnitin-false-positives-AI-detector/652221/)
 persist)
-as tools that can help students cheat, although there is some work that
-develops possibilities of incorporating such tools into assessments and
-other workflows. Here, I want to focus on the use of chatGPT and similar
-tools can be very useful for instructors to create quick visual
-experiences to supplement their teaching materials and possibly
-assessments. 
+as tools that can help students cheat, although there is also
+much work arguing for their use in helping students learn.
 
-<!-- We also point out that these tools can be just as useful 
-for well-intentioned learners, who can leverage these tools to nearly
-substitute for one-on-one tutoring experiences. -->
+Here, I want to focus on something perhaps more mundane, but
+a theme that has been one of my favorite chatGPT use cases over the last few months:
+it's utility in helping create materials
+that are too tedious to bring to life otherwise.
+It turns out that I often envision neat little interactive experiences 
+when I am thinking about how to describe something: it could just be
+a thing that lets folks play with examples to build out some intuition
+or it could be something that helps bring out a specific element of an
+argument or an idea. However, the barrier of entry
+to creating those experiences myself is _just a little out of reach_,
+enough for me to not do it. But with the kind of help I have had from
+chatGPT, I feel invested enough to mess around.
+
+For a lot of standard topics, there are plenty of visualizations and
+interactive experiences already available: so one might wonder if this
+is worth it. I do think that leveraging existing content that's already
+been done well is important, but: (a) not everything is already done, and
+(b) experiences created from scratch allow for instructors to incorporate
+their own variations on the textbook premise, and would also offer the
+flexibility to be transformed into assessments --- both of these goals
+are often hard to meet with off-the-shelf demonstrations.
+
 
 Note: Although a lot of this discussion is about how instructors can
 leverage chatGPT as a tool to efficiently create visualizations and
@@ -75,22 +90,16 @@ are shown in boxes with a green background.
 
 ## For Instructors
 
-We'll discuss here two examples of visualizations of textbook topics that
-may not be widely available otherwise. The entire chatlogs for all three demonstrations can
-be found as PDFs at the following links:
+I'll describe two examples of visualizations of textbook topics that
+may not be widely available otherwise. The entire chatlogs for the 
+specific demonstrations can be found as PDFs at the following links:
 
 1. [Subtraction Game](chatGPT-subtraction-chatlog.pdf)
 2. [File Storage 1](tape-drag-drop.pdf)
 3. [File Storage 2](draggable-tape.pdf)
 
-(The May 12 release was used.)
+(The May 12 release of chatGPT was in use.)
 
-A repeating theme is the fact
-that visualizations created by hand allow for the instructor to incorporate
-their own variations on the textbook premise, and would also offer the
-flexibility to be transformed into assessments --- both of these goals
-are often hard to meet with off-the-shelf demonstrations (which abound
-for several standard topics).
 
 ### Exhibit A. The Subtraction Game
 
@@ -393,13 +402,11 @@ cost.</figcaption>
 <figcaption>An example where the current and optimal costs are the
 same.</figcaption>
 </figure>
-<figcaption>The second approach to visualizing the greedy approach to
-storing files on a tape. Note that the numbers are rounded to integers
-for clarity.</figcaption>
 </figure>
 
-The outcomes of these prompts, with appropriate back-and-forth to fix
-buggy or unexpected behavior, is shown in 
+The current version of this implementation is [here](https://filestorage2.netlify.app/), 
+and it's still a little quirky in terms of the first couple of times you drag the slider,
+but stabilizes soon after. I hope to fix this... eventually :)
 
 ## For Students
 
@@ -429,51 +436,20 @@ learning a language on a platform like Duolingo is an enhanced
 experience when we attempt talking with native speakers, so is
 programming language learning potentially enhanced by such transactions
 between the learner and someone who has the advantage of expertise.
-While one may currently doubt that LLMs are as good as real experts in
-their current forms, one could argue that: 
-
-(a) given the challenges of
-scale when it comes to the availability of real experts, 
-
-(b) the fact
-that LLMs are already demonstrating promise in the quality of their
-outputs and, 
-
-(c) since it not too difficult to know when the output of
-the LLM is not accurate, they make for serious contenders especially in
-scenarios where the alternatives happen to be bleak.
 
 As a sample counterpoint to this thread of thought, in a [CACM blog](https://cacm.acm.org/blogs/blog-cacm/273577-ai-does-not-help-programmers/fulltext#comments), 
 Bertrand Meyer argues that chatGPT may not, in fact,
-be helpful for programmers:
+be helpful for (expert) programmers:
 
 > Here is my experience so far. As a programmer, I know where to go to solve a problem. But I am fallible; I would love to have an assistant who keeps me in check, alerting me to pitfalls and correcting me when I err. A effective pair-programmer. But that is not what I get. Instead, I have the equivalent of a cocky graduate student, smart and widely read, also polite and quick to apologize, but thoroughly, invariably, sloppy and unreliable. I have little use for such  supposed help. 
 
-Check out the blog to see where this is coming from: you can eavesdrop on Meyer's conversation with chatGPT and decide for yourself :)
+Check out the blog to see where this is coming from: you can 
+eavesdrop on Meyer's conversation with chatGPT and decide for yourself :)
 
 ## What's Next?
 
-<!-- In a recent CACM viewpoint article, Welsh argues that:
-
-> The new atomic unit of computation becomes not a processor, memory,
-> and I/O system implementing a von Neumann machine, but rather a
-> massive, pre-trained, highly adaptive AI model. This is a seismic
-> shift in the way we think about computation---not as a predictable,
-> static process, governed by instruction sets, type systems, and
-> notions of decidability. AI-based computation has long since crossed
-> the Rubicon of being amenable to static analysis and formal proof. We
-> are rapidly moving toward a world where the fundamental building
-> blocks of computation are temperamental, mysterious, adaptive agents.
-
-We are evidently at the cusp of a new era in terms of how we interface
-with computers. Our thesis is that these developments can be leveraged
-to both (a) democratize access to tools for thought and exposition, and
-(b) scale up personalized education in ways that were simply not
-feasible before. The hope is that we can ultimately use "artificial
-intelligence to enhance human intelligence", as Khan puts it. -->
-
 For the interactives discussed here, there are several ways of extending 
-what we have cobbled together. For instance, for
+what has been cobbled together. For instance, for
 the visualization of [Subtraction]{.smallcaps}, a natural next step is
 to create an interactive process that allows the learner to visualize
 the game tree, at least for small versions of the game.
@@ -500,29 +476,47 @@ target, and the game is a draw otherwise.
 visualization to the situation where we not only have files, but also
 associated frequencies of access.
 
-Broadly speaking, I can't help feeling --- in the light of the wide
-availiability of tools like chatGPT --- that class materials and exercises 
-should be adapted so that the AI can be leveraged by students to 
-accelerate their learning processes, as opposed to using them to 
-"cheat" on assessments in the traditional format. I realize this is
+These were just a couple of examples to suggest that creating fun
+and customized experiences for your classes may now just be a little
+easier than before, and hopefully this encourages more of us to experiment
+with the ideas we have.
+
+On the theme of learners using chatGPT: there are several demonstrations that LLMs do well on the kind of 
+programming tasks that show up in introductory coursework; for instance
+[here is a preprint](https://arxiv.org/abs/2210.15157) suggesting as much:
+
+> We [...] evaluate the performance of Copilot on a publicly available dataset of 166 programming problems. We find that it successfully solves around half of these problems on its very first attempt, and that it solves 60% of the remaining problems using only natural language changes to the problem description. We argue that this type of prompt engineering, which we believe will become a standard interaction between human and Copilot when it initially fails, is a potentially useful learning activity that promotes computational thinking skills, and is likely to change the nature of code writing skill development.
+
+
+Such illustrations simply reinforce my sense that class materials and exercises 
+should be adapted so that LLMs can be leveraged by students to 
+accelerate their learning processes, making the "cheat use case" implausible
+almost by defintion. I realize this is
 easier said than done, but it's already interesting to see all the ideas
-that have come up to this effect (see, for example, this very [nice preprint](https://arxiv.org/abs/2210.15157)).
+that have come up to this effect. 
 
-Conversations with chatGPT have shown mixed results on debugging, but
-often chatGPT can provide surprisingly relevant insights on why a piece
-of code does not work as expected. I think it would be fun to ask
-chatGPT why, say, a particular Codeforces solution does not work.
-Perhaps with some background from the editorials, chatGPT and its ilk
-can provide somewhat meaningful explanations of why something does not
-work. I am aware that the release of chatGPT and friends has no doubt
-unleashed a flurry of work along these lines, so do let me know in
-the comments if you have pointers!
+Check out this [very cool thread](https://twitter.com/ShriramKMurthi/status/1683301415005855744) 
+on Porpoise, a tool meant to help learners articulate specs for a
+given task: the first part of the exercise is reverse engineer 
+what the task in question based on some sample I/O that is given,
+and the second part is to write it up so that chatGPT can produce
+code to match the sample I/O + some hidden tests that extrapolate on
+the samples. 
 
-<!-- It may be interesting to use data sets of buggy solutions to 
-competitive programming contest problems, which are generally widely
-available, and run them through chatGPT --- while using the editorials
-to provide additional context --- to explore the potential and
-limitations of LLMs for this use case.-->
+Apart from writing code, chatGPT/Copilot/Ghostwriter can read code too, 
+and often provide [surprisingly relevant 
+insights](https://www.zdnet.com/article/okay-so-chatgpt-just-debugged-my-code-for-real/) 
+on why a piece of code does not work as expected. 
+One context in which I would like to leverage this is to look at failed
+submissions on competitive coding platforms. Perhaps with some background 
+from the editorials, chatGPT and its ilk can provide meaningful 
+explanations of why something does not work, and if this turns out
+to be reliable, then it potentially removes some of the frustration 
+from the learning process without short-circuiting it in bad ways.
+
+I am aware that the release of chatGPT and friends has unleashed a 
+flurry of work in the teaching/learning space, so do let me know in the 
+comments if you have pointers to fun projects and ideas!
 
 [^1]: The success of Visualgo is witnessed by its wide usage and several
     anecdotal reports of positive feedback.

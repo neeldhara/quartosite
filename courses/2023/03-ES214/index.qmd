@@ -14,32 +14,6 @@ listing:
     filter-ui: false
     feed: false
     template: ../../materials.ejs
-  - id: assignments-listing
-    contents: materials-assignments.yml
-    sort: issueddate asc
-    page-size: 100
-    type: table
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    feed: false
-    template: ../../materials-assessments.ejs
-    field-types: 
-      dateissued: date
-      due: date
-  - id: quizzes-listing
-    contents: materials-quizzes.yml
-    sort: issueddate asc
-    page-size: 100
-    type: table
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    feed: false
-    template: ../../materials-assessments.ejs
-    field-types: 
-      dateissued: date
-      due: date
   - id: exams-listing
     contents: materials-exams.yml
     sort: issueddate asc
@@ -157,15 +131,16 @@ All slides for the initial lectures can be found [here](https://slides.com/neeld
 
 ## Assignments
 
-<p>These are the weekly practice problems. There is no need to submit these assignments, but please make sure to get feedback from your peers, instructors and TAs as you go along.</p>
+<p>Weekly practice problems are posted to Google Classroom. There is no need to submit these assignments, but please make sure to get feedback from your peers, instructors and TAs as you go along. We also strongly encourage you to explore the problems from the courses available through Brilliant (access details have been shared on Google Classroom as well).</p>
 
-::: {#assignments-listing}
-:::
+<!-- ::: {#assignments-listing}
+::: -->
 
 ## Quizzes
 
-::: {#quizzes-listing}
-:::
+Problems and solutions for weekly quizzes are available from within Mathematize.
+<!-- ::: {#quizzes-listing}
+::: -->
 
 ## Exams
 
@@ -175,3 +150,33 @@ All slides for the initial lectures can be found [here](https://slides.com/neeld
 :::
 
 :::
+
+
+<!-- 
+  - id: assignments-listing
+    contents: materials-assignments.yml
+    sort: issueddate asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials-assessments.ejs
+    field-types: 
+      dateissued: date
+      due: date
+  - id: quizzes-listing
+    contents: materials-quizzes.yml
+    sort: issueddate asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials-assessments.ejs
+    field-types: 
+      dateissued: date
+      due: date
+-->

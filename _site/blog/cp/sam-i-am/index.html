@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.262">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,7 +18,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -56,7 +56,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
@@ -92,120 +93,122 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html">
+    <a class="nav-link" href="../../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../../research/overview.html">
+    <a class="dropdown-item" href="../../../research/overview.html" rel="" target="">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/people.html">
+    <a class="dropdown-item" href="../../../research/people.html" rel="" target="">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/publications.html">
+    <a class="dropdown-item" href="../../../research/publications.html" rel="" target="">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/surveys">
+    <a class="dropdown-item" href="../../../research/surveys" rel="" target="">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../../courses/index.html">
+    <a class="dropdown-item" href="../../../courses/index.html" rel="" target="">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../materials/index.html">
+    <a class="dropdown-item" href="../../../materials/index.html" rel="" target="">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../../tgif/">
+    <a class="dropdown-item" href="../../../tgif/" rel="" target="">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../bookmarks/">
+    <a class="dropdown-item" href="../../../bookmarks/" rel="" target="">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../../talks/">
+    <a class="dropdown-item" href="../../../talks/" rel="" target="">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../videos/">
+    <a class="dropdown-item" href="../../../videos/" rel="" target="">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../events/">
+    <a class="nav-link" href="../../../events/" rel="" target="">
  <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html">
+    <a class="nav-link" href="../../../blog.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -275,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.003.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">A first example of a configuration of Sam’s enemies location</figcaption><p></p>
+<figcaption class="figure-caption">A first example of a configuration of Sam’s enemies location</figcaption>
 </figure>
 </div>
 <div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="">Conveniently for us, the enemies don’t move around.</span></div></div>
@@ -283,28 +286,28 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.006.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">A solution were we fire along rows alone</figcaption><p></p>
+<figcaption class="figure-caption">A solution were we fire along rows alone</figcaption>
 </figure>
 </div>
 <p>If Sam was superstitious about shooting along columns only, then he would again need four of these cannon balls to take care of everything:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.007.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">A solution were we fire along columns alone</figcaption><p></p>
+<figcaption class="figure-caption">A solution were we fire along columns alone</figcaption>
 </figure>
 </div>
 <p>However, our friend Sam is smart, not superstitious! And if there is anything that he is obsessed about, it is ruthlessly optimal destruction! In other words, he wants to fix everything up, but while using the smallest number of cannon balls possible… and if that means mixing up ranks and files, so be it — notice that you can manage with just three once you combine the use of both axes:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.008.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">A solution leveraging a combination of rows and columns</figcaption><p></p>
+<figcaption class="figure-caption">A solution leveraging a combination of rows and columns</figcaption>
 </figure>
 </div>
 <p>And for this example in particular, notice that three cannon balls are <em>necessary</em>, because we have at least three enemies positioned at locations that share <em>neither a row nor a column</em>, implying that no row-fire or column-fire can handle more than one of these locations at once:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.009.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Demonstrating that three canonballs are in fact necessary</figcaption><p></p>
+<figcaption class="figure-caption">Demonstrating that three canonballs are in fact necessary</figcaption>
 </figure>
 </div>
 <p>So for this example, we know that:</p>
@@ -335,7 +338,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.011.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">The vertices of the auxiliary graph</figcaption><p></p>
+<figcaption class="figure-caption">The vertices of the auxiliary graph</figcaption>
 </figure>
 </div>
 <ul>
@@ -344,13 +347,13 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.027.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">The edges of the auxiliary graph</figcaption><p></p>
+<figcaption class="figure-caption">The edges of the auxiliary graph</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.028.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">A bipartite graph!</figcaption><p></p>
+<figcaption class="figure-caption">A bipartite graph!</figcaption>
 </figure>
 </div>
 <p>Observe that:</p>
@@ -361,7 +364,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.030.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">A vertex cover</figcaption><p></p>
+<figcaption class="figure-caption">A vertex cover</figcaption>
 </figure>
 </div>
 <p>So our claim in the language of grids now translates to:</p>
@@ -384,7 +387,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.032.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">The flow graph</figcaption><p></p>
+<figcaption class="figure-caption">The flow graph</figcaption>
 </figure>
 </div>
 <p>Here’s the official description of how we build this up:</p>
@@ -398,7 +401,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.035.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">A matching hiding in plain sight</figcaption><p></p>
+<figcaption class="figure-caption">A matching hiding in plain sight</figcaption>
 </figure>
 </div>
 <p>Let’s make the following quick observations in the context of a valid integral flow <span class="math inline">f</span> in <span class="math inline">(\tilde{G},\kappa)</span>:</p>
@@ -410,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.040.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Edges in the residual graph that have a residual capacity of zero are not shown. Also, the original edges that were used by <span class="math inline">f</span> have infinite residual capacity but their corresponding back-edges have unit capacity, but this distinction is not emphasised in the picture because it’s not particularly relevant to our discussion.</figcaption><p></p>
+<figcaption class="figure-caption">Edges in the residual graph that have a residual capacity of zero are not shown. Also, the original edges that were used by <span class="math inline">f</span> have infinite residual capacity but their corresponding back-edges have unit capacity, but this distinction is not emphasised in the picture because it’s not particularly relevant to our discussion.</figcaption>
 </figure>
 </div>
 <p>Edges in the residual graph that have a residual capacity of zero are not shown. Also, the original edges that were used by <span class="math inline">f</span> have infinite residual capacity but their corresponding back-edges have unit capacity, but this distinction is not emphasised in the picture because it’s not particularly relevant to our discussion.</p>
@@ -418,7 +421,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.042.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">The vertices reachable from <span class="math inline">s</span> are marked green, while all remaining vertices are marked red.</figcaption><p></p>
+<figcaption class="figure-caption">The vertices reachable from <span class="math inline">s</span> are marked green, while all remaining vertices are marked red.</figcaption>
 </figure>
 </div>
 <p>The vertices reachable from <span class="math inline">s</span> are marked green, while all remaining vertices are marked red.</p>
@@ -431,14 +434,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.044.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">The misfits</figcaption><p></p>
+<figcaption class="figure-caption">The misfits</figcaption>
 </figure>
 </div>
 <p>Now roll up your sleeves for some magic. Let’s pull up the cut — which we know is in fact a mincut — obtained by considering the set of vertices reachable from <span class="math inline">s</span> the residual graph corresponding to the maxflow <span class="math inline">f</span>. In pictures, note how we have attracted some column vertices to the <span class="math inline">s</span>-side, and pushed away some row vertices to the <span class="math inline">t</span>-side:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="CP-Week09-Mod03.046.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Some reorganization</figcaption><p></p>
+<figcaption class="figure-caption">Some reorganization</figcaption>
 </figure>
 </div>
 <div class="page-columns page-full"><p>Note that this is a minimum cut, that is to say, the total capacity of the edges crossing the cut is as small as possible — which means that, in particular, the total capacity is at least (or should that be at most?) finite, and that implies, even more particularly, that <em>none</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> of the original edges cross this cut.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Remember how their capacities were infinite? So they just cannot afford to cross a minimum-capacity cut.</p></li></div></div>
@@ -567,9 +570,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -634,6 +651,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.262">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -77,62 +78,6 @@ ul.task-list li input[type="checkbox"] {
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-lectures-listing'] = new List('listing-lectures-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-assignments-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-problemset','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] }],
-      
-      searchColumns: ["listing-lecid","listing-dateissued","listing-problemset","listing-title"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-assignments-listing'] = new List('listing-assignments-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-quizzes-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] }],
-      
-      searchColumns: ["listing-lecid","listing-dateissued","listing-title"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-quizzes-listing'] = new List('listing-quizzes-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -207,120 +152,122 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html">
+    <a class="nav-link" href="../../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../../research/overview.html">
+    <a class="dropdown-item" href="../../../research/overview.html" rel="" target="">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/people.html">
+    <a class="dropdown-item" href="../../../research/people.html" rel="" target="">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/publications.html">
+    <a class="dropdown-item" href="../../../research/publications.html" rel="" target="">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/surveys">
+    <a class="dropdown-item" href="../../../research/surveys" rel="" target="">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../../courses/index.html">
+    <a class="dropdown-item" href="../../../courses/index.html" rel="" target="">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../materials/index.html">
+    <a class="dropdown-item" href="../../../materials/index.html" rel="" target="">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../../tgif/">
+    <a class="dropdown-item" href="../../../tgif/" rel="" target="">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../bookmarks/">
+    <a class="dropdown-item" href="../../../bookmarks/" rel="" target="">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../../talks/">
+    <a class="dropdown-item" href="../../../talks/" rel="" target="">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../videos/">
+    <a class="dropdown-item" href="../../../videos/" rel="" target="">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../events/">
+    <a class="nav-link" href="../../../events/" rel="" target="">
  <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html">
+    <a class="nav-link" href="../../../blog.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -355,12 +302,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="august-november-2023" class="level5">
 <h5 class="anchored" data-anchor-id="august-november-2023">August — November 2023</h5>
 <p>(co-instructor with <a href="https://sites.google.com/site/anirbandasgupta">Prof.&nbsp;Anirban Dasgupta</a>.)</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 About the Course
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -371,12 +318,12 @@ About the Course
 </div>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Target Audience
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -393,12 +340,12 @@ Target Audience
 </div>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Prerequisites
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -409,12 +356,12 @@ Prerequisites
 </div>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 References
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -431,12 +378,12 @@ References
 </div>
 </div>
 </div>
-<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Timings and Venue
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -456,12 +403,12 @@ Timings and Venue
 </div>
 </div>
 </div>
-<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 TAs and Office hours
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -478,12 +425,12 @@ TAs and Office hours
 </div>
 </div>
 </div>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Evaluation policy
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -498,12 +445,12 @@ Evaluation policy
 </div>
 </div>
 </div>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Register
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -519,7 +466,7 @@ Register
 </div>
 </div>
 </div>
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Lectures</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Assignments</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Quizzes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Exams</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
@@ -979,418 +926,14 @@ No matching items
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>
-These are the weekly practice problems. There is no need to submit these assignments, but please make sure to get feedback from your peers, instructors and TAs as you go along.
+Weekly practice problems are posted to Google Classroom. There is no need to submit these assignments, but please make sure to get feedback from your peers, instructors and TAs as you go along. We also strongly encourage you to explore the problems from the courses available through Brilliant (access details have been shared on Google Classroom as well).
 </p>
-<div id="listing-assignments-listing" class="quarto-listing quarto-listing-container-custom">
-
-<table class="quarto-listing-table table">
-    <thead>
-        <tr><td>Issued</td>
-        <td>Assessment</td>
-        <td>Problems</td>
-        <td>Solutions</td>
-        <td>Due</td>
-    </tr></thead>
-    <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 08 2023">            
-            <td class="listing-date">
-                10 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Sets and Functions</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <a href="tutorials/T01.html"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="17 08 2023">            
-            <td class="listing-date">
-                17 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Induction</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="24 08 2023">            
-            <td class="listing-date">
-                24 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Logic</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="31 08 2023">            
-            <td class="listing-date">
-                31 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Counting</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="14 09 2023">            
-            <td class="listing-date">
-                14 Sep, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Graphs I</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="21 09 2023">            
-            <td class="listing-date">
-                21 Sep, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Graphs II</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="05 10 2023">            
-            <td class="listing-date">
-                05 Oct, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Probability</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="19 10 2023">            
-            <td class="listing-date">
-                19 Oct, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Dimensionality Arguments</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="02 11 2023">            
-            <td class="listing-date">
-                02 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Groups I</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="09 11 2023">            
-            <td class="listing-date">
-                09 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Groups II</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="16 11 2023">            
-            <td class="listing-date">
-                16 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Number Theory</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+<!-- ::: {#assignments-listing}
+::: -->
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<div id="listing-quizzes-listing" class="quarto-listing quarto-listing-container-custom">
-
-<table class="quarto-listing-table table">
-    <thead>
-        <tr><td>Issued</td>
-        <td>Assessment</td>
-        <td>Problems</td>
-        <td>Solutions</td>
-        <td>Due</td>
-    </tr></thead>
-    <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 08 2023">            
-            <td class="listing-date">
-                10 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Sets and Functions</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="17 08 2023">            
-            <td class="listing-date">
-                17 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Induction</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="24 08 2023">            
-            <td class="listing-date">
-                24 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Logic</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="31 08 2023">            
-            <td class="listing-date">
-                31 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Counting</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="14 09 2023">            
-            <td class="listing-date">
-                14 Sep, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Graphs I</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="21 09 2023">            
-            <td class="listing-date">
-                21 Sep, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Graphs II</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="05 10 2023">            
-            <td class="listing-date">
-                05 Oct, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Probability</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="19 10 2023">            
-            <td class="listing-date">
-                19 Oct, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Dimensionality Arguments</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="02 11 2023">            
-            <td class="listing-date">
-                02 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Groups I</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="09 11 2023">            
-            <td class="listing-date">
-                09 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Groups II</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="16 11 2023">            
-            <td class="listing-date">
-                16 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Number Theory</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+<p>Problems and solutions for weekly quizzes are available from within Mathematize. <!-- ::: {#quizzes-listing}
+::: --></p>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <div id="listing-exams-listing" class="quarto-listing quarto-listing-container-custom">
@@ -1413,10 +956,10 @@ No matching items
                 <p>Syllabus: topics in lectures 1 to 9 (inclusive)</p>
             </td>
             <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                    <a href="exams/qp1.pdf"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
                 </td>
             <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                    <a href="exams/qp1-solutions.pdf"><i class="bi bi-journal-richtext" style="padding-left: 32px;"></i></a>
                 </td>
             <td class="listing-due">
                     -
@@ -1469,6 +1012,35 @@ No matching items
 </div>
 </section>
 </section>
+
+<!-- 
+  - id: assignments-listing
+    contents: materials-assignments.yml
+    sort: issueddate asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials-assessments.ejs
+    field-types: 
+      dateissued: date
+      due: date
+  - id: quizzes-listing
+    contents: materials-quizzes.yml
+    sort: issueddate asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials-assessments.ejs
+    field-types: 
+      dateissued: date
+      due: date
+-->
 
 
 
@@ -1580,9 +1152,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1647,6 +1233,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

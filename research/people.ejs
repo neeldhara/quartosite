@@ -5,16 +5,16 @@
         <tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>
         <td>
         <% if (item.status == "ongoing") { %>
-        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Ongoing"><i class="bi bi-lightning-fill"></i></span>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Ongoing"><span class="bi bi-lightning-fill"></span></span>
         <% } %>
         <% if (item.status == "alumni") { %>
-        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Graduated"><i class="bi bi-mortarboard-fill"></i></span>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Graduated"><span class="bi bi-mortarboard-fill"></span></span>
         <% } %>
         <% if (item.status == "graduated") { %>
-        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Graduated"><i class="bi bi-mortarboard-fill"></i></span>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Graduated"><span class="bi bi-mortarboard-fill"></span></span>
         <% } %>
         <% if (item.status == "completed") { %>
-            <span data-bs-toggle="tooltip" data-bs-placement="top" title="Completed"><i class="bi bi-check-circle-fill"></i></span>
+            <span data-bs-toggle="tooltip" data-bs-placement="top" title="Completed"><span class="bi bi-check-circle-fill"></span></span>
             <% } %>
         </td>
         <td class="latest">
@@ -33,17 +33,17 @@
         </td>
         <td class="pubs">
             <% if (item.pubs) { %>
-                <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.pubs %>"><i class="bi bi-paperclip"></i></span>            
+                <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.pubs %>"><span class="bi bi-paperclip"></span></span>            
             <% } %>
         </td>
         <td class="listing-topic">
         <% if (item.topic) { %>
-        <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.topic %>"><i class="bi bi-file-text"></i></span>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.topic %>"><span class="bi bi-file-text"></span></span>
         <% } %>
         </td>
         <td class="cosup">
         <% if (item.cosup) { %>
-        <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.cosup %>"><i class="bi bi-sticky"></i></span>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.cosup %>"><span class="bi bi-sticky"></span></span>
         <% } %>
     </td>
     <td class="listing-tenure">

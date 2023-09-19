@@ -6,10 +6,10 @@
 <td>
     <% if(item.info){ %>
         <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.info %>">
-        <a href="<%= item.url %>"><i class="bi bi-link-45deg"></i></a>
+        <a href="<%= item.url %>"><span class="bi bi-link-45deg"></span></a>
         </span>
     <% } else { %>
-        <a href="<%= item.url %>"><i class="bi bi-link-45deg"></i></a>
+        <a href="<%= item.url %>"><span class="bi bi-link-45deg"></span></a>
     <% } %>
     <span style="display:none;" class="listing-info"><%= item.info %></span>
 </td>
@@ -19,37 +19,37 @@
 <td>
     <% for (const caty of item.categories) { %>
         <% if (caty == "book") { %>
-            <i class="bi bi-book"></i>
+            <span class="bi bi-book"></span>
         <% } %>
         <% if (caty == "tweet") { %>
-            <i class="bi bi-twitter"></i>
+            <span class="bi bi-twitter"></span>
         <% } %>
         <% if (caty == "website") { %>
-            <i class="bi bi-globe"></i>
+            <span class="bi bi-globe"></span>
         <% } %>
         <% if (caty == "article") { %>
-            <i class="bi bi-file"></i>
+            <span class="bi bi-file"></span>
         <% } %>
         <% if (caty == "youtube") { %>
-            <i class="bi bi-youtube"></i>
+            <span class="bi bi-youtube"></span>
         <% } %>
         <% if (caty == "video") { %>
-            <i class="bi bi-camera-reels"></i>
+            <span class="bi bi-camera-reels"></span>
         <% } %>
         <% if (caty == "audiobook") { %>
-            <i class="bi bi-music-player-fill"></i>
+            <span class="bi bi-music-player-fill"></span>
         <% } %>
         <% if (caty == "podcast") { %>
-            <i class="bi bi-mic-fill"></i>
+            <span class="bi bi-mic-fill"></span>
         <% } %>
         <% if (caty == "song") { %>
-            <i class="bi bi-cassette-fill"></i>
+            <span class="bi bi-cassette-fill"></span>
         <% } %>
         <% if (caty == "explorable") { %>
-            <i class="bi bi-arrow-repeat"></i>
+            <span class="bi bi-arrow-repeat"></span>
         <% } %>
         <% if (caty == "list") { %>
-            <i class="bi bi-list-stars"></i>
+            <span class="bi bi-list-stars"></span>
         <% } %>
     <% } %>
 </td>
@@ -60,23 +60,23 @@
 </td>
 <td class="listing-status">   
     <% if (item.status == "parsed") { %>
-        <i class="bi bi-check-circle-fill"></i>
+        <span class="bi bi-check-circle-fill"></span>
         <span style="display:none;"><%= item.status %></span>
     <% } %>
     <% if (item.status == "pseudo") { %>
-        <i class="bi bi-check2-circle"></i>
+        <span class="bi bi-check2-circle"></span>
         <span style="display:none;"><%= item.status %></span>
     <% } %>
 </td>
 <td class="listing-duration">   
     <% if (item.duration == "short") { %>
-        <i class="bi bi-star-fill"></i>
+        <span class="bi bi-star-fill"></span>
     <% } %>
     <% if (item.duration == "moderate") { %>
-        <i class="bi bi-clock-history"></i>
+        <span class="bi bi-clock-history"></span>
     <% } %>
     <% if (item.duration == "long") { %>
-        <i class="bi bi-infinity"></i>
+        <span class="bi bi-infinity"></span>
     <% } %>
     <span style="display:none;"><%- item.duration %></span>
 </td>

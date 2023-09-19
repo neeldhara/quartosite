@@ -18,16 +18,16 @@
             </td>
             <td class="listing-problemset">
                 <% if (item.problemset) { %>
-                    <a href="<%= item.problemset %>"><i class="bi bi-journal-richtext" style="padding-left: 42px;"></i></a>
+                    <a href="<%= item.problemset %>"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
                 <% } else { %>
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
                 <% } %>
                 </td>
             <td class="listing-solutions">
                 <% if (item.solutions) { %>
-                    <a href="<%= item.solutions %>"><i class="bi bi-journal-richtext" style="padding-left: 32px;"></i></a>
+                    <a href="<%= item.solutions %>"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
                 <% } else { %>
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
                 <% } %>
                 </td>
         </tr>

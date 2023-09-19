@@ -5,27 +5,27 @@
         <tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>
             <td>
                 <% if ( item.audience == "Undergraduate Course" ) { %>
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.audience %>"><i class="bi bi-stars"></i></span>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.audience %>"><span class="bi bi-stars"></span></span>
                 <% } %>
                 <% if ( item.audience == "Postgraduate Course" ) { %>
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.audience %>"><i class="bi bi-bookmark-star-fill"></i></span>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.audience %>"><span class="bi bi-bookmark-star-fill"></span></span>
                 <% } %>
                 <% if ( item.audience == "Reading Group" ) { %>
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.audience %>"><i class="bi bi-people-fill"></i></span>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.audience %>"><span class="bi bi-people-fill"></span></span>
                 <% } %>
                 <% if ( item.audience == "Topics Course" ) { %>
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.audience %>"><i class="bi bi-asterisk"></i></span>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.audience %>"><span class="bi bi-asterisk"></span></span>
                 <% } %>
             </td>
             <td class="listing-url">
                 <% if ( item.url ) { %>
-                <span><a href="<%= item.url %>"><i class="bi bi-link"></i></a></span>            
+                <span><a href="<%= item.url %>"><span class="bi bi-link"></span></a></span>            
                 <% } %>
             </td>
             <td class="listing-coursecode">
                 <%= item.coursecode %>
             </td>
-            <td class="listing-title">
+            <td class="listing-title" style="min-width:412px;">
                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.description %>"><%= item.title %></span>
             </td>
             <td>

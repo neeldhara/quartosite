@@ -5,7 +5,7 @@
 <tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>
     <td class="listing-url">
             <% if (item.url) { %>
-            <a href="<%= item.url %>"><i class="bi bi-link-45deg"></i></a>
+            <a href="<%= item.url %>"><span class="bi bi-link-45deg"></span></a>
             <% } %>
         </td>
 <td class="listing-title">
@@ -16,23 +16,23 @@
 </td>
 <td class="listing-role">
     <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.role %>">
-        <i class="bi bi-robot"></i>
+        <span class="bi bi-robot"></span>
     </span>    
 </td>
 <td class="listing-type">    
     <% if (item.type == "school") { %>
         <span data-bs-toggle="tooltip" data-bs-placement="top" title="School">
-            <i class="bi bi-gem"></i>
+            <span class="bi bi-gem"></span>
         </span>
     <% } %>
     <% if (item.type == "workshop") { %>
         <span data-bs-toggle="tooltip" data-bs-placement="top" title="Workshop">
-            <i class="bi bi-people-fill"></i>
+            <span class="bi bi-people-fill"></span>
         </span>
     <% } %>
     <% if (item.type == "event") { %>
         <span data-bs-toggle="tooltip" data-bs-placement="top" title="Event">
-            <i class="bi bi-diamond-fill"></i>
+            <span class="bi bi-diamond-fill"></span>
         </span>
     <% } %>
 </td>

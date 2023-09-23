@@ -1,0 +1,37 @@
+---
+title: "Five Card Trick"
+date: "2022-11-23"
+categories: [card]
+fields: [date, title]
+css: /css/tgif.css
+toc: true
+---
+
+Source(s): 
+
+- I found this puzzle in [Mathematical Puzzles: Connoisseur's Collection](https://www.amazon.in/Mathematical-Puzzles-Connoisseurs-Peter-Winkler/dp/1568812019), [Peter Winkler](https://math.dartmouth.edu/~pw/),
+which attributes it to 
+
+- Vol. II of [Winning Ways for Your Mathematical Plays](https://en.wikipedia.org/wiki/Winning_Ways_for_Your_Mathematical_Plays) by [Elwyn Berlekamp](https://en.wikipedia.org/wiki/Elwyn_Berlekamp), [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) and [Richard Guy](https://en.wikipedia.org/wiki/Richard_K._Guy) (Academic Press, 1982; 2nd Edition, A K Peters 2001), which in turn attributes it to
+
+- E. Pericoloso Sporgersi.
+
+- Winkler mentions that the phrase is found also on Italian railroad trains, warning passengers not to lean out the window.
+
+
+##### The Problem
+
+> Alice and Bob are mathematicians who perform a trick at a dinner party. Bob leaves the room and a random volunteer shuffles a standard deck of cards.
+> 
+> Alice chooses 5 cards at random. She places 1 of the cards face down on a table and then leaves the other 4 cards face up.
+> 
+> Bob returns to the room. He inspects the 4 face up cards, and in virtually no time he calls out the value of the face down card.
+> 
+> The cards are not marked in any way and this trick is completely mathematical. Naturally Alice and Bob had prepared to perform the trick so they had a plan of what to do. Can you figure out how they did it?
+
+
+:::{.callout-note appearance="minimal" collapse="true"}
+## {{< bi exclamation-triangle-fill >}} Spoiler
+Use the pigeon-hole principle. Note that Alice chooses both the card to be placed face down and the order of the other 4 cards. 
+:::
+

@@ -1,0 +1,48 @@
+---
+title: "Sum to Fifteen"
+date: "2022-11-23"
+categories: [game]
+fields: [date, title]
+css: /css/tgif.css
+toc: true
+---
+
+Source(s): 
+
+- I found this puzzle in [Mathematical Puzzles: Connoisseur's Collection](https://www.amazon.in/Mathematical-Puzzles-Connoisseurs-Peter-Winkler/dp/1568812019), [Peter Winkler](https://math.dartmouth.edu/~pw/),
+which attributes it to 
+
+- Vol. II of [Winning Ways for Your Mathematical Plays](https://en.wikipedia.org/wiki/Winning_Ways_for_Your_Mathematical_Plays) by [Elwyn Berlekamp](https://en.wikipedia.org/wiki/Elwyn_Berlekamp), [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) and [Richard Guy](https://en.wikipedia.org/wiki/Richard_K._Guy) (Academic Press, 1982; 2nd Edition, A K Peters 2001), which in turn attributes it to
+
+- E. Pericoloso Sporgersi.
+
+- Winkler mentions that the phrase is found also on Italian railroad trains, warning passengers not to lean out the window.
+
+
+##### The Problem
+
+> Alice and Bob alternately choose numbers from among 1, 2, .. ., 9, without replacement. The first to obtain 3 numbers which sum to 15 wins. Does Alice (the first to play) have a winning strategy?
+
+
+:::{.callout-note appearance="minimal" collapse="true"}
+## {{< bi exclamation-triangle-fill >}} Spoiler
+Think magic squares and tic-tac-toe.
+:::
+
+:::{.callout-note appearance="minimal" collapse="true"}
+## {{< bi exclamation-triangle-fill >}} Solution 
+The quick way to solve the puzzle is to imagine that Alice and Bob are playing on the following magic square:
+
+```
+8 1 6
+3 5 7
+4 9 2
+```
+
+Since it is exactly the rows, columns, and main diagonals which sum to 15, they are playing Tic-Tac-Toe! Therefore neither player has a winning strategy.
+:::
+
+
+##### Food for Thought
+
+With the same overall game template, what about other sets of numbers, and other targets?

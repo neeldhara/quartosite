@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.262">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -70,8 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
-      
+      valueNames: ['listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
+      page: 25,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-title","listing-categories"],
     };
 
@@ -123,120 +125,122 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about.html">
+    <a class="nav-link" href="../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../research/overview.html">
+    <a class="dropdown-item" href="../research/overview.html" rel="" target="">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../research/people.html">
+    <a class="dropdown-item" href="../research/people.html" rel="" target="">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../research/publications.html">
+    <a class="dropdown-item" href="../research/publications.html" rel="" target="">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../research/surveys">
+    <a class="dropdown-item" href="../research/surveys" rel="" target="">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../courses/index.html">
+    <a class="dropdown-item" href="../courses/index.html" rel="" target="">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/index.html">
+    <a class="dropdown-item" href="../materials/index.html" rel="" target="">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../tgif/">
+    <a class="dropdown-item" href="../tgif/" rel="" target="">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../bookmarks/">
+    <a class="dropdown-item" href="../bookmarks/" rel="" target="">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../talks/">
+    <a class="dropdown-item" href="../talks/" rel="" target="">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../videos/">
+    <a class="dropdown-item" href="../videos/" rel="" target="">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../events/">
+    <a class="nav-link" href="../events/" rel="" target="">
  <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog.html">
+    <a class="nav-link" href="../blog.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../blog.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -268,7 +272,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -277,7 +281,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This page chronicles puzzles that get shared in the TGIF Puzzle Group, an informal group of puzzle enthusiasts that meets on Fridays at IITGN. Even if you are not at IITGN, you’re welcome to join the discussions over at <a href="https://discord.gg/UNjanRvW52">our Discord server</a>! You can also subscribe to a feed for this series by <a href="tgif.xml">clicking here</a>.</p>
 <p>The easiest way to contribute a puzzle to this list is to hop over the Discord server and post it, but you can also drop me a line at mail -AT- neeldhara.com if you prefer.</p>
 <p>To filter by tags, enter one of the following in the search box:</p>
-<p><code>probability</code> • <code>logic</code> • <code>paper</code> • <code>folding</code> • <code>cutting</code> • <code>tiling</code> • <code>graphs</code> • <code>game</code> • <code>chess</code> • <code>geometry</code></p>
+<p><code>probability</code> • <code>logic</code> • <code>paper</code> • <code>folding</code> • <code>cutting</code> • <code>tiling</code> • <code>graphs</code> • <code>game</code> • <code>chess</code> • <code>geometry</code> • <code>card</code></p>
 </div>
 </div>
 </div>
@@ -298,358 +302,146 @@ ul.task-list li input[type="checkbox"] {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-
-<table class="quarto-listing-table table">
-    <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1673548200000" data-listing-file-modified-sort="1673606457100" data-listing-reading-time-sort="0.69">
-        <td class="listing-date">
-            13 Jan, 2023        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/look-and-see-sequence/index.html">Look and Say Sequence</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    logic &nbsp;
-            </span>
-                <i class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="logic"></i>
-        </td>        
+<table class="quarto-listing-table table" data-quarto-postprocess="true">
+<tbody class="list">
+<tr class="odd" data-index="0" data-categories="logic" data-listing-date-sort="1673548200000" data-listing-file-modified-sort="1673606457100" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">13 Jan, 2023</td>
+<td class="listing-title"><a href="../tgif/look-and-see-sequence/index.html">Look and Say Sequence</a></td>
+<td><span class="listing-categories" style="display: none;"> logic &nbsp; </span> <span class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="logic"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1672943400000" data-listing-file-modified-sort="1673297520521" data-listing-reading-time-sort="0.895">
-        <td class="listing-date">
-            06 Jan, 2023        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/hexagon-tiling-with-diamonds/index.html">Tiling a Hexagon with Diamonds</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    tiling &nbsp;
-            </span>
-                <i class="bi bi-columns" data-bs-toggle="tooltip" data-bs-placement="top" title="tiling"></i>
-        </td>        
+<tr class="even" data-index="1" data-categories="tiling" data-listing-date-sort="1672943400000" data-listing-file-modified-sort="1673297520521" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">06 Jan, 2023</td>
+<td class="listing-title"><a href="../tgif/hexagon-tiling-with-diamonds/index.html">Tiling a Hexagon with Diamonds</a></td>
+<td><span class="listing-categories" style="display: none;"> tiling &nbsp; </span> <span class="bi bi-columns" data-bs-toggle="tooltip" data-bs-placement="top" title="tiling"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1672511400000" data-listing-file-modified-sort="1672964114429" data-listing-reading-time-sort="0.62">
-        <td class="listing-date">
-            01 Jan, 2023        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/cop-and-robber-on-the-number-line/index.html">Cop and Robber on a Number Line</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    game &nbsp;
-            </span>
-                <i class="bi bi-joystick" data-bs-toggle="tooltip" data-bs-placement="top" title="game"></i>
-        </td>        
+<tr class="odd" data-index="2" data-categories="game" data-listing-date-sort="1672511400000" data-listing-file-modified-sort="1672964114429" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">01 Jan, 2023</td>
+<td class="listing-title"><a href="../tgif/cop-and-robber-on-the-number-line/index.html">Cop and Robber on a Number Line</a></td>
+<td><span class="listing-categories" style="display: none;"> game &nbsp; </span> <span class="bi bi-joystick" data-bs-toggle="tooltip" data-bs-placement="top" title="game"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1672511400000" data-listing-file-modified-sort="1672964109100" data-listing-reading-time-sort="0.25">
-        <td class="listing-date">
-            01 Jan, 2023        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/points-and-lines/index.html">Points and Lines</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    geometry &nbsp;
-            </span>
-                <i class="bi bi-circle-square" data-bs-toggle="tooltip" data-bs-placement="top" title="geometry"></i>
-        </td>        
+<tr class="even" data-index="3" data-categories="geometry" data-listing-date-sort="1672511400000" data-listing-file-modified-sort="1672964109100" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">01 Jan, 2023</td>
+<td class="listing-title"><a href="../tgif/points-and-lines/index.html">Points and Lines</a></td>
+<td><span class="listing-categories" style="display: none;"> geometry &nbsp; </span> <span class="bi bi-circle-square" data-bs-toggle="tooltip" data-bs-placement="top" title="geometry"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1670610600000" data-listing-file-modified-sort="1672963277264" data-listing-reading-time-sort="0.515">
-        <td class="listing-date">
-            10 Dec, 2022        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/minimizing-area/index.html">Minimizing Area</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    geometry &nbsp;
-            </span>
-                <i class="bi bi-circle-square" data-bs-toggle="tooltip" data-bs-placement="top" title="geometry"></i>
-        </td>        
+<tr class="odd" data-index="4" data-categories="geometry" data-listing-date-sort="1670610600000" data-listing-file-modified-sort="1672963277264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">10 Dec, 2022</td>
+<td class="listing-title"><a href="../tgif/minimizing-area/index.html">Minimizing Area</a></td>
+<td><span class="listing-categories" style="display: none;"> geometry &nbsp; </span> <span class="bi bi-circle-square" data-bs-toggle="tooltip" data-bs-placement="top" title="geometry"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1666895400000" data-listing-file-modified-sort="1668885567678" data-listing-reading-time-sort="0.06">
-        <td class="listing-date">
-            28 Oct, 2022        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/to-not-checkmate/index.html">To Not Checkmate</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    chess &nbsp;
-                    game &nbsp;
-            </span>
-                <i class="bi bi-grid-3x3" data-bs-toggle="tooltip" data-bs-placement="top" title="chess"></i>
-                <i class="bi bi-joystick" data-bs-toggle="tooltip" data-bs-placement="top" title="game"></i>
-        </td>        
+<tr class="even" data-index="5" data-categories="card" data-listing-date-sort="1669141800000" data-listing-file-modified-sort="1695446313975" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<td class="listing-date">23 Nov, 2022</td>
+<td class="listing-title"><a href="../tgif/five-card-trick/index.html">Five Card Trick</a></td>
+<td><span class="listing-categories" style="display: none;"> card &nbsp; </span> <span class="bi bi-suit-spade-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="card"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1666895400000" data-listing-file-modified-sort="1668885567678" data-listing-reading-time-sort="0.53">
-        <td class="listing-date">
-            28 Oct, 2022        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/honeybee-riddle/index.html">HoneyBee Puzzle</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    game &nbsp;
-            </span>
-                <i class="bi bi-joystick" data-bs-toggle="tooltip" data-bs-placement="top" title="game"></i>
-        </td>        
+<tr class="odd" data-index="6" data-categories="game" data-listing-date-sort="1669141800000" data-listing-file-modified-sort="1695445432713" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">23 Nov, 2022</td>
+<td class="listing-title"><a href="../tgif/sum-to-fifteen/index.html">Sum to Fifteen</a></td>
+<td><span class="listing-categories" style="display: none;"> game &nbsp; </span> <span class="bi bi-joystick" data-bs-toggle="tooltip" data-bs-placement="top" title="game"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1665685800000" data-listing-file-modified-sort="1668885568524" data-listing-reading-time-sort="0.685">
-        <td class="listing-date">
-            14 Oct, 2022        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/windmill/index.html">Windmill</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    geometry &nbsp;
-            </span>
-                <i class="bi bi-circle-square" data-bs-toggle="tooltip" data-bs-placement="top" title="geometry"></i>
-        </td>        
+<tr class="even" data-index="7" data-categories="chess,game" data-listing-date-sort="1666895400000" data-listing-file-modified-sort="1668885567678" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">28 Oct, 2022</td>
+<td class="listing-title"><a href="../tgif/to-not-checkmate/index.html">To Not Checkmate</a></td>
+<td><span class="listing-categories" style="display: none;"> chess &nbsp; game &nbsp; </span> <span class="bi bi-grid-3x3" data-bs-toggle="tooltip" data-bs-placement="top" title="chess"></span> <span class="bi bi-joystick" data-bs-toggle="tooltip" data-bs-placement="top" title="game"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1665685800000" data-listing-file-modified-sort="1668885567691" data-listing-reading-time-sort="0.575">
-        <td class="listing-date">
-            14 Oct, 2022        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/burning-island/index.html">Burning Island</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    logic &nbsp;
-            </span>
-                <i class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="logic"></i>
-        </td>        
+<tr class="odd" data-index="8" data-categories="game" data-listing-date-sort="1666895400000" data-listing-file-modified-sort="1668885567678" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">28 Oct, 2022</td>
+<td class="listing-title"><a href="../tgif/honeybee-riddle/index.html">HoneyBee Puzzle</a></td>
+<td><span class="listing-categories" style="display: none;"> game &nbsp; </span> <span class="bi bi-joystick" data-bs-toggle="tooltip" data-bs-placement="top" title="game"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1665081000000" data-listing-file-modified-sort="1668885567701" data-listing-reading-time-sort="2">
-        <td class="listing-date">
-            07 Oct, 2022        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/hat-puzzles/index.html">Hat Puzzles</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    logic &nbsp;
-            </span>
-                <i class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="logic"></i>
-        </td>        
+<tr class="even" data-index="9" data-categories="geometry" data-listing-date-sort="1665685800000" data-listing-file-modified-sort="1668885568524" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">14 Oct, 2022</td>
+<td class="listing-title"><a href="../tgif/windmill/index.html">Windmill</a></td>
+<td><span class="listing-categories" style="display: none;"> geometry &nbsp; </span> <span class="bi bi-circle-square" data-bs-toggle="tooltip" data-bs-placement="top" title="geometry"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1665081000000" data-listing-file-modified-sort="1668885567701" data-listing-reading-time-sort="1.36">
-        <td class="listing-date">
-            07 Oct, 2022        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/ab-separation/index.html">AB Separation</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    probability &nbsp;
-            </span>
-                <i class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="probability"></i>
-        </td>        
+<tr class="odd" data-index="10" data-categories="logic" data-listing-date-sort="1665685800000" data-listing-file-modified-sort="1668885567691" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">14 Oct, 2022</td>
+<td class="listing-title"><a href="../tgif/burning-island/index.html">Burning Island</a></td>
+<td><span class="listing-categories" style="display: none;"> logic &nbsp; </span> <span class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="logic"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1665081000000" data-listing-file-modified-sort="1668885567701" data-listing-reading-time-sort="0.47">
-        <td class="listing-date">
-            07 Oct, 2022        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/folding-stamps/index.html">Folding Stamps</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    folding &nbsp;
-                    paper &nbsp;
-            </span>
-                <i class="bi bi-file-earmark" data-bs-toggle="tooltip" data-bs-placement="top" title="folding"></i>
-                <i class="bi bi-file" data-bs-toggle="tooltip" data-bs-placement="top" title="paper"></i>
-        </td>        
+<tr class="even" data-index="11" data-categories="logic" data-listing-date-sort="1665081000000" data-listing-file-modified-sort="1668885567701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<td class="listing-date">07 Oct, 2022</td>
+<td class="listing-title"><a href="../tgif/hat-puzzles/index.html">Hat Puzzles</a></td>
+<td><span class="listing-categories" style="display: none;"> logic &nbsp; </span> <span class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="logic"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1665081000000" data-listing-file-modified-sort="1668885567707" data-listing-reading-time-sort="0.32">
-        <td class="listing-date">
-            07 Oct, 2022        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/making-grids/index.html">Making Grids</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    tiling &nbsp;
-            </span>
-                <i class="bi bi-columns" data-bs-toggle="tooltip" data-bs-placement="top" title="tiling"></i>
-        </td>        
+<tr class="odd" data-index="12" data-categories="probability" data-listing-date-sort="1665081000000" data-listing-file-modified-sort="1668885567701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<td class="listing-date">07 Oct, 2022</td>
+<td class="listing-title"><a href="../tgif/ab-separation/index.html">AB Separation</a></td>
+<td><span class="listing-categories" style="display: none;"> probability &nbsp; </span> <span class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="probability"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1665081000000" data-listing-file-modified-sort="1668885567678" data-listing-reading-time-sort="2.365">
-        <td class="listing-date">
-            07 Oct, 2022        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/square-in-bag/index.html">Iwahiro's Square in Bag Puzzle</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    folding &nbsp;
-                    paper &nbsp;
-            </span>
-                <i class="bi bi-file-earmark" data-bs-toggle="tooltip" data-bs-placement="top" title="folding"></i>
-                <i class="bi bi-file" data-bs-toggle="tooltip" data-bs-placement="top" title="paper"></i>
-        </td>        
+<tr class="even" data-index="13" data-categories="folding,paper" data-listing-date-sort="1665081000000" data-listing-file-modified-sort="1668885567701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">07 Oct, 2022</td>
+<td class="listing-title"><a href="../tgif/folding-stamps/index.html">Folding Stamps</a></td>
+<td><span class="listing-categories" style="display: none;"> folding &nbsp; paper &nbsp; </span> <span class="bi bi-file-earmark" data-bs-toggle="tooltip" data-bs-placement="top" title="folding"></span> <span class="bi bi-file" data-bs-toggle="tooltip" data-bs-placement="top" title="paper"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1616610600000" data-listing-file-modified-sort="1668885567701" data-listing-reading-time-sort="0.24">
-        <td class="listing-date">
-            25 Mar, 2021        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/turn-the-led-on/index.html">Turn the LED on</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    probability &nbsp;
-            </span>
-                <i class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="probability"></i>
-        </td>        
+<tr class="odd" data-index="14" data-categories="tiling" data-listing-date-sort="1665081000000" data-listing-file-modified-sort="1668885567707" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">07 Oct, 2022</td>
+<td class="listing-title"><a href="../tgif/making-grids/index.html">Making Grids</a></td>
+<td><span class="listing-categories" style="display: none;"> tiling &nbsp; </span> <span class="bi bi-columns" data-bs-toggle="tooltip" data-bs-placement="top" title="tiling"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1616610600000" data-listing-file-modified-sort="1668885567696" data-listing-reading-time-sort="2.125">
-        <td class="listing-date">
-            25 Mar, 2021        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/4-person-gift-exchange/index.html">4 Person Gift Exchange</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    probability &nbsp;
-            </span>
-                <i class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="probability"></i>
-        </td>        
+<tr class="even" data-index="15" data-categories="folding,paper" data-listing-date-sort="1665081000000" data-listing-file-modified-sort="1668885567678" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<td class="listing-date">07 Oct, 2022</td>
+<td class="listing-title"><a href="../tgif/square-in-bag/index.html">Iwahiro's Square in Bag Puzzle</a></td>
+<td><span class="listing-categories" style="display: none;"> folding &nbsp; paper &nbsp; </span> <span class="bi bi-file-earmark" data-bs-toggle="tooltip" data-bs-placement="top" title="folding"></span> <span class="bi bi-file" data-bs-toggle="tooltip" data-bs-placement="top" title="paper"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1616437800000" data-listing-file-modified-sort="1668885567678" data-listing-reading-time-sort="1.15">
-        <td class="listing-date">
-            23 Mar, 2021        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/conways-checkers/index.html">Conway's Checkers</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    game &nbsp;
-            </span>
-                <i class="bi bi-joystick" data-bs-toggle="tooltip" data-bs-placement="top" title="game"></i>
-        </td>        
+<tr class="odd" data-index="16" data-categories="probability" data-listing-date-sort="1616610600000" data-listing-file-modified-sort="1668885567701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">25 Mar, 2021</td>
+<td class="listing-title"><a href="../tgif/turn-the-led-on/index.html">Turn the LED on</a></td>
+<td><span class="listing-categories" style="display: none;"> probability &nbsp; </span> <span class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="probability"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1616437800000" data-listing-file-modified-sort="1668885567701" data-listing-reading-time-sort="0.39">
-        <td class="listing-date">
-            23 Mar, 2021        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/coin-tossing/index.html">Coin Tossing</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    probability &nbsp;
-            </span>
-                <i class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="probability"></i>
-        </td>        
+<tr class="even" data-index="17" data-categories="probability" data-listing-date-sort="1616610600000" data-listing-file-modified-sort="1668885567696" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<td class="listing-date">25 Mar, 2021</td>
+<td class="listing-title"><a href="../tgif/4-person-gift-exchange/index.html">4 Person Gift Exchange</a></td>
+<td><span class="listing-categories" style="display: none;"> probability &nbsp; </span> <span class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="probability"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1615746600000" data-listing-file-modified-sort="1668885567725" data-listing-reading-time-sort="0.42">
-        <td class="listing-date">
-            15 Mar, 2021        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/estimating-pi/index.html">Estimating Pi</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    probability &nbsp;
-            </span>
-                <i class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="probability"></i>
-        </td>        
+<tr class="odd" data-index="18" data-categories="game" data-listing-date-sort="1616437800000" data-listing-file-modified-sort="1668885567678" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<td class="listing-date">23 Mar, 2021</td>
+<td class="listing-title"><a href="../tgif/conways-checkers/index.html">Conway's Checkers</a></td>
+<td><span class="listing-categories" style="display: none;"> game &nbsp; </span> <span class="bi bi-joystick" data-bs-toggle="tooltip" data-bs-placement="top" title="game"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1615746600000" data-listing-file-modified-sort="1668885567725" data-listing-reading-time-sort="2.445">
-        <td class="listing-date">
-            15 Mar, 2021        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/coming-to-agreement/index.html">Coming to Agreement</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    logic &nbsp;
-            </span>
-                <i class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="logic"></i>
-        </td>        
+<tr class="even" data-index="19" data-categories="probability" data-listing-date-sort="1616437800000" data-listing-file-modified-sort="1668885567701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">23 Mar, 2021</td>
+<td class="listing-title"><a href="../tgif/coin-tossing/index.html">Coin Tossing</a></td>
+<td><span class="listing-categories" style="display: none;"> probability &nbsp; </span> <span class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="probability"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1615746600000" data-listing-file-modified-sort="1668885567731" data-listing-reading-time-sort="1.32">
-        <td class="listing-date">
-            15 Mar, 2021        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/deaths-dice/index.html">Death's Dice</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    probability &nbsp;
-            </span>
-                <i class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="probability"></i>
-        </td>        
+<tr class="odd" data-index="20" data-categories="probability" data-listing-date-sort="1615746600000" data-listing-file-modified-sort="1668885567725" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">15 Mar, 2021</td>
+<td class="listing-title"><a href="../tgif/estimating-pi/index.html">Estimating Pi</a></td>
+<td><span class="listing-categories" style="display: none;"> probability &nbsp; </span> <span class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="probability"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1615660200000" data-listing-file-modified-sort="1668885567701" data-listing-reading-time-sort="3.065">
-        <td class="listing-date">
-            14 Mar, 2021        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/find-the-puppy/index.html">Find The Puppy</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    logic &nbsp;
-                    game &nbsp;
-            </span>
-                <i class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="logic"></i>
-                <i class="bi bi-joystick" data-bs-toggle="tooltip" data-bs-placement="top" title="game"></i>
-        </td>        
+<tr class="even" data-index="21" data-categories="logic" data-listing-date-sort="1615746600000" data-listing-file-modified-sort="1668885567725" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<td class="listing-date">15 Mar, 2021</td>
+<td class="listing-title"><a href="../tgif/coming-to-agreement/index.html">Coming to Agreement</a></td>
+<td><span class="listing-categories" style="display: none;"> logic &nbsp; </span> <span class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="logic"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1615401000000" data-listing-file-modified-sort="1668885567678" data-listing-reading-time-sort="0.49">
-        <td class="listing-date">
-            11 Mar, 2021        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/blue-eyed-islanders-puzzle/index.html">The Blue-Eyed Islanders</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    logic &nbsp;
-            </span>
-                <i class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="logic"></i>
-        </td>        
+<tr class="odd" data-index="22" data-categories="probability" data-listing-date-sort="1615746600000" data-listing-file-modified-sort="1668885567731" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<td class="listing-date">15 Mar, 2021</td>
+<td class="listing-title"><a href="../tgif/deaths-dice/index.html">Death's Dice</a></td>
+<td><span class="listing-categories" style="display: none;"> probability &nbsp; </span> <span class="bi bi-dice-5-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="probability"></span></td>
 </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1615401000000" data-listing-file-modified-sort="1668885567679" data-listing-reading-time-sort="1.415">
-        <td class="listing-date">
-            11 Mar, 2021        
-        </td>
-        <td class="listing-title">
-            <a href="../tgif/lighting-up-a-grid/index.html">Lighting Up a Grid</a>     
-        </td>
-        <td>
-            <span style="display: none;" class="listing-categories">
-                    graphs &nbsp;
-            </span>
-                <i class="bi bi-bounding-box-circles" data-bs-toggle="tooltip" data-bs-placement="top" title="graphs"></i>
-        </td>        
+<tr class="even" data-index="23" data-categories="logic,game" data-listing-date-sort="1615660200000" data-listing-file-modified-sort="1668885567701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<td class="listing-date">14 Mar, 2021</td>
+<td class="listing-title"><a href="../tgif/find-the-puppy/index.html">Find The Puppy</a></td>
+<td><span class="listing-categories" style="display: none;"> logic &nbsp; game &nbsp; </span> <span class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="logic"></span> <span class="bi bi-joystick" data-bs-toggle="tooltip" data-bs-placement="top" title="game"></span></td>
+</tr>
+<tr class="odd" data-index="24" data-categories="logic" data-listing-date-sort="1615401000000" data-listing-file-modified-sort="1668885567678" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<td class="listing-date">11 Mar, 2021</td>
+<td class="listing-title"><a href="../tgif/blue-eyed-islanders-puzzle/index.html">The Blue-Eyed Islanders</a></td>
+<td><span class="listing-categories" style="display: none;"> logic &nbsp; </span> <span class="bi bi-door-open-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="logic"></span></td>
+</tr>
+<tr class="even" data-index="25" data-categories="graphs" data-listing-date-sort="1615401000000" data-listing-file-modified-sort="1668885567679" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<td class="listing-date">11 Mar, 2021</td>
+<td class="listing-title"><a href="../tgif/lighting-up-a-grid/index.html">Lighting Up a Grid</a></td>
+<td><span class="listing-categories" style="display: none;"> graphs &nbsp; </span> <span class="bi bi-bounding-box-circles" data-bs-toggle="tooltip" data-bs-placement="top" title="graphs"></span></td>
 </tr>
 </tbody>
 </table>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
 
@@ -757,9 +549,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -824,6 +630,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

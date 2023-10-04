@@ -69,6 +69,96 @@
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+(10/02). File Searches with Alfred App
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To open a file, I simply open up <a href="https://www.alfredapp.com/">Alfred</a> and press the spacebar or the <code>'</code> symbol and start typing out a filename. This is enabled by going in to Alfred preferences and making sure that <code>Quick Search: Enable Quick File Search mode</code> is enabled:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/2023-exportober-workflows/alfred-file-search.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption class="figure-caption">Alfred Quick File Search</figcaption>
+</figure>
+</div>
+<p>Most launchers have some kind of file search enabled, so look out for it even if you are on, say, <a href="https://www.raycast.com/">Raycast</a>, or <a href="https://www.obdev.at/launchbar">Launchbar</a>, or something else.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+(10/03). Bookmarks with Static Marks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I use <a href="https://darekkay.com/static-marks/">StaticMarks</a> to track key locations across the web and my filesystem. Typically, any project that I am working on has some subset of the following key links:</p>
+<ul>
+<li>A Drive/Dropbox or local Folder</li>
+<li>A Notes Folder within my PKM system of choice (Obsidian/Quarto)</li>
+<li>A Notion or Things page that tracks tasks</li>
+<li>A Zoom/Meet URL if meetings/classes are online</li>
+<li>Other External URLs (spreadsheets, grading pages, pages on Overleaf/Github, key email threads, and so forth)</li>
+</ul>
+<p>I now dump most of this in a YAML file (using <a href="https://hookproductivity.com/">Hookmark</a> for local folders, so that the links persist even if I move things around) now, and have a few HTML pages that give me a quick overview of all my major projects. I typically restrict myself to the first three or four links, because that covers 90% of what I need quickly, and the other associated external URLs go into the notes page that I have for the project in my whatever-system, so they do end up being at most one hop away from the static marks page.</p>
+<p>Previously I used to try to maintain everything within <a href="https://arc.net/">Arc</a> folders but that got somewhat out of hand, so I swept it all clean and only have more or less top level folders in Arc now representing major themes that I can categorize my efforts into, and each such theme has its own static marks file that I can use to get a nice, searchable big picture.</p>
+<p>One thing that I do find annoying in general is the fact that reference material is often common to multiple efforts (e.g, the same papers relevant to multiple research projects). Since I access my files by search, I am perhaps more sensitive than usual to any kind of redundancy — it clutters up the search results (besides, I prefer a single source of truth on, say PDFs, because I am typically annotating them). These days, I keep my reference material separate from projects, and link them to projects using either a PKM system, or more casually, using Hookmark.</p>
+<p>Related: <a href="https://bunchapp.co/">Bunch</a> by <a href="https://brettterpstra.com/">Brett Terpstra</a> is a handy plaintext automation tool: the website has some really indicative use cases, go check it out! I don’t use this myself but am looking forward to incorporating it into my workflow once my life is sorted enough for me to figure out what I typically do in the context of a specific project, and for said things to be sufficiently distinguishable from complete chaos :)</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+(10/04). Search Links by Brett Terpstra
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you’ve used <code>Cmd+K</code> on Google docs, you may have noticed — and even been spoiled by — how Google can figure out your links for you based on the content of the selected text:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/2023-exportober-workflows/gdoc-autosuggest-links.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption class="figure-caption">Google Docs link search</figcaption>
+</figure>
+</div>
+<p>If you want something similar while editing Markdown files, look no further than the <em><a href="https://brettterpstra.com/projects/searchlink/">Search Links</a></em> service by <a href="https://brettterpstra.com/">Brett Terpstra</a>. It basically has the same effect: my experience is that I select some text and press a shortcut to invoke Search Links, which then does its thing in the background, and then my selected text is replaced by a markdown-formatted link. The results may not be always what you are looking for (I usually try to keep the text descriptive, and potentially edit later if required), but it works most of the time, and saves me the back and forth of having to open a browser, look for the link, copy it over, paste it back and format it in a markdown-appropriate manner. Great for when you don’t want to leave your editor!</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+(10/05). Send to Alfred
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When something is selected (a bunch of text, or a file or a folder), I can double-tap the <code>Alt</code> key to “send” the material to <a href="https://www.alfredapp.com/">Alfred</a>, and to process it further from there. This is very handy: for example, if I want some text switched to title case, it’s a few quick keystrokes: double-tap <code>Alt</code> on selected text, then <code>Ctrl+A</code> to move to the start of text, type out “case”, and then <code>Cmd + 3</code>: this replaces the selected text with the same text but in title case. This works because I have the <a href="https://github.com/gillibrand/alfred-change-case">case switch Alfred workflow</a> enabled. I also use this often to open a folder from Finder in VSCode: select folder → send to Alfred → <code>Open With...</code> → choose VSCode.</p>
+<p>Note: I am yet to find something equivalent to this on Raycast, if anyone has a pointer, please let me know!</p>
+</div>
+</div>
+</div>
 
 
 

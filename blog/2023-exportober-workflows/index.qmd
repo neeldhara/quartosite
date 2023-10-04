@@ -47,3 +47,62 @@ IRL I use [Rocket](https://matthewpalmer.net/rocket/) by [Matthew Palmer](https:
 
 I should mention [God Mode](https://medium.com/@nikitavoloboev/karabiner-god-mode-7407a5ddc8f6) as another popular way to reduce clutter in the keyboard shortcut mindspace, but I never really got used to Karabiner and am too used to the left CAPS key being mapped to Ctrl for me to give that up to the hyper key.
 :::
+
+
+::: {.callout-note collapse="true"}
+
+# (10/02). File Searches with Alfred App
+
+To open a file, I simply open up [Alfred](https://www.alfredapp.com/) and press the spacebar or the `'` symbol and start typing out a filename. This is enabled by going in to Alfred preferences and making sure that `Quick Search: Enable Quick File Search mode` is enabled:
+
+![Alfred Quick File Search](alfred-file-search.png){width="70%"}
+
+Most launchers have some kind of file search enabled, so look out for it even if you are on, say, [Raycast](https://www.raycast.com/), or [Launchbar](https://www.obdev.at/launchbar), or something else.
+
+::: 
+
+::: {.callout-note collapse="true"}
+
+# (10/03). Bookmarks with Static Marks
+
+I use [StaticMarks](https://darekkay.com/static-marks/) to track key locations across the web and my filesystem. Typically, any project that I am working on has some subset of the following key links:
+
+- A Drive/Dropbox or local Folder
+- A Notes Folder within my PKM system of choice (Obsidian/Quarto)
+- A Notion or Things page that tracks tasks
+- A Zoom/Meet URL if meetings/classes are online
+- Other External URLs (spreadsheets, grading pages, pages on Overleaf/Github, key email threads, and so forth)
+
+I now dump most of this in a YAML file (using [Hookmark](https://hookproductivity.com/) for local folders, so that the links persist even if I move things around) now, and have a few HTML pages that give me a quick overview of all my major projects. I typically restrict myself to the first three or four links, because that covers 90% of what I need quickly, and the other associated external URLs go into the notes page that I have for the project in my whatever-system, so they do end up being at most one hop away from the static marks page.
+
+Previously I used to try to maintain everything within [Arc](https://arc.net/) folders but that got somewhat out of hand, so I swept it all clean and only have more or less top level folders in Arc now representing major themes that I can categorize my efforts into, and each such theme has its own static marks file that I can use to get a nice, searchable big picture.
+
+One thing that I do find annoying in general is the fact that reference material is often common to multiple efforts (e.g, the same papers relevant to multiple research projects). Since I access my files by search, I am perhaps more sensitive than usual to any kind of redundancy --- it clutters up the search results (besides, I prefer a single source of truth on, say PDFs, because I am typically annotating them). These days, I keep my reference material separate from projects, and link them to projects using either a PKM system, or more casually, using Hookmark.
+
+Related: [Bunch](https://bunchapp.co/) by [Brett Terpstra](https://brettterpstra.com/) is a handy plaintext automation tool: the website has some really indicative use cases, go check it out! I don't use this myself but am looking forward to incorporating it into my workflow once my life is sorted enough for me to figure out what I typically do in the context of a specific project, and for said things to be sufficiently distinguishable from complete chaos :)
+
+::: 
+
+
+::: {.callout-note collapse="true"}
+
+# (10/04). Search Links by Brett Terpstra 
+
+If you've used `Cmd+K` on Google docs, you may have noticed --- and even been spoiled by --- how Google can figure out your links for you based on the content of the selected text:
+
+![Google Docs link search](gdoc-autosuggest-links.png){width="70%"}
+
+If you want something similar while editing Markdown files, look no further than the _[Search Links](https://brettterpstra.com/projects/searchlink/)_ service by [Brett Terpstra](https://brettterpstra.com/). It basically has the same effect: my experience is that I select some text and press a shortcut to invoke Search Links, which then does its thing in the background, and then my selected text is replaced by a markdown-formatted link. The results may not be always what you are looking for (I usually try to keep the text descriptive, and potentially edit later if required), but it works most of the time, and saves me the back and forth of having to open a browser, look for the link, copy it over, paste it back and format it in a markdown-appropriate manner. Great for when you don't want to leave your editor!
+
+::: 
+
+
+::: {.callout-note collapse="true"}
+
+# (10/05). Send to Alfred
+
+When something is selected (a bunch of text, or a file or a folder), I can double-tap the `Alt` key to "send" the material to [Alfred](https://www.alfredapp.com/), and to process it further from there. This is very handy: for example, if I want some text switched to title case, it's a few quick keystrokes: double-tap `Alt` on selected text, then `Ctrl+A` to move to the start of text, type out "case", and then `Cmd + 3`: this replaces the selected text with the same text but in title case. This works because I have the [case switch Alfred workflow](https://github.com/gillibrand/alfred-change-case) enabled. I also use this often to open a folder from Finder in VSCode: select folder → send to Alfred → `Open With...` → choose VSCode.
+
+Note: I am yet to find something equivalent to this on Raycast, if anyone has a pointer, please let me know!
+
+::: 

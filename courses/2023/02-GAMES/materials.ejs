@@ -1,0 +1,28 @@
+```{=html}
+<table class="quarto-listing-table table">
+    <thead>
+        <td>Date</td>
+        <td>Lecture</td>
+        <td>Video</td>
+    </thead>
+    <tbody class="list">
+    <% for (const item of items) { %>
+        <tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>            
+            <td class="listing-date">
+                <%= item.date %>
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong><% if (item.lecid) { %><%= item.lecid %>.<% } %> <%= item.title %></strong><br>
+                <p><%= item.summary %></p>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                <% if (item.video) { %>
+                    <a href="<%= item.video %>"><span class="bi bi-film"></span></a>
+                <% } %>
+            </td>
+        </tr>
+    <% } %>
+</tbody>
+</table>
+
+```

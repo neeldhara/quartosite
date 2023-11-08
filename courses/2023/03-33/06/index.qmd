@@ -1,0 +1,25 @@
+---
+date-format: DD MMM, YYYY
+date: 7 11 2023
+discourse: ''
+notes: 06/
+slides: null
+summary: ''
+title: '#6. Odd Distances'
+---
+
+(Back to [course page](../).)
+
+[Link to Slides](https://slides.com/neeldhara/33-miniatures#/6) · [Link to recording](https://www.youtube.com/watch?v=MVTSYjEYCrk&list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&index=7)
+
+---
+
+Prompts for discussion:
+
+1. What fraction of the first $n$ Pythagorean Triplets (listed according to some appropriate order; sorry for the lazy phrasing) have all their side-lengths even? What other configurations (i.e, not  a square) are valid answers to the question of "four points with all pairwise distances even"?
+
+2. Question from @Vinay_V - can we get a configuration of four points among which five of the pairwise distances odd and one even? Preliminary step: what about just five pairwise odd distances?
+
+3. Observe that $\det(2B) = 8\det(B)$,  we have that $\det(2B) \equiv 0 \mod 8$,  which contradicts the computation that $\det(2B) \equiv 4 \mod 8$. So I figure we could have "stopped short" here, and not needed the argument that involved comparing ranks.
+
+4. Here's the [Wikipedia page](https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Anning_theorem#:~:text=For%20any%20finite%20set%20S,of%20the%20distances%20in%20S) on the Erdős–Anning theorem, and here's the [Geogebra playground](https://www.geogebra.org/calculator/jwsvhqqh).

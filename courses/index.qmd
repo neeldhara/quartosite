@@ -25,6 +25,16 @@ listing:
     filter-ui: false
     feed: false
     template: teaching.ejs
+  - id: informal-listing 
+    contents: teaching-informal.yml
+    sort: [year desc, semester desc]
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: teaching.ejs
   - id: others-listing 
     contents: teaching-other.yml
     sort: [year desc, semester desc]
@@ -64,6 +74,18 @@ However, I have recieved requests for being able to access materials outside of 
 ::: {#nptel-listing}
 ::: 
 
+## Informal
+
+:::{.callout-tip appearance="minimal"}
+This is a non-exhaustive list of informal reading groups that I have led.
+:::
+
+
+<p>&nbsp;</p>
+
+::: {#informal-listing}
+:::
+
 ## Other
 
 :::{.callout-tip appearance="minimal"}
@@ -75,7 +97,6 @@ These are courses that I have been involved in coordinating and organizing. I am
 
 ::: {#others-listing}
 :::
-
 
 :::
 <!-- end panel -->

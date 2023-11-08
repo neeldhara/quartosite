@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.262">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - CS 699 | Aug-Nov 2023</title>
+<title>Neeldhara - CS 699 | Summer 2023</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -57,38 +57,11 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-lectures-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-lecid','listing-date','listing-title','listing-slides','listing-notes','listing-summary',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-lecid","listing-date","listing-title","listing-slides","listing-notes","listing-summary"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-lectures-listing'] = new List('listing-lectures-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-youtube-listing .list');
@@ -105,34 +78,6 @@ ul.task-list li input[type="checkbox"] {
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-youtube-listing'] = new List('listing-youtube-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-assignments-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-problemset','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] }],
-      
-      searchColumns: ["listing-lecid","listing-dateissued","listing-problemset","listing-title"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-assignments-listing'] = new List('listing-assignments-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -179,120 +124,122 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html">
+    <a class="nav-link" href="../../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../../research/overview.html">
+    <a class="dropdown-item" href="../../../research/overview.html" rel="" target="">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/people.html">
+    <a class="dropdown-item" href="../../../research/people.html" rel="" target="">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/publications.html">
+    <a class="dropdown-item" href="../../../research/publications.html" rel="" target="">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/surveys">
+    <a class="dropdown-item" href="../../../research/surveys" rel="" target="">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../../courses/index.html">
+    <a class="dropdown-item" href="../../../courses/index.html" rel="" target="">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../materials/index.html">
+    <a class="dropdown-item" href="../../../materials/index.html" rel="" target="">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../../tgif/">
+    <a class="dropdown-item" href="../../../tgif/" rel="" target="">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../bookmarks/">
+    <a class="dropdown-item" href="../../../bookmarks/" rel="" target="">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../../talks/">
+    <a class="dropdown-item" href="../../../talks/" rel="" target="">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../videos/">
+    <a class="dropdown-item" href="../../../videos/" rel="" target="">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../events/">
+    <a class="nav-link" href="../../../events/" rel="" target="">
  <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html">
+    <a class="nav-link" href="../../../blog.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -307,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CS 699 | Aug-Nov 2023</h1>
+<h1 class="title">CS 699 | Summer 2023</h1>
 </div>
 
 
@@ -324,14 +271,14 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="cs699.-combinatorial-and-computational-aspects-of-games" class="level2 column-body-outset">
 <h2 class="anchored" data-anchor-id="cs699.-combinatorial-and-computational-aspects-of-games">CS699. Combinatorial and Computational Aspects of Games</h2>
-<section id="august-november-2023" class="level5">
-<h5 class="anchored" data-anchor-id="august-november-2023">August — November 2023</h5>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<section id="summer-2023" class="level5">
+<h5 class="anchored" data-anchor-id="summer-2023">Summer 2023</h5>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 About the Course
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -345,15 +292,16 @@ About the Course
 </ul>
 <p>If you are curious about how this typically goes, start with the excellent talks <a href="https://www.youtube.com/watch?v=846A4rgO_os">here</a> and <a href="https://www.youtube.com/watch?v=gxIz1hYgzoM">here</a>.</p>
 <p>If you want to play: here’s <a href="https://subtraction.netlify.app/">Subtraction</a>, and here’s <a href="https://gameofsim.neeldhara.repl.co">Sim</a>.</p>
+<p>This is an informal summer reading group.</p>
 </div>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Target Audience
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -369,12 +317,12 @@ Target Audience
 </div>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Prerequisites
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -385,12 +333,12 @@ Prerequisites
 </div>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 References
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -410,12 +358,12 @@ References
 </div>
 </div>
 </div>
-<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Timings and Venue
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -423,85 +371,56 @@ Timings and Venue
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>Venue: TBA</li>
-<li>Lectures: Mondays and Fridays 3:30PM — 5:00PM</li>
+<li>Venue: Online</li>
+<li>Lectures: Everyday at 11AM</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 TAs and Office hours
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Office Hours: By email.</p>
-<p>TAs: TBA</p>
+<p>Not applicable.</p>
 </div>
 </div>
 </div>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Evaluation policy
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>Develop your own game and demonstrate a non-trivial analysis X 1 = 15 points</li>
-<li>Develop new results about the complexity of an existing game = 15 points</li>
-<li>Implement a known game in as an interactive JS application X 3 = 30 points</li>
-<li>Three take-home exams = 45 points</li>
-<li>Total capped at 100.</li>
-</ul>
-<p>The use of assistance from tools like chatGPT or similar is permitted for the development of the interactive experiences.</p>
-</div>
-</div>
-</div>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Register
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>For IITGN students, (pre-)register through IMS as usual.</li>
-<li>Otherwise, please send me an email.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Recordings</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Lectures</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Assignments</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<!-- :::{.callout-important collapse="true" icon="false"}
+
+##### Evaluation policy
+- Develop your own game and demonstrate a non-trivial analysis X 1 = 15 points
+- Develop new results about the complexity of an existing game = 15 points
+- Implement a known game in as an interactive JS application X 3 = 30 points
+- Three take-home exams = 45 points
+- Total capped at 100.
+
+The use of assistance from tools like chatGPT or similar is permitted for the development of the interactive experiences.
+:::
+
+:::{.callout-important collapse="true" icon="false"}
+
+##### Register
+
+- For IITGN students, (pre-)register through IMS as usual. 
+- Otherwise, please send me an email.
+
+::: -->
+<p>We stopped recording after a couple of weeks, however, the topics pursued are listed for the record :)</p>
 <div id="listing-youtube-listing" class="quarto-listing quarto-listing-container-custom">
 
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Date</td>
         <td>Lecture</td>
-        <td>Slides</td>
-        <td>Notes</td>
         <td>Video</td>
-        <td>Recap</td>
     </tr></thead>
     <tbody class="list">
         <tr data-index="0" data-categories="null" data-listing-date-sort="1684693800000">            
@@ -512,16 +431,8 @@ Register
                 <strong>1. Impartial Game Trees</strong><br>
                 <p>(0.1, 0.2, 0.3 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-                    <a href="slides/Day-01.pdf"><i class="bi bi-file-earmark-slides"></i></a>
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <a href="../../../../materials/games/impartial-games/game-trees/"><i class="bi bi-journal-richtext"></i></a>
-            </td>
             <td class="listing-video" style="text-align: center;">
-                    <a href="https://www.youtube.com/watch?v=oQeYyESww4s&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=1"><i class="bi bi-film"></i></a>
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=oQeYyESww4s&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=1"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1684780200000">            
@@ -532,15 +443,8 @@ Register
                 <strong>2. Game Sums</strong><br>
                 <p>(0.4, 0.5 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-                    <a href="https://www.youtube.com/watch?v=5pTZ-ussThU&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=2"><i class="bi bi-film"></i></a>
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=5pTZ-ussThU&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=2"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1684866600000">            
@@ -551,15 +455,8 @@ Register
                 <strong>3. Game Equivalences</strong><br>
                 <p>(0.4, 0.5 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-                    <a href="https://www.youtube.com/watch?v=5XCSqcDJvbA&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=3"><i class="bi bi-film"></i></a>
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=5XCSqcDJvbA&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=3"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1684953000000">            
@@ -570,15 +467,8 @@ Register
                 <strong>4. Nimbers</strong><br>
                 <p>(0.6, 0.7 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=4"><i class="bi bi-film"></i></a>
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=4"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1685903400000">            
@@ -589,14 +479,8 @@ Register
                 <strong>5. Nim Sums</strong><br>
                 <p>(0.6, 0.7 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=5"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1685989800000">            
@@ -607,14 +491,8 @@ Register
                 <strong>6. Other Impartial Games</strong><br>
                 <p>(0.8 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=6"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686076200000">            
@@ -625,14 +503,8 @@ Register
                 <strong>7. Sequences of impartial game values</strong><br>
                 <p>(0.9 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=7"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686162600000">            
@@ -643,14 +515,8 @@ Register
                 <strong>08. Geography</strong><br>
                 <p>(1.1 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=8"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686249000000">            
@@ -661,14 +527,8 @@ Register
                 <strong>09. Undirected Edge Geography</strong><br>
                 <p>(1.2 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=9"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686335400000">            
@@ -679,14 +539,8 @@ Register
                 <strong>10. Directed Geography</strong><br>
                 <p>(1.3 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=10"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686421800000">            
@@ -697,14 +551,8 @@ Register
                 <strong>11. Partisan Game Notation</strong><br>
                 <p>(2.1 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=11"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686508200000">            
@@ -715,14 +563,8 @@ Register
                 <strong>12. Game Trees and Outcome Classes</strong><br>
                 <p>(2.2 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=12"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686594600000">            
@@ -733,14 +575,8 @@ Register
                 <strong>13. Partisan Game Sums</strong><br>
                 <p>(2.3 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=13"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686681000000">            
@@ -751,14 +587,8 @@ Register
                 <strong>14. Negatives and Equality</strong><br>
                 <p>(2.4 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=14"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686767400000">            
@@ -769,14 +599,8 @@ Register
                 <strong>15. Inequalities</strong><br>
                 <p>(2.5 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
             <td class="listing-video" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=15"><span class="bi bi-film"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686853800000">            
@@ -786,13 +610,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>16. Dominated Options</strong><br>
                 <p>(2.6 in PWDM)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -805,13 +622,6 @@ Register
                 <strong>17. Integers</strong><br>
                 <p>(3.1 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -822,13 +632,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>18. Simplest Numbers</strong><br>
                 <p>(3.2 in PWDM)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -841,13 +644,6 @@ Register
                 <strong>19. Switches</strong><br>
                 <p>(3.3 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -858,13 +654,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>20. Other rational game value</strong><br>
                 <p>(3.4 in PWDM)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -877,13 +666,6 @@ Register
                 <strong>21. Infinitesimals</strong><br>
                 <p>(3.5 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -894,13 +676,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>22. They-Love-Me-They-Love-Me-Nc</strong><br>
                 <p>(4.1 in PWDM)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -913,13 +688,6 @@ Register
                 <strong>23. Determining Winnability</strong><br>
                 <p>(4.2 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -930,13 +698,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>24. Which Move Should we Make?</strong><br>
                 <p>(4.3 in PWDM)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -949,13 +710,6 @@ Register
                 <strong>25. More strategy stealing.</strong><br>
                 <p>(4.4 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -966,13 +720,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>26. Card games</strong><br>
                 <p>(5.1 in PWDM)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -985,13 +732,6 @@ Register
                 <strong>27. Dice and role-playing games</strong><br>
                 <p>(5.2 in PWDM)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1002,13 +742,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>28. Birthdays</strong><br>
                 <p>(6.1 in PWDM)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1021,13 +754,6 @@ Register
                 <strong>29. SUMMARY OF PART I</strong><br>
                 <p></p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1038,13 +764,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>30. Introducing Complexity Classes and Constraint</strong><br>
                 <p>Logic  (1 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1057,13 +776,6 @@ Register
                 <strong>31. Constraint Graphs</strong><br>
                 <p>(2.1 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1074,13 +786,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>32. Planar Constraint Graphs</strong><br>
                 <p>(2.2 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1093,13 +798,6 @@ Register
                 <strong>33. Constraint-Graph Conversion Techniques</strong><br>
                 <p>(2.3 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1110,13 +808,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>34. Zero-Player Games (Simulations)</strong><br>
                 <p>(3.1 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1129,13 +820,6 @@ Register
                 <strong>35. One-Player Games (Puzzles)</strong><br>
                 <p>(3.2 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1146,13 +830,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>36. Two-Player Games</strong><br>
                 <p>(3.3 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1165,13 +842,6 @@ Register
                 <strong>37. Team Games</strong><br>
                 <p>(3.4 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1182,13 +852,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>38. Bounded Games (Zero-Player)</strong><br>
                 <p>(4.1 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1201,13 +864,6 @@ Register
                 <strong>39. Unbounded Games (Zero-Player)</strong><br>
                 <p>(4.2 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1218,13 +874,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>40. Bounded Games (One-Player)</strong><br>
                 <p>(5.1 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1237,13 +886,6 @@ Register
                 <strong>41. Unbounded Games (One-Player)</strong><br>
                 <p>(5.2 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1254,13 +896,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>42. Bounded Games (Two-Player)</strong><br>
                 <p>(6.1 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1273,13 +908,6 @@ Register
                 <strong>43. Unbounded Games (Two-Player)</strong><br>
                 <p>(6.2 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1290,13 +918,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>44. No-Repeat Games (Two-Player)</strong><br>
                 <p>(6.3 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1309,13 +930,6 @@ Register
                 <strong>45. Bounded Games (Team)</strong><br>
                 <p>(7.1 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1326,13 +940,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>46. Unbounded Games (Team)</strong><br>
                 <p>(7.2 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1345,13 +952,6 @@ Register
                 <strong>47. TipOver</strong><br>
                 <p>(9.1 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1362,13 +962,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>48. Hitori</strong><br>
                 <p>(9.2 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1381,13 +974,6 @@ Register
                 <strong>49. Sliding-Block Puzzles</strong><br>
                 <p>(9.3 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1398,13 +984,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>50. The Warehouseman’s Problem</strong><br>
                 <p>(9.4 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1417,13 +996,6 @@ Register
                 <strong>51. Sliding-Coin Puzzles</strong><br>
                 <p>(9.5 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1434,13 +1006,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>52. Plank Puzzles</strong><br>
                 <p>(9.6 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1453,13 +1018,6 @@ Register
                 <strong>53. Sokoban</strong><br>
                 <p>(9.7 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1470,13 +1028,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>54. Push-2-F</strong><br>
                 <p>(9.8 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1489,13 +1040,6 @@ Register
                 <strong>55. Rush Hour</strong><br>
                 <p>(9.9 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1506,13 +1050,6 @@ Register
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>56. Triangular Rush Hour</strong><br>
                 <p>(9.10 in GPC)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
             </td>
@@ -1525,13 +1062,6 @@ Register
                 <strong>57. Hinged Polygon Dissections</strong><br>
                 <p>(9.11 in GPC)</p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1543,13 +1073,6 @@ Register
                 <strong>58. SUMMARY OF PART II</strong><br>
                 <p></p>
             </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-                    <i class="bi bi-alarm" style="color:indianred;"></i>
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
             <td class="listing-video" style="text-align: center;">
             </td>
         </tr>
@@ -1557,487 +1080,6 @@ Register
 </table>
 <div class="listing-no-matching d-none">
 No matching items
-</div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div id="listing-lectures-listing" class="quarto-listing quarto-listing-container-custom">
-
-<table class="quarto-listing-table table">
-    <thead>
-        <tr><td>Date</td>
-        <td>Lecture</td>
-        <td>Slides</td>
-        <td>Notes</td>
-        <td>Video</td>
-    </tr></thead>
-    <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1691087400000">            
-            <td class="listing-date">
-                04 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>1. Introduction</strong><br>
-                <p>Basic Setup, Terminology, and Examples.</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1691346600000">            
-            <td class="listing-date">
-                07 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>2. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1691692200000">            
-            <td class="listing-date">
-                11 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>3. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1691951400000">            
-            <td class="listing-date">
-                14 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>4. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1692297000000">            
-            <td class="listing-date">
-                18 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>5. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1692556200000">            
-            <td class="listing-date">
-                21 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>6. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1692901800000">            
-            <td class="listing-date">
-                25 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>7. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1693161000000">            
-            <td class="listing-date">
-                28 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>08. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1693506600000">            
-            <td class="listing-date">
-                01 Sep, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>09. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1694111400000">            
-            <td class="listing-date">
-                08 Sep, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>10. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1694370600000">            
-            <td class="listing-date">
-                11 Sep, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>11. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1694716200000">            
-            <td class="listing-date">
-                15 Sep, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>12. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1694975400000">            
-            <td class="listing-date">
-                18 Sep, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>13. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1695321000000">            
-            <td class="listing-date">
-                22 Sep, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>14. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1695580200000">            
-            <td class="listing-date">
-                25 Sep, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>15. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1695925800000">            
-            <td class="listing-date">
-                29 Sep, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>16. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1696530600000">            
-            <td class="listing-date">
-                06 Oct, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>17. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1696789800000">            
-            <td class="listing-date">
-                09 Oct, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>18. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1697394600000">            
-            <td class="listing-date">
-                16 Oct, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>19. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1697740200000">            
-            <td class="listing-date">
-                20 Oct, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>20. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1698604200000">            
-            <td class="listing-date">
-                30 Oct, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>21. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1698949800000">            
-            <td class="listing-date">
-                03 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>22. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1699209000000">            
-            <td class="listing-date">
-                06 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>23. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1699554600000">            
-            <td class="listing-date">
-                10 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>24. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1699813800000">            
-            <td class="listing-date">
-                13 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>25. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1700159400000">            
-            <td class="listing-date">
-                17 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>26. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1700418600000">            
-            <td class="listing-date">
-                20 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>27. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1700764200000">            
-            <td class="listing-date">
-                24 Nov, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>28. TBA</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-            </td>
-        </tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>
-We will share user-developed content here.
-</p>
-<div id="listing-assignments-listing" class="quarto-listing quarto-listing-container-custom">
-
-<table class="quarto-listing-table table">
-    <thead>
-        <tr><td>Issued</td>
-        <td>Assessment</td>
-        <td>Problems</td>
-        <td>Solutions</td>
-        <td>Due</td>
-    </tr></thead>
-    <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="01 08 2023">            
-            <td class="listing-date">
-                01 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Coming Soon</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></i>
-                </td>
-            <td class="listing-solutions">
-                    <i class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></i>
-                </td>
-            <td class="listing-due">
-            </td>
-        </tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</div>
 </div>
 </div>
 </section>
@@ -2153,9 +1195,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -2220,6 +1276,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

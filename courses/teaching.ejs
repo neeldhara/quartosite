@@ -25,7 +25,7 @@
             <td class="listing-coursecode">
                 <%= item.coursecode %>
             </td>
-            <td class="listing-title" style="min-width:412px;">
+            <td class="listing-title" style="min-width:450px;">
                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.description %>"><%= item.title %></span>
             </td>
             <td>
@@ -41,13 +41,13 @@
             </td>
             <td>
                 <% if ( item.status == "Archive" ) { %>
-                <i data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.status %>" class="bi bi-archive"></i>
+                <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.status %>" class="bi bi-archive"></span>
                 <% } %>
                 <% if ( item.status == "Ongoing" ) { %>
-                <i data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.status %>" class="bi bi-play-circle-fill"></i>
+                <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.status %>" class="bi bi-play-circle-fill"></span>
                 <% } %>
                 <% if ( item.status == "Upcoming" ) { %>
-                <i data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.status %>" class="bi bi-calendar-check-fill"></i>
+                <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.status %>" class="bi bi-calendar-check-fill"></span>
                 <% } %>
             </td>
         </tr>

@@ -1,0 +1,29 @@
+---
+date-format: DD MMM, YYYY
+date: 1 11 2023
+discourse: ''
+notes: 01/
+slides: https://slides.com/neeldhara/33-miniatures#/1
+summary: ''
+title: '#1. Fibonacci Numbers, Quickly'
+video: https://www.youtube.com/watch?v=_CNLV8ngMQg&list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&index=1
+---
+
+(Back to [course page](../).)
+
+
+[Link to slides](https://slides.com/neeldhara/33-miniatures#/1)  ·  [Link to recording](https://www.youtube.com/watch?v=_CNLV8ngMQg)
+
+---
+
+Prompts for discussion:
+
+Zeckendorf [showed that](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem) each non-negative integer has a unique representation as a sum of Fibonacci numbers in which no two consecutive Fibonacci numbers occur. This observation leads to a numeral system. A natural question for a numeral system is how can we perform arithmetic operations on numbers in such a system, and how fast can we do it.
+
+In particular:
+
+- Can you add and subtract $n$-digit numbers in the Zeckendorf system in $O(n)$ time, as fast as in the binary system?
+
+- Can you multiply $n$-digit numbers in the Zeckendorf system in $O(n \log n)$ time, as fast as in the binary system?
+
+[Source](https://drops.dagstuhl.de/opus/volltexte/2020/12777/pdf/LIPIcs-FUN-2021-16.pdf)

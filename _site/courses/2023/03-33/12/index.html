@@ -61,6 +61,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
@@ -230,7 +246,23 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>(Back to <a href="../">course page</a>.)</p>
-<p>Coming soon!</p>
+<p><a href="https://slides.com/neeldhara/33-miniatures#/12">Link to Slides</a> · <a href="https://www.youtube.com/watch?v=-m0ptVbK5x4&amp;list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&amp;index=12">Link to Recording</a></p>
+<hr>
+<p>I cross referenced <a href="https://www3.nd.edu/~andyp/">Andrew Putman</a>’s <a href="https://www3.nd.edu/~andyp/notes/TilingBySquares.pdf">notes</a> for this presentation. <a href="https://math.stackexchange.com/questions/3682728/tiling-a-rectangle-with-both-rational-and-irrational-sided-squares">Here</a> is another discussion that might be of interest.</p>
+<p>Prompts for discussion:</p>
+<ol type="1">
+<li><p>Does this proof break down if we try to use it to show that there is no tiling of a <span class="math inline">(1 \times x</span> rectangle, <span class="math inline">x</span> irrational, with (countably) infinite squares?</p></li>
+<li><p>Squaring the square is the problem of tiling an integral square using only other integral squares. More on this related problem <a href="https://en.wikipedia.org/wiki/Squaring_the_square">here</a>.</p></li>
+<li><p>The <a href="https://en.wikipedia.org/wiki/Wallace%E2%80%93Bolyai%E2%80%93Gerwien_theorem">Wallace–Bolyai–Gerwien theorem</a> answers the question when one polygon can be formed from another by cutting it into a finite number of pieces and recomposing these by translations and rotations. The theorem states that this can be done if and only if two polygons have the same area. <a href="https://en.wikipedia.org/wiki/Hilbert%27s_third_problem">Hilbert’s third problem</a> is the analogous statement about polyhedra in three dimensions, and Dehn proved Hilbert’s conjecture that this isn’t always doable.</p></li>
+</ol>
+<hr>
+<p><a href="https://twitter.com/ainvvy">Vinay</a> shared a self-contained version of the proof that does not require an understanding of the vector space of reals over rationals, which I am taking the liberty to share here:</p>
+<blockquote class="blockquote">
+<p>Consider a rectangle with sides 1 and <span class="math inline">x</span>, where <span class="math inline">x</span> is irrational. We want to show that it can’t be tiled by squares.</p>
+<p>Suppose otherwise. Let’s say we used squares <span class="math inline">s_1, s_2, \cdots, s_n</span> to tile the rectangle. We will demonstrate a contradiction. To do so, we will exploit the fact that <span class="math inline">x</span> is irrational. One way to do so is to define a finite dimensional vector space <span class="math inline">V</span> over <span class="math inline">Q</span> by generating the vector space via rational linear combinations on <span class="math inline">\left\{1, x, s_1, \cdots, s_k\right\}</span>. Here <span class="math inline">s_i</span> ’s are the elements of <span class="math inline">s_1, s_2, \cdots, s_n</span> that are linearly independent.</p>
+<p>Any vector <span class="math inline">v</span> in this vector space can be written as <span class="math inline">a+b x+q_1 s_1+\cdots q_k s_k</span>, where the coefficients are all rationals. Now define a linear function <span class="math inline">f: V \rightarrow Q</span>, by first defining it on the basis elements: <span class="math inline">f(1)=1, f(x)=-1, f\left(s_i\right)=0</span>. It is easy to verify <span class="math inline">f(v)=f\left(a+b x+q_1 s_1+\cdots+q_k s_k\right)=a-b</span>. So <span class="math inline">f</span> maps <span class="math inline">V</span> to the rationals. And it is easy to check that <span class="math inline">f\left(v_1+v_2\right)=f\left(v_1\right)+f\left(v_2\right)</span> and <span class="math inline">f(\alpha v)=\alpha f(v)</span> which makes it a linear map.</p>
+<p>The rest of the proof is as before.</p>
+</blockquote>
 
 
 

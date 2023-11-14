@@ -61,6 +61,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
@@ -230,7 +246,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>(Back to <a href="../">course page</a>.)</p>
-<p>Coming soon!</p>
+<p><a href="https://slides.com/neeldhara/33-miniatures#/9">Link to Slides</a> · <a href="https://www.youtube.com/watch?v=Iiqb6Fs95Jc&amp;list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&amp;index=10">Link to Video</a></p>
+<hr>
+<p>Prompts for discussion:</p>
+<ol type="1">
+<li><p>Can we generalize the construction for <span class="math inline">d = 3</span> to 10 equiangular lines in <span class="math inline">\mathbb{R}^4</span>? What’s the best general construction that we can come up with?</p></li>
+<li><p>With <span class="math inline">n</span> lines in <span class="math inline">\mathbb{R}^2</span>, what’s the largest number of pairs that we can show to have the same angles? For example, with <span class="math inline">n = 4</span>, we can get 4 pairs to have the same angle; can we get 5?</p></li>
+</ol>
+<hr>
+<p>PS. Although I was quite sure I went “live” on Youtube, I am unable to locate the recording of the session :( I re-recorded it separately, and that’s the link in this post.</p>
+<p>PPS. The slides are updated with the <span class="math inline">\mathbf{x}^T M \mathbf{x}</span> calculation, which makes more explicit that <span class="math inline">M</span> is positive definite.</p>
 
 
 

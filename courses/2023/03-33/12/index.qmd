@@ -10,4 +10,29 @@ title: '#12. Tiling a Rectangle by Squares'
 
 (Back to [course page](../).)
 
-Coming soon!
+[Link to Slides ](https://slides.com/neeldhara/33-miniatures#/12) · [Link to Recording](https://www.youtube.com/watch?v=-m0ptVbK5x4&list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&index=12)
+
+---
+
+I cross referenced [Andrew Putman](https://www3.nd.edu/~andyp/)'s [notes](https://www3.nd.edu/~andyp/notes/TilingBySquares.pdf) for this presentation. [Here](https://math.stackexchange.com/questions/3682728/tiling-a-rectangle-with-both-rational-and-irrational-sided-squares) is another discussion that might be of interest. 
+
+Prompts for discussion:
+
+1. Does this proof break down if we try to use it to show that there is no tiling of a $(1 \times x$ rectangle, $x$ irrational, with (countably) infinite squares?
+
+2. Squaring the square is the problem of tiling an integral square using only other integral squares. More on this related problem [here](https://en.wikipedia.org/wiki/Squaring_the_square).
+
+3. The [Wallace–Bolyai–Gerwien theorem](https://en.wikipedia.org/wiki/Wallace%E2%80%93Bolyai%E2%80%93Gerwien_theorem) answers the question when one polygon can be formed from another by cutting it into a finite number of pieces and recomposing these by translations and rotations. The theorem states that this can be done if and only if two polygons have the same area. [Hilbert's third problem](https://en.wikipedia.org/wiki/Hilbert%27s_third_problem) is the analogous statement about polyhedra in three dimensions, and Dehn proved Hilbert's conjecture that this isn't always doable.
+
+
+---
+
+[Vinay](https://twitter.com/ainvvy) shared a self-contained version of the proof that does not require an understanding of the vector space of reals over rationals, which I am taking the liberty to share here:
+
+> Consider a rectangle with sides 1 and $x$, where $x$ is irrational. We want to show that it can't be tiled by squares.
+> 
+> Suppose otherwise. Let's say we used squares $s_1, s_2, \cdots, s_n$ to tile the rectangle. We will demonstrate a contradiction. To do so, we will exploit the fact that $x$ is irrational. One way to do so is to define a finite dimensional vector space $V$ over $Q$ by generating the vector space via rational linear combinations on $\left\{1, x, s_1, \cdots, s_k\right\}$. Here $s_i$ 's are the elements of $s_1, s_2, \cdots, s_n$ that are linearly independent.
+> 
+> Any vector $v$ in this vector space can be written as $a+b x+q_1 s_1+\cdots q_k s_k$, where the coefficients are all rationals. Now define a linear function $f: V \rightarrow Q$, by first defining it on the basis elements: $f(1)=1, f(x)=-1, f\left(s_i\right)=0$. It is easy to verify $f(v)=f\left(a+b x+q_1 s_1+\cdots+q_k s_k\right)=a-b$. So $f$ maps $V$ to the rationals. And it is easy to check that $f\left(v_1+v_2\right)=f\left(v_1\right)+f\left(v_2\right)$ and $f(\alpha v)=\alpha f(v)$ which makes it a linear map.
+> 
+> The rest of the proof is as before.

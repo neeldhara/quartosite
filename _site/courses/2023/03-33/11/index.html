@@ -61,6 +61,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
@@ -230,7 +246,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>(Back to <a href="../">course page</a>.)</p>
-<p>Coming soon!</p>
+<p><a href="https://slides.com/neeldhara/33-miniatures#/11">Link to Slides</a> · <a href="https://www.youtube.com/watch?v=kf4lD9omn9U&amp;list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&amp;index=10">Link to Recording</a></p>
+<hr>
+<p>Prompts for discussion:</p>
+<ol type="1">
+<li><p>Can we extend this method to distinguish between situations when <span class="math inline">C</span> is “very close” to <span class="math inline">A \times B</span> vs when <span class="math inline">C</span> is “far” from <span class="math inline">A \times B</span>, for a suitable notion of distance between matrices?</p></li>
+<li><p>Let’s say the Matrix Wizard always outputs <span class="math inline">I_n</span> and you are always multiplying two permutation matrices. Is it possible to count, in terms of some aspect of the permutation represented by <span class="math inline">A \times B</span>, the number of vectors <span class="math inline">\mathbf{x}</span> for which <span class="math inline">D \mathbf{x} \neq 0</span>?</p></li>
+</ol>
 
 
 

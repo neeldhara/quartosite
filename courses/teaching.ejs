@@ -29,6 +29,9 @@
                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.description %>"><%= item.title %></span>
             </td>
             <td>
+                <% if ( item.semester == 4 ) { %>
+                <span class="badge badge-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.when %>" style="background:grey;"><%= item.year %></span>
+                <% } %>
                 <% if ( item.semester == 3 ) { %>
                 <span class="badge badge-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.when %>" style="background:darkorchid;"><%= item.year %></span>
                 <% } %>

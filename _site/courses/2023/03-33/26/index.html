@@ -61,6 +61,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
@@ -230,7 +246,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>(Back to <a href="../">course page</a>.)</p>
-<p>Coming soon!</p>
+<p><a href="https://slides.com/neeldhara/33-miniatures#/26">Link to Slides</a> · <a href="https://www.youtube.com/watch?v=W4c5ikIAqwo&amp;list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&amp;index=27">Link to recording</a></p>
+<hr>
+<p>Prompts for discussion:</p>
+<ol type="1">
+<li><p>There are <span class="math inline">2^{n!}</span> subsets of <span class="math inline">S_n</span>. It would be interesting to know, even in terms of rough estimates, how the sizes of <span class="math inline">|P \circ P|</span> are distributed over these subsets. I wonder if subsets that are “close to being subgroups” would report values on the lower end of their range, and it would be nice if this can be quantified in terms of the “distance from being a subgroup”, which is a somewhat vague idea :)</p></li>
+<li><p>Other ideas for algorithms that count <span class="math inline">|P \circ P|</span>, randomized or otherwise?</p></li>
+</ol>
+<p>Vinay suggested a nice alternate proof for the main argument that did not involve invoking SZ. This is a note-to-self to add the description to the slides and/or these notes.</p>
 
 
 

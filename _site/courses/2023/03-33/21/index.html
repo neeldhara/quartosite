@@ -61,6 +61,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
@@ -230,7 +246,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>(Back to <a href="../">course page</a>.)</p>
-<p>Coming soon!</p>
+<p><a href="https://slides.com/neeldhara/33-miniatures#/21">Link to Slides</a> · Link to recording: <a href="https://www.youtube.com/watch?v=woidpQB8uXI&amp;list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&amp;index=21">Part 1</a> and <a href="https://www.youtube.com/watch?v=8toK1Ww0KZg&amp;list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&amp;index=22">Part 2</a></p>
+<hr>
+<p>Prompts for discussion:</p>
+<ol type="1">
+<li><p>We spent time on the determinant of the Laplacian of a graph here (short of one vertex). Is there a structural interpretation of the determinant of the adjacency matrix? There are some thoughts <a href="https://mathoverflow.net/questions/134956/determinants-in-graph-theory">here</a>.</p></li>
+<li><p>Graham and Pollak showed that the determinant of the distance matrix of a tree <span class="math inline">T</span> on <span class="math inline">n</span> vertices - the <span class="math inline">n \times n</span> matrix whose each <span class="math inline">(v, w) \in V(T) \times V(T)</span> entry is the ordinary graph distance between <span class="math inline">v</span> and <span class="math inline">w</span>-depends only on <span class="math inline">n</span>. In fact, they gave a formula: <span class="math inline">-(n-1)(-2)^{n-2}</span>. I thought this was really neat: the determinant seems to be completely independent of the structure of the tree! 🤯</p></li>
+</ol>
 
 
 

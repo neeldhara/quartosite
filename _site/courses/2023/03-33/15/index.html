@@ -61,6 +61,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
@@ -230,7 +246,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>(Back to <a href="../">course page</a>.)</p>
-<p>Coming soon!</p>
+<p><a href="https://slides.com/neeldhara/33-miniatures#/15">Link to Slides</a> · <a href="https://www.youtube.com/watch?v=JGvs0qROx-w&amp;list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&amp;index=15">Link to recording</a></p>
+<hr>
+<p>Prompts for discussion:</p>
+<ol type="1">
+<li><p>The proof for the bound on the number of <em>equidistant</em> points was borrowed from <a href="https://math.stackexchange.com/a/2623156">this answer</a>.</p></li>
+<li><p>A natural question seems to be: what about three distances? Or <span class="math inline">n</span> points and <span class="math inline">k</span> distinct distances?</p></li>
+<li><p>What the number of points where one distance is seen at most <span class="math inline">p</span> times and the other is seen at most <span class="math inline">q</span> times? In particular, I was wondering if we could get to an “almost one distance” situation by saying that the “other distance” does not manifest frequently.</p></li>
+</ol>
 
 
 

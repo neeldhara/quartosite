@@ -61,6 +61,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
@@ -230,7 +246,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>(Back to <a href="../">course page</a>.)</p>
-<p>Coming soon!</p>
+<p><a href="https://slides.com/neeldhara/33-miniatures#/23">Link to Slides</a> · <a href="https://www.youtube.com/watch?v=LrmPF-T2O1k&amp;list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&amp;index=24">Link to recording</a></p>
+<hr>
+<p>Prompts for discussion:</p>
+<blockquote class="blockquote">
+<p>For readers familiar with the notion of graph isomorphism, the following might be a rewarding exercise in applying the method shown above: Prove that if <span class="math inline">g_n(k)</span> stands for the number of nonisomorphic graphs with <span class="math inline">n</span> vertices and <span class="math inline">k</span> edges, then the sequence <span class="math inline">g_n(0), g_n(1), \ldots, g_n\left(\left(\begin{array}{c}n \\ 2\end{array}\right)\right)</span> is unimodal.</p>
+</blockquote>
+<p>(From the miniature.)</p>
 
 
 

@@ -61,6 +61,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
@@ -230,7 +246,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>(Back to <a href="../">course page</a>.)</p>
-<p>Coming soon!</p>
+<p><a href="https://slides.com/neeldhara/33-miniatures#/13">Link to Slides</a> · <a href="https://www.youtube.com/watch?v=dMmemGkZG7c&amp;list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&amp;index=13">Link to Recording</a></p>
+<hr>
+<p>Prompts for discussion:</p>
+<p>I suppose the same question can be asked about fitting p disjoint copies of a graph <span class="math inline">G</span> (in this case, the Petersen graph) into a graph <span class="math inline">H</span> (in this case, <span class="math inline">K_10</span>: does this style of proof generalize or serve to be useful for other examples?</p>
 
 
 

@@ -10,4 +10,12 @@ title: '#21. Counting Spanning Trees'
 
 (Back to [course page](../).)
 
-Coming soon!
+[Link to Slides](https://slides.com/neeldhara/33-miniatures#/21) · Link to recording: [Part 1](https://www.youtube.com/watch?v=woidpQB8uXI&list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&index=21) and [Part 2](https://www.youtube.com/watch?v=8toK1Ww0KZg&list=PLadhlDF3zdvv81kngHfUoFR6n1iMj-7vk&index=22)
+
+---
+
+Prompts for discussion:
+
+1. We spent time on the determinant of the Laplacian of a graph here (short of one vertex). Is there a structural interpretation of the determinant of the adjacency matrix? There are some thoughts [here](https://mathoverflow.net/questions/134956/determinants-in-graph-theory).
+
+2. Graham and Pollak showed that the determinant of the distance matrix of a tree $T$ on $n$ vertices - the $n \times n$ matrix whose each $(v, w) \in V(T) \times V(T)$ entry is the ordinary graph distance between $v$ and $w$-depends only on $n$. In fact, they gave a formula: $-(n-1)(-2)^{n-2}$. I thought this was really neat: the determinant seems to be completely independent of the structure of the tree! 🤯

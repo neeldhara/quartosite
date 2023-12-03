@@ -31,7 +31,9 @@
             <td class="listing-video" style="text-align: center;">
                 <% if (item.video) { %>
                     <a href="<%= item.video %>"><span class="bi bi-film"></span></a>
-                <% } %>
+                <% } else { %>
+                    <span class="bi bi-dash-circle-dotted"></span>
+                <% } %>                
             </td>
             <td class="listing-slides" style="text-align: center;">
                 <% if (item.slides) { %>

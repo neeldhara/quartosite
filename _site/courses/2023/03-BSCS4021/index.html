@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - Fundamentals of Science Communication | Siddharth Kankaria</title>
+<title>Neeldhara - BSCS4021 | Aug-Nov 2023</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -59,11 +61,140 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-lectures-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-lecid','listing-date','listing-title','listing-slides','listing-notes','listing-summary',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-lecid","listing-date","listing-title","listing-slides","listing-notes","listing-summary"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-lectures-listing'] = new List('listing-lectures-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-assignments-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-lecid','listing-dateissued','listing-problemset','listing-solutions','listing-title','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
+      
+      searchColumns: ["listing-lecid","listing-dateissued","listing-problemset","listing-solutions","listing-title","listing-due"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-assignments-listing'] = new List('listing-assignments-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-quizzes-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-lecid','listing-dateissued','listing-problemset','listing-solutions','listing-title','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
+      
+      searchColumns: ["listing-lecid","listing-dateissued","listing-problemset","listing-solutions","listing-title","listing-due"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-quizzes-listing'] = new List('listing-quizzes-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-exams-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-lecid','listing-dateissued','listing-title','listing-summary','listing-problemset','listing-solutions','listing-due',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-lecid","listing-dateissued","listing-title","listing-summary","listing-problemset","listing-solutions","listing-due"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-exams-listing'] = new List('listing-exams-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
-<link rel="stylesheet" href="../../css/styles.css">
-<link rel="stylesheet" href="../../css/teaching.css">
+<link rel="stylesheet" href="../../../css/styles.css">
+<link rel="stylesheet" href="../../../css/teaching.css">
 </head>
 
 <body class="nav-fixed">
@@ -73,7 +204,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
@@ -84,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
+    <a class="nav-link" href="../../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -93,19 +224,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../research/overview.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/overview.html" rel="" target="">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../research/people.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/people.html" rel="" target="">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../research/publications.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/publications.html" rel="" target="">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../research/surveys" rel="" target="">
+    <a class="dropdown-item" href="../../../research/surveys" rel="" target="">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
@@ -116,11 +247,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../courses/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../courses/index.html" rel="" target="">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../materials/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../materials/index.html" rel="" target="">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
@@ -131,11 +262,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../tgif/" rel="" target="">
+    <a class="dropdown-item" href="../../../tgif/" rel="" target="">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../bookmarks/" rel="" target="">
+    <a class="dropdown-item" href="../../../bookmarks/" rel="" target="">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
@@ -146,21 +277,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../talks/" rel="" target="">
+    <a class="dropdown-item" href="../../../talks/" rel="" target="">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../videos/" rel="" target="">
+    <a class="dropdown-item" href="../../../videos/" rel="" target="">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../events/" rel="" target="">
+    <a class="nav-link" href="../../../events/" rel="" target="">
  <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html" rel="" target="">
+    <a class="nav-link" href="../../../blog.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -186,7 +317,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -203,11 +334,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Fundamentals of Science Communication | Siddharth Kankaria</h1>
+<h1 class="title">BSCS4021 | Aug-Nov 2023</h1>
 </div>
 
 
@@ -222,11 +353,10 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="fundamentals-of-science-communication" class="level2">
-<h2 class="anchored" data-anchor-id="fundamentals-of-science-communication">Fundamentals of Science Communication</h2>
-<section id="a-short-course" class="level5">
-<h5 class="anchored" data-anchor-id="a-short-course">A Short Course</h5>
-<p>— <em>Siddharth Kankaria</em></p>
+<section id="bscs4021." class="level2 column-body-outset">
+<h2 class="anchored" data-anchor-id="bscs4021.">BSCS4021. <course title=""></course></h2>
+<section id="section" class="level5">
+<h5 class="anchored" data-anchor-id="section">2023</h5>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -239,8 +369,7 @@ About the Course
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Science communication is an act of connecting people with knowledge, emotions and shared experiences within the field of science. It is both an art to be practised creatively as well as a science to be studied systematically.</p>
-<p>This week-long course will provide an introduction to the theory and practice of science communication and outline some fundamental tenets of communicating science strategically. Using interactive approaches like discussions, games, and activities, this course will provide Early Career Researchers with an introduction to the frameworks, formats and importance of science communication, and equip them to design, implement and evaluate their science communication efforts effectively.</p>
+<p>Course summary.</p>
 </div>
 </div>
 </div>
@@ -250,134 +379,281 @@ About the Course
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-About the Instructor
+Target Audience
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Siddharth Kankaria is a science communication practitioner and researcher working at NCBS Bangalore and the Founder of the SciCommSci Club – a flagship initiative for engaging with the science of science communication. He is keenly interested in developing the research-practice continuum within science communication, contributing to mentorship, capacity-building &amp; DEI efforts, and developing intersectional science engagement practices for the Global South. Connect with him on Twitter or LinkedIn at <span class="citation" data-cites="SiddhrthKnkaria">@SiddhrthKnkaria</span>.</p>
+<p>Information about target audience.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Dates and Time
+Prerequisites
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>25th July to 29th July 2022 • 4PM — 6PM</p>
+<p>Indication of pre-requisites.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Target Audience
+References
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The course material is beginner-friendly and hands-on. The only prerequisite is enthusiasm to learn science communication.</p>
+<p>List of References</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Methodology
+Timings and Venue
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The course will be taught in person and feature in-class practice exercises as well. A collection of resources will be ready for the students’ reference from the first class onwards.</p>
+<p>Venue: XYZ</p>
+<p>Timings:</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Objectives
+TAs and Office hours
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The course aims to introduce the fundamentals of effective science communication.</p>
+<p>Office Hours: By email.</p>
+<p>TAs:</p>
+<p>List of TAs.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Outcome
+Evaluation policy
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Participants will have the skills to craft their own science communication pieces and be able to convey their specialized research work in a manner that is accessible and interesting to a non-specialist, broad audience.</p>
+<ul>
+<li>Each of the three exams account for 20% of the grade.</li>
+<li>Each of the eleven tutorials will have a quiz worth 5 points. The total number of points you can earn through quizzes is capped at 40, and accounts for 40% of the grade.</li>
+<li>There will be weekly assignments that are not graded but are recommended for practice.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Logistics
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>For IITGN students, (pre-)register through IMS as usual.</li>
+<li>All quizzes and exams will be on Mathmatize; please <a href="https://mathmatize.com/c/809">sign up here</a>.</li>
+<li>For announcements, please sign up on Google classroom <a href="https://classroom.google.com/c/NjE3MjAzOTUzMTA0?cjc=nzl3hkr">with this link</a> or use the invite code <strong>nzl3hkr</strong>.</li>
+<li>If you are not from IITGN and are interested in taking up the course, then please send us an email.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Lectures</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Assignments</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Quizzes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Exams</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>All slides for the initial lectures can be found <a href="https://slides.com/neeldhara/BSCS4021-2023">here</a>.</p>
+<div id="listing-lectures-listing" class="quarto-listing quarto-listing-container-custom">
+
+<table class="quarto-listing-table table">
+    <thead>
+        <tr><td>Date</td>
+        <td>Lecture</td>
+        <td>Slides</td>
+        <td>Notes</td>
+        <td>Video</td>
+    </tr></thead>
+    <tbody class="list">
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1690914600000">            
+            <td class="listing-date">
+                02 Aug, 2023
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>1. </strong><br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="listing-assignments-listing" class="quarto-listing quarto-listing-container-custom">
+
+<table class="quarto-listing-table table">
+    <thead>
+        <tr><td>Issued</td>
+        <td>Assessment</td>
+        <td>Problems</td>
+        <td>Solutions</td>
+        <td>Due</td>
+    </tr></thead>
+    <tbody class="list">
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 08 2023" data-listing-due-sort="-">            
+            <td class="listing-date">
+                10 Aug, 2023
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong></strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <a href="assignments/A01.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                </td>
+            <td class="listing-solutions">
+                    <a href="assignments/A01-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                </td>
+            <td class="listing-due">
+                    Invalid Date
+            </td>
+        </tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="listing-quizzes-listing" class="quarto-listing quarto-listing-container-custom">
+
+<table class="quarto-listing-table table">
+    <thead>
+        <tr><td>Issued</td>
+        <td>Assessment</td>
+        <td>Problems</td>
+        <td>Solutions</td>
+        <td>Due</td>
+    </tr></thead>
+    <tbody class="list">
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 08 2023" data-listing-due-sort="-">            
+            <td class="listing-date">
+                10 Aug, 2023
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong></strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <a href="quizzes/Q01.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                </td>
+            <td class="listing-solutions">
+                    <a href="quizzes/Q01-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                </td>
+            <td class="listing-due">
+                    Invalid Date
+            </td>
+        </tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div id="listing-exams-listing" class="quarto-listing quarto-listing-container-custom">
+
+<table class="quarto-listing-table table">
+    <thead>
+        <tr><td>Issued</td>
+        <td>Assessment</td>
+        <td>Problems</td>
+        <td>Solutions</td>
+        <td>Due</td>
+    </tr></thead>
+    <tbody class="list">
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+                TBA
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Exam 1</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <a href="exams/E01.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                </td>
+            <td class="listing-solutions">
+                    <a href="exams/E01-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                </td>
+            <td class="listing-due">
+                    -
+            </td>
+        </tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="teaching-plan" class="level3">
-<h3 class="anchored" data-anchor-id="teaching-plan">Teaching Plan</h3>
-<hr>
-<p>Day 1</p>
-<ul>
-<li>Defining SciComm &amp; Public Engagement</li>
-<li>SciComm Strategy &amp; Fundamentals</li>
-<li>Exercise: Choose a SC &amp; PE project and develop a strategy zine for it</li>
-</ul>
-<p>Day 2</p>
-<ul>
-<li>History of Science Communication</li>
-<li>SciComm Models</li>
-<li>Exercise: Write a 200 word piece describing a suitable model for your SC &amp; PE project</li>
-</ul>
-<p>Day 3</p>
-<ul>
-<li>Importance of Narratives for SciComm + Storytelling techniques for SciComm</li>
-<li>Dealing with Jargon + Metaphors &amp; Analogies + Balancing Accuracy vs.&nbsp;Accessibility</li>
-<li>Exercise: Storyboarding a concept for your SC &amp; PE project</li>
-</ul>
-<p>Day 4</p>
-<ul>
-<li>Ethics of doing SciComm</li>
-<li>Understanding your SciComm Audiences</li>
-<li>Exercise: Write a 300-word profile of a specific target audience for your SC &amp; PE activity&nbsp;</li>
-</ul>
-<p>Day 5</p>
-<ul>
-<li>Exercise: Present your SC &amp; PE project overview with reflections from course modules&nbsp;</li>
-<li>Challenges of doing SciComm in India</li>
-<li>Building a SciComm Career in India</li>
-</ul>
+</section>
 
 
-</section>
-</section>
+
 
 </main> <!-- /main -->
 <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
@@ -402,10 +678,10 @@ Outcome
 <div class="column-screen-inset">
     <hr class="about-sep">
     <div class="quarto-about-jolla column-body" style="margin-top:52px;">
-        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+        <p> © 2022 • Neeldhara Misra • <a href="../../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
             </p>
             <div class="collcontent">
-                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <img src="../../../images/calvin.webp" style="border-radius:25px;">
                 <p>&nbsp;</p>
             </div>
     
@@ -455,10 +731,10 @@ Outcome
     <!-- Modal content -->
     <div class="modal-content" style="width: 460px !important;">
     <span class="close" data-dismiss="modal">×</span>
-    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+    <img src="../../../images/calvin.jpg" style="border-radius:25px;" width="420">
 </div>
 
-<script type="text/javascript" src="../../scripts.js"></script>
+<script type="text/javascript" src="../../../scripts.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -696,5 +972,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</div><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - GIAN | Aug-Nov 2023</title>
+<title>Neeldhara - 191014K02: Randomized Methods for Approximation and Parameterized Algorithms</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,6 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-lecid','listing-date','listing-title','listing-slides','listing-notes','listing-summary',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-date','listing-lecid','listing-title','listing-summary','listing-tallycode','listing-slides','listing-video','listing-notes',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-lecid","listing-date","listing-title","listing-slides","listing-notes","listing-summary"],
+      searchColumns: ["listing-date","listing-lecid","listing-title","listing-summary","listing-tallycode","listing-slides","listing-video","listing-notes"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -99,69 +100,13 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-problemset','listing-solutions','listing-title','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
+      valueNames: ['listing-lecid','listing-dateissued','listing-title','listing-problemset','listing-solutions',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] }],
       
-      searchColumns: ["listing-lecid","listing-dateissued","listing-problemset","listing-solutions","listing-title","listing-due"],
+      searchColumns: ["listing-lecid","listing-dateissued","listing-title","listing-problemset","listing-solutions"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-assignments-listing'] = new List('listing-assignments-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-quizzes-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-problemset','listing-solutions','listing-title','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
-      
-      searchColumns: ["listing-lecid","listing-dateissued","listing-problemset","listing-solutions","listing-title","listing-due"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-quizzes-listing'] = new List('listing-quizzes-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-exams-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-title','listing-summary','listing-problemset','listing-solutions','listing-due',{ data: ['index'] },{ data: ['categories'] }],
-      
-      searchColumns: ["listing-lecid","listing-dateissued","listing-title","listing-summary","listing-problemset","listing-solutions","listing-due"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-exams-listing'] = new List('listing-exams-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -195,6 +140,7 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../../../css/styles.css">
 <link rel="stylesheet" href="../../../css/teaching.css">
+<link rel="stylesheet" href="../../../css/feedback-override.css">
 </head>
 
 <body class="nav-fixed">
@@ -338,7 +284,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">GIAN | Aug-Nov 2023</h1>
+<h1 class="title">191014K02: Randomized Methods for Approximation and Parameterized Algorithms</h1>
 </div>
 
 
@@ -353,10 +299,11 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="gian." class="level2 column-body-outset">
-<h2 class="anchored" data-anchor-id="gian.">GIAN. <course title=""></course></h2>
-<section id="section" class="level5">
-<h5 class="anchored" data-anchor-id="section">2022</h5>
+<section id="k02-randomized-methods-for-approximation-and-parameterized-algorithms" class="level2 column-body-outset">
+<h2 class="anchored" data-anchor-id="k02-randomized-methods-for-approximation-and-parameterized-algorithms">191014K02: Randomized Methods for Approximation and Parameterized Algorithms</h2>
+<p><em>A GIAN Course by Prof Daniel Lokshtanov</em></p>
+<section id="december-59-2022" class="level5">
+<h5 class="anchored" data-anchor-id="december-59-2022">December 5—9 2022</h5>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -369,7 +316,11 @@ About the Course
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Course summary.</p>
+<p>Most computational problems that model real-world issues are not known to admit efficient algorithms that are provably correct on all inputs. Many of these problems can be reduced to one of the classical problems called NP-complete problems which are unlikely to admit efficient algorithms in practice, and the issue of whether they do is a fundamental open problem in computer science. Although these problems are very unlikely to be solvable efficiently in the immediate future, computer scientists, over the last few decades, have come up with several “workarounds” to “cope” with NP-hardness.</p>
+<p>Two fundamental approaches in this program include approximation and fixed- parameter tractability. An approximate algorithm is a way of dealing with NP- completeness for optimization problem. This technique does not guarantee the best solution. The goal of an approximation algorithm is to come as close as possible to the optimum value in a reasonable amount of time which is at most polynomial time. On the other hand, parameterized algorithms aim to restrict the exponential blow-up to an identified parameter of the problem, leading to efficient exact algorithms whenever the said parameter is reasonably small. In recent times, there has been substantial research that involves an interplay of techniques from both approaches as well.</p>
+<p>All paradigms of algorithm design, including efficient polynomial time algorithms as well as the methods of approximation and parameterization discussed above, are substantially more powerful when combined with techniques based on randomness. Carefully employed, randomization leads to approaches that are faster and easier to implement than their deterministic counterparts, making them particularly well-suited to practice.</p>
+<p>Over the last two decades, sophisticated probabilistic techniques have been developed for a broad range of challenging computing applications. To begin with, this course will introduce the basic probabilistic techniques used in the design of randomized algorithms and in probabilistic analysis of algorithms. The course covers the basic probability theory required for working with these techniques and demonstrates their use in various computing applications, especially in the context of parameterized and approximation algorithms.</p>
+<p>This course will demonstrate the algorithmic techniques in the context of a variety of combinatorial optimization problems that have significant real-world applications. These include: Longest Path, Minimum Cut, Maximum Cut, Clustering, Vertex Cover, Feedback Vertex Set, and Closest String.</p>
 </div>
 </div>
 </div>
@@ -385,7 +336,7 @@ Target Audience
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Information about target audience.</p>
+<p>Anyone who is biting their nails from the NP-completeness cliffhanger at the end of their <span data-bs-toggle="tooltip" data-bs-placement="top" title="DSA-II 👀">introduction to algorithms</span> will probably enjoy this course. The course is open to students, postdocs, faculty, industry professionals, and anyone who is interested and is confident about the prerequisites enlisted below.</p>
 </div>
 </div>
 </div>
@@ -401,7 +352,13 @@ Prerequisites
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Indication of pre-requisites.</p>
+<p>This is a theoretical course that will require mathematical maturity (in particular, the ability to understand and write formal mathematical proofs), and some background in the design and analysis of algorithms.</p>
+<p><strong>Probability Prerequisites</strong></p>
+<p>Discrete probability spaces • Events • Random variables • Independence (of events, of random variables) • Conditional probability • Expectation of random variable. • Linearity of Expectation • Conditional Expectation (of random variable on event, and on another random variable) • Binomial coefficients (Pascal’s Triangle) • Bernoulli, Binomial, Geometric random variables.</p>
+<p><strong>General Prerequsites</strong></p>
+<p>Correctness proofs for algorithms • Paradigms: Greedy, DP, Divide and Conquer • Big-Oh and asymptotic runtime analysis • Formulating and solving recurrences • P, NP, NP-completeness</p>
+<p><strong>Math Prerequisites</strong></p>
+<p>Linear algebra (Matrices, vectors, rank, basis, linear independence)</p>
 </div>
 </div>
 </div>
@@ -417,7 +374,13 @@ References
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>List of References</p>
+<ol type="1">
+<li><a href="https://www.designofapproxalgs.com/book.pdf">The Design of Approximation Algorithms</a> • David P. Williamson and David B. Shmoys</li>
+<li><a href="https://www.mimuw.edu.pl/~malcin/book/parameterized-algorithms.pdf">Parameterized Algorithms</a> • Marek Cygan, Fedor V. Fomin, Lukasz Kowalik, Daniel Lokshtanov, Daniel Marx, Marcin Pilipczuk, Michal Pilipczuk, and Saket Saurabh</li>
+<li><a href="https://rajsain.files.wordpress.com/2013/11/randomized-algorithms-motwani-and-raghavan.pdf">Randomized Algorithms</a> • Motwani and Raghavan</li>
+<li><a href="https://www.cambridge.org/core/books/beyond-the-worstcase-analysis-of-algorithms/8A8128BBF7FC2857471E9CA52E69AC21">Beyond the Worst-Case Analysis of Algorithms</a> • Tim Roughgarden</li>
+<li><a href="http://jeffe.cs.illinois.edu/teaching/algorithms/">Algorithms</a> • Jeff Erickson</li>
+</ol>
 </div>
 </div>
 </div>
@@ -427,14 +390,33 @@ References
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Timings and Venue
+Logistics
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Venue: XYZ</p>
-<p>Timings:</p>
+<ul>
+<li><p>5th December 2022: Registration + Coffee: 9AM to 10AM | Outside 1/101</p></li>
+<li><p>5th December 2022: Inaugaral Event: 10AM | 1/101</p>
+<ol type="1">
+<li>Address by Prof.&nbsp;Rajat Moona<br>
+<em>(Director, IITGN)</em></li>
+<li>Address by Prof.&nbsp;Anirban Dasgupta<br>
+<em>(Discipline Coordinator, Computer Science and Engineering, IITGN and Local GIAN Coordinator for IITGN)</em></li>
+<li>Address by Prof.&nbsp;Saket Saurabh<br>
+<em>(Professor, The Institute of Mathematical Sciences)</em></li>
+</ol></li>
+<li><p>Lectures: Mon - Thu • 11AM — 12:30PM • 2:30PM — 4PM | Fri • 11AM — 12:30PM</p></li>
+<li><p>Tutorial: Mon - Thu • 4:30PM — 6PM | Fri • 2:30PM — 4PM</p></li>
+<li><p>Venue: Mon - Wed: 1/101 • Thu: 7/101 • Fri: 7/102</p></li>
+</ul>
+<hr>
+<ul>
+<li><p>Zoom links and invitations to a Whatsapp group and Discord server were sent out to all registered participants.</p></li>
+<li><p><del><a href="https://randomizedalgos.netlify.app/">Register here.</a></del> <i class="bi-exclamation-triangle-fill" style="color: indianred;" role="img" aria-hidden="true"></i> <span style="color:indianred;">Registrations are now closed. You can follow along on Youtube if you missed registering!</span></p></li>
+</ul>
+<hr>
 </div>
 </div>
 </div>
@@ -444,64 +426,33 @@ Timings and Venue
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-TAs and Office hours
+About the Instructor: Daniel Lokshtanov
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Office Hours: By email.</p>
-<p>TAs:</p>
-<p>List of TAs.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 56.0%;justify-content: center;">
+<p>Daniel Lokshtanov is a Professor at the Department of Computer Science at the University of California Santa Barbara, before which he was a Professor at the Department of Informatics at the University of Bergen. He received his PhD in Computer Science (2009), from the University of Bergen. He spent two years (2010- 2012) as a Simons Postdoctoral Fellow at University of California at San Diego.</p>
+<p>His research interests span a wide area of algorithms, and he has made several fundamental contributions in the areas of exact exponential algorithms, parameterized and fine-grained algorithms and approximation algorithms. He has been awarded the Meltzer Prize for Young Researchers for his work at the University of Bergen. He is a recipient of the Bergen Research Foundation young researcher grant and of an ERC starting grant on parameterized algorithms. He is a co-author of two recently published texts — Kernelization (Cambridge University Press, 2019) and Parameterized Algorithms (Springer, 2015).</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 4.0%;justify-content: center;">
+
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
+<p><img src="daniel.jpg" class="img-fluid"></p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Evaluation policy
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>Each of the three exams account for 20% of the grade.</li>
-<li>Each of the eleven tutorials will have a quiz worth 5 points. The total number of points you can earn through quizzes is capped at 40, and accounts for 40% of the grade.</li>
-<li>There will be weekly assignments that are not graded but are recommended for practice.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Logistics
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>For IITGN students, (pre-)register through IMS as usual.</li>
-<li>All quizzes and exams will be on Mathmatize; please <a href="https://mathmatize.com/c/809">sign up here</a>.</li>
-<li>For announcements, please sign up on Google classroom <a href="https://classroom.google.com/c/NjE3MjAzOTUzMTA0?cjc=nzl3hkr">with this link</a> or use the invite code <strong>nzl3hkr</strong>.</li>
-<li>If you are not from IITGN and are interested in taking up the course, then please send us an email.</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Lectures</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Assignments</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Quizzes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Exams</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Lectures</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Tutorials</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Memories</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Feedback</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>All slides for the initial lectures can be found <a href="https://slides.com/neeldhara/GIAN-2023">here</a>.</p>
 <div id="listing-lectures-listing" class="quarto-listing quarto-listing-container-custom">
 
 <table class="quarto-listing-table table">
@@ -511,21 +462,196 @@ Logistics
         <td>Slides</td>
         <td>Notes</td>
         <td>Video</td>
+        <td>Recap</td>
     </tr></thead>
     <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1690914600000">            
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1670178600000">            
             <td class="listing-date">
-                02 Aug, 2023
+                05 Dec, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>1. </strong><br>
-                <p></p>
+                <strong>1. Introduction</strong><br>
+                <p>Randomized Algorithms <br> MaxCut <br> MinCut</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <a href="slides/D1L1-slides.pdf"><span class="bi bi-file-earmark-slides"></span></a>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                    <span class="bi bi-alarm" style="color:indianred;"></span>
             </td>
             <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=tJW02ql5SCY"><span class="bi bi-film"></span></a>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://tally.so#tally-open=mVpMWJ"><span class="bi bi-question-circle-fill"></span></a>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1670178600000">            
+            <td class="listing-date">
+                05 Dec, 2022
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>2. Linear Programs</strong><br>
+                <p>Algorithm: Vertex Cover LP. <br> 2-Approximation by Deterministic Rounding <br> Algorithm: Set Cover. <br> Randomized Rounding for O(log n) approximation.</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+                    <a href="slides/D1L2-slides.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+                    <span class="bi bi-alarm" style="color:indianred;"></span>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=DigUJuNDWLA"><span class="bi bi-film"></span></a>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://tally.so#tally-open=mKpJ9M"><span class="bi bi-question-circle-fill"></span></a>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1670265000000">            
+            <td class="listing-date">
+                06 Dec, 2022
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>3. Vertex Cover and FVS</strong><br>
+                <p>Randomized 2-Approximation algorithm for Vertex Cover, and an exact exponential algorithm algorithm for Vertex Cover <br> Randomized 4-Approximation algorithm for FVS and an exact exponential algorithm for FVS <br> Comments on F-Deletion</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+                    <a href="slides/D2L1-slides.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+                    <a href="notes/D2L1/"><span class="bi bi-journal-richtext"></span></a>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=x-cgwLPo7ls"><span class="bi bi-film"></span></a>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://tally.so#tally-open=wLDJeG"><span class="bi bi-question-circle-fill"></span></a>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1670265000000">            
+            <td class="listing-date">
+                06 Dec, 2022
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>4. Color Coding</strong><br>
+                <p>Color Coding (k-Path) <br> Chernoff Bounds <br> Approximate counting of (K-paths) <br> Chromatic Coding (Feedback Arc Set on Tournaments and d-Clustering)</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+                    <a href="slides/D2L2-slides.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+                    <span class="bi bi-alarm" style="color:indianred;"></span>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://youtu.be/x-cgwLPo7ls?t=3931"><span class="bi bi-film"></span></a>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://tally.so#tally-open=npe7QV"><span class="bi bi-question-circle-fill"></span></a>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1670351400000">            
+            <td class="listing-date">
+                07 Dec, 2022
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>5. Closest String and Max Cut</strong><br>
+                <p>(1+eps) approximation for Closest String by Randomized Rounding and Local Search<br>Max Cut on Dense Graphs</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+                    <a href="slides/D3L1-slides.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+                    <span class="bi bi-alarm" style="color:indianred;"></span>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=XavpMQEkCJY"><span class="bi bi-film"></span></a>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://tally.so#tally-open=wkb726"><span class="bi bi-question-circle-fill"></span></a>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1670351400000">            
+            <td class="listing-date">
+                07 Dec, 2022
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>6. Max Cut and SDP</strong><br>
+                <p>Max Cut on Dense Graphs (continued) <br> Introduction to Semi-Definite Programs <br> 0.87 approximation for Max Cut on General Graphs </p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+                    <a href="slides/D3L2-slides.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+                    <span class="bi bi-alarm" style="color:indianred;"></span>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://youtu.be/XavpMQEkCJY?t=5228"><span class="bi bi-film"></span></a>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://tally.so#tally-open=wvXOlA"><span class="bi bi-question-circle-fill"></span></a>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1670437800000">            
+            <td class="listing-date">
+                08 Dec, 2022
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>7. Algebraic Techniques</strong><br>
+                <p>Isolation Lemma <br> Cut and Count</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+                    <a href="slides/D4L1-slides.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+                    <span class="bi bi-alarm" style="color:indianred;"></span>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://youtu.be/7OpE9x2_w6g"><span class="bi bi-film"></span></a>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://tally.so#tally-open=mJ1VOz"><span class="bi bi-question-circle-fill"></span></a>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1670437800000">            
+            <td class="listing-date">
+                08 Dec, 2022
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>8. Derandomization</strong><br>
+                <p>Method of Conditional Expectation <br> Splitters</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+                    <a href="slides/D4L2-slides.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+                    <span class="bi bi-alarm" style="color:indianred;"></span>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://youtu.be/7OpE9x2_w6g"><span class="bi bi-film"></span></a>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://tally.so#tally-open=wo90GN"><span class="bi bi-question-circle-fill"></span></a>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1670524200000">            
+            <td class="listing-date">
+                09 Dec, 2022
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>9. Glimpses of Exact Algorithms</strong><br>
+                <p>1.333^n algorithm for 3-SAT <br> 2-approximation for Tournament Feedback Vertex Set</p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+                    <a href="slides/D5L1-slides.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+                    <span class="bi bi-alarm" style="color:indianred;"></span>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://youtu.be/8miZzrRDF0Q"><span class="bi bi-film"></span></a>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <a href="https://tally.so#tally-open=n0VbAZ"><span class="bi bi-question-circle-fill"></span></a>
             </td>
         </tr>
 </tbody>
@@ -544,26 +670,82 @@ No matching items
         <td>Assessment</td>
         <td>Problems</td>
         <td>Solutions</td>
-        <td>Due</td>
     </tr></thead>
     <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 08 2023" data-listing-due-sort="-">            
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="05 12 2022">            
             <td class="listing-date">
-                10 Aug, 2023
+                05 Dec, 2022
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong></strong><br>
+                <strong>Tutorial 1</strong><br>
                 <p></p>
             </td>
             <td class="listing-problemset">
-                    <a href="assignments/A01.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                    <a href="tutorials/D1Q/"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
                 </td>
             <td class="listing-solutions">
-                    <a href="assignments/A01-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
                 </td>
-            <td class="listing-due">
-                    Invalid Date
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="06 12 2022">            
+            <td class="listing-date">
+                06 Dec, 2022
             </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Tutorial 2</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <a href="tutorials/D2Q/"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                </td>
+            <td class="listing-solutions">
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="07 12 2022">            
+            <td class="listing-date">
+                07 Dec, 2022
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Tutorial 3</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <a href="tutorials/D3Q/"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                </td>
+            <td class="listing-solutions">
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="08 12 2022">            
+            <td class="listing-date">
+                08 Dec, 2022
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Tutorial 4</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <a href="tutorials/D4Q/"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                </td>
+            <td class="listing-solutions">
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="09 12 2022">            
+            <td class="listing-date">
+                09 Dec, 2022
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Tutorial 5</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <a href="tutorials/D5Q/"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                </td>
+            <td class="listing-solutions">
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                </td>
         </tr>
 </tbody>
 </table>
@@ -573,77 +755,35 @@ No matching items
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<div id="listing-quizzes-listing" class="quarto-listing quarto-listing-container-custom">
-
-<table class="quarto-listing-table table">
-    <thead>
-        <tr><td>Issued</td>
-        <td>Assessment</td>
-        <td>Problems</td>
-        <td>Solutions</td>
-        <td>Due</td>
-    </tr></thead>
-    <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 08 2023" data-listing-due-sort="-">            
-            <td class="listing-date">
-                10 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong></strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <a href="quizzes/Q01.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
-                </td>
-            <td class="listing-solutions">
-                    <a href="quizzes/Q01-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
-                </td>
-            <td class="listing-due">
-                    Invalid Date
-            </td>
-        </tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="images/daniel.jpeg" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="images/groupie.jpg" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img src="images/groupicrooftop.jpg" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img src="images/grouppic1.jpg" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img src="images/grouppic2.jpg" class="img-fluid"></p>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<div id="listing-exams-listing" class="quarto-listing quarto-listing-container-custom">
+<div id="hyvor-talk-view">
 
-<table class="quarto-listing-table table">
-    <thead>
-        <tr><td>Issued</td>
-        <td>Assessment</td>
-        <td>Problems</td>
-        <td>Solutions</td>
-        <td>Due</td>
-    </tr></thead>
-    <tbody class="list">
-        <tr data-index="0" data-categories="null">            
-            <td class="listing-date">
-                TBA
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Exam 1</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <a href="exams/E01.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
-                </td>
-            <td class="listing-solutions">
-                    <a href="exams/E01-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
-                </td>
-            <td class="listing-due">
-                    -
-            </td>
-        </tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
 </div>
 </div>
 </div>

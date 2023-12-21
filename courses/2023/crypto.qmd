@@ -1,0 +1,63 @@
+---
+title: A nano-course in modern cryptography
+
+css: /css/teaching.css
+sidebar: false
+toc: false
+---
+
+## A nano-course in modern cryptography
+##### A Short Course
+
+--- _Prof. Venkata Koppula, IIT Delhi_
+
+:::{.callout-note collapse="true" icon="false"}
+# About the Course
+
+While cryptography has been around for centuries, since the middle of twentieth century, cryptography has gradually moved from 'art' to 'science'. Today, most cryptographic primitives/protocols come with a formal security proof. In this lecture series, we will discuss how to define security for cryptographic primitives, followed by constructions, security proofs (and vulnerabilities in real-world cryptosystems). 
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+# About the Instructor
+Venkata Koppula is an Assistant Professor at IIT Delhi. His primary area of research is theoretical cryptography.
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+# Dates and Time
+Tentative dates : 21-26 December
+Format: Hybrid (over Zoom)
+Time: 5-6:30pm
+:::
+
+
+:::{.callout-note collapse="true" icon="false"}
+# Target Audience
+Anyone with interest in theoretical computer science is welcome to attend. No cryptography background will be assumed. 
+:::
+
+
+### Teaching Plan
+
+---
+
+**Lecture 1: How to define security?**
+
+We will start with the most basic security setting: Alice and Bob share a secret key, and want to use this secret key for exchanging information securely. The cryptographic primitive that is used for this is called private-key encryption. In this first lecture, we will build towards a popular security definition (called security against 'chosen plaintext attacks') for private key encryption.
+
+**Lecture 2: The first construction**
+
+In this lecture, we will discuss how to build a private-key encryption scheme secure against chosen-plaintext attacks. We will then discuss how to optimise the ciphertext size (without compromising on security). We will conclude this lecture with a popular cryptographic standard (PKCS v1.5) which was proposed and implemented in the 90s.
+
+**Lecture 3 and 4: The need for stronger security**
+
+While the PKCS v1.5 satisfies security against 'chosen-plaintext attacks', it turns out that this security is not enough for the real-world! We will start this lecture with an attack on the PKCS v1.5 scheme, then discuss a stronger definition (called security against 'chosen ciphertext attacks'). This is now the 'gold standard' security definition for encryption schemes. In order to achieve this security, we require a new cryptographic primitive called 'message authentication codes'. We will define and build message auth. codes. Next, we will see how to use message authentication codes to achieve security against chosen-ciphertext attacks.
+
+**Lecture 5: Public key encryption**
+
+One of the biggest innovations in the area of cryptography is the advent of public key cryptography. In this lecture, we will discuss some background on public key cryptography, followed by a construction for public key encryption.
+
+**Lecture 6: Digital signatures**
+
+Digital signatures are an essential component in the public key infrastructure. We will discuss their role in public key infrastructure, as well as their importance as a standalone primitive). We will conclude this lecture with a construction of a digital signature scheme. 
+

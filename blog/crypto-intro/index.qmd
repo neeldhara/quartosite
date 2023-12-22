@@ -1,0 +1,140 @@
+---
+title: "Intro to Crypto"
+date: "2023-12-21"
+categories: [talk,exposition]
+fields: [date, title]
+toc: true
+---
+
+:::{.callout-caution appearance="caution" icon="false"}
+# Background
+This post is based on a series of lectures that [Venkata Koppula](https://web.iitd.ac.in/~kvenkata/) gave at IIT Gandhiangar during the inter-IIT sports meet.
+:::
+
+## Lecture 1: How to define security?
+
+
+
+:::{.callout-note}
+# A first threat scenario, informally:
+
+
+- A king and an admiral share some secret information beforehand.
+- Later, the king wants to send exactly one message.
+- The admiral should learn the message.
+- No one else should learn anything.
+
+:::
+
+### Encrpytion and Decryption
+
+The setup:
+
+Let $\mathcal{A}$ be an abitrary but fixed set of symbols, which we call the alphabet.
+
+- The _key space_ $\mathcal{K}$ is a set of strings over $\mathcal{A}$.
+- The _message space_ $\mathcal{M}$ is also a set of strings over $\mathcal{A}$.
+- The _ciphertext space_ $\mathcal{C}$ is also a set of strings over $\mathcal{A}$.
+
+We also have two functions:
+
+1. The **encryption** function:
+
+$$\mathfrak{E}: \mathcal{K} \times \mathcal{M} \longrightarrow \mathcal{C},$$
+
+   which takes as input a key $k \in \mathcal{K}$ and a message $m \in \mathcal{M}$, and outputs a ciphertext $c \in \mathcal{C}$.
+
+2. The **decryption** function:
+
+$$\mathfrak{D}: \mathcal{K} \times \mathcal{C} \longrightarrow \mathcal{M} \cup \{\bot\},$$
+
+   which takes as input a key $k \in \mathcal{K}$ and a ciphertext $c \in \mathcal{C}$, and outputs a message $m \in \mathcal{M}$ or the symbol $\bot$ (which is pronounced _bottom_, and captures a failure signal, e.g, on a corrupt input).
+
+
+The encrpytion scheme is said to be _valid_ if for all $(k,m) \in \mathcal{K} \times \mathcal{M}$, it holds that:
+
+$$\mathfrak{D}(k, \mathfrak{E}(k, m)) = m$$
+
+### A Secruity Definition
+
+Once we have a proposal for a valid encryption/decryption scheme, we would like to know if it is a decent one: and in our context, we like schemes that can survive adverserial attacks: imagine someone snooping over the communication channel, and trying to learn the message from the ciphertext --- we would like to make claims to the effect of "that won't be possible". 
+
+To formalize this, we have the notion of a security game, which is a game played between two players: a challenger and an adversary. The challenger is the one who sets up the game, and the adversary is the one who tries to break the scheme. Here's what the game looks like:
+
+1. The challenger picks a key $k \in \mathcal{K}$ uniformly at random and a picks a bit $b \in \{0,1\}$ uniformly at random
+2. The adversary sends the challenger two messages $m_0$ and $m_1$.
+3. The challenger sends the ciphertext $c = \mathfrak{E}(k, m_b)$ to the adversary.
+4. The adversary outputs a bit $b'$.
+5. The adversary wins if $b = b'$.
+
+Note that an adversary that outputs a bit in step 4 by tossing a coin (`1` if `H` and `0` if `T`) wins this game with probability $1/2$. 
+
+A self-respecting adversary will want to fare better, while a scheme worth its salt will not want to be vulnerable with respect to _any_ adverseray, so we say that:
+
+- an adversary wins this game if they can win it with probability greater than half, and,
+- a scheme is secure if no adversary can win this game with probability greater than half.
+
+### Example: An Insecure Scheme
+
+Consider a lazy encryption scheme that does not encrypt a message at all:
+
+- $\mathfrak{E}(k,m) = m$ and
+- $\mathfrak{D}(k,c) = c$.
+
+It is easy to see that there is an adversary who can win the security game defined above with probability 1, so this is not a terribly smart scheme. The same is true for schemes that rotate the message by a fixed amount (why?).
+
+
+### Example: An Secure Scheme
+
+Assume the message space, key space, and ciphertext space are all $n$-bit strings for some arbitrary but fixed choice of $n$. Consider the following encryption scheme:
+
+- $\mathfrak{E}(k,m) = k \oplus m$ and
+- $\mathfrak{D}(k,c) = k \oplus c$.
+
+It turns out that this scheme is secure, intuitively because for any ciphertext $c$, there are two keys $k_1$ and $k_2$ which are such that:
+
+- $\mathfrak{D}(k_1,c) = m_0$, and
+- $\mathfrak{D}(k_2,c) = m_1$, 
+
+for any two messages $m_0$ and $m_1$, so there is no way for the adversary to reverse engineer the bit $b$.
+
+(Exercise: prove this formally.)
+
+### Example: Another Insecure Scheme
+
+
+Assume the message space and ciphertext space are $2n$-bit strings for some arbitrary but fixed choice of $n$, and the key space is the set of all $n$-bit strings. Consider the following encryption scheme:
+
+- $\mathfrak{E}(k,m) = (k | k) \oplus m$ and
+- $\mathfrak{D}(k,c) = (k | k) \oplus c$,
+
+where $(a | b)$ denotes the concatenation of two strings.
+
+It turns out that this scheme is _not_ secure (why?).
+
+
+### A Stronger Secruity Definition
+
+Consider the following extended security game:
+
+1. The challenger picks a key $k \in \mathcal{K}$ uniformly at random and a picks a bit $b \in \{0,1\}$ uniformly at random.
+2. The adversary sends the challenger two messages $m_{00}$ and $m_{01}$.
+3. The challenger sends the ciphertext $c_0 = \mathfrak{E}(k, m_{0b})$ to the adversary.
+4. The adversary sends the challenger two messages $m_{10}$ and $m_{11}$.
+5. The challenger sends the ciphertext $c_1 = \mathfrak{E}(k, m_{1b})$ to the adversary.
+6. The adversary outputs a bit $b'$.
+7. The adversary wins if $b = b'$.
+
+As before, we say that:
+
+- an adversary wins this game if they can win it with probability greater than half, and,
+- a scheme is secure if no adversary can win this game with probability greater than half.
+
+However, in the extended game, we have empowered the adversary to a point where _no_ deterministic scheme can be secure in this stronger sense! Here's why:
+
+- Suppose the adversary picks: $m_{00} = 0^n$, $m_{01} = 1^n$, $m_{10} = 0^n$, $m_{11} = 01^{n-1}$.
+- Then the adversary returns $0$ if $c_0$ and $c_1$ are identical, and $1$ otherwise.
+
+Note that this particular adversary wins with probability 1, no matter what $\mathfrak{E}$ and $\mathfrak{D}$ are.
+
+What can we say about _randomized_ schemes? Can they be secure in the extended setting?

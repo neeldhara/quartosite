@@ -61,6 +61,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../css/styles.css">
 <link rel="stylesheet" href="../../css/teaching.css">
@@ -316,16 +332,86 @@ Target Audience
 <section id="teaching-plan" class="level3">
 <h3 class="anchored" data-anchor-id="teaching-plan">Teaching Plan</h3>
 <hr>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <p><strong>Lecture 1: How to define security?</strong></p>
 <p>We will start with the most basic security setting: Alice and Bob share a secret key, and want to use this secret key for exchanging information securely. The cryptographic primitive that is used for this is called private-key encryption. In this first lecture, we will build towards a popular security definition (called security against ‘chosen plaintext attacks’) for private key encryption.</p>
+<p><a href="04-CRYPTO/L1-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="https://youtube.com/live/vIKXvEGLOJc?feature=share"><span class="bi bi-film" data-bs-toggle="tooltip" data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.html"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" data-s="" data-bs-placement="top" title="Quick Summary"></span></a></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lecture 1 Assignments
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Show that any correct encryption scheme with perfect one-time security must have key space at least as large as the message space.</p></li>
+<li><p>In the first lecture, we discussed one-time perfect security. This definition aims to capture the intuition that the adversary does not learn anything about the message if the scheme is one-time perfectly secure.</p>
+<p>Suppose an encryption scheme is one-time perfectly secure. Show that no adversary, given an encryption of a uniformly random message (using a uniformly random key), can compute the parity of the message bits (with probability 1). You can assume the message space is <span class="math inline">n</span>-bit strings.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <p><strong>Lecture 2: The first construction</strong></p>
 <p>In this lecture, we will discuss how to build a private-key encryption scheme secure against chosen-plaintext attacks. We will then discuss how to optimise the ciphertext size (without compromising on security). We will conclude this lecture with a popular cryptographic standard (PKCS v1.5) which was proposed and implemented in the 90s.</p>
+<p><a href="04-CRYPTO/L2-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="#"><span class="bi bi-film" data-bs-toggle="tooltip" data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.html"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" data-s="" data-bs-placement="top" title="Quick Summary"></span></a></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <p><strong>Lecture 3 and 4: The need for stronger security</strong></p>
 <p>While the PKCS v1.5 satisfies security against ‘chosen-plaintext attacks’, it turns out that this security is not enough for the real-world! We will start this lecture with an attack on the PKCS v1.5 scheme, then discuss a stronger definition (called security against ‘chosen ciphertext attacks’). This is now the ‘gold standard’ security definition for encryption schemes. In order to achieve this security, we require a new cryptographic primitive called ‘message authentication codes’. We will define and build message auth. codes. Next, we will see how to use message authentication codes to achieve security against chosen-ciphertext attacks.</p>
+<p><a href="04-CRYPTO/L3-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="#"><span class="bi bi-film" data-bs-toggle="tooltip" data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.html"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" data-s="" data-bs-placement="top" title="Quick Summary"></span></a></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <p><strong>Lecture 5: Public key encryption</strong></p>
 <p>One of the biggest innovations in the area of cryptography is the advent of public key cryptography. In this lecture, we will discuss some background on public key cryptography, followed by a construction for public key encryption.</p>
+<p><a href="04-CRYPTO/L4-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="#"><span class="bi bi-film" data-bs-toggle="tooltip" data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.html"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" data-s="" data-bs-placement="top" title="Quick Summary"></span></a></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <p><strong>Lecture 6: Digital signatures</strong></p>
 <p>Digital signatures are an essential component in the public key infrastructure. We will discuss their role in public key infrastructure, as well as their importance as a standalone primitive). We will conclude this lecture with a construction of a digital signature scheme.</p>
+<p><a href="04-CRYPTO/L5-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="#"><span class="bi bi-film" data-bs-toggle="tooltip" data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.html"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" data-s="" data-bs-placement="top" title="Quick Summary"></span></a></p>
+</div>
+</div>
+</div>
 
 
 </section>

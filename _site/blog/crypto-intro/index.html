@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-21">
+
+<title>Neeldhara - Intro to Crypto</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Neeldhara</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../research/overview.html" rel="" target="">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/people.html" rel="" target="">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/publications.html" rel="" target="">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/surveys" rel="" target="">
+ <span class="dropdown-text">Surveys</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../courses/index.html" rel="" target="">
+ <span class="dropdown-text">Courses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/index.html" rel="" target="">
+ <span class="dropdown-text">Materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Lists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
+        <li>
+    <a class="dropdown-item" href="../../tgif/" rel="" target="">
+ <span class="dropdown-text">Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bookmarks/" rel="" target="">
+ <span class="dropdown-text">Bookmarks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Exposition</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
+        <li>
+    <a class="dropdown-item" href="../../talks/" rel="" target="">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../videos/" rel="" target="">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../events/" rel="" target="">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Intro to Crypto</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">talk</div>
+                <div class="quarto-category">exposition</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 21, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lecture-1-how-to-define-security" id="toc-lecture-1-how-to-define-security" class="nav-link active" data-scroll-target="#lecture-1-how-to-define-security">Lecture 1: How to define security?</a>
+  <ul class="collapse">
+  <li><a href="#encrpytion-and-decryption" id="toc-encrpytion-and-decryption" class="nav-link" data-scroll-target="#encrpytion-and-decryption">Encrpytion and Decryption</a></li>
+  <li><a href="#a-secruity-definition" id="toc-a-secruity-definition" class="nav-link" data-scroll-target="#a-secruity-definition">A Secruity Definition</a></li>
+  <li><a href="#example-an-insecure-scheme" id="toc-example-an-insecure-scheme" class="nav-link" data-scroll-target="#example-an-insecure-scheme">Example: An Insecure Scheme</a></li>
+  <li><a href="#example-an-secure-scheme" id="toc-example-an-secure-scheme" class="nav-link" data-scroll-target="#example-an-secure-scheme">Example: An Secure Scheme</a></li>
+  <li><a href="#example-another-insecure-scheme" id="toc-example-another-insecure-scheme" class="nav-link" data-scroll-target="#example-another-insecure-scheme">Example: Another Insecure Scheme</a></li>
+  <li><a href="#a-stronger-secruity-definition" id="toc-a-stronger-secruity-definition" class="nav-link" data-scroll-target="#a-stronger-secruity-definition">A Stronger Secruity Definition</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+
+
+
+
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Background
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This post is based on a series of lectures that <a href="https://web.iitd.ac.in/~kvenkata/">Venkata Koppula</a> gave at IIT Gandhiangar during the inter-IIT sports meet.</p>
+</div>
+</div>
+<section id="lecture-1-how-to-define-security" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-1-how-to-define-security">Lecture 1: How to define security?</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A first threat scenario, informally:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A king and an admiral share some secret information beforehand.</li>
+<li>Later, the king wants to send exactly one message.</li>
+<li>The admiral should learn the message.</li>
+<li>No one else should learn anything.</li>
+</ul>
+</div>
+</div>
+<section id="encrpytion-and-decryption" class="level3">
+<h3 class="anchored" data-anchor-id="encrpytion-and-decryption">Encrpytion and Decryption</h3>
+<p>The setup:</p>
+<p>Let <span class="math inline">\mathcal{A}</span> be an abitrary but fixed set of symbols, which we call the alphabet.</p>
+<ul>
+<li>The <em>key space</em> <span class="math inline">\mathcal{K}</span> is a set of strings over <span class="math inline">\mathcal{A}</span>.</li>
+<li>The <em>message space</em> <span class="math inline">\mathcal{M}</span> is also a set of strings over <span class="math inline">\mathcal{A}</span>.</li>
+<li>The <em>ciphertext space</em> <span class="math inline">\mathcal{C}</span> is also a set of strings over <span class="math inline">\mathcal{A}</span>.</li>
+</ul>
+<p>We also have two functions:</p>
+<ol type="1">
+<li>The <strong>encryption</strong> function:</li>
+</ol>
+<p><span class="math display">\mathfrak{E}: \mathcal{K} \times \mathcal{M} \longrightarrow \mathcal{C},</span></p>
+<p>which takes as input a key <span class="math inline">k \in \mathcal{K}</span> and a message <span class="math inline">m \in \mathcal{M}</span>, and outputs a ciphertext <span class="math inline">c \in \mathcal{C}</span>.</p>
+<ol start="2" type="1">
+<li>The <strong>decryption</strong> function:</li>
+</ol>
+<p><span class="math display">\mathfrak{D}: \mathcal{K} \times \mathcal{C} \longrightarrow \mathcal{M} \cup \{\bot\},</span></p>
+<p>which takes as input a key <span class="math inline">k \in \mathcal{K}</span> and a ciphertext <span class="math inline">c \in \mathcal{C}</span>, and outputs a message <span class="math inline">m \in \mathcal{M}</span> or the symbol <span class="math inline">\bot</span> (which is pronounced <em>bottom</em>, and captures a failure signal, e.g, on a corrupt input).</p>
+<p>The encrpytion scheme is said to be <em>valid</em> if for all <span class="math inline">(k,m) \in \mathcal{K} \times \mathcal{M}</span>, it holds that:</p>
+<p><span class="math display">\mathfrak{D}(k, \mathfrak{E}(k, m)) = m</span></p>
+</section>
+<section id="a-secruity-definition" class="level3">
+<h3 class="anchored" data-anchor-id="a-secruity-definition">A Secruity Definition</h3>
+<p>Once we have a proposal for a valid encryption/decryption scheme, we would like to know if it is a decent one: and in our context, we like schemes that can survive adverserial attacks: imagine someone snooping over the communication channel, and trying to learn the message from the ciphertext — we would like to make claims to the effect of “that won’t be possible”.</p>
+<p>To formalize this, we have the notion of a security game, which is a game played between two players: a challenger and an adversary. The challenger is the one who sets up the game, and the adversary is the one who tries to break the scheme. Here’s what the game looks like:</p>
+<ol type="1">
+<li>The challenger picks a key <span class="math inline">k \in \mathcal{K}</span> uniformly at random and a picks a bit <span class="math inline">b \in \{0,1\}</span> uniformly at random</li>
+<li>The adversary sends the challenger two messages <span class="math inline">m_0</span> and <span class="math inline">m_1</span>.</li>
+<li>The challenger sends the ciphertext <span class="math inline">c = \mathfrak{E}(k, m_b)</span> to the adversary.</li>
+<li>The adversary outputs a bit <span class="math inline">b'</span>.</li>
+<li>The adversary wins if <span class="math inline">b = b'</span>.</li>
+</ol>
+<p>Note that an adversary that outputs a bit in step 4 by tossing a coin (<code>1</code> if <code>H</code> and <code>0</code> if <code>T</code>) wins this game with probability <span class="math inline">1/2</span>.</p>
+<p>A self-respecting adversary will want to fare better, while a scheme worth its salt will not want to be vulnerable with respect to <em>any</em> adverseray, so we say that:</p>
+<ul>
+<li>an adversary wins this game if they can win it with probability greater than half, and,</li>
+<li>a scheme is secure if no adversary can win this game with probability greater than half.</li>
+</ul>
+</section>
+<section id="example-an-insecure-scheme" class="level3">
+<h3 class="anchored" data-anchor-id="example-an-insecure-scheme">Example: An Insecure Scheme</h3>
+<p>Consider a lazy encryption scheme that does not encrypt a message at all:</p>
+<ul>
+<li><span class="math inline">\mathfrak{E}(k,m) = m</span> and</li>
+<li><span class="math inline">\mathfrak{D}(k,c) = c</span>.</li>
+</ul>
+<p>It is easy to see that there is an adversary who can win the security game defined above with probability 1, so this is not a terribly smart scheme. The same is true for schemes that rotate the message by a fixed amount (why?).</p>
+</section>
+<section id="example-an-secure-scheme" class="level3">
+<h3 class="anchored" data-anchor-id="example-an-secure-scheme">Example: An Secure Scheme</h3>
+<p>Assume the message space, key space, and ciphertext space are all <span class="math inline">n</span>-bit strings for some arbitrary but fixed choice of <span class="math inline">n</span>. Consider the following encryption scheme:</p>
+<ul>
+<li><span class="math inline">\mathfrak{E}(k,m) = k \oplus m</span> and</li>
+<li><span class="math inline">\mathfrak{D}(k,c) = k \oplus c</span>.</li>
+</ul>
+<p>It turns out that this scheme is secure, intuitively because for any ciphertext <span class="math inline">c</span>, there are two keys <span class="math inline">k_1</span> and <span class="math inline">k_2</span> which are such that:</p>
+<ul>
+<li><span class="math inline">\mathfrak{D}(k_1,c) = m_0</span>, and</li>
+<li><span class="math inline">\mathfrak{D}(k_2,c) = m_1</span>,</li>
+</ul>
+<p>for any two messages <span class="math inline">m_0</span> and <span class="math inline">m_1</span>, so there is no way for the adversary to reverse engineer the bit <span class="math inline">b</span>.</p>
+<p>(Exercise: prove this formally.)</p>
+</section>
+<section id="example-another-insecure-scheme" class="level3">
+<h3 class="anchored" data-anchor-id="example-another-insecure-scheme">Example: Another Insecure Scheme</h3>
+<p>Assume the message space and ciphertext space are <span class="math inline">2n</span>-bit strings for some arbitrary but fixed choice of <span class="math inline">n</span>, and the key space is the set of all <span class="math inline">n</span>-bit strings. Consider the following encryption scheme:</p>
+<ul>
+<li><span class="math inline">\mathfrak{E}(k,m) = (k | k) \oplus m</span> and</li>
+<li><span class="math inline">\mathfrak{D}(k,c) = (k | k) \oplus c</span>,</li>
+</ul>
+<p>where <span class="math inline">(a | b)</span> denotes the concatenation of two strings.</p>
+<p>It turns out that this scheme is <em>not</em> secure (why?).</p>
+</section>
+<section id="a-stronger-secruity-definition" class="level3">
+<h3 class="anchored" data-anchor-id="a-stronger-secruity-definition">A Stronger Secruity Definition</h3>
+<p>Consider the following extended security game:</p>
+<ol type="1">
+<li>The challenger picks a key <span class="math inline">k \in \mathcal{K}</span> uniformly at random and a picks a bit <span class="math inline">b \in \{0,1\}</span> uniformly at random.</li>
+<li>The adversary sends the challenger two messages <span class="math inline">m_{00}</span> and <span class="math inline">m_{01}</span>.</li>
+<li>The challenger sends the ciphertext <span class="math inline">c_0 = \mathfrak{E}(k, m_{0b})</span> to the adversary.</li>
+<li>The adversary sends the challenger two messages <span class="math inline">m_{10}</span> and <span class="math inline">m_{11}</span>.</li>
+<li>The challenger sends the ciphertext <span class="math inline">c_1 = \mathfrak{E}(k, m_{1b})</span> to the adversary.</li>
+<li>The adversary outputs a bit <span class="math inline">b'</span>.</li>
+<li>The adversary wins if <span class="math inline">b = b'</span>.</li>
+</ol>
+<p>As before, we say that:</p>
+<ul>
+<li>an adversary wins this game if they can win it with probability greater than half, and,</li>
+<li>a scheme is secure if no adversary can win this game with probability greater than half.</li>
+</ul>
+<p>However, in the extended game, we have empowered the adversary to a point where <em>no</em> deterministic scheme can be secure in this stronger sense! Here’s why:</p>
+<ul>
+<li>Suppose the adversary picks: <span class="math inline">m_{00} = 0^n</span>, <span class="math inline">m_{01} = 1^n</span>, <span class="math inline">m_{10} = 0^n</span>, <span class="math inline">m_{11} = 01^{n-1}</span>.</li>
+<li>Then the adversary returns <span class="math inline">0</span> if <span class="math inline">c_0</span> and <span class="math inline">c_1</span> are identical, and <span class="math inline">1</span> otherwise.</li>
+</ul>
+<p>Note that this particular adversary wins with probability 1, no matter what <span class="math inline">\mathfrak{E}</span> and <span class="math inline">\mathfrak{D}</span> are.</p>
+<p>What can we say about <em>randomized</em> schemes? Can they be secure in the extended setting?</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="INVUSZCW" defer=""></script>
+
+<script async="" src="https://tally.so/widgets/embed.js"></script>
+
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 6210;
+        var HYVOR_TALK_CONFIG = {
+            url: false,
+            id: false
+        };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://talk.hyvor.com/web-api/embed.js";
+    document.body.appendChild(script);
+</script>
+<div id="hyvor-talk-view"></div>
+
+<div class="column-screen-inset">
+    <hr class="about-sep">
+    <div class="quarto-about-jolla column-body" style="margin-top:52px;">
+        <p> © 2022 • Neeldhara Misra • <a href="../../credits.html">Credits</a> • <i data-target="calvinmodal" data-toggle="modal" class="bi bi-emoji-smile-upside-down"></i>
+            </p>
+            <div class="collcontent">
+                <img src="../../images/calvin.webp" style="border-radius:25px;">
+                <p>&nbsp;</p>
+            </div>
+    
+        <p> Corrections? Please leave a comment here or a PR <a href="https://github.com/neeldhara/quartosite">in this repository</a>, thanks!</p>
+    
+
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+              <q>I’d rather be a failure at something I love than a success at something I hate.</q>
+              <p class="author">George Burns</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>You live and you learn — at any rate, you live.</q>
+              <p class="author">Douglas Adams</p>
+            </div>
+            
+            <div class="mySlides">
+              <q>A problem worthy of attack proves its worth by fighting back.</q>
+              <p class="author">Paul Erdos</p>
+            </div>
+                        
+        </div>
+
+
+    
+        <div class="about-links">
+            <a rel="me" href="https://mathstodon.xyz/@neeldhara" class="about-link">
+                <i class="bi bi-mastodon"></i>
+            </a>
+            <a href="https://www.isibang.ac.in/~gm/" class="about-link">
+                <i class="bi bi-heart-fill" style="color:red;"></i>
+            </a>
+            <a href="https://github.com/neeldhara" class="about-link">
+                <i class="bi bi-github"></i>
+            </a>
+        </div> 
+ </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="calvinmodal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 460px !important;">
+    <span class="close" data-dismiss="modal">×</span>
+    <img src="../../images/calvin.jpg" style="border-radius:25px;" width="420">
+</div>
+
+<script type="text/javascript" src="../../scripts.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</div><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

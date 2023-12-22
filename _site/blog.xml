@@ -10,7 +10,158 @@
 <atom:link href="https://www.neeldhara.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Sat, 30 Sep 2023 18:30:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 20 Dec 2023 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Intro to Crypto</title>
+  <link>https://www.neeldhara.com/blog/crypto-intro/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Background
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This post is based on a series of lectures that <a href="https://web.iitd.ac.in/~kvenkata/">Venkata Koppula</a> gave at IIT Gandhiangar during the inter-IIT sports meet.</p>
+</div>
+</div>
+<section id="lecture-1-how-to-define-security" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-1-how-to-define-security">Lecture 1: How to define security?</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A first threat scenario, informally:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A king and an admiral share some secret information beforehand.</li>
+<li>Later, the king wants to send exactly one message.</li>
+<li>The admiral should learn the message.</li>
+<li>No one else should learn anything.</li>
+</ul>
+</div>
+</div>
+<section id="encrpytion-and-decryption" class="level3">
+<h3 class="anchored" data-anchor-id="encrpytion-and-decryption">Encrpytion and Decryption</h3>
+<p>The setup:</p>
+<p>Let <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BA%7D"> be an abitrary but fixed set of symbols, which we call the alphabet.</p>
+<ul>
+<li>The <em>key space</em> <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BK%7D"> is a set of strings over <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BA%7D">.</li>
+<li>The <em>message space</em> <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BM%7D"> is also a set of strings over <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BA%7D">.</li>
+<li>The <em>ciphertext space</em> <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BC%7D"> is also a set of strings over <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BA%7D">.</li>
+</ul>
+<p>We also have two functions:</p>
+<ol type="1">
+<li>The <strong>encryption</strong> function:</li>
+</ol>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BE%7D:%20%5Cmathcal%7BK%7D%20%5Ctimes%20%5Cmathcal%7BM%7D%20%5Clongrightarrow%20%5Cmathcal%7BC%7D,"></p>
+<p>which takes as input a key <img src="https://latex.codecogs.com/png.latex?k%20%5Cin%20%5Cmathcal%7BK%7D"> and a message <img src="https://latex.codecogs.com/png.latex?m%20%5Cin%20%5Cmathcal%7BM%7D">, and outputs a ciphertext <img src="https://latex.codecogs.com/png.latex?c%20%5Cin%20%5Cmathcal%7BC%7D">.</p>
+<ol start="2" type="1">
+<li>The <strong>decryption</strong> function:</li>
+</ol>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BD%7D:%20%5Cmathcal%7BK%7D%20%5Ctimes%20%5Cmathcal%7BC%7D%20%5Clongrightarrow%20%5Cmathcal%7BM%7D%20%5Ccup%20%5C%7B%5Cbot%5C%7D,"></p>
+<p>which takes as input a key <img src="https://latex.codecogs.com/png.latex?k%20%5Cin%20%5Cmathcal%7BK%7D"> and a ciphertext <img src="https://latex.codecogs.com/png.latex?c%20%5Cin%20%5Cmathcal%7BC%7D">, and outputs a message <img src="https://latex.codecogs.com/png.latex?m%20%5Cin%20%5Cmathcal%7BM%7D"> or the symbol <img src="https://latex.codecogs.com/png.latex?%5Cbot"> (which is pronounced <em>bottom</em>, and captures a failure signal, e.g, on a corrupt input).</p>
+<p>The encrpytion scheme is said to be <em>valid</em> if for all <img src="https://latex.codecogs.com/png.latex?(k,m)%20%5Cin%20%5Cmathcal%7BK%7D%20%5Ctimes%20%5Cmathcal%7BM%7D">, it holds that:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BD%7D(k,%20%5Cmathfrak%7BE%7D(k,%20m))%20=%20m"></p>
+</section>
+<section id="a-secruity-definition" class="level3">
+<h3 class="anchored" data-anchor-id="a-secruity-definition">A Secruity Definition</h3>
+<p>Once we have a proposal for a valid encryption/decryption scheme, we would like to know if it is a decent one: and in our context, we like schemes that can survive adverserial attacks: imagine someone snooping over the communication channel, and trying to learn the message from the ciphertext — we would like to make claims to the effect of “that won’t be possible”.</p>
+<p>To formalize this, we have the notion of a security game, which is a game played between two players: a challenger and an adversary. The challenger is the one who sets up the game, and the adversary is the one who tries to break the scheme. Here’s what the game looks like:</p>
+<ol type="1">
+<li>The challenger picks a key <img src="https://latex.codecogs.com/png.latex?k%20%5Cin%20%5Cmathcal%7BK%7D"> uniformly at random and a picks a bit <img src="https://latex.codecogs.com/png.latex?b%20%5Cin%20%5C%7B0,1%5C%7D"> uniformly at random</li>
+<li>The adversary sends the challenger two messages <img src="https://latex.codecogs.com/png.latex?m_0"> and <img src="https://latex.codecogs.com/png.latex?m_1">.</li>
+<li>The challenger sends the ciphertext <img src="https://latex.codecogs.com/png.latex?c%20=%20%5Cmathfrak%7BE%7D(k,%20m_b)"> to the adversary.</li>
+<li>The adversary outputs a bit <img src="https://latex.codecogs.com/png.latex?b'">.</li>
+<li>The adversary wins if <img src="https://latex.codecogs.com/png.latex?b%20=%20b'">.</li>
+</ol>
+<p>Note that an adversary that outputs a bit in step 4 by tossing a coin (<code>1</code> if <code>H</code> and <code>0</code> if <code>T</code>) wins this game with probability <img src="https://latex.codecogs.com/png.latex?1/2">.</p>
+<p>A self-respecting adversary will want to fare better, while a scheme worth its salt will not want to be vulnerable with respect to <em>any</em> adverseray, so we say that:</p>
+<ul>
+<li>an adversary wins this game if they can win it with probability greater than half, and,</li>
+<li>a scheme is secure if no adversary can win this game with probability greater than half.</li>
+</ul>
+</section>
+<section id="example-an-insecure-scheme" class="level3">
+<h3 class="anchored" data-anchor-id="example-an-insecure-scheme">Example: An Insecure Scheme</h3>
+<p>Consider a lazy encryption scheme that does not encrypt a message at all:</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BE%7D(k,m)%20=%20m"> and</li>
+<li><img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BD%7D(k,c)%20=%20c">.</li>
+</ul>
+<p>It is easy to see that there is an adversary who can win the security game defined above with probability 1, so this is not a terribly smart scheme. The same is true for schemes that rotate the message by a fixed amount (why?).</p>
+</section>
+<section id="example-an-secure-scheme" class="level3">
+<h3 class="anchored" data-anchor-id="example-an-secure-scheme">Example: An Secure Scheme</h3>
+<p>Assume the message space, key space, and ciphertext space are all <img src="https://latex.codecogs.com/png.latex?n">-bit strings for some arbitrary but fixed choice of <img src="https://latex.codecogs.com/png.latex?n">. Consider the following encryption scheme:</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BE%7D(k,m)%20=%20k%20%5Coplus%20m"> and</li>
+<li><img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BD%7D(k,c)%20=%20k%20%5Coplus%20c">.</li>
+</ul>
+<p>It turns out that this scheme is secure, intuitively because for any ciphertext <img src="https://latex.codecogs.com/png.latex?c">, there are two keys <img src="https://latex.codecogs.com/png.latex?k_1"> and <img src="https://latex.codecogs.com/png.latex?k_2"> which are such that:</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BD%7D(k_1,c)%20=%20m_0">, and</li>
+<li><img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BD%7D(k_2,c)%20=%20m_1">,</li>
+</ul>
+<p>for any two messages <img src="https://latex.codecogs.com/png.latex?m_0"> and <img src="https://latex.codecogs.com/png.latex?m_1">, so there is no way for the adversary to reverse engineer the bit <img src="https://latex.codecogs.com/png.latex?b">.</p>
+<p>(Exercise: prove this formally.)</p>
+</section>
+<section id="example-another-insecure-scheme" class="level3">
+<h3 class="anchored" data-anchor-id="example-another-insecure-scheme">Example: Another Insecure Scheme</h3>
+<p>Assume the message space and ciphertext space are <img src="https://latex.codecogs.com/png.latex?2n">-bit strings for some arbitrary but fixed choice of <img src="https://latex.codecogs.com/png.latex?n">, and the key space is the set of all <img src="https://latex.codecogs.com/png.latex?n">-bit strings. Consider the following encryption scheme:</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BE%7D(k,m)%20=%20(k%20%7C%20k)%20%5Coplus%20m"> and</li>
+<li><img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BD%7D(k,c)%20=%20(k%20%7C%20k)%20%5Coplus%20c">,</li>
+</ul>
+<p>where <img src="https://latex.codecogs.com/png.latex?(a%20%7C%20b)"> denotes the concatenation of two strings.</p>
+<p>It turns out that this scheme is <em>not</em> secure (why?).</p>
+</section>
+<section id="a-stronger-secruity-definition" class="level3">
+<h3 class="anchored" data-anchor-id="a-stronger-secruity-definition">A Stronger Secruity Definition</h3>
+<p>Consider the following extended security game:</p>
+<ol type="1">
+<li>The challenger picks a key <img src="https://latex.codecogs.com/png.latex?k%20%5Cin%20%5Cmathcal%7BK%7D"> uniformly at random and a picks a bit <img src="https://latex.codecogs.com/png.latex?b%20%5Cin%20%5C%7B0,1%5C%7D"> uniformly at random.</li>
+<li>The adversary sends the challenger two messages <img src="https://latex.codecogs.com/png.latex?m_%7B00%7D"> and <img src="https://latex.codecogs.com/png.latex?m_%7B01%7D">.</li>
+<li>The challenger sends the ciphertext <img src="https://latex.codecogs.com/png.latex?c_0%20=%20%5Cmathfrak%7BE%7D(k,%20m_%7B0b%7D)"> to the adversary.</li>
+<li>The adversary sends the challenger two messages <img src="https://latex.codecogs.com/png.latex?m_%7B10%7D"> and <img src="https://latex.codecogs.com/png.latex?m_%7B11%7D">.</li>
+<li>The challenger sends the ciphertext <img src="https://latex.codecogs.com/png.latex?c_1%20=%20%5Cmathfrak%7BE%7D(k,%20m_%7B1b%7D)"> to the adversary.</li>
+<li>The adversary outputs a bit <img src="https://latex.codecogs.com/png.latex?b'">.</li>
+<li>The adversary wins if <img src="https://latex.codecogs.com/png.latex?b%20=%20b'">.</li>
+</ol>
+<p>As before, we say that:</p>
+<ul>
+<li>an adversary wins this game if they can win it with probability greater than half, and,</li>
+<li>a scheme is secure if no adversary can win this game with probability greater than half.</li>
+</ul>
+<p>However, in the extended game, we have empowered the adversary to a point where <em>no</em> deterministic scheme can be secure in this stronger sense! Here’s why:</p>
+<ul>
+<li>Suppose the adversary picks: <img src="https://latex.codecogs.com/png.latex?m_%7B00%7D%20=%200%5En">, <img src="https://latex.codecogs.com/png.latex?m_%7B01%7D%20=%201%5En">, <img src="https://latex.codecogs.com/png.latex?m_%7B10%7D%20=%200%5En">, <img src="https://latex.codecogs.com/png.latex?m_%7B11%7D%20=%2001%5E%7Bn-1%7D">.</li>
+<li>Then the adversary returns <img src="https://latex.codecogs.com/png.latex?0"> if <img src="https://latex.codecogs.com/png.latex?c_0"> and <img src="https://latex.codecogs.com/png.latex?c_1"> are identical, and <img src="https://latex.codecogs.com/png.latex?1"> otherwise.</li>
+</ul>
+<p>Note that this particular adversary wins with probability 1, no matter what <img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BE%7D"> and <img src="https://latex.codecogs.com/png.latex?%5Cmathfrak%7BD%7D"> are.</p>
+<p>What can we say about <em>randomized</em> schemes? Can they be secure in the extended setting?</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>talk</category>
+  <category>exposition</category>
+  <guid>https://www.neeldhara.com/blog/crypto-intro/index.html</guid>
+  <pubDate>Wed, 20 Dec 2023 18:30:00 GMT</pubDate>
+</item>
 <item>
   <title>Exportober 2023</title>
   <link>https://www.neeldhara.com/blog/2023-exportober-workflows/index.html</link>
@@ -3138,150 +3289,6 @@ In the fourth slide from the end, why [DeMillo–Lipton]–Schwartz–Zippel Lem
   <category>lecturenotes</category>
   <guid>https://www.neeldhara.com/blog/communication-complexity-equality/index.html</guid>
   <pubDate>Sun, 03 Oct 2021 18:30:00 GMT</pubDate>
-</item>
-<item>
-  <title>Two approaches to the 15 puzzle</title>
-  <link>https://www.neeldhara.com/blog/15-puzzle/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>Presenting the <a href="https://en.wikipedia.org/wiki/15_puzzle">15 puzzle</a>:</p>
-<blockquote class="blockquote">
-<p>This is a sliding puzzle having 15 square tiles numbered 1–15 in a frame that is 4 tiles high and 4 tiles wide, leaving one unoccupied tile position. Tiles in the same row or column of the open position can be moved by sliding them horizontally or vertically, respectively. The goal of the puzzle is to place the tiles in numerical order.</p>
-</blockquote>
-<p>According to Wikipedia, <a href="https://doi.org/10.2307%2F2369492">Johnson &amp; Story (1879)</a> used a parity argument to show that half of the starting positions for the <img src="https://latex.codecogs.com/png.latex?n">-puzzle are impossible to resolve, no matter how many moves are made. We are going to explore two approaches* parity-based argument to show that the puzzle shown here on the right is unsolvable.</p>
-<p>*I do believe the two proofs are essentially the same with slight differences of language.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/15-puzzle/Screenshot_2021-10-03_at_10.36.37_PM.png" class="img-fluid figure-img" style="width:34.0%"></p>
-<p></p><figcaption class="figure-caption">An example of the 15 puzzle</figcaption><p></p>
-</figure>
-</div>
-<p>Common to both approaches is the idea of associating a <em>permutation</em> with every state of the puzzle. For the purposes of this discussion, we will think of a permutation simply as a sequence of elements. To turn the grid layout into a sequence, you could, for instance, line up the rows next to each other, in other words, read off the numbers from left-to-right and top-to-bottom:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/15-puzzle/Screenshot_2021-10-03_at_10.45.04_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Associating the puzzle with a permutation</figcaption><p></p>
-</figure>
-</div>
-<p>So we think of every puzzle state as a permutation over the set <img src="https://latex.codecogs.com/png.latex?%5C%7B1,%202,%20%5Cldots,%2015%5C%7D%20%5Ccup%20%5C%7B%5Cstar%5C%7D">, where we use <img src="https://latex.codecogs.com/png.latex?%5Cstar"> to denote the blank space. For a particular sequence <img src="https://latex.codecogs.com/png.latex?%5Csigma"> and an index <img src="https://latex.codecogs.com/png.latex?1%20%5Cleq%20i%20%5Cleq%2016">, we will use <img src="https://latex.codecogs.com/png.latex?%5Csigma_i"> to refer to the element that is at the <img src="https://latex.codecogs.com/png.latex?i%5E%7Bth%7D"> position in the sequence <img src="https://latex.codecogs.com/png.latex?%5Csigma">.</p>
-<p>A couple of definitions in the context of permutations will be useful:</p>
-<ul>
-<li>An <em>inversion</em> is a pair of elements that is out of their natural order. More precisely, if we have indices <img src="https://latex.codecogs.com/png.latex?i%20%3C%20j"> such that <img src="https://latex.codecogs.com/png.latex?%5Csigma_i%20%3E%20%5Csigma_j">, then the pair <img src="https://latex.codecogs.com/png.latex?(i,j)"> indulges in an inversion. Note that the starting state of our puzzle here has exactly one inversion.</li>
-<li>A <em>transposition</em> of locations <img src="https://latex.codecogs.com/png.latex?i"> and <img src="https://latex.codecogs.com/png.latex?j"> **is essentially a swap of the elements at positions <img src="https://latex.codecogs.com/png.latex?i"> and <img src="https://latex.codecogs.com/png.latex?j"> of a given permutation. So this is an operation performed on a permutation. Let’s say this again with more explicit notation — if we start with <img src="https://latex.codecogs.com/png.latex?%5Csigma">, then the permutation <img src="https://latex.codecogs.com/png.latex?%5Ctau"> obtained from <img src="https://latex.codecogs.com/png.latex?%5Csigma"> by a transposition of <img src="https://latex.codecogs.com/png.latex?i"> and <img src="https://latex.codecogs.com/png.latex?j"> is given by the following:</li>
-</ul>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctau_%5Cell%20=%20%5Cbegin%7Bcases%7D%0A%20%20%20%20%20%20%5Csigma_j%20&amp;%20%5Ctext%7Bif%20%7D%20%5Cell%20=%20i,%5C%5C%0A%20%20%20%20%20%20%5Csigma_i%20&amp;%20%5Ctext%7Bif%20%7D%20%5Cell%20=%20j,%5C%5C%0A%20%20%20%20%20%20%5Csigma_%5Cell%20&amp;%20%5Ctext%7Botherwise.%7D%0A%20%20%20%20%5Cend%7Bcases%7D%0A"></p>
-<p>The identity permutation, which we will denote by <img src="https://latex.codecogs.com/png.latex?%5Ciota">, is special — it’s the following sequence:</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5C%7B1,2,%5Cldots,14,15,%5Cstar%5C%7D.%0A"></p>
-<p>It turns out that <em>every permutation</em> <img src="https://latex.codecogs.com/png.latex?%5Csigma"> can be obtained from the identity permutation by a sequence of transpositions. This is not terribly hard to see — start with the identity permutation, and repeat the following until the permutation at hand is the one you want to see: find a location <img src="https://latex.codecogs.com/png.latex?i"> that’s messed up in the current permutation, i.e, it doesn’t have the element you need in there. Find where the element is in the current permutation, and if that’s location <img src="https://latex.codecogs.com/png.latex?j">, you could perform a transposition between <img src="https://latex.codecogs.com/png.latex?i"> and <img src="https://latex.codecogs.com/png.latex?j">. This fixes up the location <img src="https://latex.codecogs.com/png.latex?i">. In every step, you fix at least one location, and never mess up anything else: so at the end of at most <img src="https://latex.codecogs.com/png.latex?n"> steps (assuming you are working with a sequence of <img src="https://latex.codecogs.com/png.latex?n"> elements), you would be done. 🎉</p>
-<p>For example, suppose the permutation you want to obtain is 3,4,2,1. Here is how the argument above would play out:</p>
-<ol type="1">
-<li>1,2,3,4. The first location is messed up, so swap 1 and 3.</li>
-<li>3,2,1,4. The second location is messed up, so swap 2 and 4.</li>
-<li>3,4,1,2. The third location is messed up, so swap 1 and 2.</li>
-<li>3,4,2,1. Now we are done.</li>
-</ol>
-<p>Note that this may not be the only way of performing a sequence of transpositions that can morph <img src="https://latex.codecogs.com/png.latex?%5Ciota"> into <img src="https://latex.codecogs.com/png.latex?%5Csigma"> — there may be various roads to <img src="https://latex.codecogs.com/png.latex?%5Csigma">. However, it turns out that no matter what route you take to transform <img src="https://latex.codecogs.com/png.latex?%5Ciota%20%5Clongrightarrow%20%5Csigma">, the <em>number of steps you perform will always have the same parity.</em> So specifically, it’s <em>not possible</em> for you to have a series of, say, seventeen transpositions that turn <img src="https://latex.codecogs.com/png.latex?%5Ciota"> into <img src="https://latex.codecogs.com/png.latex?%5Csigma">, and for me to have a series of forty-two transpositions that do the same. We will take this <del>as a cute exercise for the reader</del> as given.</p>
-<p>This partitions the set of all permutations into two categories:</p>
-<ul>
-<li><strong>even permutations:</strong> those permutations that are reachable from the identity with an even number of transpositions</li>
-<li>odd <strong>permutations:</strong> those permutations that are reachable from the identity with an odd number of transpositions</li>
-</ul>
-<p>The fact from the previous paragraph above makes this classification unambiguous.</p>
-<p>Alright, so now we have all the terminology we need to get to the argument about why the puzzle state we started with is unsolvable. We can roll up our sleeves and get started.</p>
-<hr>
-<p>The first line of argument is based on <a href="https://www.youtube.com/watch?v=YI1WqYKHi78&amp;vl=en">this Numberphile video</a>, and is also the one described <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15859-f01/www/notes/15-puzzle.pdf">in this 1999 American Math Monthly article by Archer</a>. We begin with the observation that every move in the game is really a transposition behind the scenes. In particular, let’s say that we are currently in state <img src="https://latex.codecogs.com/png.latex?s"> and we perform some move and move to state <img src="https://latex.codecogs.com/png.latex?t">. Let’s say the permutation associated with <img src="https://latex.codecogs.com/png.latex?s"> was <img src="https://latex.codecogs.com/png.latex?%5Csigma"> and the permutation associated with <img src="https://latex.codecogs.com/png.latex?t"> is <img src="https://latex.codecogs.com/png.latex?%5Ctau">. It’s not hard to see that:</p>
-<ul>
-<li><img src="https://latex.codecogs.com/png.latex?%5Ctau"> can be obtained from <img src="https://latex.codecogs.com/png.latex?%5Csigma"> with a single transposition.</li>
-</ul>
-<p>Now, note that the permutation corresponding to our target state is the following:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/15-puzzle/Screenshot_2021-10-03_at_11.04.12_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">The permutation corresponding to our target state</figcaption><p></p>
-</figure>
-</div>
-<p>In terms of the game state, notice that the final state has the blank tile at the bottom-right corner, just like we had at the start state. This means that in a hypothetical sequence of moves that morphs the initial game state into this solved state, we must have performed:</p>
-<ul>
-<li>an equal number of left and right moves; and</li>
-<li>an equal number of up and down moves.</li>
-</ul>
-<p>If this is not the case — imagine the blank tile traveling through the board as you perform the moves — if the number of times you moved in opposite directions did not exactly cancel, it would be impossible for the blank location to be back at it’s original location.</p>
-<p>So in any winning sequence, the number of moves performed must be even. This implies that the permutation corresponding to the start state, in particular, can be obtained from the identity permutation with an even number of transformations. That makes the starting permutation an even permutation.</p>
-<p>However, the permutation corresponding to the start state that we have been handed out is clearly an odd permutation: it can be obtained from the identtiy permutation by a transposition of the elements at the 14-th and 15-th positions. So, well, no dice! This shows that every solvable state that places a blank tile at the bottom-right corner must correspond to an even permutation. This does <em>not</em> automatically imply that all such states associated with even permutations are solvable* — it just shows that states with blank tiles at the bottom-right corner corresponding to odd permutations are firmly out of reach.</p>
-<p>*It does turns out that all even permutations are in fact solvable.</p>
-<hr>
-<p>The second approach is based on the notion of inversions. This one is based on <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/video-lectures/lecture-3-strong-induction/">the Strong Induction lecture</a> in the MITOCW course on Mathematics for Computer Science. For this proof I’ll actually switch to the <img src="https://latex.codecogs.com/png.latex?3%20%5Ctimes%203"> version of the puzzle because <del>I don’t know how to extend it to the 15-puzzle</del> the case analysis is more manageable for this version:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/15-puzzle/Screenshot_2021-10-03_at_11.30.57_PM.png" class="img-fluid figure-img" style="width:77.0%"></p>
-<p></p><figcaption class="figure-caption">A move in the 3 X 3 version of the puzzle</figcaption><p></p>
-</figure>
-</div>
-<p>As we said before, the permutation associated with the starting point of the puzzle has exactly one inversion, while the permutation associated with the solved state, which is the identity permutation, has no inversions. So, when you make a move in the puzzle, what happens to the number of inversions?</p>
-<p>As before, let’s say that we are currently in state <img src="https://latex.codecogs.com/png.latex?s"> and we perform some move and move to state <img src="https://latex.codecogs.com/png.latex?t">. Let’s say the permutation associated with <img src="https://latex.codecogs.com/png.latex?s"> was <img src="https://latex.codecogs.com/png.latex?%5Csigma"> and the permutation associated with <img src="https://latex.codecogs.com/png.latex?t"> is <img src="https://latex.codecogs.com/png.latex?%5Ctau">. Let us say that a pair of elements <img src="https://latex.codecogs.com/png.latex?(p,q)"> is affected by a move in the game if the relative order of <img src="https://latex.codecogs.com/png.latex?p"> and <img src="https://latex.codecogs.com/png.latex?q"> is different in the permutations <img src="https://latex.codecogs.com/png.latex?%5Csigma"> and <img src="https://latex.codecogs.com/png.latex?%5Ctau">. Now we have the following:</p>
-<ul>
-<li>if we perform a row move, the relative order of all elements corresponding to numbers remains the same — in particular, all affected pairs involve <img src="https://latex.codecogs.com/png.latex?%5Cstar"> — so the number of inversions in <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is exactly the same as the number of inversions in <img src="https://latex.codecogs.com/png.latex?%5Csigma">.</li>
-<li>if we perform a column move, typically the element that is being moved, say <img src="https://latex.codecogs.com/png.latex?p">, ends up effectively jumping over two other elements, say <img src="https://latex.codecogs.com/png.latex?a"> and <img src="https://latex.codecogs.com/png.latex?b">. In this case the following scenarios arise:
-<ul>
-<li><p>Neither <img src="https://latex.codecogs.com/png.latex?(p,a)"> nor <img src="https://latex.codecogs.com/png.latex?(p,b)"> is an inversion in <img src="https://latex.codecogs.com/png.latex?%5Csigma">.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/15-puzzle/Screenshot_2021-10-03_at_11.51.03_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Neither <img src="https://latex.codecogs.com/png.latex?(p,a)"> nor <img src="https://latex.codecogs.com/png.latex?(p,b)"> is an inversion in <img src="https://latex.codecogs.com/png.latex?%5Csigma"></figcaption><p></p>
-</figure>
-</div>
-<ul>
-<li>In this case, <em>both</em> <img src="https://latex.codecogs.com/png.latex?(p,a)"> and <img src="https://latex.codecogs.com/png.latex?(p,b)"> emerge as new inversions in <img src="https://latex.codecogs.com/png.latex?%5Ctau">, and the total number of inversions in <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is two <em>more</em> than the total number of inversions in <img src="https://latex.codecogs.com/png.latex?%5Csigma">.</li>
-</ul></li>
-<li><p>Both <img src="https://latex.codecogs.com/png.latex?(p,a)"> and <img src="https://latex.codecogs.com/png.latex?(p,b)"> are inversions in <img src="https://latex.codecogs.com/png.latex?%5Csigma">.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/15-puzzle/Screenshot_2021-10-03_at_11.53.09_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Both <img src="https://latex.codecogs.com/png.latex?(p,a)"> and <img src="https://latex.codecogs.com/png.latex?(p,b)"> are inversions in <img src="https://latex.codecogs.com/png.latex?%5Csigma"></figcaption><p></p>
-</figure>
-</div>
-<ul>
-<li>In this case, <em>neither</em> <img src="https://latex.codecogs.com/png.latex?(p,a)"> nor <img src="https://latex.codecogs.com/png.latex?(p,b)"> are inversions in <img src="https://latex.codecogs.com/png.latex?%5Ctau"> — they both get fixed! So the total number of inversions in <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is two <em>less</em> than the total number of inversions in <img src="https://latex.codecogs.com/png.latex?%5Csigma">.</li>
-</ul></li>
-<li><p>While <img src="https://latex.codecogs.com/png.latex?(p,a)"> is an inversion in <img src="https://latex.codecogs.com/png.latex?%5Csigma">, <img src="https://latex.codecogs.com/png.latex?(p,b)"> is not.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/15-puzzle/Screenshot_2021-10-03_at_11.54.46_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">While <img src="https://latex.codecogs.com/png.latex?(p,a)"> is an inversion in <img src="https://latex.codecogs.com/png.latex?%5Csigma">, <img src="https://latex.codecogs.com/png.latex?(p,b)"> is not</figcaption><p></p>
-</figure>
-</div>
-<ul>
-<li>In this case, you fix some, you spoil some — so in <img src="https://latex.codecogs.com/png.latex?%5Ctau">, <img src="https://latex.codecogs.com/png.latex?(p,a)"> is not an inversion any more, but <img src="https://latex.codecogs.com/png.latex?(p,b)"> emerges as a new inversion; so the changes cancel and the number of inversions in <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is exactly the same as the number of inversions in <img src="https://latex.codecogs.com/png.latex?%5Csigma">.</li>
-</ul></li>
-<li><p>While <img src="https://latex.codecogs.com/png.latex?(p,a)"> is not an inversion in <img src="https://latex.codecogs.com/png.latex?%5Csigma">, <img src="https://latex.codecogs.com/png.latex?(p,b)"> is one.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/15-puzzle/Screenshot_2021-10-03_at_11.53.39_PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">While <img src="https://latex.codecogs.com/png.latex?(p,a)"> is not an inversion in <img src="https://latex.codecogs.com/png.latex?%5Csigma">, <img src="https://latex.codecogs.com/png.latex?(p,b)"> is one</figcaption><p></p>
-</figure>
-</div>
-<ul>
-<li>As before, you fix some, you spoil some just the other way now — so in <img src="https://latex.codecogs.com/png.latex?%5Ctau">, <img src="https://latex.codecogs.com/png.latex?(p,a)"> is a new inversion, but <img src="https://latex.codecogs.com/png.latex?(p,b)"> is no longer one; so the changes cancel again and the number of inversions in <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is exactly the same as the number of inversions in <img src="https://latex.codecogs.com/png.latex?%5Csigma">.</li>
-</ul></li>
-</ul></li>
-</ul>
-<p>The long and short of all this is that after every move, the number of inversions <em>either remains the same or changes by two.</em> So no matter how many moves you perform, a state whose associated permutation has an odd number of inversions is going to remain inaccessible.</p>
-<p>Tada!</p>
-<hr>
-<p>So there we have it… I have a feeling that a little bit of language connecting transpositions and inversions will really make these proofs quite identical, at least for the <img src="https://latex.codecogs.com/png.latex?3%20%5Ctimes%203"> case — although I did worry that the first approach seemed to rely rather explicitly on the location of the blank tile while the second one didn’t. It is quite possible that the first one actually demonstrates more than I’m giving it credit for!</p>
-<p>Meanwhile, to be honest, I haven’t thought much about pushing the second line of attack to the <img src="https://latex.codecogs.com/png.latex?4%20%5Ctimes%204"> case — it seems already that the statement about the change in the number of inversions is no longer true and the change itself is no longer two: in particular, it could apparently go up or down by three or one instead, since the element involved in the action, <img src="https://latex.codecogs.com/png.latex?p"> is now potentially jumping over <em>three</em> other elements, <img src="https://latex.codecogs.com/png.latex?a">, <img src="https://latex.codecogs.com/png.latex?b">, and <img src="https://latex.codecogs.com/png.latex?c">… so this, at least from an immediate consideration, doesn’t quite take us where we want to go.</p>
-<p>Possibly one has to work with a somewhat different invariant, maybe a notion of inversions that involve triples instead of pairs? Any comments on this would be very welcome, and I’ll have an update once I understand this a little better!</p>
-
-
-
- ]]></description>
-  <category>puzzles</category>
-  <category>exposition</category>
-  <guid>https://www.neeldhara.com/blog/15-puzzle/index.html</guid>
-  <pubDate>Sat, 02 Oct 2021 18:30:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

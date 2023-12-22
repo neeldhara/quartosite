@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.262">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,14 +17,15 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -38,8 +39,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -74,7 +74,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
@@ -111,120 +112,122 @@ div.csl-indent {
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about.html">
+    <a class="nav-link" href="../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../research/overview.html">
+    <a class="dropdown-item" href="../research/overview.html" rel="" target="">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../research/people.html">
+    <a class="dropdown-item" href="../research/people.html" rel="" target="">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../research/publications.html">
+    <a class="dropdown-item" href="../research/publications.html" rel="" target="">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../research/surveys">
+    <a class="dropdown-item" href="../research/surveys" rel="" target="">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../courses/index.html">
+    <a class="dropdown-item" href="../courses/index.html" rel="" target="">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/index.html">
+    <a class="dropdown-item" href="../materials/index.html" rel="" target="">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../tgif/">
+    <a class="dropdown-item" href="../tgif/" rel="" target="">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../bookmarks/">
+    <a class="dropdown-item" href="../bookmarks/" rel="" target="">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../talks/">
+    <a class="dropdown-item" href="../talks/" rel="" target="">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../videos/">
+    <a class="dropdown-item" href="../videos/" rel="" target="">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../events/">
+    <a class="nav-link" href="../events/" rel="" target="">
  <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog.html">
+    <a class="nav-link" href="../blog.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/(neeldhara?)" rel="" target=""><i class="bi bi-mastodon" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../blog.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -258,7 +261,7 @@ div.csl-indent {
 <h1>Overview</h1>
 <section id="my-research-interests-an-elevator-pitch" class="level3">
 <h3 class="anchored" data-anchor-id="my-research-interests-an-elevator-pitch"><em>My research interests: an elevator pitch<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></em></h3>
-<div class="callout-tip callout callout-style-simple no-icon">
+<div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -286,7 +289,7 @@ div.csl-indent {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="overview.png" class="rounded-corners img-fluid figure-img" style="width:70.0%"></p>
-<p></p><figcaption class="figure-caption">Fig. Exploring tradeoffs between the demands of accuracy, speed, and coverage.</figcaption><p></p>
+<figcaption class="figure-caption">Fig. Exploring tradeoffs between the demands of accuracy, speed, and coverage.</figcaption>
 </figure>
 </div>
 <p>When we think about designing algorithms, we are usually very demanding in how we go about it: we require our algorithms to be fast and accurate on all conceivable inputs. This is asking for quite a bit, and perhaps it is not surprising that we cannot afford this luxury all the time. The good news is that most of the time we can make meaningful progress by relaxing just one of these demands:</p>
@@ -302,12 +305,12 @@ div.csl-indent {
 <p>Parameterized (aka multivariate) algorithmics are a wonderfully flexible framework that allows you to dabble in various algorithmic tradeoffs. Once you start thinking in terms of restraining the combinatorial blowups to certain parameters of interest, you’ll probably find that the approach leads you to new ways of looking at the problem! To stay true to the motivations of the field: which is to find ways of “coping with NP-hardness” when said NP-hard problems are ones we need to solve in the real world — one must remember to sanity checck the relevance of the parameters we are working with. An ideal set of parameters would be small for most instances in real-world distributions, but also give you enough flex to devise efficient algorithms.</p>
 <p>For a delightful history of the field, I recommend <span class="citation" data-cites="revolution">(<a href="#ref-revolution" role="doc-biblioref">Bodlaender et al. 2012</a>)</span>. Also, <span class="citation" data-cites="CyganFKLMPPS15">(<a href="#ref-CyganFKLMPPS15" role="doc-biblioref">Cygan et al. 2015</a>)</span> is a very accessible introduction to the field, only assuming a background in undergraduate algorithms. The <a href="http://fpt.wikidot.com">FPT Wiki</a> is a community-maintained resource that documents developments in the field as they happen.</p>
 <p>This framework has been my default way of thinking about algorithms for a while now. In the following, I delve a little further into the specifics of the kinds of problems I have been working on.</p>
-<div class="callout-note callout callout-style-simple callout-captioned">
+<div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 <span class="small-text"><em>Coming Soon</em></span>
 </div>
 </div>
@@ -323,17 +326,17 @@ div.csl-indent {
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-revolution" class="csl-entry" role="doc-biblioentry">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-revolution" class="csl-entry" role="listitem">
 Bodlaender, Hans L., Rod Downey, Fedor V. Fomin, and Dániel Marx, eds. 2012. <em>The Multivariate Algorithmic Revolution and Beyond: Essays Dedicated to Michael <span>R</span>. Fellows on the Occasion of His 60th Birthday</em>. Berlin, Heidelberg: Springer-Verlag.
 </div>
-<div id="ref-CyganFKLMPPS15" class="csl-entry" role="doc-biblioentry">
+<div id="ref-CyganFKLMPPS15" class="csl-entry" role="listitem">
 Cygan, Marek, Fedor V. Fomin, Lukasz Kowalik, Daniel Lokshtanov, Dániel Marx, Marcin Pilipczuk, Michal Pilipczuk, and Saket Saurabh. 2015. <em>Parameterized Algorithms</em>. Springer.
 </div>
-<div id="ref-HengleinMairson" class="csl-entry" role="doc-biblioentry">
+<div id="ref-HengleinMairson" class="csl-entry" role="listitem">
 Henglein, F., and H. Mairson. 1994. <span>“The Complexity of Type Inference for Higher-Order Typed Lambda Calculi.”</span> <em>J. Functional Programming</em> 4 (4): 435–78.
 </div>
-<div id="ref-LichtensteinPnueli" class="csl-entry" role="doc-biblioentry">
+<div id="ref-LichtensteinPnueli" class="csl-entry" role="listitem">
 Lichtenstein, O., and A. Pnueli. 1985. <span>“Checking That Finite State Concurrent Programs Satisfy Their Linear Specifications.”</span> In <em>Conference Record of the Twelfth Annual ACM Symposium on Principles of Programming Languages</em>, 97–107. ACM; ACM.
 </div>
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
@@ -452,9 +455,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -519,6 +536,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

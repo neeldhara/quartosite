@@ -71,21 +71,29 @@ We will start with the most basic security setting: Alice and Bob share a secret
 
 
 :::{.callout-tip appearance="minimal" icon="false"}
-**Lecture 2: The first construction**
+**Lecture 2: The first construction Part I**
 
 In this lecture, we will discuss how to build a private-key encryption scheme secure against chosen-plaintext attacks. We will then discuss how to optimise the ciphertext size (without compromising on security). We will conclude this lecture with a popular cryptographic standard (PKCS v1.5) which was proposed and implemented in the 90s.
 
 <a href="04-CRYPTO/L2-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="https://youtube.com/live/i6BNTPqVF9E?feature=share"><span class="bi bi-film" data-bs-toggle="tooltip"  data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.qmd"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" s data-bs-placement="top" title="Quick Summary"></span></a>
 :::
 
+:::{.callout-tip appearance="minimal" icon="false"}
+**Lecture 3: The first construction Part II**
+
+In this lecture, we will discuss how to build a private-key encryption scheme secure against chosen-plaintext attacks. We will then discuss how to optimise the ciphertext size (without compromising on security). We will conclude this lecture with a popular cryptographic standard (PKCS v1.5) which was proposed and implemented in the 90s.
+
+<a href="04-CRYPTO/L3-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="https://youtube.com/live/eE-6W5l2q3U?feature=share"><span class="bi bi-film" data-bs-toggle="tooltip"  data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.qmd"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" s data-bs-placement="top" title="Quick Summary"></span></a>
+:::
+
 
 
 :::{.callout-tip appearance="minimal" icon="false"}
-**Lecture 3 and 4: The need for stronger security**
+**Lecture 4: The need for stronger security**
 
 While the PKCS v1.5 satisfies security against 'chosen-plaintext attacks', it turns out that this security is not enough for the real-world! We will start this lecture with an attack on the PKCS v1.5 scheme, then discuss a stronger definition (called security against 'chosen ciphertext attacks'). This is now the 'gold standard' security definition for encryption schemes. In order to achieve this security, we require a new cryptographic primitive called 'message authentication codes'. We will define and build message auth. codes. Next, we will see how to use message authentication codes to achieve security against chosen-ciphertext attacks.
 
-<a href="04-CRYPTO/L3-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="#"><span class="bi bi-film" data-bs-toggle="tooltip"  data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.qmd"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" s data-bs-placement="top" title="Quick Summary"></span></a>
+<a href="04-CRYPTO/L4-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="#"><span class="bi bi-film" data-bs-toggle="tooltip"  data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.qmd"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" s data-bs-placement="top" title="Quick Summary"></span></a>
 :::
 
 
@@ -94,7 +102,7 @@ While the PKCS v1.5 satisfies security against 'chosen-plaintext attacks', it tu
 
 One of the biggest innovations in the area of cryptography is the advent of public key cryptography. In this lecture, we will discuss some background on public key cryptography, followed by a construction for public key encryption.
 
-<a href="04-CRYPTO/L4-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="#"><span class="bi bi-film" data-bs-toggle="tooltip"  data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.qmd"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" s data-bs-placement="top" title="Quick Summary"></span></a>
+<a href="04-CRYPTO/L5-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="#"><span class="bi bi-film" data-bs-toggle="tooltip"  data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.qmd"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" s data-bs-placement="top" title="Quick Summary"></span></a>
 :::
 
 
@@ -103,6 +111,6 @@ One of the biggest innovations in the area of cryptography is the advent of publ
 
 Digital signatures are an essential component in the public key infrastructure. We will discuss their role in public key infrastructure, as well as their importance as a standalone primitive). We will conclude this lecture with a construction of a digital signature scheme. 
 
-<a href="04-CRYPTO/L5-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="#"><span class="bi bi-film" data-bs-toggle="tooltip"  data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.qmd"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" s data-bs-placement="top" title="Quick Summary"></span></a>
+<a href="04-CRYPTO/L6-slides.pdf"><span class="bi bi-file-earmark-slides" data-bs-toggle="tooltip" data-bs-placement="top" title="Slides"></span></a> · <a href="#"><span class="bi bi-film" data-bs-toggle="tooltip"  data-bs-placement="top" title="Video"></span></a> · <a href="../../blog/crypto-intro/index.qmd"><span class="bi bi-journal-richtext" data-bs-toggle="tooltip" s data-bs-placement="top" title="Quick Summary"></span></a>
 :::
 

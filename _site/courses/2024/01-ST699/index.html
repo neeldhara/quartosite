@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - ST699 | Aug-Nov 2023</title>
+<title>Neeldhara - ST699 | Jan-Apr 2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,97 +71,13 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-lecid','listing-date','listing-title','listing-slides','listing-notes','listing-summary',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-lecid','listing-date','listing-title','listing-slides','listing-notes','listing-summary','listing-hovertext',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-lecid","listing-date","listing-title","listing-slides","listing-notes","listing-summary"],
+      searchColumns: ["listing-lecid","listing-date","listing-title","listing-slides","listing-notes","listing-summary","listing-hovertext"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-lectures-listing'] = new List('listing-lectures-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-assignments-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-problemset','listing-solutions','listing-title','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
-      
-      searchColumns: ["listing-lecid","listing-dateissued","listing-problemset","listing-solutions","listing-title","listing-due"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-assignments-listing'] = new List('listing-assignments-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-quizzes-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-problemset','listing-solutions','listing-title','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
-      
-      searchColumns: ["listing-lecid","listing-dateissued","listing-problemset","listing-solutions","listing-title","listing-due"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-quizzes-listing'] = new List('listing-quizzes-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-exams-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-title','listing-summary','listing-problemset','listing-solutions','listing-due',{ data: ['index'] },{ data: ['categories'] }],
-      
-      searchColumns: ["listing-lecid","listing-dateissued","listing-title","listing-summary","listing-problemset","listing-solutions","listing-due"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-exams-listing'] = new List('listing-exams-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -338,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ST699 | Aug-Nov 2023</h1>
+<h1 class="title">ST699 | Jan-Apr 2024</h1>
 </div>
 
 
@@ -353,10 +269,11 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="st699." class="level2 column-body-outset">
-<h2 class="anchored" data-anchor-id="st699.">ST699. <course title=""></course></h2>
+<section id="st699.-special-topics-in-games" class="level2 column-body-outset">
+<h2 class="anchored" data-anchor-id="st699.-special-topics-in-games">ST699. Special Topics in Games</h2>
 <section id="section" class="level5">
 <h5 class="anchored" data-anchor-id="section">2024</h5>
+<p>(co-instructor with <a href="https://www.ccl.iitgn.ac.in/team/jyothi-krishnan">Dr.&nbsp;Jyothi Krishnan</a>.)</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -369,7 +286,13 @@ About the Course
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Course summary.</p>
+<p>We are going to play some games and analyze them! Here are some typical questions we will explore:</p>
+<ul>
+<li>Who is going to win assuming optimal play?</li>
+<li>What is the complexity of determining the winner (or a winning strategy) given the rules of a game?</li>
+</ul>
+<p>If you are curious about how this typically goes, start with the excellent talks <a href="https://www.youtube.com/watch?v=846A4rgO_os">here</a> and <a href="https://www.youtube.com/watch?v=gxIz1hYgzoM">here</a>.</p>
+<p>If you want to play: here’s <a href="https://subtraction.netlify.app/">Subtraction</a>, and here’s <a href="https://gameofsim.neeldhara.repl.co">Sim</a>.</p>
 </div>
 </div>
 </div>
@@ -385,7 +308,12 @@ Target Audience
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Information about target audience.</p>
+<p>You will find this course interesting if:</p>
+<ul>
+<li>you enjoy playing games,</li>
+<li>you enjoy logic puzzles <a href="https://www.youtube.com/watch?v=LKvjIsyYng8">like this one</a> or probability puzzles <a href="https://www.youtube.com/watch?v=6_yU9eJ0NxA">like this one</a>, or</li>
+<li>you like <a href="https://en.wikipedia.org/wiki/Instant_Insanity">box-stacking challenges</a>.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -401,7 +329,7 @@ Prerequisites
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Indication of pre-requisites.</p>
+<p>The course is mostly self-contained, but a general degree of comfort with proofs and an interest in games (either in theory or practice) would be useful.</p>
 </div>
 </div>
 </div>
@@ -417,7 +345,14 @@ References
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>List of References</p>
+<ol type="1">
+<li><a href="https://www.amazon.com/Game-Theory-Playful-Introduction-Mathematical/dp/1470422107">Game Theory: A Playful Introduction</a>, by Matt DeVos and Deborah A. Kent</li>
+<li><a href="https://www.ams.org/books/gsm/146/">Combinatorial Game Theory</a>, by Aaron N. Siegel</li>
+<li><a href="https://en.wikipedia.org/wiki/Winning_Ways_for_Your_Mathematical_Plays">Winning Ways for your Mathematical Plays</a>, by Elwyn R. Berlekamp, John H. Conway, and Richard K. Guy</li>
+<li><a href="https://www.amazon.com/Lessons-Play-Introduction-Combinatorial-Theory/dp/1568812779">Lessons in Play</a>, by Michael H. Albert, Richard J. Nowakowski, and David Wolfe</li>
+<li><a href="https://www.amazon.com/Math-Games-Bad-Drawings-Games-ebook/dp/B09BN43BP4">Math Games with Bad Drawings</a>, by Ben Orlin</li>
+<li><a href="https://www.amazon.in/Games-Pencil-Paper-Eric-Soloman/dp/0486278727">Games With Pencil And Paper</a>, by Eric Solomon</li>
+</ol>
 </div>
 </div>
 </div>
@@ -433,26 +368,35 @@ Timings and Venue
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Venue: XYZ</p>
-<p>Timings:</p>
+<p>Venue: TBA</p>
+<p>Timings: 2PM to 5PM on Saturdays (with a 20-minute break at 3:20PM).</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-TAs and Office hours
+Evaluation policy
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Office Hours: By email.</p>
-<p>TAs:</p>
-<p>List of TAs.</p>
+<p>Pick any one of the following for 20 points:</p>
+<ul>
+<li>Create your own game and demonstrate a non-trivial analysis</li>
+<li>Implement a known game in as an interactive JS application</li>
+<li>Develop new insights about the complexity of an existing game</li>
+</ul>
+<p>Further, there will be:</p>
+<ul>
+<li>Four assignments, issued on the 10th and due on the 20th of each month = 20 X 4 = 80 points</li>
+<li>No exams!</li>
+</ul>
+<p>The use of assistance from tools like chatGPT or similar is permitted for the development of the interactive experiences.</p>
 </div>
 </div>
 </div>
@@ -462,46 +406,26 @@ TAs and Office hours
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Evaluation policy
+Register
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>Each of the three exams account for 20% of the grade.</li>
-<li>Each of the eleven tutorials will have a quiz worth 5 points. The total number of points you can earn through quizzes is capped at 40, and accounts for 40% of the grade.</li>
-<li>There will be weekly assignments that are not graded but are recommended for practice.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Logistics
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>For IITGN students, (pre-)register through IMS as usual.</li>
-<li>All quizzes and exams will be on Mathmatize; please <a href="https://mathmatize.com/c/809">sign up here</a>.</li>
-<li>For announcements, please sign up on Google classroom <a href="https://classroom.google.com/c/NjE3MjAzOTUzMTA0?cjc=nzl3hkr">with this link</a> or use the invite code <strong>nzl3hkr</strong>.</li>
-<li>If you are not from IITGN and are interested in taking up the course, then please send us an email.</li>
+<li><p>For IITGN students, register through IMS as usual.</p></li>
+<li><p>Note to students of the IITM online BS program: you may register for this course officially for credit by signing up as a part-time visiting student of IIT Gandhinagar. Please get in touch for details.</p></li>
+<li><p>Others: please send me an email at: <code>neeldhara.m@iitgn.ac.in</code>.</p></li>
+<li><p>Materials for the assignments will be announced on this website.</p></li>
+<li><p>For announcements, please join <a href="https://chat.whatsapp.com/GaiJUGAmgDACKFf72TXdPd">this Whatsapp Group</a>.</p></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Lectures</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Assignments</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Quizzes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Exams</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Lectures</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Assignments</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>All slides for the initial lectures can be found <a href="https://slides.com/neeldhara/ST699-2023">here</a>.</p>
 <div id="listing-lectures-listing" class="quarto-listing quarto-listing-container-custom">
 
 <table class="quarto-listing-table table">
@@ -513,12 +437,14 @@ Logistics
         <td>Video</td>
     </tr></thead>
     <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1690914600000">            
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1704479400000">            
             <td class="listing-date">
-                02 Aug, 2023
+                06 Jan, 2024
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>1. </strong><br>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                01. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Hackenbush</span> 
+                <br>
                 <p></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
@@ -526,6 +452,223 @@ Logistics
             <td class="listing-notes" style="text-align: center;">
             </td>
             <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1705084200000">            
+            <td class="listing-date">
+                13 Jan, 2024
+            </td>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                02. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Nim and Friends</span> 
+                <br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1705689000000">            
+            <td class="listing-date">
+                20 Jan, 2024
+            </td>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                03. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Interlude: Complexity-Theoretic Aspects of Games</span> 
+                <br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1706293800000">            
+            <td class="listing-date">
+                27 Jan, 2024
+            </td>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                04. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Kayles and Variations</span> 
+                <br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1706898600000">            
+            <td class="listing-date">
+                03 Feb, 2024
+            </td>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                05. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">The Game of SET and SuperSET</span> 
+                <br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1707503400000">            
+            <td class="listing-date">
+                10 Feb, 2024
+            </td>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                06. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Hex and Fixed-Point Theorems</span> 
+                <br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1708108200000">            
+            <td class="listing-date">
+                17 Feb, 2024
+            </td>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                07. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">UNO, Hanabi, Snakes and Ladders, and (Meta) Tic-Tac-Toe</span> 
+                <br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1709317800000">            
+            <td class="listing-date">
+                02 Mar, 2024
+            </td>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                08. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Surreal Numbers - I</span> 
+                <br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1709922600000">            
+            <td class="listing-date">
+                09 Mar, 2024
+            </td>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                09. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Surreal Numbers - II</span> 
+                <br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1710527400000">            
+            <td class="listing-date">
+                16 Mar, 2024
+            </td>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                10. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Surreal Numbers - III</span> 
+                <br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1712341800000">            
+            <td class="listing-date">
+                06 Apr, 2024
+            </td>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                11. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Complexity of Games Revisited: NP-Completeness Examples</span> 
+                <br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1712946600000">            
+            <td class="listing-date">
+                13 Apr, 2024
+            </td>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                12. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Complexity of Games Revisited: PSPACE-Completeness Examples</span> 
+                <br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1713551400000">            
+            <td class="listing-date">
+                20 Apr, 2024
+            </td>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                13. 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Participant Presentations</span> 
+                <br>
+                <p></p>
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
 </tbody>
@@ -536,114 +679,9 @@ No matching items
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div id="listing-assignments-listing" class="quarto-listing quarto-listing-container-custom">
+<p>Coming Soon.</p>
+<div id="assignments-listing">
 
-<table class="quarto-listing-table table">
-    <thead>
-        <tr><td>Issued</td>
-        <td>Assessment</td>
-        <td>Problems</td>
-        <td>Solutions</td>
-        <td>Due</td>
-    </tr></thead>
-    <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 08 2023" data-listing-due-sort="-">            
-            <td class="listing-date">
-                10 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong></strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <a href="assignments/A01.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
-                </td>
-            <td class="listing-solutions">
-                    <a href="assignments/A01-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
-                </td>
-            <td class="listing-due">
-                    Invalid Date
-            </td>
-        </tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<div id="listing-quizzes-listing" class="quarto-listing quarto-listing-container-custom">
-
-<table class="quarto-listing-table table">
-    <thead>
-        <tr><td>Issued</td>
-        <td>Assessment</td>
-        <td>Problems</td>
-        <td>Solutions</td>
-        <td>Due</td>
-    </tr></thead>
-    <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 08 2023" data-listing-due-sort="-">            
-            <td class="listing-date">
-                10 Aug, 2023
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong></strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <a href="quizzes/Q01.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
-                </td>
-            <td class="listing-solutions">
-                    <a href="quizzes/Q01-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
-                </td>
-            <td class="listing-due">
-                    Invalid Date
-            </td>
-        </tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<div id="listing-exams-listing" class="quarto-listing quarto-listing-container-custom">
-
-<table class="quarto-listing-table table">
-    <thead>
-        <tr><td>Issued</td>
-        <td>Assessment</td>
-        <td>Problems</td>
-        <td>Solutions</td>
-        <td>Due</td>
-    </tr></thead>
-    <tbody class="list">
-        <tr data-index="0" data-categories="null">            
-            <td class="listing-date">
-                TBA
-            </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Exam 1</strong><br>
-                <p></p>
-            </td>
-            <td class="listing-problemset">
-                    <a href="exams/E01.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
-                </td>
-            <td class="listing-solutions">
-                    <a href="exams/E01-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
-                </td>
-            <td class="listing-due">
-                    -
-            </td>
-        </tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
 </div>
 </div>
 </div>

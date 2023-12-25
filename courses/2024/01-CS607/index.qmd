@@ -1,5 +1,5 @@
 ---
-title: "CS607 | Aug-Nov 2023"
+title: "CS607 | Jan-Apr 2024"
 sidebar: false
 toc: false
 css: ../../../css/teaching.css
@@ -14,73 +14,86 @@ listing:
     filter-ui: false
     feed: false
     template: ../../materials.ejs
-  - id: assignments-listing
-    contents: materials-assignments.yml
-    sort: issueddate asc
-    page-size: 100
-    type: table
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    feed: false
-    template: ../../materials-assessments.ejs
-    field-types: 
-      dateissued: date
-      due: date
-  - id: quizzes-listing
-    contents: materials-quizzes.yml
-    sort: issueddate asc
-    page-size: 100
-    type: table
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    feed: false
-    template: ../../materials-assessments.ejs
-    field-types: 
-      dateissued: date
-      due: date
-  - id: exams-listing
-    contents: materials-exams.yml
-    sort: issueddate asc
-    page-size: 100
-    type: table
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    feed: false
-    template: ../../materials-assessments.ejs
+  # - id: assignments-listing
+  #   contents: materials-assignments.yml
+  #   sort: issueddate asc
+  #   page-size: 100
+  #   type: table
+  #   categories: false
+  #   sort-ui: false
+  #   filter-ui: false
+  #   feed: false
+  #   template: ../../materials-assessments.ejs
+  #   field-types: 
+  #     dateissued: date
+  #     due: date
+  # - id: quizzes-listing
+  #   contents: materials-quizzes.yml
+  #   sort: issueddate asc
+  #   page-size: 100
+  #   type: table
+  #   categories: false
+  #   sort-ui: false
+  #   filter-ui: false
+  #   feed: false
+  #   template: ../../materials-assessments.ejs
+  #   field-types: 
+  #     dateissued: date
+  #     due: date
+  # - id: exams-listing
+  #   contents: materials-exams.yml
+  #   sort: issueddate asc
+  #   page-size: 100
+  #   type: table
+  #   categories: false
+  #   sort-ui: false
+  #   filter-ui: false
+  #   feed: false
+  #   template: ../../materials-assessments.ejs
 date-format: DD MMM, YYYY
 ---
 
 
 :::{.column-body-outset}
 
-## CS607. <COURSE TITLE>
+## CS607. Combinatorics with Applications in Computer Science
 
 ##### 2024
-
 
 :::{.callout-note collapse="true" icon="false"}
 
 ##### About the Course
 
-Course summary.
+<blockquote>
+Just as arithmetic deals with integers (with the standard operations), algebra deals with operations in general, analysis deals with functions, geometry deals with rigid shapes, and topology deals with continuity, so does combinatorics deal with configurations. Combinatorics counts, enumerates, examines, and investigates the existence of configurations with certain specified properties. With combinatorics, one looks for their intrinsic properties, and studies transformations of one configuration into another, as well as “subconfigurations” of a given configuration.
 
+<p style="text-align:right;"><em>Claude Berge</em>, Principles of Combinatorics, Dunod, Paris, 1968 (English translation: Academic Press, New York, 1971)</p>
+</blockquote>
+
+<blockquote>
+Mathematics is the art of reducing any problem to linear algebra.
+
+<p style="text-align:right;"><em>William Stein</em></p>
+</blockquote>
+
+This course will delve into some special highlights from the field of combinatorics, with a broad emphasis on applications to computer science. We will frequently encounter the use of linear algebraic methods. We will roughly have four major themes: extremal set systems, randomized algorithms, geometry, graphs. Every now and then, we'll work through "puzzles", which are questions that have a recreational flavor.
 :::
+
 :::{.callout-note collapse="true" icon="false"}
 
 ##### Target Audience
+Did you enjoy Discrete Mathematics? That's a sign: there's a good chance you'll like this too! You might find a slight change of pace and style in the offering, but it will be just as fun and full of awe-inspiring discovery. 
 
-Information about target audience.
+If you haven't done Discrete Mathematics, but you enjoy discret-ey puzzles and questions, you'll probably also like this. 
 
+That said, I am not a recommender algorithm, so please join us for a class or two during the add/drop period to decide if this course is for you :)
 :::
 
 :::{.callout-tip collapse="true" icon="false"}
 
 ##### Prerequisites
 
-Indication of pre-requisites.
+The course is mostly self-contained, but a general degree of comfort with proofs and some elementary linear algebra would be useful.
 
 :::
 
@@ -90,14 +103,20 @@ Indication of pre-requisites.
 
 List of References
 
+1. [Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra](https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf) by Jiří Matoušek
+2. [Extremal Combinatorics: With Applications in Computer Science](https://www.amazon.in/Extremal-Combinatorics-Applications-Computer-Theoretical/dp/3642173632) (Texts in Theoretical Computer Science. An EATCS Series) by Stasys Jukna
+
+Additional pointers (papers, articles, videos, etc.) specific to each lecture will be provided in the notes.
+
 :::
+
 :::{.callout-caution collapse="true" icon="false"}
 
 ##### Timings and Venue
 
-Venue: XYZ
+Venue: 7/110
 
-Timings:
+Timings: 15:30 - 16:50 on Mondays and 14:00 - 15:20 on Thursdays.
 
 :::
 :::{.callout-caution collapse="true" icon="false"}
@@ -106,9 +125,7 @@ Timings:
 
 Office Hours: By email.
 
-TAs:
-
-List of TAs.
+TA: Aditi Sethia
 
 :::
 
@@ -116,10 +133,10 @@ List of TAs.
 
 ##### Evaluation policy
 
-- Each of the three exams account for 20% of the grade.
-- Each of the eleven tutorials will have a quiz worth 5 points. The total number of points you can earn through quizzes is capped at 40, and accounts for 40% of the grade.
-- There will be weekly assignments that are not graded but are recommended for practice. 
-
+- Each of the three quizzes account for 10% of the grade.
+- The midsem exam accounts for 15% of the grade.
+- The endsem exam accounts for 20% of the grade.
+- There will be worksheets accompanying each lecture, due at midnight on the day of the lecture. Each worksheet is worth two points, and your total points from the worksheets is capped at 35 points, which contributes to 35% of the grade.
 :::
 
 :::{.callout-important collapse="true" icon="false"}
@@ -127,8 +144,8 @@ List of TAs.
 ##### Logistics
 
 - For IITGN students, (pre-)register through IMS as usual. 
-- All quizzes and exams will be on Mathmatize; please [sign up here](https://mathmatize.com/c/809).
-- For announcements, please sign up on Google classroom [with this link](https://classroom.google.com/c/NjE3MjAzOTUzMTA0?cjc=nzl3hkr) or use the invite code **nzl3hkr**.
+- All quizzes and exams will be on Mathmatize; please [sign up here](https://mathmatize.com/c/753).
+- For announcements, please sign up on Google classroom [with this link](https://classroom.google.com/c/NjQ2NjU0ODA2NzA3?cjc=ebtcrf2) or use the invite code **ebtcrf2**.
 - If you are not from IITGN and are interested in taking up the course, then please send us an email.
 
 :::
@@ -143,20 +160,26 @@ All slides for the initial lectures can be found [here](https://slides.com/neeld
 :::
 
 
-## Assignments
+## Worksheets
 
-::: {#assignments-listing}
-:::
+Coming Soon.
+
+<!-- ::: {#assignments-listing}
+::: -->
 
 ## Quizzes
 
-::: {#quizzes-listing}
-:::
+Coming Soon.
+
+<!-- ::: {#quizzes-listing}
+::: -->
 
 ## Exams
 
-::: {#exams-listing}
-:::
+Coming Soon.
+
+<!-- ::: {#exams-listing}
+::: -->
 
 :::
 

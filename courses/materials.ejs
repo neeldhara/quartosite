@@ -13,9 +13,12 @@
             <td class="listing-date">
                 <%= item.date %>
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong><% if (item.lecid) { %><%= item.lecid %>.<% } %> <%= item.title %></strong><br>
-                <p><%= item.summary %></p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                <% if (item.lecid) { %><%= item.lecid %>.<% } %> 
+                <% if (item.hovertext !== undefined) { %><span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title='<%= item.hovertext %>'><%= item.title %></span> <% } else { %>
+                <%= item.title %> <% } %>
+                <br><br>
+                <p style="font-size:small;"><%= item.summary %></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
                 <% if (item.slides) { %>

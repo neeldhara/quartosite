@@ -10,7 +10,69 @@
 <atom:link href="https://www.neeldhara.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Wed, 20 Dec 2023 18:30:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 24 Dec 2023 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Course Plan Generator</title>
+  <link>https://www.neeldhara.com/blog/course-plan/2024-spring/index.html</link>
+  <description><![CDATA[ 
+<script src="plan.js"></script>
+<style>
+    .checkbox-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .custom-button {
+        background-color: darkseagreen;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .custom-button:hover {
+        background-color: seagreen;
+    }
+</style>
+
+
+
+
+<p>If you are</p>
+<ol type="a">
+<li>teaching a course at IIT Gandhinagar next term (Jan-Apr 2024),</li>
+<li>working on your course plan, and</li>
+<li>need a list of dates on which you have classes,</li>
+</ol>
+<p>then you can use the generator below to get a list, by checking your teaching days.</p>
+<p>Dates during the mid-sem exam (Feb 19 – 24, 2024) and the mid-sem recess (Mar 23 - 31, 2024) are excluded. <a href="https://iitgn.ac.in/holiday/2024">Holidays</a> are excluded too, but <em>restricted holidays are not</em>. If you need to view the holidays, you can indicate as much via the checkbox below.</p>
+<p>For those outside IITGN: a standalone version is <a href="https://classplan.neeldhara.repl.co/">here</a> and the source is <a href="https://github.com/neeldhara/ClassPlan/tree/main">here</a>, in case you’d like to adapt this to your own context.</p>
+<div>
+<form>
+<input type="checkbox" id="monday" name="day">&nbsp;Monday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="tuesday" name="day">&nbsp;Tuesday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="wednesday" name="day">&nbsp;Wednesday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="thursday" name="day">&nbsp;Thursday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="friday" name="day">&nbsp;Friday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="saturday" name="day">&nbsp; Saturday
+</form>
+</div>
+<br> <label><input type="checkbox" id="includeHolidays" name="includeHolidays"> Include Holidays</label> <br> <label><input type="checkbox" id="indicateRestrictedHolidays"> Indicate Restricted Holidays</label> <br> <br> <button class="custom-button" onclick="generateDates()"> Generate Dates for Course Plan </button> <br><br>
+<div class="sourceCode" style="background: #f1f3f5;">
+<pre class="sourceCode plaintext code-with-copy"><code class="sourceCode plaintext" id="datesList">
+</code>
+</pre>
+</div>
+
+
+
+ ]]></description>
+  <category>workflows</category>
+  <guid>https://www.neeldhara.com/blog/course-plan/2024-spring/index.html</guid>
+  <pubDate>Sun, 24 Dec 2023 18:30:00 GMT</pubDate>
+</item>
 <item>
   <title>Intro to Crypto</title>
   <link>https://www.neeldhara.com/blog/crypto-intro/index.html</link>
@@ -3261,34 +3323,6 @@ Postpone gratification
   <category>lists</category>
   <guid>https://www.neeldhara.com/blog/women-in-mathematics/index.html</guid>
   <pubDate>Sun, 20 Feb 2022 18:30:00 GMT</pubDate>
-</item>
-<item>
-  <title>On the Communication Complexity of Equality</title>
-  <link>https://www.neeldhara.com/blog/communication-complexity-equality/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>These are some quick sketchnotes based on&nbsp;&nbsp;<a href="https://www.youtube.com/watch?v=orOJRhlqrvk">this lecture</a>&nbsp;by&nbsp;<a href="https://www.cs.cmu.edu/~odonnell/">Ryan O’Donnell</a>, a part of the&nbsp;&nbsp;<a href="https://www.youtube.com/watch?v=prI35GmCon4&amp;list=PLm3J0oaFux3ZYpFLwwrlv_EHH9wtH6pnX">playlist</a>&nbsp;for the awesome&nbsp;<a href="https://www.diderot.one/course/28/">CS Theory Toolkit</a>&nbsp;course. You can walk through the arguments below.</p>
-<iframe src="https://slides.com/neeldhara/deck-85ae95/embed?style=transparent&amp;byline=hidden" width="795" height="420" title="Communication Complexity of Equality" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="">
-</iframe>
-<p>I should mention that while the <a href="https://rjlipton.wpcomstaging.com/2009/11/30/the-curious-history-of-the-schwartz-zippel-lemma/">Schwartz-Zippel-DeMillo-Lipton lemma</a> is invoked in the notes below, one could make do with just the fact that over any field <img src="https://latex.codecogs.com/png.latex?F">, any degree <img src="https://latex.codecogs.com/png.latex?n"> polynomial has at most <img src="https://latex.codecogs.com/png.latex?n"> roots, as pointed out by <a href="https://twitter.com/dsivakumar"><span class="citation" data-cites="dsivakumar">@dsivakumar</span></a> — thanks!</p>
-<blockquote class="twitter-tweet blockquote">
-<p lang="en" dir="ltr">
-In the fourth slide from the end, why [DeMillo–Lipton]–Schwartz–Zippel Lemma? You only need that number of roots of a polynomial (over Z mod q) of degree n is no more than n.&nbsp;You don't need D-L/S/Z, which gives a general version for multivariate polynomials, right?
-</p>
-— D. Sivakumar (<span class="citation" data-cites="dsivakumar">@dsivakumar</span>) <a href="https://twitter.com/dsivakumar/status/1269351801108623360?ref_src=twsrc%5Etfw">June 6, 2020</a>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-
- ]]></description>
-  <category>sketchnotes</category>
-  <category>lecturenotes</category>
-  <guid>https://www.neeldhara.com/blog/communication-complexity-equality/index.html</guid>
-  <pubDate>Sun, 03 Oct 2021 18:30:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -1,5 +1,5 @@
 ---
-title: "ST699 | Aug-Nov 2023"
+title: "ST699 | Jan-Apr 2024"
 sidebar: false
 toc: false
 css: ../../../css/teaching.css
@@ -14,65 +14,79 @@ listing:
     filter-ui: false
     feed: false
     template: ../../materials.ejs
-  - id: assignments-listing
-    contents: materials-assignments.yml
-    sort: issueddate asc
-    page-size: 100
-    type: table
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    feed: false
-    template: ../../materials-assessments.ejs
-    field-types: 
-      dateissued: date
-      due: date
-  - id: quizzes-listing
-    contents: materials-quizzes.yml
-    sort: issueddate asc
-    page-size: 100
-    type: table
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    feed: false
-    template: ../../materials-assessments.ejs
-    field-types: 
-      dateissued: date
-      due: date
-  - id: exams-listing
-    contents: materials-exams.yml
-    sort: issueddate asc
-    page-size: 100
-    type: table
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    feed: false
-    template: ../../materials-assessments.ejs
+  # - id: assignments-listing
+  #   contents: materials-assignments.yml
+  #   sort: issueddate asc
+  #   page-size: 100
+  #   type: table
+  #   categories: false
+  #   sort-ui: false
+  #   filter-ui: false
+  #   feed: false
+  #   template: ../../materials-assessments.ejs
+  #   field-types: 
+  #     dateissued: date
+  #     due: date
+  # - id: quizzes-listing
+  #   contents: materials-quizzes.yml
+  #   sort: issueddate asc
+  #   page-size: 100
+  #   type: table
+  #   categories: false
+  #   sort-ui: false
+  #   filter-ui: false
+  #   feed: false
+  #   template: ../../materials-assessments.ejs
+  #   field-types: 
+  #     dateissued: date
+  #     due: date
+  # - id: exams-listing
+  #   contents: materials-exams.yml
+  #   sort: issueddate asc
+  #   page-size: 100
+  #   type: table
+  #   categories: false
+  #   sort-ui: false
+  #   filter-ui: false
+  #   feed: false
+  #   template: ../../materials-assessments.ejs
 date-format: DD MMM, YYYY
 ---
 
 
 :::{.column-body-outset}
 
-## ST699. <COURSE TITLE>
+## ST699. Special Topics in Games
 
 ##### 2024
 
+
+(co-instructor with [Dr. Jyothi Krishnan](https://www.ccl.iitgn.ac.in/team/jyothi-krishnan).)
 
 :::{.callout-note collapse="true" icon="false"}
 
 ##### About the Course
 
-Course summary.
+We are going to play some games and analyze them! Here are some typical questions we will explore:
+
+- Who is going to win assuming optimal play?
+- What is the complexity of determining the winner (or a winning strategy) given the rules of a game?
+
+If you are curious about how this typically goes, start with the excellent talks [here](https://www.youtube.com/watch?v=846A4rgO_os) and [here](https://www.youtube.com/watch?v=gxIz1hYgzoM).
+
+If you want to play: here's [Subtraction](https://subtraction.netlify.app/), and here's [Sim](https://gameofsim.neeldhara.repl.co). 
 
 :::
+
 :::{.callout-note collapse="true" icon="false"}
 
 ##### Target Audience
 
-Information about target audience.
+You will find this course interesting if:
+
+- you enjoy playing games,
+- you enjoy logic puzzles [like this one](https://www.youtube.com/watch?v=LKvjIsyYng8) or probability puzzles [like this one](https://www.youtube.com/watch?v=6_yU9eJ0NxA), or
+- you like [box-stacking challenges](https://en.wikipedia.org/wiki/Instant_Insanity).
 
 :::
 
@@ -80,7 +94,7 @@ Information about target audience.
 
 ##### Prerequisites
 
-Indication of pre-requisites.
+The course is mostly self-contained, but a general degree of comfort with proofs and an interest in games (either in theory or practice) would be useful.
 
 :::
 
@@ -88,48 +102,54 @@ Indication of pre-requisites.
 
 ##### References
 
-List of References
+1. [Game Theory: A Playful Introduction](https://www.amazon.com/Game-Theory-Playful-Introduction-Mathematical/dp/1470422107), by Matt DeVos and Deborah A. Kent
+2. [Combinatorial Game Theory](https://www.ams.org/books/gsm/146/), by Aaron N. Siegel
+3. [Winning Ways for your Mathematical Plays](https://en.wikipedia.org/wiki/Winning_Ways_for_Your_Mathematical_Plays), by Elwyn R. Berlekamp, John H. Conway, and Richard K. Guy
+4. [Lessons in Play](https://www.amazon.com/Lessons-Play-Introduction-Combinatorial-Theory/dp/1568812779), by Michael H. Albert, Richard J. Nowakowski, and David Wolfe
+5. [Math Games with Bad Drawings](https://www.amazon.com/Math-Games-Bad-Drawings-Games-ebook/dp/B09BN43BP4), by Ben Orlin
+6. [Games With Pencil And Paper](https://www.amazon.in/Games-Pencil-Paper-Eric-Soloman/dp/0486278727), by Eric Solomon
 
 :::
+
 :::{.callout-caution collapse="true" icon="false"}
 
 ##### Timings and Venue
 
-Venue: XYZ
+Venue: TBA
 
-Timings:
-
-:::
-:::{.callout-caution collapse="true" icon="false"}
-
-##### TAs and Office hours
-
-Office Hours: By email.
-
-TAs:
-
-List of TAs.
+Timings: 2PM to 5PM on Saturdays (with a 20-minute break at 3:20PM).
 
 :::
+
 
 :::{.callout-important collapse="true" icon="false"}
 
 ##### Evaluation policy
 
-- Each of the three exams account for 20% of the grade.
-- Each of the eleven tutorials will have a quiz worth 5 points. The total number of points you can earn through quizzes is capped at 40, and accounts for 40% of the grade.
-- There will be weekly assignments that are not graded but are recommended for practice. 
+Pick any one of the following for 20 points:
 
+- Create your own game and demonstrate a non-trivial analysis 
+- Implement a known game in as an interactive JS application 
+- Develop new insights about the complexity of an existing game 
+
+Further, there will be:
+
+- Four assignments, issued on the 10th and due on the 20th of each month = 20 X 4 = 80 points
+- No exams!
+
+The use of assistance from tools like chatGPT or similar is permitted for the development of the interactive experiences.
 :::
 
 :::{.callout-important collapse="true" icon="false"}
 
-##### Logistics
+##### Register
 
-- For IITGN students, (pre-)register through IMS as usual. 
-- All quizzes and exams will be on Mathmatize; please [sign up here](https://mathmatize.com/c/809).
-- For announcements, please sign up on Google classroom [with this link](https://classroom.google.com/c/NjE3MjAzOTUzMTA0?cjc=nzl3hkr) or use the invite code **nzl3hkr**.
-- If you are not from IITGN and are interested in taking up the course, then please send us an email.
+- For IITGN students, register through IMS as usual. 
+- Note to students of the IITM online BS program: you may register for this course officially for credit by signing up as a part-time visiting student of IIT Gandhinagar. Please get in touch for details.
+- Others: please send me an email at: `neeldhara.m@iitgn.ac.in`.
+
+- Materials for the assignments will be announced on this website.
+- For announcements, please join [this Whatsapp Group](https://chat.whatsapp.com/GaiJUGAmgDACKFf72TXdPd).
 
 :::
 
@@ -137,26 +157,17 @@ List of TAs.
 
 ## Lectures
 
-All slides for the initial lectures can be found [here](https://slides.com/neeldhara/ST699-2023).
-
 ::: {#lectures-listing}
 :::
 
 
 ## Assignments
 
+Coming Soon.
+
 ::: {#assignments-listing}
 :::
 
-## Quizzes
-
-::: {#quizzes-listing}
-:::
-
-## Exams
-
-::: {#exams-listing}
-:::
 
 :::
 

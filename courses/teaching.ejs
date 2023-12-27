@@ -26,7 +26,7 @@
                 <%= item.coursecode %>
             </td>
             <td class="listing-title" style="min-width:450px;">
-                <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.description %>"><%= item.title %></span>
+                <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.description %>"><a href="<%= item.url %>" style="color:#215784;"><%= item.title %></a></span>
             </td>
             <td>
                 <% if ( item.semester == 4 ) { %>

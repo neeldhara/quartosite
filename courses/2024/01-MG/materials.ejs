@@ -1,0 +1,42 @@
+```{=html}
+<table class="quarto-listing-table table">
+    <thead>
+        <td>Date</td>
+        <td>Lecture</td>
+        <td>Notes</td>
+        <td>Video</td>
+        <td>Slides</td>
+    </thead>
+    <tbody class="list">
+    <% for (const item of items) { %>
+        <tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>            
+            <td class="listing-date">
+                <%= item.date %>
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong><% if (item.lecid) { %><%= item.lecid %>.<% } %><%= item.title %></strong><br>
+                <p><%= item.summary %></p>
+            </td>
+            <td class="listing-notes" style="text-align: center;">
+                <% if (item.notes) { %>
+                    <a href="<%= item.notes %>"><span class="bi bi-journal"></span></a>
+                <% } %>
+            </td>
+            <td class="listing-video" style="text-align: center;">
+                <% if (item.video) { %>
+                    <a href="<%= item.video %>"><span class="bi bi-film"></span></a>
+                <% } else { %>
+                    <span class="bi bi-dash-circle-dotted"></span>
+                <% } %>                
+            </td>
+            <td class="listing-slides" style="text-align: center;">
+                <% if (item.slides) { %>
+                    <a href="<%= item.slides %>"><span class="bi bi-file-earmark-slides"></span></a>
+                <% } %>
+            </td>
+        </tr>
+    <% } %>
+</tbody>
+</table>
+
+```

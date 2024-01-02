@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-notes','listing-video','listing-summary',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-notes','listing-video','listing-summary','listing-slides','listing-bookchapter',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-notes","listing-video","listing-summary"],
+      searchColumns: ["listing-date","listing-title","listing-notes","listing-video","listing-summary","listing-slides","listing-bookchapter"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -402,9 +402,11 @@ Sign Up for Reminders
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>If you are a calendar person, you can use <a href="https://calendar.google.com/calendar/u/0?cid=Y183NzZmMmMwMWUwMDAyNDhmODZhNWFmNjA3MWMwYjA3Mjk3ZmM1YWY1MTUxODBjY2ZhZjRmYTkzZjY3NTk5ODgyQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20">this link</a> to add all events to your Google Calendar. This requires you to be signed in. Otherwise, you can sign up for daily reminders at 7PM using the form below.</p>
 <p><br></p>
-<iframe style="border:none;width:100%;" height="340px" src="https://opnform.com/forms/my-form-1bmcse-1">
+<iframe scrolling="no" style="width:100%!important;height:220px;border:1px #ccc solid !important" src="https://buttondown.email/2024-MGRG?as_embed=true">
 </iframe>
+<p><br><br></p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip no-icon">
@@ -436,6 +438,7 @@ Sign Up for Reminders
         <td>Notes</td>
         <td>Video</td>
         <td>Slides</td>
+        <td>Book Chapter</td>
     </tr></thead>
     <tbody class="list">
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704047400000">            
@@ -444,15 +447,19 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#01. Tic-Tac-Toe (Vol 1, Ch 4)</strong><br>
-                <p></p>
+                <p style="font-size:small;">Tic-tac-toe, toe-tac-tic (the first player to finish a line loses), 3D variations, and Teeko (moving counters).</p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="01/"><span class="bi bi-journal"></span></a>
             </td>
             <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
+                    <a href="https://youtube.com/live/dIPjrlmy3tw?feature=share"><span class="bi bi-film"></span></a>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <a href="01/slides-01.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <a href="01/bookchapter-01.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704133800000">            
@@ -461,7 +468,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#02. Tic-tac-toes Game (Vol 10, Ch 9)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="02/"><span class="bi bi-journal"></span></a>
@@ -470,6 +477,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <a href="02/bookchapter-02.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704220200000">            
@@ -478,7 +489,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#03. Generalised tic-tac-toe (Vol. 14 Ch 13) </strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="03/"><span class="bi bi-journal"></span></a>
@@ -487,6 +498,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <a href="03/bookchapter-03.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704306600000">            
@@ -495,7 +510,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#04. Nim (Vol 1, Ch 15)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="04/"><span class="bi bi-journal"></span></a>
@@ -504,6 +519,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <a href="04/bookchapter-04.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704393000000">            
@@ -512,7 +531,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#05. Nim and Hackenbrush (Vol 10, Ch 14)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="05/"><span class="bi bi-journal"></span></a>
@@ -521,6 +540,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <a href="05/bookchapter-05.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704652200000">            
@@ -529,7 +552,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#06. Wythoff Nim (Vol 13, Ch 8)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="06/"><span class="bi bi-journal"></span></a>
@@ -538,6 +561,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704738600000">            
@@ -546,7 +573,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#07. The Game of Hex (Vol. 1, Ch 8)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="07/"><span class="bi bi-journal"></span></a>
@@ -555,6 +582,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704825000000">            
@@ -563,7 +594,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#08. 4 unusual board games (Vol. 5, Ch 5)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="08/"><span class="bi bi-journal"></span></a>
@@ -572,6 +603,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704911400000">            
@@ -580,7 +615,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#09. Sprouts and Brussel sprouts (Vol.6, Ch 1)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="09/"><span class="bi bi-journal"></span></a>
@@ -589,6 +624,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704997800000">            
@@ -597,7 +636,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#10. Sim, chomp, racetrack (Vol 11, Ch 9)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="10/"><span class="bi bi-journal"></span></a>
@@ -606,6 +645,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1705257000000">            
@@ -614,7 +657,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#11. Eleusis (Vol. 2 Ch 15)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="11/"><span class="bi bi-journal"></span></a>
@@ -623,6 +666,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1705343400000">            
@@ -631,7 +678,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#12. The new Eleusis (Vol 13, Ch 16)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="12/"><span class="bi bi-journal"></span></a>
@@ -640,6 +687,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1705429800000">            
@@ -648,7 +699,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#13. Game theory, guess it, foxholes (Vol. 7, Ch 3)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="13/"><span class="bi bi-journal"></span></a>
@@ -657,6 +708,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1705516200000">            
@@ -665,7 +720,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#14. Jam, Hot and Other Games (Vol. 6, Ch 16)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="14/"><span class="bi bi-journal"></span></a>
@@ -674,6 +729,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1705602600000">            
@@ -682,7 +741,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#15. Peg solitaire (Vol. 4, Ch 11)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="15/"><span class="bi bi-journal"></span></a>
@@ -691,6 +750,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1706466600000">            
@@ -699,7 +762,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#16. The Game of Halma (Vol. 10, Ch 11)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="16/"><span class="bi bi-journal"></span></a>
@@ -708,6 +771,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1706553000000">            
@@ -716,7 +783,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#17. Bridg-it and other games (Vol. 3, Ch 18)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="17/"><span class="bi bi-journal"></span></a>
@@ -725,6 +792,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1706639400000">            
@@ -733,7 +804,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#18. Game of Life (Vol. 10, Ch 20-22)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="18/"><span class="bi bi-journal"></span></a>
@@ -742,6 +813,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1706725800000">            
@@ -750,7 +825,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#19. Game of Life (Vol. 10, Ch 20-22)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="19/"><span class="bi bi-journal"></span></a>
@@ -759,6 +834,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
         <tr data-index="0" data-categories="null" data-listing-date-sort="1706812200000">            
@@ -767,7 +846,7 @@ Sign Up for Reminders
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>#20. Conway’s Surreal Numbers (Vol 13, Ch 4)</strong><br>
-                <p></p>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                     <a href="20/"><span class="bi bi-journal"></span></a>
@@ -776,6 +855,10 @@ Sign Up for Reminders
                     <span class="bi bi-dash-circle-dotted"></span>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                    <span class="bi bi-dash-circle-dotted"></span>
             </td>
         </tr>
 </tbody>

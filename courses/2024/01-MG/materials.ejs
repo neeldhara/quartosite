@@ -6,6 +6,7 @@
         <td>Notes</td>
         <td>Video</td>
         <td>Slides</td>
+        <td>Book Chapter</td>
     </thead>
     <tbody class="list">
     <% for (const item of items) { %>
@@ -15,7 +16,7 @@
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong><% if (item.lecid) { %><%= item.lecid %>.<% } %><%= item.title %></strong><br>
-                <p><%= item.summary %></p>
+                <p style="font-size:small;"><%= item.summary %></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
                 <% if (item.notes) { %>
@@ -32,7 +33,16 @@
             <td class="listing-slides" style="text-align: center;">
                 <% if (item.slides) { %>
                     <a href="<%= item.slides %>"><span class="bi bi-file-earmark-slides"></span></a>
-                <% } %>
+                <% } else { %>
+                    <span class="bi bi-dash-circle-dotted"></span>
+                <% } %>  
+            </td>
+            <td class="listing-bookchapter" style="text-align: center;">
+                <% if (item.bookchapter) { %>
+                    <a href="<%= item.bookchapter %>"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                <% } else { %>
+                    <span class="bi bi-dash-circle-dotted"></span>
+                <% } %>  
             </td>
         </tr>
     <% } %>

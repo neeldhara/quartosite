@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - CS607 | Jan-Apr 2024</title>
+<title>Neeldhara - MGRG | Aug-Nov 2023</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-lecid','listing-date','listing-title','listing-slides','listing-notes','listing-summary','listing-hovertext',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-lecid','listing-date','listing-title','listing-slides','listing-notes','listing-summary',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-lecid","listing-date","listing-title","listing-slides","listing-notes","listing-summary","listing-hovertext"],
+      searchColumns: ["listing-lecid","listing-date","listing-title","listing-slides","listing-notes","listing-summary"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -99,13 +99,69 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-lecid','listing-dateissued','listing-problemset','listing-title','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
+      valueNames: ['listing-lecid','listing-dateissued','listing-problemset','listing-solutions','listing-title','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
       
-      searchColumns: ["listing-lecid","listing-dateissued","listing-problemset","listing-title","listing-due"],
+      searchColumns: ["listing-lecid","listing-dateissued","listing-problemset","listing-solutions","listing-title","listing-due"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-assignments-listing'] = new List('listing-assignments-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-quizzes-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-lecid','listing-dateissued','listing-problemset','listing-solutions','listing-title','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
+      
+      searchColumns: ["listing-lecid","listing-dateissued","listing-problemset","listing-solutions","listing-title","listing-due"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-quizzes-listing'] = new List('listing-quizzes-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-exams-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-lecid','listing-dateissued','listing-title','listing-summary','listing-problemset','listing-solutions','listing-due',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-lecid","listing-dateissued","listing-title","listing-summary","listing-problemset","listing-solutions","listing-due"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-exams-listing'] = new List('listing-exams-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -282,7 +338,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CS607 | Jan-Apr 2024</h1>
+<h1 class="title">MGRG | Aug-Nov 2023</h1>
 </div>
 
 
@@ -297,8 +353,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="cs607.-combinatorics-with-applications-in-computer-science" class="level2 column-body-outset">
-<h2 class="anchored" data-anchor-id="cs607.-combinatorics-with-applications-in-computer-science">CS607. Combinatorics with Applications in Computer Science</h2>
+<section id="mgrg." class="level2 column-body-outset">
+<h2 class="anchored" data-anchor-id="mgrg.">MGRG. <course title=""></course></h2>
 <section id="section" class="level5">
 <h5 class="anchored" data-anchor-id="section">2024</h5>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -313,19 +369,7 @@ About the Course
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<blockquote class="blockquote">
-<p>Just as arithmetic deals with integers (with the standard operations), algebra deals with operations in general, analysis deals with functions, geometry deals with rigid shapes, and topology deals with continuity, so does combinatorics deal with configurations. Combinatorics counts, enumerates, examines, and investigates the existence of configurations with certain specified properties. With combinatorics, one looks for their intrinsic properties, and studies transformations of one configuration into another, as well as “subconfigurations” of a given configuration.</p>
-<p style="text-align:right;">
-<em>Claude Berge</em>, Principles of Combinatorics, Dunod, Paris, 1968 (English translation: Academic Press, New York, 1971)
-</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Mathematics is the art of reducing any problem to linear algebra.</p>
-<p style="text-align:right;">
-<em>William Stein</em>
-</p>
-</blockquote>
-<p>This course will delve into some special highlights from the field of combinatorics, with a broad emphasis on applications to computer science. We will frequently encounter the use of linear algebraic methods. We will roughly have four major themes: extremal set systems, randomized algorithms, geometry, graphs. Every now and then, we’ll work through “puzzles”, which are questions that have a recreational flavor.</p>
+<p>Course summary.</p>
 </div>
 </div>
 </div>
@@ -341,9 +385,7 @@ Target Audience
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Did you enjoy Discrete Mathematics? That’s a sign: there’s a good chance you’ll like this too! You might find a slight change of pace and style in the offering, but it will be just as fun and full of awe-inspiring discovery.</p>
-<p>If you haven’t done Discrete Mathematics, but you enjoy discret-ey puzzles and questions, you’ll probably also like this.</p>
-<p>That said, I am not a recommender algorithm, so please join us for a class or two during the add/drop period to decide if this course is for you :)</p>
+<p>Information about target audience.</p>
 </div>
 </div>
 </div>
@@ -359,7 +401,7 @@ Prerequisites
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The course is mostly self-contained, but a general degree of comfort with proofs and some elementary linear algebra would be useful.</p>
+<p>Indication of pre-requisites.</p>
 </div>
 </div>
 </div>
@@ -376,11 +418,6 @@ References
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>List of References</p>
-<ol type="1">
-<li><a href="https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf">Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra</a> by Jiří Matoušek</li>
-<li><a href="https://www.amazon.in/Extremal-Combinatorics-Applications-Computer-Theoretical/dp/3642173632">Extremal Combinatorics: With Applications in Computer Science</a> (Texts in Theoretical Computer Science. An EATCS Series) by Stasys Jukna</li>
-</ol>
-<p>Additional pointers (papers, articles, videos, etc.) specific to each lecture will be provided in the summaries of the course plans. Some lectures may have additional notes linked to from the course plan as well.</p>
 </div>
 </div>
 </div>
@@ -396,8 +433,8 @@ Timings and Venue
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Venue: 7/110</p>
-<p>Timings: 15:30 - 16:50 on Mondays and 14:00 - 15:20 on Thursdays.</p>
+<p>Venue: XYZ</p>
+<p>Timings:</p>
 </div>
 </div>
 </div>
@@ -414,7 +451,8 @@ TAs and Office hours
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Office Hours: By email.</p>
-<p>TA: Aditi Sethia</p>
+<p>TAs:</p>
+<p>List of TAs.</p>
 </div>
 </div>
 </div>
@@ -431,10 +469,9 @@ Evaluation policy
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>Each of the three quizzes account for 10% of the grade.</li>
-<li>The midsem exam accounts for 15% of the grade.</li>
-<li>The endsem exam accounts for 20% of the grade.</li>
-<li>There will be worksheets accompanying each lecture, due at midnight on the day of the lecture. Each worksheet is worth two points, and your total points from the worksheets is capped at 35 points, which contributes to 35% of the grade.</li>
+<li>Each of the three exams account for 20% of the grade.</li>
+<li>Each of the eleven tutorials will have a quiz worth 5 points. The total number of points you can earn through quizzes is capped at 40, and accounts for 40% of the grade.</li>
+<li>There will be weekly assignments that are not graded but are recommended for practice.</li>
 </ul>
 </div>
 </div>
@@ -453,17 +490,18 @@ Logistics
 <div class="callout-body-container callout-body">
 <ul>
 <li>For IITGN students, (pre-)register through IMS as usual.</li>
-<li>All quizzes and exams will be on Mathmatize; please <a href="https://mathmatize.com/c/957">sign up here</a>.</li>
-<li>For announcements, please sign up on Google classroom <a href="https://classroom.google.com/c/NjQ2NjU0ODA2NzA3?cjc=ebtcrf2">with this link</a> or use the invite code <strong>ebtcrf2</strong>.</li>
+<li>All quizzes and exams will be on Mathmatize; please <a href="https://mathmatize.com/c/809">sign up here</a>.</li>
+<li>For announcements, please sign up on Google classroom <a href="https://classroom.google.com/c/NjE3MjAzOTUzMTA0?cjc=nzl3hkr">with this link</a> or use the invite code <strong>nzl3hkr</strong>.</li>
 <li>If you are not from IITGN and are interested in taking up the course, then please send us an email.</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Lectures</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Worksheets</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Quizzes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Exams</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Lectures</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Assignments</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Quizzes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Exams</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>All slides for the initial lectures can be found <a href="https://slides.com/neeldhara/MGRG-2023">here</a>.</p>
 <div id="listing-lectures-listing" class="quarto-listing quarto-listing-container-custom">
 
 <table class="quarto-listing-table table">
@@ -475,500 +513,12 @@ Logistics
         <td>Video</td>
     </tr></thead>
     <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1704306600000">            
+        <tr data-index="0" data-categories="null" data-listing-date-sort="1690914600000">            
             <td class="listing-date">
-                04 Jan, 2024
+                02 Aug, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
-                01. 
-                <i>Icebreaker Puzzle</i><br>The Impossible Chessboard Situation and Hamming Codes 
-                <br><br>
-                <p style="font-size:small;">Based on Miniature #5 and these videos: <a href="https://www.youtube.com/watch?v=as7Gkm7Y7h4">[1]</a>, <a href="https://www.youtube.com/watch?v=wTJI_WuZSwE">[2]</a>.</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-                    <a href="https://slides.com/neeldhara/cs607-p1"><span class="bi bi-file-earmark-slides"></span></a>
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1704652200000">            
-            <td class="listing-date">
-                08 Jan, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                02. 
-                <i>Extremal Set Systems</i><br>Oddtown, Eventown, and Same-Size Intersections and Medium-Size Intersections 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1704911400000">            
-            <td class="listing-date">
-                11 Jan, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                03. 
-                <i>Extremal Set Systems</i><br>Erdős-Ko-Rado Theorem and Sperner's theorem 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1705257000000">            
-            <td class="listing-date">
-                15 Jan, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                04. 
-                <i>Extremal Set Systems</i><br>VC Dimension and Sauer-Shelah Lemma 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1705516200000">            
-            <td class="listing-date">
-                18 Jan, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                05. 
-                <i>Extremal Set Systems</i><br>Sunflowers and Applications 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1705861800000">            
-            <td class="listing-date">
-                22 Jan, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                06. 
-                <b>Quiz 1</b> 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1706121000000">            
-            <td class="listing-date">
-                25 Jan, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                07. 
-                (No Class.) 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1706466600000">            
-            <td class="listing-date">
-                29 Jan, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                08. 
-                <i>Puzzle Interlude</i><br>Walking in the Yard 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1706725800000">            
-            <td class="listing-date">
-                01 Feb, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                09. 
-                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="First off, almost nobody has ever needed to compute a Fibonacci number... "><i>Computational Interlude</i><br>Computing Fibonacci Numbers, Quickly</span> 
-                <br><br>
-                <p style="font-size:small;"><a href="https://parentheticallyspeaking.org/articles/how-not-to-teach-recursion/#%28part._.Fibonacci%29">This</a> is the source for the quote in the tooltip :)</p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1707071400000">            
-            <td class="listing-date">
-                05 Feb, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                10. 
-                <b>Quiz 2</b> 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1707330600000">            
-            <td class="listing-date">
-                08 Feb, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                11. 
-                <i>Randomized Algorithms</i><br>Warm Up: Finding Triangles · The Schwartz–Zippel theorem · Perfect Matchings and Determinants 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1707676200000">            
-            <td class="listing-date">
-                12 Feb, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                12. 
-                <i>Randomized Algorithms</i><br>Counting Compositions · Is it Associative? 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1707935400000">            
-            <td class="listing-date">
-                15 Feb, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                13. 
-                <i>Puzzle Interlude</i><br>Turning a Ladder Over a Finite Field 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1708885800000">            
-            <td class="listing-date">
-                26 Feb, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                14. 
-                <i>Geometry</i><br>Equilateral Sets · Two Distances 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1709145000000">            
-            <td class="listing-date">
-                29 Feb, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                15. 
-                <i>Geometry</i><br>Are These Distances Euclidean? 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1709490600000">            
-            <td class="listing-date">
-                04 Mar, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                16. 
-                <i>Geometry</i><br>Equiangular Lines 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1709749800000">            
-            <td class="listing-date">
-                07 Mar, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                17. 
-                <i>Geometry</i><br>On the Difficulty of Reducing the Diameter 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1710095400000">            
-            <td class="listing-date">
-                11 Mar, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                18. 
-                <i>Geometry</i><br>Covering a Cube Minus One Vertex 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1710354600000">            
-            <td class="listing-date">
-                14 Mar, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                19. 
-                <i>Geometry</i><br>Rotating the Cube 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1710700200000">            
-            <td class="listing-date">
-                18 Mar, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                20. 
-                <i>Puzzle Interlude</i><br>Odd Distances · Tiling a Rectangle by Squares 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1710959400000">            
-            <td class="listing-date">
-                21 Mar, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                21. 
-                <b>Quiz 3</b> 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1711909800000">            
-            <td class="listing-date">
-                01 Apr, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                22. 
-                <i>Graphs</i><br>Packing Complete Bipartite Graphs · Three Petersens Are Not Enough 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1712169000000">            
-            <td class="listing-date">
-                04 Apr, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                23. 
-                <i>Graphs</i><br>In How Many Ways Can a Man Tile a Board? 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1712514600000">            
-            <td class="listing-date">
-                08 Apr, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                24. 
-                <i>Graphs</i><br>Petersen, Hoffman–Singleton, and Maybe 57 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1712773800000">            
-            <td class="listing-date">
-                11 Apr, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                25. 
-                Holiday (Idu'l Fitr) 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1713119400000">            
-            <td class="listing-date">
-                15 Apr, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                26. 
-                <i>Graphs</i><br>Counting Spanning Trees 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1713378600000">            
-            <td class="listing-date">
-                18 Apr, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                27. 
-                <i>Graphs</i><br>Cutting Cheaply Using Eigenvectors 
-                <br><br>
-                <p style="font-size:small;"></p>
-            </td>
-            <td class="listing-slides" style="text-align: center;">
-            </td>
-            <td class="listing-notes" style="text-align: center;">
-            </td>
-            <td class="listing-video" style="text-align: center;">
-                    <span class="bi bi-dash-circle-dotted"></span>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null" data-listing-date-sort="1713724200000">            
-            <td class="listing-date">
-                22 Apr, 2024
-            </td>
-            <td class="listing-title-summary" style="max-width: 420px !important;">
-                28. 
-                <i>Final Puzzles</i><br>The End of the Small Coins · More Bricks — More Walls? 
+                1. 
                 <br><br>
                 <p style="font-size:small;"></p>
             </td>
@@ -988,7 +538,6 @@ No matching items
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>Coming Soon.</p>
 <div id="listing-assignments-listing" class="quarto-listing quarto-listing-container-custom">
 
 <table class="quarto-listing-table table">
@@ -1000,22 +549,22 @@ No matching items
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
-        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="04 01 2024" data-listing-due-sort="04 01 2024">            
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 08 2023" data-listing-due-sort="-">            
             <td class="listing-date">
-                04 Jan, 2024
+                10 Aug, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>Worksheet 01</strong><br>
+                <strong></strong><br>
                 <p></p>
             </td>
             <td class="listing-problemset">
-                    <a href="worksheets/Q01.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                    <a href="assignments/A01.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
                 </td>
             <td class="listing-solutions">
-                    <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                    <a href="assignments/A01-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
                 </td>
             <td class="listing-due">
-                    04 Jan, 2024
+                    Invalid Date
             </td>
         </tr>
 </tbody>
@@ -1026,14 +575,78 @@ No matching items
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>Coming Soon.</p>
-<!-- ::: {#quizzes-listing}
-::: -->
+<div id="listing-quizzes-listing" class="quarto-listing quarto-listing-container-custom">
+
+<table class="quarto-listing-table table">
+    <thead>
+        <tr><td>Issued</td>
+        <td>Assessment</td>
+        <td>Problems</td>
+        <td>Solutions</td>
+        <td>Due</td>
+    </tr></thead>
+    <tbody class="list">
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 08 2023" data-listing-due-sort="-">            
+            <td class="listing-date">
+                10 Aug, 2023
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong></strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <a href="quizzes/Q01.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                </td>
+            <td class="listing-solutions">
+                    <a href="quizzes/Q01-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                </td>
+            <td class="listing-due">
+                    Invalid Date
+            </td>
+        </tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p>Coming Soon.</p>
-<!-- ::: {#exams-listing}
-::: -->
+<div id="listing-exams-listing" class="quarto-listing quarto-listing-container-custom">
+
+<table class="quarto-listing-table table">
+    <thead>
+        <tr><td>Issued</td>
+        <td>Assessment</td>
+        <td>Problems</td>
+        <td>Solutions</td>
+        <td>Due</td>
+    </tr></thead>
+    <tbody class="list">
+        <tr data-index="0" data-categories="null">            
+            <td class="listing-date">
+                TBA
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Exam 1</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <a href="exams/E01.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                </td>
+            <td class="listing-solutions">
+                    <a href="exams/E01-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                </td>
+            <td class="listing-due">
+                    -
+            </td>
+        </tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
 </div>
 </div>
 </div>

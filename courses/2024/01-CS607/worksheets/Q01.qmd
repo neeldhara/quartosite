@@ -1,0 +1,45 @@
+---
+css: /css/teaching.css
+toc: false
+sidebar: false
+title: Worksheet 01 Combinatorics with Applications in Computer Science
+code-copy: true
+---
+
+:::{.column-body-outset}
+
+## CS607. Combinatorics with Applications in Computer Science
+
+##### Worksheet 01
+
+Released: 04 Jan, 2024
+
+[Back to course page](../index.qmd)
+
+
+:::{.callout-note icon="false"}
+
+# Problem 1. Relationship between Hamming Distance and Error Correction
+
+Recall that a code $C$ is a subset of $S^n$, where $S$ is a fixed, finite alphabet and $S^n$ denotes the set of all strings of length $n$ over $S$. Recall also that the hamming distance between two $n$-length strings $u$ and $v$ over $S$ is the number of indicies on which $u$ and $v$ differ, and $d(C)$ denotes the smallest hamming distance between any pair of strings in $C$. Finally, a code $C$ is said to correct $t$ errors if for every $u \in S^n$ there is at most one $w \in C$ such that $d(u,w) \leq t$. 
+
+Now consider the following statement.
+
+> A code $C$ corrects $d$ errors if and only if: $d(C) \geq {\color{red}{\star}}$. 
+
+What is ${\color{red}\star}$?
+:::
+
+:::{.callout-note icon="false"}
+
+# Problem 2. The (Nearly) Impossible Chessboard Puzzle
+
+Is it possible to color the edges of a 64-dimensional hypercube with 64 colors so that the following property holds?
+
+> For every vertex of the hypercube, all its neighbors are colored with 64 distinct colors.
+
+Note. A 64-dimensional hypercube is a graph that has one vertex for every bit string of length 64, and two vertices are adjacent if and only if their
+hamming distance is one.
+:::
+
+:::

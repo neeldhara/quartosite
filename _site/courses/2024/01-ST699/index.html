@@ -89,6 +89,34 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-assignments-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-lecid','listing-dateissued','listing-problemset','listing-solutions','listing-title','listing-due',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-dateissued-sort'] },{ data: ['listing-due-sort'] }],
+      
+      searchColumns: ["listing-lecid","listing-dateissued","listing-problemset","listing-solutions","listing-title","listing-due"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-assignments-listing'] = new List('listing-assignments-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
@@ -368,7 +396,7 @@ Timings and Venue
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Venue: TBA</p>
+<p>Venue: 7/101</p>
 <p>Timings: 2PM to 5PM on Saturdays (with a 20-minute break at 3:20PM).</p>
 </div>
 </div>
@@ -681,9 +709,96 @@ No matching items
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>Coming Soon.</p>
-<div id="assignments-listing">
+<p>The first part of each assignment can be found on <a href="https://mathmatize.com/c/753">Mathmatize</a>. Timelines on future assignments are suggestive and may change slightly.</p>
+<p>You can find a solution template for the second part of the January assignment <a href="https://www.overleaf.com/read/zvjzrfrtfkxr#57427b">here</a>. Feel free to make a copy and edit the LaTeX directly, or take a print out and write your answers in the blank spaces provided. Please send your solutions by email with the subject line: <code>Topics in Games: January Assignment</code>.</p>
+<div id="listing-assignments-listing" class="quarto-listing quarto-listing-container-custom">
 
+<table class="quarto-listing-table table">
+    <thead>
+        <tr><td>Issued</td>
+        <td>Assessment</td>
+        <td>Problems</td>
+        <td>Solutions</td>
+        <td>Due</td>
+    </tr></thead>
+    <tbody class="list">
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="16 01 2024" data-listing-due-sort="27 01 2024">            
+            <td class="listing-date">
+                16 Jan, 2024
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Assignment 1 (January)</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <a href="assignments/january.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                </td>
+            <td class="listing-solutions">
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                </td>
+            <td class="listing-due">
+                    27 Jan, 2024
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="12 02 2024" data-listing-due-sort="28 02 2024">            
+            <td class="listing-date">
+                12 Feb, 2024
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Assignment 2 (February)</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                </td>
+            <td class="listing-solutions">
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                </td>
+            <td class="listing-due">
+                    28 Feb, 2024
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 03 2024" data-listing-due-sort="20 03 2024">            
+            <td class="listing-date">
+                10 Mar, 2024
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Assignment 3 (March)</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                </td>
+            <td class="listing-solutions">
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                </td>
+            <td class="listing-due">
+                    20 Mar, 2024
+            </td>
+        </tr>
+        <tr data-index="0" data-categories="null" data-listing-dateissued-sort="01 04 2024" data-listing-due-sort="10 04 2024">            
+            <td class="listing-date">
+                01 Apr, 2024
+            </td>
+            <td class="listing-title" style="max-width: 420px !important;">
+                <strong>Assignment 4 (April)</strong><br>
+                <p></p>
+            </td>
+            <td class="listing-problemset">
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                </td>
+            <td class="listing-solutions">
+                    <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                </td>
+            <td class="listing-due">
+                    10 Apr, 2024
+            </td>
+        </tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
 </div>
 </div>
 </div>

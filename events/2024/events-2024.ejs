@@ -1,0 +1,47 @@
+```{=html}
+<table class="quarto-listing-table table">
+<tbody class="list">
+<% for (const item of items) { %>
+<% if (item.year == "2024") { %>
+<tr data-index="0" data-categories="null" <%= metadataAttrs(item) %>>
+    <td class="listing-url">
+            <% if (item.url) { %>
+            <a href="<%= item.url %>"><span class="bi bi-link-45deg"></span></a>
+            <% } %>
+        </td>
+<td class="listing-title">
+    <span ><%= item.title %></span>
+</td>
+<td class="listing-year">
+    <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.duration %>"><%= item.year %></span></span>
+</td>
+<td class="listing-role">
+    <span data-bs-toggle="tooltip" data-bs-placement="top" title="<%= item.role %>">
+        <span class="bi bi-robot"></span>
+    </span>    
+</td>
+<td class="listing-type">    
+    <% if (item.type == "school") { %>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="School">
+            <span class="bi bi-gem"></span>
+        </span>
+    <% } %>
+    <% if (item.type == "workshop") { %>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Workshop">
+            <span class="bi bi-people-fill"></span>
+        </span>
+    <% } %>
+    <% if (item.type == "event") { %>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Event">
+            <span class="bi bi-diamond-fill"></span>
+        </span>
+    <% } %>
+</td>
+</tr>
+<% } %>
+<% } %>
+</tbody>
+</table>
+
+```
+

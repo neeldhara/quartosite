@@ -14,19 +14,19 @@ listing:
     filter-ui: false
     feed: false
     template: ../../materials.ejs
-  # - id: assignments-listing
-  #   contents: materials-assignments.yml
-  #   sort: issueddate asc
-  #   page-size: 100
-  #   type: table
-  #   categories: false
-  #   sort-ui: false
-  #   filter-ui: false
-  #   feed: false
-  #   template: ../../materials-assessments.ejs
-  #   field-types: 
-  #     dateissued: date
-  #     due: date
+  - id: assignments-listing
+    contents: materials-assignments.yml
+    sort: issueddate asc
+    page-size: 100
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    template: ../../materials-assessments.ejs
+    field-types: 
+      dateissued: date
+      due: date
   # - id: quizzes-listing
   #   contents: materials-quizzes.yml
   #   sort: issueddate asc
@@ -115,7 +115,7 @@ The course is mostly self-contained, but a general degree of comfort with proofs
 
 ##### Timings and Venue
 
-Venue: TBA
+Venue: 7/101
 
 Timings: 2PM to 5PM on Saturdays (with a 20-minute break at 3:20PM).
 
@@ -163,7 +163,9 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
 
 ## Assignments
 
-Coming Soon.
+The first part of each assignment can be found on [Mathmatize](https://mathmatize.com/c/753). Timelines on future assignments are suggestive and may change slightly.
+
+You can find a solution template for the second part of the January assignment [here](https://www.overleaf.com/read/zvjzrfrtfkxr#57427b). Feel free to make a copy and edit the LaTeX directly, or take a print out and write your answers in the blank spaces provided. Please send your solutions by email with the subject line: `Topics in Games: January Assignment`.
 
 ::: {#assignments-listing}
 :::

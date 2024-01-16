@@ -10,7 +10,25 @@
 <atom:link href="https://www.neeldhara.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Sun, 31 Dec 2023 18:30:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 12 Jan 2024 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Winning</title>
+  <link>https://www.neeldhara.com/blog/poems/winning/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>if you find a thing <br> that is so that <br> <br> when you have it<br> you can’t keep it<br> <br> and <br> <br> when you don’t have it<br> you can always get it back<br> <br> then this a thing<br> that is to be avoided<br> in the beginning<br></p>
+<hr>
+
+
+
+ ]]></description>
+  <category>poem</category>
+  <guid>https://www.neeldhara.com/blog/poems/winning/index.html</guid>
+  <pubDate>Fri, 12 Jan 2024 18:30:00 GMT</pubDate>
+</item>
 <item>
   <title>Poetry</title>
   <link>https://www.neeldhara.com/blog/poems/poetry/index.html</link>
@@ -3146,138 +3164,6 @@ Postpone gratification
   <category>twitterthread</category>
   <guid>https://www.neeldhara.com/blog/eight-self-sabotaging-behaviors/index.html</guid>
   <pubDate>Mon, 14 Mar 2022 18:30:00 GMT</pubDate>
-</item>
-<item>
-  <title>Kidney Exchanges</title>
-  <link>https://www.neeldhara.com/blog/kidney-exchanges/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>This post is based on an excellent (chalk and board!) talk that <a href="https://cse.iitkgp.ac.in/~palash/">Palash Dey</a> gave at IIT Gandhinagar today. This is his joint work with <a href="https://sites.google.com/view/arnab-maiti/home">Arnab Maiti</a>, to appear as an <a href="https://aamas2022-conference.auckland.ac.nz/accepted/extended-abstracts/">extended abstract</a> at <a href="https://aamas2022-conference.auckland.ac.nz/">AAMAS 2022</a> (<a href="https://arxiv.org/pdf/2112.10250.pdf">preprint here</a>).</p>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
-<p><a href="https://en.wikipedia.org/wiki/Kidney_paired_donation">Kidney paired donation</a> or <em>paired exchange</em> allows donors to donate their kidneys to compatible patients with the understanding that their patients receive medically compatible kidneys in turn. The central problem in this setting is the <em>clearing problem —</em> which involves matching patients to donors in such a way that a maximum number of patients receive compatible kidneys. We introduce a directed graph as a convenient abstraction for this question, where:</p>
-<ul>
-<li>each node <img src="https://latex.codecogs.com/png.latex?v_i%20=%20(P_i,D_i)"> represents a patient-donor pair, and</li>
-<li>we introduce a <em>directed</em> edge <img src="https://latex.codecogs.com/png.latex?v_i%20%E2%86%92%20v_j"> if the kidney of the donor <img src="https://latex.codecogs.com/png.latex?D_i"> is compatible with the patient <img src="https://latex.codecogs.com/png.latex?P_j">.</li>
-</ul>
-<p>Observe that a cycle in this directed graph naturally represents a sequence of feasible exchanges within the cycle. For example, imagine that we have a three-cycle with the edges:</p>
-<p><img src="https://latex.codecogs.com/png.latex?(P_2,D_2)%20%E2%86%92%20(P_5,D_5)%20%E2%86%92%20(P_7,D_7)%20%E2%86%92%20(P_2,D_2)"></p>
-<p>Then we have the following compatible donations:</p>
-<ul>
-<li><img src="https://latex.codecogs.com/png.latex?P_5"> is assigned the kidney of donor <img src="https://latex.codecogs.com/png.latex?D_2"></li>
-<li><img src="https://latex.codecogs.com/png.latex?P_7"> is assigned the kidney of donor <img src="https://latex.codecogs.com/png.latex?D_5"></li>
-<li><img src="https://latex.codecogs.com/png.latex?P_2"> is assigned the kidney of donor <img src="https://latex.codecogs.com/png.latex?D_7"></li>
-</ul>
-<p>This accounts for all the patients and donors involved in this cycle and motivates the following question:</p>
-<blockquote class="blockquote">
-<p>Given a directed graph, what is the largest number of vertices that can be covered by a disjoint union of cycles?</p>
-</blockquote>
-<p>While a positive answer to this question will “resolve” all the needs in the system, consider that exchanges along a cycle of length <img src="https://latex.codecogs.com/png.latex?%5Cell"> involve <img src="https://latex.codecogs.com/png.latex?%5Cell"> simultaneous operations to mitigate the risks involved with donors potentially backing out of the exchange agreements.</p>
-<p>This motivates the following refinement of the previously posed question:</p>
-<blockquote class="blockquote">
-<p>Given a directed graph, what is the largest number of vertices that can be covered by a disjoint union of cycles, where each cycle is of length <img src="https://latex.codecogs.com/png.latex?%5Cell"> or less?</p>
-</blockquote>
-<p>If the exchanges are restricted to swaps, that is, <img src="https://latex.codecogs.com/png.latex?%5Cell%20=%202">, the problem reduces to finding a maximum matching. However, the problem is NP-complete already when <img src="https://latex.codecogs.com/png.latex?%5Cell%20=%203"> (see Theorem 1, <a href="https://www.cs.cmu.edu/~sandholm/kidneyExchange.EC07.withGrantInfo.pdf">Abraham, Blum, and Sandholm</a>; EC 2007).</p>
-<p>We now generalize the model a little further to account for the presence of <em><a href="https://en.wikipedia.org/wiki/Organ_transplantation#Good_Samaritan">altruistic donors</a>,</em> who are donors without a matching patient and are willing to donate to any compatible patient. To account for the presence of such donors, we modify our graph representation as follows:</p>
-<ul>
-<li>Each node either:
-<ul>
-<li>represents a patient-donor pair <img src="https://latex.codecogs.com/png.latex?v_i%20=%20(P_i,D_i)"> or</li>
-<li>represents an altruistic donor <img src="https://latex.codecogs.com/png.latex?u_k%20=%20D_k%5E%5Cstar"></li>
-</ul></li>
-<li>The edges are as follows:
-<ul>
-<li>We have a <em>directed</em> edge <img src="https://latex.codecogs.com/png.latex?v_i%20%E2%86%92%20v_j"> if the kidney of the donor <img src="https://latex.codecogs.com/png.latex?D_i"> is compatible with the patient <img src="https://latex.codecogs.com/png.latex?P_j">.</li>
-<li>We have a <em>directed</em> edge <img src="https://latex.codecogs.com/png.latex?u_k%20%E2%86%92%20v_j"> if the kidney of the donor <img src="https://latex.codecogs.com/png.latex?D_k%5E%5Cstar"> is compatible with the patient <img src="https://latex.codecogs.com/png.latex?P_j">.</li>
-</ul></li>
-</ul>
-<p>In this setting, note that we can also facilitate exchanges along <em>paths</em> as well, with the paths starting at the altruistic donors. For instance, if we have the path:</p>
-<p><img src="https://latex.codecogs.com/png.latex?(D_7%5E%5Cstar)%20%E2%86%92%20(P_2,D_2)%20%E2%86%92%20(P_5,D_5)%20%E2%86%92%20(P_7,D_7)%20%E2%86%92%20(P_3,D_3)"></p>
-<p>Then we have the following compatible donations:</p>
-<ul>
-<li><img src="https://latex.codecogs.com/png.latex?P_2"> is assigned the kidney of donor <img src="https://latex.codecogs.com/png.latex?D_7%5E%5Cstar"></li>
-<li><img src="https://latex.codecogs.com/png.latex?P_5"> is assigned the kidney of donor <img src="https://latex.codecogs.com/png.latex?D_2"></li>
-<li><img src="https://latex.codecogs.com/png.latex?P_7"> is assigned the kidney of donor <img src="https://latex.codecogs.com/png.latex?D_5"></li>
-<li><img src="https://latex.codecogs.com/png.latex?P_3"> is assigned the kidney of donor <img src="https://latex.codecogs.com/png.latex?D_7"></li>
-</ul>
-<p>Note that in this situation, the donor <img src="https://latex.codecogs.com/png.latex?D_3"> is relieved from any obligation to donate to a patient. We now update our problem statement to reflect the presence of altrustic donors and the possibility of facilitating exchanges along paths:</p>
-<blockquote class="blockquote">
-<p>🤝 Optimal Kidney Exchange Along Short Paths and Cycles</p>
-<p><strong>Input.</strong> A directed graph <img src="https://latex.codecogs.com/png.latex?G%20=%20(V,E)">, where <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BA%7D%20%5Csubseteq%20V"> are source vertices; and positive integers <img src="https://latex.codecogs.com/png.latex?%5Cell_p">, <img src="https://latex.codecogs.com/png.latex?%5Cell_c"> and <img src="https://latex.codecogs.com/png.latex?t">.</p>
-<p><strong>Output.</strong> Yes if and only if there is a collection of cycles of length at most <img src="https://latex.codecogs.com/png.latex?%5Cell_c"> each and a collection of paths of length at most <img src="https://latex.codecogs.com/png.latex?%5Cell_p"> each such that the cycles and paths altogether covers <img src="https://latex.codecogs.com/png.latex?t"> nodes outside of <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BA%7D">.</p>
-</blockquote>
-<p>The main claim in the context of this problem is the following:</p>
-<p>There exists a <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BO%7D(2%5E%7B%5Cmathcal%7BO%7D(t)%7D%20%5Ccdot%20%5Ctext%7Bpoly%7D(n))"> that decides Optimal Kidney Exchange Along Short Paths and Cycles.</p>
-</section>
-<section id="an-algorithm-for-oke" class="level2">
-<h2 class="anchored" data-anchor-id="an-algorithm-for-oke">An Algorithm for OKE</h2>
-<p>Here’s a high-level description of the algorithm (perhaps best approached with some prior familiarity with <a href="https://www.youtube.com/watch?v=_4opS8Hpvc0&amp;list=PLEAYkSg4uSQ2jI2x3Bwm711Tmjj-E25Et&amp;index=19">color coding</a>). To begin with, notice that we may assume without loss of generality that <img src="https://latex.codecogs.com/png.latex?%5Cell_p%20%5Cleq%20t"> and <img src="https://latex.codecogs.com/png.latex?%5Cell_c%20%5Cleq%20t"> — intuitively, this is because if the permitted cycle and path lengths are longer than the number of patients we hope to cover, then we can simply look for cycles or paths of length <img src="https://latex.codecogs.com/png.latex?t"> directly to begin with — if we find one, then we are done, and if none exist, then we “might as well” set <img src="https://latex.codecogs.com/png.latex?%5Cell_p"> and/or <img src="https://latex.codecogs.com/png.latex?%5Cell_c"> to <img src="https://latex.codecogs.com/png.latex?t-1">.</p>
-<p>Now, if there is a solution that accounts for at least <img src="https://latex.codecogs.com/png.latex?t"> patients, there is also one that involves at most <img src="https://latex.codecogs.com/png.latex?2t"> patients and in particular, also at most <img src="https://latex.codecogs.com/png.latex?t"> paths. Such a solution engages at most <img src="https://latex.codecogs.com/png.latex?t"> nodes from <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BA%7D">. Therefore, if there is a solution, then there is one that spans <img src="https://latex.codecogs.com/png.latex?s%20%5Cleq%203t"> vertices.</p>
-<p>As is standard for color coding, we guess the correct value of <img src="https://latex.codecogs.com/png.latex?s"> and randomly partition the vertex set <img src="https://latex.codecogs.com/png.latex?V"> into <img src="https://latex.codecogs.com/png.latex?s"> parts. The hope is that each part contains exactly one vertex from the solution (this is a so-called “colorful solution”). The probability that a random partition is a lucky one is <img src="https://latex.codecogs.com/png.latex?(3t)!/(3t)%5E%7B(3t)%7D">, which turns out to be at least <img src="https://latex.codecogs.com/png.latex?e%5E%7B-3t%7D">. This implies that <img src="https://latex.codecogs.com/png.latex?e%5E%7B3t%7D"> repetitions ensure a constant success probability.</p>
-<p>Given that the partition is indeed a lucky one, we can recover the solution using the following dynamic programming semantics. For <img src="https://latex.codecogs.com/png.latex?C%20%5Csubseteq%20%5B3t%5D"> and <img src="https://latex.codecogs.com/png.latex?i%20%5Cin%20%5B3t%5D">, let <img src="https://latex.codecogs.com/png.latex?D%5BC,i%5D"> be <strong>TRUE</strong> if and only if there is a colorful solution spanning at least <img src="https://latex.codecogs.com/png.latex?i"> nodes outside <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BA%7D"> in <img src="https://latex.codecogs.com/png.latex?G%5BV_C%5D">, where <img src="https://latex.codecogs.com/png.latex?V_C"> denotes the subset of vertices colored with colors from <img src="https://latex.codecogs.com/png.latex?C">.</p>
-<p>The recurrence is based on isolating one path or cycle by guessing the set of colors involved in said component and using table lookups to figure out if this can be extended to a full solution.</p>
-<p>In particular, we have:</p>
-<p><img src="https://latex.codecogs.com/png.latex?D%5BC,i%5D%20=%20P%5BC,i%5D%20%5Clor%20Q%5BC,i%5D">,</p>
-<p>where</p>
-<p><img src="https://latex.codecogs.com/png.latex?P%5BC,i%5D%20=%20%5Clor_%7B(B,j):%20B%20%5Csubseteq%20C%20%5Ctext%7B%20and%20%7D%201%20%5Cleq%20j%20%5Cleq%20%5Cell_c%7D%20%5BD%5BC%20%5Csetminus%20B,%20i%20-%20j%5D%20%5Cland%20f(B,j)%5D"></p>
-<p>and</p>
-<p><img src="https://latex.codecogs.com/png.latex?Q%5BC,i%5D%20=%20%5Clor_%7B(B,j):%20B%20%5Csubseteq%20C%20%5Ctext%7B%20and%20%7D%201%20%5Cleq%20j%20%5Cleq%20%5Cell_p%7D%20%5BD%5BC%20%5Csetminus%20B,%20i%20-%20j%5D%20%5Cland%20g(B,j)%5D">.</p>
-<p>Here, we have that:</p>
-<ul>
-<li><img src="https://latex.codecogs.com/png.latex?f(B,j)"> is <strong>TRUE</strong> if and only if the vertices of <img src="https://latex.codecogs.com/png.latex?B"> can be covered with a cycle of length <img src="https://latex.codecogs.com/png.latex?j">.</li>
-<li><img src="https://latex.codecogs.com/png.latex?g(B,j)"> is <strong>TRUE</strong> if and only if the vertices of <img src="https://latex.codecogs.com/png.latex?B"> can be covered with a path of length <img src="https://latex.codecogs.com/png.latex?j">.</li>
-</ul>
-<p>The truth values of <img src="https://latex.codecogs.com/png.latex?f(B,j)"> and <img src="https://latex.codecogs.com/png.latex?g(B,j)"> can be determined directly using standard approaches to finding colorful paths and cycles in time that is single-exponential in <img src="https://latex.codecogs.com/png.latex?j">.</p>
-<p>To claim the overall running time, note that:</p>
-<ul>
-<li>The total number of entries in the table is <img src="https://latex.codecogs.com/png.latex?2%5E%7BO(t)%7D%20%5Ccdot%20t"> and each entry can be computed in time <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BO%7D%5E%7B%7D%5Cleft(2%5E%7B%5Cmathcal%7BO%7D(%5Cell)%7D%5Cright)."></li>
-<li>Therefore, the algorithm outputs the correct decision in <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BO%7D%5E%7B%7D%5Cleft(2%5E%7B%5Cmathcal%7BO%7D(t)%7D%5Cright)"> time with probability at least <img src="https://latex.codecogs.com/png.latex?e%5E%7B-3t%7D">,</li>
-<li>By repeating <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BO%7D%5Cleft(e%5E%7B3%20t%7D%5Cright)"> times, we find the correct decision with constant success probability.</li>
-<li>The overall running time is <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BO%7D%5E%7B*%7D%5Cleft(2%5E%7B%5Cmathcal%7BO%7D(t)%7D%5Cright)">.</li>
-</ul>
-</section>
-<section id="other-results" class="level2">
-<h2 class="anchored" data-anchor-id="other-results">Other Results</h2>
-<p>As Palash mentioned in his talk, the preprint has more, and here are some highlights of the other results that were established:</p>
-<ol type="1">
-<li><p>Optimal Kidney Exchange Along Short Paths and Cycles is <a href="https://en.wikipedia.org/wiki/Parameterized_complexity#FPT">FPT</a> also when parameterized by the treewidth of the underlying graph <img src="https://latex.codecogs.com/png.latex?+"> maximum length of path <img src="https://latex.codecogs.com/png.latex?%5Cleft(%5Cell_%7Bp%7D%5Cright)+"> maximum length of cycle allowed <img src="https://latex.codecogs.com/png.latex?%5Cleft(%5Cell_%7Bc%7D%5Cright)"> and the number of vertex types<sup>1</sup> when <img src="https://latex.codecogs.com/png.latex?%5Cell_%7Bp%7D%20%5Cleq%20%5Cell_%7Bc%7D">.</p></li>
-<li><p>A <a href="https://en.wikipedia.org/wiki/Monadic_second-order_logic">Monadic second-order formula</a> for the problem is also presented, where the length of the formula is upper bounded by a function of <img src="https://latex.codecogs.com/png.latex?%5Cell=%5Cmax%20%5Cleft%5C%7B%5Cell%7Bc%7D,%20%5Cell_%7Bp%7D%5Cright%5C%7D">.</p></li>
-<li><p>The problem admits a <a href="https://en.wikipedia.org/wiki/Kernelization">polynomial kernel</a> with respect to the number of patients receiving kidneys <img src="https://latex.codecogs.com/png.latex?+"> maximum degree when <img src="https://latex.codecogs.com/png.latex?%5Cmax%20%5Cleft%5C%7B%5Cell_%7Bp%7D,%20%5Cell_%7Bc%7D%5Cright%5C%7D"> is a constant.</p></li>
-<li><p>On the other hand, the problem does <em>not</em> admit any polynomial kernel parameterized by the number of patients receiving kidneys <img src="https://latex.codecogs.com/png.latex?+"> maximum degree <img src="https://latex.codecogs.com/png.latex?+%5Cmax%20%5Cleft%5C%7B%5Cell_%7Bp%7D,%20%5Cell_%7Bc%7D%5Cright%5C%7D"> (under standard assumptions).</p></li>
-<li><p>A <img src="https://latex.codecogs.com/png.latex?%5Cleft(16/9+%5Cepsilon%5Cright)">-approximation algorithm is presented for the case when only cycles of length at most 3 are allowed and no paths are allowed.</p></li>
-</ol>
-</section>
-<section id="pointers" class="level2">
-<h2 class="anchored" data-anchor-id="pointers">Pointers</h2>
-<p>Some discussion that came up during the talk:</p>
-<ol type="1">
-<li><p>The so-called dual parameter <img src="https://latex.codecogs.com/png.latex?(n-t)">, which in this case corresponds to the number of patients who were “left out”, is perhaps a natural parameter to study as well.</p></li>
-<li><p>The notion of a patient without a matching donor seems complementary notion of altrusitic donors. Such patients would be the last vertices on paths kickstarted by altruistic donors. However, this notion likely does not manifest in practice.</p></li>
-</ol>
-<p>If you’d like to dig deeper, be sure to <a href="https://arxiv.org/pdf/2112.10250.pdf">check out the preprint</a>! A few additional pointers:</p>
-<ol type="1">
-<li><p>This work closely builds on the works of <a href="https://www.ijcai.org/proceedings/2018/77">Xiao and Wang</a> (IJCAI, 2018), who proposed an exact algorithm with running time <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BO%7D(2%5Enn%5E3)"> where <img src="https://latex.codecogs.com/png.latex?n"> is the number of vertices in the underlying graph. They also show an FPT algorithm parameterized by the number of vertex types if we do not have any restriction on the length of cycles and chains.</p></li>
-<li><p><a href="https://www.mdpi.com/1999-4893/12/2/50">Lin, Wang, Feng, and Fu</a> (Algorithms, 2019) studied the version of the kidney exchange problem which allows only cycles and developed a randomized parameterized algorithm with respect to the parameter being (number of patients receiving a kidney, maximum allowed length of any cycle).</p></li>
-<li><p>Alvin E. Roth was awarded the Nobel Prize in Economic Sciences 2012 (along with Lloyd S. Shapley) in part for his pioneering contributions to the theory and practice of kidney exchange — his <a href="https://www.nobelprize.org/prizes/economic-sciences/2012/roth/biographical/">biographical account</a> indicates that he had started anticipating the problem even before it emerged as a legal practice. His <a href="https://www.youtube.com/watch?v=exB1O3pTf7E">talk at Simons Institute</a> surveys “fifteen years of history” in the kidney exchange problem, with an emphasis on the game-theoretic aspects. (h/t: <a href="https://csatravelblog.wordpress.com/2016/04/05/rohit-vaish-cmu-visit/">Rohit’s blog</a> on this topic.)</p></li>
-</ol>
-
-
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p><a href="https://arxiv.org/pdf/1606.01623.pdf">Dickerson, Manlove, Plaut, Sandholm, and Trimble.</a> (EC 2016) introduced the notion of “vertex type” and showed its usefulness as a graph parameter in real-world kidney exchange instances. Two vertices is said to have the same vertex type if their neighbourhoods are the same.↩︎</p></li>
-</ol>
-</section></div> ]]></description>
-  <category>talk</category>
-  <category>exposition</category>
-  <guid>https://www.neeldhara.com/blog/kidney-exchanges/index.html</guid>
-  <pubDate>Thu, 24 Feb 2022 18:30:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

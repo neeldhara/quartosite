@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -137,6 +144,33 @@ ul.task-list li input[type="checkbox"] {
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../../../css/styles.css">
 <link rel="stylesheet" href="../../../css/teaching.css">
 </head>
@@ -145,9 +179,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
@@ -159,116 +193,116 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../../research/overview.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/people.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/people.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/publications.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/surveys" rel="" target="">
+    <a class="dropdown-item" href="../../../research/surveys">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../../courses/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../courses/index.html">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../materials/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../materials/index.html">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../../tgif/" rel="" target="">
+    <a class="dropdown-item" href="../../../tgif/">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../bookmarks/" rel="" target="">
+    <a class="dropdown-item" href="../../../bookmarks/">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../../talks/" rel="" target="">
+    <a class="dropdown-item" href="../../../talks/">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../videos/" rel="" target="">
+    <a class="dropdown-item" href="../../../videos/">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../events/" rel="" target="">
- <span class="menu-text">Events</span></a>
+    <a class="nav-link" href="../../../events/"> 
+<span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -287,7 +321,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -295,7 +329,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="st699.-special-topics-in-games" class="level2 column-body-outset">
 <h2 class="anchored" data-anchor-id="st699.-special-topics-in-games">ST699. Special Topics in Games</h2>
@@ -455,7 +491,6 @@ Register
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div id="listing-lectures-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Date</td>
@@ -465,6 +500,7 @@ Register
         <td>Video</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704479400000">            
             <td class="listing-date">
                 06 Jan, 2024
@@ -476,14 +512,20 @@ Register
                 <p style="font-size:small;">Many thanks to <a href="https://twitter.com/ainvvy">V Vinay</a> for developing the narrative that we follow here for building up towards the winning criteria for Nim!</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="slides/20240106-slides-L01.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1705084200000">            
             <td class="listing-date">
                 13 Jan, 2024
@@ -495,14 +537,20 @@ Register
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="slides/20240113-slides-L02.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1705689000000">            
             <td class="listing-date">
                 20 Jan, 2024
@@ -514,14 +562,20 @@ Register
                 <p style="font-size:small;">Based on <a href="https://arxiv.org/pdf/1603.01911.pdf">this paper</a> and the example run is from <a href="https://www.irif.fr/~vmitsou/hanabi_presentation.pdf">these slides</a>.</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="slides/20240120-slides-L03.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1706293800000">            
             <td class="listing-date">
                 27 Jan, 2024
@@ -533,14 +587,20 @@ Register
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="slides/20240127-slides-L04.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1706898600000">            
             <td class="listing-date">
                 03 Feb, 2024
@@ -552,13 +612,18 @@ Register
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1707503400000">            
             <td class="listing-date">
                 10 Feb, 2024
@@ -570,14 +635,20 @@ Register
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="slides/20240210-slides-L06.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1708108200000">            
             <td class="listing-date">
                 17 Feb, 2024
@@ -589,13 +660,18 @@ Register
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1709317800000">            
             <td class="listing-date">
                 02 Mar, 2024
@@ -607,68 +683,91 @@ Register
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="slides/20240302-slides-L08.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1709922600000">            
             <td class="listing-date">
                 09 Mar, 2024
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 09. 
-                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Complexity of Games Revisited: NP-Completeness Examples</span> 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Hex and Fixed-Point Theorems (contd.)</span> 
                 <br><br>
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1710527400000">            
             <td class="listing-date">
                 16 Mar, 2024
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 10. 
-                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Complexity of Games Revisited: PSPACE-Completeness Examples</span> 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Games We Love: Tic Tac Toe and Hand Cricket</span> 
                 <br><br>
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
+                    <a href="slides/20240316-slides-L10.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1712341800000">            
             <td class="listing-date">
                 06 Apr, 2024
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 11. 
-                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">Games We Love: Tic Tac Toe and Snakes and Ladders</span> 
+                <span data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="" data-bs-original-title="">TBA</span> 
                 <br><br>
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1712946600000">            
             <td class="listing-date">
                 13 Apr, 2024
@@ -680,13 +779,18 @@ Register
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1713551400000">            
             <td class="listing-date">
                 20 Apr, 2024
@@ -698,15 +802,21 @@ Register
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -716,7 +826,6 @@ No matching items
 <p>The first part of each assignment can be found on <a href="https://mathmatize.com/c/753">Mathmatize</a>. Timelines on future assignments are suggestive and may change slightly.</p>
 <p>You can find a solution template for the second part of the January assignment <a href="https://www.overleaf.com/read/zvjzrfrtfkxr#57427b">here</a>. Feel free to make a copy and edit the LaTeX directly, or take a print out and write your answers in the blank spaces provided. Please send your solutions by email with the subject line: <code>Topics in Games: January Assignment</code>.</p>
 <div id="listing-assignments-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Issued</td>
@@ -726,6 +835,7 @@ No matching items
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="16 01 2024" data-listing-due-sort="27 01 2024">            
             <td class="listing-date">
                 16 Jan, 2024
@@ -735,15 +845,22 @@ No matching items
                 <p></p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="assignments/january.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     27 Jan, 2024
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="12 02 2024" data-listing-due-sort="28 02 2024">            
             <td class="listing-date">
                 12 Feb, 2024
@@ -753,15 +870,22 @@ No matching items
                 <p></p>
             </td>
             <td class="listing-problemset">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     28 Feb, 2024
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 03 2024" data-listing-due-sort="20 03 2024">            
             <td class="listing-date">
                 10 Mar, 2024
@@ -771,15 +895,22 @@ No matching items
                 <p></p>
             </td>
             <td class="listing-problemset">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     20 Mar, 2024
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="01 04 2024" data-listing-due-sort="10 04 2024">            
             <td class="listing-date">
                 01 Apr, 2024
@@ -789,17 +920,25 @@ No matching items
                 <p></p>
             </td>
             <td class="listing-problemset">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     10 Apr, 2024
+                
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -972,10 +1111,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.neeldhara\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -985,8 +1141,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -998,7 +1163,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1042,6 +1330,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1067,6 +1356,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1127,6 +1442,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

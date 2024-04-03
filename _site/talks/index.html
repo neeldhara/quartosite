@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.262">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,8 +62,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -164,6 +172,33 @@ ul.task-list li input[type="checkbox"] {
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../css/talks.css">
 </head>
@@ -172,21 +207,22 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -257,43 +293,44 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../events/">
- <span class="menu-text">Events</span></a>
+    <a class="nav-link" href="../events/"> 
+<span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog.html">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../blog.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -312,7 +349,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -320,7 +357,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="talks" class="level1 column-body-outset">
 <h1>Talks</h1>
@@ -328,12 +367,12 @@ ul.task-list li input[type="checkbox"] {
 &nbsp;
 </p>
 <p>The slides for most of my talks are available from <a href="https://slides.com/neeldhara">here</a>, and several recordings are on this <a href="https://www.youtube.com/watch?v=1JJfmGoryT4&amp;list=PLadhlDF3zdvv_AoemI9U6qkN5E89_DEgU">Youtube playlist</a>.</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Coming Soon
 </div>
 </div>
@@ -344,7 +383,7 @@ Coming Soon
 <p>
 &nbsp;
 </p>
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Featured</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">All</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
@@ -352,89 +391,60 @@ Coming Soon
 &nbsp;
 </p>
 <div id="listing-featured" class="quarto-listing quarto-listing-container-custom">
-
-<table class="quarto-listing-table table">
-    <tbody class="list">
-            <tr data-index="0" data-categories="null">
-                <td class="listing-title">
-                    <span class="badge badge-primary" style="background:indianred;">2022</span>
-                </td>
-                <td class="listing-title">
-                    <em>Games of Pursuit and Evasion</em> <br>
-                    STCS Vigyan Vidushi 2022 Distinguished Lecture <br>
-                    <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">TIFR, Mumbai</span>
-                </td>
-                <td>
-                        <span><i class="bi bi-projector-fill" data-target="modal-vv-games" data-toggle="modal"></i></span>   
-                </td>
-                <td>
-                        <span><i class="bi bi-youtube" data-target="modal-Ths2f0cCbDw" data-toggle="modal"></i></span>   
-                </td>
-            </tr>
-            <tr data-index="0" data-categories="null">
-                <td class="listing-title">
-                    <span class="badge badge-primary" style="background:indianred;">2022</span>
-                </td>
-                <td class="listing-title">
-                    <em>History of Algorithms: The Worst Case and Beyond</em> <br>
-                    History of Ideas 2.0 (Seminar Series) <br>
-                    <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by IIT Gandhinagar)</span>
-                </td>
-                <td>
-                        <span><i class="bi bi-projector-fill" data-target="modal-history-algorithms" data-toggle="modal"></i></span>   
-                </td>
-                <td>
-                        <span><i class="bi bi-youtube" data-target="modal-m8a3Cl3Kjj4" data-toggle="modal"></i></span>   
-                </td>
-            </tr>
-            <tr data-index="0" data-categories="null">
-                <td class="listing-title">
-                    <span class="badge badge-primary" style="background:indianred;">2022</span>
-                </td>
-                <td class="listing-title">
-                    <em>Parameterized Approaches to Kemeny Rank Aggregation</em> <br>
-                    Bangalore Theory Seminars <br>
-                    <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by CSA, Indian Institute of Science and MSR Bangalore)</span>
-                </td>
-                <td>
-                        <span><i class="bi bi-projector-fill" data-target="modal-iisc-kra" data-toggle="modal"></i></span>   
-                </td>
-                <td>
-                        <span><i class="bi bi-youtube" data-target="modal-BguNtYGjJlM" data-toggle="modal"></i></span>   
-                </td>
-            </tr>
-            <tr data-index="0" data-categories="null">
-                <td class="listing-title">
-                    <span class="badge badge-primary" style="background:indianred;">2020</span>
-                </td>
-                <td class="listing-title">
-                    <em>Fair Division with Minimal Sharing</em> <br>
-                    COMSOC Video Seminar Rump Session <br>
-                    <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual</span>
-                </td>
-                <td>
-                </td>
-                <td>
-                        <span><i class="bi bi-youtube" data-target="modal-1JJfmGory" data-toggle="modal"></i></span>   
-                </td>
-            </tr>
-            <tr data-index="0" data-categories="null">
-                <td class="listing-title">
-                    <span class="badge badge-primary" style="background:indianred;">2019</span>
-                </td>
-                <td class="listing-title">
-                    <em>Evolution of Trust</em> <br>
-                    Summer Research Internship Program Seminar Series <br>
-                    <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Gandhinagar</span>
-                </td>
-                <td>
-                </td>
-                <td>
-                        <span><i class="bi bi-youtube" data-target="modal-B31OifDWNPk" data-toggle="modal"></i></span>   
-                </td>
-            </tr>
+<div>
+<table class="quarto-listing-table table" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody class="list">
+<tr class="odd" data-categories="null" data-index="0">
+<td class="listing-title"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>Games of Pursuit and Evasion</em><br>
+STCS Vigyan Vidushi 2022 Distinguished Lecture<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">TIFR, Mumbai</span></td>
+<td><span><span class="bi bi-projector-fill" data-target="modal-vv-games" data-toggle="modal"></span></span></td>
+<td><span><span class="bi bi-youtube" data-target="modal-Ths2f0cCbDw" data-toggle="modal"></span></span></td>
+</tr>
+<tr class="even" data-categories="null" data-index="1">
+<td class="listing-title"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>History of Algorithms: The Worst Case and Beyond</em><br>
+History of Ideas 2.0 (Seminar Series)<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by IIT Gandhinagar)</span></td>
+<td><span><span class="bi bi-projector-fill" data-target="modal-history-algorithms" data-toggle="modal"></span></span></td>
+<td><span><span class="bi bi-youtube" data-target="modal-m8a3Cl3Kjj4" data-toggle="modal"></span></span></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="2">
+<td class="listing-title"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>Parameterized Approaches to Kemeny Rank Aggregation</em><br>
+Bangalore Theory Seminars<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by CSA, Indian Institute of Science and MSR Bangalore)</span></td>
+<td><span><span class="bi bi-projector-fill" data-target="modal-iisc-kra" data-toggle="modal"></span></span></td>
+<td><span><span class="bi bi-youtube" data-target="modal-BguNtYGjJlM" data-toggle="modal"></span></span></td>
+</tr>
+<tr class="even" data-categories="null" data-index="3">
+<td class="listing-title"><span class="badge badge-primary" style="background:indianred;">2020</span></td>
+<td class="listing-title"><em>Fair Division with Minimal Sharing</em><br>
+COMSOC Video Seminar Rump Session<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual</span></td>
+<td></td>
+<td><span><span class="bi bi-youtube" data-target="modal-1JJfmGory" data-toggle="modal"></span></span></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="4">
+<td class="listing-title"><span class="badge badge-primary" style="background:indianred;">2019</span></td>
+<td class="listing-title"><em>Evolution of Trust</em><br>
+Summer Research Internship Program Seminar Series<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Gandhinagar</span></td>
+<td></td>
+<td><span><span class="bi bi-youtube" data-target="modal-B31OifDWNPk" data-toggle="modal"></span></span></td>
+</tr>
 </tbody>
 </table>
+
+
+</div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -445,678 +455,396 @@ No matching items
 &nbsp;
 </p>
 <div id="listing-all" class="quarto-listing quarto-listing-container-custom">
-
-<table class="quarto-listing-table table">
-    <tbody class="list">
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2022</span>
-            </td>
-            <td class="listing-title">
-                <em>A Few Algorithmic Puzzles (and why you should care)</em> <br>
-                Department Seminar <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by SSN College of Engineering)</span>
-            </td>
-            <td>
-                    <span><i class="bi bi-projector-fill" data-target="modal-algopuzzles/" data-toggle="modal"></i></span>   
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2022</span>
-            </td>
-            <td class="listing-title">
-                <em>A career in academia - why and why not?</em> <br>
-                ACM-W India Grad Cohort Workshop <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Jodhpur</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2022</span>
-            </td>
-            <td class="listing-title">
-                <em>Current Research Directions in Fair Division</em> <br>
-                ACM Goa Chapter Seminar Series <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2022</span>
-            </td>
-            <td class="listing-title">
-                <em>Games of Pursuit and Evasion</em> <br>
-                STCS Vigyan Vidushi 2022 Distinguished Lecture <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">TIFR, Mumbai</span>
-            </td>
-            <td>
-                    <span><i class="bi bi-projector-fill" data-target="modal-vv-games" data-toggle="modal"></i></span>   
-            </td>
-            <td>
-                    <span><i class="bi bi-youtube" data-target="modal-Ths2f0cCbDw" data-toggle="modal"></i></span>   
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2022</span>
-            </td>
-            <td class="listing-title">
-                <em>History of Algorithms: The Worst Case and Beyond</em> <br>
-                History of Ideas 2.0 (Seminar Series) <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by IIT Gandhinagar)</span>
-            </td>
-            <td>
-                    <span><i class="bi bi-projector-fill" data-target="modal-history-algorithms" data-toggle="modal"></i></span>   
-            </td>
-            <td>
-                    <span><i class="bi bi-youtube" data-target="modal-m8a3Cl3Kjj4" data-toggle="modal"></i></span>   
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2022</span>
-            </td>
-            <td class="listing-title">
-                <em>On Fair Division with Binary Valuations Respecting Social Networks</em> <br>
-                Workshop on Computation and Economics <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Ashoka University</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2022</span>
-            </td>
-            <td class="listing-title">
-                <em>Panel discussion on "The Source Code: Foundational Literacy Numeracy Digitacy and Beyond"</em> <br>
-                Raising Learners For India 2040, a Karadi Path event <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">The Shri Ram Universal School, Lodha Lakeshore Greens, Palava</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2022</span>
-            </td>
-            <td class="listing-title">
-                <em>Parameterized Approaches to Kemeny Rank Aggregation</em> <br>
-                Bangalore Theory Seminars <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by CSA, Indian Institute of Science and MSR Bangalore)</span>
-            </td>
-            <td>
-                    <span><i class="bi bi-projector-fill" data-target="modal-iisc-kra" data-toggle="modal"></i></span>   
-            </td>
-            <td>
-                    <span><i class="bi bi-youtube" data-target="modal-BguNtYGjJlM" data-toggle="modal"></i></span>   
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2022</span>
-            </td>
-            <td class="listing-title">
-                <em>Problem Solving with Python</em> <br>
-                Paradox Workshop, a Convocation Event for the IITM Online BSc Degree Program <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Madras</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2022</span>
-            </td>
-            <td class="listing-title">
-                <em>Programming Beyond Block Coding</em> <br>
-                Coding Bootcamp for Innovation Club Students <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Science City Ahmedabad (organized by GUJCOST)</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2022</span>
-            </td>
-            <td class="listing-title">
-                <em>The Games we Play</em> <br>
-                FDP on Futuristic Technologies in the field of IT <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">LD College of Engineering</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2021</span>
-            </td>
-            <td class="listing-title">
-                <em>Algorithmic Aspects of Firefighting</em> <br>
-                a short talk given as a part of the INAE webinar series <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2021</span>
-            </td>
-            <td class="listing-title">
-                <em>Panel discussion on Women in Computing Panel on PhD Opportunities in India</em> <br>
-                CSA Golden Jubilee lecture series <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">CSA, Indian Institute of Science</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2021</span>
-            </td>
-            <td class="listing-title">
-                <em>Party Nominations</em> <br>
-                a talk at ReLaX — a Workshop on Games <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by Chennai Mathematical Institute)</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2020</span>
-            </td>
-            <td class="listing-title">
-                <em>Fair Division with Minimal Sharing</em> <br>
-                COMSOC Video Seminar Rump Session <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual</span>
-            </td>
-            <td>
-            </td>
-            <td>
-                    <span><i class="bi bi-youtube" data-target="modal-1JJfmGory" data-toggle="modal"></i></span>   
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2020</span>
-            </td>
-            <td class="listing-title">
-                <em>Parameterized Algorithms for Variants of Dominating Set</em> <br>
-                Workshop on Recent Trends Domination in Graphs - Algorithms, Complexity and Applications <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by NIT Warangal)</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2019</span>
-            </td>
-            <td class="listing-title">
-                <em>Chamberlin-Courant on Restricted Domains</em> <br>
-                Recent Trends in Algorithms <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">National Institute of Science Education and Research, Bhubaneswar</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2019</span>
-            </td>
-            <td class="listing-title">
-                <em>Early Career Researcher Presentation</em> <br>
-                13th Inter-Research-Institute Student Seminar in Computer Science (IRISS) <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Rajagiri School of Engineering and Technology</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2019</span>
-            </td>
-            <td class="listing-title">
-                <em>Evolution of Trust</em> <br>
-                Summer Research Internship Program Seminar Series <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Gandhinagar</span>
-            </td>
-            <td>
-            </td>
-            <td>
-                    <span><i class="bi bi-youtube" data-target="modal-B31OifDWNPk" data-toggle="modal"></i></span>   
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2019</span>
-            </td>
-            <td class="listing-title">
-                <em>Explorable Explanations - Interactive Essays</em> <br>
-                Winter Institute in Digital Humanities <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Gandhinagar</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2019</span>
-            </td>
-            <td class="listing-title">
-                <em>Firefighting with Critical Nodes</em> <br>
-                CSA50 - Pratiksha Trust Workshop on Theoretical Computer Science <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">CSA, Indian Institute of Science, Bangalore</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2019</span>
-            </td>
-            <td class="listing-title">
-                <em>On Stable Matchings</em> <br>
-                Keynote Talk at the ACM India Student Chapters Summit <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Manipal University, Jaipur</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2018</span>
-            </td>
-            <td class="listing-title">
-                <em>Technical presentation skills versus interpersonal skills (joint presentation with Varsha Apte)</em> <br>
-                First ACM India Grad Cohort Workshop for Women in Computing <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Bombay</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2017</span>
-            </td>
-            <td class="listing-title">
-                <em>An Introduction to Parameterized Algorithms</em> <br>
-                Pre-Conference Workshop on Graph Algorithms (13th ADMA Conference) <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">SSN College</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2017</span>
-            </td>
-            <td class="listing-title">
-                <em>Efficient Algorithms for Hard Problems on Structured Electorates</em> <br>
-                Workshop on Aspects of Computation <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">National University of Singapore</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2016</span>
-            </td>
-            <td class="listing-title">
-                <em>An Introduction to Computational Social Choice</em> <br>
-                Workshop on Game Theory and Optimization <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">CSA, Indian Institute of Science</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2016</span>
-            </td>
-            <td class="listing-title">
-                <em>Efficient Algorithms for Hard Problems on Structured Electorates</em> <br>
-                Workshop on Rangoli of Algorithms <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Chennai Mathematical Institute</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2016</span>
-            </td>
-            <td class="listing-title">
-                <em>Elicitation for Preferences Single Peaked on Trees</em> <br>
-                CS-Econ Seminar Series <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Duke University</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2016</span>
-            </td>
-            <td class="listing-title">
-                <em>Parameterized Algorithms</em> <br>
-                Tutorial Talk <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Duke University</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2016</span>
-            </td>
-            <td class="listing-title">
-                <em>Parameterized Algorithms for Computational Social Choice</em> <br>
-                Workshop on Game Theory and Optimization <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Indian Institute of Science</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2015</span>
-            </td>
-            <td class="listing-title">
-                <em>Glimpses of Algebraic Graph Theory and Linear Algebra Methods in Combinatorics</em> <br>
-                Workshop on Linear Algebra and Related Topics at the School of Mathematics and Computing Sciences <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Rani Channamma University, Belagavi</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2015</span>
-            </td>
-            <td class="listing-title">
-                <em>On the Planar F-Deletion Problem</em> <br>
-                Fourth India-Taiwan Conference on Discrete Mathematics <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Madras</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2015</span>
-            </td>
-            <td class="listing-title">
-                <em>Some Algorithmic Excursions</em> <br>
-                Science Academies Education Program, Workshop for Pre-University Students in Elementary Mathematics <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Christ College, Bangalore</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2014</span>
-            </td>
-            <td class="listing-title">
-                <em>Iterative Compression for FVS</em> <br>
-                Department  Seminar <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIIT Bangalore</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2014</span>
-            </td>
-            <td class="listing-title">
-                <em>Max $q$-Colorable Induced Subgraph Problem on Perfect Graphs</em> <br>
-                Graph Modification Problems <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Dagstuhl, Germany</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2014</span>
-            </td>
-            <td class="listing-title">
-                <em>Parameterized Graph Modification - A Modern Perspective</em> <br>
-                New Developments in Exact Algorithms and Lower Bounds (Pre-FSTTCS Workshop) <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Delhi</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2012</span>
-            </td>
-            <td class="listing-title">
-                <em>Connected Dominating Set and Short Cycles</em> <br>
-                Department Seminar <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Indian Statistical Institute, Bangalore</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2012</span>
-            </td>
-            <td class="listing-title">
-                <em>From FVS to F-deletion - the Story of a Simple Algorithm</em> <br>
-                Department Seminar <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">VCLA, Technical University of Vienna</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2012</span>
-            </td>
-            <td class="listing-title">
-                <em>Kernelization</em> <br>
-                Chennai Update Meeting on Parameterized Complexity <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Institute of Mathematical Sciences, Chennai</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2012</span>
-            </td>
-            <td class="listing-title">
-                <em>Kernels for Planar F-Deletion</em> <br>
-                Data Reduction and Problem Kernels <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Dagstuhl, Germany</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2012</span>
-            </td>
-            <td class="listing-title">
-                <em>Separators with Non-Hereditary Properties</em> <br>
-                Mini-Workshop on Logic, Proofs and Algorithms <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">VCLA, Technical University of Vienna</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2011</span>
-            </td>
-            <td class="listing-title">
-                <em>Efficient Simplification - Polynomial Time Revisited</em> <br>
-                Department Seminar <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">CSA, Indian Institute of Science</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2010</span>
-            </td>
-            <td class="listing-title">
-                <em>Connected Dominating Set and Short Cycles</em> <br>
-                Algorithms Seminar Series <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">University of Bergen, Norway</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2010</span>
-            </td>
-            <td class="listing-title">
-                <em>Efficient Simplification - The (im)possibilities</em> <br>
-                IMPECS School on Parameterized Complexity <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Institute for Mathematical Sciences</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2010</span>
-            </td>
-            <td class="listing-title">
-                <em>Expansions for Reductions</em> <br>
-                Workshop on Kernelization <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Lorentz Center, Netherlands</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2010</span>
-            </td>
-            <td class="listing-title">
-                <em>Iterative Compression ---  Try, try, till you succeed --- or fail.</em> <br>
-                Kalasalingam University, Madurai, and Institute Seminar Week <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">The Institute of Mathematical Sciences</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr data-index="0" data-categories="null">
-            <td class="listing-year">
-                <span class="badge badge-primary" style="background:indianred;">2010</span>
-            </td>
-            <td class="listing-title">
-                <em>Lower Bounds on Kernelization</em> <br>
-                Department Seminar <br>
-                <span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Chalmers University, Sweden</span>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
+<div>
+<table class="quarto-listing-table table" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody class="list">
+<tr class="odd" data-categories="null" data-index="0">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>A Few Algorithmic Puzzles (and why you should care)</em><br>
+Department Seminar<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by SSN College of Engineering)</span></td>
+<td><span><span class="bi bi-projector-fill" data-target="modal-algopuzzles/" data-toggle="modal"></span></span></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="1">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>A career in academia - why and why not?</em><br>
+ACM-W India Grad Cohort Workshop<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Jodhpur</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="2">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>Current Research Directions in Fair Division</em><br>
+ACM Goa Chapter Seminar Series<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="3">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>Games of Pursuit and Evasion</em><br>
+STCS Vigyan Vidushi 2022 Distinguished Lecture<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">TIFR, Mumbai</span></td>
+<td><span><span class="bi bi-projector-fill" data-target="modal-vv-games" data-toggle="modal"></span></span></td>
+<td><span><span class="bi bi-youtube" data-target="modal-Ths2f0cCbDw" data-toggle="modal"></span></span></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="4">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>History of Algorithms: The Worst Case and Beyond</em><br>
+History of Ideas 2.0 (Seminar Series)<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by IIT Gandhinagar)</span></td>
+<td><span><span class="bi bi-projector-fill" data-target="modal-history-algorithms" data-toggle="modal"></span></span></td>
+<td><span><span class="bi bi-youtube" data-target="modal-m8a3Cl3Kjj4" data-toggle="modal"></span></span></td>
+</tr>
+<tr class="even" data-categories="null" data-index="5">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>On Fair Division with Binary Valuations Respecting Social Networks</em><br>
+Workshop on Computation and Economics<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Ashoka University</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="6">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>Panel discussion on "The Source Code: Foundational Literacy Numeracy Digitacy and Beyond"</em><br>
+Raising Learners For India 2040, a Karadi Path event<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">The Shri Ram Universal School, Lodha Lakeshore Greens, Palava</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="7">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>Parameterized Approaches to Kemeny Rank Aggregation</em><br>
+Bangalore Theory Seminars<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by CSA, Indian Institute of Science and MSR Bangalore)</span></td>
+<td><span><span class="bi bi-projector-fill" data-target="modal-iisc-kra" data-toggle="modal"></span></span></td>
+<td><span><span class="bi bi-youtube" data-target="modal-BguNtYGjJlM" data-toggle="modal"></span></span></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="8">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>Problem Solving with Python</em><br>
+Paradox Workshop, a Convocation Event for the IITM Online BSc Degree Program<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Madras</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="9">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>Programming Beyond Block Coding</em><br>
+Coding Bootcamp for Innovation Club Students<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Science City Ahmedabad (organized by GUJCOST)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="10">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2022</span></td>
+<td class="listing-title"><em>The Games we Play</em><br>
+FDP on Futuristic Technologies in the field of IT<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">LD College of Engineering</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="11">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2021</span></td>
+<td class="listing-title"><em>Algorithmic Aspects of Firefighting</em><br>
+a short talk given as a part of the INAE webinar series<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="12">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2021</span></td>
+<td class="listing-title"><em>Panel discussion on Women in Computing Panel on PhD Opportunities in India</em><br>
+CSA Golden Jubilee lecture series<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">CSA, Indian Institute of Science</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="13">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2021</span></td>
+<td class="listing-title"><em>Party Nominations</em><br>
+a talk at ReLaX — a Workshop on Games<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by Chennai Mathematical Institute)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="14">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2020</span></td>
+<td class="listing-title"><em>Fair Division with Minimal Sharing</em><br>
+COMSOC Video Seminar Rump Session<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual</span></td>
+<td></td>
+<td><span><span class="bi bi-youtube" data-target="modal-1JJfmGory" data-toggle="modal"></span></span></td>
+</tr>
+<tr class="even" data-categories="null" data-index="15">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2020</span></td>
+<td class="listing-title"><em>Parameterized Algorithms for Variants of Dominating Set</em><br>
+Workshop on Recent Trends Domination in Graphs - Algorithms, Complexity and Applications<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Virtual (organized by NIT Warangal)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="16">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2019</span></td>
+<td class="listing-title"><em>Chamberlin-Courant on Restricted Domains</em><br>
+Recent Trends in Algorithms<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">National Institute of Science Education and Research, Bhubaneswar</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="17">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2019</span></td>
+<td class="listing-title"><em>Early Career Researcher Presentation</em><br>
+13th Inter-Research-Institute Student Seminar in Computer Science (IRISS)<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Rajagiri School of Engineering and Technology</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="18">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2019</span></td>
+<td class="listing-title"><em>Evolution of Trust</em><br>
+Summer Research Internship Program Seminar Series<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Gandhinagar</span></td>
+<td></td>
+<td><span><span class="bi bi-youtube" data-target="modal-B31OifDWNPk" data-toggle="modal"></span></span></td>
+</tr>
+<tr class="even" data-categories="null" data-index="19">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2019</span></td>
+<td class="listing-title"><em>Explorable Explanations - Interactive Essays</em><br>
+Winter Institute in Digital Humanities<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Gandhinagar</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="20">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2019</span></td>
+<td class="listing-title"><em>Firefighting with Critical Nodes</em><br>
+CSA50 - Pratiksha Trust Workshop on Theoretical Computer Science<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">CSA, Indian Institute of Science, Bangalore</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="21">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2019</span></td>
+<td class="listing-title"><em>On Stable Matchings</em><br>
+Keynote Talk at the ACM India Student Chapters Summit<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Manipal University, Jaipur</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="22">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2018</span></td>
+<td class="listing-title"><em>Technical presentation skills versus interpersonal skills (joint presentation with Varsha Apte)</em><br>
+First ACM India Grad Cohort Workshop for Women in Computing<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Bombay</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="23">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2017</span></td>
+<td class="listing-title"><em>An Introduction to Parameterized Algorithms</em><br>
+Pre-Conference Workshop on Graph Algorithms (13th ADMA Conference)<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">SSN College</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="24">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2017</span></td>
+<td class="listing-title"><em>Efficient Algorithms for Hard Problems on Structured Electorates</em><br>
+Workshop on Aspects of Computation<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">National University of Singapore</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="25">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2016</span></td>
+<td class="listing-title"><em>An Introduction to Computational Social Choice</em><br>
+Workshop on Game Theory and Optimization<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">CSA, Indian Institute of Science</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="26">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2016</span></td>
+<td class="listing-title"><em>Efficient Algorithms for Hard Problems on Structured Electorates</em><br>
+Workshop on Rangoli of Algorithms<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Chennai Mathematical Institute</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="27">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2016</span></td>
+<td class="listing-title"><em>Elicitation for Preferences Single Peaked on Trees</em><br>
+CS-Econ Seminar Series<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Duke University</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="28">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2016</span></td>
+<td class="listing-title"><em>Parameterized Algorithms</em><br>
+Tutorial Talk<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Duke University</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="29">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2016</span></td>
+<td class="listing-title"><em>Parameterized Algorithms for Computational Social Choice</em><br>
+Workshop on Game Theory and Optimization<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Indian Institute of Science</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="30">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2015</span></td>
+<td class="listing-title"><em>Glimpses of Algebraic Graph Theory and Linear Algebra Methods in Combinatorics</em><br>
+Workshop on Linear Algebra and Related Topics at the School of Mathematics and Computing Sciences<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Rani Channamma University, Belagavi</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="31">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2015</span></td>
+<td class="listing-title"><em>On the Planar F-Deletion Problem</em><br>
+Fourth India-Taiwan Conference on Discrete Mathematics<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Madras</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="32">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2015</span></td>
+<td class="listing-title"><em>Some Algorithmic Excursions</em><br>
+Science Academies Education Program, Workshop for Pre-University Students in Elementary Mathematics<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Christ College, Bangalore</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="33">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2014</span></td>
+<td class="listing-title"><em>Iterative Compression for FVS</em><br>
+Department Seminar<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIIT Bangalore</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="34">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2014</span></td>
+<td class="listing-title"><em>Max $q$-Colorable Induced Subgraph Problem on Perfect Graphs</em><br>
+Graph Modification Problems<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Dagstuhl, Germany</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="35">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2014</span></td>
+<td class="listing-title"><em>Parameterized Graph Modification - A Modern Perspective</em><br>
+New Developments in Exact Algorithms and Lower Bounds (Pre-FSTTCS Workshop)<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">IIT Delhi</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="36">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2012</span></td>
+<td class="listing-title"><em>Connected Dominating Set and Short Cycles</em><br>
+Department Seminar<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Indian Statistical Institute, Bangalore</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="37">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2012</span></td>
+<td class="listing-title"><em>From FVS to F-deletion - the Story of a Simple Algorithm</em><br>
+Department Seminar<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">VCLA, Technical University of Vienna</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="38">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2012</span></td>
+<td class="listing-title"><em>Kernelization</em><br>
+Chennai Update Meeting on Parameterized Complexity<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Institute of Mathematical Sciences, Chennai</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="39">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2012</span></td>
+<td class="listing-title"><em>Kernels for Planar F-Deletion</em><br>
+Data Reduction and Problem Kernels<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Dagstuhl, Germany</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="40">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2012</span></td>
+<td class="listing-title"><em>Separators with Non-Hereditary Properties</em><br>
+Mini-Workshop on Logic, Proofs and Algorithms<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">VCLA, Technical University of Vienna</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="41">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2011</span></td>
+<td class="listing-title"><em>Efficient Simplification - Polynomial Time Revisited</em><br>
+Department Seminar<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">CSA, Indian Institute of Science</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="42">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2010</span></td>
+<td class="listing-title"><em>Connected Dominating Set and Short Cycles</em><br>
+Algorithms Seminar Series<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">University of Bergen, Norway</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="43">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2010</span></td>
+<td class="listing-title"><em>Efficient Simplification - The (im)possibilities</em><br>
+IMPECS School on Parameterized Complexity<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Institute for Mathematical Sciences</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="44">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2010</span></td>
+<td class="listing-title"><em>Expansions for Reductions</em><br>
+Workshop on Kernelization<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Lorentz Center, Netherlands</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even" data-categories="null" data-index="45">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2010</span></td>
+<td class="listing-title"><em>Iterative Compression --- Try, try, till you succeed --- or fail.</em><br>
+Kalasalingam University, Madurai, and Institute Seminar Week<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">The Institute of Mathematical Sciences</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd" data-categories="null" data-index="46">
+<td class="listing-year"><span class="badge badge-primary" style="background:indianred;">2010</span></td>
+<td class="listing-title"><em>Lower Bounds on Kernelization</em><br>
+Department Seminar<br>
+<span class="badge badge-primary" style="background: rgb(223, 215, 231); color:rgb(77, 34, 129); margin-top:10px; margin-bottom: 10px;">Chalmers University, Sweden</span></td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
+
+
+</div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -2481,9 +2209,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -2519,10 +2261,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.neeldhara\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2532,8 +2291,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2545,9 +2313,245 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -2588,6 +2592,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

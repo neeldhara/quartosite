@@ -9,11 +9,507 @@
 <link>https://www.neeldhara.com/blog.html</link>
 <atom:link href="https://www.neeldhara.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.450</generator>
-<lastBuildDate>Fri, 12 Jan 2024 18:30:00 GMT</lastBuildDate>
+<generator>quarto-1.4.551</generator>
+<lastBuildDate>Thu, 09 May 2024 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Creating a Gallery of Solved Crosswords</title>
+  <link>https://www.neeldhara.com/blog/indiamini-crosswords/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>H/T <a href="https://twitter.com/mnwsth/status/1788781998904914215">Manu</a>: I’ve discovered the <a href="https://indiamini.in/play/">India Mini Crossword series</a> and it’s a great two-to-five minute thing to solve every morning! Here’s a little workflow I cobbled together to generate this collage of solved crosswords in <a href="https://obsidian.md/">Obsidian</a>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/indiamini-crosswords/collage.png" class="img-fluid figure-img"></p>
+<figcaption>Indiamini Crossword Solves Collage</figcaption>
+</figure>
+</div>
+<p>In practice, after the one-time setup I describe here, all I do after solving the crossword is print it and save the PDF to a folder called <code>Notes/</code>. The rest is automatic.</p>
+<p>To begin with, I have <a href="https://www.noodlesoft.com/">Hazel</a> monitor the <code>Notes/</code> folder and run this rule:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/indiamini-crosswords/hazel-01.png" class="img-fluid figure-img"></p>
+<figcaption>Hazel Rule (Part 1)</figcaption>
+</figure>
+</div>
+<p>All this does is checks if a PDF file has been added to the root level of the <code>Notes/</code> folder which has the string <code>Welcome to the India Mini crossword!</code>. It then pulls out the date from the file and pushes it into a date-based subfolder; e.g, if the crossword was for the 10th of May, the PDF file moves to the folder <code>Notes/2024/05/10/</code>. This is nice because even if I miss a day and solve something later, simply saving the file will still auto-file it in the correct directory.</p>
+<p>Next up, there is a second rule:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/indiamini-crosswords/hazel-02.png" class="img-fluid figure-img"></p>
+<figcaption>Hazel Rule (Part 2)</figcaption>
+</figure>
+</div>
+<p>which processes the PDF file by extracting an image that contains the solved crossword. The actual work is carried out by this shell script, written mostly by chatGPT, complete with hard-coded paths:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#!/bin/bash</span></span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Extract the first page</span></span>
+<span id="cb1-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">/usr/local/bin/pdftk</span> /Users/neeldhara/Library/CloudStorage/Dropbox/Notes/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span>/indiamini-crossword.pdf cat 1 output /Users/neeldhara/Library/CloudStorage/Dropbox/Notes/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span>/first_page.pdf</span>
+<span id="cb1-5"></span>
+<span id="cb1-6"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> /Users/neeldhara/Library/CloudStorage/Dropbox/Notes/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span>/indiamini-crossword.pdf</span>
+<span id="cb1-7"></span>
+<span id="cb1-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Convert the first page to a PNG</span></span>
+<span id="cb1-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">/opt/homebrew/bin/convert</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-density</span> 300 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-quality</span> 100 /Users/neeldhara/Library/CloudStorage/Dropbox/Notes/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span>/first_page.pdf /Users/neeldhara/Library/CloudStorage/Dropbox/Notes/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span>/first_page.png</span>
+<span id="cb1-10"></span>
+<span id="cb1-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Get the height and width of the image</span></span>
+<span id="cb1-12"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">height</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">/opt/homebrew/bin/identify</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-format</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%h"</span> /Users/neeldhara/Library/CloudStorage/Dropbox/Notes/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span>/first_page.png<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb1-13"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">width</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">/opt/homebrew/bin/identify</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-format</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%w"</span> /Users/neeldhara/Library/CloudStorage/Dropbox/Notes/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span>/first_page.png<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb1-14"></span>
+<span id="cb1-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate the half height and width</span></span>
+<span id="cb1-16"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">half_height</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$((height</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">))</span></span>
+<span id="cb1-17"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">half_width</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$((width</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">))</span></span>
+<span id="cb1-18"></span>
+<span id="cb1-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Crop the image to the top right half</span></span>
+<span id="cb1-20"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">/opt/homebrew/bin/convert</span> /Users/neeldhara/Library/CloudStorage/Dropbox/Notes/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span>/first_page.png <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-crop</span> 1100x1100+<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${half_width}</span>+315 /Users/neeldhara/Library/CloudStorage/Dropbox/Notes/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span>/indiamini-crossword.png</span>
+<span id="cb1-21"></span>
+<span id="cb1-22"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Delete intermediate files</span></span>
+<span id="cb1-23"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rm</span> /Users/neeldhara/Library/CloudStorage/Dropbox/Notes/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span>/first_page.png</span>
+<span id="cb1-24"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rm</span> /Users/neeldhara/Library/CloudStorage/Dropbox/Notes/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span>/first_page.pdf</span></code></pre></div>
+<p>I finally have a very simple <a href="http://www.keyboardmaestro.com/">Keyboard Maestro</a> macro that runs every morning at 7AM — except Sundays, because the Sunday crossword is not a mini :) — to create the crossword note in my Obsidian vault in a date-based folder:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.neeldhara.com/blog/indiamini-crosswords/km-macro.png" class="img-fluid figure-img"></p>
+<figcaption>KM Macro</figcaption>
+</figure>
+</div>
+<p>The crossword note template is very minimal:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb2-2"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> India Mini Crossword · &lt;% tp.date.now("YYYY") %&gt;-&lt;% tp.date.now("MM") %&gt;-&lt;% tp.date.now("DD") %&gt;</span></span>
+<span id="cb2-3"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">tags:</span></span>
+<span id="cb2-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  - kw/c/crossword</span></span>
+<span id="cb2-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  - kw/i/indiamini</span></span>
+<span id="cb2-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  - puzzles/indiamini-crossword</span></span>
+<span id="cb2-7"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">asset:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> file:///Users/neeldhara/Library/CloudStorage/Dropbox/Notes/&lt;% tp.date.now("YYYY") %&gt;/&lt;% tp.date.now("MM") %&gt;/&lt;% tp.date.now("DD") %&gt;/indiamini-crossword.pdf</span></span>
+<span id="cb2-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb2-9"></span>
+<span id="cb2-10"></span>
+<span id="cb2-11">!<span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">Crossword</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span>(file:///Users/neeldhara/Library/CloudStorage/Dropbox/Notes/&lt;% tp.date.now("YYYY") %&gt;/&lt;% tp.date.now("MM") %&gt;/&lt;% tp.date.now("DD") %&gt;/indiamini-crossword.png)</span></code></pre></div>
+<p>The <a href="https://github.com/SilentVoid13/Templater">Templater plugin for Obsidian</a> ensures that the dates expand correctly at the time the note is created. You could instead run a shell script to just generate these notes for all dates in advance, but I like this because the KM prompt reminds me to do the crossword :)</p>
+<p>The individual crossword file simply shows the PNG file generated by the Hazel rule. I might eventually add solve times to the frontmatter. For the collage, I use this dataview query in a separate note:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">console</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Fetching pages from "Notes" with specific tag...'</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-2"></span>
+<span id="cb3-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">const</span> assets <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'"Notes"'</span>)</span>
+<span id="cb3-4">  <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(p <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=&gt;</span> p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">tags</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">?.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">includes</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"puzzles/indiamini-crossword"</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;&amp;</span> p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">asset</span>)</span>
+<span id="cb3-5">  <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">map</span>(page <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=&gt;</span> {</span>
+<span id="cb3-6">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// Replace .pdf with .png in the asset path</span></span>
+<span id="cb3-7">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">const</span> pngAsset <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> page<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">asset</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">replace</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'.pdf'</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'.png'</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-8">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">console</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`Found page: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>page<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">path</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> with asset: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>pngAsset<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-9">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> {</span>
+<span id="cb3-10">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">file</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> page<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">link</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-11">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">asset</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> pngAsset <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// Now the asset points to a .png file instead of a .pdf</span></span>
+<span id="cb3-12">    }<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-13">  })<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-14"></span>
+<span id="cb3-15">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paragraph</span>(<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`Total images found: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>assets<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-16">assets<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sort</span>()<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-17"></span>
+<span id="cb3-18"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">let</span> fullstring <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-19"></span>
+<span id="cb3-20"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> (assets<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">===</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>) {</span>
+<span id="cb3-21">  dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paragraph</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"No assets found. Check the folder, tags, and frontmatter."</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-22">} <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span> {  </span>
+<span id="cb3-23">  assets<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">forEach</span>((item<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> index) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=&gt;</span> {</span>
+<span id="cb3-24">    fullstring <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`![|230](</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>item<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">asset</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">)&amp;nbsp;&amp;nbsp;&amp;nbsp;`</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-25">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> ((index <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">===</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>) { <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// After every third image</span></span>
+<span id="cb3-26">      fullstring <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// Append a line break</span></span>
+<span id="cb3-27">    }</span>
+<span id="cb3-28">  })<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-29">}</span>
+<span id="cb3-30"></span>
+<span id="cb3-31"></span>
+<span id="cb3-32">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paragraph</span>(fullstring)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span></code></pre></div>
+<p>The <a href="https://github.com/zremboldt/obsidian-media-grid">media grid snippet for Obsidian</a> gets the grid alignment going for the images.</p>
+<p>And that’s it!</p>
+
+
+
+ ]]></description>
+  <category>workflows</category>
+  <guid>https://www.neeldhara.com/blog/indiamini-crosswords/</guid>
+  <pubDate>Thu, 09 May 2024 18:30:00 GMT</pubDate>
+</item>
 <item>
   <title>Winning</title>
-  <link>https://www.neeldhara.com/blog/poems/winning/index.html</link>
+  <link>https://www.neeldhara.com/blog/poems/winning/</link>
   <description><![CDATA[ 
 
 
@@ -26,12 +522,12 @@
 
  ]]></description>
   <category>poem</category>
-  <guid>https://www.neeldhara.com/blog/poems/winning/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/poems/winning/</guid>
   <pubDate>Fri, 12 Jan 2024 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>Poetry</title>
-  <link>https://www.neeldhara.com/blog/poems/poetry/index.html</link>
+  <link>https://www.neeldhara.com/blog/poems/poetry/</link>
   <description><![CDATA[ 
 
 
@@ -44,12 +540,12 @@
 
  ]]></description>
   <category>poem</category>
-  <guid>https://www.neeldhara.com/blog/poems/poetry/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/poems/poetry/</guid>
   <pubDate>Sun, 31 Dec 2023 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>Course Plan Generator</title>
-  <link>https://www.neeldhara.com/blog/course-plan/2024-spring/index.html</link>
+  <link>https://www.neeldhara.com/blog/course-plan/2024-spring/</link>
   <description><![CDATA[ 
 <script src="plan.js"></script>
 <style>
@@ -106,12 +602,12 @@
 
  ]]></description>
   <category>workflows</category>
-  <guid>https://www.neeldhara.com/blog/course-plan/2024-spring/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/course-plan/2024-spring/</guid>
   <pubDate>Sun, 24 Dec 2023 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>Intro to Crypto</title>
-  <link>https://www.neeldhara.com/blog/crypto-intro/index.html</link>
+  <link>https://www.neeldhara.com/blog/crypto-intro/</link>
   <description><![CDATA[ 
 
 
@@ -257,12 +753,12 @@ A first threat scenario, informally:
  ]]></description>
   <category>talk</category>
   <category>exposition</category>
-  <guid>https://www.neeldhara.com/blog/crypto-intro/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/crypto-intro/</guid>
   <pubDate>Wed, 20 Dec 2023 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>Exportober 2023</title>
-  <link>https://www.neeldhara.com/blog/2023-exportober-workflows/index.html</link>
+  <link>https://www.neeldhara.com/blog/2023-exportober-workflows/</link>
   <description><![CDATA[ 
 
 
@@ -413,12 +909,12 @@ A first threat scenario, informally:
 
  ]]></description>
   <category>workflows</category>
-  <guid>https://www.neeldhara.com/blog/2023-exportober-workflows/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/2023-exportober-workflows/</guid>
   <pubDate>Sat, 30 Sep 2023 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>Building Interactives</title>
-  <link>https://www.neeldhara.com/blog/building-interactives/index.html</link>
+  <link>https://www.neeldhara.com/blog/building-interactives/</link>
   <description><![CDATA[ 
 
 
@@ -750,12 +1246,12 @@ An example where the current and optimal costs are the same.
 </ol>
 </section></div> ]]></description>
   <category>exposition</category>
-  <guid>https://www.neeldhara.com/blog/building-interactives/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/building-interactives/</guid>
   <pubDate>Sat, 29 Jul 2023 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>Note Taking Resources</title>
-  <link>https://www.neeldhara.com/blog/note-taking-resources/index.html</link>
+  <link>https://www.neeldhara.com/blog/note-taking-resources/</link>
   <description><![CDATA[ 
 
 
@@ -1164,12 +1660,12 @@ No matching items
 
  ]]></description>
   <category>lists</category>
-  <guid>https://www.neeldhara.com/blog/note-taking-resources/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/note-taking-resources/</guid>
   <pubDate>Thu, 01 Jun 2023 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>On Career Choices</title>
-  <link>https://www.neeldhara.com/blog/on-career-choices/index.html</link>
+  <link>https://www.neeldhara.com/blog/on-career-choices/</link>
   <description><![CDATA[ 
 
 
@@ -1201,12 +1697,12 @@ No matching items
 
  ]]></description>
   <category>funda</category>
-  <guid>https://www.neeldhara.com/blog/on-career-choices/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/on-career-choices/</guid>
   <pubDate>Thu, 25 May 2023 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>Letting Go</title>
-  <link>https://www.neeldhara.com/blog/poems/letting-go/index.html</link>
+  <link>https://www.neeldhara.com/blog/poems/letting-go/</link>
   <description><![CDATA[ 
 
 
@@ -1224,12 +1720,12 @@ No matching items
 
  ]]></description>
   <category>poem</category>
-  <guid>https://www.neeldhara.com/blog/poems/letting-go/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/poems/letting-go/</guid>
   <pubDate>Wed, 10 May 2023 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>Course Plan Generator</title>
-  <link>https://www.neeldhara.com/blog/course-plan/index.html</link>
+  <link>https://www.neeldhara.com/blog/course-plan/</link>
   <description><![CDATA[ 
 <script src="plan.js"></script>
 <style>
@@ -1286,12 +1782,12 @@ No matching items
 
  ]]></description>
   <category>workflows</category>
-  <guid>https://www.neeldhara.com/blog/course-plan/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/course-plan/</guid>
   <pubDate>Mon, 24 Apr 2023 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>13 Sheep</title>
-  <link>https://www.neeldhara.com/blog/13sheep/index.html</link>
+  <link>https://www.neeldhara.com/blog/13sheep/</link>
   <description><![CDATA[ 
 
 
@@ -1726,12 +2222,12 @@ The Final Product
 </section></div> ]]></description>
   <category>games</category>
   <category>exposition</category>
-  <guid>https://www.neeldhara.com/blog/13sheep/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/13sheep/</guid>
   <pubDate>Sat, 25 Mar 2023 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>Letters with Pandoc</title>
-  <link>https://www.neeldhara.com/blog/pandoc-letters/index.html</link>
+  <link>https://www.neeldhara.com/blog/pandoc-letters/</link>
   <description><![CDATA[ 
 
 
@@ -1887,12 +2383,12 @@ $(op1).pdf : $(src1)
   <category>pandoc</category>
   <category>workflows</category>
   <category>latex</category>
-  <guid>https://www.neeldhara.com/blog/pandoc-letters/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/pandoc-letters/</guid>
   <pubDate>Sat, 26 Nov 2022 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>The Only Fair Ranking of IITs</title>
-  <link>https://www.neeldhara.com/blog/iit-rankings/index.html</link>
+  <link>https://www.neeldhara.com/blog/iit-rankings/</link>
   <description><![CDATA[ 
 
 
@@ -2295,12 +2791,12 @@ font-style: inherit;">;</span></span></code></pre></div>
 
  ]]></description>
   <category>funda</category>
-  <guid>https://www.neeldhara.com/blog/iit-rankings/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/iit-rankings/</guid>
   <pubDate>Wed, 23 Nov 2022 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>Exportober 2022</title>
-  <link>https://www.neeldhara.com/blog/exportober/2022-tracker/index.html</link>
+  <link>https://www.neeldhara.com/blog/exportober/2022-tracker/</link>
   <description><![CDATA[ 
 
 
@@ -2335,12 +2831,12 @@ font-style: inherit;">;</span></span></code></pre></div>
 
  ]]></description>
   <category>exportober</category>
-  <guid>https://www.neeldhara.com/blog/exportober/2022-tracker/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/exportober/2022-tracker/</guid>
   <pubDate>Thu, 06 Oct 2022 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>SKJ</title>
-  <link>https://www.neeldhara.com/blog/skj/index.html</link>
+  <link>https://www.neeldhara.com/blog/skj/</link>
   <description><![CDATA[ 
 
 
@@ -2372,12 +2868,12 @@ font-style: inherit;">;</span></span></code></pre></div>
 
  ]]></description>
   <category>iitgn</category>
-  <guid>https://www.neeldhara.com/blog/skj/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/skj/</guid>
   <pubDate>Thu, 22 Sep 2022 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>External Communications</title>
-  <link>https://www.neeldhara.com/blog/comms/index.html</link>
+  <link>https://www.neeldhara.com/blog/comms/</link>
   <description><![CDATA[ 
 
 
@@ -2495,12 +2991,12 @@ font-style: inherit;">;</span></span></code></pre></div>
 </ol>
 </section></div> ]]></description>
   <category>iitgn</category>
-  <guid>https://www.neeldhara.com/blog/comms/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/comms/</guid>
   <pubDate>Thu, 22 Sep 2022 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>Dog Bunny Puzzle</title>
-  <link>https://www.neeldhara.com/blog/dogs-bunny-puzzle/index.html</link>
+  <link>https://www.neeldhara.com/blog/dogs-bunny-puzzle/</link>
   <description><![CDATA[ 
 
 
@@ -2711,12 +3207,12 @@ BunnyCarrot
  ]]></description>
   <category>puzzles</category>
   <category>exposition</category>
-  <guid>https://www.neeldhara.com/blog/dogs-bunny-puzzle/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/dogs-bunny-puzzle/</guid>
   <pubDate>Sun, 18 Sep 2022 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>On Teaching</title>
-  <link>https://www.neeldhara.com/blog/on-teaching/index.html</link>
+  <link>https://www.neeldhara.com/blog/on-teaching/</link>
   <description><![CDATA[ 
 
 
@@ -2741,7 +3237,7 @@ These are some parts of the teaching statment that I wrote roughly seven years a
 </div><div class="column" style="width:4%;">
 
 </div><div class="column" style="width:51%;">
-<p><a href="https://imgflip.com/i/6s9ym6"><img src="https://www.neeldhara.com/blog/on-teaching/https:/i.imgflip.com/6s9ym6.jpg" title="made at imgflip.com" width="100%"></a></p>
+<p><a href="https://imgflip.com/i/6s9ym6"><img src="https://i.imgflip.com/6s9ym6.jpg" title="made at imgflip.com" width="100%"></a></p>
 </div>
 </div>
 <p>All this is to say that I walked into a career involving a substantial teaching component with plenty of hesitation. The delivery was/is still largely confined to classroom settings in broadcast mode. It is not entirely clear what this format has to offer over YouTube. Basic interactivity is being increasingly solved with questions built into video players. Peer learning is quite doable with WhatsApp/Slack/Discord groups and local chapter meetups. Scale in the context of assessments is somewhat addressed by peer evaluation. And then there are all the things you can do on YouTube that you can’t do with traditional lectures: find a teacher whose style resonates, find an accent you understand, replay, play at 2x, 0.5x, binge watch, don’t watch…</p>
@@ -2800,7 +3296,7 @@ I am going to attend college lectures from now on just to increase my attention 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/on-teaching/https:/www.explainxkcd.com/wiki/images/7/79/obsolete_technology.png" class="img-fluid figure-img"></p>
+<p><img src="https://www.explainxkcd.com/wiki/images/7/79/obsolete_technology.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Cutting Edge</figcaption><p></p>
 </figure>
 </div>
@@ -2820,7 +3316,7 @@ I am going to attend college lectures from now on just to increase my attention 
 </blockquote>
 </div></div><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/on-teaching/https:/phdcomics.com/comics/archive/phd062613s.gif" class="img-fluid figure-img"></p>
+<p><img src="https://phdcomics.com/comics/archive/phd062613s.gif" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">On hope in teaching.</figcaption><p></p>
 </figure>
 </div>
@@ -2841,12 +3337,12 @@ New blog, new post:<a href="https://t.co/c2lEHM0lTI">https://t.co/c2lEHM0lTI</a>
 
  ]]></description>
   <category>funda</category>
-  <guid>https://www.neeldhara.com/blog/on-teaching/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/on-teaching/</guid>
   <pubDate>Sun, 04 Sep 2022 18:30:00 GMT</pubDate>
 </item>
 <item>
   <title>Solo Chess</title>
-  <link>https://www.neeldhara.com/blog/solo-chess/index.html</link>
+  <link>https://www.neeldhara.com/blog/solo-chess/</link>
   <description><![CDATA[ 
 
 
@@ -2980,190 +3476,8 @@ New blog, new post:<a href="https://t.co/c2lEHM0lTI">https://t.co/c2lEHM0lTI</a>
  ]]></description>
   <category>exposition</category>
   <category>twitterthread</category>
-  <guid>https://www.neeldhara.com/blog/solo-chess/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/solo-chess/</guid>
   <pubDate>Wed, 23 Mar 2022 18:30:00 GMT</pubDate>
-</item>
-<item>
-  <title>Eight Self-Sabotaging Behaviors</title>
-  <link>https://www.neeldhara.com/blog/eight-self-sabotaging-behaviors/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>Putting <a href="https://twitter.com/neeldhara/status/1503551801378881541">this thread</a> in one place.</p>
-<hr>
-<p>🧵 <span class="citation" data-cites="fortelabs">@fortelabs</span> recently finished the opening keynote on <a href="https://twitter.com/fortelabs/status/1498668781585014785?ref_src=twsrc%5Etfw">the Second Brain summit</a>, which incidentally has a great lineup including a panel discussion on PKM through the lens&nbsp;of ADHD. Ironically, I didn’t quite take notes but I think the themes also feature in this short video:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lKM2jE2PygY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<p>The live session was fun because of a super engaged chat — everyone had great suggestions for managing some of these (surprisingly common?) behaviors.</p>
-<p>I’ll not share the premise (it’s self-explanatory + there’s the video), but the discussion involved three parts:</p>
-<ol type="1">
-<li><p>why it’s an issue;</p></li>
-<li><p>why-do-we-do-this-to-ourselves;</p></li>
-<li><p>how do we not keep doing it 😀</p></li>
-</ol>
-<p>I’ll share a tweet-length summary of my takeaways.</p>
-<blockquote class="blockquote">
-<p>Caveat I: 280 chars! Twitter isn’t the platform for nuance. 😅</p>
-<p>Caveat II. Should go without saying, but all of this gyaan needs to be tempered with context, which was a frequently used word throughout the session!</p>
-</blockquote>
-<hr>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Starting over (again and again)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>⚠️&nbsp; Not learning from previous mistakes.</p>
-<p>🤔&nbsp; False sense of accomplishment, dopamine hit from a clean slate, FOMO (new tools).</p>
-<p>💡&nbsp;Start simple, iterate slowly, resist looking at shiny new objects.</p>
-</div>
-</div>
-</div>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Feeling guilty
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>⚠️&nbsp; Can’t win when you are at war with yourself.</p>
-<p>🤔&nbsp; Probably comes from knowing you’ll trip again.</p>
-<p>💡&nbsp;Extend to yourself the same courtesy and patience you’d show to a friend, consider replacing guilt with curiosity.</p>
-</div>
-</div>
-</div>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Perfectionism
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>⚠️&nbsp; Not making mistakes is a risky way to live.</p>
-<p>🤔&nbsp; Feeds ego, sense of control and safety, and you think you push yourself harder with lofty standards.</p>
-<p>💡&nbsp;Aim for B+, fail in public and value it — can be a relief to not have to keep up with the perfect image.</p>
-</div>
-</div>
-</div>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Do <em>all</em> the research first
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>⚠️&nbsp; When overdone, really procrastination in disguise.</p>
-<p>🤔&nbsp; Creates an illusion of getting work done. Paranoia associate with diving in without preparation.</p>
-<p>💡&nbsp;Second brains are not for archival, but production. Iterate often. Timebox research.</p>
-</div>
-</div>
-</div>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Going big
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>⚠️&nbsp; Ambition dominates the public discourse around goal-setting. Big goals are not problematic until they get in the way.</p>
-<p>🤔&nbsp; Ego boosted, creates a potentially misguided sense of being inspired.</p>
-<p>💡&nbsp;Break things down, take incremental (read: realistic!) steps.</p>
-</div>
-</div>
-</div>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Doing it all yourself
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>⚠️&nbsp; Potentially limiting.</p>
-<p>🤔&nbsp; A desire for respect or credit, and the sense that nobody can do this as well as me.</p>
-<p>💡&nbsp;Delegate when appropriate, especially when looking to scale and/or diversify.</p>
-</div>
-</div>
-</div>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Comparing yourself to others
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>⚠️&nbsp; Potentially depressing.</p>
-<p>🤔&nbsp; Self-pity, and an excuse to not even try.</p>
-<p>💡&nbsp;Compare to past you. Read your old journal entries. (Also, journal.)</p>
-</div>
-</div>
-</div>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Postpone gratification
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>⚠️&nbsp; For something to be sustainable, it needs to be fun!</p>
-<p>🤔&nbsp; Traditional positive quality.</p>
-<p>💡&nbsp;Enjoy the journey because nobody knows the destination. Live in the moment, find joy in the small things, be present. Also, music for instant gratification!</p>
-</div>
-</div>
-</div>
-<p>Do check out the <a href="https://www.secondbrainsummit.com/">Second Brain Summit</a> for the remaining sessions.</p>
-<p>I think you get a link to a recording if you’re registered for a session, at least this was the case for me with the opening session.</p>
-<p>The community attending this is also <a href="https://basb.io/slack">on a slack</a>.</p>
-
-
-
- ]]></description>
-  <category>funda</category>
-  <category>twitterthread</category>
-  <guid>https://www.neeldhara.com/blog/eight-self-sabotaging-behaviors/index.html</guid>
-  <pubDate>Mon, 14 Mar 2022 18:30:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

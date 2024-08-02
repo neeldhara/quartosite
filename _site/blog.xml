@@ -606,6 +606,69 @@ font-style: inherit;">;</span></span></code></pre></div>
   <pubDate>Sun, 24 Dec 2023 18:30:00 GMT</pubDate>
 </item>
 <item>
+  <title>Course Plan Generator</title>
+  <link>https://www.neeldhara.com/blog/course-plan/2024-fall/</link>
+  <description><![CDATA[ 
+<script src="plan.js"></script>
+<style>
+    .checkbox-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .custom-button {
+        background-color: darkseagreen;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .custom-button:hover {
+        background-color: seagreen;
+    }
+</style>
+
+
+
+
+
+<p>If you are</p>
+<ol type="a">
+<li>teaching a course at IIT Gandhinagar next term (Jan-Apr 2024),</li>
+<li>working on your course plan, and</li>
+<li>need a list of dates on which you have classes,</li>
+</ol>
+<p>then you can use the generator below to get a list, by checking your teaching days.</p>
+<p>Dates during the mid-sem exam (Feb 19 – 24, 2024) and the mid-sem recess (Mar 23 - 31, 2024) are excluded. <a href="https://iitgn.ac.in/holiday/2024">Holidays</a> are excluded too, but <em>restricted holidays are not</em>. If you need to view the holidays, you can indicate as much via the checkbox below.</p>
+<p>For those outside IITGN: a standalone version is <a href="https://classplan.neeldhara.repl.co/">here</a> and the source is <a href="https://github.com/neeldhara/ClassPlan/tree/main">here</a>, in case you’d like to adapt this to your own context.</p>
+<div>
+<form>
+<input type="checkbox" id="monday" name="day">&nbsp;Monday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="tuesday" name="day">&nbsp;Tuesday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="wednesday" name="day">&nbsp;Wednesday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="thursday" name="day">&nbsp;Thursday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="friday" name="day">&nbsp;Friday &nbsp;&nbsp;&nbsp; <input type="checkbox" id="saturday" name="day">&nbsp; Saturday
+</form>
+</div>
+<br> <label><input type="checkbox" id="includeHolidays" name="includeHolidays"> Include Holidays</label> <br> <label><input type="checkbox" id="indicateRestrictedHolidays"> Indicate Restricted Holidays</label> <br> <br> <button class="custom-button" onclick="generateDates()"> Generate Dates for Course Plan </button> <br><br>
+<div class="sourceCode" style="background: #f1f3f5;">
+<pre class="sourceCode plaintext code-with-copy"><code class="sourceCode plaintext" id="datesList">
+</code>
+</pre>
+</div>
+
+
+
+ ]]></description>
+  <category>workflows</category>
+  <guid>https://www.neeldhara.com/blog/course-plan/2024-fall/</guid>
+  <pubDate>Sun, 24 Dec 2023 18:30:00 GMT</pubDate>
+</item>
+<item>
   <title>Intro to Crypto</title>
   <link>https://www.neeldhara.com/blog/crypto-intro/</link>
   <description><![CDATA[ 
@@ -3339,145 +3402,6 @@ New blog, new post:<a href="https://t.co/c2lEHM0lTI">https://t.co/c2lEHM0lTI</a>
   <category>funda</category>
   <guid>https://www.neeldhara.com/blog/on-teaching/</guid>
   <pubDate>Sun, 04 Sep 2022 18:30:00 GMT</pubDate>
-</item>
-<item>
-  <title>Solo Chess</title>
-  <link>https://www.neeldhara.com/blog/solo-chess/</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>Putting <a href="https://twitter.com/neeldhara/status/1506794212590768130">this thread</a> in one place.</p>
-<hr>
-<p>🧵&nbsp;on our latest at FUN 2022 with <a href="https://twitter.com/NRAravind1"><span class="citation" data-cites="NRAravind1">@NRAravind1</span></a> and Harshil.</p>
-<p>Have you tried Solo Chess <a href="https://twitter.com/chesscom"><span class="citation" data-cites="chesscom">@chesscom</span></a> yet? It’s addictive — and NP-complete* even when you’re dealing only with rooks!</p>
-<p>*when appropriately generalized</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/solo-chess/FOk1WJZXwAUb7V7.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">The Rules of the Game</figcaption><p></p>
-</figure>
-</div>
-<p>So this is a single-player, peg-solitaire-ish chess variant, where you have to clear board by making a sequence of valid captures, albeit starting with unorthodox — and even unrealistic — positions.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/solo-chess/CleanShot_2022-03-24_at_04.30.34.png" class="img-fluid figure-img" style="width:42.0%"></p>
-<p></p><figcaption class="figure-caption">An example position</figcaption><p></p>
-</figure>
-</div>
-<p>To begin with the boards start easy, with a few pieces at a time. Notice, even in the early games, how some positions have just one solution while others may have several.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/solo-chess/CleanShot 2022-08-30 at 08.46.16.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">More positions</figcaption><p></p>
-</figure>
-</div>
-<p>From initial plays, you sense that it has a very Hamiltonian-Path-ish vibe, and feels like you’re trying to find a path in <em>some</em> graph 😅&nbsp;</p>
-<p>We started with a variant that was simultaneously a generalization and specialization:</p>
-<ul>
-<li>n pieces 😎</li>
-<li>♖’s only</li>
-<li>1D boards 🙈</li>
-</ul>
-<p>This, it turns out, is case so special that its trivial - you can sweep all rooks to the extreme left or extreme right of the board, and any position is winning even if every rook can capture exactly once. Less trivial though: how many ways there are to win? 🤔</p>
-<p>We also ask what happens if every rook had a designated number of captures left. Imagine you have a 1D board and three kinds of rooks:</p>
-<ul>
-<li>red rooks cannot move</li>
-<li>blue rooks can move at most once</li>
-<li>green rooks can move at most twice</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/solo-chess/CleanShot_2022-03-24_at_04.47.53.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">1D Boards</figcaption><p></p>
-</figure>
-</div>
-<p>We show that such 1D boards can be cleared if and only if then number of green rooks is at least the number of red rooks. This ties nicely with the intuition that every immovable rook needs to be picked up by a rook that can help another one (i.e, &gt; one move left).</p>
-<p>This generalizes naturally to rooks with a designated number of moves left, where said number can be anything between 0 and d.&nbsp;Since no other chess piece moves sensibly* across a 1D board, we decided to move on 2D boards from here.</p>
-<ul>
-<li>Kings + rooks is an easy exercise.</li>
-</ul>
-<p>So if you are still playing with red, blue, and green rooks, then the problem of checking if a given 2D configuration can be cleared up according to solo chess rules turns out to be NP-complete.</p>
-<p>No Hamiltonian Path though — this one was from bipartite dominating set 😎</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/solo-chess/CleanShot_2022-03-24_at_04.58.23.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">A reduction from bipartite dominating set - I</figcaption><p></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/solo-chess/CleanShot_2022-03-24_at_04.53.21.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">A reduction from bipartite dominating set - II</figcaption><p></p>
-</figure>
-</div>
-<p>Bishops are much the same as rooks, by a 45-degree tilt of the board.</p>
-<p>⚠️&nbsp;Still open though: what about the case when all pieces have at most two moves left, which is closer to the original spirit of the game?</p>
-<p>We don’t know yet, although we’d bet it’s hard, I think.</p>
-<p>When playing with queens only, however, we can gadget in the behaviors of red and blue pieces. So we do have that Generalized Solo Chess with just queens that can all move at most twice is NP-complete.</p>
-<p>What about pawns? Let’s get clarifying assumptions out of the way:</p>
-<ul>
-<li>white pawns only</li>
-<li>regular captures only since there’s no premise for en passant captures</li>
-</ul>
-<p>In solo chess, pawns are (heavily) constrained bishops: they can only move upwards and to a neighboring diagonal square. Knowing that bishops were hard, but pawns felt simple — we didn’t have a bet either way. 🤔</p>
-<p>We were pleasantly surprised that the case of pawns is tractable, even when each pawn has a designated* number of moves!</p>
-<p>*at most two.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/solo-chess/CleanShot_2022-03-24_at_05.23.22.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Lemma for pawns</figcaption><p></p>
-</figure>
-</div>
-<p>The algorithm is linear time, too.</p>
-<p>Next: what about knights? We don’t know yet!</p>
-<p>❓&nbsp;What’s the complexity of solo chess when played only with knights?</p>
-<p>Knights are special because we don’t have to worry about obstructions. So the game can be described by a more general token game on graphs:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/solo-chess/CleanShot_2022-03-24_at_05.28.55.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">The Graph Capture Problem</figcaption><p></p>
-</figure>
-</div>
-<p>We do show that Graph Capture is hard by a reduction, again from bipartite dominating set. This might hint at the hardness for Solo Chess played with knights only, but we are not betting on this yet.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/solo-chess/CleanShot_2022-03-24_at_05.29.11.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Another reduction from bipartite dominating set - I</figcaption><p></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/solo-chess/CleanShot_2022-03-24_at_05.29.06.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Another reduction from bipartite dominating set - II</figcaption><p></p>
-</figure>
-</div>
-<p>I think these preliminary explorations have left us with more questions than answers:</p>
-<ul>
-<li>optimization versions (e.g, clear at least k pieces)</li>
-<li>other constraints (e.g, on distance moved)</li>
-<li>special cases (e.g, O(1) pieces per row/column)</li>
-<li>n x c boards, constant c</li>
-</ul>
-<p>While at it, I’m also curious about how <a href="https://twitter.com/chesscom"><span class="citation" data-cites="chesscom">@chesscom</span></a> generates these puzzles, and if they have a mechanism for generating ones that have unique solutions. Also, is it true that if you throw “enough” pieces on the board, it’s solvable WHP?</p>
-<p>Shout out to the <a href="https://ctan.org/tex-archive/fonts/chess/skak">skak package</a> for making it easy to bring chess pieces to TikZ. We expect to put up a preprint on ArXiV soon. 👀&nbsp; Meanwhile, we welcome comments and feedback — and if you read this far, thanks very much!</p>
-<p>PS. Also if you enjoy chess and algorithms, don’t miss <a href="https://miguel-ambrona.github.io/">Miguel Ambrona’s</a> amazing <a href="https://chasolver.org/">Chess Unwinnability Analyzer</a>, which also appears at FUN 2022!</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.neeldhara.com/blog/solo-chess/CleanShot_2022-03-24_at_05.56.43.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Chess Unwinnability</figcaption><p></p>
-</figure>
-</div>
-<p>You can find the <a href="https://sites.google.com/view/fun2022/acceptedpapers">full list of accepted papers here</a>.</p>
-
-
-
- ]]></description>
-  <category>exposition</category>
-  <category>twitterthread</category>
-  <guid>https://www.neeldhara.com/blog/solo-chess/</guid>
-  <pubDate>Wed, 23 Mar 2022 18:30:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

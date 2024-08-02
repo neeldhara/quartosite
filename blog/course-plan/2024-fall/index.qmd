@@ -1,0 +1,73 @@
+---
+title: "Course Plan Generator"
+date: "2023-12-25"
+categories: [workflows]
+fields: [date, title]
+toc: true
+include-before-body:
+  text: |
+    <script src="plan.js"></script>
+    <style>
+        .checkbox-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        .custom-button {
+            background-color: darkseagreen;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .custom-button:hover {
+            background-color: seagreen;
+        }
+    </style>
+---
+
+If you are 
+
+a. teaching a course at IIT Gandhinagar next term (Jan-Apr 2024), 
+b. working on your course plan, and 
+c. need a list of dates on which you have classes, 
+
+then you can use the generator below to get a list, by checking your teaching days.
+
+Dates during the mid-sem exam (Feb 19 – 24, 2024) and the mid-sem recess (Mar 23 - 31, 2024) are excluded. [Holidays](https://iitgn.ac.in/holiday/2024) are excluded too, but _restricted holidays are not_. If you need to view the holidays, you can indicate as much via the checkbox below.
+
+For those outside IITGN: a standalone version is [here](https://classplan.neeldhara.repl.co/) and the source is [here](https://github.com/neeldhara/ClassPlan/tree/main), in case you'd like to adapt this to your own context.
+
+<div>
+<form>
+<input type="checkbox" id="monday" name="day">&nbsp;Monday &nbsp;&nbsp;&nbsp;
+<input type="checkbox" id="tuesday" name="day">&nbsp;Tuesday &nbsp;&nbsp;&nbsp;
+<input type="checkbox" id="wednesday" name="day">&nbsp;Wednesday &nbsp;&nbsp;&nbsp;
+<input type="checkbox" id="thursday" name="day">&nbsp;Thursday &nbsp;&nbsp;&nbsp;
+<input type="checkbox" id="friday" name="day">&nbsp;Friday &nbsp;&nbsp;&nbsp;
+<input type="checkbox" id="saturday" name="day">&nbsp; Saturday
+</form></div>
+<br>
+<label><input type="checkbox" id="includeHolidays" name="includeHolidays"> Include Holidays</label>
+<br>
+<label><input type="checkbox" id="indicateRestrictedHolidays"> Indicate Restricted Holidays</label>
+<br>
+<br>
+<button  class="custom-button"  onclick="generateDates()">
+Generate Dates for Course Plan
+</button>
+<br><br>
+<div class="sourceCode">
+<pre class="sourceCode plaintext code-with-copy">
+<code class="sourceCode plaintext" id="datesList">
+</code>
+</pre>
+</div>

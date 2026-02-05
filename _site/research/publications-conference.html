@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.262">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - Publications</title>
+<title>Publications – Neeldhara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,14 +17,16 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -38,8 +40,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -54,17 +55,23 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-53d508deb6da4ff595675ebf964bed0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -73,11 +80,14 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="https://analytics.neeldhara.website/api/script.js" data-site-id="a31a3a742777" defer=""></script>
 
 
 <link rel="stylesheet" href="../css/styles.css">
@@ -88,24 +98,25 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
@@ -128,7 +139,7 @@ div.csl-indent {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
@@ -143,7 +154,7 @@ div.csl-indent {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
@@ -158,7 +169,7 @@ div.csl-indent {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
@@ -173,43 +184,44 @@ div.csl-indent {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../events/">
- <span class="menu-text">Events</span></a>
+    <a class="nav-link" href="../events/"> 
+<span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog.html">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../blog.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -228,7 +240,7 @@ div.csl-indent {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -236,7 +248,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="conference-publications" class="level1 column-page">
 <h1>Conference Publications</h1>
@@ -244,200 +258,200 @@ div.csl-indent {
 <p>
 &nbsp;
 </p>
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-DBLP:conf/cocoon/AgrawalGM14" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-DBLP:conf/cocoon/AgrawalGM14" class="csl-entry" role="listitem">
 Agrawal, Akanksha, Sathish Govindarajan, and Neeldhara Misra. 2014. <span>“Vertex Cover Gets Faster and Harder on Low Degree Graphs.”</span> In <em>Computing and Combinatorics - 20th International Conference, <span>COCOON</span> 2014, Atlanta, GA, USA, August 4-6, 2014. Proceedings</em>, edited by Zhipeng Cai, Alex Zelikovsky, and Anu G. Bourgeois, 8591:179–90. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/iwpec/AmbalathBHKMPR10" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/iwpec/AmbalathBHKMPR10" class="csl-entry" role="listitem">
 Ambalath, Abhimanyu M., Radheshyam Balasundaram, Chintan Rao H., Venkata Koppula, Neeldhara Misra, Geevarghese Philip, and M. S. Ramanujan. 2010. <span>“On the Kernelization Complexity of Colorful Motifs.”</span> In <em>Parameterized and Exact Computation - 5th International Symposium, <span>IPEC</span> 2010, Chennai, India, December 13-15, 2010. Proceedings</em>, edited by Venkatesh Raman and Saket Saurabh, 6478:14–25. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/fun/AravindMM22" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/fun/AravindMM22" class="csl-entry" role="listitem">
 Aravind, N. R., Neeldhara Misra, and Harshil Mittal. 2022. <span>“Chess Is Hard Even for a Single Player.”</span> In <em>11th International Conference on Fun with Algorithms, <span>FUN</span> 2022, May 30 to June 3, 2022, Island of Favignana, Sicily, Italy</em>, edited by Pierre Fraigniaud and Yushi Uno, 226:5:1–20. LIPIcs. Schloss Dagstuhl - Leibniz-Zentrum f<span>ü</span>r Informatik.
 </div>
-<div id="ref-DBLP:conf/iwoca/ArumugamCMPS11" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/iwoca/ArumugamCMPS11" class="csl-entry" role="listitem">
 Arumugam, S., K. Raja Chandrasekar, Neeldhara Misra, Geevarghese Philip, and Saket Saurabh. 2011. <span>“Algorithmic Aspects of Dominator Colorings in Graphs.”</span> In <em>Combinatorial Algorithms - 22nd International Workshop, <span>IWOCA</span> 2011, Victoria, BC, Canada, July 20-22, 2011, Revised Selected Papers</em>, edited by Costas S. Iliopoulos and William F. Smyth, 7056:19–30. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/cocoon/AshokKMS15" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/cocoon/AshokKMS15" class="csl-entry" role="listitem">
 Ashok, Pradeesha, Sudeshna Kolay, Neeldhara Misra, and Saket Saurabh. 2015. <span>“Unique Covering Problems with Geometric Sets.”</span> In <em>Computing and Combinatorics - 21st International Conference, <span>COCOON</span> 2015, Beijing, China, August 4-6, 2015, Proceedings</em>, edited by Dachuan Xu, Donglei Du, and Ding-Zhu Du, 9198:548–58. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/caldam/BanerjeeMN16" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/caldam/BanerjeeMN16" class="csl-entry" role="listitem">
 Banerjee, Sandip, Neeldhara Misra, and Subhas C. Nandy. 2016. <span>“Color Spanning Objects: Algorithms and Hardness Results.”</span> In <em>Algorithms and Discrete Applied Mathematics - Second International Conference, <span>CALDAM</span> 2016, Thiruvananthapuram, India, February 18-20, 2016, Proceedings</em>, edited by Sathish Govindarajan and Anil Maheshwari, 9602:37–48. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/fun/BiloG0M18" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/fun/BiloG0M18" class="csl-entry" role="listitem">
 Bilò, Davide, Luciano Gualà, Stefano Leucci, and Neeldhara Misra. 2018. <span>“On the Complexity of Two Dots for Narrow Boards and Few Colors.”</span> In <em>9th International Conference on Fun with Algorithms, <span>FUN</span> 2018, June 13-15, 2018, La Maddalena, Italy</em>, edited by Hiro Ito, Stefano Leonardi, Linda Pagli, and Giuseppe Prencipe, 100:7:1–15. LIPIcs. Schloss Dagstuhl - Leibniz-Zentrum f<span>ü</span>r Informatik.
 </div>
-<div id="ref-DBLP:conf/icalp/ChoudhariDMR17" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/icalp/ChoudhariDMR17" class="csl-entry" role="listitem">
 Choudhari, Jayesh, Anirban Dasgupta, Neeldhara Misra, and M. S. Ramanujan. 2017. <span>“Saving Critical Nodes with Firefighters Is <span>FPT</span>.”</span> In <em>44th International Colloquium on Automata, Languages, and Programming, <span>ICALP</span> 2017, July 10-14, 2017, Warsaw, Poland</em>, edited by Ioannis Chatzigiannakis, Piotr Indyk, Fabian Kuhn, and Anca Muscholl, 80:135:1–13. LIPIcs. Schloss Dagstuhl - Leibniz-Zentrum f<span>ü</span>r Informatik.
 </div>
-<div id="ref-DBLP:conf/caldam/DasEMR17" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/caldam/DasEMR17" class="csl-entry" role="listitem">
 Das, Bireswar, Murali Krishna Enduri, Neeldhara Misra, and I. Vinod Reddy. 2017. <span>“On Structural Parameterizations of Graph Motif and Chromatic Number.”</span> In <em>Algorithms and Discrete Applied Mathematics - Third International Conference, <span>CALDAM</span> 2017, Sancoale, Goa, India, February 16-18, 2017, Proceedings</em>, edited by Daya Ram Gaur and N. S. Narayanaswamy, 10156:118–29. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/caldam/DasEMR18" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/caldam/DasEMR18" class="csl-entry" role="listitem">
 ———. 2018. <span>“On Structural Parameterizations of Firefighting.”</span> In <em>Algorithms and Discrete Applied Mathematics - 4th International Conference, <span>CALDAM</span> 2018, Guwahati, India, February 15-17, 2018, Proceedings</em>, edited by B. S. Panda and Partha P. Goswami, 10743:221–34. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/cocoon/DayalM19" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/cocoon/DayalM19" class="csl-entry" role="listitem">
 Dayal, Pratyush, and Neeldhara Misra. 2019. <span>“Deleting to Structured Trees.”</span> In <em>Computing and Combinatorics - 25th International Conference, <span>COCOON</span> 2019, Xi’an, China, July 29-31, 2019, Proceedings</em>, edited by Ding-Zhu Du, Zhenhua Duan, and Cong Tian, 11653:128–39. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/fun/DeyGM14" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/fun/DeyGM14" class="csl-entry" role="listitem">
 Dey, Palash, Prachi Goyal, and Neeldhara Misra. 2014. <span>“<span>UNO</span> Gets Easier for a Single Player.”</span> In <em>Fun with Algorithms - 7th International Conference, <span>FUN</span> 2014, Lipari Island, Sicily, Italy, July 1-3, 2014. Proceedings</em>, edited by Alfredo Ferro, Fabrizio Luccio, and Peter Widmayer, 8496:147–57. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/ijcai/DeyM16" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/ijcai/DeyM16" class="csl-entry" role="listitem">
 Dey, Palash, and Neeldhara Misra. 2016a. <span>“Elicitation for Preferences Single Peaked on Trees.”</span> In <em>Proceedings of the Twenty-Fifth International Joint Conference on Artificial Intelligence, <span>IJCAI</span> 2016, New York, NY, USA, 9-15 July 2016</em>, edited by Subbarao Kambhampati, 215–21. <span>IJCAI/AAAI</span> Press.
 </div>
-<div id="ref-DBLP:conf/ijcai/DeyM16a" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/ijcai/DeyM16a" class="csl-entry" role="listitem">
 ———. 2016b. <span>“Preference Elicitation for Single Crossing Domain.”</span> In <em>Proceedings of the Twenty-Fifth International Joint Conference on Artificial Intelligence, <span>IJCAI</span> 2016, New York, NY, USA, 9-15 July 2016</em>, edited by Subbarao Kambhampati, 222–28. <span>IJCAI/AAAI</span> Press.
 </div>
-<div id="ref-DBLP:conf/mfcs/DeyM17" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/mfcs/DeyM17" class="csl-entry" role="listitem">
 ———. 2017. <span>“On the Exact Amount of Missing Information That Makes Finding Possible Winners Hard.”</span> In <em>42nd International Symposium on Mathematical Foundations of Computer Science, <span>MFCS</span> 2017, August 21-25, 2017 - Aalborg, Denmark</em>, edited by Kim G. Larsen, Hans L. Bodlaender, and Jean-François Raskin, 83:57:1–14. LIPIcs. Schloss Dagstuhl - Leibniz-Zentrum f<span>ü</span>r Informatik.
 </div>
-<div id="ref-DBLP:conf/atal/DeyMN15a" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/atal/DeyMN15a" class="csl-entry" role="listitem">
 Dey, Palash, Neeldhara Misra, and Y. Narahari. 2015a. <span>“Detecting Possible Manipulators in Elections.”</span> In <em>Proceedings of the 2015 International Conference on Autonomous Agents and Multiagent Systems, <span>AAMAS</span> 2015, Istanbul, Turkey, May 4-8, 2015</em>, edited by Gerhard Weiss, Pinar Yolum, Rafael H. Bordini, and Edith Elkind, 1441–50. <span>ACM</span>.
 </div>
-<div id="ref-DBLP:conf/atal/DeyMN15" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/atal/DeyMN15" class="csl-entry" role="listitem">
 ———. 2015b. <span>“Kernelization Complexity of Possible Winner and Coalitional Manipulation Problems in Voting.”</span> In <em>Proceedings of the 2015 International Conference on Autonomous Agents and Multiagent Systems, <span>AAMAS</span> 2015, Istanbul, Turkey, May 4-8, 2015</em>, edited by Gerhard Weiss, Pinar Yolum, Rafael H. Bordini, and Edith Elkind, 87–96. <span>ACM</span>.
 </div>
-<div id="ref-DBLP:conf/ijcai/DeyMN16" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/ijcai/DeyMN16" class="csl-entry" role="listitem">
 ———. 2016a. <span>“Complexity of Manipulation with Partial Information in Voting.”</span> In <em>Proceedings of the Twenty-Fifth International Joint Conference on Artificial Intelligence, <span>IJCAI</span> 2016, New York, NY, USA, 9-15 July 2016</em>, edited by Subbarao Kambhampati, 229–35. <span>IJCAI/AAAI</span> Press.
 </div>
-<div id="ref-DBLP:conf/aaai/DeyMN16" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/aaai/DeyMN16" class="csl-entry" role="listitem">
 ———. 2016b. <span>“Frugal Bribery in Voting.”</span> In <em>Proceedings of the Thirtieth <span>AAAI</span> Conference on Artificial Intelligence, February 12-17, 2016, Phoenix, Arizona, <span>USA</span></em>, edited by Dale Schuurmans and Michael P. Wellman, 2466–72. <span>AAAI</span> Press.
 </div>
-<div id="ref-DBLP:conf/atal/DeyMN17" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/atal/DeyMN17" class="csl-entry" role="listitem">
 ———. 2017. <span>“Parameterized Dichotomy of Choosing Committees Based on Approval Votes in the Presence of Outliers.”</span> In <em>Proceedings of the 16th Conference on Autonomous Agents and MultiAgent Systems, <span>AAMAS</span> 2017, s<span>ã</span>o Paulo, Brazil, May 8-12, 2017</em>, edited by Kate Larson, Michael Winikoff, Sanmay Das, and Edmund H. Durfee, 42–50. <span>ACM</span>.
 </div>
-<div id="ref-DBLP:conf/ijcai/DeyMNS19" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/ijcai/DeyMNS19" class="csl-entry" role="listitem">
 Dey, Palash, Neeldhara Misra, Swaprava Nath, and Garima Shakya. 2019. <span>“A Parameterized Perspective on Protecting Elections.”</span> In <em>Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, <span>IJCAI</span> 2019, Macao, China, August 10-16, 2019</em>, edited by Sarit Kraus, 238–44. ijcai.org.
 </div>
-<div id="ref-DBLP:conf/isaac/FellowsLMRS08" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/isaac/FellowsLMRS08" class="csl-entry" role="listitem">
 Fellows, Michael R., Daniel Lokshtanov, Neeldhara Misra, Frances A. Rosamond, and Saket Saurabh. 2008. <span>“Graph Layout Problems Parameterized by Vertex Cover.”</span> In <em>Algorithms and Computation, 19th International Symposium, <span>ISAAC</span> 2008, Gold Coast, Australia, December 15-17, 2008. Proceedings</em>, edited by Seok-Hee Hong, Hiroshi Nagamochi, and Takuro Fukunaga, 5369:294–305. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/stacs/FominLMPS11" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/stacs/FominLMPS11" class="csl-entry" role="listitem">
 Fomin, Fedor V., Daniel Lokshtanov, Neeldhara Misra, Geevarghese Philip, and Saket Saurabh. 2011. <span>“Hitting Forbidden Minors: Approximation and Kernelization.”</span> In <em>28th International Symposium on Theoretical Aspects of Computer Science, <span>STACS</span> 2011, March 10-12, 2011, Dortmund, Germany</em>, edited by Thomas Schwentick and Christoph Dürr, 9:189–200. LIPIcs. Schloss Dagstuhl - Leibniz-Zentrum f<span>ü</span>r Informatik.
 </div>
-<div id="ref-DBLP:conf/soda/FominLMRS15" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/soda/FominLMRS15" class="csl-entry" role="listitem">
 Fomin, Fedor V., Daniel Lokshtanov, Neeldhara Misra, M. S. Ramanujan, and Saket Saurabh. 2015. <span>“Solving <em>d-</em>SAT via Backdoors to Small Treewidth.”</span> In <em>Proceedings of the Twenty-Sixth Annual <span>ACM-SIAM</span> Symposium on Discrete Algorithms, <span>SODA</span> 2015, San Diego, CA, USA, January 4-6, 2015</em>, edited by Piotr Indyk, 630–41. <span>SIAM</span>.
 </div>
-<div id="ref-DBLP:conf/focs/FominLMS12" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/focs/FominLMS12" class="csl-entry" role="listitem">
 Fomin, Fedor V., Daniel Lokshtanov, Neeldhara Misra, and Saket Saurabh. 2012. <span>“Planar f-Deletion: Approximation, Kernelization and Optimal <span>FPT</span> Algorithms.”</span> In <em>53rd Annual <span>IEEE</span> Symposium on Foundations of Computer Science, <span>FOCS</span> 2012, New Brunswick, NJ, USA, October 20-23, 2012</em>, 470–79. <span>IEEE</span> Computer Society.
 </div>
-<div id="ref-DBLP:conf/faw/FominSM15" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/faw/FominSM15" class="csl-entry" role="listitem">
 Fomin, Fedor V., Saket Saurabh, and Neeldhara Misra. 2015. <span>“Graph Modification Problems: <span>A</span> Modern Perspective.”</span> In <em>Frontiers in Algorithmics - 9th International Workshop, <span>FAW</span> 2015, Guilin, China, July 3-5, 2015, Proceedings</em>, edited by Jianxin Wang and Chee-Keng Yap, 9130:3–6. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/aaai/GaspersMOSZ14" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/aaai/GaspersMOSZ14" class="csl-entry" role="listitem">
 Gaspers, Serge, Neeldhara Misra, Sebastian Ordyniak, Stefan Szeider, and Stanislav Zivný. 2014. <span>“Backdoors into Heterogeneous Classes of <span>SAT</span> and <span>CSP</span>.”</span> In <em>Proceedings of the Twenty-Eighth <span>AAAI</span> Conference on Artificial Intelligence, July 27 -31, 2014, Qu<span>é</span>bec City, Qu<span>é</span>bec, Canada</em>, edited by Carla E. Brodley and Peter Stone, 2652–58. <span>AAAI</span> Press.
 </div>
-<div id="ref-DBLP:conf/iwoca/GowdaMP20" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/iwoca/GowdaMP20" class="csl-entry" role="listitem">
 Gowda, Kishen N., Neeldhara Misra, and Vraj Patel. 2020. <span>“A Parameterized Perspective on Attacking and Defending Elections.”</span> In <em>Combinatorial Algorithms - 31st International Workshop, <span>IWOCA</span> 2020, Bordeaux, France, June 8-10, 2020, Proceedings</em>, edited by Leszek Gasieniec, Ralf Klasing, and Tomasz Radzik, 12126:277–88. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/mfcs/GoyalKM13" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/mfcs/GoyalKM13" class="csl-entry" role="listitem">
 Goyal, Prachi, Vikram Kamat, and Neeldhara Misra. 2013. <span>“On the Parameterized Complexity of the Maximum Edge 2-Coloring Problem.”</span> In <em>Mathematical Foundations of Computer Science 2013 - 38th International Symposium, <span>MFCS</span> 2013, Klosterneuburg, Austria, August 26-30, 2013. Proceedings</em>, edited by Krishnendu Chatterjee and Jirı́ Sgall, 8087:492–503. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/fsttcs/GoyalMP13" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/fsttcs/GoyalMP13" class="csl-entry" role="listitem">
 Goyal, Prachi, Neeldhara Misra, and Fahad Panolan. 2013. <span>“Faster Deterministic Algorithms for r-Dimensional Matching Using Representative Sets.”</span> In <em><span>IARCS</span> Annual Conference on Foundations of Software Technology and Theoretical Computer Science, <span>FSTTCS</span> 2013, December 12-14, 2013, Guwahati, India</em>, edited by Anil Seth and Nisheeth K. Vishnoi, 24:237–48. LIPIcs. Schloss Dagstuhl - Leibniz-Zentrum f<span>ü</span>r Informatik.
 </div>
-<div id="ref-DBLP:conf/sofsem/GuptaKM19" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/sofsem/GuptaKM19" class="csl-entry" role="listitem">
 Gupta, Manoj, Hitesh Kumar, and Neeldhara Misra. 2019. <span>“On the Complexity of Optimal Matching Reconfiguration.”</span> In <em><span>SOFSEM</span> 2019: Theory and Practice of Computer Science - 45th International Conference on Current Trends in Theory and Practice of Computer Science, Nov<span>ý</span> Smokovec, Slovakia, January 27-30, 2019, Proceedings</em>, edited by Barbara Catania, Rastislav Královic, Jerzy R. Nawrocki, and Giovanni Pighizzini, 11376:221–33. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/wg/HeggernesHMMV12" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/wg/HeggernesHMMV12" class="csl-entry" role="listitem">
 Heggernes, Pinar, Pim van ’t Hof, Dániel Marx, Neeldhara Misra, and Yngve Villanger. 2012. <span>“On the Parameterized Complexity of Finding Separators with Non-Hereditary Properties.”</span> In <em>Graph-Theoretic Concepts in Computer Science - 38th International Workshop, <span>WG</span> 2012, Jerusalem, Israel, June 26-28, 2012, Revised Selcted Papers</em>, edited by Martin Charles Golumbic, Michal Stern, Avivit Levy, and Gila Morgenstern, 7551:332–43. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/aaai/Kalyanakrishnan16" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/aaai/Kalyanakrishnan16" class="csl-entry" role="listitem">
 Kalyanakrishnan, Shivaram, Neeldhara Misra, and Aditya Gopalan. 2016. <span>“Randomised Procedures for Initialising and Switching Actions in Policy Iteration.”</span> In <em>Proceedings of the Thirtieth <span>AAAI</span> Conference on Artificial Intelligence, February 12-17, 2016, Phoenix, Arizona, <span>USA</span></em>, edited by Dale Schuurmans and Michael P. Wellman, 3145–51. <span>AAAI</span> Press.
 </div>
-<div id="ref-DBLP:conf/ciac/KamatM15" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/ciac/KamatM15" class="csl-entry" role="listitem">
 Kamat, Vikram, and Neeldhara Misra. 2015. <span>“Parameterized Algorithms and Kernels for 3-Hitting Set with Parity Constraints.”</span> In <em>Algorithms and Complexity - 9th International Conference, <span>CIAC</span> 2015, Paris, France, May 20-22, 2015. Proceedings</em>, edited by Vangelis Th. Paschos and Peter Widmayer, 9079:249–60. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/caldam/KaurM20" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/caldam/KaurM20" class="csl-entry" role="listitem">
 Kaur, Chamanvir, and Neeldhara Misra. 2020. <span>“On the Parameterized Complexity of Spanning Trees with Small Vertex Covers.”</span> In <em>Algorithms and Discrete Applied Mathematics - 6th International Conference, <span>CALDAM</span> 2020, Hyderabad, India, February 13-15, 2020, Proceedings</em>, edited by Manoj Changat and Sandip Das, 12016:427–38. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/iwpec/LokshtanovMPRS13" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/iwpec/LokshtanovMPRS13" class="csl-entry" role="listitem">
 Lokshtanov, Daniel, Neeldhara Misra, Geevarghese Philip, M. S. Ramanujan, and Saket Saurabh. 2013. <span>“Hardness of r-Dominating Set on Graphs of Diameter (r + 1).”</span> In <em>Parameterized and Exact Computation - 8th International Symposium, <span>IPEC</span> 2013, Sophia Antipolis, France, September 4-6, 2013, Revised Selected Papers</em>, edited by Gregory Z. Gutin and Stefan Szeider, 8246:255–67. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/cocoon/LokshtanovMS10" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/cocoon/LokshtanovMS10" class="csl-entry" role="listitem">
 Lokshtanov, Daniel, Neeldhara Misra, and Saket Saurabh. 2010. <span>“Imbalance Is Fixed Parameter Tractable.”</span> In <em>Computing and Combinatorics, 16th Annual International Conference, <span>COCOON</span> 2010, Nha Trang, Vietnam, July 19-21, 2010. Proceedings</em>, edited by My T. Thai and Sartaj Sahni, 6196:199–208. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/birthday/LokshtanovMS12" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/birthday/LokshtanovMS12" class="csl-entry" role="listitem">
 ———. 2012. <span>“Kernelization - Preprocessing with a Guarantee.”</span> In <em>The Multivariate Algorithmic Revolution and Beyond - Essays Dedicated to Michael r. Fellows on the Occasion of His 60th Birthday</em>, edited by Hans L. Bodlaender, Rod Downey, Fedor V. Fomin, and Dániel Marx, 7370:129–61. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/iwpec/LokshtanovMS13" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/iwpec/LokshtanovMS13" class="csl-entry" role="listitem">
 ———. 2013. <span>“On the Hardness of Eliminating Small Induced Subgraphs by Contracting Edges.”</span> In <em>Parameterized and Exact Computation - 8th International Symposium, <span>IPEC</span> 2013, Sophia Antipolis, France, September 4-6, 2013, Revised Selected Papers</em>, edited by Gregory Z. Gutin and Stefan Szeider, 8246:243–54. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/fun/Misra16" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/fun/Misra16" class="csl-entry" role="listitem">
 Misra, Neeldhara. 2016. <span>“Two Dots Is NP-Complete.”</span> In <em>8th International Conference on Fun with Algorithms, <span>FUN</span> 2016, June 8-10, 2016, La Maddalena, Italy</em>, edited by Erik D. Demaine and Fabrizio Grandoni, 49:24:1–12. LIPIcs. Schloss Dagstuhl - Leibniz-Zentrum f<span>ü</span>r Informatik.
 </div>
-<div id="ref-DBLP:conf/iwoca/Misra18" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/iwoca/Misra18" class="csl-entry" role="listitem">
 ———. 2018. <span>“On the Parameterized Complexity of Colorful Components and Related Problems.”</span> In <em>Combinatorial Algorithms - 29th International Workshop, <span>IWOCA</span> 2018, Singapore, July 16-19, 2018, Proceedings</em>, edited by Costas S. Iliopoulos, Hon Wai Leong, and Wing-Kin Sung, 10979:237–49. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/aldt/Misra19" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/aldt/Misra19" class="csl-entry" role="listitem">
 ———. 2019. <span>“On the Parameterized Complexity of Party Nominations.”</span> In <em>Algorithmic Decision Theory - 6th International Conference, <span>ADT</span> 2019, Durham, NC, USA, October 25-27, 2019, Proceedings</em>, edited by Sasa Pekec and Kristen Brent Venable, 11834:112–25. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/cocoon/MisraM20" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/cocoon/MisraM20" class="csl-entry" role="listitem">
 Misra, Neeldhara, and Harshil Mittal. 2020. <span>“Imbalance Parameterized by Twin Cover Revisited.”</span> In <em>Computing and Combinatorics - 26th International Conference, <span>COCOON</span> 2020, Atlanta, GA, USA, August 29-31, 2020, Proceedings</em>, edited by Donghyun Kim, R. N. Uma, Zhipeng Cai, and Dong Hoon Lee, 12273:162–73. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/cccg/MisraMS20" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/cccg/MisraMS20" class="csl-entry" role="listitem">
 Misra, Neeldhara, Harshil Mittal, and Aditi Sethia. 2020. <span>“Red-Blue Point Separation for Points on a Circle.”</span> In <em>Proceedings of the 32nd Canadian Conference on Computational Geometry, <span>CCCG</span> 2020, August 5-7, 2020, University of Saskatchewan, Saskatoon, Saskatchewan, Canada</em>, edited by J. Mark Keil and Debajyoti Mondal, 266–72.
 </div>
-<div id="ref-DBLP:conf/atal/MisraNS15" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/atal/MisraNS15" class="csl-entry" role="listitem">
 Misra, Neeldhara, Arshed Nabeel, and Harman Singh. 2015. <span>“On the Parameterized Complexity of Minimax Approval Voting.”</span> In <em>Proceedings of the 2015 International Conference on Autonomous Agents and Multiagent Systems, <span>AAMAS</span> 2015, Istanbul, Turkey, May 4-8, 2015</em>, edited by Gerhard Weiss, Pinar Yolum, Rafael H. Bordini, and Edith Elkind, 97–105. <span>ACM</span>.
 </div>
-<div id="ref-DBLP:conf/mfcs/MisraNRS10" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/mfcs/MisraNRS10" class="csl-entry" role="listitem">
 Misra, Neeldhara, N. S. Narayanaswamy, Venkatesh Raman, and Bal Sri Shankar. 2010. <span>“Solving Minones-2-Sat as Fast as Vertex Cover.”</span> In <em>Mathematical Foundations of Computer Science 2010, 35th International Symposium, <span>MFCS</span> 2010, Brno, Czech Republic, August 23-27, 2010. Proceedings</em>, edited by Petr Hlinený and Antonı́n Kucera, 6281:549–55. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/caldam/MisraN22" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/caldam/MisraN22" class="csl-entry" role="listitem">
 Misra, Neeldhara, and Debanuj Nayak. 2022. <span>“On Fair Division with Binary Valuations Respecting Social Networks.”</span> In <em>Algorithms and Discrete Applied Mathematics - 8th International Conference, <span>CALDAM</span> 2022, Puducherry, India, February 10-12, 2022, Proceedings</em>, edited by Niranjan Balachandran and R. Inkulu, 13179:265–78. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/sat/MisraORS13" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/sat/MisraORS13" class="csl-entry" role="listitem">
 Misra, Neeldhara, Sebastian Ordyniak, Venkatesh Raman, and Stefan Szeider. 2013. <span>“Upper and Lower Bounds for Weak Backdoor Set Detection.”</span> In <em>Theory and Applications of Satisfiability Testing - <span>SAT</span> 2013 - 16th International Conference, Helsinki, Finland, July 8-12, 2013. Proceedings</em>, edited by Matti Järvisalo and Allen Van Gelder, 7962:394–402. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/wg/MisraPRRS13" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/wg/MisraPRRS13" class="csl-entry" role="listitem">
 Misra, Neeldhara, Fahad Panolan, Ashutosh Rai, Venkatesh Raman, and Saket Saurabh. 2013. <span>“Parameterized Algorithms for Max Colorable Induced Subgraph Problem on Perfect Graphs.”</span> In <em>Graph-Theoretic Concepts in Computer Science - 39th International Workshop, <span>WG</span> 2013, l<span>ü</span>beck, Germany, June 19-21, 2013, Revised Papers</em>, edited by Andreas Brandstädt, Klaus Jansen, and Rüdiger Reischuk, 8165:370–81. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/mfcs/MisraPS13" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/mfcs/MisraPS13" class="csl-entry" role="listitem">
 Misra, Neeldhara, Fahad Panolan, and Saket Saurabh. 2013. <span>“Subexponential Algorithm for d-Cluster Edge Deletion: Exception or Rule?”</span> In <em>Mathematical Foundations of Computer Science 2013 - 38th International Symposium, <span>MFCS</span> 2013, Klosterneuburg, Austria, August 26-30, 2013. Proceedings</em>, edited by Krishnendu Chatterjee and Jirı́ Sgall, 8087:679–90. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/csr/MisraP019" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/csr/MisraP019" class="csl-entry" role="listitem">
 ———. 2019. <span>“On the Parameterized Complexity of Edge-Linked Paths.”</span> In <em>Computer Science - Theory and Applications - 14th International Computer Science Symposium in Russia, <span>CSR</span> 2019, Novosibirsk, Russia, July 1-5, 2019, Proceedings</em>, edited by René van Bevern and Gregory Kucherov, 11532:286–98. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/fsttcs/MisraPRS10" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/fsttcs/MisraPRS10" class="csl-entry" role="listitem">
 Misra, Neeldhara, Geevarghese Philip, Venkatesh Raman, and Saket Saurabh. 2010. <span>“The Effect of Girth on the Kernelization Complexity of Connected Dominating Set.”</span> In <em><span>IARCS</span> Annual Conference on Foundations of Software Technology and Theoretical Computer Science, <span>FSTTCS</span> 2010, December 15-18, 2010, Chennai, India</em>, edited by Kamal Lodaya and Meena Mahajan, 8:96–107. LIPIcs. Schloss Dagstuhl - Leibniz-Zentrum f<span>ü</span>r Informatik.
 </div>
-<div id="ref-DBLP:conf/cocoon/MisraPRS11" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/cocoon/MisraPRS11" class="csl-entry" role="listitem">
 ———. 2011. <span>“On Parameterized Independent Feedback Vertex Set.”</span> In <em>Computing and Combinatorics - 17th Annual International Conference, <span>COCOON</span> 2011, Dallas, TX, USA, August 14-16, 2011. Proceedings</em>, edited by Bin Fu and Ding-Zhu Du, 6842:98–109. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/walcom/MisraPRSS10" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/walcom/MisraPRSS10" class="csl-entry" role="listitem">
 Misra, Neeldhara, Geevarghese Philip, Venkatesh Raman, Saket Saurabh, and Somnath Sikdar. 2010. <span>“<span>FPT</span> Algorithms for Connected Feedback Vertex Set.”</span> In <em><span>WALCOM:</span> Algorithms and Computation, 4th International Workshop, <span>WALCOM</span> 2010, Dhaka, Bangladesh, February 10-12, 2010. Proceedings</em>, edited by Md. Saidur Rahman and Satoshi Fujita, 5942:269–80. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/csr/MisraRSS09" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/csr/MisraRSS09" class="csl-entry" role="listitem">
 Misra, Neeldhara, Venkatesh Raman, Saket Saurabh, and Somnath Sikdar. 2009. <span>“The Budgeted Unique Coverage Problem and Color-Coding.”</span> In <em>Computer Science - Theory and Applications, Fourth International Computer Science Symposium in Russia, <span>CSR</span> 2009, Novosibirsk, Russia, August 18-23, 2009. Proceedings</em>, edited by Anna E. Frid, Andrey Morozov, Andrey Rybalchenko, and Klaus W. Wagner, 5675:310–21. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/csr/MisraR19" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/csr/MisraR19" class="csl-entry" role="listitem">
 Misra, Neeldhara, and Piyush Rathi. 2019. <span>“The Parameterized Complexity of Dominating Set and Friends Revisited for Structured Graphs.”</span> In <em>Computer Science - Theory and Applications - 14th International Computer Science Symposium in Russia, <span>CSR</span> 2019, Novosibirsk, Russia, July 1-5, 2019, Proceedings</em>, edited by René van Bevern and Gregory Kucherov, 11532:299–310. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/iwoca/MisraR17" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/iwoca/MisraR17" class="csl-entry" role="listitem">
 Misra, Neeldhara, and I. Vinod Reddy. 2017. <span>“The Parameterized Complexity of Happy Colorings.”</span> In <em>Combinatorial Algorithms - 28th International Workshop, <span>IWOCA</span> 2017, Newcastle, NSW, Australia, July 17-21, 2017, Revised Selected Papers</em>, edited by Ljiljana Brankovic, Joe Ryan, and William F. Smyth, 10765:142–53. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/ictcs/MisraS20" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/ictcs/MisraS20" class="csl-entry" role="listitem">
 Misra, Neeldhara, and Aditi Sethia. 2020. <span>“Fair Division Is Hard Even for Amicable Agents.”</span> In <em>Proceedings of the 21st Italian Conference on Theoretical Computer Science, Ischia, Italy, September 14-16, 2020</em>, edited by Gennaro Cordasco, Luisa Gargano, and Adele A. Rescigno, 2756:202–7. <span>CEUR</span> Workshop Proceedings. CEUR-WS.org.
 </div>
-<div id="ref-DBLP:conf/sofsem/MisraS21" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/sofsem/MisraS21" class="csl-entry" role="listitem">
 ———. 2021. <span>“Fair Division Is Hard Even for Amicable Agents.”</span> In <em><span>SOFSEM</span> 2021: Theory and Practice of Computer Science - 47th International Conference on Current Trends in Theory and Practice of Computer Science, <span>SOFSEM</span> 2021, Bolzano-Bozen, Italy, January 25-29, 2021, Proceedings</em>, edited by Tomás Bures, Riccardo Dondi, Johann Gamper, Giovanna Guerrini, Tomasz Jurdzinski, Claus Pahl, Florian Sikora, and Prudence W. H. Wong, 12607:421–30. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/sofsem/MisraS19" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/sofsem/MisraS19" class="csl-entry" role="listitem">
 Misra, Neeldhara, and Chinmay Sonar. 2019. <span>“Robustness Radius for Chamberlin-Courant on Restricted Domains.”</span> In <em><span>SOFSEM</span> 2019: Theory and Practice of Computer Science - 45th International Conference on Current Trends in Theory and Practice of Computer Science, Nov<span>ý</span> Smokovec, Slovakia, January 27-30, 2019, Proceedings</em>, edited by Barbara Catania, Rastislav Královic, Jerzy R. Nawrocki, and Giovanni Pighizzini, 11376:341–53. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/aldt/MisraSV17" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/aldt/MisraSV17" class="csl-entry" role="listitem">
 Misra, Neeldhara, Chinmay Sonar, and P. R. Vaidyanathan. 2017. <span>“On the Complexity of Chamberlin-Courant on Almost Structured Profiles.”</span> In <em>Algorithmic Decision Theory - 5th International Conference, <span>ADT</span> 2017, Luxembourg, Luxembourg, October 25-27, 2017, Proceedings</em>, edited by Jörg Rothe, 10576:124–38. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/cocoon/RajgopalAGKM13" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/cocoon/RajgopalAGKM13" class="csl-entry" role="listitem">
 Rajgopal, Ninad, Pradeesha Ashok, Sathish Govindarajan, Abhijit Khopkar, and Neeldhara Misra. 2013. <span>“Hitting and Piercing Rectangles Induced by a Point Set.”</span> In <em>Computing and Combinatorics, 19th International Conference, <span>COCOON</span> 2013, Hangzhou, China, June 21-23, 2013. Proceedings</em>, edited by Ding-Zhu Du and Guochuan Zhang, 7936:221–32. Lecture Notes in Computer Science. Springer.
 </div>
-<div id="ref-DBLP:conf/cccg/RoyGMS14" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/cccg/RoyGMS14" class="csl-entry" role="listitem">
 Roy, Aniket Basu, Sathish Govindarajan, Neeldhara Misra, and Shreyas Shetty. 2014. <span>“On the d-Runaway Rectangle Escape Problem.”</span> In <em>Proceedings of the 26th Canadian Conference on Computational Geometry, <span>CCCG</span> 2014, Halifax, Nova Scotia, Canada, 2014</em>. Carleton University, Ottawa, Canada.
 </div>
-<div id="ref-DBLP:conf/ijcai/SonarDM20" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/ijcai/SonarDM20" class="csl-entry" role="listitem">
 Sonar, Chinmay, Palash Dey, and Neeldhara Misra. 2020. <span>“On the Complexity of Winner Verification and Candidate Winner for Multiwinner Voting Rules.”</span> In <em>Proceedings of the Twenty-Ninth International Joint Conference on Artificial Intelligence, <span>IJCAI</span> 2020</em>, edited by Christian Bessiere, 89–95. ijcai.org.
 </div>
-<div id="ref-DBLP:conf/atal/VaishM0B16" class="csl-entry" role="doc-biblioentry">
+<div id="ref-DBLP:conf/atal/VaishM0B16" class="csl-entry" role="listitem">
 Vaish, Rohit, Neeldhara Misra, Shivani Agarwal, and Avrim Blum. 2016. <span>“On the Computational Hardness of Manipulating Pairwise Voting Rules.”</span> In <em>Proceedings of the 2016 International Conference on Autonomous Agents <span>&amp;</span> Multiagent Systems, Singapore, May 9-13, 2016</em>, edited by Catholijn M. Jonker, Stacy Marsella, John Thangarajah, and Karl Tuyls, 358–67. <span>ACM</span>.
 </div>
 </div>
@@ -552,12 +566,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
     }
-  });
-  clipboard.on('success', function(e) {
+    return false;
+  }
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -589,11 +606,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.neeldhara\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -603,8 +657,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -616,9 +679,244 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -659,6 +957,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

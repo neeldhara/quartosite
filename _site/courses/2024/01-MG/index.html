@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - Martin Gardner Reading Group | Spring 2024</title>
+<title>Martin Gardner Reading Group | Spring 2024 – Neeldhara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,17 +37,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-53d508deb6da4ff595675ebf964bed0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -91,8 +98,9 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="https://analytics.neeldhara.website/api/script.js" data-site-id="a31a3a742777" defer=""></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -107,7 +115,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../css/styles.css">
 <link rel="stylesheet" href="../../../css/teaching.css">
@@ -117,130 +152,130 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../../research/overview.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/people.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/people.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/publications.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/surveys" rel="" target="">
+    <a class="dropdown-item" href="../../../research/surveys">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../../courses/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../courses/index.html">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../materials/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../materials/index.html">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../../tgif/" rel="" target="">
+    <a class="dropdown-item" href="../../../tgif/">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../bookmarks/" rel="" target="">
+    <a class="dropdown-item" href="../../../bookmarks/">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../../talks/" rel="" target="">
+    <a class="dropdown-item" href="../../../talks/">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../videos/" rel="" target="">
+    <a class="dropdown-item" href="../../../videos/">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../events/" rel="" target="">
- <span class="menu-text">Events</span></a>
+    <a class="nav-link" href="../../../events/"> 
+<span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -259,7 +294,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -267,7 +302,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="reading-group-on-martin-gardners-games-and-puzzles" class="level2 column-body-outset">
 <h2 class="anchored" data-anchor-id="reading-group-on-martin-gardners-games-and-puzzles">Reading Group on Martin Gardner’s Games and Puzzles</h2>
@@ -430,7 +467,6 @@ Sign Up for Reminders
 </div>
 </div>
 <div id="listing-youtube-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Date</td>
@@ -441,6 +477,7 @@ Sign Up for Reminders
         <td>Book Chapter</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704047400000">            
             <td class="listing-date">
                 01 Jan, 2024
@@ -450,18 +487,27 @@ Sign Up for Reminders
                 <p style="font-size:small;">Tic-tac-toe, toe-tac-tic (the first player to finish a line loses), 3D variations, and Teeko (moving counters).</p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="01/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://youtube.com/live/dIPjrlmy3tw?feature=share"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/1m4KqSXeiq8oP01Dc91QM0vLj7VdqJS_8JYgChirujqw/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <a href="01/bookchapter-01.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704133800000">            
             <td class="listing-date">
                 02 Jan, 2024
@@ -471,18 +517,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="02/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=iJTAW92xakg&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=2&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/17y-gmhDawPVTsqkYZ7g09Svw3O1kRGK7SZU4z_izEUY/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <a href="02/bookchapter-02.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704220200000">            
             <td class="listing-date">
                 03 Jan, 2024
@@ -492,18 +547,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="03/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=xhGXA-t4WMI&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=3&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/11vzJJS4wnvBzDApEsCAqsbI-TjCtCKQCaa1sFN5PzVM/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <a href="03/bookchapter-03.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704306600000">            
             <td class="listing-date">
                 04 Jan, 2024
@@ -513,18 +577,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="04/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=5W7nVMdM7cI&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=4&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/1UJWz5zwPRIAkblEdniHUUDqSs5ySmg5U6cLmEHEpmpE/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <a href="04/bookchapter-04.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704393000000">            
             <td class="listing-date">
                 05 Jan, 2024
@@ -534,18 +607,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="05/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=Oaq3gPt5lTk&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=5&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/1mAEegqCQzK_cAnoGCr0Arqi9IQj6Dt7Dw7709GUL-_s/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <a href="05/bookchapter-05.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704652200000">            
             <td class="listing-date">
                 08 Jan, 2024
@@ -555,18 +637,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="06/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=ZHDeDWY0yu0&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=6&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/1TfkFVzoR064OjBBbp2XKv6V0ydhdcpJ2lM386UIObUU/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <a href="06/bookchapter-06.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704738600000">            
             <td class="listing-date">
                 09 Jan, 2024
@@ -576,18 +667,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="07/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=osdK6KpJIR4&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=7&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/1wiJ_YUfOxSQajlnjVjY4ULbdlreaAvpNecFRrOSwQEQ/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <a href="07/bookchapter-07.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704825000000">            
             <td class="listing-date">
                 10 Jan, 2024
@@ -597,18 +697,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="08/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=enyyic3Jvq4&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=8&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/1RfRnYWcVD0qDWtWqDYp48aBfqnnJzHHiGWTl2qsHEXI/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <a href="08/bookchapter-08.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704911400000">            
             <td class="listing-date">
                 11 Jan, 2024
@@ -618,18 +727,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="09/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=0-TsGPZaQA0&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=9&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/1RfRnYWcVD0qDWtWqDYp48aBfqnnJzHHiGWTl2qsHEXI/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <a href="09/bookchapter-09.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1704997800000">            
             <td class="listing-date">
                 12 Jan, 2024
@@ -639,18 +757,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="10/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=UKRrJAEZ5qA&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=10&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://ncase.me/trust"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1705257000000">            
             <td class="listing-date">
                 15 Jan, 2024
@@ -660,18 +787,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="11/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=fkuFb0PPQFw&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=11&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/1bs4vPZPmM26hoCaGL_N1uoRY4bKraRPxSViE7t6CYQg/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <a href="11/bookchapter-11.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1705343400000">            
             <td class="listing-date">
                 16 Jan, 2024
@@ -681,18 +817,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="12/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=6DwLMZAxIYk&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=12&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/1V8Q7-wnnwsgBUlvAmV0LskawANAssYq8K7y67ePVn44/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <a href="12/bookchapter-12.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1705429800000">            
             <td class="listing-date">
                 17 Jan, 2024
@@ -702,18 +847,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="13/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=Rr1HN7Ha0_Q&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=13&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/1he-2U_LqtEiD5lA_EUnfwbdSOrCEotQUMKs9q9J1Nd0/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <a href="13/bookchapter-13.pdf"><span class="bi bi-file-earmark-pdf-fill"></span></a>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1705516200000">            
             <td class="listing-date">
                 18 Jan, 2024
@@ -723,18 +877,27 @@ Sign Up for Reminders
                 <p style="font-size:small;">Revisiting Tac Tix</p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="14/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=d3OlblDNM3w&amp;list=PLadhlDF3zdvuokTAFexFRkWGsdqld9p_A&amp;index=14&amp;pp=iAQB"><span class="bi bi-film"></span></a>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://docs.google.com/presentation/d/16O8vOFmeRqDH38Woi-Lg_JJR1BzcSwd2zM5f6-eTRKM/edit?usp=drive_link"><span class="bi bi-file-earmark-slides"></span></a>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1706466600000">            
             <td class="listing-date">
                 29 Jan, 2024
@@ -744,18 +907,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="16/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1706553000000">            
             <td class="listing-date">
                 30 Jan, 2024
@@ -765,18 +937,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="17/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1706639400000">            
             <td class="listing-date">
                 31 Jan, 2024
@@ -786,18 +967,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="18/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1706725800000">            
             <td class="listing-date">
                 01 Feb, 2024
@@ -807,18 +997,27 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="19/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                  
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1706812200000">            
             <td class="listing-date">
                 02 Feb, 2024
@@ -828,20 +1027,30 @@ Sign Up for Reminders
                 <p style="font-size:small;"></p>
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="20/"><span class="bi bi-journal"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                  
             </td>
             <td class="listing-bookchapter" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                  
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -968,18 +1177,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1011,11 +1209,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.neeldhara\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1025,8 +1260,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1038,7 +1282,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1082,6 +1448,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1107,6 +1474,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1167,6 +1560,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

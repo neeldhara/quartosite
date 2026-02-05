@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - CS 614 | Jan-Apr 2022</title>
+<title>CS 614 | Jan-Apr 2022 – Neeldhara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,17 +37,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-53d508deb6da4ff595675ebf964bed0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -147,8 +154,9 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="https://analytics.neeldhara.website/api/script.js" data-site-id="a31a3a742777" defer=""></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -163,7 +171,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../css/styles.css">
 <link rel="stylesheet" href="../../../css/teaching.css">
@@ -173,130 +208,130 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../../research/overview.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/people.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/people.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/publications.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/surveys" rel="" target="">
+    <a class="dropdown-item" href="../../../research/surveys">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../../courses/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../courses/index.html">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../materials/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../materials/index.html">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../../tgif/" rel="" target="">
+    <a class="dropdown-item" href="../../../tgif/">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../bookmarks/" rel="" target="">
+    <a class="dropdown-item" href="../../../bookmarks/">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../../talks/" rel="" target="">
+    <a class="dropdown-item" href="../../../talks/">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../videos/" rel="" target="">
+    <a class="dropdown-item" href="../../../videos/">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../events/" rel="" target="">
- <span class="menu-text">Events</span></a>
+    <a class="nav-link" href="../../../events/"> 
+<span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -315,7 +350,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -323,13 +358,15 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<section id="cs614.-advanced-algorithms" class="level2 column-body-outset">
+
+<section id="cs614.-advanced-algorithms" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="cs614.-advanced-algorithms">CS614. Advanced Algorithms</h2>
-<section id="january-april-2023" class="level5">
+<section id="january-april-2023" class="level5 page-columns page-full">
 <h5 class="anchored" data-anchor-id="january-april-2023">January — April 2023</h5>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-note no-icon callout-titled page-columns page-full">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -339,8 +376,8 @@ About the Course
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse page-columns page-full">
+<div class="callout-body-container callout-body page-columns page-full">
 <p>This course will explores the tradeoffs involved in coping with NP-completeness.</p>
 <p>When we think about designing algorithms, we are usually very demanding in how we go about it: we require our algorithms to be fast and accurate on all conceivable inputs. This is asking for quite a bit, and perhaps it is not surprising that we cannot afford this luxury all the time. The good news is that most of the time we can make meaningful progress by relaxing just one of these demands:</p>
 <ol type="1">
@@ -349,10 +386,10 @@ About the Course
 <li><p>Give up on speed, to some extent: going beyond the traditional allowance of polynomial time, which is the holy grail of what is considered efficient, takes you places. You could either allow for your algorithms have super-polynomial running times, and optimize as much as possible while being accurate on all inputs (exact algorithms), or allow for bad running times on a bounded subset of instances (Monte-Carlo style randomization).</p></li>
 </ol>
 <p>This course is an introduction to techniques in achieving specific trade-offs, and understanding the theoretical foundations of frameworks that help us establish when certain tradeoffs are simply not feasible.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../../research/overview.png" class="rounded-corners img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Fig. Exploring tradeoffs between the demands of accuracy, speed, and coverage.</figcaption>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="../../../research/overview.png" class="rounded-corners img-fluid figure-img column-body-outset" style="width:70.0%"></p>
+<figcaption>Fig. Exploring tradeoffs between the demands of accuracy, speed, and coverage.</figcaption>
 </figure>
 </div>
 </div>
@@ -500,7 +537,6 @@ Register
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div id="listing-lectures-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Date</td>
@@ -510,437 +546,700 @@ Register
         <td>Video</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1672770600000">            
             <td class="listing-date">
                 04 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>1. Matroids and Greedy Algorithms - I</strong><br>
-                <p>Matroids - definitions and examples • GreedyBasis Algorithm • Example: Scheduling with Deadlines</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                1. 
+                
+                Matroids and Greedy Algorithms - I 
+                <br><br>
+                <p style="font-size:small;">Matroids - definitions and examples • GreedyBasis Algorithm • Example: Scheduling with Deadlines</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="slides/W01.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="https://jeffe.cs.illinois.edu/teaching/algorithms/notes/E-matroids.pdf"><span class="bi bi-journal-richtext"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1673202600000">            
             <td class="listing-date">
                 09 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>2. Matroids and Greedy Algorithms - II</strong><br>
-                <p>Proof of correctness of GreedyBasis</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                2. 
+                
+                Matroids and Greedy Algorithms - II 
+                <br><br>
+                <p style="font-size:small;">Proof of correctness of GreedyBasis</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="https://jeffe.cs.illinois.edu/teaching/algorithms/notes/E-matroids.pdf"><span class="bi bi-journal-richtext"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1673375400000">            
             <td class="listing-date">
                 11 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>3. Matroid Intersection - I</strong><br>
-                <p>Matroid Intersection and Matroid Parity (Section 12.2.1) • Connections with Matchings • 3-Matroid Intersection is NP-complete (Theorem 12.6)</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                3. 
+                
+                Matroid Intersection - I 
+                <br><br>
+                <p style="font-size:small;">Matroid Intersection and Matroid Parity (Section 12.2.1) • Connections with Matchings • 3-Matroid Intersection is NP-complete (Theorem 12.6)</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="https://www.mimuw.edu.pl/~malcin/book/parameterized-algorithms.pdf"><span class="bi bi-journal-richtext"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1673807400000">            
             <td class="listing-date">
                 16 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>4. Matroid Intersection - II</strong><br>
-                <p>A polynomial time algorithm for Matroid Intersection</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                4. 
+                
+                Matroid Intersection - II 
+                <br><br>
+                <p style="font-size:small;">A polynomial time algorithm for Matroid Intersection</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="slides/W02.pdf"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="https://math.mit.edu/~goemans/18453S17/matroid-intersect-notes.pdf"><span class="bi bi-journal-richtext"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1673980200000">            
             <td class="listing-date">
                 18 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>5. Vertex Cover</strong><br>
-                <p>Definition • Applications • Introduction to Approximation Algorithms • 2-approximation for Vertex Cover via maximal matchings</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                5. 
+                
+                Vertex Cover 
+                <br><br>
+                <p style="font-size:small;">Definition • Applications • Introduction to Approximation Algorithms • 2-approximation for Vertex Cover via maximal matchings</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1674412200000">            
             <td class="listing-date">
                 23 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>6. Vertex Cover</strong><br>
-                <p>Introduction to Linear Programming • 2-approximation via rounding • A simple randomized algorithm for Vertex Cover</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                6. 
+                
+                Vertex Cover 
+                <br><br>
+                <p style="font-size:small;">Introduction to Linear Programming • 2-approximation via rounding • A simple randomized algorithm for Vertex Cover</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1674585000000">            
             <td class="listing-date">
                 25 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>7. Vertex Cover</strong><br>
-                <p>Introduction to Fixed-Parameter Tractability • An O(2^k) FPT algorithm by branching</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                7. 
+                
+                Vertex Cover 
+                <br><br>
+                <p style="font-size:small;">Introduction to Fixed-Parameter Tractability • An O(2^k) FPT algorithm by branching</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1675189800000">            
             <td class="listing-date">
                 01 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>8. Vertex Cover</strong><br>
-                <p>Introduction to Kernelization • A Quadratic Kernel for Vertex Cover based on degree reductions</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                8. 
+                
+                Vertex Cover 
+                <br><br>
+                <p style="font-size:small;">Introduction to Kernelization • A Quadratic Kernel for Vertex Cover based on degree reductions</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1675276200000">            
             <td class="listing-date">
                 02 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>9. Vertex Cover</strong><br>
-                <p>A Linear Kernel for Vertex Cover based on the LP formulation</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                9. 
+                
+                Vertex Cover 
+                <br><br>
+                <p style="font-size:small;">A Linear Kernel for Vertex Cover based on the LP formulation</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1676226600000">            
             <td class="listing-date">
                 13 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>10. Set Cover</strong><br>
-                <p>A Greedy Approximation Algorithm • A LP formulation</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                10. 
+                
+                Set Cover 
+                <br><br>
+                <p style="font-size:small;">A Greedy Approximation Algorithm • A LP formulation</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1676399400000">            
             <td class="listing-date">
                 15 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>11. Set Cover</strong><br>
-                <p>Dual LP formulation • Weak Duality • Complementary Slackness Conditions • Rounding a Dual Solution</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                11. 
+                
+                Set Cover 
+                <br><br>
+                <p style="font-size:small;">Dual LP formulation • Weak Duality • Complementary Slackness Conditions • Rounding a Dual Solution</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1676831400000">            
             <td class="listing-date">
                 20 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>12. Detour: Long Path</strong><br>
-                <p>Principle of Inclusion-Exclusion for a poly-space single-exponential algorithm for HAMPATH • Color Coding for Longest Path</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                12. 
+                
+                Detour: Long Path 
+                <br><br>
+                <p style="font-size:small;">Principle of Inclusion-Exclusion for a poly-space single-exponential algorithm for HAMPATH • Color Coding for Longest Path</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1677004200000">            
             <td class="listing-date">
                 22 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>13. Feedback Vertex Set</strong><br>
-                <p>Dual LP Recap • Introduction to Feedback Vertex Set</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                13. 
+                
+                Feedback Vertex Set 
+                <br><br>
+                <p style="font-size:small;">Dual LP Recap • Introduction to Feedback Vertex Set</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1677436200000">            
             <td class="listing-date">
                 27 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>14. Feedback Vertex Set</strong><br>
-                <p>A first Primal-Dual-based O(log n)-approximation for FVS</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                14. 
+                
+                Feedback Vertex Set 
+                <br><br>
+                <p style="font-size:small;">A first Primal-Dual-based O(log n)-approximation for FVS</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="https://math.mit.edu/~goemans/PAPERS/ChudakGHW-1998-FeedbackVertexSet.pdf"><span class="bi bi-journal-richtext"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1677609000000">            
             <td class="listing-date">
                 01 Mar, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>15. No Class</strong><br>
-                <p></p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                15. 
+                
+                No Class 
+                <br><br>
+                <p style="font-size:small;"></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1678645800000">            
             <td class="listing-date">
                 13 Mar, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>16. Feedback Vertex Set</strong><br>
-                <p>A 2-approximation algorithm for FVS: motivating the formulation</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                16. 
+                
+                Feedback Vertex Set 
+                <br><br>
+                <p style="font-size:small;">A 2-approximation algorithm for FVS: motivating the formulation</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1678818600000">            
             <td class="listing-date">
                 15 Mar, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>17. Feedback Vertex Set</strong><br>
-                <p>A 2-approximation algorithm for FVS: the key combinatorial lemma</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                17. 
+                
+                Feedback Vertex Set 
+                <br><br>
+                <p style="font-size:small;">A 2-approximation algorithm for FVS: the key combinatorial lemma</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="http://slides.com/neeldhara/advalgo-fvs2apx-lp"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="https://math.mit.edu/~goemans/PAPERS/ChudakGHW-1998-FeedbackVertexSet.pdf"><span class="bi bi-journal-richtext"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1679250600000">            
             <td class="listing-date">
                 20 Mar, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>18. Feedback Vertex Set</strong><br>
-                <p>Iterative Compression • An O*(3.619^k) algorithm for FVS on general graphs</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                18. 
+                
+                Feedback Vertex Set 
+                <br><br>
+                <p style="font-size:small;">Iterative Compression • An O*(3.619^k) algorithm for FVS on general graphs</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1679855400000">            
             <td class="listing-date">
                 27 Mar, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>19. Lower Bounds</strong><br>
-                <p>Introduction to NP-completeness • 3-Partition and friends • Multiprocessor Scheduling • Packing rectangles into a rectangle</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                19. 
+                
+                Lower Bounds 
+                <br><br>
+                <p style="font-size:small;">Introduction to NP-completeness • 3-Partition and friends • Multiprocessor Scheduling • Packing rectangles into a rectangle</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1680028200000">            
             <td class="listing-date">
                 29 Mar, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>20. Lower Bounds</strong><br>
-                <p>Reductions from 3-Partition</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                20. 
+                
+                Lower Bounds 
+                <br><br>
+                <p style="font-size:small;">Reductions from 3-Partition</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1680460200000">            
             <td class="listing-date">
                 03 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>21. Lower Bounds</strong><br>
-                <p>SAT and Circuit SAT • CNF SAT • 3SAT • 3SAT-4 • Monotone 3SAT • Polynomial-time variants</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                21. 
+                
+                Lower Bounds 
+                <br><br>
+                <p style="font-size:small;">SAT and Circuit SAT • CNF SAT • 3SAT • 3SAT-4 • Monotone 3SAT • Polynomial-time variants</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1680633000000">            
             <td class="listing-date">
                 05 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>22. Lower Bounds</strong><br>
-                <p>Schaefer's Dichotomy Theorem • 2-colorable perfect matching</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                22. 
+                
+                Lower Bounds 
+                <br><br>
+                <p style="font-size:small;">Schaefer's Dichotomy Theorem • 2-colorable perfect matching</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1681065000000">            
             <td class="listing-date">
                 10 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>23. Lower Bounds</strong><br>
-                <p>Parameterized Intractability • The W-hierarchy • Reductions from CLIQUE</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                23. 
+                
+                Lower Bounds 
+                <br><br>
+                <p style="font-size:small;">Parameterized Intractability • The W-hierarchy • Reductions from CLIQUE</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1681237800000">            
             <td class="listing-date">
                 12 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>24. Lower Bounds</strong><br>
-                <p>Kernel Lower Bounds • Composition and Distillation • Examples of compositions • Parameter preserving transformations</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                24. 
+                
+                Lower Bounds 
+                <br><br>
+                <p style="font-size:small;">Kernel Lower Bounds • Composition and Distillation • Examples of compositions • Parameter preserving transformations</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1681669800000">            
             <td class="listing-date">
                 17 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>25. Lower Bounds</strong><br>
-                <p>The (Strong) Exponential Time Hypothesis • Sparsification Lemma • Implications for parameterized algorithms</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                25. 
+                
+                Lower Bounds 
+                <br><br>
+                <p style="font-size:small;">The (Strong) Exponential Time Hypothesis • Sparsification Lemma • Implications for parameterized algorithms</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1681842600000">            
             <td class="listing-date">
                 19 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>26. Lower Bounds</strong><br>
-                <p>Reductions based on the ETH</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                26. 
+                
+                Lower Bounds 
+                <br><br>
+                <p style="font-size:small;">Reductions based on the ETH</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1682274600000">            
             <td class="listing-date">
                 24 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>27. Lower Bounds</strong><br>
-                <p>Inapproximability Introduction • NP optimization problems • PTAS, APX • Stronger notions of reductions that preserve approximability • APX-hardness of vertex cover</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                27. 
+                
+                Lower Bounds 
+                <br><br>
+                <p style="font-size:small;">Inapproximability Introduction • NP optimization problems • PTAS, APX • Stronger notions of reductions that preserve approximability • APX-hardness of vertex cover</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1682447400000">            
             <td class="listing-date">
                 26 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>28. Lower Bounds</strong><br>
-                <p>Gap Inapproximability • Gap Problems • Gap-producing and gap-preserving reductions • PCP theorem • Unique Games Conjecture</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                28. 
+                
+                Lower Bounds 
+                <br><br>
+                <p style="font-size:small;">Gap Inapproximability • Gap Problems • Gap-producing and gap-preserving reductions • PCP theorem • Unique Games Conjecture</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -948,7 +1247,6 @@ No matching items
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div id="listing-quizzes-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Issued</td>
@@ -958,6 +1256,7 @@ No matching items
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="09 01 2023" data-listing-due-sort="09 01 2023">            
             <td class="listing-date">
                 09 Jan, 2023
@@ -967,15 +1266,22 @@ No matching items
                 <p>Proof of correctness of GreedyBasis</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L02.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/A02.html"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     09 Jan, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="11 01 2023" data-listing-due-sort="11 01 2023">            
             <td class="listing-date">
                 11 Jan, 2023
@@ -985,15 +1291,22 @@ No matching items
                 <p>Matroid Intersection and Matroid Parity (Section 12.2.1) • Connections with Matchings • 3-Matroid Intersection is NP-complete (Theorem 12.6)</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L03.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/A03.html"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     11 Jan, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="16 01 2023" data-listing-due-sort="16 01 2023">            
             <td class="listing-date">
                 16 Jan, 2023
@@ -1003,15 +1316,22 @@ No matching items
                 <p>A polynomial time algorithm for Matroid Intersection</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L04.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/A04.html"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     16 Jan, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="18 01 2023" data-listing-due-sort="18 01 2023">            
             <td class="listing-date">
                 18 Jan, 2023
@@ -1021,15 +1341,22 @@ No matching items
                 <p>Definition • Applications • Introduction to Approximation Algorithms • 2-approximation for Vertex Cover via maximal matchings</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L05.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/A05.html"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     18 Jan, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="23 01 2023" data-listing-due-sort="23 01 2023">            
             <td class="listing-date">
                 23 Jan, 2023
@@ -1039,15 +1366,22 @@ No matching items
                 <p>Introduction to Linear Programming • 2-approximation via rounding • A simple randomized algorithm for Vertex Cover</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L06.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/A06.html"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     23 Jan, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="25 01 2023" data-listing-due-sort="25 01 2023">            
             <td class="listing-date">
                 25 Jan, 2023
@@ -1057,15 +1391,22 @@ No matching items
                 <p>Introduction to Fixed-Parameter Tractability • An O(2^k) FPT algorithm by branching</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L07.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/A07.html"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     25 Jan, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="01 02 2023" data-listing-due-sort="01 02 2023">            
             <td class="listing-date">
                 01 Feb, 2023
@@ -1075,15 +1416,22 @@ No matching items
                 <p>Introduction to Kernelization • A Quadratic Kernel for Vertex Cover based on degree reductions</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L08.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     01 Feb, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="03 02 2023" data-listing-due-sort="03 02 2023">            
             <td class="listing-date">
                 03 Feb, 2023
@@ -1093,15 +1441,22 @@ No matching items
                 <p>A Linear Kernel for Vertex Cover based on the LP formulation</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L09.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     03 Feb, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="27 03 2023" data-listing-due-sort="15 04 2023">            
             <td class="listing-date">
                 27 Mar, 2023
@@ -1111,15 +1466,22 @@ No matching items
                 <p>A Greedy Approximation Algorithm • A LP formulation</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L10.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     15 Apr, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="27 03 2023" data-listing-due-sort="15 04 2023">            
             <td class="listing-date">
                 27 Mar, 2023
@@ -1129,15 +1491,22 @@ No matching items
                 <p>Principle of Inclusion-Exclusion for a poly-space single-exponential algorithm for HAMPATH • Color Coding for Longest Path</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L12.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     15 Apr, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="27 03 2023" data-listing-due-sort="15 04 2023">            
             <td class="listing-date">
                 27 Mar, 2023
@@ -1147,15 +1516,22 @@ No matching items
                 <p>An O(log n)-approximation via primal dual</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L13.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     15 Apr, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="27 03 2023" data-listing-due-sort="15 04 2023">            
             <td class="listing-date">
                 27 Mar, 2023
@@ -1165,15 +1541,22 @@ No matching items
                 <p>A 2-approximation algorithm using a different LP formulation</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L14.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     15 Apr, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="27 03 2023" data-listing-due-sort="15 04 2023">            
             <td class="listing-date">
                 27 Mar, 2023
@@ -1183,15 +1566,22 @@ No matching items
                 <p>Iterative Compression • An O*(3.619^k) algorithm for FVS on general graphs • A polynomial-time algorithm on graphs of maximum degree 3</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L18.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     15 Apr, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="27 03 2023" data-listing-due-sort="27 03 2023">            
             <td class="listing-date">
                 27 Mar, 2023
@@ -1201,15 +1591,22 @@ No matching items
                 <p>Introduction to NP-completeness • 3-Partition and friends • Multiprocessor Scheduling • Packing rectangles into a rectangle</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L19.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     27 Mar, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="29 03 2023" data-listing-due-sort="29 03 2023">            
             <td class="listing-date">
                 29 Mar, 2023
@@ -1219,15 +1616,22 @@ No matching items
                 <p>Reductions from 3-Partition</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L20.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     29 Mar, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="05 04 2023" data-listing-due-sort="05 04 2023">            
             <td class="listing-date">
                 05 Apr, 2023
@@ -1237,17 +1641,25 @@ No matching items
                 <p>Schaefer's Dichotomy Theorem • 2-colorable perfect matching</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-CS614/quizzes/L22.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     05 Apr, 2023
+                
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -1255,7 +1667,6 @@ No matching items
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div id="listing-exams-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Issued</td>
@@ -1265,6 +1676,7 @@ No matching items
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="18 02 2023" data-listing-due-sort="18 02 2023">            
             <td class="listing-date">
                 18 Feb, 2023
@@ -1274,15 +1686,22 @@ No matching items
                 <p></p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="exams/E01.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     18 Feb, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="27 03 2023" data-listing-due-sort="09 04 2023">            
             <td class="listing-date">
                 27 Mar, 2023
@@ -1292,15 +1711,22 @@ No matching items
                 <p></p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="exams/E02.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     09 Apr, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="26 04 2023" data-listing-due-sort="27 04 2023">            
             <td class="listing-date">
                 26 Apr, 2023
@@ -1310,17 +1736,25 @@ No matching items
                 <p></p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="exams/E03.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     27 Apr, 2023
+                
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -1464,18 +1898,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1507,11 +1930,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.neeldhara\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1521,8 +1981,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1534,7 +2003,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1578,6 +2169,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1603,6 +2195,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1663,6 +2281,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

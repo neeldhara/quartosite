@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - ES 242 | Aug-Nov 2022</title>
+<title>ES 242 | Aug-Nov 2022 – Neeldhara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,17 +37,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-53d508deb6da4ff595675ebf964bed0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -175,8 +182,9 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="https://analytics.neeldhara.website/api/script.js" data-site-id="a31a3a742777" defer=""></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -191,7 +199,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../css/styles.css">
 <link rel="stylesheet" href="../../../css/teaching.css">
@@ -202,130 +237,130 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../../research/overview.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/people.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/people.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/publications.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/surveys" rel="" target="">
+    <a class="dropdown-item" href="../../../research/surveys">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../../courses/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../courses/index.html">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../materials/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../materials/index.html">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../../tgif/" rel="" target="">
+    <a class="dropdown-item" href="../../../tgif/">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../bookmarks/" rel="" target="">
+    <a class="dropdown-item" href="../../../bookmarks/">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../../talks/" rel="" target="">
+    <a class="dropdown-item" href="../../../talks/">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../videos/" rel="" target="">
+    <a class="dropdown-item" href="../../../videos/">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../events/" rel="" target="">
- <span class="menu-text">Events</span></a>
+    <a class="nav-link" href="../../../events/"> 
+<span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -344,7 +379,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -352,7 +387,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="es242.-data-structures-and-algorithms-i." class="level2 column-body-outset">
 <h2 class="anchored" data-anchor-id="es242.-data-structures-and-algorithms-i.">ES242. Data Structures and Algorithms I.</h2>
@@ -531,7 +568,6 @@ Registration &amp; Logistics
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div id="listing-lectures-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Date</td>
@@ -541,400 +577,644 @@ Registration &amp; Logistics
         <td>Video</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1672684200000">            
             <td class="listing-date">
                 03 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>1. Introduction to Data Structures [W1]</strong><br>
-                <p>Data Structures - philosophy and examples • Representing games</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                1. 
+                
+                Introduction to Data Structures [W1] 
+                <br><br>
+                <p style="font-size:small;">Data Structures - philosophy and examples • Representing games</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://slides.com/neeldhara/es242-w01"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="../../../materials/dsanotes/introduction/"><span class="bi bi-journal-richtext"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1672857000000">            
             <td class="listing-date">
                 05 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>2. Stable Marriages [W1]</strong><br>
-                <p>The Stable Marriage Problem • Gale-Shapley Algorithm</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                2. 
+                
+                Stable Marriages [W1] 
+                <br><br>
+                <p style="font-size:small;">The Stable Marriage Problem • Gale-Shapley Algorithm</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://slides.com/neeldhara/es242-w01#/2/1/0"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="../../../materials/dsanotes/stable-matchings/"><span class="bi bi-journal-richtext"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1673289000000">            
             <td class="listing-date">
                 10 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>3. Representing Sequential Data [W2]</strong><br>
-                <p>Arrays • Lists • Implementing the Gale-Shapley Algorithm</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                3. 
+                
+                Representing Sequential Data [W2] 
+                <br><br>
+                <p style="font-size:small;">Arrays • Lists • Implementing the Gale-Shapley Algorithm</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://slides.com/neeldhara/es242-w02"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="../../../materials/dsanotes/sequences/"><span class="bi bi-journal-richtext"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1673461800000">            
             <td class="listing-date">
                 12 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>4. Representing Graphs [W2]</strong><br>
-                <p>Adjacency Lists • Adjacency Matrices • Edge Lists</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                4. 
+                
+                Representing Graphs [W2] 
+                <br><br>
+                <p style="font-size:small;">Adjacency Lists • Adjacency Matrices • Edge Lists</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://slides.com/neeldhara/es242-w02/#/2"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="../../../materials/dsanotes/graphs/"><span class="bi bi-journal-richtext"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1673893800000">            
             <td class="listing-date">
                 17 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>5. Dequeues [W3]</strong><br>
-                <p>The Gilbreath Shuffle • Properties of the shuffle</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                5. 
+                
+                Dequeues [W3] 
+                <br><br>
+                <p style="font-size:small;">The Gilbreath Shuffle • Properties of the shuffle</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://slides.com/neeldhara/es242-w03/"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1674066600000">            
             <td class="listing-date">
                 19 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>6. Dequeues [W3]</strong><br>
-                <p>Queues and Stacks as special cases of Dequeues</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                6. 
+                
+                Dequeues [W3] 
+                <br><br>
+                <p style="font-size:small;">Queues and Stacks as special cases of Dequeues</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://slides.com/neeldhara/es242-w03/#/1"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1674498600000">            
             <td class="listing-date">
                 24 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>7. Euler Tours [W4]</strong><br>
-                <p>Euler Tour Demonstration • The Bridges of Königsberg</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                7. 
+                
+                Euler Tours [W4] 
+                <br><br>
+                <p style="font-size:small;">Euler Tour Demonstration • The Bridges of Königsberg</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://slides.com/neeldhara/es242-w04/"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="../../../materials/dsanotes/eulertours/"><span class="bi bi-journal-richtext"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1675103400000">            
             <td class="listing-date">
                 31 Jan, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>8. Euler Tours [W5]</strong><br>
-                <p>Computing Euler Tours • Hierholzer's algorithm</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                8. 
+                
+                Euler Tours [W5] 
+                <br><br>
+                <p style="font-size:small;">Computing Euler Tours • Hierholzer's algorithm</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://slides.com/neeldhara/es242-w05"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
                     <a href="../../../materials/dsanotes/eulertours/"><span class="bi bi-journal-richtext"></span></a>
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1675276200000">            
             <td class="listing-date">
                 02 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>9. Recap Class [W5]</strong><br>
-                <p><i>Review of topics covered so far.</i></p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                9. 
+                
+                Recap Class [W5] 
+                <br><br>
+                <p style="font-size:small;"><i>Review of topics covered so far.</i></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1675881000000">            
             <td class="listing-date">
                 09 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>10. Navigating Graphs (BFS) [W6]</strong><br>
-                <p>Breadth-First Search • Correctness • Analysis of Running Time</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                10. 
+                
+                Navigating Graphs (BFS) [W6] 
+                <br><br>
+                <p style="font-size:small;">Breadth-First Search • Correctness • Analysis of Running Time</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://slides.com/neeldhara/es242-w06"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1676313000000">            
             <td class="listing-date">
                 14 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>11. BFS Applications [W7]</strong><br>
-                <p>Shortest Paths • Pseudopolynomial algorithm for weighted graphs</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                11. 
+                
+                BFS Applications [W7] 
+                <br><br>
+                <p style="font-size:small;">Shortest Paths • Pseudopolynomial algorithm for weighted graphs</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1676485800000">            
             <td class="listing-date">
                 16 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>12. <span style="color:red;">Exam [W7]</span></strong><br>
-                <p>Syllabus: representations, arrays, lists, stacks, queues, dequeues, Euler tours, stable marriages</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                12. 
+                
+                <span style="color:red;">Exam [W7]</span> 
+                <br><br>
+                <p style="font-size:small;">Syllabus: representations, arrays, lists, stacks, queues, dequeues, Euler tours, stable marriages</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1676917800000">            
             <td class="listing-date">
                 21 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>13. Navigating Graphs (DFS) - I [W8]</strong><br>
-                <p>Depth-First Search • Implementation with Stacks</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                13. 
+                
+                Navigating Graphs (DFS) - I [W8] 
+                <br><br>
+                <p style="font-size:small;">Depth-First Search • Implementation with Stacks</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://slides.com/neeldhara/es242-w08"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1677090600000">            
             <td class="listing-date">
                 23 Feb, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>14. Navigating Graphs (DFS) - II [W8]</strong><br>
-                <p>Depth-First Search • DFS-based classification of vertices • DFS-based classificaton of edges • Cycles and backedges</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                14. 
+                
+                Navigating Graphs (DFS) - II [W8] 
+                <br><br>
+                <p style="font-size:small;">Depth-First Search • DFS-based classification of vertices • DFS-based classificaton of edges • Cycles and backedges</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
                     <a href="https://slides.com/neeldhara/es242-w08#/2"><span class="bi bi-file-earmark-slides"></span></a>
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1677781800000">            
             <td class="listing-date">
                 03 Mar, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>15. BFS and DFS Applications [W9]</strong><br>
-                <p>Testing Bipartiteness • Topological Sort</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                15. 
+                
+                BFS and DFS Applications [W9] 
+                <br><br>
+                <p style="font-size:small;">Testing Bipartiteness • Topological Sort</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1678905000000">            
             <td class="listing-date">
                 16 Mar, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>16. Sorting Algorithms [W10]</strong><br>
-                <p>Examples of Sorting Algorithms • Properties of sorting algorithms</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                16. 
+                
+                Sorting Algorithms [W10] 
+                <br><br>
+                <p style="font-size:small;">Examples of Sorting Algorithms • Properties of sorting algorithms</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1679337000000">            
             <td class="listing-date">
                 21 Mar, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>17. Asymptotics [W10]</strong><br>
-                <p>Comparing Algorithms by Performance • Big-O Notation</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                17. 
+                
+                Asymptotics [W10] 
+                <br><br>
+                <p style="font-size:small;">Comparing Algorithms by Performance • Big-O Notation</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1679941800000">            
             <td class="listing-date">
                 28 Mar, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>18. Heaps [W12]</strong><br>
-                <p>Supporting only Insert and FindMin • The challenge of ExtractMin • The Heap Property • Insert • FindMin • ExtractMin</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                18. 
+                
+                Heaps [W12] 
+                <br><br>
+                <p style="font-size:small;">Supporting only Insert and FindMin • The challenge of ExtractMin • The Heap Property • Insert • FindMin • ExtractMin</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1680719400000">            
             <td class="listing-date">
                 06 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>19. Heaps [W13]</strong><br>
-                <p>Representing Heaps with Arrays • Analysis: Heapify in Linear Time</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                19. 
+                
+                Heaps [W13] 
+                <br><br>
+                <p style="font-size:small;">Representing Heaps with Arrays • Analysis: Heapify in Linear Time</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1681151400000">            
             <td class="listing-date">
                 11 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>20. Trees [W14]</strong><br>
-                <p>Rooted Trees • Inorder, Preorder, and Postorder Traversals</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                20. 
+                
+                Trees [W14] 
+                <br><br>
+                <p style="font-size:small;">Rooted Trees • Inorder, Preorder, and Postorder Traversals</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1681324200000">            
             <td class="listing-date">
                 13 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>21. Search [W14]</strong><br>
-                <p>Binary Search • Ternary Search</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                21. 
+                
+                Search [W14] 
+                <br><br>
+                <p style="font-size:small;">Binary Search • Ternary Search</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1681756200000">            
             <td class="listing-date">
                 18 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>22. Balanced Binary Search Trees [W15]</strong><br>
-                <p>Introduction to BSTs • (2,3)-Trees</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                22. 
+                
+                Balanced Binary Search Trees [W15] 
+                <br><br>
+                <p style="font-size:small;">Introduction to BSTs • (2,3)-Trees</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1681929000000">            
             <td class="listing-date">
                 20 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>23. Balanced Binary Search Trees [W15]</strong><br>
-                <p>Insertion in (2,3)-Trees • Analysis of Height</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                23. 
+                
+                Balanced Binary Search Trees [W15] 
+                <br><br>
+                <p style="font-size:small;">Insertion in (2,3)-Trees • Analysis of Height</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1682361000000">            
             <td class="listing-date">
                 25 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>24. Balanced Binary Search Trees [W16]</strong><br>
-                <p>Deletion in (2,3)-Trees</p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                24. 
+                
+                Balanced Binary Search Trees [W16] 
+                <br><br>
+                <p style="font-size:small;">Deletion in (2,3)-Trees</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1682533800000">            
             <td class="listing-date">
                 27 Apr, 2023
             </td>
-            <td class="listing-title" style="max-width: 420px !important;">
-                <strong>25. Recap [W16]</strong><br>
-                <p><i>Review of topics covered so far.</i></p>
+            <td class="listing-title-summary" style="max-width: 420px !important;">
+                25. 
+                
+                Recap [W16] 
+                <br><br>
+                <p style="font-size:small;"><i>Review of topics covered so far.</i></p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
+                    <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -942,7 +1222,6 @@ No matching items
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div id="listing-labs-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Issued</td>
@@ -952,6 +1231,7 @@ No matching items
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="06 01 2023">            
             <td class="listing-date">
                 06 Jan, 2023
@@ -961,14 +1241,20 @@ No matching items
                 <p>CountDown •  Life Goal •  Game of Trust •  Rock Papers Scissors •  Finding the Coefficient •  Validating a Self-Working Card Trick [Optional] •  Stable Marriage [Optional]</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="labs/lab-w01.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="13 01 2023">            
             <td class="listing-date">
                 13 Jan, 2023
@@ -978,14 +1264,20 @@ No matching items
                 <p>Sorting a List • Sorting a List: Challenge the Solution • Maintain a Network • Stable Matchings</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="labs/lab-w02.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="20 01 2023">            
             <td class="listing-date">
                 20 Jan, 2023
@@ -995,14 +1287,20 @@ No matching items
                 <p>Linked Lists • Parentheses • Challenge the Parentheses Solution • Print Alternate Cards</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="labs/lab-w03.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="27 01 2023">            
             <td class="listing-date">
                 27 Jan, 2023
@@ -1012,14 +1310,20 @@ No matching items
                 <p>Adjacency Matrix • Adjacency List • Edge List • Sanity Check • Which Way is the Highway? [Optional] • Edge Orientation Puzzle [Optional]</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="labs/lab-w04.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="03 02 2023">            
             <td class="listing-date">
                 03 Feb, 2023
@@ -1029,14 +1333,20 @@ No matching items
                 <p>Reviewed unsolved and practice problems.</p>
             </td>
             <td class="listing-problemset">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="10 02 2023">            
             <td class="listing-date">
                 10 Feb, 2023
@@ -1046,14 +1356,20 @@ No matching items
                 <p>BFS Implementation • Unique Servers</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="labs/lab-w06.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="17 02 2023">            
             <td class="listing-date">
                 17 Feb, 2023
@@ -1063,14 +1379,20 @@ No matching items
                 <p>Classes Suspended</p>
             </td>
             <td class="listing-problemset">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="24 02 2023">            
             <td class="listing-date">
                 24 Feb, 2023
@@ -1080,14 +1402,20 @@ No matching items
                 <p>DFS Implementation • Is it a DAG?</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="labs/lab-w08.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="28 02 2023">            
             <td class="listing-date">
                 28 Feb, 2023
@@ -1097,14 +1425,20 @@ No matching items
                 <p>BFS Implementation Recap</p>
             </td>
             <td class="listing-problemset">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="02 03 2023">            
             <td class="listing-date">
                 02 Mar, 2023
@@ -1114,14 +1448,20 @@ No matching items
                 <p>DFS Implementation Recap</p>
             </td>
             <td class="listing-problemset">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="17 03 2023">            
             <td class="listing-date">
                 17 Mar, 2023
@@ -1131,14 +1471,20 @@ No matching items
                 <p>Make It Happen • Switching Lines • Prolonged Vacation</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="labs/lab-w10.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="07 04 2023">            
             <td class="listing-date">
                 07 Apr, 2023
@@ -1148,16 +1494,23 @@ No matching items
                 <p>Heap operations (ExtractMax, Delete, Insert) • Heapify • Heapsort</p>
             </td>
             <td class="listing-problemset">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -1179,7 +1532,6 @@ Note
 </div>
 </div>
 <div id="listing-quizzes-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Issued</td>
@@ -1189,6 +1541,7 @@ Note
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="05 Jan, 2023" data-listing-due-sort="05 Jan, 2023">            
             <td class="listing-date">
                 05 Jan, 2023
@@ -1198,15 +1551,22 @@ Note
                 <p></p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-ES242/quizzes/q01.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="../../../courses/2023/01-ES242/quizzes/a01.html"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     05 Jan, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="12 Jan, 2023" data-listing-due-sort="12 Jan, 2023">            
             <td class="listing-date">
                 12 Jan, 2023
@@ -1216,15 +1576,22 @@ Note
                 <p></p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-ES242/quizzes/q02.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="../../../courses/2023/01-ES242/quizzes/a02.html"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     12 Jan, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="19 Jan, 2023" data-listing-due-sort="19 Jan, 2023">            
             <td class="listing-date">
                 19 Jan, 2023
@@ -1234,15 +1601,22 @@ Note
                 <p></p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-ES242/quizzes/q03.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="../../../courses/2023/01-ES242/quizzes/a03.html"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     19 Jan, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="24 Jan, 2023" data-listing-due-sort="24 Jan, 2023">            
             <td class="listing-date">
                 24 Jan, 2023
@@ -1252,17 +1626,25 @@ Note
                 <p></p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="../../../courses/2023/01-ES242/quizzes/q04.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="../../../courses/2023/01-ES242/quizzes/a04.html"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     24 Jan, 2023
+                
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -1270,7 +1652,6 @@ No matching items
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <div id="listing-exams-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Issued</td>
@@ -1280,6 +1661,7 @@ No matching items
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null" data-listing-dateissued-sort="16 02 2023" data-listing-due-sort="16 02 2023">            
             <td class="listing-date">
                 16 Feb, 2023
@@ -1289,49 +1671,71 @@ No matching items
                 <p>Syllabus: representations, arrays, lists, stacks, queues, dequeues, Euler tours, stable marriages</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="exams/exam01.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="exams/solutions01.html"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     16 Feb, 2023
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">            
             <td class="listing-date">
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Exam 2 (Lab)</strong><br>
                 <p>Syllabus: arrays, lists, stacks, queues, graphs, BFS/DFS</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="exams/exam02.html"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">            
             <td class="listing-date">
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>Exam 3</strong><br>
                 <p>Syllabus: BFS/DFS, heaps, sorting algorithms, tree traversals, 2,3-trees</p>
             </td>
             <td class="listing-problemset">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -1476,18 +1880,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1519,11 +1912,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.neeldhara\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1533,8 +1963,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1546,7 +1985,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1590,6 +2151,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1615,6 +2177,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1675,6 +2263,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

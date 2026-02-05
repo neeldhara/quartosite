@@ -9,7 +9,7 @@
 <link>https://www.neeldhara.com/blog.html</link>
 <atom:link href="https://www.neeldhara.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.4.551</generator>
+<generator>quarto-1.6.40</generator>
 <lastBuildDate>Thu, 09 May 2024 18:30:00 GMT</lastBuildDate>
 <item>
   <title>Creating a Gallery of Solved Crosswords</title>
@@ -241,6 +241,7 @@ font-style: inherit;">;</span></span>
 <span id="cb3-2"></span>
 <span id="cb3-3"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">const</span> assets <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> dv<span class="op" style="color: #5E5E5E;
@@ -256,6 +257,7 @@ font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">where</span>(p <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">=&gt;</span> p<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">.</span><span class="at" style="color: #657422;
@@ -279,12 +281,14 @@ font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">map</span>(page <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">=&gt;</span> {</span>
 <span id="cb3-6">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">// Replace .pdf with .png in the asset path</span></span>
 <span id="cb3-7">    <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">const</span> pngAsset <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> page<span class="op" style="color: #5E5E5E;
@@ -337,6 +341,7 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb3-9">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> {</span>
 <span id="cb3-10">      <span class="dt" style="color: #AD0000;
 background-color: null;
@@ -396,6 +401,7 @@ font-style: inherit;">;</span></span>
 <span id="cb3-17"></span>
 <span id="cb3-18"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">let</span> fullstring <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
@@ -406,6 +412,7 @@ font-style: inherit;">;</span></span>
 <span id="cb3-19"></span>
 <span id="cb3-20"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (assets<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">.</span><span class="at" style="color: #657422;
@@ -426,6 +433,7 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb3-22">} <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span> {  </span>
 <span id="cb3-23">  assets<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -435,6 +443,7 @@ font-style: inherit;">forEach</span>((item<span class="op" style="color: #5E5E5E
 background-color: null;
 font-style: inherit;">,</span> index) <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">=&gt;</span> {</span>
 <span id="cb3-24">    fullstring <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -455,6 +464,7 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb3-25">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> ((index <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
@@ -515,6 +525,7 @@ font-style: inherit;">;</span></span></code></pre></div>
 
 
 
+
 <p>if you find a thing <br> that is so that <br> <br> whoever has it<br> can’t keep it<br> <br> and <br> <br> whoever doesn’t have it<br> can always get it back<br> <br> then this a thing<br> that is to be avoided<br> in the beginning<br></p>
 <hr>
 
@@ -529,6 +540,7 @@ font-style: inherit;">;</span></span></code></pre></div>
   <title>Poetry</title>
   <link>https://www.neeldhara.com/blog/poems/poetry/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -573,6 +585,7 @@ font-style: inherit;">;</span></span></code></pre></div>
         background-color: seagreen;
     }
 </style>
+
 
 
 
@@ -672,6 +685,7 @@ font-style: inherit;">;</span></span></code></pre></div>
   <title>Intro to Crypto</title>
   <link>https://www.neeldhara.com/blog/crypto-intro/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -827,6 +841,7 @@ A first threat scenario, informally:
 
 
 
+
 <p>I am going to use this post to document 31 workflows for feeling good about day to day work at the computer, one for each day of October, hopefully! Most of this will be in the context of macOS, but hopefully the principles are adataptable to the platforms and tools of your choice.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -854,21 +869,21 @@ A first threat scenario, informally:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/2023-exportober-workflows/blue-square-emoji.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Keyboard Maestro macro group for emoji triggers</figcaption>
+<figcaption>Keyboard Maestro macro group for emoji triggers</figcaption>
 </figure>
 </div>
 <p>…but this macro group is only activated for one action at a time, and its activation is triggered by <em>another KM macro</em> - whose only job is to activate this macro group for a single action, like so:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/2023-exportober-workflows/trigger-emoji-squares.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Keyboard Maestro macro for activating emoji macro group</figcaption>
+<figcaption>Keyboard Maestro macro for activating emoji macro group</figcaption>
 </figure>
 </div>
 <p>You might notice that this trigger is also a single keypress (in this example, “U”). This entire macro group is activated for one action with the <code>Cmd+Alt+K</code> keystroke. So effectively I only remember the <code>Cmd+Alt+K</code> keystroke, which activates this collection of macros for one action:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/2023-exportober-workflows/meta-macro-group.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Meta Macros in KM</figcaption>
+<figcaption>Meta Macros in KM</figcaption>
 </figure>
 </div>
 <p>…and from here I just have to press “U” followed by “B” to get my 🟦. Just this two-level triggering gives access to potentially 500+ triggers that mneomically efficient, and potentially many more actions (for example, you could map “B” to a bunch of different emojis that share blue as the predominant color, and KM will display a pallette for you to do the final disamiguiation).</p>
@@ -893,7 +908,7 @@ A first threat scenario, informally:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/2023-exportober-workflows/alfred-file-search.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Alfred Quick File Search</figcaption>
+<figcaption>Alfred Quick File Search</figcaption>
 </figure>
 </div>
 <p>Most launchers have some kind of file search enabled, so look out for it even if you are on, say, <a href="https://www.raycast.com/">Raycast</a>, or <a href="https://www.obdev.at/launchbar">Launchbar</a>, or something else.</p>
@@ -943,7 +958,7 @@ A first threat scenario, informally:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/2023-exportober-workflows/gdoc-autosuggest-links.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Google Docs link search</figcaption>
+<figcaption>Google Docs link search</figcaption>
 </figure>
 </div>
 <p>If you want something similar while editing Markdown files, look no further than the <em><a href="https://brettterpstra.com/projects/searchlink/">Search Links</a></em> service by <a href="https://brettterpstra.com/">Brett Terpstra</a>. It basically has the same effect: my experience is that I select some text and press a shortcut to invoke Search Links, which then does its thing in the background, and then my selected text is replaced by a markdown-formatted link. The results may not be always what you are looking for (I usually try to keep the text descriptive, and potentially edit later if required), but it works most of the time, and saves me the back and forth of having to open a browser, look for the link, copy it over, paste it back and format it in a markdown-appropriate manner. Great for when you don’t want to leave your editor!</p>
@@ -979,6 +994,7 @@ A first threat scenario, informally:
   <title>Building Interactives</title>
   <link>https://www.neeldhara.com/blog/building-interactives/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1062,7 +1078,7 @@ chatGPT Prompt
 <div id="fig:001" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/building-interactives/image001.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">An interactive version of Subtraction.</figcaption>
+<figcaption>An interactive version of Subtraction.</figcaption>
 </figure>
 </div>
 <p>A natural extension to the game of subtraction is go beyond the numbers 1,2, and 3. One might then use a follow up prompt such as the one below.</p>
@@ -1233,19 +1249,19 @@ chatGPT Prompt
 <figure id="fig:003" class="figure">
 <figure class="figure">
 <img src="https://www.neeldhara.com/blog/building-interactives/image003-a.png" class="figure-img">
-<figcaption class="figure-caption">
+<figcaption>
 The initial configuration
 </figcaption>
 </figure>
 <figure class="figure">
 <img src="https://www.neeldhara.com/blog/building-interactives/image003-b.png" class="figure-img">
-<figcaption class="figure-caption">
+<figcaption>
 An example where the current cost is worse than the optimal cost.
 </figcaption>
 </figure>
 <figure class="figure">
 <img src="https://www.neeldhara.com/blog/building-interactives/image003-c.png" class="figure-img">
-<figcaption class="figure-caption">
+<figcaption>
 An example where the current and optimal costs are the same.
 </figcaption>
 </figure>
@@ -1260,13 +1276,13 @@ An example where the current and optimal costs are the same.
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/building-interactives/image005.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">A typical exercise on Khan Academy, with the exercise material and the student’s attempt on the left; and the rendering on the right. The goal is to modify the code so that the clouds drift apart.</figcaption>
+<figcaption>A typical exercise on Khan Academy, with the exercise material and the student’s attempt on the left; and the rendering on the right. The goal is to modify the code so that the clouds drift apart.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/building-interactives/image004.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Khanmigo trying to analyze the issue.</figcaption>
+<figcaption>Khanmigo trying to analyze the issue.</figcaption>
 </figure>
 </div>
 <p>While <a href="https://www.khanacademy.org/khan-labs">Khanmigo</a> is still under development a the time of this writing, this example already demonstrates the potential of a collaboration between a well-intentioned learner and a well-intentioned AI. Just as learning a language on a platform like Duolingo is an enhanced experience when we attempt talking with native speakers, so is programming language learning potentially enhanced by such transactions between the learner and someone who has the advantage of expertise.</p>
@@ -1320,6 +1336,7 @@ An example where the current and optimal costs are the same.
 
 
 
+
 <p>Here is a list of courses, books, essays, youtube playlists, and other miscellany about taking notes, with the act interpreted broadly to include things like systems for filing, organization, linking, and thinking. Please feel free to drop a line in the comments or send a PR my way if you have something to add!</p>
 <p>Thanks to <a href="https://twitter.com/abhinav">Abhinav</a> for <a href="https://twitter.com/abhinav/status/1664359012467441664?s=20">the prompt</a> :)</p>
 <p><br><br></p>
@@ -1343,7 +1360,6 @@ An example where the current and optimal costs are the same.
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td class="listing-type" style="max-width: 42px !important; text-align: center;">Type</td>
@@ -1351,10 +1367,11 @@ An example where the current and optimal costs are the same.
         <td>Resource</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
-                <strong> <i class="bi bi-book"></i>  
+                <strong> <span class="bi bi-book"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -1362,17 +1379,20 @@ An example where the current and optimal costs are the same.
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://leanpub.com/cognitiveproductivity/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://leanpub.com/cognitiveproductivity/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>1. Cognitive Productivity: Using Knowledge to Become Profoundly Effective</strong><br>
                 <p>Book by Luc P. Beaudoin. <br> Official book summary: You distinguish yourself from others not so much by what you've read, viewed or listened to, but by the lasting impact that information has had upon you. How can you use knowledge to become a more effective person? Cognitive Productivity answers this question with cognitive science and practical strategies.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
-                <strong> <i class="bi bi-book"></i>  
+                <strong> <span class="bi bi-book"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -1380,31 +1400,37 @@ An example where the current and optimal costs are the same.
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://leanpub.com/cognitive-productivity-macos"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://leanpub.com/cognitive-productivity-macos"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>2. Cognitive Productivity with macOS: 7 Principles for Getting Smarter with Knowledge</strong><br>
                 <p>Book by Luc P. Beaudoin. <br> Official book summary: In today's competitive knowledge economy, you always need to keep learning —and fast. But most information and apps get in the way. This book describes 7 principles for selecting, processing and mastering knowledge using potent Mac apps.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-map"></i>  
+                <strong> <span class="bi bi-map"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://zettelkasten.de/posts/overview/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://zettelkasten.de/posts/overview/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>3. The Introduction to the Zettelkasten Method</strong><br>
                 <p>Zettelkasten is a rather specific note-taking system (disclaimer: it is not something that I use, but I do find the principles vaguely intriguing). It relies heavily on tagging, linking, going with the flow, not overthinking, and somehow simultaneously keeps things systematic from a retrieval perspective. This overview page has a bunch of pointers that that should serve as a roadmap for the Zettelkasten for anyone inclined to find out more.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
@@ -1412,17 +1438,20 @@ An example where the current and optimal costs are the same.
                 <strong> 
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-card-text"></i>  
+                <strong> <span class="bi bi-card-text"></span>  
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://numinous.productions/ttft/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://numinous.productions/ttft/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>4. How can we develop transformative tools for thought?</strong><br>
                 <p>Essay by Andy Matuschak and Michael Nielsen <br> Arguably not about taking notes per se, but about philosophies associated with systems and — as the title suggests — tools for thought.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
@@ -1430,38 +1459,44 @@ An example where the current and optimal costs are the same.
                 <strong> 
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-card-text"></i>  
+                <strong> <span class="bi bi-card-text"></span>  
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://notes.andymatuschak.org/z4SDCZQeRo4xFEQ8H4qrSqd68ucpgE6LU155C"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://notes.andymatuschak.org/z4SDCZQeRo4xFEQ8H4qrSqd68ucpgE6LU155C"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>5. Evergreen Notes</strong><br>
                 <p>Thoughts from Andy Matuschak <br>The OG 'digital garden', if I am not mistaken!</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-journal-bookmark"></i>  
+                <strong> <span class="bi bi-journal-bookmark"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://courses.nicolevanderhoeven.com/o4e"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://courses.nicolevanderhoeven.com/o4e"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>6. Obsidian for Everyone</strong><br>
                 <p>Nicole van der Hoeven's course. <br> Nicole is a pro Obsidian user and a master expositor. This particular course is nice because it focuses on all the things you can achieve without the use of any plugins: just bare-bones Obsidian. You'd be surprised at how far you can go!</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -1470,17 +1505,20 @@ An example where the current and optimal costs are the same.
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/@nicolevdh/playlists"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/@nicolevdh/playlists"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>7. Youtube channel: Nicole van der Hoeven</strong><br>
                 <p>Excellent content for pro and starter Obsidian users alike. Very accessible and engaging, and I believe most people will find something relevant and relatable here.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
-                <strong> <i class="bi bi-book"></i>  
+                <strong> <span class="bi bi-book"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -1488,16 +1526,19 @@ An example where the current and optimal costs are the same.
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://groktiddlywiki.com/read/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://groktiddlywiki.com/read/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>08. Grok TiddlyWiki</strong><br>
+                <strong>8. Grok TiddlyWiki</strong><br>
                 <p>Grok TiddlyWiki is written and maintained by Soren Bjornstad. <br> Outstanding introduction to TiddlyWiki. Even non-TW users are likely to get some fun ideas from skimming this. And if you are a TW user, then this is one of the best journeys from starter to pro! Also check out Soren's own digital garden.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -1506,16 +1547,19 @@ An example where the current and optimal costs are the same.
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/@linkingyourthinking"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/@linkingyourthinking"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>09. Youtube channel: Linking Your Thinking (LYT)</strong><br>
+                <strong>9. Youtube channel: Linking Your Thinking (LYT)</strong><br>
                 <p>This is Nick Milo's Youtube channel. It is mostly principles around linking, but uses Obsidian as the tool of choice. Nick also organizes a LYT conference regularly that is hugely popular and not particularly restricted to Obsidian. He also has a cohort-based course around LYT principles, a great Obsidian starter playlist, and a course called Obsidian Flight School as well.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -1524,17 +1568,20 @@ An example where the current and optimal costs are the same.
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/@augustbradley"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/@augustbradley"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>10. Youtube channel: August Bradley</strong><br>
                 <p>This channel focuses on 'life design' as a broad concept, using Notion as the underlying tool of choice for organization. There is an extensive discussion of the 'PPV' system - Pillars, Pipelines, and Vaults. Lots of system thinking in here, and I think although all of it is done on Notion, several principles are tool-agnostic.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
-                <strong> <i class="bi bi-book"></i>  
+                <strong> <span class="bi bi-book"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -1542,16 +1589,19 @@ An example where the current and optimal costs are the same.
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.buildingasecondbrain.com/course"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.buildingasecondbrain.com/course"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>11. Building a Second Brain</strong><br>
                 <p>This is a cohort-based course around the notion of building a second brain by Tiago Forte. The material is centered around the 'PARA' method - Projects, Areas, Resources, Archives: a fairly intuitive system that many have found useful. Tiago has one published and one upcoming [at the time of this writing] book on these methods. His blog and Youtube channel dive fairly deep into these concepts, and I think the cohorts are useful if you are building something out and are looking for ways to stay accountable on sticking a system, or want a community/platform to brainstorm ideas.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -1560,16 +1610,19 @@ An example where the current and optimal costs are the same.
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/c/mariepoulin"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/c/mariepoulin"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>12. Youtube channel: Marie Poulin</strong><br>
                 <p>Marie is an authority when it comes to adapting Notion in creative ways for both personal and business use. She has a very comprehensive course called Notion Mastery that covers a lot of ground in terms of both techniques and principles.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -1578,16 +1631,19 @@ An example where the current and optimal costs are the same.
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/@VisualPKM"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/@VisualPKM"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>13. Youtube channel: Zsolt's Visual Personal Knowledge Management</strong><br>
                 <p>This is the Zsolt's channel, who is behind tools like Excalibrain and Excalidraw for Obsidian and beyond. The channel emphasizes visual aspects of note-taking, while some of it is focused on Excalidraw/Excalibrain, a lot of content is also about general principles, examples, and so on.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -1596,70 +1652,82 @@ An example where the current and optimal costs are the same.
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/@Thomasfrank"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/@Thomasfrank"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>14. Youtube channel: Thomas Frank</strong><br>
                 <p>This channel is another one that pushes Notion to its limits. While overall this might be more productivity/systems/management territory than note-taking, I have found some great discussions about organizational principles here.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
                 <strong> 
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-stars"></i>  
+                <strong> <span class="bi bi-stars"></span>  
                 <strong> 
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://johnnydecimal.com/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://johnnydecimal.com/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>15. Johnny Decimal</strong><br>
                 <p>This is purely about organization, but for me how notes are stored are an important piece of the puzzle. If you like folders, you might enjoy this system.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-map"></i>  
+                <strong> <span class="bi bi-map"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.reddit.com/r/PKMS/comments/nfef59/list_of_personal_knowledge_management_systems/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.reddit.com/r/PKMS/comments/nfef59/list_of_personal_knowledge_management_systems/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>16. A list of PKM tools</strong><br>
                 <p>A reddit post collecting a bunch of PKM software options, ranging from mainstream to exotic and everything in between!</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-journal-bookmark"></i>  
+                <strong> <span class="bi bi-journal-bookmark"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://thesweetsetup.com/obsidian/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://thesweetsetup.com/obsidian/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>17. To Obsidian and Beyond</strong><br>
                 <p>A course by Mike Schmitz. From the official description: A master-course for Obsidian users (new and old alike). Finally organize your notes and ideas to make creative output easy.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -1668,16 +1736,19 @@ An example where the current and optimal costs are the same.
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/c/RedGregory"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/c/RedGregory"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>18. Youtube channel: Red Gregory</strong><br>
                 <p>A Notion-based channel: I have found some of the workflows here to be advanced and intriguing in equal measure. Many principles are tool-agnostic, although the focus here is mostly on Notion.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -1686,33 +1757,40 @@ An example where the current and optimal costs are the same.
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/@DannyHatcher"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/@DannyHatcher"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>19. Youtube channel: Danny Hatcher</strong><br>
                 <p>A channel focused on PKM and organizational systems broadly. I have mostly viewed the Obsidian-related material here: several demonstrations and tutorials have been very helpful.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-journal-bookmark"></i>  
+                <strong> <span class="bi bi-journal-bookmark"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://verbaltovisual.com/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://verbaltovisual.com/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>20. Verbal to Visual</strong><br>
                 <p>Lots of resources on sketchnoting and visual approaches to note-taking.</p>
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -1734,7 +1812,8 @@ No matching items
 
 
 
-<div class="callout-tip callout callout-style-simple no-icon">
+
+<div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -1767,6 +1846,7 @@ No matching items
   <title>Letting Go</title>
   <link>https://www.neeldhara.com/blog/poems/letting-go/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1820,6 +1900,7 @@ No matching items
 
 
 
+
 <p>If you are</p>
 <ol type="a">
 <li>teaching a course at IIT Gandhinagar next term (Aug-Dec 2023),</li>
@@ -1856,11 +1937,12 @@ No matching items
 
 
 
+
 <p><a href="https://www.moritzdressler.de/en/13_Sheep">13 Sheep</a> happens to be a cute roll-and-write game designed by Moritz Dressler that involves protecting a bunch of sheep on a grid by placing small fences that have pre-defined shapes.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/13sheep/13sheep.png" class="img-fluid figure-img" width="420"></p>
-<figcaption class="figure-caption">The Roll and Write Game</figcaption>
+<figcaption>The Roll and Write Game</figcaption>
 </figure>
 </div>
 <p>The initial position of a certain number — typically 13, as the name suggests — of sheep over a 7x7 grid is given. Some grid edges are not available because there happen to be bushes: so you cannot fence them. The bushes do not protect the sheep either, the wolf can slide under them.</p>
@@ -1878,14 +1960,14 @@ No matching items
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/13sheep/finalui.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">The 13 Sheep UI</figcaption>
+<figcaption>The 13 Sheep UI</figcaption>
 </figure>
 </div>
 <p>And once you’ve finished playing you can share your accomplishment like so:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/13sheep/download.png" class="img-fluid figure-img" width="420"></p>
-<figcaption class="figure-caption">One of my completed games… where we protect five sheep, can you figure out how many rounds?</figcaption>
+<figcaption>One of my completed games… where we protect five sheep, can you figure out how many rounds?</figcaption>
 </figure>
 </div>
 <hr>
@@ -2005,42 +2087,42 @@ Fence Shapes Based on Dice Rolls
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/13sheep/1.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Dice Roll 1</figcaption>
+<figcaption>Dice Roll 1</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/13sheep/2.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Dice Roll 2</figcaption>
+<figcaption>Dice Roll 2</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/13sheep/3.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Dice Roll 3</figcaption>
+<figcaption>Dice Roll 3</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/13sheep/4.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Dice Roll 4</figcaption>
+<figcaption>Dice Roll 4</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/13sheep/5.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Dice Roll 5</figcaption>
+<figcaption>Dice Roll 5</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/13sheep/6.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Dice Roll 6</figcaption>
+<figcaption>Dice Roll 6</figcaption>
 </figure>
 </div>
 </div>
@@ -2296,6 +2378,7 @@ The Final Product
 
 
 
+
 <p>Letter-writing season is around the corner. I recently adapted <a href="https://github.com/yangjiandong/myPandoc/tree/faf94dc26487005b03baa7a2d807b20b2a7f233f/demo/letter">this pandoc workflow</a> for generating PDF letters by only editing a markdown file. I only made the following minor changes to the original:</p>
 <aside>
 For this to work you will need <a href="https://pandoc.org">pandoc</a> and a TeX distribution installed. For a full-fledged TeX distribution check out something like <a href="https://www.tug.org/mactex/">MacTeX</a> and for a minimal variation, see <a href="https://yihui.org/tinytex/">TinyTeX</a>.
@@ -2308,7 +2391,7 @@ For this to work you will need <a href="https://pandoc.org">pandoc</a> and a TeX
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/pandoc-letters/output.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Sample letter produced with the pandoc workflow</figcaption><p></p>
+<figcaption>Sample letter produced with the pandoc workflow</figcaption>
 </figure>
 </div>
 <p>The markdown is very simple to edit — most of the information is up in the YAML header, and it looks like this:</p>
@@ -2316,6 +2399,7 @@ For this to work you will need <a href="https://pandoc.org">pandoc</a> and a TeX
 background-color: null;
 font-style: inherit;">author</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> Fyodor Michailovitch Dostoevsky</span></span>
@@ -2323,6 +2407,7 @@ font-style: inherit;"> Fyodor Michailovitch Dostoevsky</span></span>
 background-color: null;
 font-style: inherit;">city</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> Moscow</span></span>
@@ -2330,14 +2415,17 @@ font-style: inherit;"> Moscow</span></span>
 background-color: null;
 font-style: inherit;">from</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">:</span></span>
 <span id="cb1-4"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">-</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> By the Vladimirkirche</span></span>
 <span id="cb1-5"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">-</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> care of Pryanischnikof, Grafengasse.</span></span>
@@ -2345,6 +2433,7 @@ font-style: inherit;"> care of Pryanischnikof, Grafengasse.</span></span>
 background-color: null;
 font-style: inherit;">affiliation1</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> Add an affiliation</span></span>
@@ -2352,6 +2441,7 @@ font-style: inherit;"> Add an affiliation</span></span>
 background-color: null;
 font-style: inherit;">affiliation2</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> Potential Additional Information</span></span>
@@ -2359,21 +2449,25 @@ font-style: inherit;"> Potential Additional Information</span></span>
 background-color: null;
 font-style: inherit;">contact</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> </span></span>
 <span id="cb1-9"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">-</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> \faPhone \ +91 79 1234 1729</span></span>
 <span id="cb1-10"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">-</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> \faGlobe \ https://www.google.com</span></span>
 <span id="cb1-11"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">-</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> \faEnvelope \ nobody@nowhere.com</span></span>
@@ -2381,19 +2475,23 @@ font-style: inherit;"> \faEnvelope \ nobody@nowhere.com</span></span>
 background-color: null;
 font-style: inherit;">to</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">:</span></span>
 <span id="cb1-13"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">-</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> Michael</span></span>
 <span id="cb1-14"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">-</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> Someplace</span></span>
 <span id="cb1-15"><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">-</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> with an address</span></span>
@@ -2401,6 +2499,7 @@ font-style: inherit;"> with an address</span></span>
 background-color: null;
 font-style: inherit;">subject</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> An Update</span></span>
@@ -2408,6 +2507,7 @@ font-style: inherit;"> An Update</span></span>
 background-color: null;
 font-style: inherit;">salutation</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> My dearest</span></span>
@@ -2415,6 +2515,7 @@ font-style: inherit;"> My dearest</span></span>
 background-color: null;
 font-style: inherit;">toname</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> brother</span></span>
@@ -2422,6 +2523,7 @@ font-style: inherit;"> brother</span></span>
 background-color: null;
 font-style: inherit;">customdate</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> 1838-8-9</span></span></code></pre></div>
@@ -2457,15 +2559,16 @@ $(op1).pdf : $(src1)
 
 
 
+
 <p>
 Don’t like the ranking? <a href=".">Try again</a>.
 </p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Methodology: adapted from <a href="https://sarielhp.org/cgi-bin/cs_ranking">here</a>.
 </div>
 </div>
@@ -2865,15 +2968,14 @@ font-style: inherit;">;</span></span></code></pre></div>
 
 
 
+
 <section id="the-leaderboard" class="level2">
 <h2 class="anchored" data-anchor-id="the-leaderboard">The Leaderboard</h2>
-
 <iframe class="airtable-embed" src="https://airtable.com/embed/shrjgp87jlNqDMCy4?backgroundColor=yellow&amp;viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;">
 </iframe>
 </section>
 <section id="the-tweets" class="level2">
 <h2 class="anchored" data-anchor-id="the-tweets">The Tweets</h2>
-
 <iframe class="airtable-embed" src="https://airtable.com/embed/shrwXyP8mGB3KH86i?backgroundColor=yellow&amp;viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;">
 </iframe>
 </section>
@@ -2905,11 +3007,12 @@ font-style: inherit;">;</span></span></code></pre></div>
 
 
 
+
 <p>This is the text of a short speech I gave at the farewell event for <a href="https://sudhirjain.info/">Prof.&nbsp;Sudhir Jain</a> as he left IITGN for BHU.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/skj/skj.jpg" class="img-fluid figure-img" style="width:87.0%"></p>
-<p></p><figcaption class="figure-caption">Prof.&nbsp;Jain at the farewell event held on the 3rd January, 2022.</figcaption><p></p>
+<figcaption>Prof.&nbsp;Jain at the farewell event held on the 3rd January, 2022.</figcaption>
 </figure>
 </div>
 <p>You can find out more about Prof.&nbsp;Jain’s own take on the cultural foundations of IIT Gandhinagar <a href="https://iitgn.ac.in/about/cultural_foundations">here</a>, where he is in conversation with <a href="https://www.linkedin.com/in/achal-mehra-13037931/">Achal Mehra</a>.</p>
@@ -2942,6 +3045,7 @@ font-style: inherit;">;</span></span></code></pre></div>
 
 
 
+
 <p>I finish seven years at IIT Gandhinagar today.</p>
 <p>This year, I also concluded my stint with the Department of External Communications, which feels about as long. Indeed, little did I know that a casual remark that I had made during my interview<sup>1</sup>, about wanting to be a writer for as long as I can remember, was carefully noted — and magically my service responsibilities would end up being related to my childhood dream. A few days after I joined, I met <a href="https://www.linkedin.com/in/achal-mehra-13037931/">Achal Mehra</a>, who introduced me to <a href="https://iitgn.ac.in/about/newsletter"><em>Connections</em></a>: a four-page newsletter that went places every quarter. In my mind, that conversation kickstarted my collaboration with what everyone fondly calls “comms”. Seven years later, I’m here to report that the journey has been fun and fulfilling in equal measure.</p>
 <p>Through this post, I’d like to introduce you to the comms team: if you have been to IITGN for an event, read about us in the press, have recieved a newsletter from us, visited our website, or followed our social media: these are the folks who work behind the scenes on these fronts. Being a part of this gang has been a huge inspiration: everyone is talented but always willing to learn; their hard work is driven by a sense of ownership; and there’s plenty of wit to help beat the heat :)</p>
@@ -2949,7 +3053,7 @@ font-style: inherit;">;</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/comms/1.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">The External Communications Team. From left to right: Hatim, Dilip, Tej, Apeksha, Dhara, Divyangi, Yours Truly, Chandni, Vandana, Shivangi, Gaurav, and Devarsh.</figcaption><p></p>
+<figcaption>The External Communications Team. From left to right: Hatim, Dilip, Tej, Apeksha, Dhara, Divyangi, Yours Truly, Chandni, Vandana, Shivangi, Gaurav, and Devarsh.</figcaption>
 </figure>
 </div>
 <section id="hatim" class="level2">
@@ -2969,14 +3073,14 @@ font-style: inherit;">;</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/comms/old.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<p></p><figcaption class="figure-caption">The old IITGN website, <a href="https://legacy.iitgn.ac.in">here</a>.</figcaption><p></p>
+<figcaption>The old IITGN website, <a href="https://legacy.iitgn.ac.in">here</a>.</figcaption>
 </figure>
 </div>
 <p>to this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/comms/new.gif" class="img-fluid figure-img" style="width:70.0%"></p>
-<p></p><figcaption class="figure-caption">The current IITGN website, <a href="https://www.iitgn.ac.in">here</a>.</figcaption><p></p>
+<figcaption>The current IITGN website, <a href="https://www.iitgn.ac.in">here</a>.</figcaption>
 </figure>
 </div>
 <p>in about a year. Despite several very well-intended warnings about how crazy this was, the team picked up the project with cautious courage, and pulled it off. I think I can say with some confidence that the IITGN website is easy on the eyes, and things are not hard to find.</p>
@@ -3005,7 +3109,7 @@ font-style: inherit;">;</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/comms/chand.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<p></p><figcaption class="figure-caption">A sample of Chandni’s photography</figcaption><p></p>
+<figcaption>A sample of Chandni’s photography</figcaption>
 </figure>
 </div>
 </section>
@@ -3065,13 +3169,14 @@ font-style: inherit;">;</span></span></code></pre></div>
 
 
 
+
 <section id="dog-bunny-a-cute-puzzle" class="level3">
 <h3 class="anchored" data-anchor-id="dog-bunny-a-cute-puzzle">Dog Bunny: A Cute Puzzle</h3>
 <p>Conrad Barski (<a href="https://twitter.com/lisperati"><span class="citation" data-cites="lisperati">@lisperati</span></a>)’s latest, <a href="http://www.dogbunnypuzzle.com/">Dog Bunny Puzzle</a>, had <a href="https://news.ycombinator.com/item?id=32884467">jumped to #1 on HN</a>. The puzzle presents the following somewhat minimalist interface:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/dogs-bunny-puzzle/puzzlescreenshot.png" class="img-fluid figure-img" style="width:77.0%"></p>
-<p></p><figcaption class="figure-caption">The Dogs Bunny Puzzle</figcaption><p></p>
+<figcaption>The Dogs Bunny Puzzle</figcaption>
 </figure>
 </div>
 <p>If you haven’t played it yet, you might want to go ahead and <a href="http://www.dogbunnypuzzle.com/">give it a shot</a> first. Most people figured out the mechanics without any explicit instructions. A couple of things that may not be immediately clear, but typically discovered quickly within a few moves:</p>
@@ -3082,12 +3187,12 @@ font-style: inherit;">;</span></span></code></pre></div>
 <li><p>It is possible to get into a dead end, a situation from where no legal moves are possible. In the verison of the game that is available at the time of this writing, the game offers no sign that you might be in this situation. This may <a href="https://twitter.com/lokshtanov/status/1571597503795167232">however change</a>.</p></li>
 </ul>
 <p>After winging it on the puzzle, several questions seemed natural:</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 What’s the smallest number of moves to win?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -3098,12 +3203,12 @@ What’s the smallest number of moves to win?
 </div>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Can you write a program to find a solution?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -3114,12 +3219,12 @@ Can you write a program to find a solution?
 </div>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Can a script generate more of these puzzles?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -3137,12 +3242,12 @@ For those paying attention, yes I am two days late :(<br><br>FYI, I also have a 
 </div>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Are there connections with other well-known puzzles?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -3153,12 +3258,12 @@ Are there connections with other well-known puzzles?
 </div>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Is the problem NP-complete?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -3174,12 +3279,12 @@ Is the problem NP-complete?
 <section id="the-reduction" class="level3">
 <h3 class="anchored" data-anchor-id="the-reduction">The Reduction</h3>
 <p>Let’s just set up the game as a computational problem just to be sure that we agree on the abstraction. In fact, we’ll be working with a simpler version that we will call <code>BunnyCarrot</code>.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 BunnyCarrot
 </div>
 </div>
@@ -3193,7 +3298,7 @@ BunnyCarrot
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/dogs-bunny-puzzle/reduction2.png" class="img-fluid figure-img" style="width:87.0%"></p>
-<p></p><figcaption class="figure-caption">A cartoon sketch of the reduced instance of BunnyCarrot from 3SAT.</figcaption><p></p>
+<figcaption>A cartoon sketch of the reduced instance of BunnyCarrot from 3SAT.</figcaption>
 </figure>
 </div>
 <p>What we have here is the following in terms of the structure of graph:</p>
@@ -3247,7 +3352,7 @@ BunnyCarrot
 <section id="food-for-thought" class="level3">
 <h3 class="anchored" data-anchor-id="food-for-thought">Food for thought</h3>
 <p>Here are some more questions :)</p>
-<div class="callout-important callout callout-style-simple no-icon">
+<div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -3281,6 +3386,7 @@ BunnyCarrot
 
 
 
+
 <!--
 :::{.callout-note appearance="simple" icon="false"}
 These are some parts of the teaching statment that I wrote roughly seven years ago, updated slightly in the interest of clarity and additional context.
@@ -3292,8 +3398,8 @@ These are some parts of the teaching statment that I wrote roughly seven years a
 <p>I’ll pose some how/what/why questions in the context of teaching.</p>
 <section id="how" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="how">How</h2>
-<div class="page-columns page-full"><p>The last couple of decades, especially the last few years, have seen dramatic changes in how information is communicated. A lot of learning happens in online communities, for instance, question-and-answer websites like Quora and StackExchange. Thanks to folks who invest time on these platforms, expert help seems to be nearer than ever before. Specialized and snark-free communities on Discord/Slack/Telegram are enabling peer-to-peer learning at global scale. </p><div class="no-row-height column-margin column-container"><span class="">I keep hearing that Quora is not what it used to be, but as long as <a href="https://www.quora.com/profile/Thomas-Cormen-1/">Thomas Cormen</a> is an active user, I am positive it remains a valuable resource.</span></div></div>
-<div class="page-columns page-full"><p>Books are beginning to be injected with exciting new technology: <a href="https://codemirror.net/index.html">CodeMirror</a> makes code interactive and runnable, while tools like <a href="https://pythontutor.com/">PythonTutor</a> can help with visualizing what happens behind-the-scenes when code is executed. <a href="https://github.com/denysdovhan/wtfjs">Say</a> <a href="https://www.destroyallsoftware.com/talks/wat">what</a> <a href="https://wtfjs.com/">you</a> <a href="https://martin-thoma.com/javascript-wtf/">want</a> about JavaScript, but the interactivity that it brings to the written medium has helped make reading less passive. Some of my favorite interactive texts include <a href="https://seeing-theory.brown.edu/">Seeing Theory</a>, <a href="http://probmods.org/">Probabilistic Models of Cognition</a>, courses on <a href="https://brilliant.org/">Brilliant</a>, <a href="https://mathigon.org/">Mathigon</a>, and essays from <a href="https://ncase.me/">Nicky Case</a>, <a href="https://minutelabs.io/">Minute Labs</a>, and others on <a href="https://explorabl.es/">Explorables</a>.</p><div class="no-row-height column-margin column-container"><span class="">The name “PythonTutor” is slightly misleading, since the website also lets you visualize code snippets written in C, C++, Java, and JavaScript.</span></div></div>
+<div class="page-columns page-full"><p>The last couple of decades, especially the last few years, have seen dramatic changes in how information is communicated. A lot of learning happens in online communities, for instance, question-and-answer websites like Quora and StackExchange. Thanks to folks who invest time on these platforms, expert help seems to be nearer than ever before. Specialized and snark-free communities on Discord/Slack/Telegram are enabling peer-to-peer learning at global scale. </p><div class="no-row-height column-margin column-container"><span class="margin-aside">I keep hearing that Quora is not what it used to be, but as long as <a href="https://www.quora.com/profile/Thomas-Cormen-1/">Thomas Cormen</a> is an active user, I am positive it remains a valuable resource.</span></div></div>
+<div class="page-columns page-full"><p>Books are beginning to be injected with exciting new technology: <a href="https://codemirror.net/index.html">CodeMirror</a> makes code interactive and runnable, while tools like <a href="https://pythontutor.com/">PythonTutor</a> can help with visualizing what happens behind-the-scenes when code is executed. <a href="https://github.com/denysdovhan/wtfjs">Say</a> <a href="https://www.destroyallsoftware.com/talks/wat">what</a> <a href="https://wtfjs.com/">you</a> <a href="https://martin-thoma.com/javascript-wtf/">want</a> about JavaScript, but the interactivity that it brings to the written medium has helped make reading less passive. Some of my favorite interactive texts include <a href="https://seeing-theory.brown.edu/">Seeing Theory</a>, <a href="http://probmods.org/">Probabilistic Models of Cognition</a>, courses on <a href="https://brilliant.org/">Brilliant</a>, <a href="https://mathigon.org/">Mathigon</a>, and essays from <a href="https://ncase.me/">Nicky Case</a>, <a href="https://minutelabs.io/">Minute Labs</a>, and others on <a href="https://explorabl.es/">Explorables</a>.</p><div class="no-row-height column-margin column-container"><span class="margin-aside">The name “PythonTutor” is slightly misleading, since the website also lets you visualize code snippets written in C, C++, Java, and JavaScript.</span></div></div>
 <div class="columns">
 <div class="column" style="width:45%;">
 <p>And finally there are the online courses. At the time of this writing, it has been just a little over two decades since <a href="https://en.wikipedia.org/wiki/MIT_OpenCourseWare">MIT’s Open Course Ware</a> opened to the public. The early hype around MOOCs roughly coincided with my years in college and graduate school. As far as I remember, it was quite the thrill to have free-flowing access to online lectures — “taught by the best” — for several of the courses I was supposed to be doing as a part of my curriculum.</p>
@@ -3304,7 +3410,7 @@ These are some parts of the teaching statment that I wrote roughly seven years a
 </div>
 </div>
 <p>All this is to say that I walked into a career involving a substantial teaching component with plenty of hesitation. The delivery was/is still largely confined to classroom settings in broadcast mode. It is not entirely clear what this format has to offer over YouTube. Basic interactivity is being increasingly solved with questions built into video players. Peer learning is quite doable with WhatsApp/Slack/Discord groups and local chapter meetups. Scale in the context of assessments is somewhat addressed by peer evaluation. And then there are all the things you can do on YouTube that you can’t do with traditional lectures: find a teacher whose style resonates, find an accent you understand, replay, play at 2x, 0.5x, binge watch, don’t watch…</p>
-<div class="page-columns page-full"><p>So: what’s the incentive for <em>anyone</em> to show up in a classroom at a fixed time, especially when said time is 8AM? This question became particularly relevant during the pandemic years: once the novelty wore off, almost nobody† showed up to lectures. If I was a student, I’d likely do the same. This remains largely an open problem in my mind, but here are some pointers that have kept me motivated about the conventional format. </p><div class="no-row-height column-margin column-container"><span class="">† Shout out to those of you accounting for the “almost”, thank you!</span></div></div>
+<div class="page-columns page-full"><p>So: what’s the incentive for <em>anyone</em> to show up in a classroom at a fixed time, especially when said time is 8AM? This question became particularly relevant during the pandemic years: once the novelty wore off, almost nobody† showed up to lectures. If I was a student, I’d likely do the same. This remains largely an open problem in my mind, but here are some pointers that have kept me motivated about the conventional format. </p><div class="no-row-height column-margin column-container"><span class="margin-aside">† Shout out to those of you accounting for the “almost”, thank you!</span></div></div>
 <ol type="1">
 <li>Classroom = theatre. I am increasingly treating it as a ground for practicing standup and <a href="https://twitter.com/neeldhara/status/1542606730701307904?ref_src=twsrc%5Etfw">magic</a> skills. I should admit that this isn’t easy for a clinically shy person like myself, but I got used to making a fool of myself fast — that’s served well. I imagine that some of the fun that comes out performance-first lectures is hard to recreate with recordings and notes.</li>
 </ol>
@@ -3348,7 +3454,7 @@ I am going to attend college lectures from now on just to increase my attention 
 </div></div><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/on-teaching/calvin-21stcentury.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Calvin on 21st Century Education</figcaption><p></p>
+<figcaption>Calvin on 21st Century Education</figcaption>
 </figure>
 </div>
 </section>
@@ -3360,7 +3466,7 @@ I am going to attend college lectures from now on just to increase my attention 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.explainxkcd.com/wiki/images/7/79/obsolete_technology.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Cutting Edge</figcaption><p></p>
+<figcaption>Cutting Edge</figcaption>
 </figure>
 </div>
 </div></div><p>How much theory <a href="https://cstheory.stackexchange.com/questions/8761/what-can-i-do-to-supplement-my-theoretical-undergraduate-cs-curriculum-so-that-i">is needed</a> for competence in practice? How crucial is it to develop competencies that don’t have an immediately visible ROI? How frequently do we <a href="https://twitter.com/ramgopal_rao/status/1566428352398774272">rewrite the textbooks</a> based on developments in industry?</p>
@@ -3380,7 +3486,7 @@ I am going to attend college lectures from now on just to increase my attention 
 </div></div><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://phdcomics.com/comics/archive/phd062613s.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">On hope in teaching.</figcaption><p></p>
+<figcaption>On hope in teaching.</figcaption>
 </figure>
 </div>
 <p>I am just not sure if we create enough of a net positive in a traditional classroom setup from a ROI perspective. Given the few good things that the internet has brought us, perhaps it is time to think beyond classrooms and focusing on making existing resources more accessible to everyone who’s interested.</p>

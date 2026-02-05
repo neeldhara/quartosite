@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - Bookmarks</title>
+<title>Bookmarks – Neeldhara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-53d508deb6da4ff595675ebf964bed0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -48,7 +48,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -72,10 +79,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-url','listing-categories','listing-info','listing-status','listing-duration',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
+      valueNames: ['listing-title','listing-url','listing-categories','listing-info','listing-status','listing-duration',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       page: 25,
     pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-title","listing-url","listing-categories","listing-duration","listing-path","listing-outputHref","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-info","listing-status"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-title","listing-url","listing-categories","listing-duration","listing-path","listing-outputHref","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-info","listing-status"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -93,8 +100,9 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="https://analytics.neeldhara.website/api/script.js" data-site-id="a31a3a742777" defer=""></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -109,7 +117,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../css/bookmarks.css">
@@ -119,130 +154,130 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../research/overview.html" rel="" target="">
+    <a class="dropdown-item" href="../research/overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../research/people.html" rel="" target="">
+    <a class="dropdown-item" href="../research/people.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../research/publications.html" rel="" target="">
+    <a class="dropdown-item" href="../research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../research/surveys" rel="" target="">
+    <a class="dropdown-item" href="../research/surveys">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../courses/index.html" rel="" target="">
+    <a class="dropdown-item" href="../courses/index.html">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/index.html" rel="" target="">
+    <a class="dropdown-item" href="../materials/index.html">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../tgif/" rel="" target="">
+    <a class="dropdown-item" href="../tgif/">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../bookmarks/" rel="" target="">
+    <a class="dropdown-item" href="../bookmarks/">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../talks/" rel="" target="">
+    <a class="dropdown-item" href="../talks/">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../videos/" rel="" target="">
+    <a class="dropdown-item" href="../videos/">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../events/" rel="" target="">
- <span class="menu-text">Events</span></a>
+    <a class="nav-link" href="../events/"> 
+<span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -261,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -269,7 +304,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="bookmarks" class="level1 column-body-outset">
 <h1>Bookmarks</h1>
@@ -315,10 +352,13 @@ Legend for Types (click to view)
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[46,14,40]]">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 46.0%;justify-content: center;">
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Symbol</th>
@@ -353,11 +393,11 @@ Legend for Types (click to view)
 </tbody>
 </table>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 14.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 14.0%;justify-content: flex-start;">
 
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Symbol</th>
@@ -404,338 +444,340 @@ Legend for Types (click to view)
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table" data-quarto-postprocess="true">
+<table class="quarto-listing-table table caption-top" data-quarto-postprocess="true">
 <tbody class="list">
-<tr class="odd" data-index="0" data-categories="youtube,math,scicomm" data-listing-file-modified-sort="1668596015050" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="3Blue1Brown, by Grant Sanderson, is some combination of math and entertainment, depending on your disposition. The goal is for explanations to be driven by animations and for difficult problems to be made simple with changes in perspective."> <a href="https://www.youtube.com/c/3blue1brown"><em></em></a> </span> <span class="listing-info" style="display:none;">3Blue1Brown, by Grant Sanderson, is some combination of math and entertainment, depending on your disposition. The goal is for explanations to be driven by animations and for difficult problems to be made simple with changes in perspective.</span></td>
+<tr class="odd" data-index="0" data-categories="eW91dHViZSUyQ21hdGglMkNzY2ljb21t" data-listing-file-modified-sort="1770263128561" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="3Blue1Brown, by Grant Sanderson, is some combination of math and entertainment, depending on your disposition. The goal is for explanations to be driven by animations and for difficult problems to be made simple with changes in perspective."> <a href="https://www.youtube.com/c/3blue1brown"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">3Blue1Brown, by Grant Sanderson, is some combination of math and entertainment, depending on your disposition. The goal is for explanations to be driven by animations and for difficult problems to be made simple with changes in perspective.</span></td>
 <td class="listing-title">3blue1brown</td>
-<td><em></em></td>
+<td><span class="bi bi-youtube"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">youtube</span> <span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="1" data-categories="computerscience,book" data-listing-file-modified-sort="1668617196120" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="The parsed status is a little tongue-in-cheek; I have not read the book cover to cover, but it is what I use for all my algorithms teaching, so I hope that counts! Absolute favorite ❤️"> <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/"><em></em></a> </span> <span class="listing-info" style="display:none;">The parsed status is a little tongue-in-cheek; I have not read the book cover to cover, but it is what I use for all my algorithms teaching, so I hope that counts! Absolute favorite ❤️</span></td>
+<tr class="even" data-index="1" data-categories="Y29tcHV0ZXJzY2llbmNlJTJDYm9vaw==" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="The parsed status is a little tongue-in-cheek; I have not read the book cover to cover, but it is what I use for all my algorithms teaching, so I hope that counts! Absolute favorite ❤️"> <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">The parsed status is a little tongue-in-cheek; I have not read the book cover to cover, but it is what I use for all my algorithms teaching, so I hope that counts! Absolute favorite ❤️</span></td>
 <td class="listing-title">Algorithms by Jeff Erickson</td>
-<td><em></em></td>
+<td><span class="bi bi-book"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">computerscience</span> <span class="badge badge-danger" style="background-color: darkcyan;">book</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="2" data-categories="advice,article,academics" data-listing-file-modified-sort="1668613888278" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Valuable advice for apsiring academics by Shashank Srikant."> <a href="https://shashank-srikant.github.io/notes/aspiring-academics/"><em></em></a> </span> <span class="listing-info" style="display:none;">Valuable advice for apsiring academics by Shashank Srikant.</span></td>
+<tr class="odd" data-index="2" data-categories="YWR2aWNlJTJDYXJ0aWNsZSUyQ2FjYWRlbWljcw==" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Valuable advice for apsiring academics by Shashank Srikant."> <a href="https://shashank-srikant.github.io/notes/aspiring-academics/"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Valuable advice for apsiring academics by Shashank Srikant.</span></td>
 <td class="listing-title">Aspiring Academics</td>
-<td><em></em></td>
+<td><span class="bi bi-file"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">advice</span> <span class="badge badge-danger" style="background-color: darkcyan;">article</span> <span class="badge badge-danger" style="background-color: darkcyan;">academics</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">moderate</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-clock-history"></span> <span style="display:none;">moderate</span></td>
 </tr>
-<tr class="even" data-index="3" data-categories="youtube,scicomm" data-listing-file-modified-sort="1668596015050" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Subscribe to see tutorial-style videos about electronics, computer architecture, networking, and various other technical subjects."> <a href="https://www.youtube.com/user/eaterbc"><em></em></a> </span> <span class="listing-info" style="display:none;">Subscribe to see tutorial-style videos about electronics, computer architecture, networking, and various other technical subjects.</span></td>
+<tr class="even" data-index="3" data-categories="eW91dHViZSUyQ3NjaWNvbW0=" data-listing-file-modified-sort="1770263128561" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Subscribe to see tutorial-style videos about electronics, computer architecture, networking, and various other technical subjects."> <a href="https://www.youtube.com/user/eaterbc"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Subscribe to see tutorial-style videos about electronics, computer architecture, networking, and various other technical subjects.</span></td>
 <td class="listing-title">Ben Eater</td>
-<td><em></em></td>
+<td><span class="bi bi-youtube"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">youtube</span> <span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="4" data-categories="list,computerscience" data-listing-file-modified-sort="1668628114141" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A regular series of seminars held via video meetings, open to anyone,  and targeted to the interests of attendees of the COMSOC workshop series."> <a href="https://www.comsocseminar.org"><em></em></a> </span> <span class="listing-info" style="display:none;">A regular series of seminars held via video meetings, open to anyone, and targeted to the interests of attendees of the COMSOC workshop series.</span></td>
+<tr class="odd" data-index="4" data-categories="bGlzdCUyQ2NvbXB1dGVyc2NpZW5jZQ==" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A regular series of seminars held via video meetings, open to anyone,  and targeted to the interests of attendees of the COMSOC workshop series."> <a href="https://www.comsocseminar.org"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">A regular series of seminars held via video meetings, open to anyone, and targeted to the interests of attendees of the COMSOC workshop series.</span></td>
 <td class="listing-title">COMSOC Video Seminar</td>
-<td><em></em></td>
+<td><span class="bi bi-list-stars"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">list</span> <span class="badge badge-danger" style="background-color: darkcyan;">computerscience</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="5" data-categories="scicomm,computerscience,list" data-listing-file-modified-sort="1668750415505" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="CS Unplugged is a collection of free teaching material that teaches Computer Science through engaging games and puzzles that use cards, string, crayons and lots of running around."> <a href="http://csunplugged.org"><em></em></a> </span> <span class="listing-info" style="display:none;">CS Unplugged is a collection of free teaching material that teaches Computer Science through engaging games and puzzles that use cards, string, crayons and lots of running around.</span></td>
+<tr class="even" data-index="5" data-categories="c2NpY29tbSUyQ2NvbXB1dGVyc2NpZW5jZSUyQ2xpc3Q=" data-listing-file-modified-sort="1770263128564" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="CS Unplugged is a collection of free teaching material that teaches Computer Science through engaging games and puzzles that use cards, string, crayons and lots of running around."> <a href="http://csunplugged.org"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">CS Unplugged is a collection of free teaching material that teaches Computer Science through engaging games and puzzles that use cards, string, crayons and lots of running around.</span></td>
 <td class="listing-title">CS Unplugged</td>
-<td><em></em></td>
+<td><span class="bi bi-list-stars"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span> <span class="badge badge-danger" style="background-color: darkcyan;">computerscience</span> <span class="badge badge-danger" style="background-color: darkcyan;">list</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="6" data-categories="youtube,classroom,scicomm" data-listing-file-modified-sort="1668595930781" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Led by Manish Jain at IIT Gandhinagar. STEM videos predominantly in Hindi and English."> <a href="https://www.youtube.com/@CCL_IITGN"><em></em></a> </span> <span class="listing-info" style="display:none;">Led by Manish Jain at IIT Gandhinagar. STEM videos predominantly in Hindi and English.</span></td>
+<tr class="odd" data-index="6" data-categories="eW91dHViZSUyQ2NsYXNzcm9vbSUyQ3NjaWNvbW0=" data-listing-file-modified-sort="1770263128562" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Led by Manish Jain at IIT Gandhinagar. STEM videos predominantly in Hindi and English."> <a href="https://www.youtube.com/@CCL_IITGN"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Led by Manish Jain at IIT Gandhinagar. STEM videos predominantly in Hindi and English.</span></td>
 <td class="listing-title">Center for Creative Learning</td>
-<td><em></em></td>
+<td><span class="bi bi-youtube"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">youtube</span> <span class="badge badge-danger" style="background-color: darkcyan;">classroom</span> <span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="7" data-categories="scicomm,math,book" data-listing-file-modified-sort="1668750262700" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="The next book from Ben Orlin, the popular math blogger and author of the underground bestseller Math With Bad Drawings.Change Is The Only Constant is an engaging and eloquent exploration of the intersection between calculus and daily life, complete with Orlin's sly humor and wonderfully bad drawings."> <a href="https://www.amazon.in/gp/product/B07PRHKN1X/ref=dbs_a_def_rwt_bibl_vppi_i1"><em></em></a> </span> <span class="listing-info" style="display:none;">The next book from Ben Orlin, the popular math blogger and author of the underground bestseller Math With Bad Drawings.Change Is The Only Constant is an engaging and eloquent exploration of the intersection between calculus and daily life, complete with Orlin's sly humor and wonderfully bad drawings.</span></td>
+<tr class="even" data-index="7" data-categories="c2NpY29tbSUyQ21hdGglMkNib29r" data-listing-file-modified-sort="1770263128564" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="The next book from Ben Orlin, the popular math blogger and author of the underground bestseller Math With Bad Drawings.Change Is The Only Constant is an engaging and eloquent exploration of the intersection between calculus and daily life, complete with Orlin's sly humor and wonderfully bad drawings."> <a href="https://www.amazon.in/gp/product/B07PRHKN1X/ref=dbs_a_def_rwt_bibl_vppi_i1"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">The next book from Ben Orlin, the popular math blogger and author of the underground bestseller Math With Bad Drawings.Change Is The Only Constant is an engaging and eloquent exploration of the intersection between calculus and daily life, complete with Orlin's sly humor and wonderfully bad drawings.</span></td>
 <td class="listing-title">Change Is the Only Constant</td>
-<td><em></em></td>
+<td><span class="bi bi-book"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span> <span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">book</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="8" data-categories="scicomm,video,computerscience" data-listing-file-modified-sort="1668617881753" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A ridiculous (and fun!) way to solve Rubik’s cubes and (not) solve equations. Recording of a talk given by Ramprasad Saptharishi."> <a href="https://www.youtube.com/watch?v=O5eH3x3sTNA"><em></em></a> </span> <span class="listing-info" style="display:none;">A ridiculous (and fun!) way to solve Rubik’s cubes and (not) solve equations. Recording of a talk given by Ramprasad Saptharishi.</span></td>
+<tr class="odd" data-index="8" data-categories="c2NpY29tbSUyQ3ZpZGVvJTJDY29tcHV0ZXJzY2llbmNl" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A ridiculous (and fun!) way to solve Rubik’s cubes and (not) solve equations. Recording of a talk given by Ramprasad Saptharishi."> <a href="https://www.youtube.com/watch?v=O5eH3x3sTNA"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">A ridiculous (and fun!) way to solve Rubik’s cubes and (not) solve equations. Recording of a talk given by Ramprasad Saptharishi.</span></td>
 <td class="listing-title">Commutators</td>
-<td><em></em></td>
+<td><span class="bi bi-camera-reels"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span> <span class="badge badge-danger" style="background-color: darkcyan;">video</span> <span class="badge badge-danger" style="background-color: darkcyan;">computerscience</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">moderate</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-clock-history"></span> <span style="display:none;">moderate</span></td>
 </tr>
-<tr class="even" data-index="9" data-categories="opinions,essays,list" data-listing-file-modified-sort="1668613888278" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Opinions of Doron Zeilberger"> <a href="https://sites.math.rutgers.edu/~zeilberg/OPINIONS.html"><em></em></a> </span> <span class="listing-info" style="display:none;">Opinions of Doron Zeilberger</span></td>
+<tr class="even" data-index="9" data-categories="b3BpbmlvbnMlMkNlc3NheXMlMkNsaXN0" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Opinions of Doron Zeilberger"> <a href="https://sites.math.rutgers.edu/~zeilberg/OPINIONS.html"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Opinions of Doron Zeilberger</span></td>
 <td class="listing-title">Dr. Z's Opinions</td>
-<td><em></em></td>
+<td><span class="bi bi-list-stars"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">opinions</span> <span class="badge badge-danger" style="background-color: darkcyan;">essays</span> <span class="badge badge-danger" style="background-color: darkcyan;">list</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="10" data-categories="opinions,essays,list" data-listing-file-modified-sort="1668613888287" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="These essays have been a heavy early influence on how think about a lot of things."> <a href="https://www.wisdom.weizmann.ac.il/~oded/essays.html"><em></em></a> </span> <span class="listing-info" style="display:none;">These essays have been a heavy early influence on how think about a lot of things.</span></td>
+<tr class="odd" data-index="10" data-categories="b3BpbmlvbnMlMkNlc3NheXMlMkNsaXN0" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="These essays have been a heavy early influence on how think about a lot of things."> <a href="https://www.wisdom.weizmann.ac.il/~oded/essays.html"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">These essays have been a heavy early influence on how think about a lot of things.</span></td>
 <td class="listing-title">Essays and Opinions by Oded Goldreich</td>
-<td><em></em></td>
+<td><span class="bi bi-list-stars"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">opinions</span> <span class="badge badge-danger" style="background-color: darkcyan;">essays</span> <span class="badge badge-danger" style="background-color: darkcyan;">list</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="11" data-categories="list,essays,academia" data-listing-file-modified-sort="1668613888278" data-listing-reading-time-sort="1">
-<td><a href="https://matt.might.net/articles/"><em></em></a> <span class="listing-info" style="display:none;"></span></td>
+<tr class="even" data-index="11" data-categories="bGlzdCUyQ2Vzc2F5cyUyQ2FjYWRlbWlh" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><a href="https://matt.might.net/articles/"><span class="bi bi-link-45deg"></span></a> <span class="listing-info" style="display:none;"></span></td>
 <td class="listing-title">Essays by Matt Might</td>
-<td><em></em></td>
+<td><span class="bi bi-list-stars"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">list</span> <span class="badge badge-danger" style="background-color: darkcyan;">essays</span> <span class="badge badge-danger" style="background-color: darkcyan;">academia</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="12" data-categories="math,tweet,classroom" data-listing-file-modified-sort="1668617196144" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="For your discrete math class."> <a href="https://twitter.com/RobertTalbert/status/1585943461240664064"><em></em></a> </span> <span class="listing-info" style="display:none;">For your discrete math class.</span></td>
+<tr class="odd" data-index="12" data-categories="bWF0aCUyQ3R3ZWV0JTJDY2xhc3Nyb29t" data-listing-file-modified-sort="1770263128560" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="For your discrete math class."> <a href="https://twitter.com/RobertTalbert/status/1585943461240664064"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">For your discrete math class.</span></td>
 <td class="listing-title">Flawed proof example</td>
-<td><em></em></td>
+<td><span class="bi bi-twitter"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">tweet</span> <span class="badge badge-danger" style="background-color: darkcyan;">classroom</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">parsed</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">short</span></td>
+<td class="listing-status"><span class="bi bi-check-circle-fill"></span> <span style="display:none;">parsed</span></td>
+<td class="listing-duration"><span class="bi bi-star-fill"></span> <span style="display:none;">short</span></td>
 </tr>
-<tr class="even" data-index="13" data-categories="list,computerscience" data-listing-file-modified-sort="1668628041597" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Virtual lecture series in recent developments in parameterized complexity."> <a href="https://frontpc.blogspot.com"><em></em></a> </span> <span class="listing-info" style="display:none;">Virtual lecture series in recent developments in parameterized complexity.</span></td>
+<tr class="even" data-index="13" data-categories="bGlzdCUyQ2NvbXB1dGVyc2NpZW5jZQ==" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Virtual lecture series in recent developments in parameterized complexity."> <a href="https://frontpc.blogspot.com"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Virtual lecture series in recent developments in parameterized complexity.</span></td>
 <td class="listing-title">Frontiers of Parameterized Complexity</td>
-<td><em></em></td>
+<td><span class="bi bi-list-stars"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">list</span> <span class="badge badge-danger" style="background-color: darkcyan;">computerscience</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="14" data-categories="list,computerscience" data-listing-file-modified-sort="1668607926189" data-listing-reading-time-sort="1">
-<td><a href="https://dblp.uni-trier.de/db/journals/cacm/turing.html"><em></em></a> <span class="listing-info" style="display:none;"></span></td>
+<tr class="odd" data-index="14" data-categories="bGlzdCUyQ2NvbXB1dGVyc2NpZW5jZQ==" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><a href="https://dblp.uni-trier.de/db/journals/cacm/turing.html"><span class="bi bi-link-45deg"></span></a> <span class="listing-info" style="display:none;"></span></td>
 <td class="listing-title">List of ACM Turing Award Lectures</td>
-<td><em></em></td>
+<td><span class="bi bi-list-stars"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">list</span> <span class="badge badge-danger" style="background-color: darkcyan;">computerscience</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="15" data-categories="youtube,scicomm" data-listing-file-modified-sort="1668596015050" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Looking Glass Universe is a channel mostly about the strange world of quantum mechanics. It's created by Mithuna Yoganathan, who did her PhD in quantum computing at the University of Cambridge."> <a href="https://www.youtube.com/user/LookingGlassUniverse"><em></em></a> </span> <span class="listing-info" style="display:none;">Looking Glass Universe is a channel mostly about the strange world of quantum mechanics. It's created by Mithuna Yoganathan, who did her PhD in quantum computing at the University of Cambridge.</span></td>
+<tr class="even" data-index="15" data-categories="eW91dHViZSUyQ3NjaWNvbW0=" data-listing-file-modified-sort="1770263128562" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Looking Glass Universe is a channel mostly about the strange world of quantum mechanics. It's created by Mithuna Yoganathan, who did her PhD in quantum computing at the University of Cambridge."> <a href="https://www.youtube.com/user/LookingGlassUniverse"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Looking Glass Universe is a channel mostly about the strange world of quantum mechanics. It's created by Mithuna Yoganathan, who did her PhD in quantum computing at the University of Cambridge.</span></td>
 <td class="listing-title">Looking Glass Universe</td>
-<td><em></em></td>
+<td><span class="bi bi-youtube"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">youtube</span> <span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="16" data-categories="survey,article,computerscience" data-listing-file-modified-sort="1668624761212" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A live survey of known lower bounds in arithmetic circuits by Ramprasad Saptharishi"> <a href="https://github.com/dasarpmar/lowerbounds-survey"><em></em></a> </span> <span class="listing-info" style="display:none;">A live survey of known lower bounds in arithmetic circuits by Ramprasad Saptharishi</span></td>
+<tr class="odd" data-index="16" data-categories="c3VydmV5JTJDYXJ0aWNsZSUyQ2NvbXB1dGVyc2NpZW5jZQ==" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A live survey of known lower bounds in arithmetic circuits by Ramprasad Saptharishi"> <a href="https://github.com/dasarpmar/lowerbounds-survey"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">A live survey of known lower bounds in arithmetic circuits by Ramprasad Saptharishi</span></td>
 <td class="listing-title">Lowerbounds Survey</td>
-<td><em></em></td>
+<td><span class="bi bi-file"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">survey</span> <span class="badge badge-danger" style="background-color: darkcyan;">article</span> <span class="badge badge-danger" style="background-color: darkcyan;">computerscience</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="17" data-categories="scicomm,math,book" data-listing-file-modified-sort="1668750347908" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Bestselling author and worst-drawing artist Ben Orlin expands his oeuvre with this interactive collection of mathematical games. With 70-plus games, each taking a minute to learn and a lifetime to master, this treasure trove will delight, educate, and entertain."> <a href="https://www.amazon.in/gp/product/B09BQPXYFV/ref=dbs_a_def_rwt_bibl_vppi_i2"><em></em></a> </span> <span class="listing-info" style="display:none;">Bestselling author and worst-drawing artist Ben Orlin expands his oeuvre with this interactive collection of mathematical games. With 70-plus games, each taking a minute to learn and a lifetime to master, this treasure trove will delight, educate, and entertain.</span></td>
+<tr class="even" data-index="17" data-categories="c2NpY29tbSUyQ21hdGglMkNib29r" data-listing-file-modified-sort="1770263128564" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Bestselling author and worst-drawing artist Ben Orlin expands his oeuvre with this interactive collection of mathematical games. With 70-plus games, each taking a minute to learn and a lifetime to master, this treasure trove will delight, educate, and entertain."> <a href="https://www.amazon.in/gp/product/B09BQPXYFV/ref=dbs_a_def_rwt_bibl_vppi_i2"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Bestselling author and worst-drawing artist Ben Orlin expands his oeuvre with this interactive collection of mathematical games. With 70-plus games, each taking a minute to learn and a lifetime to master, this treasure trove will delight, educate, and entertain.</span></td>
 <td class="listing-title">Math Games with Bad Drawings</td>
-<td><em></em></td>
+<td><span class="bi bi-book"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span> <span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">book</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="18" data-categories="scicomm,math,book" data-listing-file-modified-sort="1668750366981" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A hilarious reeducation in mathematics-full of joy, jokes, and stick figures-that sheds light on the countless practical and wonderful ways that math structures and shapes our world. By Ben Orlin."> <a href="https://www.amazon.in/Math-Bad-Drawings-Illuminating-Reality/dp/0316509035"><em></em></a> </span> <span class="listing-info" style="display:none;">A hilarious reeducation in mathematics-full of joy, jokes, and stick figures-that sheds light on the countless practical and wonderful ways that math structures and shapes our world. By Ben Orlin.</span></td>
+<tr class="odd" data-index="18" data-categories="c2NpY29tbSUyQ21hdGglMkNib29r" data-listing-file-modified-sort="1770263128564" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A hilarious reeducation in mathematics-full of joy, jokes, and stick figures-that sheds light on the countless practical and wonderful ways that math structures and shapes our world. By Ben Orlin."> <a href="https://www.amazon.in/Math-Bad-Drawings-Illuminating-Reality/dp/0316509035"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">A hilarious reeducation in mathematics-full of joy, jokes, and stick figures-that sheds light on the countless practical and wonderful ways that math structures and shapes our world. By Ben Orlin.</span></td>
 <td class="listing-title">Math with Bad Drawings</td>
-<td><em></em></td>
+<td><span class="bi bi-book"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span> <span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">book</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">parsed</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check-circle-fill"></span> <span style="display:none;">parsed</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="19" data-categories="advice,writing,book" data-listing-file-modified-sort="1668617196126" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A book by Donald E. Knuth, Tracy L. Larrabee, and Paul M. Roberts"> <a href="https://www-cs-faculty.stanford.edu/~knuth/klr.html"><em></em></a> </span> <span class="listing-info" style="display:none;">A book by Donald E. Knuth, Tracy L. Larrabee, and Paul M. Roberts</span></td>
+<tr class="even" data-index="19" data-categories="YWR2aWNlJTJDd3JpdGluZyUyQ2Jvb2s=" data-listing-file-modified-sort="1770263128560" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A book by Donald E. Knuth, Tracy L. Larrabee, and Paul M. Roberts"> <a href="https://www-cs-faculty.stanford.edu/~knuth/klr.html"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">A book by Donald E. Knuth, Tracy L. Larrabee, and Paul M. Roberts</span></td>
 <td class="listing-title">Mathematical Writing</td>
-<td><em></em></td>
+<td><span class="bi bi-book"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">advice</span> <span class="badge badge-danger" style="background-color: darkcyan;">writing</span> <span class="badge badge-danger" style="background-color: darkcyan;">book</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">parsed</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check-circle-fill"></span> <span style="display:none;">parsed</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="20" data-categories="book,math,explorable" data-listing-file-modified-sort="1668626959195" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Free tools, courses and manipulatives to make online learning more interactive and engaging than ever before."> <a href="https://mathigon.org"><em></em></a> </span> <span class="listing-info" style="display:none;">Free tools, courses and manipulatives to make online learning more interactive and engaging than ever before.</span></td>
+<tr class="odd" data-index="20" data-categories="Ym9vayUyQ21hdGglMkNleHBsb3JhYmxl" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Free tools, courses and manipulatives to make online learning more interactive and engaging than ever before."> <a href="https://mathigon.org"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Free tools, courses and manipulatives to make online learning more interactive and engaging than ever before.</span></td>
 <td class="listing-title">Mathigon</td>
-<td><em></em> <em></em></td>
+<td><span class="bi bi-book"></span> <span class="bi bi-arrow-repeat"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">book</span> <span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">explorable</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="21" data-categories="youtube,scicomm" data-listing-file-modified-sort="1668596015050" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Cool physics and other sweet science."> <a href="https://www.youtube.com/user/minutephysics"><em></em></a> </span> <span class="listing-info" style="display:none;">Cool physics and other sweet science.</span></td>
+<tr class="even" data-index="21" data-categories="eW91dHViZSUyQ3NjaWNvbW0=" data-listing-file-modified-sort="1770263128561" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Cool physics and other sweet science."> <a href="https://www.youtube.com/user/minutephysics"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Cool physics and other sweet science.</span></td>
 <td class="listing-title">Minute Physics</td>
-<td><em></em></td>
+<td><span class="bi bi-youtube"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">youtube</span> <span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="22" data-categories="youtube,scicomm" data-listing-file-modified-sort="1668596015050" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Videos about numbers and mathematics. Videos by Brady Haran since 2011."> <a href="https://www.youtube.com/user/numberphile"><em></em></a> </span> <span class="listing-info" style="display:none;">Videos about numbers and mathematics. Videos by Brady Haran since 2011.</span></td>
+<tr class="odd" data-index="22" data-categories="eW91dHViZSUyQ3NjaWNvbW0=" data-listing-file-modified-sort="1770263128561" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Videos about numbers and mathematics. Videos by Brady Haran since 2011."> <a href="https://www.youtube.com/user/numberphile"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Videos about numbers and mathematics. Videos by Brady Haran since 2011.</span></td>
 <td class="listing-title">Numberphile</td>
-<td><em></em></td>
+<td><span class="bi bi-youtube"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">youtube</span> <span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="23" data-categories="math,explorable,classroom" data-listing-file-modified-sort="1668617196111" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="By Nicky Case and Vi Hart. " data-...="" data-story="" data-of="" data-how="" data-harmless="" data-choices="" data-can="" data-make="" data-a="" data-harmful="" data-world.""=""> <a href="https://ncase.me/polygons/"><em></em></a> </span> <span class="listing-info" style="display:none;">By Nicky Case and Vi Hart. "... a story of how harmless choices can make a harmful world."</span></td>
+<tr class="even" data-index="23" data-categories="bWF0aCUyQ2V4cGxvcmFibGUlMkNjbGFzc3Jvb20=" data-listing-file-modified-sort="1770263128562" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="By Nicky Case and Vi Hart. " data-...="" data-story="" data-of="" data-how="" data-harmless="" data-choices="" data-can="" data-make="" data-a="" data-harmful="" data-world.""=""> <a href="https://ncase.me/polygons/"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">By Nicky Case and Vi Hart. "... a story of how harmless choices can make a harmful world."</span></td>
 <td class="listing-title">Parable of the Polygons</td>
-<td><em></em></td>
+<td><span class="bi bi-arrow-repeat"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">explorable</span> <span class="badge badge-danger" style="background-color: darkcyan;">classroom</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">parsed</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">moderate</span></td>
+<td class="listing-status"><span class="bi bi-check-circle-fill"></span> <span style="display:none;">parsed</span></td>
+<td class="listing-duration"><span class="bi bi-clock-history"></span> <span style="display:none;">moderate</span></td>
 </tr>
-<tr class="odd" data-index="24" data-categories="opinions,essays,list" data-listing-file-modified-sort="1668617935071" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Thoughts from Shriram Krishnamurthi"> <a href="https://parentheticallyspeaking.org"><em></em></a> </span> <span class="listing-info" style="display:none;">Thoughts from Shriram Krishnamurthi</span></td>
+<tr class="odd" data-index="24" data-categories="b3BpbmlvbnMlMkNlc3NheXMlMkNsaXN0" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Thoughts from Shriram Krishnamurthi"> <a href="https://parentheticallyspeaking.org"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Thoughts from Shriram Krishnamurthi</span></td>
 <td class="listing-title">Parenthetically Speaking</td>
-<td><em></em></td>
+<td><span class="bi bi-list-stars"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">opinions</span> <span class="badge badge-danger" style="background-color: darkcyan;">essays</span> <span class="badge badge-danger" style="background-color: darkcyan;">list</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="25" data-categories="course,computerscience,website" data-listing-file-modified-sort="1668750308081" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="These are the lecture notes of the Aalto University course CS-E4580 Programming Parallel Computers. Very comprehensive!"> <a href="https://ppc.cs.aalto.fi"><em></em></a> </span> <span class="listing-info" style="display:none;">These are the lecture notes of the Aalto University course CS-E4580 Programming Parallel Computers. Very comprehensive!</span></td>
+<tr class="even" data-index="25" data-categories="Y291cnNlJTJDY29tcHV0ZXJzY2llbmNlJTJDd2Vic2l0ZQ==" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="These are the lecture notes of the Aalto University course CS-E4580 Programming Parallel Computers. Very comprehensive!"> <a href="https://ppc.cs.aalto.fi"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">These are the lecture notes of the Aalto University course CS-E4580 Programming Parallel Computers. Very comprehensive!</span></td>
 <td class="listing-title">Programming Parallel Computers</td>
-<td><em></em></td>
+<td><span class="bi bi-globe"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">course</span> <span class="badge badge-danger" style="background-color: darkcyan;">computerscience</span> <span class="badge badge-danger" style="background-color: darkcyan;">website</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="26" data-categories="physics,book" data-listing-file-modified-sort="1668600577208" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A free introduction to quantum computing and quantum mechanics by Andy Matuschak and Michael Nielsen."> <a href="https://quantum.country"><em></em></a> </span> <span class="listing-info" style="display:none;">A free introduction to quantum computing and quantum mechanics by Andy Matuschak and Michael Nielsen.</span></td>
+<tr class="odd" data-index="26" data-categories="cGh5c2ljcyUyQ2Jvb2s=" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A free introduction to quantum computing and quantum mechanics by Andy Matuschak and Michael Nielsen."> <a href="https://quantum.country"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">A free introduction to quantum computing and quantum mechanics by Andy Matuschak and Michael Nielsen.</span></td>
 <td class="listing-title">Quantum Country</td>
-<td><em></em></td>
+<td><span class="bi bi-book"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">physics</span> <span class="badge badge-danger" style="background-color: darkcyan;">book</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="27" data-categories="book,computerscience,explorable" data-listing-file-modified-sort="1668626888523" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Seeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js)."> <a href="https://seeing-theory.brown.edu"><em></em></a> </span> <span class="listing-info" style="display:none;">Seeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js).</span></td>
+<tr class="even" data-index="27" data-categories="Ym9vayUyQ2NvbXB1dGVyc2NpZW5jZSUyQ2V4cGxvcmFibGU=" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Seeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js)."> <a href="https://seeing-theory.brown.edu"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Seeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js).</span></td>
 <td class="listing-title">Seeing Theory</td>
-<td><em></em> <em></em></td>
+<td><span class="bi bi-book"></span> <span class="bi bi-arrow-repeat"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">book</span> <span class="badge badge-danger" style="background-color: darkcyan;">computerscience</span> <span class="badge badge-danger" style="background-color: darkcyan;">explorable</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="28" data-categories="youtube,maths,scicomm" data-listing-file-modified-sort="1668596015050" data-listing-reading-time-sort="1">
-<td><a href="https://www.youtube.com/user/standupmaths"><em></em></a> <span class="listing-info" style="display:none;"></span></td>
+<tr class="odd" data-index="28" data-categories="eW91dHViZSUyQ21hdGhzJTJDc2NpY29tbQ==" data-listing-file-modified-sort="1770263128560" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><a href="https://www.youtube.com/user/standupmaths"><span class="bi bi-link-45deg"></span></a> <span class="listing-info" style="display:none;"></span></td>
 <td class="listing-title">Standup Maths</td>
-<td><em></em></td>
+<td><span class="bi bi-youtube"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">youtube</span> <span class="badge badge-danger" style="background-color: darkcyan;">maths</span> <span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="29" data-categories="youtube,math,scicomm" data-listing-file-modified-sort="1668596015050" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Videos about science."> <a href="https://www.youtube.com/user/steventhebrave"><em></em></a> </span> <span class="listing-info" style="display:none;">Videos about science.</span></td>
+<tr class="even" data-index="29" data-categories="eW91dHViZSUyQ21hdGglMkNzY2ljb21t" data-listing-file-modified-sort="1770263128562" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Videos about science."> <a href="https://www.youtube.com/user/steventhebrave"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Videos about science.</span></td>
 <td class="listing-title">Steve Mould</td>
-<td><em></em></td>
+<td><span class="bi bi-youtube"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">youtube</span> <span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="30" data-categories="scicomm,youtube,math" data-listing-file-modified-sort="1668626772909" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Tessellate is the annual college festival of Chennai Mathematical Institute (CMI). The Youtube channel has a bunch of really nice talks!"> <a href="https://www.youtube.com/TessellateCMI"><em></em></a> </span> <span class="listing-info" style="display:none;">Tessellate is the annual college festival of Chennai Mathematical Institute (CMI). The Youtube channel has a bunch of really nice talks!</span></td>
+<tr class="odd" data-index="30" data-categories="c2NpY29tbSUyQ3lvdXR1YmUlMkNtYXRo" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Tessellate is the annual college festival of Chennai Mathematical Institute (CMI). The Youtube channel has a bunch of really nice talks!"> <a href="https://www.youtube.com/TessellateCMI"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Tessellate is the annual college festival of Chennai Mathematical Institute (CMI). The Youtube channel has a bunch of really nice talks!</span></td>
 <td class="listing-title">Tessellate CMI</td>
-<td><em></em></td>
+<td><span class="bi bi-youtube"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span> <span class="badge badge-danger" style="background-color: darkcyan;">youtube</span> <span class="badge badge-danger" style="background-color: darkcyan;">math</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="31" data-categories="math,explorable,classroom" data-listing-file-modified-sort="1668617196126" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="By Nicky Case. A remarkable explorable that demonstrates the iterated prisoners dilemma."> <a href="https://ncase.me/trust/"><em></em></a> </span> <span class="listing-info" style="display:none;">By Nicky Case. A remarkable explorable that demonstrates the iterated prisoners dilemma.</span></td>
+<tr class="even" data-index="31" data-categories="bWF0aCUyQ2V4cGxvcmFibGUlMkNjbGFzc3Jvb20=" data-listing-file-modified-sort="1770263128562" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="By Nicky Case. A remarkable explorable that demonstrates the iterated prisoners dilemma."> <a href="https://ncase.me/trust/"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">By Nicky Case. A remarkable explorable that demonstrates the iterated prisoners dilemma.</span></td>
 <td class="listing-title">The Evolution of Trust</td>
-<td><em></em></td>
+<td><span class="bi bi-arrow-repeat"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">explorable</span> <span class="badge badge-danger" style="background-color: darkcyan;">classroom</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">parsed</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">moderate</span></td>
+<td class="listing-status"><span class="bi bi-check-circle-fill"></span> <span style="display:none;">parsed</span></td>
+<td class="listing-duration"><span class="bi bi-clock-history"></span> <span style="display:none;">moderate</span></td>
 </tr>
-<tr class="odd" data-index="32" data-categories="math,explorable,classroom" data-listing-file-modified-sort="1668617196120" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="By Nicky Case. An interactive about how things spread in networks."> <a href="https://ncase.me/crowds/"><em></em></a> </span> <span class="listing-info" style="display:none;">By Nicky Case. An interactive about how things spread in networks.</span></td>
+<tr class="odd" data-index="32" data-categories="bWF0aCUyQ2V4cGxvcmFibGUlMkNjbGFzc3Jvb20=" data-listing-file-modified-sort="1770263128562" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="By Nicky Case. An interactive about how things spread in networks."> <a href="https://ncase.me/crowds/"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">By Nicky Case. An interactive about how things spread in networks.</span></td>
 <td class="listing-title">The Wisdom and/or Madness of Crowds</td>
-<td><em></em></td>
+<td><span class="bi bi-arrow-repeat"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">explorable</span> <span class="badge badge-danger" style="background-color: darkcyan;">classroom</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">parsed</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">moderate</span></td>
+<td class="listing-status"><span class="bi bi-check-circle-fill"></span> <span style="display:none;">parsed</span></td>
+<td class="listing-duration"><span class="bi bi-clock-history"></span> <span style="display:none;">moderate</span></td>
 </tr>
-<tr class="even" data-index="33" data-categories="math,explorable,classroom" data-listing-file-modified-sort="1668617196126" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A lesson based on the windmill video. Neat problem and solution!"> <a href="https://www.3blue1brown.com/lessons/windmills"><em></em></a> </span> <span class="listing-info" style="display:none;">A lesson based on the windmill video. Neat problem and solution!</span></td>
+<tr class="even" data-index="33" data-categories="bWF0aCUyQ2V4cGxvcmFibGUlMkNjbGFzc3Jvb20=" data-listing-file-modified-sort="1770263128562" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="A lesson based on the windmill video. Neat problem and solution!"> <a href="https://www.3blue1brown.com/lessons/windmills"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">A lesson based on the windmill video. Neat problem and solution!</span></td>
 <td class="listing-title">The unexpectedly hard windmill question</td>
-<td><em></em></td>
+<td><span class="bi bi-arrow-repeat"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">explorable</span> <span class="badge badge-danger" style="background-color: darkcyan;">classroom</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">parsed</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">moderate</span></td>
+<td class="listing-status"><span class="bi bi-check-circle-fill"></span> <span style="display:none;">parsed</span></td>
+<td class="listing-duration"><span class="bi bi-clock-history"></span> <span style="display:none;">moderate</span></td>
 </tr>
-<tr class="odd" data-index="34" data-categories="math,explorable,classroom" data-listing-file-modified-sort="1668617196135" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="By Nicky Case. An interactive (and really well-done) guide to alternative voting systems."> <a href="https://ncase.me/ballot/"><em></em></a> </span> <span class="listing-info" style="display:none;">By Nicky Case. An interactive (and really well-done) guide to alternative voting systems.</span></td>
+<tr class="odd" data-index="34" data-categories="bWF0aCUyQ2V4cGxvcmFibGUlMkNjbGFzc3Jvb20=" data-listing-file-modified-sort="1770263128562" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="By Nicky Case. An interactive (and really well-done) guide to alternative voting systems."> <a href="https://ncase.me/ballot/"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">By Nicky Case. An interactive (and really well-done) guide to alternative voting systems.</span></td>
 <td class="listing-title">To Build a Better Ballot</td>
-<td><em></em></td>
+<td><span class="bi bi-arrow-repeat"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">explorable</span> <span class="badge badge-danger" style="background-color: darkcyan;">classroom</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">parsed</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">moderate</span></td>
+<td class="listing-status"><span class="bi bi-check-circle-fill"></span> <span style="display:none;">parsed</span></td>
+<td class="listing-duration"><span class="bi bi-clock-history"></span> <span style="display:none;">moderate</span></td>
 </tr>
-<tr class="even" data-index="35" data-categories="youtube,scicomm" data-listing-file-modified-sort="1668596015050" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="An element of truth - videos about science, education, and anything else I find interesting."> <a href="https://www.youtube.com/user/1veritasium"><em></em></a> </span> <span class="listing-info" style="display:none;">An element of truth - videos about science, education, and anything else I find interesting.</span></td>
+<tr class="even" data-index="35" data-categories="eW91dHViZSUyQ3NjaWNvbW0=" data-listing-file-modified-sort="1770263128562" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="An element of truth - videos about science, education, and anything else I find interesting."> <a href="https://www.youtube.com/user/1veritasium"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">An element of truth - videos about science, education, and anything else I find interesting.</span></td>
 <td class="listing-title">Veritasium</td>
-<td><em></em></td>
+<td><span class="bi bi-youtube"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">youtube</span> <span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="36" data-categories="course,computerscience,explorable" data-listing-file-modified-sort="1668627437440" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Visualising data structures and algorithms through animation. Conceptualised in 2011 by Dr Steven Halim as a tool to help his students better understand data structures and algorithms, by allowing them to learn the basics on their own and at their own pace."> <a href="https://visualgo.net/en"><em></em></a> </span> <span class="listing-info" style="display:none;">Visualising data structures and algorithms through animation. Conceptualised in 2011 by Dr Steven Halim as a tool to help his students better understand data structures and algorithms, by allowing them to learn the basics on their own and at their own pace.</span></td>
+<tr class="odd" data-index="36" data-categories="Y291cnNlJTJDY29tcHV0ZXJzY2llbmNlJTJDZXhwbG9yYWJsZQ==" data-listing-file-modified-sort="1770263128563" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Visualising data structures and algorithms through animation. Conceptualised in 2011 by Dr Steven Halim as a tool to help his students better understand data structures and algorithms, by allowing them to learn the basics on their own and at their own pace."> <a href="https://visualgo.net/en"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Visualising data structures and algorithms through animation. Conceptualised in 2011 by Dr Steven Halim as a tool to help his students better understand data structures and algorithms, by allowing them to learn the basics on their own and at their own pace.</span></td>
 <td class="listing-title">VisuAlgo</td>
-<td><em></em></td>
+<td><span class="bi bi-arrow-repeat"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">course</span> <span class="badge badge-danger" style="background-color: darkcyan;">computerscience</span> <span class="badge badge-danger" style="background-color: darkcyan;">explorable</span></td>
-<td class="listing-status"><em></em> <span style="display:none;">pseudo</span></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-status"><span class="bi bi-check2-circle"></span> <span style="display:none;">pseudo</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="37" data-categories="math,explorable,classroom" data-listing-file-modified-sort="1668600421124" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="An explorable video series by Grant Sanderson and Ben Eater. Pushing the limits of WebGL!"> <a href="https://eater.net/quaternions"><em></em></a> </span> <span class="listing-info" style="display:none;">An explorable video series by Grant Sanderson and Ben Eater. Pushing the limits of WebGL!</span></td>
+<tr class="even" data-index="37" data-categories="bWF0aCUyQ2V4cGxvcmFibGUlMkNjbGFzc3Jvb20=" data-listing-file-modified-sort="1770263128562" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="An explorable video series by Grant Sanderson and Ben Eater. Pushing the limits of WebGL!"> <a href="https://eater.net/quaternions"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">An explorable video series by Grant Sanderson and Ben Eater. Pushing the limits of WebGL!</span></td>
 <td class="listing-title">Visualizing Quaternions</td>
-<td><em></em></td>
+<td><span class="bi bi-arrow-repeat"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">math</span> <span class="badge badge-danger" style="background-color: darkcyan;">explorable</span> <span class="badge badge-danger" style="background-color: darkcyan;">classroom</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">moderate</span></td>
+<td class="listing-duration"><span class="bi bi-clock-history"></span> <span style="display:none;">moderate</span></td>
 </tr>
-<tr class="odd" data-index="38" data-categories="youtube,maths,scicomm" data-listing-file-modified-sort="1668596015050" data-listing-reading-time-sort="1">
-<td><a href="https://www.youtube.com/c/WelchLabsVideo/about"><em></em></a> <span class="listing-info" style="display:none;"></span></td>
+<tr class="odd" data-index="38" data-categories="eW91dHViZSUyQ21hdGhzJTJDc2NpY29tbQ==" data-listing-file-modified-sort="1770263128560" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><a href="https://www.youtube.com/c/WelchLabsVideo/about"><span class="bi bi-link-45deg"></span></a> <span class="listing-info" style="display:none;"></span></td>
 <td class="listing-title">Welch Labs</td>
-<td><em></em></td>
+<td><span class="bi bi-youtube"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">youtube</span> <span class="badge badge-danger" style="background-color: darkcyan;">maths</span> <span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="even" data-index="39" data-categories="youtube,scicomm" data-listing-file-modified-sort="1668596015050" data-listing-reading-time-sort="1">
-<td><a href="https://www.youtube.com/user/Wendoverproductions"><em></em></a> <span class="listing-info" style="display:none;"></span></td>
+<tr class="even" data-index="39" data-categories="eW91dHViZSUyQ3NjaWNvbW0=" data-listing-file-modified-sort="1770263128560" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><a href="https://www.youtube.com/user/Wendoverproductions"><span class="bi bi-link-45deg"></span></a> <span class="listing-info" style="display:none;"></span></td>
 <td class="listing-title">Wendover Productions</td>
-<td><em></em></td>
+<td><span class="bi bi-youtube"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">youtube</span> <span class="badge badge-danger" style="background-color: darkcyan;">scicomm</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">long</span></td>
+<td class="listing-duration"><span class="bi bi-infinity"></span> <span style="display:none;">long</span></td>
 </tr>
-<tr class="odd" data-index="40" data-categories="physics,explorable,classroom" data-listing-file-modified-sort="1668600513275" data-listing-reading-time-sort="1">
-<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Explorable from Minute Labs exploring the construct of a single day."> <a href="https://labs.minutelabs.io/what-is-a-day/#/welcome"><em></em></a> </span> <span class="listing-info" style="display:none;">Explorable from Minute Labs exploring the construct of a single day.</span></td>
+<tr class="odd" data-index="40" data-categories="cGh5c2ljcyUyQ2V4cGxvcmFibGUlMkNjbGFzc3Jvb20=" data-listing-file-modified-sort="1770263128562" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<td><span data-bs-toggle="tooltip" data-bs-placement="top" title="Explorable from Minute Labs exploring the construct of a single day."> <a href="https://labs.minutelabs.io/what-is-a-day/#/welcome"><span class="bi bi-link-45deg"></span></a> </span> <span class="listing-info" style="display:none;">Explorable from Minute Labs exploring the construct of a single day.</span></td>
 <td class="listing-title">What is a Day?</td>
-<td><em></em></td>
+<td><span class="bi bi-arrow-repeat"></span></td>
 <td class="listing-categories"><span class="badge badge-danger" style="background-color: darkcyan;">physics</span> <span class="badge badge-danger" style="background-color: darkcyan;">explorable</span> <span class="badge badge-danger" style="background-color: darkcyan;">classroom</span></td>
 <td class="listing-status"></td>
-<td class="listing-duration"><em></em> <span style="display:none;">moderate</span></td>
+<td class="listing-duration"><span class="bi bi-clock-history"></span> <span style="display:none;">moderate</span></td>
 </tr>
 </tbody>
 </table>
+
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -863,18 +905,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -906,11 +937,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.neeldhara\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -920,8 +988,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -933,7 +1010,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -977,6 +1176,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1002,6 +1202,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1062,6 +1288,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

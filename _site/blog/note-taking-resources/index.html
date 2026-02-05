@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.262">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-06-02">
 
-<title>Neeldhara - Note Taking Resources</title>
+<title>Note Taking Resources – Neeldhara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,7 +18,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -38,17 +38,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-53d508deb6da4ff595675ebf964bed0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,8 +63,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -91,8 +99,9 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="https://analytics.neeldhara.website/api/script.js" data-site-id="a31a3a742777" defer=""></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -107,7 +116,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../css/styles.css">
 </head>
@@ -115,25 +151,26 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
@@ -156,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
@@ -171,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
@@ -186,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
@@ -201,43 +238,44 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../events/">
- <span class="menu-text">Events</span></a>
+    <a class="nav-link" href="../../events/"> 
+<span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -253,7 +291,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-body">
 
       
       <div>
@@ -275,6 +313,7 @@ ul.task-list li input[type="checkbox"] {
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+
 
 
 
@@ -302,7 +341,6 @@ ul.task-list li input[type="checkbox"] {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td class="listing-type" style="max-width: 42px !important; text-align: center;">Type</td>
@@ -310,10 +348,11 @@ ul.task-list li input[type="checkbox"] {
         <td>Resource</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
-                <strong> <i class="bi bi-book"></i>  
+                <strong> <span class="bi bi-book"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -321,17 +360,20 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://leanpub.com/cognitiveproductivity/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://leanpub.com/cognitiveproductivity/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>1. Cognitive Productivity: Using Knowledge to Become Profoundly Effective</strong><br>
                 <p>Book by Luc P. Beaudoin. <br> Official book summary: You distinguish yourself from others not so much by what you've read, viewed or listened to, but by the lasting impact that information has had upon you. How can you use knowledge to become a more effective person? Cognitive Productivity answers this question with cognitive science and practical strategies.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
-                <strong> <i class="bi bi-book"></i>  
+                <strong> <span class="bi bi-book"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -339,31 +381,37 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://leanpub.com/cognitive-productivity-macos"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://leanpub.com/cognitive-productivity-macos"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>2. Cognitive Productivity with macOS: 7 Principles for Getting Smarter with Knowledge</strong><br>
                 <p>Book by Luc P. Beaudoin. <br> Official book summary: In today's competitive knowledge economy, you always need to keep learning —and fast. But most information and apps get in the way. This book describes 7 principles for selecting, processing and mastering knowledge using potent Mac apps.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-map"></i>  
+                <strong> <span class="bi bi-map"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://zettelkasten.de/posts/overview/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://zettelkasten.de/posts/overview/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>3. The Introduction to the Zettelkasten Method</strong><br>
                 <p>Zettelkasten is a rather specific note-taking system (disclaimer: it is not something that I use, but I do find the principles vaguely intriguing). It relies heavily on tagging, linking, going with the flow, not overthinking, and somehow simultaneously keeps things systematic from a retrieval perspective. This overview page has a bunch of pointers that that should serve as a roadmap for the Zettelkasten for anyone inclined to find out more.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
@@ -371,17 +419,20 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-card-text"></i>  
+                <strong> <span class="bi bi-card-text"></span>  
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://numinous.productions/ttft/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://numinous.productions/ttft/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>4. How can we develop transformative tools for thought?</strong><br>
                 <p>Essay by Andy Matuschak and Michael Nielsen <br> Arguably not about taking notes per se, but about philosophies associated with systems and — as the title suggests — tools for thought.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
@@ -389,38 +440,44 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-card-text"></i>  
+                <strong> <span class="bi bi-card-text"></span>  
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://notes.andymatuschak.org/z4SDCZQeRo4xFEQ8H4qrSqd68ucpgE6LU155C"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://notes.andymatuschak.org/z4SDCZQeRo4xFEQ8H4qrSqd68ucpgE6LU155C"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>5. Evergreen Notes</strong><br>
                 <p>Thoughts from Andy Matuschak <br>The OG 'digital garden', if I am not mistaken!</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-journal-bookmark"></i>  
+                <strong> <span class="bi bi-journal-bookmark"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://courses.nicolevanderhoeven.com/o4e"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://courses.nicolevanderhoeven.com/o4e"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>6. Obsidian for Everyone</strong><br>
                 <p>Nicole van der Hoeven's course. <br> Nicole is a pro Obsidian user and a master expositor. This particular course is nice because it focuses on all the things you can achieve without the use of any plugins: just bare-bones Obsidian. You'd be surprised at how far you can go!</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -429,17 +486,20 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/@nicolevdh/playlists"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/@nicolevdh/playlists"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>7. Youtube channel: Nicole van der Hoeven</strong><br>
                 <p>Excellent content for pro and starter Obsidian users alike. Very accessible and engaging, and I believe most people will find something relevant and relatable here.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
-                <strong> <i class="bi bi-book"></i>  
+                <strong> <span class="bi bi-book"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -447,16 +507,19 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://groktiddlywiki.com/read/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://groktiddlywiki.com/read/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>08. Grok TiddlyWiki</strong><br>
+                <strong>8. Grok TiddlyWiki</strong><br>
                 <p>Grok TiddlyWiki is written and maintained by Soren Bjornstad. <br> Outstanding introduction to TiddlyWiki. Even non-TW users are likely to get some fun ideas from skimming this. And if you are a TW user, then this is one of the best journeys from starter to pro! Also check out Soren's own digital garden.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -465,16 +528,19 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/@linkingyourthinking"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/@linkingyourthinking"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>09. Youtube channel: Linking Your Thinking (LYT)</strong><br>
+                <strong>9. Youtube channel: Linking Your Thinking (LYT)</strong><br>
                 <p>This is Nick Milo's Youtube channel. It is mostly principles around linking, but uses Obsidian as the tool of choice. Nick also organizes a LYT conference regularly that is hugely popular and not particularly restricted to Obsidian. He also has a cohort-based course around LYT principles, a great Obsidian starter playlist, and a course called Obsidian Flight School as well.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -483,17 +549,20 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/@augustbradley"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/@augustbradley"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>10. Youtube channel: August Bradley</strong><br>
                 <p>This channel focuses on 'life design' as a broad concept, using Notion as the underlying tool of choice for organization. There is an extensive discussion of the 'PPV' system - Pillars, Pipelines, and Vaults. Lots of system thinking in here, and I think although all of it is done on Notion, several principles are tool-agnostic.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
-                <strong> <i class="bi bi-book"></i>  
+                <strong> <span class="bi bi-book"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -501,16 +570,19 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.buildingasecondbrain.com/course"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.buildingasecondbrain.com/course"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>11. Building a Second Brain</strong><br>
                 <p>This is a cohort-based course around the notion of building a second brain by Tiago Forte. The material is centered around the 'PARA' method - Projects, Areas, Resources, Archives: a fairly intuitive system that many have found useful. Tiago has one published and one upcoming [at the time of this writing] book on these methods. His blog and Youtube channel dive fairly deep into these concepts, and I think the cohorts are useful if you are building something out and are looking for ways to stay accountable on sticking a system, or want a community/platform to brainstorm ideas.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -519,16 +591,19 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/c/mariepoulin"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/c/mariepoulin"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>12. Youtube channel: Marie Poulin</strong><br>
                 <p>Marie is an authority when it comes to adapting Notion in creative ways for both personal and business use. She has a very comprehensive course called Notion Mastery that covers a lot of ground in terms of both techniques and principles.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -537,16 +612,19 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/@VisualPKM"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/@VisualPKM"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>13. Youtube channel: Zsolt's Visual Personal Knowledge Management</strong><br>
                 <p>This is the Zsolt's channel, who is behind tools like Excalibrain and Excalidraw for Obsidian and beyond. The channel emphasizes visual aspects of note-taking, while some of it is focused on Excalidraw/Excalibrain, a lot of content is also about general principles, examples, and so on.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -555,70 +633,82 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/@Thomasfrank"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/@Thomasfrank"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>14. Youtube channel: Thomas Frank</strong><br>
                 <p>This channel is another one that pushes Notion to its limits. While overall this might be more productivity/systems/management territory than note-taking, I have found some great discussions about organizational principles here.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
                 <strong> 
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-stars"></i>  
+                <strong> <span class="bi bi-stars"></span>  
                 <strong> 
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://johnnydecimal.com/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://johnnydecimal.com/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>15. Johnny Decimal</strong><br>
                 <p>This is purely about organization, but for me how notes are stored are an important piece of the puzzle. If you like folders, you might enjoy this system.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-map"></i>  
+                <strong> <span class="bi bi-map"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.reddit.com/r/PKMS/comments/nfef59/list_of_personal_knowledge_management_systems/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.reddit.com/r/PKMS/comments/nfef59/list_of_personal_knowledge_management_systems/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>16. A list of PKM tools</strong><br>
                 <p>A reddit post collecting a bunch of PKM software options, ranging from mainstream to exotic and everything in between!</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-journal-bookmark"></i>  
+                <strong> <span class="bi bi-journal-bookmark"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://thesweetsetup.com/obsidian/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://thesweetsetup.com/obsidian/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>17. To Obsidian and Beyond</strong><br>
                 <p>A course by Mike Schmitz. From the official description: A master-course for Obsidian users (new and old alike). Finally organize your notes and ideas to make creative output easy.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -627,16 +717,19 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/c/RedGregory"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/c/RedGregory"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>18. Youtube channel: Red Gregory</strong><br>
                 <p>A Notion-based channel: I have found some of the workflows here to be advanced and intriguing in equal measure. Many principles are tool-agnostic, although the focus here is mostly on Notion.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
-                <strong> <i class="bi bi-youtube"></i>  
+                <strong> <span class="bi bi-youtube"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
@@ -645,33 +738,40 @@ ul.task-list li input[type="checkbox"] {
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://www.youtube.com/@DannyHatcher"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://www.youtube.com/@DannyHatcher"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>19. Youtube channel: Danny Hatcher</strong><br>
                 <p>A channel focused on PKM and organizational systems broadly. I have mostly viewed the Obsidian-related material here: several demonstrations and tutorials have been very helpful.</p>
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">     
             <td class="listing-type" style="max-width: 42px !important; text-align: center;">
                 <strong> 
                 <strong> 
-                <strong> <i class="bi bi-journal-bookmark"></i>  
+                <strong> <span class="bi bi-journal-bookmark"></span>  
                 <strong> 
                 <strong> 
                 <strong> 
                 <strong> 
             </strong></strong></strong></strong></strong></strong></strong></td>
             <td class="listing-link" style="max-width: 42px !important; text-align: center;">
-                    <a href="https://verbaltovisual.com/"><i class="bi bi-link-45deg"></i></a>
+                
+                    <a href="https://verbaltovisual.com/"><span class="bi bi-link-45deg"></span></a>
+                
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
                 <strong>20. Verbal to Visual</strong><br>
                 <p>Lots of resources on sketchnoting and visual approaches to note-taking.</p>
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -787,12 +887,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
     }
-  });
-  clipboard.on('success', function(e) {
+    return false;
+  }
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -824,11 +927,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.neeldhara\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -838,8 +978,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -851,9 +1000,244 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -894,6 +1278,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

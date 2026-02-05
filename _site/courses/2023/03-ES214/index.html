@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - ES 214 | Aug-Nov 2023</title>
+<title>ES 214 | Aug-Nov 2023 – Neeldhara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,17 +37,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-53d508deb6da4ff595675ebf964bed0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -119,8 +126,9 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="https://analytics.neeldhara.website/api/script.js" data-site-id="a31a3a742777" defer=""></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -135,7 +143,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../css/styles.css">
 <link rel="stylesheet" href="../../../css/teaching.css">
@@ -145,130 +180,130 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../../research/overview.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/people.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/people.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/publications.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/surveys" rel="" target="">
+    <a class="dropdown-item" href="../../../research/surveys">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../../courses/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../courses/index.html">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../materials/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../materials/index.html">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../../tgif/" rel="" target="">
+    <a class="dropdown-item" href="../../../tgif/">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../bookmarks/" rel="" target="">
+    <a class="dropdown-item" href="../../../bookmarks/">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../../talks/" rel="" target="">
+    <a class="dropdown-item" href="../../../talks/">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../videos/" rel="" target="">
+    <a class="dropdown-item" href="../../../videos/">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../events/" rel="" target="">
- <span class="menu-text">Events</span></a>
+    <a class="nav-link" href="../../../events/"> 
+<span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -287,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -295,7 +330,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="es214.-discrete-mathematics" class="level2 column-body-outset">
 <h2 class="anchored" data-anchor-id="es214.-discrete-mathematics">ES214. Discrete Mathematics</h2>
@@ -472,7 +509,6 @@ Register
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>All slides for the initial lectures can be found <a href="https://slides.com/neeldhara/es214-2023">here</a>.</p>
 <div id="listing-lectures-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Date</td>
@@ -482,530 +518,706 @@ Register
         <td>Video</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1690914600000">            
             <td class="listing-date">
                 02 Aug, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 1. 
+                
                 Intro to Proofs - I 
-                <br>
-                <p>General Methods • Chessboard Tilings • Game of Chomp</p>
+                <br><br>
+                <p style="font-size:small;">General Methods • Chessboard Tilings • Game of Chomp</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1691001000000">            
             <td class="listing-date">
                 03 Aug, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 2. 
+                
                 Intro to Proofs - II 
-                <br>
-                <p>Pigeonhole Principle • Illustrative Examples</p>
+                <br><br>
+                <p style="font-size:small;">Pigeonhole Principle • Illustrative Examples</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1691433000000">            
             <td class="listing-date">
                 08 Aug, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 3. 
+                
                 Sets 
-                <br>
-                <p>Definitions • Operations • Showing Containment • Showing Equality</p>
+                <br><br>
+                <p style="font-size:small;">Definitions • Operations • Showing Containment • Showing Equality</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1691519400000">            
             <td class="listing-date">
                 09 Aug, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 4. 
+                
                 Functions and Relations 
-                <br>
-                <p>Injections, Surjections, Bijections • Compositions • Equivalence Classes</p>
+                <br><br>
+                <p style="font-size:small;">Injections, Surjections, Bijections • Compositions • Equivalence Classes</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1692124200000">            
             <td class="listing-date">
                 16 Aug, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 5. 
+                
                 Induction 
-                <br>
-                <p>Dominoes, Ladders, and Chips • Examples • Non-Examples • Strong Induction</p>
+                <br><br>
+                <p style="font-size:small;">Dominoes, Ladders, and Chips • Examples • Non-Examples • Strong Induction</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1692642600000">            
             <td class="listing-date">
                 22 Aug, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 6. 
+                
                 Propositional and Predicate Logic 
-                <br>
-                <p>Syntax • Truth Tables • Quantifiers</p>
+                <br><br>
+                <p style="font-size:small;">Syntax • Truth Tables • Quantifiers</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1692729000000">            
             <td class="listing-date">
                 23 Aug, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 7. 
+                
                 Inference Systems 
-                <br>
-                <p>Inference Rules (e.g, Modus Ponens, Modus Tollens, Resolution, etc) • Paradoxes</p>
+                <br><br>
+                <p style="font-size:small;">Inference Rules (e.g, Modus Ponens, Modus Tollens, Resolution, etc) • Paradoxes</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1693247400000">            
             <td class="listing-date">
                 29 Aug, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 8. 
+                
                 Elementary Counting Methods 
-                <br>
-                <p>Permutations • Combinations • Binomial Coefficients</p>
+                <br><br>
+                <p style="font-size:small;">Permutations • Combinations • Binomial Coefficients</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1693333800000">            
             <td class="listing-date">
                 30 Aug, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 9. 
+                
                 The Method of Double Counting 
-                <br>
-                <p>Examples of proofs by double-counting</p>
+                <br><br>
+                <p style="font-size:small;">Examples of proofs by double-counting</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1694457000000">            
             <td class="listing-date">
                 12 Sep, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 10. 
+                
                 Intro to Graphs: Euler Tours 
-                <br>
-                <p>Necessary and Sufficient Conditions for Euler Tours • Computing Euler Tours</p>
+                <br><br>
+                <p style="font-size:small;">Necessary and Sufficient Conditions for Euler Tours • Computing Euler Tours</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1694543400000">            
             <td class="listing-date">
                 13 Sep, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 11. 
+                
                 Hall's Theorem 
-                <br>
-                <p>Matchings • Congestion in Bipartite Graphs • Hall's Theorem • Applications</p>
+                <br><br>
+                <p style="font-size:small;">Matchings • Congestion in Bipartite Graphs • Hall's Theorem • Applications</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1695061800000">            
             <td class="listing-date">
                 19 Sep, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 12. 
+                
                 Graph Coloring 
-                <br>
-                <p>Map Coloring • Greedy Algorithms • Bipartite Graphs • k-Degenerate Graphs</p>
+                <br><br>
+                <p style="font-size:small;">Map Coloring • Greedy Algorithms • Bipartite Graphs • k-Degenerate Graphs</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1695148200000">            
             <td class="listing-date">
                 20 Sep, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 13. 
+                
                 Planarity 
-                <br>
-                <p>Planar Graphs are Five-Colorable • Obstructions to Planarity</p>
+                <br><br>
+                <p style="font-size:small;">Planar Graphs are Five-Colorable • Obstructions to Planarity</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1695666600000">            
             <td class="listing-date">
                 26 Sep, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 14. 
+                
                 Graphs Recap 
-                <br>
-                <p>~</p>
+                <br><br>
+                <p style="font-size:small;">~</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1695753000000">            
             <td class="listing-date">
                 27 Sep, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 15. 
+                
                 Probability Intro 
-                <br>
-                <p>Basics of Discrete Probability • Monty Hall • Conditional Probability</p>
+                <br><br>
+                <p style="font-size:small;">Basics of Discrete Probability • Monty Hall • Conditional Probability</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1696271400000">            
             <td class="listing-date">
                 03 Oct, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 16. 
+                
                 The Probabilistic Method - I 
-                <br>
-                <p>An Introduction to the Method • Applications in Graph Theory</p>
+                <br><br>
+                <p style="font-size:small;">An Introduction to the Method • Applications in Graph Theory</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1696357800000">            
             <td class="listing-date">
                 04 Oct, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 17. 
+                
                 The Probabilistic Method - II 
-                <br>
-                <p>Ramsey Number • Sum-Free Sets</p>
+                <br><br>
+                <p style="font-size:small;">Ramsey Number • Sum-Free Sets</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1696876200000">            
             <td class="listing-date">
                 10 Oct, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 18. 
+                
                 Recap 
-                <br>
-                <p>~</p>
+                <br><br>
+                <p style="font-size:small;">~</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1697481000000">            
             <td class="listing-date">
                 17 Oct, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 19. 
+                
                 The Linear Algebra Method - I 
-                <br>
-                <p>OddTown and EvenTown</p>
+                <br><br>
+                <p style="font-size:small;">OddTown and EvenTown</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1697567400000">            
             <td class="listing-date">
                 18 Oct, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 20. 
+                
                 The Linear Algebra Method - II 
-                <br>
-                <p>VC Dimension of a Set System • Sauer's Lemma</p>
+                <br><br>
+                <p style="font-size:small;">VC Dimension of a Set System • Sauer's Lemma</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1698690600000">            
             <td class="listing-date">
                 31 Oct, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 21. 
+                
                 Intro to Groups: Rotations and Symmetries 
-                <br>
-                <p>TBA</p>
+                <br><br>
+                <p style="font-size:small;">TBA</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1698777000000">            
             <td class="listing-date">
                 01 Nov, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 22. 
+                
                 Permutation and Cyclic Groups 
-                <br>
-                <p>TBA</p>
+                <br><br>
+                <p style="font-size:small;">TBA</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1699295400000">            
             <td class="listing-date">
                 07 Nov, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 23. 
+                
                 Homomorphisms 
-                <br>
-                <p>TBA</p>
+                <br><br>
+                <p style="font-size:small;">TBA</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1699381800000">            
             <td class="listing-date">
                 08 Nov, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 24. 
+                
                 Quotient Groups and First Isomorphism Theorem 
-                <br>
-                <p>TBA</p>
+                <br><br>
+                <p style="font-size:small;">TBA</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1699900200000">            
             <td class="listing-date">
                 14 Nov, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 25. 
+                
                 Intro to Number Theory: Extended Euclid's Algorithm 
-                <br>
-                <p>TBA</p>
+                <br><br>
+                <p style="font-size:small;">TBA</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1699986600000">            
             <td class="listing-date">
                 15 Nov, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 26. 
+                
                 Chinese Remainder Theorem 
-                <br>
-                <p>TBA</p>
+                <br><br>
+                <p style="font-size:small;">TBA</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1700505000000">            
             <td class="listing-date">
                 21 Nov, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 27. 
+                
                 Applications I: RSA 
-                <br>
-                <p>TBA</p>
+                <br><br>
+                <p style="font-size:small;">TBA</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1700591400000">            
             <td class="listing-date">
                 22 Nov, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 28. 
+                
                 Applications II: PageRank 
-                <br>
-                <p>TBA</p>
+                <br><br>
+                <p style="font-size:small;">TBA</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1700677800000">            
             <td class="listing-date">
                 23 Nov, 2023
             </td>
             <td class="listing-title-summary" style="max-width: 420px !important;">
                 29. 
+                
                 Recap 
-                <br>
-                <p>~</p>
+                <br><br>
+                <p style="font-size:small;">~</p>
             </td>
             <td class="listing-slides" style="text-align: center;">
+                
             </td>
             <td class="listing-notes" style="text-align: center;">
+                
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <span class="bi bi-dash-circle-dotted"></span>
+                                
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -1024,7 +1236,6 @@ Weekly practice problems are posted to Google Classroom. There is no need to sub
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <div id="listing-exams-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Issued</td>
@@ -1034,6 +1245,7 @@ Weekly practice problems are posted to Google Classroom. There is no need to sub
         <td>Due</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null">            
             <td class="listing-date">
                 TBA
@@ -1043,15 +1255,22 @@ Weekly practice problems are posted to Google Classroom. There is no need to sub
                 <p>Syllabus: topics in lectures 1 to 9 (inclusive)</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="exams/qp1.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="exams/qp1-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     -
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">            
             <td class="listing-date">
                 TBA
@@ -1061,15 +1280,22 @@ Weekly practice problems are posted to Google Classroom. There is no need to sub
                 <p>Syllabus: topics in lectures 10 to 18 (inclusive)</p>
             </td>
             <td class="listing-problemset">
+                
                     <a href="exams/qp2.pdf"><span class="bi bi-journal-richtext" style="padding-left: 42px;"></span></a>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <a href="exams/qp2-solutions.pdf"><span class="bi bi-journal-richtext" style="padding-left: 32px;"></span></a>
+                
                 </td>
             <td class="listing-due">
+                
                     -
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null">            
             <td class="listing-date">
                 TBA
@@ -1079,17 +1305,25 @@ Weekly practice problems are posted to Google Classroom. There is no need to sub
                 <p>Syllabus: topics in lectures 21 to 26 (inclusive)</p>
             </td>
             <td class="listing-problemset">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 42px;"></span>
+                
                 </td>
             <td class="listing-solutions">
+                
                     <span class="bi bi-alarm" style="color:indianred; padding-left: 32px;"></span>
+                
                 </td>
             <td class="listing-due">
+                
                     -
+                
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -1099,7 +1333,6 @@ No matching items
 </div>
 </section>
 </section>
-
 <!-- 
   - id: assignments-listing
     contents: materials-assignments.yml
@@ -1247,18 +1480,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1290,11 +1512,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.neeldhara\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1304,8 +1563,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1317,7 +1585,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1361,6 +1751,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1386,6 +1777,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1446,6 +1863,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

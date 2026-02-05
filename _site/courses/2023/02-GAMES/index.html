@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - CS 699 | Summer 2023</title>
+<title>CS 699 | Summer 2023 – Neeldhara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,17 +37,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-53d508deb6da4ff595675ebf964bed0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -91,8 +98,9 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="https://analytics.neeldhara.website/api/script.js" data-site-id="a31a3a742777" defer=""></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -107,7 +115,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../css/styles.css">
 <link rel="stylesheet" href="../../../css/teaching.css">
@@ -117,130 +152,130 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../../research/overview.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/people.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/people.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/publications.html" rel="" target="">
+    <a class="dropdown-item" href="../../../research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../research/surveys" rel="" target="">
+    <a class="dropdown-item" href="../../../research/surveys">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../../courses/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../courses/index.html">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../materials/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../materials/index.html">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="../../../tgif/" rel="" target="">
+    <a class="dropdown-item" href="../../../tgif/">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../bookmarks/" rel="" target="">
+    <a class="dropdown-item" href="../../../bookmarks/">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="../../../talks/" rel="" target="">
+    <a class="dropdown-item" href="../../../talks/">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../videos/" rel="" target="">
+    <a class="dropdown-item" href="../../../videos/">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../events/" rel="" target="">
- <span class="menu-text">Events</span></a>
+    <a class="nav-link" href="../../../events/"> 
+<span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -259,7 +294,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -267,7 +302,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="reading-group-on-combinatorial-and-computational-aspects-of-games" class="level2 column-body-outset">
 <h2 class="anchored" data-anchor-id="reading-group-on-combinatorial-and-computational-aspects-of-games">Reading Group on Combinatorial and Computational Aspects of Games</h2>
@@ -399,7 +436,6 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
 ::: -->
 <p>Note: We stopped recording after a couple of weeks, however, the topics pursued are listed for the record :) Some initial notes — to be developed further — are <a href="../../../../materials/games/impartial-games/game-trees/">here</a>. The handwritten slides from the videos are not currently available.</p>
 <div id="listing-youtube-listing" class="quarto-listing quarto-listing-container-custom">
-
 <table class="quarto-listing-table table">
     <thead>
         <tr><td>Date</td>
@@ -407,6 +443,7 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
         <td>Video</td>
     </tr></thead>
     <tbody class="list">
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1684693800000">            
             <td class="listing-date">
                 22 May, 2023
@@ -416,9 +453,12 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(0.1, 0.2, 0.3 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=oQeYyESww4s&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=1"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1684780200000">            
             <td class="listing-date">
                 23 May, 2023
@@ -428,9 +468,12 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(0.4, 0.5 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=5pTZ-ussThU&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=2"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1684866600000">            
             <td class="listing-date">
                 24 May, 2023
@@ -440,9 +483,12 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(0.4, 0.5 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=5XCSqcDJvbA&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=3"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1684953000000">            
             <td class="listing-date">
                 25 May, 2023
@@ -452,9 +498,12 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(0.6, 0.7 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=4"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1685903400000">            
             <td class="listing-date">
                 05 Jun, 2023
@@ -464,9 +513,12 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(0.6, 0.7 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=5"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1685989800000">            
             <td class="listing-date">
                 06 Jun, 2023
@@ -476,9 +528,12 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(0.8 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=6"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686076200000">            
             <td class="listing-date">
                 07 Jun, 2023
@@ -488,33 +543,42 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(0.9 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=7"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686162600000">            
             <td class="listing-date">
                 08 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>08. Geography</strong><br>
+                <strong>8. Geography</strong><br>
                 <p>(1.1 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=8"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686249000000">            
             <td class="listing-date">
                 09 Jun, 2023
             </td>
             <td class="listing-title" style="max-width: 420px !important;">
-                <strong>09. Undirected Edge Geography</strong><br>
+                <strong>9. Undirected Edge Geography</strong><br>
                 <p>(1.2 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=9"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686335400000">            
             <td class="listing-date">
                 10 Jun, 2023
@@ -524,9 +588,12 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(1.3 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=10"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686421800000">            
             <td class="listing-date">
                 11 Jun, 2023
@@ -536,9 +603,12 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(2.1 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=11"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686508200000">            
             <td class="listing-date">
                 12 Jun, 2023
@@ -548,9 +618,12 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(2.2 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=12"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686594600000">            
             <td class="listing-date">
                 13 Jun, 2023
@@ -560,9 +633,12 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(2.3 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=13"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686681000000">            
             <td class="listing-date">
                 14 Jun, 2023
@@ -572,9 +648,12 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(2.4 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=14"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686767400000">            
             <td class="listing-date">
                 15 Jun, 2023
@@ -584,9 +663,12 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(2.5 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
                     <a href="https://www.youtube.com/watch?v=GuJK2lHvGG0&amp;list=PLadhlDF3zdvuyVyzKOvlTWlgxwWQ69dLf&amp;index=15"><span class="bi bi-film"></span></a>
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686853800000">            
             <td class="listing-date">
                 16 Jun, 2023
@@ -596,8 +678,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(2.6 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1686940200000">            
             <td class="listing-date">
                 17 Jun, 2023
@@ -607,8 +691,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(3.1 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1687026600000">            
             <td class="listing-date">
                 18 Jun, 2023
@@ -618,8 +704,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(3.2 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1687113000000">            
             <td class="listing-date">
                 19 Jun, 2023
@@ -629,8 +717,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(3.3 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1687199400000">            
             <td class="listing-date">
                 20 Jun, 2023
@@ -640,8 +730,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(3.4 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1687285800000">            
             <td class="listing-date">
                 21 Jun, 2023
@@ -651,8 +743,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(3.5 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1687372200000">            
             <td class="listing-date">
                 22 Jun, 2023
@@ -662,8 +756,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(4.1 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1687458600000">            
             <td class="listing-date">
                 23 Jun, 2023
@@ -673,8 +769,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(4.2 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1687545000000">            
             <td class="listing-date">
                 24 Jun, 2023
@@ -684,8 +782,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(4.3 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1687631400000">            
             <td class="listing-date">
                 25 Jun, 2023
@@ -695,8 +795,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(4.4 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1687717800000">            
             <td class="listing-date">
                 26 Jun, 2023
@@ -706,8 +808,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(5.1 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1687804200000">            
             <td class="listing-date">
                 27 Jun, 2023
@@ -717,8 +821,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(5.2 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1687890600000">            
             <td class="listing-date">
                 28 Jun, 2023
@@ -728,8 +834,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(6.1 in PWDM)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1687977000000">            
             <td class="listing-date">
                 29 Jun, 2023
@@ -739,8 +847,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p></p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1688063400000">            
             <td class="listing-date">
                 30 Jun, 2023
@@ -750,8 +860,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>Logic  (1 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1688149800000">            
             <td class="listing-date">
                 01 Jul, 2023
@@ -761,8 +873,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(2.1 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1688236200000">            
             <td class="listing-date">
                 02 Jul, 2023
@@ -772,8 +886,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(2.2 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1688322600000">            
             <td class="listing-date">
                 03 Jul, 2023
@@ -783,8 +899,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(2.3 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1688409000000">            
             <td class="listing-date">
                 04 Jul, 2023
@@ -794,8 +912,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(3.1 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1688495400000">            
             <td class="listing-date">
                 05 Jul, 2023
@@ -805,8 +925,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(3.2 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1688581800000">            
             <td class="listing-date">
                 06 Jul, 2023
@@ -816,8 +938,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(3.3 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1688668200000">            
             <td class="listing-date">
                 07 Jul, 2023
@@ -827,8 +951,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(3.4 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1688754600000">            
             <td class="listing-date">
                 08 Jul, 2023
@@ -838,8 +964,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(4.1 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1688841000000">            
             <td class="listing-date">
                 09 Jul, 2023
@@ -849,8 +977,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(4.2 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1688927400000">            
             <td class="listing-date">
                 10 Jul, 2023
@@ -860,8 +990,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(5.1 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1689013800000">            
             <td class="listing-date">
                 11 Jul, 2023
@@ -871,8 +1003,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(5.2 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1689100200000">            
             <td class="listing-date">
                 12 Jul, 2023
@@ -882,8 +1016,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(6.1 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1689186600000">            
             <td class="listing-date">
                 13 Jul, 2023
@@ -893,8 +1029,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(6.2 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1689273000000">            
             <td class="listing-date">
                 14 Jul, 2023
@@ -904,8 +1042,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(6.3 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1689359400000">            
             <td class="listing-date">
                 15 Jul, 2023
@@ -915,8 +1055,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(7.1 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1689445800000">            
             <td class="listing-date">
                 16 Jul, 2023
@@ -926,8 +1068,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(7.2 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1689532200000">            
             <td class="listing-date">
                 17 Jul, 2023
@@ -937,8 +1081,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(9.1 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1689618600000">            
             <td class="listing-date">
                 18 Jul, 2023
@@ -948,8 +1094,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(9.2 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1689705000000">            
             <td class="listing-date">
                 19 Jul, 2023
@@ -959,8 +1107,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(9.3 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1689791400000">            
             <td class="listing-date">
                 20 Jul, 2023
@@ -970,8 +1120,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(9.4 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1689877800000">            
             <td class="listing-date">
                 21 Jul, 2023
@@ -981,8 +1133,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(9.5 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1689964200000">            
             <td class="listing-date">
                 22 Jul, 2023
@@ -992,8 +1146,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(9.6 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1690050600000">            
             <td class="listing-date">
                 23 Jul, 2023
@@ -1003,8 +1159,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(9.7 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1690137000000">            
             <td class="listing-date">
                 24 Jul, 2023
@@ -1014,8 +1172,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(9.8 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1690223400000">            
             <td class="listing-date">
                 25 Jul, 2023
@@ -1025,8 +1185,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(9.9 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1690309800000">            
             <td class="listing-date">
                 26 Jul, 2023
@@ -1036,8 +1198,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(9.10 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1690396200000">            
             <td class="listing-date">
                 27 Jul, 2023
@@ -1047,8 +1211,10 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p>(9.11 in GPC)</p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
         <tr data-index="0" data-categories="null" data-listing-date-sort="1690482600000">            
             <td class="listing-date">
                 28 Jul, 2023
@@ -1058,10 +1224,13 @@ The use of assistance from tools like chatGPT or similar is permitted for the de
                 <p></p>
             </td>
             <td class="listing-video" style="text-align: center;">
+                
             </td>
         </tr>
+    
 </tbody>
 </table>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -1187,18 +1356,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1230,11 +1388,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.neeldhara\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1244,8 +1439,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1257,7 +1461,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1301,6 +1627,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1326,6 +1653,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1386,6 +1739,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

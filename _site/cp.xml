@@ -9,12 +9,13 @@
 <link>https://www.neeldhara.com/cp.html</link>
 <atom:link href="https://www.neeldhara.com/cp.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.450</generator>
+<generator>quarto-1.6.40</generator>
 <lastBuildDate>Thu, 30 Sep 2021 18:30:00 GMT</lastBuildDate>
 <item>
   <title>Sam I Am</title>
-  <link>https://www.neeldhara.com/blog/cp/sam-i-am/index.html</link>
+  <link>https://www.neeldhara.com/blog/cp/sam-i-am/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -36,36 +37,36 @@
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.003.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">A first example of a configuration of Sam’s enemies location</figcaption>
+<figcaption>A first example of a configuration of Sam’s enemies location</figcaption>
 </figure>
 </div>
-<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="">Conveniently for us, the enemies don’t move around.</span></div></div>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside">Conveniently for us, the enemies don’t move around.</span></div></div>
 <p>We want to <em>hit</em> all of these locations, and what we have at our disposal is giant cannon balls which can destroy all enemies that are positioned on a single row, or a single column. For example, if we were obsessed about only firing along rows, we would need four cannon balls to tackle ’em all, like so:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.006.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">A solution were we fire along rows alone</figcaption>
+<figcaption>A solution were we fire along rows alone</figcaption>
 </figure>
 </div>
 <p>If Sam was superstitious about shooting along columns only, then he would again need four of these cannon balls to take care of everything:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.007.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">A solution were we fire along columns alone</figcaption>
+<figcaption>A solution were we fire along columns alone</figcaption>
 </figure>
 </div>
 <p>However, our friend Sam is smart, not superstitious! And if there is anything that he is obsessed about, it is ruthlessly optimal destruction! In other words, he wants to fix everything up, but while using the smallest number of cannon balls possible… and if that means mixing up ranks and files, so be it — notice that you can manage with just three once you combine the use of both axes:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.008.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">A solution leveraging a combination of rows and columns</figcaption>
+<figcaption>A solution leveraging a combination of rows and columns</figcaption>
 </figure>
 </div>
 <p>And for this example in particular, notice that three cannon balls are <em>necessary</em>, because we have at least three enemies positioned at locations that share <em>neither a row nor a column</em>, implying that no row-fire or column-fire can handle more than one of these locations at once:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.009.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Demonstrating that three canonballs are in fact necessary</figcaption>
+<figcaption>Demonstrating that three canonballs are in fact necessary</figcaption>
 </figure>
 </div>
 <p>So for this example, we know that:</p>
@@ -96,7 +97,7 @@
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.011.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">The vertices of the auxiliary graph</figcaption>
+<figcaption>The vertices of the auxiliary graph</figcaption>
 </figure>
 </div>
 <ul>
@@ -105,13 +106,13 @@
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.027.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">The edges of the auxiliary graph</figcaption>
+<figcaption>The edges of the auxiliary graph</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.028.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">A bipartite graph!</figcaption>
+<figcaption>A bipartite graph!</figcaption>
 </figure>
 </div>
 <p>Observe that:</p>
@@ -122,7 +123,7 @@
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.030.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">A vertex cover</figcaption>
+<figcaption>A vertex cover</figcaption>
 </figure>
 </div>
 <p>So our claim in the language of grids now translates to:</p>
@@ -130,7 +131,7 @@
 <p>📝 The size of a maximum matching in <img src="https://latex.codecogs.com/png.latex?G"> is equal to the size of a minimum vertex cover in <img src="https://latex.codecogs.com/png.latex?G">.</p>
 </blockquote>
 <p>in the language of graphs. Keep in mind that as graphs go <img src="https://latex.codecogs.com/png.latex?G">, happens to be a bipartite graph; which is to say that its vertex set can be parittioned into two parts† such that every edge has exactly one endpoint in each part.</p>
-<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="">† In this example, these parts correspond to subsets of row vertices and column vertices.</span></div></div>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside">† In this example, these parts correspond to subsets of row vertices and column vertices.</span></div></div>
 </section>
 <section id="bring-in-the-flows" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="bring-in-the-flows">Bring in the flows</h2>
@@ -145,7 +146,7 @@
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.032.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">The flow graph</figcaption>
+<figcaption>The flow graph</figcaption>
 </figure>
 </div>
 <p>Here’s the official description of how we build this up:</p>
@@ -159,7 +160,7 @@
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.035.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">A matching hiding in plain sight</figcaption>
+<figcaption>A matching hiding in plain sight</figcaption>
 </figure>
 </div>
 <p>Let’s make the following quick observations in the context of a valid integral flow <img src="https://latex.codecogs.com/png.latex?f"> in <img src="https://latex.codecogs.com/png.latex?(%5Ctilde%7BG%7D,%5Ckappa)">:</p>
@@ -171,7 +172,7 @@
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.040.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Edges in the residual graph that have a residual capacity of zero are not shown. Also, the original edges that were used by <img src="https://latex.codecogs.com/png.latex?f"> have infinite residual capacity but their corresponding back-edges have unit capacity, but this distinction is not emphasised in the picture because it’s not particularly relevant to our discussion.</figcaption>
+<figcaption>Edges in the residual graph that have a residual capacity of zero are not shown. Also, the original edges that were used by <img src="https://latex.codecogs.com/png.latex?f"> have infinite residual capacity but their corresponding back-edges have unit capacity, but this distinction is not emphasised in the picture because it’s not particularly relevant to our discussion.</figcaption>
 </figure>
 </div>
 <p>Edges in the residual graph that have a residual capacity of zero are not shown. Also, the original edges that were used by <img src="https://latex.codecogs.com/png.latex?f"> have infinite residual capacity but their corresponding back-edges have unit capacity, but this distinction is not emphasised in the picture because it’s not particularly relevant to our discussion.</p>
@@ -179,7 +180,7 @@
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.042.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">The vertices reachable from <img src="https://latex.codecogs.com/png.latex?s"> are marked green, while all remaining vertices are marked red.</figcaption>
+<figcaption>The vertices reachable from <img src="https://latex.codecogs.com/png.latex?s"> are marked green, while all remaining vertices are marked red.</figcaption>
 </figure>
 </div>
 <p>The vertices reachable from <img src="https://latex.codecogs.com/png.latex?s"> are marked green, while all remaining vertices are marked red.</p>
@@ -192,18 +193,18 @@
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.044.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">The misfits</figcaption>
+<figcaption>The misfits</figcaption>
 </figure>
 </div>
 <p>Now roll up your sleeves for some magic. Let’s pull up the cut — which we know is in fact a mincut — obtained by considering the set of vertices reachable from <img src="https://latex.codecogs.com/png.latex?s"> the residual graph corresponding to the maxflow <img src="https://latex.codecogs.com/png.latex?f">. In pictures, note how we have attracted some column vertices to the <img src="https://latex.codecogs.com/png.latex?s">-side, and pushed away some row vertices to the <img src="https://latex.codecogs.com/png.latex?t">-side:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.neeldhara.com/blog/cp/sam-i-am/CP-Week09-Mod03.046.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Some reorganization</figcaption>
+<figcaption>Some reorganization</figcaption>
 </figure>
 </div>
-<div class="page-columns page-full"><p>Note that this is a minimum cut, that is to say, the total capacity of the edges crossing the cut is as small as possible — which means that, in particular, the total capacity is at least (or should that be at most?) finite, and that implies, even more particularly, that <em>none</em><sup>1</sup> of the original edges cross this cut.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Remember how their capacities were infinite? So they just cannot afford to cross a minimum-capacity cut.</p></li></div></div>
-<p>So every original edge is confined to the <img src="https://latex.codecogs.com/png.latex?s">-camp or the <img src="https://latex.codecogs.com/png.latex?t">-camp; but note that every original edge is an edge between a row vertex and a column vertex; so if you put two and two together, you see that, in fact, <em>every edge must be incident to a misfit vertex.</em> This means that the misfits are what we were looking for all along — they form a vertex cover of <img src="https://latex.codecogs.com/png.latex?G">!</p>
+<p>Note that this is a minimum cut, that is to say, the total capacity of the edges crossing the cut is as small as possible — which means that, in particular, the total capacity is at least (or should that be at most?) finite, and that implies, even more particularly, that <em>none</em><sup>1</sup> of the original edges cross this cut.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Remember how their capacities were infinite? So they just cannot afford to cross a minimum-capacity cut.</p></div></div><p>So every original edge is confined to the <img src="https://latex.codecogs.com/png.latex?s">-camp or the <img src="https://latex.codecogs.com/png.latex?t">-camp; but note that every original edge is an edge between a row vertex and a column vertex; so if you put two and two together, you see that, in fact, <em>every edge must be incident to a misfit vertex.</em> This means that the misfits are what we were looking for all along — they form a vertex cover of <img src="https://latex.codecogs.com/png.latex?G">!</p>
 <p>So at least we have <em>some</em> solution. Is this the best we can hope for?</p>
 <p>Why yes!</p>
 <p>Note that every misfit vertex contributes <em>exactly one unit-capacity edge</em> to the minimum cut: the misfits on the <img src="https://latex.codecogs.com/png.latex?s">-side are incident to column selectors, and these edges connect with <img src="https://latex.codecogs.com/png.latex?t"> on the other side; while misfits on the <img src="https://latex.codecogs.com/png.latex?t">-side are incident to row selectors, and these edges connect with <img src="https://latex.codecogs.com/png.latex?s">, which is again on the opposite end. So every misfit vertex contributes exactly one edge to the minimum cut — and there are no other edges that cross the cut, so we have the following sequence of equalities:</p>
@@ -224,7 +225,7 @@
  ]]></description>
   <category>cp</category>
   <category>lecturenotes</category>
-  <guid>https://www.neeldhara.com/blog/cp/sam-i-am/index.html</guid>
+  <guid>https://www.neeldhara.com/blog/cp/sam-i-am/</guid>
   <pubDate>Thu, 30 Sep 2021 18:30:00 GMT</pubDate>
 </item>
 </channel>

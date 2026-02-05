@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Neeldhara - All News</title>
+<title>All News – Neeldhara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,17 +37,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-53d508deb6da4ff595675ebf964bed0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -71,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-title","listing-id","listing-date","listing-type","listing-date-format","listing-abstract","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-title","listing-id","listing-date","listing-type","listing-date-format","listing-abstract","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -91,8 +98,9 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="https://analytics.neeldhara.website/api/script.js" data-site-id="a31a3a742777" defer=""></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -107,7 +115,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/news.css">
@@ -117,130 +152,130 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Neeldhara</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="./research/overview.html" rel="" target="">
+    <a class="dropdown-item" href="./research/overview.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./research/people.html" rel="" target="">
+    <a class="dropdown-item" href="./research/people.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./research/publications.html" rel="" target="">
+    <a class="dropdown-item" href="./research/publications.html">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./research/surveys" rel="" target="">
+    <a class="dropdown-item" href="./research/surveys">
  <span class="dropdown-text">Surveys</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="./courses/index.html" rel="" target="">
+    <a class="dropdown-item" href="./courses/index.html">
  <span class="dropdown-text">Courses</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./materials/index.html" rel="" target="">
+    <a class="dropdown-item" href="./materials/index.html">
  <span class="dropdown-text">Materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lists</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lists">    
         <li>
-    <a class="dropdown-item" href="./tgif/" rel="" target="">
+    <a class="dropdown-item" href="./tgif/">
  <span class="dropdown-text">Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./bookmarks/" rel="" target="">
+    <a class="dropdown-item" href="./bookmarks/">
  <span class="dropdown-text">Bookmarks</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exposition" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Exposition</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exposition">    
         <li>
-    <a class="dropdown-item" href="./talks/" rel="" target="">
+    <a class="dropdown-item" href="./talks/">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./videos/" rel="" target="">
+    <a class="dropdown-item" href="./videos/">
  <span class="dropdown-text">Videos</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./events/" rel="" target="">
- <span class="menu-text">Events</span></a>
+    <a class="nav-link" href="./events/"> 
+<span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="./blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42" rel="" target=""><i class="bi bi-youtube" role="img">
+    <a class="nav-link" href="https://www.youtube.com/c/NeeldharaMisra42"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/neeldhara-misra-a54b6920/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/neeldhara" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/neeldhara"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://mathstodon.xyz/@neeldhara"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="./blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -259,7 +294,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -267,7 +302,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <!-- 
 
@@ -285,7 +322,14 @@ callout-caution not being used for anything as of now.
 </p>
 <div id="listing-latest-news" class="quarto-listing quarto-listing-container-custom">
 <div class="list">
-    <div class="callout-warning callout callout-style-simple no-icon callout-captioned" data-index="0" data-listing-date-sort="1690828200000" data-listing-file-modified-sort="1690917086609" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    <div class="callout-warning callout callout-style-simple no-icon callout-captioned" data-index="0" data-listing-date-sort="1690828200000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00020-contents" aria-controls="callout-00020" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -297,11 +341,20 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00020" class="callout-00020-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         CompEd will be held between December 7-9, 2023, at Hyderabad, India, and will feature a Doctoral Consortium. <a href="https://comped.acm.org/call-for-doctoral-consortium/">Check out the call for entries!</a> The deadline for making a submission is Monday, 21 August 2023.
+
         </div>
         </div>
     </div>
-    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="1" data-listing-date-sort="1688927400000" data-listing-file-modified-sort="1690918206743" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="1" data-listing-date-sort="1688927400000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00022-contents" aria-controls="callout-00022" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -313,13 +366,24 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00022" class="callout-00022-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>Joint work with <a href="https://www.tcs.tifr.res.in/~umang/">Umang Bhaskar</a>, <a href="https://sites.google.com/iitgn.ac.in/aditi-sethia">Aditi Sethia</a>, and <a href="https://rohitvaish.in/Publications/">Rohit Vaish</a> ⸱ To Appear at <a href="https://www.royalholloway.ac.uk/research-and-teaching/departments-and-schools/computer-science/sagt-2023">SAGT 2023</a> ⸱ <a href="https://arxiv.org/pdf/2307.06726.pdf">ArXiV</a></p>
+
 <p>In fair division problems, the notion of price of fairness measures the loss in welfare due to a fairness constraint. Prior work on the price of fairness has focused primarily on envy-freeness up to one good (EF1) as the fairness constraint, and on the utilitarian and egalitarian welfare measures. Our work instead focuses on the price of equitability up to one good (EQ1) (which we term <em>price of equity</em>) and considers the broad class of <em>generalized p-mean</em> welfare measures (which includes utilitarian, egalitarian, and Nash welfare as special cases). We derive fine-grained bounds on the price of equity in terms of the <em>number of agent types</em> (i.e., the maximum number of agents with distinct valuations), which allows us to identify scenarios where the existing bounds in terms of the number of agents are overly pessimistic.</p>
+
 <p> Our work focuses on the setting with binary additive valuations, and obtains upper and lower bounds on the price of equity for p-mean welfare for all p &lt;= 1. For any fixed p, our bounds are tight up to constant factors. A useful insight of our work is to identify the <em>structure</em> of allocations that underlie the upper (respectively, the lower) bounds <em>simultaneously</em> for all p-mean welfare measures, thus providing a unified structural understanding of price of fairness in this setting. This structural understanding, in fact, extends to the more general class of binary submodular (or matroid rank) valuations. We also show that, unlike binary additive valuations, for binary submodular valuations the number of agent types does not provide bounds on the price of equity.</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="2" data-listing-date-sort="1688149800000" data-listing-file-modified-sort="1690917376306" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="2" data-listing-date-sort="1688149800000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00021-contents" aria-controls="callout-00021" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -331,12 +395,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00021" class="callout-00021-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>Joint work with Saraswati Nanoti ⸱ To Appear at <a href="https://mfcs2023.labri.fr/#accepted">MFCS 2023</a> ⸱ Preprint coming soon!</p>
+
 <p>We study a two-player game on a graph between an attacker and a defender. To begin with, the defender places guards on a subset of vertices. In each move, the attacker attacks an edge. The defender must move at least one guard across the attacked edge to defend the attack. The defender wins if and only if the defender can defend an infinite sequence of attacks. The smallest number of guards with which the defender has a winning strategy is called the eternal vertex cover number of a graph G and is denoted by evc(G). It is clear that evc(G) is <em>at least</em> mvc(G), the size of a minimum vertex cover of G. We say that G is <em>Spartan</em> if evc(G) = mvc(G). The characterization of Spartan graphs has been largely open. In the setting of bipartite graphs on 2n vertices where every edge belongs to a perfect matching, an easy strategy is to have n guards that always move along perfect matchings in response to attacks. We show that these are essentially the only Spartan bipartite graphs.</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="3" data-listing-date-sort="1679855400000" data-listing-file-modified-sort="1679926180890" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="3" data-listing-date-sort="1679855400000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00017-contents" aria-controls="callout-00017" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -348,12 +422,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00017" class="callout-00017-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>Joint work with Yash More ⸱ To Appear at <a href="https://iwoca2023.csie.ncku.edu.tw/accepted-papers/">IWOCA 2023</a> ⸱ Preprint coming soon!</p>
+
 <p>A cut (X,Y) is a perfect matching cut if and only if each vertex in X has exactly one neighbor in Y and each vertex in Y has exactly one neighbor in X. The computational problem of determining if a graph admits a perfect matching cut is NP-complete, even when restricted to the class of bipartite graphs of maximum degree 3 and arbitrarily large girth. We demonstrate a faster exact exponential time algorithm on general graphs and an even faster algorithm on graphs of maximum degree three that have girth six.</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-warning callout callout-style-simple no-icon callout-captioned" data-index="4" data-listing-date-sort="1679596200000" data-listing-file-modified-sort="1679926459039" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    <div class="callout-warning callout callout-style-simple no-icon callout-captioned" data-index="4" data-listing-date-sort="1679596200000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00019-contents" aria-controls="callout-00019" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -365,11 +449,20 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00019" class="callout-00019-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>CompEd will be held between December 7-9, 2023, at Hyderabad, India. <a href="https://comped.acm.org/call-for-participation-2/">Check out the call for participation!</a> The deadline for submitting abstracts is Sunday, 7 May.
+
         </p></div>
         </div>
     </div>
-    <div class="callout-warning callout callout-style-simple no-icon callout-captioned" data-index="5" data-listing-date-sort="1679250600000" data-listing-file-modified-sort="1679926647235" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    <div class="callout-warning callout callout-style-simple no-icon callout-captioned" data-index="5" data-listing-date-sort="1679250600000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00018-contents" aria-controls="callout-00018" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -381,12 +474,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00018" class="callout-00018-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>The International Symposium on Parameterized and Exact Computation (IPEC) is an annual conference covering all aspects of parameterized and exact algorithms and complexity. Its 18th edition will be part of ALGO 2023, which also hosts ESA 2023 and other specialized conferences and workshops. We are excited that ALGO 2023 is planned as an in-person conference and we look forward to seeing you there! ALGO will be held between September 4-8, 2023, at Amsterdam, the Netherlands.</p>
+
 <p><a href="https://algo-conference.org/2023/ipec/">Do submit your best work to IPEC 2023</a> --- the abstract submission deadline is June 27th (23:59 AoE).</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-caution callout callout-style-simple no-icon callout-captioned" data-index="6" data-listing-date-sort="1672857000000" data-listing-file-modified-sort="1672958859494" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    
+    
+    <div class="callout-caution callout callout-style-simple no-icon callout-captioned" data-index="6" data-listing-date-sort="1672857000000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00015-contents" aria-controls="callout-00015" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -398,11 +501,20 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00015" class="callout-00015-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>Recieved the <a href="http://www.nasi.nic.in/index.htm">NASI</a> Platinum Jubilee Young Scientist Award. Most grateful to all collaborators and mentors who make this recognition possible.</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-caution callout callout-style-simple no-icon callout-captioned" data-index="7" data-listing-date-sort="1672511400000" data-listing-file-modified-sort="1672960593279" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    
+    
+    <div class="callout-caution callout callout-style-simple no-icon callout-captioned" data-index="7" data-listing-date-sort="1672511400000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00014-contents" aria-controls="callout-00014" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -414,12 +526,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00014" class="callout-00014-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p><a href="https://inyas.in">INYAS</a> is the Young Science Academy established by Indian National Science Academy (INSA). Their work in science outreach and popularization has been wide-ranging and very inspiring over the years. It is wonderful and humbling to have been selected as a member this year. Looking forward to pitching in!</p>
+
 <img src="./news/inyas.jpeg" width="500">
+
         </div>
         </div>
     </div>
-    <div class="callout-note callout callout-style-simple no-icon callout-captioned" data-index="8" data-listing-date-sort="1671906600000" data-listing-file-modified-sort="1672558288697" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    
+    
+    
+    <div class="callout-note callout callout-style-simple no-icon callout-captioned" data-index="8" data-listing-date-sort="1671906600000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00013-contents" aria-controls="callout-00013" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -431,12 +553,21 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00013" class="callout-00013-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>We recently concluded the CSEd Workshop with support from ACM India, NPTEL, and the discipline of CSE at IIT Gandhinagar. The workshop featured talks by Sonia Garcha, Viraj Kumar, Venkatesh Choppella, and N S Kumar. The talks covered various themes, including CSPathshala, refute questions, mapcode, and key takeaways to convey in a data structures course.</p>
 <p>The materials from the course (including video recordings and slides) can be accessed from <a href="events/2022/csed">here</a>.</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-caution callout callout-style-simple no-icon callout-captioned" data-index="9" data-listing-date-sort="1671042600000" data-listing-file-modified-sort="1672961340336" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    
+    
+    <div class="callout-caution callout callout-style-simple no-icon callout-captioned" data-index="9" data-listing-date-sort="1671042600000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00016-contents" aria-controls="callout-00016" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -448,12 +579,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00016" class="callout-00016-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>Mount Carmel College (in Bangalore), my alma mater, is celebrating its Platinum Jubilee this year. A part of this celebration is <a href="https://www.youtube.com/watch?v=hli7XE8pezM">HERSTORY</a>: "75 years of scripting success stories of Confident, Competent, &amp; Compassionate Carmelites".</p>
+
 <p>I was honored to be among the 75 Carmelites invited for the HERSTORY event today. It was very nostalgic to be back on campus, and the organizers put together an impeccable event that made all of us feel very special. It was humbling to be in inspiring company. I can't thank MCC enough for providing an empowering and fun environment at a crucial stage of my life!</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-note callout callout-style-simple no-icon callout-captioned" data-index="10" data-listing-date-sort="1670524200000" data-listing-file-modified-sort="1670710809054" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    
+    
+    
+    <div class="callout-note callout callout-style-simple no-icon callout-captioned" data-index="10" data-listing-date-sort="1670524200000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00012-contents" aria-controls="callout-00012" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -465,12 +606,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00012" class="callout-00012-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>We recently concluded the GIAN course on Randomized Methods for Parameterized Algorithms by <a href="https://cs.ucsb.edu/~daniello">Daniel Lokshtanov</a>, Professor, Dept of Computer Science, University of California Santa Barbara, between Dec 5—9, 2022. The course consisted of over ten hours of lectures covering modern techniques in randomized algorithms, and five interactive tutorial sessions.</p>
+
 <p>The materials from the course (including video recordings and slides) can be accessed from <a href="courses/2022/04-gian/">here</a>.</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-important callout callout-style-simple no-icon callout-captioned" data-index="11" data-listing-date-sort="1668537000000" data-listing-file-modified-sort="1672570329289" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    
+    <div class="callout-important callout callout-style-simple no-icon callout-captioned" data-index="11" data-listing-date-sort="1668537000000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00011-contents" aria-controls="callout-00011" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -482,12 +633,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00011" class="callout-00011-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>My course on <em>Getting Started with Competitive Programming</em> will run from 23 Jan 2023 to 14 Apr 2023. The <a href="https://onlinecourses.nptel.ac.in/noc23_cs30/preview">deadline to register</a> is <strong>30th January 2023</strong>. I hope you have a chance to check it out if it is of interest to you!</p>
+
 <p>(More generally, the NPTEL Jan 2023 semester is open with courses across engineering, humanities and social sciences. You can enrol in these courses at no cost <a href="https://swayam.gov.in/NPTEL">here</a> and get a certification by taking up a proctored exam for a nominal fee of Rs 1,000 per course.)</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="12" data-listing-date-sort="1663612200000" data-listing-file-modified-sort="1668542876051" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="12" data-listing-date-sort="1663612200000" data-listing-file-modified-sort="1770263130263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00010-contents" aria-controls="callout-00010" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -499,12 +660,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00010" class="callout-00010-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>Joint work with Manas Mulpuri, <a href="http://pptale.github.io">Prafullkumar Tale</a>, and Gaurav Viramgami ⸱ To Appear at <a href="https://www.fsttcs.org.in/2022/">FSTTCS 2022</a> ⸱ Preprint available from <a href="https://arxiv.org/abs/2210.02582">ArXiV</a></p>
+
 <p>The game of rendezvous with adversaries is a game on a graph played by two players: Facilitator and Divider. Facilitator has two agents and Divider has a team of k agents. While the initial positions of Facilitator’s agents are fixed, Divider gets to select the initial positions of his agents. Then, they take turns to move their agents to adjacent vertices (or stay put) with Facilitator’s goal to bring both her agents at same vertex and Divider’s goal to prevent it. The computational question of interest is to determine if Facilitator has a winning strategy against Divider with k agents. In this work, we prove that this problem is hard even when the graph is very close to a forest.</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="13" data-listing-date-sort="1655663400000" data-listing-file-modified-sort="1668542678566" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="13" data-listing-date-sort="1655663400000" data-listing-file-modified-sort="1770263130262" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00009-contents" aria-controls="callout-00009" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -516,12 +687,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00009" class="callout-00009-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>Joint work with Harshil Mittal and Sarasati Nanoti ⸱ To Appear at CCCG 2022</p>
+
 <p>A perfect matching M on a set P of n points is a collection of line segments with endpoints from P such that every point belongs to exactly one segment. A matching is non-crossing if the line segments do not cross. We introduce a notion of distance between non-crossing matchings, and investigate the complexity of the problem of finding matchings that are far apart with respect to this notion of distance.</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="14" data-listing-date-sort="1647973800000" data-listing-file-modified-sort="1668542266424" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="14" data-listing-date-sort="1647973800000" data-listing-file-modified-sort="1770263130262" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00008-contents" aria-controls="callout-00008" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -533,12 +714,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00008" class="callout-00008-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>Joint work with <a href="https://www.iith.ac.in/~aravind/">N. R. Aravind</a> and Harshil Mittal ⸱ To appear at <a href="https://sites.google.com/view/fun2022/acceptedpapers?authuser=0">FUN 2022</a> ⸱ Preprint available from <a href="https://arxiv.org/abs/2203.14864">ArXiV</a></p>
+
 <p>We introduce a generalization of “Solo Chess”, a single-player variant of the game that can be played on <a href="https://chess.com/">chess.com</a>. We show that this version of the game is NP-complete even if played only by rooks with at most two captures left, or only by queens with exactly two captures left. On the other hand, solvable instances of rooks on 1D boards and pawns on 2D boards can efficiently characterized. Find out more on <a href="https://twitter.com/neeldhara/status/1506794212590768130">Twitter</a> or at the <a href="./blog/solo-chess">blog</a>.</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-important callout callout-style-simple no-icon callout-captioned" data-index="15" data-listing-date-sort="1647023400000" data-listing-file-modified-sort="1668542260162" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    
+    <div class="callout-important callout callout-style-simple no-icon callout-captioned" data-index="15" data-listing-date-sort="1647023400000" data-listing-file-modified-sort="1770263130262" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00007-contents" aria-controls="callout-00007" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -550,11 +741,20 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00007" class="callout-00007-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>Members of the discipline of Computer Science and Engineering just concluded a virtual open house. You can now find out more about <a href="https://www.youtube.com/playlist?list=PLmxpyUxOO0b6PjuP5C0-a7E9YZ8_VfbNv">research directions in CSE</a> at IIT Gandhinagar and the <a href="https://www.youtube.com/playlist?list=PLmxpyUxOO0b6PbMFXjnEvoYxygFoDF-Yk">research opportunities that we offer</a>. Please share these links with anyone that you think would find them useful!</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="16" data-listing-date-sort="1646937000000" data-listing-file-modified-sort="1668541245347" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="16" data-listing-date-sort="1646937000000" data-listing-file-modified-sort="1770263130262" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00006-contents" aria-controls="callout-00006" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -566,12 +766,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00006" class="callout-00006-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>Joint work with Saraswati Nanoti ⸱ To appear at <a href="https://logic.pdmi.ras.ru/csr2022/">CSR 2022</a> ⸱ Preprint available from <a href="https://arxiv.org/abs/2201.03820">ArXiV</a></p>
+
 <p>Eternal Vertex Cover is a dynamic variant of the vertex cover problem. The complexity of the problem on bipartite graphs is open, as is the question of whether the problem admits a polynomial kernel. We settle both these questions by showing that Eternal Vertex Cover is NP-hard and does not admit a polynomial compression even on bipartite graphs of diameter six. We also show that the problem admits a polynomial time algorithm on the class of cobipartite graphs.</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="17" data-listing-date-sort="1638556200000" data-listing-file-modified-sort="1668786971457" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="17" data-listing-date-sort="1638556200000" data-listing-file-modified-sort="1770263130262" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00005-contents" aria-controls="callout-00005" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -583,12 +793,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00005" class="callout-00005-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>Joint work with Harshil Mittal ⸱ Published in <a href="https://www.sciencedirect.com/science/article/abs/pii/S0304397521005466">Theoretical Computer Science</a> (Dec 2021) ⸱ A shorter version was accepted at <a href="http://cocoon-conference.org/2020/index.html">COCOON 2020</a> ⸱ Preprint available from <a href="https://arxiv.org/abs/2005.03800">ArXiV</a></p>
+
 <p>Imbalance is a layout optimization problem, where we would like to order the vertices of a graph so that, roughly speaking, vertices have their neighbors split up as equally as possible on their left and right. We examine the parameterized complexity of the problem with respect to a structural parameter called twin cover.</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-important callout callout-style-simple no-icon callout-captioned" data-index="18" data-listing-date-sort="1638297000000" data-listing-file-modified-sort="1668540476603" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    
+    <div class="callout-important callout callout-style-simple no-icon callout-captioned" data-index="18" data-listing-date-sort="1638297000000" data-listing-file-modified-sort="1770263130262" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00003-contents" aria-controls="callout-00003" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -600,12 +820,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00003" class="callout-00003-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>My course on <em>Getting Started with Competitive Programming</em> will run from 24 Jan 2022 to 15 Apr 2022. The <a href="https://onlinecourses.nptel.ac.in/noc22_cs59/preview">deadline to register</a> is <strong>31st January 2022</strong>.</p>
+
 <p>(More generally, the NPTEL Jan 2022 semester is open with courses across engineering, humanities and social sciences. You can enrol in these courses at no cost <a href="https://swayam.gov.in/NPTEL">here</a> and get a certification by taking up a proctored exam for a nominal fee of Rs 1,000 per course.)</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-warning callout callout-style-simple no-icon callout-captioned" data-index="19" data-listing-date-sort="1638210600000" data-listing-file-modified-sort="1668540489812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    <div class="callout-warning callout callout-style-simple no-icon callout-captioned" data-index="19" data-listing-date-sort="1638210600000" data-listing-file-modified-sort="1770263130262" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00002-contents" aria-controls="callout-00002" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -617,11 +847,20 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00002" class="callout-00002-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p><a href="https://sites.google.com/view/fun2022/home">Submit your most fun work to FUN 2022!</a> Also spread the word with a <a href="https://twitter.com/neeldhara/status/1465341600435867650?s=20">retweet</a> :)</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="20" data-listing-date-sort="1637519400000" data-listing-file-modified-sort="1668541148446" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    <div class="callout-tip callout callout-style-simple no-icon callout-captioned" data-index="20" data-listing-date-sort="1637519400000" data-listing-file-modified-sort="1770263130262" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00004-contents" aria-controls="callout-00004" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -633,12 +872,22 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00004" class="callout-00004-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p>Joint work with Debanuj Nayak ⸱ Accepted at <a href="https://sites.google.com/pondiuni.ac.in/maths-caldam-2022/home">CALDAM 2022</a> ⸱ Preprint available from <a href="https://arxiv.org/abs/2111.11528">ArXiV</a>.</p>
+
 <p>These developments explore the complexity of finding envy-free allocations of indivisible items in settings where envy is only experienced between friends, the valuations over items are binary, and the social network over agents is given by an undirected graph.</p>
+
         </div>
         </div>
     </div>
-    <div class="callout-important callout callout-style-simple no-icon callout-captioned" data-index="21" data-listing-date-sort="1626201000000" data-listing-file-modified-sort="1669023945504" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+
+    
+    
+    
+    <div class="callout-important callout callout-style-simple no-icon callout-captioned" data-index="21" data-listing-date-sort="1626201000000" data-listing-file-modified-sort="1770263130262" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+    
+    
+    
         <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-00001-contents" aria-controls="callout-00001" aria-expanded="false" aria-label="Toggle callout">
         <div class="callout-icon-container">
         <i class="callout-icon no-icon"></i>
@@ -650,11 +899,15 @@ callout-caution not being used for anything as of now.
         </div>
         <div id="callout-00001" class="callout-00001-contents callout-collapse collapse">
         <div class="callout-body-container callout-body">
+
         <p><a href="https://twitter.com/neeldhara/status/1418231328491720705">Here’s a Twitter thread</a> with more detailsl</p>
+
 <p>I'll be co-teaching a couple of new courses this August on the NPTEL platform. The first is about <a href="https://onlinecourses.nptel.ac.in/noc21_cs99/preview">competitive programming</a> (co-taught with Arjun Arul from Codechef) and the second is an introduction to <a href="https://onlinecourses.nptel.ac.in/noc21_cs92/preview">parameterized algorithms</a> (co-taught with Saket Saurabh from IMSc). Both are meant as follow ups to a first undergraduate algorithms course.</p>
+
         </div>
         </div>
     </div>
+
 </div>
 <div class="listing-no-matching d-none">
 No matching items
@@ -780,18 +1033,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -823,11 +1065,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.neeldhara\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -837,8 +1116,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -850,7 +1138,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -894,6 +1304,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -919,6 +1330,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -979,6 +1416,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
